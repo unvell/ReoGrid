@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE03A6AF-2937-4893-80F4-DD71F099A76C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>unvell.ReoGrid.Editor</RootNamespace>
+    <AssemblyName>unvell.ReoGridEditor</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;EX_SCRIPT;RG_DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Extension|AnyCPU' ">
+    <OutputPath>bin\Extension\</OutputPath>
+    <DefineConstants>TRACE;EX_SCRIPT</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Standard\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="unvell.ReoScript, Version=1.5.0.0, Culture=neutral, PublicKeyToken=85339a558a3a0c58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
+    </Reference>
+    <Reference Include="unvell.ReoScript.EditorLib">
+      <HintPath>..\Ref\unvell.ReoScript.EditorLib.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddressFieldControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AddressFieldControl.Designer.cs">
+      <DependentUpon>AddressFieldControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\FontToolkit.cs" />
+    <Compile Include="Common\GraphicsToolkit.cs" />
+    <Compile Include="DefineNamedRangeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DefineNamedRangeDialog.Designer.cs">
+      <DependentUpon>DefineNamedRangeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormulaBarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormulaBarControl.Designer.cs">
+      <DependentUpon>FormulaBarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeaderPropertyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeaderPropertyDialog.Designer.cs">
+      <DependentUpon>HeaderPropertyDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LangRes\LangResource.zh-CN.Designer.cs">
+      <DependentUpon>LangResource.zh-CN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="LangRes\LangResource.ja-JP.Designer.cs">
+      <DependentUpon>LangResource.ja-JP.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="LangRes\LangResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LangResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="LangRes\LangResource.ru-RU.Designer.cs">
+      <DependentUpon>LangResource.ru-RU.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="NamedRangeManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NamedRangeManageForm.Designer.cs">
+      <DependentUpon>NamedRangeManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintSettingsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintSettingsDialog.Designer.cs">
+      <DependentUpon>PrintSettingsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyPages\AlignmentPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyPages\AlignmentPage.Designer.cs">
+      <DependentUpon>AlignmentPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyPages\BorderPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyPages\BorderPage.Designer.cs">
+      <DependentUpon>BorderPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyPages\FillPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyPages\FillPage.Designer.cs">
+      <DependentUpon>FillPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyPages\FormatPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyPages\FormatPage.Designer.cs">
+      <DependentUpon>FormatPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyPages\PropertyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropertyPages\PropertyForm.Designer.cs">
+      <DependentUpon>PropertyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyPages\ProtectionPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyPages\ProtectionPage.Designer.cs">
+      <DependentUpon>ProtectionPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReoGridEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReoGridEditor.Designer.cs">
+      <DependentUpon>ReoGridEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResizeGridDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResizeGridDialog.Designer.cs">
+      <DependentUpon>ResizeGridDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetWidthOrHeightDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetWidthOrHeightDialog.designer.cs">
+      <DependentUpon>SetWidthOrHeightDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RunFunctionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RunFunctionForm.Designer.cs">
+      <DependentUpon>RunFunctionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlAppearanceEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlAppearanceEditorForm.Designer.cs">
+      <DependentUpon>ControlAppearanceEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\ColorControls\ColorComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControls\ColorControls\ColorPickerControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControls\ColorControls\ColorPickerPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControls\ColorControls\ColorPickerToolStripItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControls\ColorControls\ColorPickerWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControls\ColoredListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControls\FillPatternComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControls\FlatTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControls\FontControls\FontDropDownControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControls\FontControls\FontListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControls\FontControls\FontSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIControls\FontControls\FontSettingsControl.designer.cs">
+      <DependentUpon>FontSettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\FontControls\FontToolStripDropDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControls\FormLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControls\LineControls\LineStyleControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControls\LineControls\LineWeightControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControls\TextRotateControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DefineNamedRangeDialog.resx">
+      <DependentUpon>DefineNamedRangeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormulaBarControl.resx">
+      <DependentUpon>FormulaBarControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeaderPropertyDialog.resx">
+      <DependentUpon>HeaderPropertyDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LangRes\LangResource.zh-CN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LangResource.zh-CN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LangRes\LangResource.ja-JP.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LangResource.ja-JP.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LangRes\LangResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LangResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LangRes\LangResource.ru-RU.resx" />
+    <EmbeddedResource Include="NamedRangeManageForm.resx">
+      <DependentUpon>NamedRangeManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintSettingsDialog.resx">
+      <DependentUpon>PrintSettingsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyPages\AlignmentPage.resx">
+      <DependentUpon>AlignmentPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyPages\BorderPage.resx">
+      <DependentUpon>BorderPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyPages\FillPage.resx">
+      <DependentUpon>FillPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyPages\FormatPage.resx">
+      <DependentUpon>FormatPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyPages\PropertyForm.resx">
+      <DependentUpon>PropertyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyPages\ProtectionPage.resx">
+      <DependentUpon>ProtectionPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReoGridEditor.resx">
+      <DependentUpon>ReoGridEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResizeGridDialog.resx">
+      <DependentUpon>ResizeGridDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetWidthOrHeightDialog.resx">
+      <DependentUpon>SetWidthOrHeightDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RunFunctionForm.resx">
+      <DependentUpon>RunFunctionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlAppearanceEditorForm.resx">
+      <DependentUpon>ControlAppearanceEditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\FontControls\FontSettingsControl.resx">
+      <DependentUpon>FontSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\bottom_line_solid.png" />
+    <None Include="script\default.reo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\center_line_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Filter2HS.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="Resources\FilterAlphabetically_5567_32.bmp" />
+    <None Include="Resources\LandscapeHH.bmp" />
+    <None Include="Resources\PortraitHH.bmp" />
+    <Content Include="Resources\textwrap.png" />
+    <None Include="Resources\trash.cur" />
+    <None Include="Resources\VSProject_script.bmp" />
+    <None Include="Resources\underlinee.png" />
+    <None Include="Resources\top_line_dot.png" />
+    <None Include="Resources\top_line_dash.png" />
+    <None Include="Resources\top_line_bold.png" />
+    <None Include="Resources\top_bottom_dot.png" />
+    <None Include="Resources\top_bottom_dash.png" />
+    <None Include="Resources\top_bottom_bold.png" />
+    <None Include="Resources\toolbar_get_info.png" />
+    <None Include="Resources\style_brush.png" />
+    <None Include="Resources\strikethrough.png" />
+    <None Include="Resources\slash_right_dot.png" />
+    <None Include="Resources\slash_right_dash.png" />
+    <None Include="Resources\slash_right_blod.png" />
+    <None Include="Resources\slash_left_dot.png" />
+    <None Include="Resources\slash_left_dash.png" />
+    <None Include="Resources\slash_left_blod.png" />
+    <None Include="Resources\ShowGridlines2HS.png" />
+    <None Include="Resources\saveHS.png" />
+    <None Include="Resources\right_top_solid.png" />
+    <None Include="Resources\right_top_dot.png" />
+    <None Include="Resources\right_top_bold.png" />
+    <None Include="Resources\right_line_dot.png" />
+    <None Include="Resources\right_line_dash.png" />
+    <None Include="Resources\right_line_bold.png" />
+    <None Include="Resources\right_bottom_solid.png" />
+    <None Include="Resources\right_bottom_dot.png" />
+    <None Include="Resources\right_bottom_bold.png" />
+    <None Include="Resources\RepeatHS.png" />
+    <None Include="Resources\RadialChartHS.png" />
+    <None Include="Resources\PropertiesHS.png" />
+    <None Include="Resources\PrintPreviewHS.png" />
+    <None Include="Resources\PasteHS.png" />
+    <None Include="Resources\PageWidthHS.png" />
+    <None Include="Resources\outline_solid.png" />
+    <None Include="Resources\outline_dot.png" />
+    <None Include="Resources\outline_dash.png" />
+    <None Include="Resources\outline_bold.png" />
+    <None Include="Resources\openHS.png" />
+    <None Include="Resources\none_border.png" />
+    <None Include="Resources\NewDocumentHS.png" />
+    <None Include="Resources\middle_line_dot.png" />
+    <None Include="Resources\middle_line_dash.png" />
+    <None Include="Resources\middle_line_bold.png" />
+    <None Include="Resources\left_top_solid.png" />
+    <None Include="Resources\left_top_dot.png" />
+    <None Include="Resources\left_top_bold.png" />
+    <None Include="Resources\left_right_solid.png" />
+    <None Include="Resources\left_right_dot.png" />
+    <None Include="Resources\left_right_dash.png" />
+    <None Include="Resources\left_right_blod.png" />
+    <None Include="Resources\left_line_dot.png" />
+    <None Include="Resources\left_line_dash.png" />
+    <None Include="Resources\left_line_bold.png" />
+    <None Include="Resources\left_bottom_solid.png" />
+    <None Include="Resources\left_bottom_dot.png" />
+    <None Include="Resources\left_bottom_dash.png" />
+    <None Include="Resources\left_bottom_bold.png" />
+    <None Include="Resources\italic.png" />
+    <None Include="Resources\inside_solid.png" />
+    <None Include="Resources\inside_dot.png" />
+    <None Include="Resources\inside_dash.png" />
+    <None Include="Resources\inside_bold.png" />
+    <None Include="Resources\FunctionHS.png" />
+    <None Include="Resources\FontDialogHS.png" />
+    <None Include="Resources\font_smaller.png" />
+    <None Include="Resources\font_larger.png" />
+    <None Include="Resources\Edit_UndoHS.png" />
+    <None Include="Resources\Edit_RedoHS.png" />
+    <None Include="Resources\CutHS.png" />
+    <None Include="Resources\CopyHS.png" />
+    <None Include="Resources\ColorHS.png" />
+    <None Include="Resources\center_line_dot.png" />
+    <None Include="Resources\center_line_dash.png" />
+    <None Include="Resources\center_line_bold.png" />
+    <None Include="Resources\cell_unmerge.png" />
+    <None Include="Resources\cell_merge_bak.png" />
+    <None Include="Resources\cell_merge.png" />
+    <None Include="Resources\bounds_solid.png" />
+    <None Include="Resources\bounds_dot.png" />
+    <None Include="Resources\bounds_dash.png" />
+    <None Include="Resources\bounds_bold.png" />
+    <None Include="Resources\bottom_line_dot.png" />
+    <None Include="Resources\bottom_line_dash.png" />
+    <None Include="Resources\bottom_line_bold.png" />
+    <None Include="Resources\bold.png" />
+    <None Include="Resources\all_solid.png" />
+    <None Include="Resources\all_dot.png" />
+    <None Include="Resources\all_design_32.png" />
+    <None Include="Resources\all_design.png" />
+    <None Include="Resources\all_dash.png" />
+    <None Include="Resources\all_bold.png" />
+    <None Include="Resources\AlignTableCellMiddleRightHS.png" />
+    <None Include="Resources\AlignTableCellMiddleLeftJustHS.PNG" />
+    <None Include="Resources\AlignTableCellMiddleCenterHS.png" />
+    <None Include="Resources\AlignLayoutTop.png" />
+    <None Include="Resources\AlignLayoutMiddle.png" />
+    <None Include="Resources\AlignLayoutBottom.png" />
+    <Content Include="Resources\full_col_select.cur" />
+    <Content Include="Resources\full_row_select.cur" />
+    <Content Include="Resources\pick_range.cur" />
+    <None Include="Resources\top_line_solid.png" />
+    <None Include="Resources\top_bottom_solid.png" />
+    <None Include="Resources\slash_right_solid.png" />
+    <None Include="Resources\slash_left_solid.png" />
+    <None Include="Resources\right_line_solid.png" />
+    <None Include="Resources\outline_solid_32.png" />
+    <None Include="Resources\none_border_32.png" />
+    <None Include="Resources\middle_line_solid.png" />
+    <None Include="Resources\left_line_solid.png" />
+    <None Include="Resources\inside_solid_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReoGrid\ReoGrid.csproj">
+      <Project>{8b62357a-abbc-4db0-8633-f1d6a6c1ea53}</Project>
+      <Name>ReoGrid</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

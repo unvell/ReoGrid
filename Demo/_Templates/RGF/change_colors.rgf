@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <meta>
+      <culture>en-US</culture>
+      <editor>ReoGrid Core 0.8.8.2</editor>
+      <core-ver>0.8.8.2</core-ver>
+    </meta>
+    <rows>20</rows>
+    <cols>20</cols>
+    <default-row-height>20</default-row-height>
+    <default-col-width>70</default-col-width>
+    <settings meta="7540734" />
+    <script>var matrix = 20;
+
+var sheet = workbook.currentWorksheet;
+
+sheet.rows = matrix;
+sheet.cols = matrix;
+
+for(var i=0; i&lt;grid.rows; i++) {
+  sheet.getRow(i).height = 20;
+  sheet.getCol(i).width = 20;
+}
+
+var colors = ['#ee0000', 'lightgreen', 'blue', 'orange', 'pink', 'skyblue', 'cyan', 'darkdim', 'black'];
+
+var cc = 0;
+
+function run() {
+  // get a position randomly
+  var r = Math.floor(Math.random() * sheet.rows);
+  var c = Math.floor(Math.random() * sheet.cols);
+  
+  // set background color for the position
+  sheet.getCell(r, c).style.backgroundColor = colors[cc];
+
+  // log info
+  console.log('change color to: ' + colors[cc]);
+
+  // next color
+  cc++;
+  if (cc &gt; colors.length - 1) cc = 0;
+}
+
+// loop to set color
+setInterval(run, 50);
+</script>
+  </head>
+  <style color="Black" font="MS UI Gothic" font-size="9" align="general" valign="middle" />
+  <rows />
+  <cols>
+    <col col="0" width="20" />
+    <col col="1" width="20" />
+    <col col="2" width="20" />
+    <col col="3" width="20" />
+    <col col="4" width="20" />
+    <col col="5" width="20" />
+    <col col="6" width="20" />
+    <col col="7" width="20" />
+    <col col="8" width="20" />
+    <col col="9" width="20" />
+    <col col="10" width="20" />
+    <col col="11" width="20" />
+    <col col="12" width="20" />
+    <col col="13" width="20" />
+    <col col="14" width="20" />
+    <col col="15" width="20" />
+    <col col="16" width="20" />
+    <col col="17" width="20" />
+    <col col="18" width="20" />
+    <col col="19" width="20" />
+  </cols>
+  <v-borders />
+  <h-borders />
+</grid>

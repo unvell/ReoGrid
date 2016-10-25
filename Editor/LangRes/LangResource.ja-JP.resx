@@ -1,0 +1,958 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Address" xml:space="preserve">
+    <value>アドレス</value>
+  </data>
+  <data name="Alignment" xml:space="preserve">
+    <value>配置</value>
+  </data>
+  <data name="AlignmentPage_Degrees" xml:space="preserve">
+    <value>度(&amp;D)</value>
+  </data>
+  <data name="AlignmentPage_Horizontal" xml:space="preserve">
+    <value>横位置(&amp;H):</value>
+  </data>
+  <data name="AlignmentPage_Indent" xml:space="preserve">
+    <value>インデント(&amp;I):</value>
+  </data>
+  <data name="AlignmentPage_Orientation" xml:space="preserve">
+    <value>方向</value>
+  </data>
+  <data name="AlignmentPage_Text_Alignment" xml:space="preserve">
+    <value>文字の配置</value>
+  </data>
+  <data name="AlignmentPage_Text_Control" xml:space="preserve">
+    <value>文字の制御</value>
+  </data>
+  <data name="AlignmentPage_Vertical" xml:space="preserve">
+    <value>縦位置(&amp;V):</value>
+  </data>
+  <data name="AlignmentPage_Wrap_Text" xml:space="preserve">
+    <value>折り返し全体を表示する(&amp;W)</value>
+  </data>
+  <data name="AppearanceEditor_Caption" xml:space="preserve">
+    <value>コンポーネント外観エディタ</value>
+  </data>
+  <data name="AppearanceEditor_Export_CSharp" xml:space="preserve">
+    <value>C#エクスポート</value>
+  </data>
+  <data name="AppearanceEditor_Export_VBNET" xml:space="preserve">
+    <value>VB.NETエクスポート</value>
+  </data>
+  <data name="AppearanceEditor_Highlight" xml:space="preserve">
+    <value>強調色(&amp;H):</value>
+  </data>
+  <data name="AppearanceEditor_Main" xml:space="preserve">
+    <value>メイン色(&amp;M):</value>
+  </data>
+  <data name="AppearanceEditor_Reset_To_Default" xml:space="preserve">
+    <value>リセット(&amp;D)</value>
+  </data>
+  <data name="AppearanceEditor_Selection_Border_Width" xml:space="preserve">
+    <value>選択範囲の罫線の幅(&amp;W):</value>
+  </data>
+  <data name="AppearanceEditor_Use_System_Highligh_Color" xml:space="preserve">
+    <value>システムの強調色に従う(&amp;S)</value>
+  </data>
+  <data name="Border" xml:space="preserve">
+    <value>罫線</value>
+  </data>
+  <data name="BorderPage_Line" xml:space="preserve">
+    <value>線</value>
+  </data>
+  <data name="BorderPage_Presets" xml:space="preserve">
+    <value>プリセット(&amp;P)</value>
+  </data>
+  <data name="BorderPage_Style" xml:space="preserve">
+    <value>スタイル(&amp;S):</value>
+  </data>
+  <data name="Btn_Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Btn_Close" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="Btn_Delete" xml:space="preserve">
+    <value>削除(&amp;D)</value>
+  </data>
+  <data name="Btn_Edit" xml:space="preserve">
+    <value>編集(&amp;E)</value>
+  </data>
+  <data name="Btn_New" xml:space="preserve">
+    <value>新規作成(&amp;N)</value>
+  </data>
+  <data name="Btn_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Column" xml:space="preserve">
+    <value>列</value>
+  </data>
+  <data name="CtxMenu_Cell_Merge" xml:space="preserve">
+    <value>結合(&amp;M)</value>
+  </data>
+  <data name="CtxMenu_Cell_Unmerge" xml:space="preserve">
+    <value>結合を解除(&amp;U)</value>
+  </data>
+  <data name="CtxMenu_Col_Clear_Filter" xml:space="preserve">
+    <value>フィルターをクリア</value>
+  </data>
+  <data name="CtxMenu_Col_Column_Width" xml:space="preserve">
+    <value>列の幅(&amp;W)...</value>
+  </data>
+  <data name="CtxMenu_Col_Delete_Columns" xml:space="preserve">
+    <value>削除(&amp;D)</value>
+  </data>
+  <data name="CtxMenu_Col_Filter" xml:space="preserve">
+    <value>フィルター(&amp;F)</value>
+  </data>
+  <data name="CtxMenu_Col_Insert_Columns" xml:space="preserve">
+    <value>挿入(&amp;I)</value>
+  </data>
+  <data name="CtxMenu_Col_Reset_To_Default_Width" xml:space="preserve">
+    <value>デフォルトの幅に戻す</value>
+  </data>
+  <data name="CtxMenu_Row_Delete_Rows" xml:space="preserve">
+    <value>削除(&amp;D)</value>
+  </data>
+  <data name="CtxMenu_Row_Insert_Rows" xml:space="preserve">
+    <value>挿入(&amp;I)</value>
+  </data>
+  <data name="CtxMenu_Row_Reset_to_Default_Height" xml:space="preserve">
+    <value>デフォルトの高さに戻す</value>
+  </data>
+  <data name="CtxMenu_Row_Row_Height" xml:space="preserve">
+    <value>行の高さ(&amp;H)...</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>デフォルト</value>
+  </data>
+  <data name="DefineNamedRange_Caption" xml:space="preserve">
+    <value>新しい名前</value>
+  </data>
+  <data name="DefineNamedRange_Comment" xml:space="preserve">
+    <value>コメント(&amp;C):</value>
+  </data>
+  <data name="DefineNamedRange_Name" xml:space="preserve">
+    <value>名前(&amp;N):</value>
+  </data>
+  <data name="DefineNamedRange_Range" xml:space="preserve">
+    <value>範囲(&amp;R):</value>
+  </data>
+  <data name="Fill" xml:space="preserve">
+    <value>塗りつぶし</value>
+  </data>
+  <data name="FillPage_Background_Color" xml:space="preserve">
+    <value>背景色(&amp;C):</value>
+  </data>
+  <data name="FillPage_Fill_Pattern" xml:space="preserve">
+    <value>パターン</value>
+  </data>
+  <data name="FillPage_Fill_Pattern_Color" xml:space="preserve">
+    <value>パターンの色(&amp;A):</value>
+  </data>
+  <data name="FillPage_Fill_Pattern_Style" xml:space="preserve">
+    <value>パターンの種類(&amp;P):</value>
+  </data>
+  <data name="Filter_Export_As_CSV" xml:space="preserve">
+    <value>CSV ファイル(*.csv)|*.csv|テキストファイル(*.txt)|*.txt|全てのファイル(*.*)|*.*</value>
+  </data>
+  <data name="Filter_Load_File" xml:space="preserve">
+    <value>全ての認識できるファイル(*.xlsx;*.csv;*.rgf)|*.xlsx;*.csv;*.rgf|RGFファイル(*.rgf)|*.rgf|Excel ファイル(Office 2007以降)(*.xlsx)|*.xlsx|CSV ファイル(*.csv)|*.csv|すべてのファイル(*.*)|*.*</value>
+  </data>
+  <data name="Filter_Save_File" xml:space="preserve">
+    <value>Excel ファイル(Office 2007以降)(*.xlsx)|*.xlsx|RGFファイル(*.rgf)|*.rgf|CSV ファイル(*.csv)|*.csv|全てのファイル(*.*)|*.*</value>
+  </data>
+  <data name="Format" xml:space="preserve">
+    <value>表示形式</value>
+  </data>
+  <data name="FormatPage_Category" xml:space="preserve">
+    <value>分類(&amp;C):</value>
+  </data>
+  <data name="FormatPage_Decimal_Places" xml:space="preserve">
+    <value>小数点以下の桁数(&amp;D):</value>
+  </data>
+  <data name="FormatPage_Locale" xml:space="preserve">
+    <value>ロケール（国または地域）(&amp;L):</value>
+  </data>
+  <data name="FormatPage_Negative_Numbers" xml:space="preserve">
+    <value>負の数の表示形式(&amp;N):</value>
+  </data>
+  <data name="FormatPage_Pattern" xml:space="preserve">
+    <value>パターン(&amp;P):</value>
+  </data>
+  <data name="FormatPage_Symbol" xml:space="preserve">
+    <value>記号(&amp;S):</value>
+  </data>
+  <data name="FormatPage_Type" xml:space="preserve">
+    <value>種類(&amp;T):</value>
+  </data>
+  <data name="FormatPage_Use_1000_Separator" xml:space="preserve">
+    <value>桁区切り（{0}）を使用する(&amp;U)</value>
+  </data>
+  <data name="HeaderProperty_Auto_Fit_To_Cell" xml:space="preserve">
+    <value>セルのサイズに合わせて自動調整(&amp;F)</value>
+  </data>
+  <data name="HeaderProperty_Caption" xml:space="preserve">
+    <value>ヘッダープロパティ</value>
+  </data>
+  <data name="HeaderProperty_Default_Column_Type" xml:space="preserve">
+    <value>デフォルトセル型(&amp;T):</value>
+  </data>
+  <data name="HeaderProperty_Panel_Width" xml:space="preserve">
+    <value>パネルの幅(&amp;W):</value>
+  </data>
+  <data name="HeaderProperty_Text" xml:space="preserve">
+    <value>テキスト(&amp;T):</value>
+  </data>
+  <data name="HeaderProperty_Text_Color" xml:space="preserve">
+    <value>テキスト色(&amp;C):</value>
+  </data>
+  <data name="Horizontal_Alignment_Center" xml:space="preserve">
+    <value>中央揃え</value>
+  </data>
+  <data name="Horizontal_Alignment_Distributed" xml:space="preserve">
+    <value>均等割り付け</value>
+  </data>
+  <data name="Horizontal_Alignment_General" xml:space="preserve">
+    <value>標準</value>
+  </data>
+  <data name="Horizontal_Alignment_Left" xml:space="preserve">
+    <value>左詰め</value>
+  </data>
+  <data name="Horizontal_Alignment_Right" xml:space="preserve">
+    <value>右詰め</value>
+  </data>
+  <data name="HP_Homepage" xml:space="preserve">
+    <value>http://reogrid.net/jp</value>
+  </data>
+  <data name="HP_Homepage_Document" xml:space="preserve">
+    <value>http://reogrid.net/jp/document</value>
+  </data>
+  <data name="Inch" xml:space="preserve">
+    <value>インチ</value>
+  </data>
+  <data name="Label_Color" xml:space="preserve">
+    <value>色(&amp;C):</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>横</value>
+  </data>
+  <data name="Menu_Cells" xml:space="preserve">
+    <value>セル(&amp;C)</value>
+  </data>
+  <data name="Menu_Change_Cells_Type" xml:space="preserve">
+    <value>セル型を変更(&amp;T)</value>
+  </data>
+  <data name="Menu_Cells_Merge_Cells" xml:space="preserve">
+    <value>セルを結合(&amp;M)</value>
+  </data>
+  <data name="Menu_Cells_Unmerge_Cells" xml:space="preserve">
+    <value>セル結合を解除(&amp;U)</value>
+  </data>
+  <data name="Menu_Copy" xml:space="preserve">
+    <value>コピー(&amp;C)</value>
+  </data>
+  <data name="Menu_Cut" xml:space="preserve">
+    <value>切り取り(&amp;U)</value>
+  </data>
+  <data name="Menu_Edit" xml:space="preserve">
+    <value>編集(&amp;E)</value>
+  </data>
+  <data name="Menu_Edit_Clear" xml:space="preserve">
+    <value>クリア</value>
+  </data>
+  <data name="Menu_Edit_Focus_Cell_Style" xml:space="preserve">
+    <value>フォーカスセルの表示形式</value>
+  </data>
+  <data name="Menu_Edit_Readonly" xml:space="preserve">
+    <value>読み取り専用</value>
+  </data>
+  <data name="Menu_Edit_Repeat_Last_Action" xml:space="preserve">
+    <value>操作を繰り返す(&amp;A)</value>
+  </data>
+  <data name="Menu_Edit_Selection" xml:space="preserve">
+    <value>選択範囲(&amp;S)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Drag_To_Fill_Serial" xml:space="preserve">
+    <value>ドラッグしてオートフィル(&amp;F)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Drag_To_Move_Content" xml:space="preserve">
+    <value>ドラッグして内容を移動(&amp;D)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode" xml:space="preserve">
+    <value>選択モード(&amp;M)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Cell" xml:space="preserve">
+    <value>セル(&amp;C)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Column" xml:space="preserve">
+    <value>列(&amp;L)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_None" xml:space="preserve">
+    <value>なし(&amp;N)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Range" xml:space="preserve">
+    <value>範囲（デフォルト）(&amp;R)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Row" xml:space="preserve">
+    <value>行(&amp;W)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Move_Direction" xml:space="preserve">
+    <value>移動方向(&amp;D)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Move_Direction_Down" xml:space="preserve">
+    <value>下(&amp;D)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Move_Direction_Right" xml:space="preserve">
+    <value>右（デフォルト）(&amp;R)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style" xml:space="preserve">
+    <value>選択範囲の表示形式</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style_Default" xml:space="preserve">
+    <value>実線（デフォルト）(&amp;S)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style_Focus_Rect" xml:space="preserve">
+    <value>フォーカス点線(&amp;F)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style_None" xml:space="preserve">
+    <value>なし(&amp;N)</value>
+  </data>
+  <data name="Menu_Edit_Select_All" xml:space="preserve">
+    <value>全て選択(&amp;A)</value>
+  </data>
+  <data name="Menu_File" xml:space="preserve">
+    <value>ファイル(&amp;F)</value>
+  </data>
+  <data name="Menu_File_Edit_RGF_XML" xml:space="preserve">
+    <value>RGF XMLを編集(&amp;X)...</value>
+  </data>
+  <data name="Menu_File_Exit" xml:space="preserve">
+    <value>終了(&amp;E)</value>
+  </data>
+  <data name="Menu_File_Export_As_CSV" xml:space="preserve">
+    <value>CSVエクスポート(&amp;C)...</value>
+  </data>
+  <data name="Menu_File_Export_As_HTML" xml:space="preserve">
+    <value>HTMLエクスポート(&amp;H)...</value>
+  </data>
+  <data name="Menu_File_New" xml:space="preserve">
+    <value>新しいドキュメント(&amp;N)</value>
+  </data>
+  <data name="Menu_File_New_Window" xml:space="preserve">
+    <value>新しいウィンドウ(&amp;W)...</value>
+  </data>
+  <data name="Menu_File_Open" xml:space="preserve">
+    <value>読み込み(&amp;O)...</value>
+  </data>
+  <data name="Menu_File_Print" xml:space="preserve">
+    <value>印刷(&amp;P)...</value>
+  </data>
+  <data name="Menu_File_Print_Preview" xml:space="preserve">
+    <value>印刷プレビュー(&amp;R)...</value>
+  </data>
+  <data name="Menu_File_Print_Settings" xml:space="preserve">
+    <value>印刷設定(&amp;T)...</value>
+  </data>
+  <data name="Menu_File_Save" xml:space="preserve">
+    <value>保存(&amp;S)</value>
+  </data>
+  <data name="Menu_File_Save_As" xml:space="preserve">
+    <value>名前を付けて保存(&amp;A)...</value>
+  </data>
+  <data name="Menu_Format_Cells" xml:space="preserve">
+    <value>セルの書式設定(&amp;F)...</value>
+  </data>
+  <data name="Menu_Formula" xml:space="preserve">
+    <value>数式(&amp;F)</value>
+  </data>
+  <data name="Menu_Formula_Auto_Function" xml:space="preserve">
+    <value>オート関数(&amp;A)</value>
+  </data>
+  <data name="Menu_Formula_Define_Name" xml:space="preserve">
+    <value>名前を定義(&amp;N)...</value>
+  </data>
+  <data name="Menu_Formula_Name_Manager" xml:space="preserve">
+    <value>名前範囲の管理(&amp;M)...</value>
+  </data>
+  <data name="Menu_Formula_Recalculate_Worksheet" xml:space="preserve">
+    <value>再計算(&amp;C)</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows" xml:space="preserve">
+    <value>トレース矢印の削除(&amp;R)</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows_Remove_All_Arrows" xml:space="preserve">
+    <value>全ての矢印を削除(&amp;A)</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows_Remove_Dependent_Arrows" xml:space="preserve">
+    <value>参照先トレースの矢印を削除(&amp;D)</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows_Remove_Precedent_Arrows" xml:space="preserve">
+    <value>参照元トレースの矢印を削除(&amp;P)</value>
+  </data>
+  <data name="Menu_Formula_Suspend_Reference_Updates" xml:space="preserve">
+    <value>手動でシートの計算(&amp;S)</value>
+  </data>
+  <data name="Menu_Formula_Trace_Dependents" xml:space="preserve">
+    <value>参照先のトレース(&amp;D)</value>
+  </data>
+  <data name="Menu_Formula_Trace_Precedents" xml:space="preserve">
+    <value>参照元のトレース(&amp;P)</value>
+  </data>
+  <data name="Menu_Group" xml:space="preserve">
+    <value>グループ(&amp;G)</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>ヘルプ(&amp;H)</value>
+  </data>
+  <data name="Menu_Help_About" xml:space="preserve">
+    <value>ReoGrid について(&amp;A)...</value>
+  </data>
+  <data name="Menu_Help_Documents" xml:space="preserve">
+    <value>ドキュメント(&amp;D)...</value>
+  </data>
+  <data name="Menu_Help_Homepage" xml:space="preserve">
+    <value>ホームページ(&amp;H)...</value>
+  </data>
+  <data name="Menu_Hide" xml:space="preserve">
+    <value>非表示(&amp;H)</value>
+  </data>
+  <data name="Menu_Insert_Page_Break" xml:space="preserve">
+    <value>改ページを挿入(&amp;B)</value>
+  </data>
+  <data name="Menu_More" xml:space="preserve">
+    <value>詳細...</value>
+  </data>
+  <data name="Menu_Paste" xml:space="preserve">
+    <value>貼り付ける(&amp;P)</value>
+  </data>
+  <data name="Menu_Property" xml:space="preserve">
+    <value>プロパティ(&amp;P)...</value>
+  </data>
+  <data name="Menu_Redo" xml:space="preserve">
+    <value>やり直す(&amp;R)</value>
+  </data>
+  <data name="Menu_Remove_Page_Break" xml:space="preserve">
+    <value>改ページを削除</value>
+  </data>
+  <data name="Menu_Script" xml:space="preserve">
+    <value>スクリプト(&amp;R)</value>
+  </data>
+  <data name="Menu_Script_Run_Function" xml:space="preserve">
+    <value>関数を実行(&amp;F)...</value>
+  </data>
+  <data name="Menu_Script_Script_Editor" xml:space="preserve">
+    <value>スクリプトエディタ(&amp;E)...</value>
+  </data>
+  <data name="Menu_Sheet" xml:space="preserve">
+    <value>シート(&amp;S)</value>
+  </data>
+  <data name="Menu_Sheet_Clear_Filter" xml:space="preserve">
+    <value>フィルターをクリア</value>
+  </data>
+  <data name="Menu_Sheet_Filter" xml:space="preserve">
+    <value>フィルターを作成(&amp;F)</value>
+  </data>
+  <data name="Menu_Sheet_Group" xml:space="preserve">
+    <value>グループ(&amp;G)</value>
+  </data>
+  <data name="Menu_Sheet_Group_Columns" xml:space="preserve">
+    <value>列をグループ(&amp;C)</value>
+  </data>
+  <data name="Menu_Sheet_Group_Rows" xml:space="preserve">
+    <value>行をグループ(&amp;R)</value>
+  </data>
+  <data name="Menu_Sheet_Insert" xml:space="preserve">
+    <value>挿入(&amp;I)</value>
+  </data>
+  <data name="Menu_Sheet_Resize" xml:space="preserve">
+    <value>行列数を変更(&amp;R)...</value>
+  </data>
+  <data name="Menu_Sheet_Settings" xml:space="preserve">
+    <value>設定(&amp;S)</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup" xml:space="preserve">
+    <value>行列グループの解除</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_All_Columns" xml:space="preserve">
+    <value>全ての列</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_All_Rows" xml:space="preserve">
+    <value>全ての行</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_Selection_Columns" xml:space="preserve">
+    <value>選択した列</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_Selection_Rows" xml:space="preserve">
+    <value>選択した行</value>
+  </data>
+  <data name="Menu_Tools" xml:space="preserve">
+    <value>ツール(&amp;T)</value>
+  </data>
+  <data name="Menu_Tools_Control_Appearance" xml:space="preserve">
+    <value>コンポーネント外観(&amp;A)...</value>
+  </data>
+  <data name="Menu_Undo" xml:space="preserve">
+    <value>元に戻る(&amp;U)</value>
+  </data>
+  <data name="Menu_Ungroup" xml:space="preserve">
+    <value>グループを解除</value>
+  </data>
+  <data name="Menu_Ungroup_All" xml:space="preserve">
+    <value>全てのグループを解除</value>
+  </data>
+  <data name="Menu_Unhide" xml:space="preserve">
+    <value>再表示(&amp;U)</value>
+  </data>
+  <data name="Menu_View" xml:space="preserve">
+    <value>表示(&amp;V)</value>
+  </data>
+  <data name="Menu_View_Components" xml:space="preserve">
+    <value>部品(&amp;C)</value>
+  </data>
+  <data name="Menu_View_Components_FormulaBar" xml:space="preserve">
+    <value>計算式バー(&amp;F)</value>
+  </data>
+  <data name="Menu_View_Components_StatusBar" xml:space="preserve">
+    <value>ステータスバー(&amp;S)</value>
+  </data>
+  <data name="Menu_View_Components_Toolbar" xml:space="preserve">
+    <value>ツールバー(&amp;T)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Cell" xml:space="preserve">
+    <value>指定した行列に固定(&amp;F)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges" xml:space="preserve">
+    <value>指定した行列および辺に固定(&amp;E)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Bottom" xml:space="preserve">
+    <value>下(&amp;B)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Bottom_Left" xml:space="preserve">
+    <value>左下(&amp;F)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Bottom_Right" xml:space="preserve">
+    <value>右下(&amp;G)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Left" xml:space="preserve">
+    <value>左(&amp;L)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Right" xml:space="preserve">
+    <value>右(&amp;R)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Top" xml:space="preserve">
+    <value>上(&amp;T)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Top_Left" xml:space="preserve">
+    <value>左上(&amp;E)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Top_Right" xml:space="preserve">
+    <value>右上(&amp;I)</value>
+  </data>
+  <data name="Menu_Reset_All_Page_Breaks" xml:space="preserve">
+    <value>全ての改ページを解除(&amp;A)</value>
+  </data>
+  <data name="Menu_View_Unfreeze" xml:space="preserve">
+    <value>行列固定を解除(&amp;U)</value>
+  </data>
+  <data name="Menu_View_Visible" xml:space="preserve">
+    <value>ワークシート要素(&amp;V)</value>
+  </data>
+  <data name="Menu_View_Visible_Column_Header" xml:space="preserve">
+    <value>列ヘッダー(&amp;C)</value>
+  </data>
+  <data name="Menu_View_Visible_Column_Outline_Panel" xml:space="preserve">
+    <value>列アウトラインパネル(&amp;P)</value>
+  </data>
+  <data name="Menu_View_Visible_Forzen_Line" xml:space="preserve">
+    <value>行列固定の表示線(&amp;F)</value>
+  </data>
+  <data name="Menu_View_Visible_Grid_Lines" xml:space="preserve">
+    <value>グリッド線(&amp;G)</value>
+  </data>
+  <data name="Menu_View_Visible_Horizontal_ScrollBar" xml:space="preserve">
+    <value>横スクロールバー(&amp;H)</value>
+  </data>
+  <data name="Menu_View_Visible_Page_Breaks" xml:space="preserve">
+    <value>改ページの表示線(&amp;B)</value>
+  </data>
+  <data name="Menu_View_Visible_Row_Header" xml:space="preserve">
+    <value>行ヘッダー(&amp;R)</value>
+  </data>
+  <data name="Menu_View_Visible_Row_Outline_Panel" xml:space="preserve">
+    <value>行アウトラインパネル(&amp;O)</value>
+  </data>
+  <data name="Menu_View_Visible_Sheet_Tab" xml:space="preserve">
+    <value>シート切り替えタブ(&amp;S)</value>
+  </data>
+  <data name="Menu_View_Visible_Vertical_ScrollBar" xml:space="preserve">
+    <value>縦スクロールバー(&amp;V)</value>
+  </data>
+  <data name="Msg_Create_Named_Range_Failed" xml:space="preserve">
+    <value>指定した名前で範囲を定義できませんでした。以下を確認してください。
+  名前の先頭が、英数字、ひらがな、カタカナ、漢字、またはアンダースコアではありません。
+  名前に空白または他の無効な文字が含まれています。
+  名前はセルや範囲のアドレスとなっています。
+  名前は数式計算用の関数名、または他の ReoGrid 内部で定義されているオブジェクト名と競合しています。</value>
+  </data>
+  <data name="Msg_Create_Named_Range_Failed_Title" xml:space="preserve">
+    <value>名前範囲の定義</value>
+  </data>
+  <data name="Msg_Delete_Named_Range_Confirm" xml:space="preserve">
+    <value>選択した名前範囲を削除します。よろしいですか。</value>
+  </data>
+  <data name="Msg_Delete_Named_Range_Confirm_Title" xml:space="preserve">
+    <value>名前範囲の削除</value>
+  </data>
+  <data name="Msg_File_Not_Found" xml:space="preserve">
+    <value>指定したファイルは見つかりませんでした：</value>
+  </data>
+  <data name="Msg_Input_Name_Of_Range" xml:space="preserve">
+    <value>名前を入力してください。</value>
+  </data>
+  <data name="Msg_Invalid_Address_Of_Range" xml:space="preserve">
+    <value>アドレスまたは値を入力してください。</value>
+  </data>
+  <data name="Msg_Load_File_Failed" xml:space="preserve">
+    <value>ファイルの読み込みに失敗：</value>
+  </data>
+  <data name="Msg_Load_Script_Prompt" xml:space="preserve">
+    <value>ドキュメントは実行できるスクリプトを含めています。すぐ実行しますか。</value>
+  </data>
+  <data name="Msg_Load_Script_Prompt_Title" xml:space="preserve">
+    <value>スクリプト言語実行</value>
+  </data>
+  <data name="Msg_Named_Range_Overwrite" xml:space="preserve">
+    <value>同じ名前の定義が存在しています。上書きしますか。</value>
+  </data>
+  <data name="Msg_No_Current_Worksheet" xml:space="preserve">
+    <value>ワークブックにワークシートを含めていません。</value>
+  </data>
+  <data name="Msg_Only_RGF_Edit_XML" xml:space="preserve">
+    <value>ファイルフォーマットが RGF の場合のみ XML を編集できます。</value>
+  </data>
+  <data name="Msg_Operation_Aborted" xml:space="preserve">
+    <value>操作が中止されました。</value>
+  </data>
+  <data name="Msg_Outline_Already_Exist" xml:space="preserve">
+    <value>他のアウトラインが指定した位置にあります。</value>
+  </data>
+  <data name="Msg_Outline_Intersected" xml:space="preserve">
+    <value>他のアウトラインの位置と競合しています。</value>
+  </data>
+  <data name="Msg_Outline_Not_Found" xml:space="preserve">
+    <value>指定した位置からアウトラインを見つかりませんでした。</value>
+  </data>
+  <data name="Msg_Outline_Out_Of_Range" xml:space="preserve">
+    <value>指定した位置にアウトラインの追加ができませんでした。ワークシートの最後の行または列はアウトラインに含むことができません。</value>
+  </data>
+  <data name="Msg_Outline_Too_Much" xml:space="preserve">
+    <value>アウトラインを10個以上に追加することができません。</value>
+  </data>
+  <data name="Msg_Range_Intersection_Exception" xml:space="preserve">
+    <value>操作が中止されました。指定した範囲は他の結合したセルの一部を含めています。</value>
+  </data>
+  <data name="Msg_Save_Changes" xml:space="preserve">
+    <value>変更を保存しますか。</value>
+  </data>
+  <data name="Msg_Save_File_Immediately" xml:space="preserve">
+    <value>ファイルを保存します。よろしいですか。</value>
+  </data>
+  <data name="Msg_Script_Not_Available" xml:space="preserve">
+    <value>このエディションではスクリプト言語の実行機能に対応していません。</value>
+  </data>
+  <data name="Msg_Source_Code_Exported_Into_Clipboard" xml:space="preserve">
+    <value>ソースコードをクリップボードにコピーしました。</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="NamedRangeManage_Caption" xml:space="preserve">
+    <value>名前管理</value>
+  </data>
+  <data name="NamedRangeManage_Named_Ranges" xml:space="preserve">
+    <value>定義の一覧:</value>
+  </data>
+  <data name="NamedRangeManage_New" xml:space="preserve">
+    <value>新規作成(&amp;N)...</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="Paging_Order" xml:space="preserve">
+    <value>ページの方向</value>
+  </data>
+  <data name="Paper" xml:space="preserve">
+    <value>用紙</value>
+  </data>
+  <data name="Pixel" xml:space="preserve">
+    <value>ピクセル</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>縦</value>
+  </data>
+  <data name="PrintSettings_Adjust_To" xml:space="preserve">
+    <value>出力の比率を</value>
+  </data>
+  <data name="PrintSettings_Caption" xml:space="preserve">
+    <value>印刷設定</value>
+  </data>
+  <data name="PrintSettings_Down_Then_Over" xml:space="preserve">
+    <value>上から下</value>
+  </data>
+  <data name="PrintSettings_Orientation" xml:space="preserve">
+    <value>印刷の向き：</value>
+  </data>
+  <data name="PrintSettings_Over_Then_Down" xml:space="preserve">
+    <value>左から右</value>
+  </data>
+  <data name="PrintSettings_Paper_Size" xml:space="preserve">
+    <value>用紙サイズ：</value>
+  </data>
+  <data name="PrintSettings_Percent_Normal_Size" xml:space="preserve">
+    <value>% に調整する</value>
+  </data>
+  <data name="PrintSettings_Setup" xml:space="preserve">
+    <value>設定(&amp;S)</value>
+  </data>
+  <data name="PrintSettings_Show_Grid_Lines" xml:space="preserve">
+    <value>グリッド線を出力(&amp;G)</value>
+  </data>
+  <data name="PrintSettings_Show_Margins" xml:space="preserve">
+    <value>余白の表示線を出力(&amp;M)</value>
+  </data>
+  <data name="PrintSettings_Visible_Settings" xml:space="preserve">
+    <value>要素の表示</value>
+  </data>
+  <data name="Protection" xml:space="preserve">
+    <value>保護</value>
+  </data>
+  <data name="ProtectionPage_Locked" xml:space="preserve">
+    <value>ロック（読み取り専用）</value>
+  </data>
+  <data name="Resize_Caption" xml:space="preserve">
+    <value>行列数の変更</value>
+  </data>
+  <data name="Resize_Columns" xml:space="preserve">
+    <value>列数(&amp;C):</value>
+  </data>
+  <data name="Resize_Columns_Remark" xml:space="preserve">
+    <value>(最大：32,768)</value>
+  </data>
+  <data name="Resize_Rows" xml:space="preserve">
+    <value>行数(&amp;R):</value>
+  </data>
+  <data name="Resize_Rows_Remark" xml:space="preserve">
+    <value>(最大：1,048,576)</value>
+  </data>
+  <data name="Row" xml:space="preserve">
+    <value>行</value>
+  </data>
+  <data name="RunFunction_Caption" xml:space="preserve">
+    <value>スクリプトの関数を実行</value>
+  </data>
+  <data name="RunFunction_Close_This_Window_After_Running" xml:space="preserve">
+    <value>実行して閉じる(&amp;C)</value>
+  </data>
+  <data name="RunFunction_Functions" xml:space="preserve">
+    <value>関数(&amp;F):</value>
+  </data>
+  <data name="RunFunction_Run" xml:space="preserve">
+    <value>実行(&amp;R)</value>
+  </data>
+  <data name="Sample" xml:space="preserve">
+    <value>サンプル</value>
+  </data>
+  <data name="Scaling" xml:space="preserve">
+    <value>拡大縮小</value>
+  </data>
+  <data name="SetHeaderSize_Caption_Column" xml:space="preserve">
+    <value>列幅</value>
+  </data>
+  <data name="SetHeaderSize_Caption_Row" xml:space="preserve">
+    <value>行の高さ</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>テキスト</value>
+  </data>
+  <data name="Untitled" xml:space="preserve">
+    <value>無題</value>
+  </data>
+  <data name="Vertical_Alignment_Bottom" xml:space="preserve">
+    <value>下詰め</value>
+  </data>
+  <data name="Vertical_Alignment_General" xml:space="preserve">
+    <value>標準</value>
+  </data>
+  <data name="Vertical_Alignment_Middle" xml:space="preserve">
+    <value>中央揃え</value>
+  </data>
+  <data name="Vertical_Alignment_Top" xml:space="preserve">
+    <value>上詰め</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>全て</value>
+  </data>
+  <data name="CellBody" xml:space="preserve">
+    <value>セルボディ</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>通貨</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>データ</value>
+  </data>
+  <data name="Data_Format" xml:space="preserve">
+    <value>書式</value>
+  </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>日付時間</value>
+  </data>
+  <data name="FormatPage_Caption" xml:space="preserve">
+    <value>セルの書式設定</value>
+  </data>
+  <data name="Formula" xml:space="preserve">
+    <value>計算式</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>標準</value>
+  </data>
+  <data name="Menu_File_Export_As_CSV_Current_Worksheet" xml:space="preserve">
+    <value>ワークシート全体...</value>
+  </data>
+  <data name="Menu_File_Export_As_CSV_Selected_Range" xml:space="preserve">
+    <value>選択した範囲...</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>数値</value>
+  </data>
+  <data name="Percentage" xml:space="preserve">
+    <value>パーセント</value>
+  </data>
+  <data name="Style" xml:space="preserve">
+    <value>スタイル</value>
+  </data>
+  <data name="NoColor" xml:space="preserve">
+    <value>色なし</value>
+  </data>
+  <data name="SolidColor" xml:space="preserve">
+    <value>単色</value>
+  </data>
+</root>

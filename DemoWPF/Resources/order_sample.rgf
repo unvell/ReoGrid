@@ -1,0 +1,381 @@
+<?xml version="1.0"?>
+<grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <meta>
+      <culture>en-US</culture>
+      <editor>ReoGrid Core 0.8.8.0</editor>
+      <core-ver>0.8.8.0</core-ver>
+    </meta>
+    <rows>100</rows>
+    <cols>50</cols>
+    <default-row-height>20</default-row-height>
+    <default-col-width>65</default-col-width>
+    <settings meta="7540734" />
+    <script />
+  </head>
+  <style font="Trebuchet MS" font-size="11.25" align="left" valign="middle" />
+  <rows>
+    <row row="0" height="48" />
+    <row row="1" height="19" />
+    <row row="2" height="19" />
+    <row row="3" height="18" />
+    <row row="4" height="19" />
+    <row row="5" height="19" />
+    <row row="6" height="19" />
+    <row row="7" height="19" />
+    <row row="10" height="19" />
+    <row row="11" height="19" />
+    <row row="12" height="19" />
+    <row row="13" height="19" />
+    <row row="14" height="19" />
+    <row row="20" height="17" />
+    <row row="21" height="17" />
+    <row row="22" height="17" />
+    <row row="23" height="17" />
+    <row row="24" height="17" />
+    <row row="25" height="17" />
+    <row row="26" height="17" />
+    <row row="27" height="17" />
+    <row row="28" height="17" />
+    <row row="29" height="17" />
+    <row row="30" height="17" />
+    <row row="31" height="17" />
+    <row row="32" height="17" />
+    <row row="33" height="17" />
+    <row row="34" height="17" />
+    <row row="35" height="19" />
+    <row row="36" height="19" />
+    <row row="37" height="19" />
+    <row row="38" height="19" />
+    <row row="39" height="19" />
+    <row row="40" height="19" />
+    <row row="41" height="18" />
+    <row row="42" height="13" />
+    <row row="43" height="13" />
+    <row row="44" height="13" />
+  </rows>
+  <cols>
+    <col col="0" width="179" />
+    <col col="3" width="94" />
+    <col col="5" width="107" />
+    <col col="6" width="138" />
+  </cols>
+  <v-borders>
+    <v-border row="16" col="0" color="#000000" style="Solid" pos="left" rows="2" />
+    <v-border row="20" col="0" color="#000000" style="Solid" pos="left" rows="15" />
+    <v-border row="37" col="0" color="#000000" style="Solid" pos="left" rows="5" />
+    <v-border row="16" col="1" color="#000000" style="Solid" pos="all" rows="2" />
+    <v-border row="20" col="1" color="#000000" style="Solid" pos="all" rows="15" />
+    <v-border row="16" col="3" color="#000000" style="Solid" pos="all" rows="2" />
+    <v-border row="16" col="4" color="#000000" style="Solid" pos="all" rows="2" />
+    <v-border row="20" col="4" color="#000000" style="Solid" pos="all" rows="15" />
+    <v-border row="37" col="4" color="#000000" style="Solid" pos="right" rows="5" />
+    <v-border row="20" col="5" color="#000000" style="Solid" pos="all" rows="15" />
+    <v-border row="20" col="6" color="#000000" style="Solid" pos="all" rows="15" />
+    <v-border row="16" col="7" color="#000000" style="Solid" pos="right" rows="2" />
+    <v-border row="20" col="7" color="#000000" style="Solid" pos="right" rows="15" />
+  </v-borders>
+  <h-borders>
+    <h-border row="16" col="0" color="#000000" style="Solid" pos="top" cols="7" />
+    <h-border row="17" col="0" color="#000000" style="Solid" pos="all" cols="7" />
+    <h-border row="18" col="0" color="#000000" style="Solid" pos="bottom" cols="7" />
+    <h-border row="20" col="0" color="#000000" style="Solid" pos="top" cols="7" />
+    <h-border row="21" col="0" color="#000000" style="Solid" pos="all" cols="7" />
+    <h-border row="22" col="0" color="#000000" style="Solid" pos="all" cols="7" />
+    <h-border row="23" col="0" color="#000000" style="Solid" pos="all" cols="7" />
+    <h-border row="24" col="0" color="#000000" style="Solid" pos="all" cols="7" />
+    <h-border row="25" col="0" color="#000000" style="Solid" pos="all" cols="7" />
+    <h-border row="26" col="0" color="#000000" style="Solid" pos="all" cols="7" />
+    <h-border row="27" col="0" color="#000000" style="Solid" pos="all" cols="7" />
+    <h-border row="28" col="0" color="#000000" style="Solid" pos="all" cols="7" />
+    <h-border row="29" col="0" color="#000000" style="Solid" pos="all" cols="7" />
+    <h-border row="30" col="0" color="#000000" style="Solid" pos="all" cols="7" />
+    <h-border row="31" col="0" color="#000000" style="Solid" pos="all" cols="7" />
+    <h-border row="32" col="0" color="#000000" style="Solid" pos="all" cols="7" />
+    <h-border row="33" col="0" color="#000000" style="Solid" pos="all" cols="7" />
+    <h-border row="34" col="0" color="#000000" style="Solid" pos="all" cols="7" />
+    <h-border row="35" col="0" color="#000000" style="Solid" pos="bottom" cols="7" />
+    <h-border row="37" col="0" color="#000000" style="Solid" pos="top" cols="4" />
+    <h-border row="40" col="5" color="#000000" style="Dashed" pos="top" cols="2" />
+    <h-border row="42" col="0" color="#000000" style="Solid" pos="bottom" cols="4" />
+    <h-border row="45" col="3" color="#000000" style="Solid" pos="top" cols="4" />
+  </h-borders>
+  <cells>
+    <cell row="0" col="0" format="text">[Company Name]<style font-size="18" /></cell>
+    <cell row="0" col="6" format="text">PURCHASE ORDER<style color="#008080" font-size="29.75" align="right" /></cell>
+    <cell row="1" col="0" format="text">[Company Slogan]</cell>
+    <cell row="1" col="5" format="text">DATE:</cell>
+    <cell row="1" col="6" format="datetime">12/5/2014 11:58:46 AM<formula>TODAY()</formula><format-args pattern="M/d/yyyy" culture="en-US" /><style bgcolor="#ffffd0" align="center" /></cell>
+    <cell row="2" col="5" format="text">P.O.#</cell>
+    <cell row="2" col="6" format="text">[123456]<style align="center" /></cell>
+    <cell row="4" col="0" format="text">[Street Address]</cell>
+    <cell row="5" col="0" format="text">[City, ST ZIP]</cell>
+    <cell row="6" col="0" format="text">Phone: [000-000-0000]</cell>
+    <cell row="7" col="0" format="text">Fax: [000-000-0000]</cell>
+    <cell row="9" col="0" format="text">VENDOR<style bgcolor="#385487" color="White" /></cell>
+    <cell row="9" col="1">
+      <style bgcolor="#385487" />
+    </cell>
+    <cell row="9" col="3" format="text">SHIP TO<style bgcolor="#385487" color="White" /></cell>
+    <cell row="9" col="4">
+      <style bgcolor="#385487" />
+    </cell>
+    <cell row="10" col="0" format="text">[Name]</cell>
+    <cell row="10" col="3" format="text">[Attn: Name]</cell>
+    <cell row="11" col="0" format="text">[Company Name]</cell>
+    <cell row="11" col="3" format="text">[Company Name]</cell>
+    <cell row="12" col="0" format="text">[Street Address]</cell>
+    <cell row="12" col="3" format="text">[Street Address]</cell>
+    <cell row="13" col="0" format="text">[City, ST ZIP]</cell>
+    <cell row="13" col="3" format="text">[City, ST ZIP]</cell>
+    <cell row="14" col="0" format="text">[Phone]</cell>
+    <cell row="14" col="3" format="text">[Phone]</cell>
+    <cell row="16" col="0" format="text">REQUISITIONER<style bgcolor="#385487" color="White" align="center" /></cell>
+    <cell row="16" col="1" colspan="2" format="text">SHIP VIA<style bgcolor="#385487" color="White" align="center" /></cell>
+    <cell row="16" col="3" format="text">F.O.B.<style bgcolor="#385487" color="White" align="center" /></cell>
+    <cell row="16" col="4" colspan="3" format="text">SHIPPING TERMS<style bgcolor="#385487" color="White" align="center" /></cell>
+    <cell row="17" col="1" colspan="2" />
+    <cell row="17" col="4" colspan="3" />
+    <cell row="19" col="0" format="text">ITEM #<style bgcolor="#385487" color="White" align="center" /></cell>
+    <cell row="19" col="1" colspan="3" format="text">DESCRIPTION<style bgcolor="#385487" color="White" align="center" /></cell>
+    <cell row="19" col="4" format="text">QTY<style bgcolor="#385487" color="White" align="center" /></cell>
+    <cell row="19" col="5" format="text">UNIT PRICE<style bgcolor="#385487" color="White" align="center" /></cell>
+    <cell row="19" col="6" format="text">TOTAL<style bgcolor="#385487" color="White" align="center" /></cell>
+    <cell row="20" col="0" format="text">[23423423]<style font-size="9.75" /></cell>
+    <cell row="20" col="1" colspan="3" format="text">Product XYZ<style font-size="9.75" /></cell>
+    <cell row="20" col="4">15<style font-size="9.75" align="center" /></cell>
+    <cell row="20" col="5">150<style font-size="9.75" align="right" /></cell>
+    <cell row="20" col="6" trace-precedents="true" trace-dependents="true">2250<formula>E21*F21</formula><style font-size="9.75" align="right" /></cell>
+    <cell row="21" col="0" format="text">[45645645]<style font-size="9.75" /></cell>
+    <cell row="21" col="1" colspan="3" format="text">Product ABC<style font-size="9.75" /></cell>
+    <cell row="21" col="4">1<style font-size="9.75" align="center" /></cell>
+    <cell row="21" col="5">75<style font-size="9.75" align="right" /></cell>
+    <cell row="21" col="6" trace-precedents="true" trace-dependents="true">75<formula>E22*F22</formula><style font-size="9.75" align="right" /></cell>
+    <cell row="22" col="0" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" />
+    </cell>
+    <cell row="22" col="1" colspan="3" format="text">
+      <style font-size="9.75" />
+    </cell>
+    <cell row="22" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="center" />
+    </cell>
+    <cell row="22" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="right" />
+    </cell>
+    <cell row="22" col="6" format="number">-  <format-args decimal-places="0" use-separator="true" /><style font-size="9.75" align="right" /></cell>
+    <cell row="23" col="0" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" />
+    </cell>
+    <cell row="23" col="1" colspan="3" format="text">
+      <style font-size="9.75" />
+    </cell>
+    <cell row="23" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="center" />
+    </cell>
+    <cell row="23" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="right" />
+    </cell>
+    <cell row="23" col="6" format="number">-  <format-args decimal-places="0" use-separator="true" /><style font-size="9.75" align="right" /></cell>
+    <cell row="24" col="0" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" />
+    </cell>
+    <cell row="24" col="1" colspan="3" format="text">
+      <style font-size="9.75" />
+    </cell>
+    <cell row="24" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="center" />
+    </cell>
+    <cell row="24" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="right" />
+    </cell>
+    <cell row="24" col="6" format="number">-  <format-args decimal-places="0" use-separator="true" /><style font-size="9.75" align="right" /></cell>
+    <cell row="25" col="0" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" />
+    </cell>
+    <cell row="25" col="1" colspan="3" format="text">
+      <style font-size="9.75" />
+    </cell>
+    <cell row="25" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="center" />
+    </cell>
+    <cell row="25" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="right" />
+    </cell>
+    <cell row="25" col="6" format="number">-  <format-args decimal-places="0" use-separator="true" /><style font-size="9.75" align="right" /></cell>
+    <cell row="26" col="0" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" />
+    </cell>
+    <cell row="26" col="1" colspan="3" format="text">
+      <style font-size="9.75" />
+    </cell>
+    <cell row="26" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="center" />
+    </cell>
+    <cell row="26" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="right" />
+    </cell>
+    <cell row="26" col="6" format="number">-  <format-args decimal-places="0" use-separator="true" /><style font-size="9.75" align="right" /></cell>
+    <cell row="27" col="0" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" />
+    </cell>
+    <cell row="27" col="1" colspan="3" format="text">
+      <style font-size="9.75" />
+    </cell>
+    <cell row="27" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="center" />
+    </cell>
+    <cell row="27" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="right" />
+    </cell>
+    <cell row="27" col="6" format="number">-  <format-args decimal-places="0" use-separator="true" /><style font-size="9.75" align="right" /></cell>
+    <cell row="28" col="0" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" />
+    </cell>
+    <cell row="28" col="1" colspan="3" format="text">
+      <style font-size="9.75" />
+    </cell>
+    <cell row="28" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="center" />
+    </cell>
+    <cell row="28" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="right" />
+    </cell>
+    <cell row="28" col="6" format="number">-  <format-args decimal-places="0" use-separator="true" /><style font-size="9.75" align="right" /></cell>
+    <cell row="29" col="0" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" />
+    </cell>
+    <cell row="29" col="1" colspan="3" format="text">
+      <style font-size="9.75" />
+    </cell>
+    <cell row="29" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="center" />
+    </cell>
+    <cell row="29" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="right" />
+    </cell>
+    <cell row="29" col="6" format="number">-  <format-args decimal-places="0" use-separator="true" /><style font-size="9.75" align="right" /></cell>
+    <cell row="30" col="0" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" />
+    </cell>
+    <cell row="30" col="1" colspan="3" format="text">
+      <style font-size="9.75" />
+    </cell>
+    <cell row="30" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="center" />
+    </cell>
+    <cell row="30" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="right" />
+    </cell>
+    <cell row="30" col="6" format="number">-  <format-args decimal-places="0" use-separator="true" /><style font-size="9.75" align="right" /></cell>
+    <cell row="31" col="0" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" />
+    </cell>
+    <cell row="31" col="1" colspan="3" format="text">
+      <style font-size="9.75" />
+    </cell>
+    <cell row="31" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="center" />
+    </cell>
+    <cell row="31" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="right" />
+    </cell>
+    <cell row="31" col="6" format="number">-  <format-args decimal-places="0" use-separator="true" /><style font-size="9.75" align="right" /></cell>
+    <cell row="32" col="0" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" />
+    </cell>
+    <cell row="32" col="1" colspan="3" format="text">
+      <style font-size="9.75" />
+    </cell>
+    <cell row="32" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="center" />
+    </cell>
+    <cell row="32" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="right" />
+    </cell>
+    <cell row="32" col="6" format="number">-  <format-args decimal-places="0" use-separator="true" /><style font-size="9.75" align="right" /></cell>
+    <cell row="33" col="0" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" />
+    </cell>
+    <cell row="33" col="1" colspan="3" format="text">
+      <style font-size="9.75" />
+    </cell>
+    <cell row="33" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="center" />
+    </cell>
+    <cell row="33" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="right" />
+    </cell>
+    <cell row="33" col="6" format="number">-  <format-args decimal-places="0" use-separator="true" /><style font-size="9.75" align="right" /></cell>
+    <cell row="34" col="0" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" />
+    </cell>
+    <cell row="34" col="1" colspan="3" format="text">
+      <style font-size="9.75" />
+    </cell>
+    <cell row="34" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="center" />
+    </cell>
+    <cell row="34" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="9.75" align="right" />
+    </cell>
+    <cell row="34" col="6" format="number">-  <format-args decimal-places="0" use-separator="true" /><style font-size="9.75" align="right" /></cell>
+    <cell row="35" col="5" format="text">SUBTOTAL</cell>
+    <cell row="35" col="6" format="currency" trace-precedents="true" trace-dependents="true">2325<formula>SUM(G21:G35)</formula><format-args decimal-places="2" pattern="$" /><style bgcolor="#ffffd0" align="right" /></cell>
+    <cell row="36" col="0" colspan="4" format="text">Other Comments or Special Instructions<style bgcolor="#d0d0d0" font="Verdana" font-size="9.75" bold="true" /></cell>
+    <cell row="36" col="5" format="text">TAX RATE</cell>
+    <cell row="36" col="6" format="percent">0.06875<format-args decimal-places="3" /><style align="right" /></cell>
+    <cell row="37" col="0" colspan="4" rowspan="5" />
+    <cell row="37" col="5" format="text">TAX</cell>
+    <cell row="37" col="6" format="currency">159.84375<formula>G36*G37</formula><format-args decimal-places="2" pattern="$" /><style bgcolor="#ffffd0" align="right" /></cell>
+    <cell row="38" col="5" format="text">S &amp; H</cell>
+    <cell row="38" col="6" format="text"> $- <style align="right" /></cell>
+    <cell row="39" col="5" format="text">OTHER</cell>
+    <cell row="39" col="6" format="text"> $- <style align="right" /></cell>
+    <cell row="40" col="5" format="text">TOTAL</cell>
+    <cell row="40" col="6" format="currency" trace-precedents="true" trace-dependents="true">2484.84375<formula>G36+SUM(G38:G40)</formula><format-args decimal-places="2" pattern="$" /><style bgcolor="#ffffd0" align="right" /></cell>
+    <cell row="45" col="3" format="text">Authorized  by</cell>
+    <cell row="45" col="6" format="text">Date</cell>
+    <cell row="47" col="0" colspan="7" format="text">If you have any questions about this purchase order, please contact<style align="center" /></cell>
+    <cell row="48" col="0" colspan="7" format="text">[Name, Phone #, E-mail, Phone, Fax]<style align="center" /></cell>
+  </cells>
+</grid>

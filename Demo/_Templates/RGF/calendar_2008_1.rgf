@@ -1,0 +1,353 @@
+<?xml version="1.0"?>
+<grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <default-row-height>20</default-row-height>
+    <default-col-width>65</default-col-width>
+    <rows>50</rows>
+    <cols>51</cols>
+    <settings />
+    <culture>en-US</culture>
+    <editor>ReoGridEditor 0.8.6.0</editor>
+    <script />
+  </head>
+  <style bgcolor="#ffffff" color="Black" font="Arial" font-size="14.25" bold="true" align="left" valign="bottom" />
+  <rows>
+    <row row="0" height="61" />
+    <row row="1" height="32" />
+    <row row="3" height="26" />
+    <row row="5" height="34" />
+    <row row="9" height="40" />
+    <row row="13" height="33" />
+    <row row="17" height="37" />
+    <row row="21" height="34" />
+    <row row="23" height="12" />
+    <row row="24" height="12" />
+    <row row="26" height="23" last-height="22" />
+  </rows>
+  <cols>
+    <col col="0" width="12" last-width="10" />
+    <col col="1" width="86" last-width="85" />
+    <col col="2" width="86" last-width="85" />
+    <col col="3" width="86" last-width="85" />
+    <col col="4" width="86" last-width="85" />
+    <col col="5" width="86" last-width="85" />
+    <col col="6" width="86" last-width="85" />
+    <col col="7" width="86" last-width="85" />
+    <col col="8" width="12" last-width="9" />
+  </cols>
+  <v-borders>
+    <v-border row="26" col="1" color="Black" style="Solid" pos="left" rows="11" />
+    <v-border row="26" col="8" color="Black" style="Solid" pos="right" rows="11" />
+  </v-borders>
+  <h-borders>
+    <h-border row="26" col="1" color="Black" style="Solid" pos="top" cols="7" />
+    <h-border row="37" col="1" color="Black" style="Solid" pos="bottom" cols="7" />
+  </h-borders>
+  <cells>
+    <cell row="0" col="1" colspan="5" format="text">January <style bgcolor="#999999" color="White" font="Lucida Console" font-size="32.25" valign="middle" /></cell>
+    <cell row="0" col="6" colspan="2" rowspan="2">1<style bgcolor="#bf5451" color="White" font-size="36" align="right" /></cell>
+    <cell row="0" col="8" rowspan="2" />
+    <cell row="1" col="1" colspan="5" format="text">2008<style bgcolor="#999999" color="White" font="Tahoma" font-size="15.75" valign="middle" /></cell>
+    <cell row="2" col="2" format="text" />
+    <cell row="3" col="1" format="text">Mon<style align="center" /></cell>
+    <cell row="3" col="2" format="text">Tue<style align="center" /></cell>
+    <cell row="3" col="3" format="text">Wed<style align="center" /></cell>
+    <cell row="3" col="4" format="text">Thu<style align="center" /></cell>
+    <cell row="3" col="5" format="text">Fri<style align="center" /></cell>
+    <cell row="3" col="6" format="text">Sat<style align="center" /></cell>
+    <cell row="3" col="7" format="text">Sun<style align="center" /></cell>
+    <cell row="5" col="1">
+      <style align="center" />
+    </cell>
+    <cell row="5" col="2">1<style color="Red" font-size="15.75" align="center" /></cell>
+    <cell row="5" col="3">2<style font-size="15.75" align="center" /></cell>
+    <cell row="5" col="4">3<style font-size="15.75" align="center" /></cell>
+    <cell row="5" col="5">4<style font-size="15.75" align="center" /></cell>
+    <cell row="5" col="6">5<style font-size="15.75" align="center" /></cell>
+    <cell row="5" col="7">6<style font-size="15.75" align="center" /></cell>
+    <cell row="6" col="1">
+      <style align="center" />
+    </cell>
+    <cell row="6" col="2" format="text">New Year's Day<style color="Red" font-size="7" align="center" valign="middle" /></cell>
+    <cell row="6" col="3">
+      <style align="center" />
+    </cell>
+    <cell row="6" col="4">
+      <style align="center" />
+    </cell>
+    <cell row="6" col="5">
+      <style align="center" />
+    </cell>
+    <cell row="6" col="6">
+      <style align="center" />
+    </cell>
+    <cell row="6" col="7">
+      <style align="center" />
+    </cell>
+    <cell row="7" col="1">
+      <style align="center" />
+    </cell>
+    <cell row="7" col="2">
+      <style align="center" />
+    </cell>
+    <cell row="7" col="3">
+      <style align="center" />
+    </cell>
+    <cell row="7" col="4">
+      <style align="center" />
+    </cell>
+    <cell row="7" col="5">
+      <style align="center" />
+    </cell>
+    <cell row="7" col="6">
+      <style align="center" />
+    </cell>
+    <cell row="7" col="7">
+      <style align="center" />
+    </cell>
+    <cell row="8" col="1">
+      <style align="center" />
+    </cell>
+    <cell row="8" col="2">
+      <style align="center" />
+    </cell>
+    <cell row="8" col="3">
+      <style align="center" />
+    </cell>
+    <cell row="8" col="4">
+      <style align="center" />
+    </cell>
+    <cell row="8" col="5">
+      <style align="center" />
+    </cell>
+    <cell row="8" col="6">
+      <style align="center" />
+    </cell>
+    <cell row="8" col="7">
+      <style align="center" />
+    </cell>
+    <cell row="9" col="1">7<style font-size="15.75" align="center" /></cell>
+    <cell row="9" col="2">8<style font-size="15.75" align="center" /></cell>
+    <cell row="9" col="3">9<style font-size="15.75" align="center" /></cell>
+    <cell row="9" col="4">10<style font-size="15.75" align="center" /></cell>
+    <cell row="9" col="5">11<style font-size="15.75" align="center" /></cell>
+    <cell row="9" col="6">12<style font-size="15.75" align="center" /></cell>
+    <cell row="9" col="7">13<style font-size="15.75" align="center" /></cell>
+    <cell row="10" col="1">
+      <style align="center" />
+    </cell>
+    <cell row="10" col="2">
+      <style align="center" />
+    </cell>
+    <cell row="10" col="3">
+      <style align="center" />
+    </cell>
+    <cell row="10" col="4">
+      <style align="center" />
+    </cell>
+    <cell row="10" col="5">
+      <style align="center" />
+    </cell>
+    <cell row="10" col="6">
+      <style align="center" />
+    </cell>
+    <cell row="10" col="7">
+      <style align="center" />
+    </cell>
+    <cell row="11" col="1">
+      <style align="center" />
+    </cell>
+    <cell row="11" col="2">
+      <style align="center" />
+    </cell>
+    <cell row="11" col="3">
+      <style align="center" />
+    </cell>
+    <cell row="11" col="4">
+      <style align="center" />
+    </cell>
+    <cell row="11" col="5">
+      <style align="center" />
+    </cell>
+    <cell row="11" col="6">
+      <style align="center" />
+    </cell>
+    <cell row="11" col="7">
+      <style align="center" />
+    </cell>
+    <cell row="12" col="1">
+      <style align="center" />
+    </cell>
+    <cell row="12" col="2">
+      <style align="center" />
+    </cell>
+    <cell row="12" col="3">
+      <style align="center" />
+    </cell>
+    <cell row="12" col="4">
+      <style align="center" />
+    </cell>
+    <cell row="12" col="5">
+      <style align="center" />
+    </cell>
+    <cell row="12" col="6">
+      <style align="center" />
+    </cell>
+    <cell row="12" col="7">
+      <style align="center" />
+    </cell>
+    <cell row="13" col="1">14<style color="Red" font-size="15.75" align="center" /></cell>
+    <cell row="13" col="2">15<style font-size="15.75" align="center" /></cell>
+    <cell row="13" col="3">16<style font-size="15.75" align="center" /></cell>
+    <cell row="13" col="4">17<style font-size="15.75" align="center" /></cell>
+    <cell row="13" col="5">18<style font-size="15.75" align="center" /></cell>
+    <cell row="13" col="6">19<style font-size="15.75" align="center" /></cell>
+    <cell row="13" col="7">20<style font-size="15.75" align="center" /></cell>
+    <cell row="14" col="1" format="text">Coming of Age Day<style color="Red" font-size="6" align="center" valign="middle" /></cell>
+    <cell row="14" col="2">
+      <style align="center" />
+    </cell>
+    <cell row="14" col="3">
+      <style align="center" />
+    </cell>
+    <cell row="14" col="4">
+      <style align="center" />
+    </cell>
+    <cell row="14" col="5">
+      <style align="center" />
+    </cell>
+    <cell row="14" col="6">
+      <style align="center" />
+    </cell>
+    <cell row="14" col="7">
+      <style align="center" />
+    </cell>
+    <cell row="15" col="1">
+      <style align="center" />
+    </cell>
+    <cell row="15" col="2">
+      <style align="center" />
+    </cell>
+    <cell row="15" col="3">
+      <style align="center" />
+    </cell>
+    <cell row="15" col="4">
+      <style align="center" />
+    </cell>
+    <cell row="15" col="5">
+      <style align="center" />
+    </cell>
+    <cell row="15" col="6">
+      <style align="center" />
+    </cell>
+    <cell row="15" col="7">
+      <style align="center" />
+    </cell>
+    <cell row="16" col="1">
+      <style align="center" />
+    </cell>
+    <cell row="16" col="2">
+      <style align="center" />
+    </cell>
+    <cell row="16" col="3">
+      <style align="center" />
+    </cell>
+    <cell row="16" col="4">
+      <style align="center" />
+    </cell>
+    <cell row="16" col="5">
+      <style align="center" />
+    </cell>
+    <cell row="16" col="6">
+      <style align="center" />
+    </cell>
+    <cell row="16" col="7">
+      <style align="center" />
+    </cell>
+    <cell row="17" col="1">21<style font-size="15.75" align="center" /></cell>
+    <cell row="17" col="2">22<style font-size="15.75" align="center" /></cell>
+    <cell row="17" col="3">23<style font-size="15.75" align="center" /></cell>
+    <cell row="17" col="4">24<style font-size="15.75" align="center" /></cell>
+    <cell row="17" col="5">25<style font-size="15.75" align="center" /></cell>
+    <cell row="17" col="6">26<style font-size="15.75" align="center" /></cell>
+    <cell row="17" col="7">27<style font-size="15.75" align="center" /></cell>
+    <cell row="18" col="1">
+      <style align="center" />
+    </cell>
+    <cell row="18" col="2">
+      <style align="center" />
+    </cell>
+    <cell row="18" col="3">
+      <style align="center" />
+    </cell>
+    <cell row="18" col="4">
+      <style align="center" />
+    </cell>
+    <cell row="18" col="5">
+      <style align="center" />
+    </cell>
+    <cell row="18" col="6">
+      <style align="center" />
+    </cell>
+    <cell row="18" col="7">
+      <style align="center" />
+    </cell>
+    <cell row="19" col="1">
+      <style align="center" />
+    </cell>
+    <cell row="19" col="2">
+      <style align="center" />
+    </cell>
+    <cell row="19" col="3">
+      <style align="center" />
+    </cell>
+    <cell row="19" col="4">
+      <style align="center" />
+    </cell>
+    <cell row="19" col="5">
+      <style align="center" />
+    </cell>
+    <cell row="19" col="6">
+      <style align="center" />
+    </cell>
+    <cell row="19" col="7">
+      <style align="center" />
+    </cell>
+    <cell row="20" col="1">
+      <style align="center" />
+    </cell>
+    <cell row="20" col="2">
+      <style align="center" />
+    </cell>
+    <cell row="20" col="3">
+      <style align="center" />
+    </cell>
+    <cell row="20" col="4">
+      <style align="center" />
+    </cell>
+    <cell row="20" col="5">
+      <style align="center" />
+    </cell>
+    <cell row="20" col="6">
+      <style align="center" />
+    </cell>
+    <cell row="20" col="7">
+      <style align="center" />
+    </cell>
+    <cell row="21" col="1">28<style font-size="15.75" align="center" /></cell>
+    <cell row="21" col="2">29<style font-size="15.75" align="center" /></cell>
+    <cell row="21" col="3">30<style font-size="15.75" align="center" /></cell>
+    <cell row="21" col="4">31<style font-size="15.75" align="center" /></cell>
+    <cell row="21" col="5">
+      <style align="center" />
+    </cell>
+    <cell row="21" col="6">
+      <style align="center" />
+    </cell>
+    <cell row="21" col="7">
+      <style align="center" />
+    </cell>
+    <cell row="26" col="1" format="text">MEMO</cell>
+    <cell row="27" col="1" colspan="7" rowspan="10" />
+  </cells>
+</grid>

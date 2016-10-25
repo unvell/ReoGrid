@@ -1,0 +1,958 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlignmentPage_Degrees" xml:space="preserve">
+    <value>Degrees</value>
+  </data>
+  <data name="AlignmentPage_Horizontal" xml:space="preserve">
+    <value>&amp;Horizontal:</value>
+  </data>
+  <data name="AlignmentPage_Indent" xml:space="preserve">
+    <value>&amp;Indent:</value>
+  </data>
+  <data name="AlignmentPage_Orientation" xml:space="preserve">
+    <value>Orientation</value>
+  </data>
+  <data name="AlignmentPage_Text_Alignment" xml:space="preserve">
+    <value>Text alignment</value>
+  </data>
+  <data name="AlignmentPage_Text_Control" xml:space="preserve">
+    <value>Text control</value>
+  </data>
+  <data name="AlignmentPage_Vertical" xml:space="preserve">
+    <value>&amp;Vertical:</value>
+  </data>
+  <data name="AlignmentPage_Wrap_Text" xml:space="preserve">
+    <value>&amp;Wrap text</value>
+  </data>
+  <data name="BorderPage_Line" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="BorderPage_Presets" xml:space="preserve">
+    <value>&amp;Presets</value>
+  </data>
+  <data name="BorderPage_Style" xml:space="preserve">
+    <value>&amp;Style:</value>
+  </data>
+  <data name="Btn_Cancel" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="Btn_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Msg_Load_Script_Prompt_Title" xml:space="preserve">
+    <value>Executable Script</value>
+  </data>
+  <data name="FillPage_Background_Color" xml:space="preserve">
+    <value>&amp;Background Color:</value>
+  </data>
+  <data name="FillPage_Fill_Pattern" xml:space="preserve">
+    <value>Fill &amp;Pattern</value>
+  </data>
+  <data name="FillPage_Fill_Pattern_Color" xml:space="preserve">
+    <value>Fill Pattern &amp;Color</value>
+  </data>
+  <data name="FillPage_Fill_Pattern_Style" xml:space="preserve">
+    <value>Fill Pattern &amp;Style</value>
+  </data>
+  <data name="Filter_Export_As_CSV" xml:space="preserve">
+    <value>CSV File(*.csv)|*.csv|Text file(*.txt)|*.txt|All files(*.*)|*.*</value>
+  </data>
+  <data name="Filter_Load_File" xml:space="preserve">
+    <value>All Supported Files(*.xlsx;*.csv;*.rgf)|*.xlsx;*.csv;*.rgf|ReoGrid XML Format(*.rgf)|*.rgf|Excel 2007(*.xlsx)|*.xlsx|CSV File(*.csv)|*.csv|All Files(*.*)|*.*</value>
+  </data>
+  <data name="Filter_Save_File" xml:space="preserve">
+    <value>Excel 2007(*.xlsx)|*.xlsx|ReoGrid XML Format(*.rgf)|*.rgf|CSV File(*.csv)|*.csv|All Files(*.*)|*.*</value>
+  </data>
+  <data name="FormatPage_Category" xml:space="preserve">
+    <value>&amp;Category:</value>
+  </data>
+  <data name="FormatPage_Decimal_Places" xml:space="preserve">
+    <value>&amp;Decimal Places:</value>
+  </data>
+  <data name="FormatPage_Locale" xml:space="preserve">
+    <value>&amp;Locale (location):</value>
+  </data>
+  <data name="FormatPage_Negative_Numbers" xml:space="preserve">
+    <value>&amp;Negative numbers:</value>
+  </data>
+  <data name="FormatPage_Pattern" xml:space="preserve">
+    <value>&amp;Pattern:</value>
+  </data>
+  <data name="FormatPage_Symbol" xml:space="preserve">
+    <value>&amp;Symbol:</value>
+  </data>
+  <data name="FormatPage_Type" xml:space="preserve">
+    <value>&amp;Type:</value>
+  </data>
+  <data name="FormatPage_Use_1000_Separator" xml:space="preserve">
+    <value>&amp;Use 1000 Separator ({0})</value>
+  </data>
+  <data name="Horizontal_Alignment_Center" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="Horizontal_Alignment_Distributed" xml:space="preserve">
+    <value>Distributed (Indent)</value>
+  </data>
+  <data name="Horizontal_Alignment_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Horizontal_Alignment_Left" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="Horizontal_Alignment_Right" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="HP_Homepage" xml:space="preserve">
+    <value>http://reogrid.net/</value>
+  </data>
+  <data name="HP_Homepage_Document" xml:space="preserve">
+    <value>http://reogrid.net/document</value>
+  </data>
+  <data name="Label_Color" xml:space="preserve">
+    <value>&amp;Color:</value>
+  </data>
+  <data name="Sample" xml:space="preserve">
+    <value>Sample</value>
+  </data>
+  <data name="Menu_Cells" xml:space="preserve">
+    <value>&amp;Cells</value>
+  </data>
+  <data name="Menu_Change_Cells_Type" xml:space="preserve">
+    <value>Change Cells &amp;Type</value>
+  </data>
+  <data name="Menu_Cells_Merge_Cells" xml:space="preserve">
+    <value>&amp;Merge Cells</value>
+  </data>
+  <data name="Menu_Cells_Unmerge_Cells" xml:space="preserve">
+    <value>&amp;Unmerge Cells</value>
+  </data>
+  <data name="Menu_Edit" xml:space="preserve">
+    <value>&amp;Edit</value>
+  </data>
+  <data name="Menu_Edit_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Menu_Copy" xml:space="preserve">
+    <value>&amp;Copy</value>
+  </data>
+  <data name="Menu_Cut" xml:space="preserve">
+    <value>C&amp;ut</value>
+  </data>
+  <data name="Menu_Edit_Focus_Cell_Style" xml:space="preserve">
+    <value>Focus Cell Style</value>
+  </data>
+  <data name="Menu_Paste" xml:space="preserve">
+    <value>&amp;Paste</value>
+  </data>
+  <data name="Menu_Edit_Readonly" xml:space="preserve">
+    <value>Read-only</value>
+  </data>
+  <data name="Menu_Redo" xml:space="preserve">
+    <value>&amp;Redo</value>
+  </data>
+  <data name="Menu_Edit_Repeat_Last_Action" xml:space="preserve">
+    <value>Repeat Last &amp;Action</value>
+  </data>
+  <data name="Menu_Edit_Selection" xml:space="preserve">
+    <value>&amp;Selection</value>
+  </data>
+  <data name="Menu_Edit_Selection_Drag_To_Fill_Serial" xml:space="preserve">
+    <value>Drag To &amp;Fill Serial</value>
+  </data>
+  <data name="Menu_Edit_Selection_Drag_To_Move_Content" xml:space="preserve">
+    <value>&amp;Drag To Move Content</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode" xml:space="preserve">
+    <value>Selection &amp;Mode</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Cell" xml:space="preserve">
+    <value>Cell</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Column" xml:space="preserve">
+    <value>Column</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Range" xml:space="preserve">
+    <value>&amp;Range (Default)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Row" xml:space="preserve">
+    <value>Row</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style" xml:space="preserve">
+    <value>Selection S&amp;tyle</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style_Default" xml:space="preserve">
+    <value>Default Solid Rectangle</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style_Focus_Rect" xml:space="preserve">
+    <value>Windows Focus Rectangle</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Menu_Edit_Select_All" xml:space="preserve">
+    <value>Select &amp;All</value>
+  </data>
+  <data name="Menu_Undo" xml:space="preserve">
+    <value>&amp;Undo</value>
+  </data>
+  <data name="Menu_File" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
+  <data name="Menu_File_Edit_RGF_XML" xml:space="preserve">
+    <value>Edit RGF &amp;XML...</value>
+  </data>
+  <data name="Menu_File_Exit" xml:space="preserve">
+    <value>&amp;Exit</value>
+  </data>
+  <data name="Menu_File_Export_As_CSV" xml:space="preserve">
+    <value>Export As &amp;CSV...</value>
+  </data>
+  <data name="Menu_File_Export_As_CSV_Current_Worksheet" xml:space="preserve">
+    <value>Export Current Worksheet...</value>
+  </data>
+  <data name="Menu_File_Export_As_CSV_Selected_Range" xml:space="preserve">
+    <value>Export Selected Range...</value>
+  </data>
+  <data name="Menu_File_Export_As_HTML" xml:space="preserve">
+    <value>Export As &amp;HTML...</value>
+  </data>
+  <data name="Menu_File_New" xml:space="preserve">
+    <value>&amp;New</value>
+  </data>
+  <data name="Menu_File_New_Window" xml:space="preserve">
+    <value>New &amp;Window...</value>
+  </data>
+  <data name="Menu_File_Open" xml:space="preserve">
+    <value>&amp;Open</value>
+  </data>
+  <data name="Menu_File_Print" xml:space="preserve">
+    <value>&amp;Print...</value>
+  </data>
+  <data name="Menu_File_Print_Preview" xml:space="preserve">
+    <value>Print P&amp;review...</value>
+  </data>
+  <data name="Menu_File_Print_Settings" xml:space="preserve">
+    <value>Print Se&amp;ttings...</value>
+  </data>
+  <data name="Menu_File_Save" xml:space="preserve">
+    <value>&amp;Save</value>
+  </data>
+  <data name="Menu_File_Save_As" xml:space="preserve">
+    <value>Save &amp;As...</value>
+  </data>
+  <data name="Menu_Formula" xml:space="preserve">
+    <value>&amp;Formula</value>
+  </data>
+  <data name="Menu_Formula_Auto_Function" xml:space="preserve">
+    <value>&amp;Auto Function</value>
+  </data>
+  <data name="Menu_Formula_Define_Name" xml:space="preserve">
+    <value>Define &amp;Name...</value>
+  </data>
+  <data name="Menu_Formula_Name_Manager" xml:space="preserve">
+    <value>Name &amp;Manager...</value>
+  </data>
+  <data name="Menu_Formula_Recalculate_Worksheet" xml:space="preserve">
+    <value>Recalculate Worksheet</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows" xml:space="preserve">
+    <value>&amp;Remove Trace Arrows</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows_Remove_All_Arrows" xml:space="preserve">
+    <value>Remove All &amp;Arrows</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows_Remove_Dependent_Arrows" xml:space="preserve">
+    <value>Remove &amp;Dependent Arrows</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows_Remove_Precedent_Arrows" xml:space="preserve">
+    <value>Remove &amp;Precedent Arrows</value>
+  </data>
+  <data name="Menu_Formula_Suspend_Reference_Updates" xml:space="preserve">
+    <value>&amp;Suspend Reference Updates</value>
+  </data>
+  <data name="Menu_Formula_Trace_Dependents" xml:space="preserve">
+    <value>Trace &amp;Dependents</value>
+  </data>
+  <data name="Menu_Formula_Trace_Precedents" xml:space="preserve">
+    <value>Trace &amp;Precedents</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
+  <data name="Menu_Help_About" xml:space="preserve">
+    <value>&amp;About...</value>
+  </data>
+  <data name="Menu_Help_Documents" xml:space="preserve">
+    <value>&amp;Documents...</value>
+  </data>
+  <data name="Menu_Help_Homepage" xml:space="preserve">
+    <value>&amp;Homepage...</value>
+  </data>
+  <data name="Menu_Script" xml:space="preserve">
+    <value>Sc&amp;ript</value>
+  </data>
+  <data name="Menu_Script_Run_Function" xml:space="preserve">
+    <value>Run &amp;Function...</value>
+  </data>
+  <data name="Menu_Script_Script_Editor" xml:space="preserve">
+    <value>Script &amp;Editor...</value>
+  </data>
+  <data name="Menu_Sheet" xml:space="preserve">
+    <value>&amp;Sheet</value>
+  </data>
+  <data name="Menu_Sheet_Clear_Filter" xml:space="preserve">
+    <value>Clear Filter</value>
+  </data>
+  <data name="Menu_Sheet_Filter" xml:space="preserve">
+    <value>&amp;Filter</value>
+  </data>
+  <data name="Menu_Sheet_Group" xml:space="preserve">
+    <value>&amp;Group</value>
+  </data>
+  <data name="Menu_Sheet_Group_Rows" xml:space="preserve">
+    <value>Group &amp;Rows</value>
+  </data>
+  <data name="Menu_Sheet_Insert" xml:space="preserve">
+    <value>&amp;Insert</value>
+  </data>
+  <data name="Menu_Sheet_Resize" xml:space="preserve">
+    <value>&amp;Resize...</value>
+  </data>
+  <data name="Menu_Sheet_Settings" xml:space="preserve">
+    <value>&amp;Settings</value>
+  </data>
+  <data name="Menu_Tools" xml:space="preserve">
+    <value>&amp;Tools</value>
+  </data>
+  <data name="Menu_Tools_Control_Appearance" xml:space="preserve">
+    <value>Control &amp;Appearance...</value>
+  </data>
+  <data name="Menu_View" xml:space="preserve">
+    <value>&amp;View</value>
+  </data>
+  <data name="Menu_View_Components" xml:space="preserve">
+    <value>&amp;Components</value>
+  </data>
+  <data name="Menu_View_Components_FormulaBar" xml:space="preserve">
+    <value>&amp;Formula Bar</value>
+  </data>
+  <data name="Menu_View_Components_StatusBar" xml:space="preserve">
+    <value>&amp;Status Bar</value>
+  </data>
+  <data name="Menu_View_Components_Toolbar" xml:space="preserve">
+    <value>&amp;Toolbar</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Cell" xml:space="preserve">
+    <value>&amp;Freeze To Cell</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges" xml:space="preserve">
+    <value>Freeze To &amp;Edges</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Bottom" xml:space="preserve">
+    <value>&amp;Bottom</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Bottom_Left" xml:space="preserve">
+    <value>Bottom Le&amp;ft</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Bottom_Right" xml:space="preserve">
+    <value>Bottom Ri&amp;ght</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Left" xml:space="preserve">
+    <value>&amp;Left</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Right" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Top" xml:space="preserve">
+    <value>&amp;Top</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Top_Left" xml:space="preserve">
+    <value>Top &amp;Left</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Top_Right" xml:space="preserve">
+    <value>Top &amp;Right</value>
+  </data>
+  <data name="Menu_Reset_All_Page_Breaks" xml:space="preserve">
+    <value>Reset All Page &amp;Breaks</value>
+  </data>
+  <data name="Menu_View_Unfreeze" xml:space="preserve">
+    <value>Unfreeze</value>
+  </data>
+  <data name="Menu_View_Visible" xml:space="preserve">
+    <value>&amp;Visible</value>
+  </data>
+  <data name="Menu_View_Visible_Column_Header" xml:space="preserve">
+    <value>&amp;Column Header</value>
+  </data>
+  <data name="Menu_View_Visible_Column_Outline_Panel" xml:space="preserve">
+    <value>Column Outline &amp;Panel</value>
+  </data>
+  <data name="Menu_View_Visible_Forzen_Line" xml:space="preserve">
+    <value>&amp;Frozen Line</value>
+  </data>
+  <data name="Menu_View_Visible_Grid_Lines" xml:space="preserve">
+    <value>&amp;Grid Lines</value>
+  </data>
+  <data name="Menu_View_Visible_Horizontal_ScrollBar" xml:space="preserve">
+    <value>&amp;Horizontal Scrollbar</value>
+  </data>
+  <data name="Menu_View_Visible_Page_Breaks" xml:space="preserve">
+    <value>Page &amp;Breaks</value>
+  </data>
+  <data name="Menu_View_Visible_Row_Header" xml:space="preserve">
+    <value>&amp;Row Header</value>
+  </data>
+  <data name="Menu_View_Visible_Row_Outline_Panel" xml:space="preserve">
+    <value>Row &amp;Outline Panel</value>
+  </data>
+  <data name="Menu_View_Visible_Sheet_Tab" xml:space="preserve">
+    <value>&amp;Sheet Tab</value>
+  </data>
+  <data name="Menu_View_Visible_Vertical_ScrollBar" xml:space="preserve">
+    <value>&amp;Vertical Scrollbar</value>
+  </data>
+  <data name="Msg_File_Not_Found" xml:space="preserve">
+    <value>Specified file cannot be found: </value>
+  </data>
+  <data name="Msg_Load_File_Failed" xml:space="preserve">
+    <value>Loading file failed: </value>
+  </data>
+  <data name="Msg_Load_Script_Prompt" xml:space="preserve">
+    <value>The document contains macro and executable script. Do you want to run the script now?</value>
+  </data>
+  <data name="Msg_Named_Range_Overwrite" xml:space="preserve">
+    <value>Another range with this name has already existed, are you sure to overwrite it?</value>
+  </data>
+  <data name="Msg_Only_RGF_Edit_XML" xml:space="preserve">
+    <value>XML edit only available when current file format is ReoGrid Format File (.rgf;*.xml).</value>
+  </data>
+  <data name="Msg_Operation_Aborted" xml:space="preserve">
+    <value>Operation cannot be performed.</value>
+  </data>
+  <data name="Msg_Outline_Already_Exist" xml:space="preserve">
+    <value>Another outline has already exists at same position.</value>
+  </data>
+  <data name="Msg_Outline_Intersected" xml:space="preserve">
+    <value>The outline to be added intersects with another one.</value>
+  </data>
+  <data name="Msg_Outline_Not_Found" xml:space="preserve">
+    <value>No outline found at specified position.</value>
+  </data>
+  <data name="Msg_Outline_Out_Of_Range" xml:space="preserve">
+    <value>Invalid range to group row or columns. Make sure that the last row or column of worksheet not grouped into any outlines.</value>
+  </data>
+  <data name="Msg_Outline_Too_Much" xml:space="preserve">
+    <value>Level of outlines reached the maximum number of levels (10).</value>
+  </data>
+  <data name="Msg_Range_Intersection_Exception" xml:space="preserve">
+    <value>Operation cannot be performed, range may contains a part of another merged cell.</value>
+  </data>
+  <data name="Msg_Save_Changes" xml:space="preserve">
+    <value>Do you want to save changes?</value>
+  </data>
+  <data name="Msg_Save_File_Immediately" xml:space="preserve">
+    <value>Editor will save current file, continue?</value>
+  </data>
+  <data name="Msg_Script_Not_Available" xml:space="preserve">
+    <value>Script execution is not supported by this edition.</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="ProtectionPage_Locked" xml:space="preserve">
+    <value>Locked (Read-only)</value>
+  </data>
+  <data name="Untitled" xml:space="preserve">
+    <value>Untitled</value>
+  </data>
+  <data name="Vertical_Alignment_Bottom" xml:space="preserve">
+    <value>Bottom</value>
+  </data>
+  <data name="Vertical_Alignment_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Vertical_Alignment_Middle" xml:space="preserve">
+    <value>Middle</value>
+  </data>
+  <data name="Vertical_Alignment_Top" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="Menu_More" xml:space="preserve">
+    <value>More...</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="AppearanceEditor_Export_CSharp" xml:space="preserve">
+    <value>Export C#</value>
+  </data>
+  <data name="AppearanceEditor_Export_VBNET" xml:space="preserve">
+    <value>Export VB.NET</value>
+  </data>
+  <data name="AppearanceEditor_Highlight" xml:space="preserve">
+    <value>&amp;Highlight:</value>
+  </data>
+  <data name="AppearanceEditor_Main" xml:space="preserve">
+    <value>&amp;Main:</value>
+  </data>
+  <data name="AppearanceEditor_Reset_To_Default" xml:space="preserve">
+    <value>Reset to &amp;Default</value>
+  </data>
+  <data name="AppearanceEditor_Selection_Border_Width" xml:space="preserve">
+    <value>Selection Border &amp;Width:</value>
+  </data>
+  <data name="AppearanceEditor_Use_System_Highligh_Color" xml:space="preserve">
+    <value>Use &amp;System Highlight Color</value>
+  </data>
+  <data name="Btn_Close" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="Btn_Delete" xml:space="preserve">
+    <value>&amp;Delete</value>
+  </data>
+  <data name="Btn_Edit" xml:space="preserve">
+    <value>&amp;Edit</value>
+  </data>
+  <data name="Btn_New" xml:space="preserve">
+    <value>&amp;New</value>
+  </data>
+  <data name="Column" xml:space="preserve">
+    <value>Column</value>
+  </data>
+  <data name="DefineNamedRange_Caption" xml:space="preserve">
+    <value>New Name</value>
+  </data>
+  <data name="DefineNamedRange_Comment" xml:space="preserve">
+    <value>&amp;Comment:</value>
+  </data>
+  <data name="DefineNamedRange_Name" xml:space="preserve">
+    <value>&amp;Name:</value>
+  </data>
+  <data name="DefineNamedRange_Range" xml:space="preserve">
+    <value>&amp;Range:</value>
+  </data>
+  <data name="HeaderProperty_Auto_Fit_To_Cell" xml:space="preserve">
+    <value>Auto &amp;fit to cell</value>
+  </data>
+  <data name="HeaderProperty_Caption" xml:space="preserve">
+    <value>Header Properties</value>
+  </data>
+  <data name="HeaderProperty_Default_Column_Type" xml:space="preserve">
+    <value>Default Column &amp;Type:</value>
+  </data>
+  <data name="HeaderProperty_Panel_Width" xml:space="preserve">
+    <value>Panel &amp;Width:</value>
+  </data>
+  <data name="HeaderProperty_Text" xml:space="preserve">
+    <value>&amp;Text:</value>
+  </data>
+  <data name="HeaderProperty_Text_Color" xml:space="preserve">
+    <value>Text &amp;Color:</value>
+  </data>
+  <data name="Inch" xml:space="preserve">
+    <value>inch</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Landscape</value>
+  </data>
+  <data name="Msg_Create_Named_Range_Failed" xml:space="preserve">
+    <value>Cannot define named range by specified name. Make sure:
+  The name does not begin with a number
+  The name does not contain spaces or any invalid characters
+  The name is not same as any address of cell and range
+  The name is not same as any built-in function names</value>
+  </data>
+  <data name="Msg_Create_Named_Range_Failed_Title" xml:space="preserve">
+    <value>Define named range failed</value>
+  </data>
+  <data name="Msg_Delete_Named_Range_Confirm" xml:space="preserve">
+    <value>Are you sure to delete selected named range?</value>
+  </data>
+  <data name="Msg_Delete_Named_Range_Confirm_Title" xml:space="preserve">
+    <value>Delete named range</value>
+  </data>
+  <data name="Msg_Input_Name_Of_Range" xml:space="preserve">
+    <value>Please input the name of range.</value>
+  </data>
+  <data name="Msg_Invalid_Address_Of_Range" xml:space="preserve">
+    <value>The address of range is invalid.</value>
+  </data>
+  <data name="Msg_No_Current_Worksheet" xml:space="preserve">
+    <value>No worksheet contained in workbook.</value>
+  </data>
+  <data name="Msg_Source_Code_Exported_Into_Clipboard" xml:space="preserve">
+    <value>code exported into Clipboard.</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NamedRangeManage_Caption" xml:space="preserve">
+    <value>Named Range Management</value>
+  </data>
+  <data name="NamedRangeManage_Named_Ranges" xml:space="preserve">
+    <value>Named ranges:</value>
+  </data>
+  <data name="Paging_Order" xml:space="preserve">
+    <value>Paging Order</value>
+  </data>
+  <data name="Paper" xml:space="preserve">
+    <value>Paper</value>
+  </data>
+  <data name="Pixel" xml:space="preserve">
+    <value>Pixel</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Portrait</value>
+  </data>
+  <data name="PrintSettings_Adjust_To" xml:space="preserve">
+    <value>Adjust_To</value>
+  </data>
+  <data name="PrintSettings_Down_Then_Over" xml:space="preserve">
+    <value>Down, then over</value>
+  </data>
+  <data name="PrintSettings_Orientation" xml:space="preserve">
+    <value>Orientation:</value>
+  </data>
+  <data name="PrintSettings_Over_Then_Down" xml:space="preserve">
+    <value>Over, then down</value>
+  </data>
+  <data name="PrintSettings_Paper_Size" xml:space="preserve">
+    <value>Paper Size:</value>
+  </data>
+  <data name="PrintSettings_Percent_Normal_Size" xml:space="preserve">
+    <value>% normal size</value>
+  </data>
+  <data name="PrintSettings_Setup" xml:space="preserve">
+    <value>&amp;Setup</value>
+  </data>
+  <data name="PrintSettings_Show_Grid_Lines" xml:space="preserve">
+    <value>Show &amp;Grid Lines</value>
+  </data>
+  <data name="PrintSettings_Show_Margins" xml:space="preserve">
+    <value>Show &amp;Margins</value>
+  </data>
+  <data name="PrintSettings_Visible_Settings" xml:space="preserve">
+    <value>Visible Settings</value>
+  </data>
+  <data name="Resize_Caption" xml:space="preserve">
+    <value>Resize worksheet</value>
+  </data>
+  <data name="Resize_Columns" xml:space="preserve">
+    <value>&amp;Columns:</value>
+  </data>
+  <data name="Resize_Columns_Remark" xml:space="preserve">
+    <value>(max: 32,768)</value>
+  </data>
+  <data name="Resize_Rows" xml:space="preserve">
+    <value>&amp;Rows:</value>
+  </data>
+  <data name="Resize_Rows_Remark" xml:space="preserve">
+    <value>(max: 1,048,576)</value>
+  </data>
+  <data name="Row" xml:space="preserve">
+    <value>Row</value>
+  </data>
+  <data name="RunFunction_Caption" xml:space="preserve">
+    <value>Run Script Function</value>
+  </data>
+  <data name="RunFunction_Close_This_Window_After_Running" xml:space="preserve">
+    <value>&amp;Close this window after running</value>
+  </data>
+  <data name="RunFunction_Functions" xml:space="preserve">
+    <value>&amp;Functions:</value>
+  </data>
+  <data name="RunFunction_Run" xml:space="preserve">
+    <value>&amp;Run</value>
+  </data>
+  <data name="Scaling" xml:space="preserve">
+    <value>Scaling</value>
+  </data>
+  <data name="SetHeaderSize_Caption_Column" xml:space="preserve">
+    <value>Column width</value>
+  </data>
+  <data name="SetHeaderSize_Caption_Row" xml:space="preserve">
+    <value>Row height</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Alignment" xml:space="preserve">
+    <value>Alignment</value>
+  </data>
+  <data name="Border" xml:space="preserve">
+    <value>Border</value>
+  </data>
+  <data name="Fill" xml:space="preserve">
+    <value>Fill</value>
+  </data>
+  <data name="Format" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="Protection" xml:space="preserve">
+    <value>Protection</value>
+  </data>
+  <data name="AppearanceEditor_Caption" xml:space="preserve">
+    <value>Control Appearance Editor</value>
+  </data>
+  <data name="PrintSettings_Caption" xml:space="preserve">
+    <value>Print Settings</value>
+  </data>
+  <data name="CtxMenu_Cell_Merge" xml:space="preserve">
+    <value>&amp;Merge</value>
+  </data>
+  <data name="CtxMenu_Cell_Unmerge" xml:space="preserve">
+    <value>&amp;Unmerge</value>
+  </data>
+  <data name="CtxMenu_Col_Clear_Filter" xml:space="preserve">
+    <value>Clear Filter</value>
+  </data>
+  <data name="CtxMenu_Col_Column_Width" xml:space="preserve">
+    <value>Column &amp;Width...</value>
+  </data>
+  <data name="CtxMenu_Col_Delete_Columns" xml:space="preserve">
+    <value>&amp;Delete Columns</value>
+  </data>
+  <data name="CtxMenu_Col_Filter" xml:space="preserve">
+    <value>&amp;Filter</value>
+  </data>
+  <data name="CtxMenu_Col_Insert_Columns" xml:space="preserve">
+    <value>&amp;Insert Columns</value>
+  </data>
+  <data name="CtxMenu_Col_Reset_To_Default_Width" xml:space="preserve">
+    <value>Reset to Default Width</value>
+  </data>
+  <data name="CtxMenu_Row_Delete_Rows" xml:space="preserve">
+    <value>&amp;Delete Rows</value>
+  </data>
+  <data name="CtxMenu_Row_Insert_Rows" xml:space="preserve">
+    <value>&amp;Insert Rows</value>
+  </data>
+  <data name="CtxMenu_Row_Reset_to_Default_Height" xml:space="preserve">
+    <value>Reset to Default Height</value>
+  </data>
+  <data name="CtxMenu_Row_Row_Height" xml:space="preserve">
+    <value>Row &amp;Height...</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="Menu_Edit_Selection_Move_Direction" xml:space="preserve">
+    <value>&amp;Move Direction</value>
+  </data>
+  <data name="Menu_Edit_Selection_Move_Direction_Down" xml:space="preserve">
+    <value>&amp;Down</value>
+  </data>
+  <data name="Menu_Edit_Selection_Move_Direction_Right" xml:space="preserve">
+    <value>&amp;Right (Default)</value>
+  </data>
+  <data name="Menu_Format_Cells" xml:space="preserve">
+    <value>&amp;Format Cells...</value>
+  </data>
+  <data name="Menu_Group" xml:space="preserve">
+    <value>&amp;Group</value>
+  </data>
+  <data name="Menu_Hide" xml:space="preserve">
+    <value>&amp;Hide</value>
+  </data>
+  <data name="Menu_Insert_Page_Break" xml:space="preserve">
+    <value>Insert Page &amp;Break</value>
+  </data>
+  <data name="Menu_Property" xml:space="preserve">
+    <value>&amp;Property...</value>
+  </data>
+  <data name="Menu_Remove_Page_Break" xml:space="preserve">
+    <value>Remove Page Break</value>
+  </data>
+  <data name="Menu_Sheet_Group_Columns" xml:space="preserve">
+    <value>Group &amp;Columns</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup" xml:space="preserve">
+    <value>Ungroup</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_All_Columns" xml:space="preserve">
+    <value>All Columns</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_All_Rows" xml:space="preserve">
+    <value>All Rows</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_Selection_Columns" xml:space="preserve">
+    <value>Selection Columns</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_Selection_Rows" xml:space="preserve">
+    <value>Selection Rows</value>
+  </data>
+  <data name="Menu_Ungroup" xml:space="preserve">
+    <value>Ungroup</value>
+  </data>
+  <data name="Menu_Ungroup_All" xml:space="preserve">
+    <value>Ungroup All</value>
+  </data>
+  <data name="Menu_Unhide" xml:space="preserve">
+    <value>&amp;Unhide</value>
+  </data>
+  <data name="NamedRangeManage_New" xml:space="preserve">
+    <value>&amp;New...</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="CellBody" xml:space="preserve">
+    <value>Body</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="Data_Format" xml:space="preserve">
+    <value>Data Format</value>
+  </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>DateTime</value>
+  </data>
+  <data name="FormatPage_Caption" xml:space="preserve">
+    <value>Format Cells</value>
+  </data>
+  <data name="Formula" xml:space="preserve">
+    <value>Formula</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="Percentage" xml:space="preserve">
+    <value>Percentage</value>
+  </data>
+  <data name="Style" xml:space="preserve">
+    <value>Style</value>
+  </data>
+  <data name="NoColor" xml:space="preserve">
+    <value>No Color</value>
+  </data>
+  <data name="SolidColor" xml:space="preserve">
+    <value>Solid</value>
+  </data>
+</root>

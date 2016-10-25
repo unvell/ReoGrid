@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <meta>
+      <culture>en-US</culture>
+      <editor>ReoGrid Core</editor>
+      <core-ver>1.3.0.1</core-ver>
+    </meta>
+    <rows>10</rows>
+    <cols>10</cols>
+    <default-row-height>20</default-row-height>
+    <default-col-width>70</default-col-width>
+    <settings meta="30475026398" />
+    <script />
+  </head>
+  <style font="Calibri" font-size="10.25" align="general" valign="middle" />
+  <rows />
+  <cols />
+  <v-borders>
+    <v-border row="0" col="10" style="Dotted" pos="right" rows="10" />
+  </v-borders>
+  <h-borders>
+    <h-border row="10" col="0" style="Dotted" pos="bottom" cols="10" />
+  </h-borders>
+  <cells />
+</grid>

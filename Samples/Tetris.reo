@@ -1,0 +1,25 @@
+// reset grid to 50x50 cells
+grid.reset(50, 50);
+
+// disable editing to all cells
+grid.oncelledit = e => false;
+
+// set 0-40 columns to 22 pixels width
+for(var i=0;i<40;i++) grid.getCol(i).width = 22;
+
+var shapes = [
+  [ [0x8, 0x8, 0xc], [0xe, 0x8] ], // L
+  [ [0xc, 0xc] ], // []
+  [ [0xe, 0x4], [0x2, 0x6, 0x2], [0x0, 0x4, 0xe], [0x8, 0xc, 0x8] ], // T
+  [ [0xe, 0x2], [0x2, 0x2, 0x6] ], // _|
+  [ [0x8, 0x8, 0x8, 0x8], [0xf] ], // ----
+];
+
+var shapegroup = shapes[Math.random * shapes.length];
+var shape = shapegroup[0];
+
+var x=10, y = 5;
+for(var r=0;r<4;r++){
+  for(var c=0;c<4;c++){
+    var shaperow = shape[r];
+    if(shaperow > 

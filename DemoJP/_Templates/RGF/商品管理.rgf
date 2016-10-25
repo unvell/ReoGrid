@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <meta>
+      <culture>en-US</culture>
+      <editor>ReoGrid Core </editor>
+      <core-ver>1.3.0.0</core-ver>
+    </meta>
+    <rows>30</rows>
+    <cols>10</cols>
+    <default-row-height>20</default-row-height>
+    <default-col-width>70</default-col-width>
+    <settings meta="30474797054" />
+    <script />
+  </head>
+  <style font="Calibri" font-size="10.25" align="general" valign="middle" />
+  <rows>
+    <row row="0" height="27" last-height="36" auto-height="false" />
+  </rows>
+  <cols>
+    <col col="0" width="63" last-width="33" />
+    <col col="1" width="126" last-width="96" />
+    <col col="2" width="97" last-width="67" />
+    <col col="3" width="92" last-width="62" />
+    <col col="4" width="63" last-width="33" />
+    <col col="5" width="97" last-width="67" />
+  </cols>
+  <v-borders>
+    <v-border row="0" col="0" pos="left" rows="7" />
+    <v-border row="0" col="1" pos="all" rows="7" />
+    <v-border row="0" col="2" pos="all" rows="7" />
+    <v-border row="0" col="3" pos="all" rows="7" />
+    <v-border row="0" col="4" pos="all" rows="7" />
+    <v-border row="0" col="5" pos="all" rows="7" />
+    <v-border row="0" col="6" pos="right" rows="7" />
+  </v-borders>
+  <h-borders>
+    <h-border row="0" col="0" pos="top" cols="6" />
+    <h-border row="1" col="0" pos="bottom" cols="6" />
+    <h-border row="2" col="0" style="Dotted" pos="all" cols="6" />
+    <h-border row="3" col="0" style="Dotted" pos="all" cols="6" />
+    <h-border row="4" col="0" style="Dotted" pos="all" cols="6" />
+    <h-border row="5" col="0" style="Dotted" pos="all" cols="6" />
+    <h-border row="6" col="0" style="Dotted" pos="all" cols="6" />
+    <h-border row="7" col="0" pos="bottom" cols="6" />
+  </h-borders>
+  <cells>
+    <cell row="0" col="0">番号<style bgcolor="#5ea4ea" color="#ffffff" align="center" /></cell>
+    <cell row="0" col="1">商品名<style bgcolor="#5ea4ea" color="#ffffff" align="center" /></cell>
+    <cell row="0" col="2">商品コード<style bgcolor="#5ea4ea" color="#ffffff" align="center" /></cell>
+    <cell row="0" col="3">入荷日<style bgcolor="#5ea4ea" color="#ffffff" align="center" /></cell>
+    <cell row="0" col="4">数量<style bgcolor="#5ea4ea" color="#ffffff" align="center" /></cell>
+    <cell row="0" col="5">管理コード<style bgcolor="#5ea4ea" color="#ffffff" align="center" /></cell>
+    <cell row="1" col="0">1</cell>
+    <cell row="1" col="1">ダイエットゼリー</cell>
+    <cell row="1" col="2">D025</cell>
+    <cell row="1" col="3" format="datetime">5/4<format-args pattern="M/d/yyyy" culture="en-US" /></cell>
+    <cell row="1" col="4">3</cell>
+    <cell row="1" col="5">D025-04</cell>
+    <cell row="2" col="0">2</cell>
+    <cell row="2" col="1">スリムキャンデー</cell>
+    <cell row="2" col="2">S144</cell>
+    <cell row="2" col="3" format="datetime">5/7<format-args pattern="M/d/yyyy" culture="en-US" /></cell>
+    <cell row="2" col="4">2</cell>
+    <cell row="2" col="5">S144-07</cell>
+    <cell row="3" col="0">3</cell>
+    <cell row="3" col="1">ヤセクリーム</cell>
+    <cell row="3" col="2">Y903</cell>
+    <cell row="3" col="3" format="datetime">5/11<format-args pattern="M/d/yyyy" culture="en-US" /></cell>
+    <cell row="3" col="4">2</cell>
+    <cell row="3" col="5">Y903-11</cell>
+    <cell row="4" col="0">4</cell>
+    <cell row="4" col="1">ダイエットゼリー</cell>
+    <cell row="4" col="2">D025</cell>
+    <cell row="4" col="3" format="datetime">5/12<format-args pattern="M/d/yyyy" culture="en-US" /></cell>
+    <cell row="4" col="4">3</cell>
+    <cell row="4" col="5">D025-12</cell>
+    <cell row="5" col="0">5</cell>
+    <cell row="5" col="1">ダイエットゼリー</cell>
+    <cell row="5" col="2">D025</cell>
+    <cell row="5" col="3" format="datetime">5/17<format-args pattern="M/d/yyyy" culture="en-US" /></cell>
+    <cell row="5" col="4">2</cell>
+    <cell row="5" col="5">D025-17</cell>
+    <cell row="6" col="0">6</cell>
+    <cell row="6" col="1">ヘルシークッキー</cell>
+    <cell row="6" col="2">HC10</cell>
+    <cell row="6" col="3" format="datetime">5/19<format-args pattern="M/d/yyyy" culture="en-US" /></cell>
+    <cell row="6" col="4">1</cell>
+    <cell row="6" col="5">HC10-19</cell>
+  </cells>
+</grid>

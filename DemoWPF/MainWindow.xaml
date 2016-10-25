@@ -1,0 +1,36 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:rg="clr-namespace:unvell.ReoGrid;assembly=unvell.ReoGrid"
+				x:Class="unvell.ReoGrid.WPFDemo.MainWindow"
+        Title="ReoGrid WPF Demo" Height="640" Width="800">
+
+	<DockPanel>
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="_File">
+				<MenuItem Header="_New" Click="File_New_Click" />
+				<MenuItem Header="_Open..." Click="File_Open_Click" />
+				<MenuItem Header="_Save..." Click="File_Save_Click" />
+				<Separator />
+				<MenuItem Header="_Exit" Click="File_Exit_Click" />
+			</MenuItem>
+			<MenuItem Header="_View">
+				<MenuItem x:Name="viewSheetTabVisible" IsCheckable="true" IsChecked="true" Header="Sheet Tab" Click="View_SheetTab_Click"/>
+				<MenuItem x:Name="viewSheetTabNewButtonVisible" IsCheckable="true" IsChecked="true" Header="Sheet Tab New Button" Click="View_SheetTabNewButton_Click"/>
+				<MenuItem x:Name="viewGuideLineVisible" IsCheckable="true" IsChecked="true" Header="Grid Line" Click="View_GuideLine_Click"/>
+				<MenuItem x:Name="viewHorizontalScrollbarVisible" IsCheckable="true" IsChecked="true" Header="Horizontal Scrollbar" Click="View_HorizontalScrollbar_Click"/>
+				<MenuItem x:Name="viewVerticalScrollbarVisible" IsCheckable="true" IsChecked="true" Header="Vertical Scrollbar" Click="View_VerticalScrollbar_Click"/>
+				<MenuItem x:Name="viewPageBreaksVisible" IsCheckable="true" IsChecked="true" Header="Print Page Breakes" Click="View_PageBreaks_Click"/>
+			</MenuItem>
+		</Menu>
+
+		<Border x:Name="border" Background="LightBlue" BorderBrush="Black" Padding="8">
+
+			<rg:ReoGridControl x:Name="grid" >
+			</rg:ReoGridControl>
+
+		</Border>
+
+	</DockPanel>
+
+</Window>

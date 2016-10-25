@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <meta>
+      <culture>en-US</culture>
+      <editor>ReoGrid Core</editor>
+      <core-ver>1.3.0.1</core-ver>
+    </meta>
+    <rows>5</rows>
+    <cols>5</cols>
+    <default-row-height>20</default-row-height>
+    <default-col-width>70</default-col-width>
+    <settings meta="30473977822">
+      <show-grid>false</show-grid>
+    </settings>
+    <script />
+  </head>
+  <style font="Microsoft YaHei UI" font-size="9.25" align="general" valign="middle" />
+  <rows>
+    <row row="0" height="35" last-height="30">
+      <style color="#5e8897" font-size="11.25" />
+    </row>
+    <row row="1" height="30" last-height="37" auto-height="false" />
+    <row row="2" height="30" last-height="27" auto-height="false" />
+    <row row="3" height="25" last-height="20" auto-height="false" />
+    <row row="4" height="25" last-height="43" auto-height="false" />
+  </rows>
+  <cols>
+    <col col="0" width="30" last-width="44" />
+    <col col="1" width="30" last-width="51" />
+  </cols>
+  <v-borders>
+    <v-border row="4" col="0" pos="left" rows="1" />
+    <v-border row="4" col="1" pos="all" rows="1" />
+    <v-border row="2" col="2" color="#618998" pos="all" rows="2" />
+    <v-border row="4" col="2" pos="all" rows="1" />
+    <v-border row="4" col="3" pos="all" rows="1" />
+    <v-border row="3" col="4" pos="all" rows="2" />
+    <v-border row="0" col="5" pos="right" rows="5" />
+  </v-borders>
+  <h-borders>
+    <h-border row="0" col="4" pos="top" cols="1" />
+    <h-border row="1" col="4" pos="all" cols="1" />
+    <h-border row="2" col="2" color="#618998" pos="top" cols="2" />
+    <h-border row="2" col="4" pos="all" cols="1" />
+    <h-border row="3" col="2" color="#618998" pos="all" cols="2" />
+    <h-border row="3" col="4" pos="all" cols="1" />
+    <h-border row="4" col="0" pos="all" cols="5" />
+    <h-border row="5" col="0" pos="bottom" cols="5" />
+  </h-borders>
+  <cells>
+    <cell row="0" col="0" colspan="5" />
+    <cell row="1" col="0" colspan="5">
+      <style color="#5e8897" font-size="11.25" align="left" valign="top" />
+    </cell>
+    <cell row="2" col="2" colspan="3">A Low<style bgcolor="#c5d3d8" color="#5e8897" font-size="10.25" align="center" /></cell>
+    <cell row="3" col="2" colspan="2">B Low<style bgcolor="#c5d3d8" color="#5e8897" font-size="10.25" align="center" /></cell>
+    <cell row="3" col="4">B High<style bgcolor="#c5d3d8" color="#5e8897" font-size="10.25" align="center" /></cell>
+    <cell row="4" col="0">C Low<style bgcolor="#c5d3d8" color="#5e8897" font-size="10.25" align="center" rotate-angle="90" /></cell>
+    <cell row="4" col="1">D Low<style bgcolor="#c5d3d8" color="#5e8897" font-size="10.25" align="center" rotate-angle="90" /></cell>
+    <cell row="4" col="2">1<style bgcolor="#f5f5f5" color="#666666" align="center" /></cell>
+    <cell row="4" col="3">LLLL<style bgcolor="#f5f5f5" color="#666666" align="center" /></cell>
+    <cell row="4" col="4">3<style bgcolor="#f5f5f5" color="#666666" align="center" /></cell>
+  </cells>
+</grid>

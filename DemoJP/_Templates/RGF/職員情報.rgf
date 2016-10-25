@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+<grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <meta>
+      <culture>en-US</culture>
+      <editor>ReoGrid Core </editor>
+      <core-ver>1.2.3.0</core-ver>
+    </meta>
+    <rows>200</rows>
+    <cols>100</cols>
+    <default-row-height>20</default-row-height>
+    <default-col-width>22</default-col-width>
+    <settings meta="4705189886" />
+    <script />
+  </head>
+  <style color="#000000" font="Calibri" font-size="11" align="general" valign="middle" />
+  <rows>
+    <row row="0" height="8" />
+    <row row="1" height="24" />
+    <row row="16" height="24" />
+  </rows>
+  <cols>
+    <col col="0" width="6" last-width="22" />
+    <col col="1" width="22" last-width="70" />
+    <col col="2" width="22" last-width="70" />
+    <col col="3" width="22" last-width="70" />
+    <col col="4" width="22" last-width="70" />
+    <col col="5" width="22" last-width="70" />
+    <col col="6" width="22" last-width="70" />
+    <col col="7" width="22" last-width="70" />
+    <col col="8" width="22" last-width="70" />
+    <col col="9" width="22" last-width="70" />
+    <col col="10" width="22" last-width="70" />
+    <col col="11" width="22" last-width="70" />
+    <col col="12" width="22" last-width="70" />
+    <col col="13" width="22" last-width="70" />
+    <col col="14" width="22" last-width="70" />
+    <col col="15" width="22" last-width="70" />
+    <col col="16" width="22" last-width="70" />
+    <col col="17" width="22" last-width="70" />
+    <col col="18" width="22" last-width="70" />
+    <col col="19" width="22" last-width="70" />
+    <col col="20" width="22" last-width="70" />
+    <col col="21" width="22" last-width="70" />
+    <col col="22" width="22" last-width="70" />
+    <col col="23" width="22" last-width="70" />
+    <col col="24" width="22" last-width="70" />
+    <col col="25" width="22" last-width="70" />
+    <col col="26" width="22" last-width="70" />
+    <col col="27" width="22" last-width="70" />
+    <col col="28" width="22" last-width="70" />
+    <col col="29" width="22" last-width="70" />
+    <col col="30" width="22" last-width="70" />
+    <col col="31" width="22" last-width="70" />
+    <col col="32" width="22" last-width="70" />
+    <col col="33" width="22" last-width="70" />
+    <col col="34" width="22" last-width="70" />
+    <col col="35" width="22" last-width="70" />
+    <col col="36" width="22" last-width="70" />
+    <col col="37" width="22" last-width="70" />
+    <col col="38" width="22" last-width="70" />
+    <col col="39" width="22" last-width="70" />
+    <col col="40" width="22" last-width="70" />
+    <col col="41" width="22" last-width="70" />
+    <col col="42" width="22" last-width="70" />
+    <col col="43" width="22" last-width="70" />
+    <col col="44" width="22" last-width="70" />
+    <col col="45" width="22" last-width="70" />
+    <col col="46" width="22" last-width="70" />
+    <col col="47" width="22" last-width="70" />
+    <col col="48" width="22" last-width="70" />
+    <col col="49" width="22" last-width="70" />
+    <col col="50" width="22" last-width="70" />
+    <col col="51" width="22" last-width="70" />
+    <col col="52" width="22" last-width="70" />
+    <col col="53" width="22" last-width="70" />
+    <col col="54" width="22" last-width="70" />
+    <col col="55" width="22" last-width="70" />
+    <col col="56" width="22" last-width="70" />
+    <col col="57" width="22" last-width="70" />
+    <col col="58" width="22" last-width="70" />
+    <col col="59" width="22" last-width="70" />
+    <col col="60" width="22" last-width="70" />
+    <col col="61" width="22" last-width="70" />
+    <col col="62" width="22" last-width="70" />
+    <col col="63" width="22" last-width="70" />
+    <col col="64" width="22" last-width="70" />
+    <col col="65" width="22" last-width="70" />
+    <col col="66" width="22" last-width="70" />
+    <col col="67" width="22" last-width="70" />
+    <col col="68" width="22" last-width="70" />
+    <col col="69" width="22" last-width="70" />
+    <col col="70" width="22" last-width="70" />
+    <col col="71" width="22" last-width="70" />
+    <col col="72" width="22" last-width="70" />
+    <col col="73" width="22" last-width="70" />
+    <col col="74" width="22" last-width="70" />
+    <col col="75" width="22" last-width="70" />
+    <col col="76" width="22" last-width="70" />
+    <col col="77" width="22" last-width="70" />
+    <col col="78" width="22" last-width="70" />
+    <col col="79" width="22" last-width="70" />
+    <col col="80" width="22" last-width="70" />
+    <col col="81" width="22" last-width="70" />
+    <col col="82" width="22" last-width="70" />
+    <col col="83" width="22" last-width="70" />
+    <col col="84" width="22" last-width="70" />
+    <col col="85" width="22" last-width="70" />
+    <col col="86" width="22" last-width="70" />
+    <col col="87" width="22" last-width="70" />
+    <col col="88" width="22" last-width="70" />
+    <col col="89" width="22" last-width="70" />
+    <col col="90" width="22" last-width="70" />
+    <col col="91" width="22" last-width="70" />
+    <col col="92" width="22" last-width="70" />
+    <col col="93" width="22" last-width="70" />
+    <col col="94" width="22" last-width="70" />
+    <col col="95" width="22" last-width="70" />
+    <col col="96" width="22" last-width="70" />
+    <col col="97" width="22" last-width="70" />
+    <col col="98" width="22" last-width="70" />
+    <col col="99" width="22" last-width="70" />
+  </cols>
+  <v-borders>
+    <v-border row="1" col="1" pos="left" rows="25" />
+    <v-border row="2" col="5" pos="all" rows="14" />
+    <v-border row="17" col="5" pos="all" rows="9" />
+    <v-border row="6" col="8" pos="left" rows="1" />
+    <v-border row="10" col="9" pos="all" rows="6" />
+    <v-border row="17" col="9" pos="all" rows="9" />
+    <v-border row="2" col="10" pos="all" rows="1" />
+    <v-border row="2" col="11" pos="all" rows="1" />
+    <v-border row="5" col="11" pos="all" rows="3" />
+    <v-border row="3" col="12" pos="all" rows="2" />
+    <v-border row="2" col="14" pos="all" rows="1" />
+    <v-border row="5" col="14" pos="left" rows="3" />
+    <v-border row="11" col="15" pos="all" rows="1" />
+    <v-border row="17" col="15" pos="right" rows="1" />
+    <v-border row="20" col="15" pos="right" rows="1" />
+    <v-border row="23" col="15" pos="right" rows="1" />
+    <v-border row="5" col="16" pos="left" rows="1" />
+    <v-border row="14" col="16" pos="all" rows="1" />
+    <v-border row="17" col="16" pos="left" rows="2" />
+    <v-border row="20" col="16" pos="left" rows="2" />
+    <v-border row="23" col="16" pos="left" rows="2" />
+    <v-border row="6" col="17" pos="left" rows="1" />
+    <v-border row="11" col="17" pos="all" rows="1" />
+    <v-border row="5" col="18" pos="left" rows="1" />
+    <v-border row="1" col="20" pos="all" rows="9" />
+    <v-border row="14" col="20" pos="all" rows="1" />
+    <v-border row="17" col="20" pos="all" rows="2" />
+    <v-border row="20" col="20" pos="all" rows="2" />
+    <v-border row="23" col="20" pos="all" rows="2" />
+    <v-border row="10" col="23" pos="all" rows="1" />
+    <v-border row="10" col="24" pos="all" rows="1" />
+    <v-border row="17" col="26" pos="all" rows="1" />
+    <v-border row="20" col="26" pos="all" rows="1" />
+    <v-border row="23" col="26" pos="all" rows="1" />
+    <v-border row="1" col="27" pos="right" rows="25" />
+  </v-borders>
+  <h-borders>
+    <h-border row="1" col="1" pos="top" cols="26" />
+    <h-border row="2" col="1" pos="all" cols="26" />
+    <h-border row="3" col="1" pos="all" cols="19" />
+    <h-border row="4" col="1" pos="all" cols="19" />
+    <h-border row="5" col="1" pos="all" cols="19" />
+    <h-border row="6" col="1" pos="all" cols="19" />
+    <h-border row="7" col="1" pos="all" cols="19" />
+    <h-border row="8" col="1" pos="all" cols="19" />
+    <h-border row="9" col="1" pos="all" cols="19" />
+    <h-border row="10" col="1" pos="all" cols="26" />
+    <h-border row="11" col="5" pos="all" cols="22" />
+    <h-border row="12" col="5" pos="all" cols="22" />
+    <h-border row="13" col="5" pos="all" cols="22" />
+    <h-border row="14" col="5" pos="all" cols="22" />
+    <h-border row="15" col="5" pos="all" cols="22" />
+    <h-border row="16" col="1" pos="all" cols="26" />
+    <h-border row="17" col="1" pos="all" cols="26" />
+    <h-border row="18" col="5" pos="all" cols="22" />
+    <h-border row="19" col="5" pos="all" cols="22" />
+    <h-border row="20" col="1" pos="all" cols="26" />
+    <h-border row="21" col="5" pos="all" cols="22" />
+    <h-border row="22" col="5" pos="all" cols="22" />
+    <h-border row="23" col="1" pos="all" cols="26" />
+    <h-border row="24" col="5" pos="all" cols="22" />
+    <h-border row="25" col="5" pos="all" cols="22" />
+    <h-border row="26" col="1" pos="bottom" cols="26" />
+  </h-borders>
+  <cells>
+    <cell row="1" col="1" colspan="19" format="text"> 基本情報</cell>
+    <cell row="1" col="20" colspan="7" format="text">写真</cell>
+    <cell row="2" col="1" colspan="4" format="text">番号</cell>
+    <cell row="2" col="5" colspan="5">141589</cell>
+    <cell row="2" col="10" body-type="ButtonCell">...<style align="center" valign="middle" /></cell>
+    <cell row="2" col="11" colspan="3" format="text">表示名</cell>
+    <cell row="2" col="14" colspan="6" />
+    <cell row="2" col="20" colspan="7" rowspan="8" />
+    <cell row="3" col="1" colspan="4" format="text">フリガナ</cell>
+    <cell row="3" col="5" colspan="7" format="text">セガワ</cell>
+    <cell row="3" col="12" colspan="8" format="text">アイリ</cell>
+    <cell row="4" col="1" colspan="4" format="text">氏名</cell>
+    <cell row="4" col="5" colspan="7" format="text">瀬川</cell>
+    <cell row="4" col="12" colspan="8" format="text">愛理</cell>
+    <cell row="5" col="1" colspan="4" format="text">生年月日</cell>
+    <cell row="5" col="5" colspan="6" format="text">1957年4月10日</cell>
+    <cell row="5" col="11" colspan="3" format="text">性別</cell>
+    <cell row="5" col="14" body-type="RadioButtonCell">
+      <style align="center" valign="middle" />
+    </cell>
+    <cell row="5" col="15" format="text">男</cell>
+    <cell row="5" col="16" body-type="RadioButtonCell">
+      <style align="center" valign="middle" />
+    </cell>
+    <cell row="5" col="17" format="text">女</cell>
+    <cell row="5" col="18" body-type="RadioButtonCell">
+      <style align="center" valign="middle" />
+    </cell>
+    <cell row="5" col="19" format="text">他</cell>
+    <cell row="6" col="1" colspan="4" format="text">血液型</cell>
+    <cell row="6" col="5" body-type="RadioButtonCell">
+      <style align="center" valign="middle" />
+    </cell>
+    <cell row="6" col="6" colspan="2" format="text">A型</cell>
+    <cell row="6" col="8" body-type="RadioButtonCell">
+      <style align="center" valign="middle" />
+    </cell>
+    <cell row="6" col="9" colspan="2" format="text">B型</cell>
+    <cell row="6" col="11" body-type="RadioButtonCell">
+      <style align="center" valign="middle" />
+    </cell>
+    <cell row="6" col="12" colspan="2" format="text">O型</cell>
+    <cell row="6" col="14" body-type="RadioButtonCell">
+      <style align="center" valign="middle" />
+    </cell>
+    <cell row="6" col="15" colspan="2" format="text">AB型</cell>
+    <cell row="6" col="17" body-type="RadioButtonCell">
+      <style align="center" valign="middle" />
+    </cell>
+    <cell row="6" col="18" colspan="2" format="text">不明</cell>
+    <cell row="7" col="1" colspan="4" format="text">連絡先</cell>
+    <cell row="7" col="5" colspan="6" format="text">09-5483-1705</cell>
+    <cell row="7" col="11" colspan="3" format="text">国籍</cell>
+    <cell row="7" col="14" colspan="6" format="text">日本</cell>
+    <cell row="8" col="1" colspan="4" format="text">Email</cell>
+    <cell row="8" col="5" colspan="15" format="text">kaisyamail_0410@gmail.com</cell>
+    <cell row="9" col="1" colspan="4" format="text">備考</cell>
+    <cell row="9" col="5" colspan="15" />
+    <cell row="10" col="1" colspan="4" rowspan="6" format="text">住所</cell>
+    <cell row="10" col="5" colspan="4" format="text">住居区分</cell>
+    <cell row="10" col="9" colspan="14" />
+    <cell row="10" col="23" body-type="CheckBoxCell">
+      <style align="center" valign="middle" />
+    </cell>
+    <cell row="10" col="24" colspan="3" format="text">国外</cell>
+    <cell row="11" col="5" colspan="4" format="text">郵便番号</cell>
+    <cell row="11" col="9" colspan="6" format="text">501-3235</cell>
+    <cell row="11" col="15" colspan="2" />
+    <cell row="11" col="17" colspan="10" />
+    <cell row="12" col="5" colspan="4" format="text">住所１</cell>
+    <cell row="12" col="9" colspan="18" format="text">鳥取県  米子市 彦名新田 2-11-8 </cell>
+    <cell row="13" col="5" colspan="4" format="text">住所１</cell>
+    <cell row="13" col="9" colspan="18" format="text">彦名新田シティ418</cell>
+    <cell row="14" col="5" colspan="4" format="text">電話番号</cell>
+    <cell row="14" col="9" colspan="7" format="text">09-6485-4253</cell>
+    <cell row="14" col="16" colspan="4" format="text">FAX番号</cell>
+    <cell row="14" col="20" colspan="7" format="text">023-767-0198</cell>
+    <cell row="15" col="5" colspan="4" format="text">備考</cell>
+    <cell row="15" col="9" colspan="18" />
+    <cell row="16" col="1" colspan="26" format="text"> 管理情報</cell>
+    <cell row="17" col="1" colspan="4" rowspan="3" format="text">雇用１</cell>
+    <cell row="17" col="5" colspan="4" format="text">入社日</cell>
+    <cell row="17" col="9" colspan="6" format="text">2006年10月1日</cell>
+    <cell row="17" col="16" colspan="4" format="text">退社日</cell>
+    <cell row="17" col="20" colspan="6" format="text">2015年3月31日</cell>
+    <cell row="18" col="5" colspan="4" format="text">雇用形態</cell>
+    <cell row="18" col="9" colspan="7" />
+    <cell row="18" col="16" colspan="4" format="text">退社理由</cell>
+    <cell row="18" col="20" colspan="7" />
+    <cell row="19" col="5" colspan="4" format="text">備考</cell>
+    <cell row="19" col="9" colspan="18" />
+    <cell row="20" col="1" colspan="4" rowspan="3" format="text">雇用２</cell>
+    <cell row="20" col="5" colspan="4" format="text">入社日</cell>
+    <cell row="20" col="9" colspan="6" />
+    <cell row="20" col="16" colspan="4" format="text">退社日</cell>
+    <cell row="20" col="20" colspan="6" />
+    <cell row="21" col="5" colspan="4" format="text">雇用形態</cell>
+    <cell row="21" col="9" colspan="7" />
+    <cell row="21" col="16" colspan="4" format="text">退社理由</cell>
+    <cell row="21" col="20" colspan="7" />
+    <cell row="22" col="5" colspan="4" format="text">備考</cell>
+    <cell row="22" col="9" colspan="18" />
+    <cell row="23" col="1" colspan="4" rowspan="3" format="text">雇用３</cell>
+    <cell row="23" col="5" colspan="4" format="text">入社日</cell>
+    <cell row="23" col="9" colspan="6" />
+    <cell row="23" col="16" colspan="4" format="text">退社日</cell>
+    <cell row="23" col="20" colspan="6" />
+    <cell row="24" col="5" colspan="4" format="text">雇用形態</cell>
+    <cell row="24" col="9" colspan="7" />
+    <cell row="24" col="16" colspan="4" format="text">退社理由</cell>
+    <cell row="24" col="20" colspan="7" />
+    <cell row="25" col="5" colspan="4" format="text">備考</cell>
+    <cell row="25" col="9" colspan="18" />
+  </cells>
+</grid>

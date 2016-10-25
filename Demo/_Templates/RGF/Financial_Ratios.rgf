@@ -1,0 +1,1197 @@
+<?xml version="1.0"?>
+<grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <meta>
+      <culture>en-US</culture>
+      <editor>ReoGrid Core 0.8.8.6</editor>
+      <core-ver>0.8.8.6</core-ver>
+    </meta>
+    <rows>193</rows>
+    <cols>101</cols>
+    <default-row-height>20</default-row-height>
+    <default-col-width>65</default-col-width>
+    <freeze-row>8</freeze-row>
+    <freeze-col>3</freeze-col>
+    <focus-forward-direction>down</focus-forward-direction>
+    <settings meta="2020851646" />
+    <script />
+  </head>
+  <style color="Black" font="Arial" font-size="9" align="general" valign="middle" />
+  <rows>
+    <row row="0" height="37" auto-height="false" />
+    <row row="1" height="7" auto-height="false" />
+    <row row="7" height="31" auto-height="false" />
+    <row row="8" height="18" auto-height="false" />
+  </rows>
+  <cols>
+    <col col="0" width="9" auto-width="false" />
+    <col col="1" width="230" auto-width="false" />
+    <col col="2" width="103" auto-width="false" />
+    <col col="3" width="110" auto-width="false" />
+    <col col="4" width="73" auto-width="false" />
+    <col col="5" width="48" auto-width="false" />
+    <col col="7" width="68" auto-width="false" />
+    <col col="8" width="120" auto-width="false" />
+    <col col="9" width="51" last-width="49" auto-width="false" />
+    <col col="10" width="51" last-width="49" auto-width="false" />
+    <col col="13" width="86" auto-width="false" />
+    <col col="14" width="56" last-width="48" auto-width="false" />
+    <col col="15" width="56" last-width="36" auto-width="false" />
+  </cols>
+  <v-borders>
+    <v-border row="0" col="1" color="Black" style="Solid" pos="none" rows="1" />
+    <v-border row="2" col="1" color="Black" style="BoldSolid" pos="left" rows="32" />
+    <v-border row="2" col="2" color="Black" style="BoldSolid" pos="none" rows="32" />
+    <v-border row="2" col="3" color="Black" style="BoldSolid" pos="right" rows="32" />
+    <v-border row="3" col="4" color="Black" style="Dotted" pos="all" rows="31" />
+    <v-border row="3" col="5" color="Black" style="Dotted" pos="all" rows="4" />
+    <v-border row="8" col="5" color="Black" style="Dotted" pos="all" rows="26" />
+    <v-border row="3" col="6" color="Black" style="Dotted" pos="all" rows="31" />
+    <v-border row="3" col="7" color="Black" style="Dotted" pos="all" rows="31" />
+    <v-border row="2" col="8" color="Black" style="BoldSolid" pos="right" rows="32" />
+    <v-border row="3" col="9" color="Black" style="Dotted" pos="all" rows="31" />
+    <v-border row="3" col="10" color="Black" style="Dotted" pos="all" rows="4" />
+    <v-border row="8" col="10" color="Black" style="Dotted" pos="all" rows="26" />
+    <v-border row="3" col="11" color="Black" style="Dotted" pos="all" rows="31" />
+    <v-border row="3" col="12" color="Black" style="Dotted" pos="all" rows="31" />
+    <v-border row="2" col="13" color="Black" style="BoldSolid" pos="right" rows="32" />
+    <v-border row="3" col="14" color="Black" style="Dotted" pos="all" rows="31" />
+    <v-border row="3" col="15" color="Black" style="Dotted" pos="all" rows="4" />
+    <v-border row="8" col="15" color="Black" style="Dotted" pos="all" rows="26" />
+    <v-border row="3" col="16" color="Black" style="Dotted" pos="all" rows="31" />
+    <v-border row="3" col="17" color="Black" style="Dotted" pos="all" rows="31" />
+    <v-border row="2" col="18" color="Black" style="BoldSolid" pos="right" rows="32" />
+  </v-borders>
+  <h-borders>
+    <h-border row="1" col="1" color="Black" style="BoldSolid" pos="bottom" cols="7" />
+    <h-border row="2" col="1" color="Black" style="BoldSolid" pos="top" cols="17" />
+    <h-border row="3" col="1" color="Black" style="Dotted" pos="top" cols="17" />
+    <h-border row="4" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="5" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="6" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="7" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="8" col="1" color="Black" style="BoldSolid" pos="bottom" cols="17" />
+    <h-border row="9" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="10" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="11" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="12" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="13" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="14" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="15" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="16" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="17" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="18" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="19" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="20" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="21" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="22" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="23" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="24" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="25" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="26" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="27" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="28" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="29" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="30" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="31" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="32" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="33" col="1" color="Black" style="Dotted" pos="all" cols="17" />
+    <h-border row="34" col="1" color="Black" style="BoldSolid" pos="bottom" cols="17" />
+  </h-borders>
+  <cells>
+    <cell row="0" col="0" format="text" />
+    <cell row="0" col="1" colspan="7" format="text">PC Retail Balance sheet<style font-size="22" /></cell>
+    <cell row="2" col="1" format="text">Catagory<style bgcolor="#ffd099" font-size="10" /></cell>
+    <cell row="2" col="2" format="text">
+      <style bgcolor="#ffd099" font-size="10" />
+    </cell>
+    <cell row="2" col="3" colspan="5" format="text">Year 2005<style bgcolor="#ffd099" font-size="10" align="center" /></cell>
+    <cell row="2" col="8" colspan="5" format="text">Year 2006<style bgcolor="#ffd099" font-size="10" align="center" /></cell>
+    <cell row="2" col="13" colspan="5" format="text">Year 2007<style bgcolor="#ffd099" font-size="10" align="center" /></cell>
+    <cell row="3" col="1" format="text">  Notebook PC<style font-size="10" /></cell>
+    <cell row="3" col="2" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="3" col="3" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="3" col="4" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="3" col="5" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="3" col="6" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="3" col="7" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="3" col="8" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="3" col="9" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="3" col="10" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="3" col="11" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="3" col="12" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="3" col="13" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="3" col="14" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="3" col="15" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="3" col="16" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="3" col="17" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="1" format="text">  Desktop PC<style font-size="10" /></cell>
+    <cell row="4" col="2" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="3" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="4" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="5" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="6" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="7" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="8" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="9" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="10" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="11" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="12" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="13" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="14" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="15" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="16" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="4" col="17" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="1" format="text">  Workstation<style font-size="10" /></cell>
+    <cell row="5" col="2" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="3" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="4" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="5" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="6" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="7" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="8" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="9" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="10" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="11" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="12" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="13" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="14" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="15" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="16" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="5" col="17" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="1" format="text">  Server<style color="#ff0000" font-size="10" /></cell>
+    <cell row="6" col="2" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="3" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="4" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="5" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="6" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="7" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="8" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="9" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="10" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="11" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="12" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="13" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="14" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="15" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="16" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="6" col="17" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="7" col="1" format="text">Items<style bgcolor="#d0ffd0" font-size="10" /></cell>
+    <cell row="7" col="2" format="text">Ave.<style bgcolor="#d0ffd0" font-size="10" /></cell>
+    <cell row="7" col="3" format="text">Amount<style bgcolor="#d0ffd0" font-size="10" /></cell>
+    <cell row="7" col="4" colspan="2" format="text">Composing<style bgcolor="#d0ffd0" font-size="10" align="center" /></cell>
+    <cell row="7" col="6" format="text">Ratio<style bgcolor="#d0ffd0" font-size="10" align="center" /></cell>
+    <cell row="7" col="7" format="text">Ave.<style bgcolor="#d0ffd0" font-size="10" align="center" /></cell>
+    <cell row="7" col="8" format="text">Amount<style bgcolor="#d0ffd0" font-size="10" /></cell>
+    <cell row="7" col="9" colspan="2" format="text">Composing<style bgcolor="#d0ffd0" font-size="10" align="center" /></cell>
+    <cell row="7" col="11" format="text">Ratio<style bgcolor="#d0ffd0" font-size="10" align="center" /></cell>
+    <cell row="7" col="12" format="text">Ave.<style bgcolor="#d0ffd0" font-size="10" align="center" /></cell>
+    <cell row="7" col="13" format="text">Amount<style bgcolor="#d0ffd0" font-size="10" /></cell>
+    <cell row="7" col="14" colspan="2" format="text">Composing<style bgcolor="#d0ffd0" font-size="10" /></cell>
+    <cell row="7" col="16" format="text">Ratio<style bgcolor="#d0ffd0" font-size="10" align="center" /></cell>
+    <cell row="7" col="17" format="text">Ave.<style bgcolor="#d0ffd0" font-size="10" align="center" /></cell>
+    <cell row="8" col="1" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="8" col="2" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="8" col="3" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="8" col="4" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="8" col="5" format="text">
+      <style color="#009900" bold="true" />
+    </cell>
+    <cell row="8" col="6" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="8" col="7" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="8" col="8" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style bold="true" />
+    </cell>
+    <cell row="8" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style bold="true" />
+    </cell>
+    <cell row="8" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style bold="true" />
+    </cell>
+    <cell row="8" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style bold="true" />
+    </cell>
+    <cell row="8" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style bold="true" />
+    </cell>
+    <cell row="8" col="13" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="8" col="14" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="8" col="15" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="8" col="16" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="8" col="17" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="9" col="1" format="text">CASH RECEIPTS<style font-size="10" bold="true" /></cell>
+    <cell row="9" col="2" format="percent">0.607<format-args decimal-places="2" /><style bold="true" /></cell>
+    <cell row="9" col="3" format="number">17003198508<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="9" col="4" format="percent">0.6787<format-args decimal-places="2" /><style bold="true" /></cell>
+    <cell row="9" col="5" format="text">■■■<style color="#009900" bold="true" /></cell>
+    <cell row="9" col="6" format="percent">1<format-args decimal-places="0" /><style bold="true" align="center" /></cell>
+    <cell row="9" col="7" format="number">2825502<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="9" col="8" format="number">17003198508<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="9" col="9" format="number">67.87<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="9" col="10" format="text">■■■<style color="#009900" bold="true" /></cell>
+    <cell row="9" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="9" col="12" format="number">2825502<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="9" col="13" format="number">17003198508<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="9" col="14" format="number">67.87<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="9" col="15" format="text">■■■<style color="#009900" bold="true" /></cell>
+    <cell row="9" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="9" col="17" format="number">2825502<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="10" col="1" format="text">  Cash sales</cell>
+    <cell row="10" col="2" format="percent">0.5024<format-args decimal-places="2" /></cell>
+    <cell row="10" col="3" format="number">12586821498<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="10" col="4" format="percent">0.5024<format-args decimal-places="2" /></cell>
+    <cell row="10" col="5" format="text">■■<style color="#009900" bold="true" /></cell>
+    <cell row="10" col="6" format="percent">100<format-args decimal-places="0" /><style align="center" /></cell>
+    <cell row="10" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="10" col="8" format="number">12586821498<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="10" col="9" format="number">50.24<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="10" col="10" format="text">■■<style color="#009900" bold="true" /></cell>
+    <cell row="10" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="10" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="10" col="13" format="number">12586821498<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="10" col="14" format="number">50.24<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="10" col="15" format="text">■■<style color="#009900" bold="true" /></cell>
+    <cell row="10" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="10" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="11" col="1" format="text">  Returns and allowances</cell>
+    <cell row="11" col="2" format="percent">0.5024<format-args decimal-places="2" /></cell>
+    <cell row="11" col="3" format="number">6359226779<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="11" col="4" format="percent">0.2538<format-args decimal-places="2" /></cell>
+    <cell row="11" col="5" format="text">■<style color="#009900" /></cell>
+    <cell row="11" col="6" format="percent">100<format-args decimal-places="0" /><style align="center" /></cell>
+    <cell row="11" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="11" col="8" format="number">6359226779<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="11" col="9" format="number">25.38<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="11" col="10" format="text">■<style color="#009900" bold="true" /></cell>
+    <cell row="11" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="11" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="11" col="13" format="number">6359226779<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="11" col="14" format="number">25.38<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="11" col="15" format="text">■<style color="#009900" bold="true" /></cell>
+    <cell row="11" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="11" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="12" col="1" format="text">  Collections on accounts receivable</cell>
+    <cell row="12" col="2" format="percent">0.3<format-args decimal-places="2" /></cell>
+    <cell row="12" col="3" format="number">5159375461<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="12" col="4" format="percent">0.2059<format-args decimal-places="2" /></cell>
+    <cell row="12" col="5" format="text" />
+    <cell row="12" col="6" format="percent">100<format-args decimal-places="0" /><style align="center" /></cell>
+    <cell row="12" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="12" col="8" format="number">5159375461<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="12" col="9" format="number">20.59<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="12" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="12" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="12" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="12" col="13" format="number">5159375461<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="12" col="14" format="number">20.59<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="12" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="12" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="12" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="13" col="1" format="text">  Interest, other income</cell>
+    <cell row="13" col="2" format="percent">0.21<format-args decimal-places="2" /></cell>
+    <cell row="13" col="3" format="number">242423774<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="13" col="4" format="percent">0.097<format-args decimal-places="2" /></cell>
+    <cell row="13" col="5" format="text" />
+    <cell row="13" col="6" format="percent">0.02<format-args decimal-places="0" /><style align="center" /></cell>
+    <cell row="13" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="13" col="8" format="number">242423774<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="13" col="9" format="number">0.97<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="13" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="13" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="13" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="13" col="13" format="number">242423774<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="13" col="14" format="number">0.97<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="13" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="13" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="13" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="14" col="1" format="text">  Loan proceeds</cell>
+    <cell row="14" col="2" format="percent">0.12<format-args decimal-places="2" /></cell>
+    <cell row="14" col="3" format="number">255638776<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="14" col="4" format="percent">0.0102<format-args decimal-places="2" /></cell>
+    <cell row="14" col="5" format="text" />
+    <cell row="14" col="6" format="percent">1<format-args decimal-places="0" /><style align="center" /></cell>
+    <cell row="14" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="14" col="8" format="number">255638776<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="14" col="9" format="number">1.02<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="14" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="14" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="14" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="14" col="13" format="number">255638776<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="14" col="14" format="number">1.02<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="14" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="14" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="14" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="15" col="1" format="text">  Owner contributions</cell>
+    <cell row="15" col="2" format="percent">0.8<format-args decimal-places="2" /></cell>
+    <cell row="15" col="3" format="number">39071984<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="15" col="4" format="percent">0.0016<format-args decimal-places="2" /></cell>
+    <cell row="15" col="5" format="text" />
+    <cell row="15" col="6" format="percent">1<format-args decimal-places="0" /><style align="center" /></cell>
+    <cell row="15" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="15" col="8" format="number">39071984<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="15" col="9" format="number">0.16<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="15" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="15" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="15" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="15" col="13" format="number">39071984<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="15" col="14" format="number">0.16<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="15" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="15" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="15" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="16" col="1" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="16" col="2" format="percent">
+      <format-args decimal-places="2" />
+      <style font-size="10" />
+    </cell>
+    <cell row="16" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="10" />
+    </cell>
+    <cell row="16" col="4" format="percent">
+      <format-args decimal-places="2" />
+      <style font-size="10" />
+    </cell>
+    <cell row="16" col="5" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="16" col="6" format="percent">
+      <format-args decimal-places="0" />
+      <style font-size="10" align="center" />
+    </cell>
+    <cell row="16" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="10" />
+    </cell>
+    <cell row="16" col="8" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="16" col="9" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="16" col="10" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="16" col="11" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="16" col="12" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="16" col="13" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="16" col="14" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="16" col="15" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="16" col="16" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="16" col="17" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="17" col="1" format="text">CASH PAID OUT<style font-size="10" bold="true" /></cell>
+    <cell row="17" col="2" format="percent">0.78<format-args decimal-places="2" /><style bold="true" /></cell>
+    <cell row="17" col="3" format="number">19324030<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="17" col="4" format="percent">0.008<format-args decimal-places="2" /><style bold="true" /></cell>
+    <cell row="17" col="5" format="text">
+      <style bold="true" />
+    </cell>
+    <cell row="17" col="6" format="percent">1<format-args decimal-places="0" /><style bold="true" align="center" /></cell>
+    <cell row="17" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style bold="true" />
+    </cell>
+    <cell row="17" col="8" format="number">19324030<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="17" col="9" format="number">0.08<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="17" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style bold="true" />
+    </cell>
+    <cell row="17" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="17" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style bold="true" />
+    </cell>
+    <cell row="17" col="13" format="number">19324030<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="17" col="14" format="number">0.08<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="17" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style bold="true" />
+    </cell>
+    <cell row="17" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /><style bold="true" /></cell>
+    <cell row="17" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style bold="true" />
+    </cell>
+    <cell row="18" col="1" format="text">  Advertising</cell>
+    <cell row="18" col="2" format="percent">0.41<format-args decimal-places="2" /></cell>
+    <cell row="18" col="3" format="number">7140000<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="18" col="4" format="percent">0.0003<format-args decimal-places="2" /></cell>
+    <cell row="18" col="5" format="text" />
+    <cell row="18" col="6" format="percent">1<format-args decimal-places="0" /><style align="center" /></cell>
+    <cell row="18" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="18" col="8" format="number">7140000<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="18" col="9" format="number">0.03<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="18" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="18" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="18" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="18" col="13" format="number">7140000<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="18" col="14" format="number">0.03<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="18" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="18" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="18" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="19" col="1" format="text">  Commissions and fees</cell>
+    <cell row="19" col="2" format="percent">0.65<format-args decimal-places="2" /></cell>
+    <cell row="19" col="3" format="number">4416377010<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="19" col="4" format="percent">0.1763<format-args decimal-places="2" /></cell>
+    <cell row="19" col="5" format="text" />
+    <cell row="19" col="6" format="percent">1<format-args decimal-places="0" /><style align="center" /></cell>
+    <cell row="19" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="19" col="8" format="number">4416377010<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="19" col="9" format="number">17.63<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="19" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="19" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="19" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="19" col="13" format="number">4416377010<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="19" col="14" format="number">17.63<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="19" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="19" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="19" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="20" col="1" format="text">  Contract labor<style color="#ff0000" /></cell>
+    <cell row="20" col="2" format="percent">0<format-args decimal-places="2" /><style color="#ff0000" /></cell>
+    <cell row="20" col="3" format="number">0<format-args decimal-places="0" use-separator="true" /><style color="#ff0000" /></cell>
+    <cell row="20" col="4" format="percent">0<format-args decimal-places="2" /><style color="#ff0000" /></cell>
+    <cell row="20" col="5" format="text">
+      <style color="#ff0000" />
+    </cell>
+    <cell row="20" col="6" format="percent">1<format-args decimal-places="0" /><style color="#ff0000" align="center" /></cell>
+    <cell row="20" col="7" format="number">32789<format-args decimal-places="0" use-separator="true" /><style color="#ff0000" /></cell>
+    <cell row="20" col="8" format="number">0<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="20" col="9" format="number">0<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="20" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="20" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="20" col="12" format="number">32789<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="20" col="13" format="number">0<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="20" col="14" format="number">0<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="20" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="20" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="20" col="17" format="number">32789<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="21" col="1" format="text">  Employee benefit programs</cell>
+    <cell row="21" col="2" format="percent">0.15<format-args decimal-places="2" /></cell>
+    <cell row="21" col="3" format="number">2379761<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="21" col="4" format="percent">0.0001<format-args decimal-places="2" /></cell>
+    <cell row="21" col="5" format="text" />
+    <cell row="21" col="6" format="percent">1<format-args decimal-places="0" /><style align="center" /></cell>
+    <cell row="21" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="21" col="8" format="number">2379761<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="21" col="9" format="number">0.01<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="21" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="21" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="21" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="21" col="13" format="number">2379761<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="21" col="14" format="number">0.01<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="21" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="21" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="21" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="22" col="1" format="text">  Insurance (other than health)<style color="#ff0000" /></cell>
+    <cell row="22" col="2" format="percent">0<format-args decimal-places="2" /><style color="#ff0000" /></cell>
+    <cell row="22" col="3" format="number">0<format-args decimal-places="0" use-separator="true" /><style color="#ff0000" /></cell>
+    <cell row="22" col="4" format="percent">0<format-args decimal-places="2" /><style color="#ff0000" /></cell>
+    <cell row="22" col="5" format="text">
+      <style color="#ff0000" />
+    </cell>
+    <cell row="22" col="6" format="percent">1<format-args decimal-places="0" /><style color="#ff0000" align="center" /></cell>
+    <cell row="22" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style color="#ff0000" />
+    </cell>
+    <cell row="22" col="8" format="number">0<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="22" col="9" format="number">0<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="22" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="22" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="22" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="22" col="13" format="number">0<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="22" col="14" format="number">0<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="22" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="22" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="22" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="23" col="1" format="text">  Interest expense<style color="#ff0000" /></cell>
+    <cell row="23" col="2" format="percent">0<format-args decimal-places="2" /><style color="#ff0000" /></cell>
+    <cell row="23" col="3" format="number">0<format-args decimal-places="0" use-separator="true" /><style color="#ff0000" /></cell>
+    <cell row="23" col="4" format="percent">0<format-args decimal-places="2" /><style color="#ff0000" /></cell>
+    <cell row="23" col="5" format="text">
+      <style color="#ff0000" />
+    </cell>
+    <cell row="23" col="6" format="percent">1<format-args decimal-places="0" /><style color="#ff0000" align="center" /></cell>
+    <cell row="23" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style color="#ff0000" />
+    </cell>
+    <cell row="23" col="8" format="number">0<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="23" col="9" format="number">0<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="23" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="23" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="23" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="23" col="13" format="number">0<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="23" col="14" format="number">0<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="23" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="23" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="23" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="24" col="1" format="text">  Materials and supplies (in COGS)</cell>
+    <cell row="24" col="2" format="percent">0.31<format-args decimal-places="2" /></cell>
+    <cell row="24" col="3" format="number">1950000<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="24" col="4" format="percent">0.0001<format-args decimal-places="2" /></cell>
+    <cell row="24" col="5" format="text" />
+    <cell row="24" col="6" format="percent">1<format-args decimal-places="0" /><style align="center" /></cell>
+    <cell row="24" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="24" col="8" format="number">1950000<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="24" col="9" format="number">0.01<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="24" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="24" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="24" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="24" col="13" format="number">1950000<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="24" col="14" format="number">0.01<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="24" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="24" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="24" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="25" col="1" format="text">  Meals and entertainment</cell>
+    <cell row="25" col="2" format="percent">0.54<format-args decimal-places="2" /></cell>
+    <cell row="25" col="3" format="number">7806341<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="25" col="4" format="percent">0.0003<format-args decimal-places="2" /></cell>
+    <cell row="25" col="5" format="text" />
+    <cell row="25" col="6" format="percent">1<format-args decimal-places="0" /><style align="center" /></cell>
+    <cell row="25" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="25" col="8" format="number">7806341<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="25" col="9" format="number">0.03<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="25" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="25" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="25" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="25" col="13" format="number">7806341<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="25" col="14" format="number">0.03<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="25" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="25" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="25" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="26" col="1" format="text">  Mortgage interest</cell>
+    <cell row="26" col="2" format="percent">0.7<format-args decimal-places="2" /></cell>
+    <cell row="26" col="3" format="number">518654290<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="26" col="4" format="percent">0.0207<format-args decimal-places="2" /></cell>
+    <cell row="26" col="5" format="text" />
+    <cell row="26" col="6" format="percent">1<format-args decimal-places="0" /><style align="center" /></cell>
+    <cell row="26" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="26" col="8" format="number">518654290<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="26" col="9" format="number">2.07<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="26" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="26" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="26" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="26" col="13" format="number">518654290<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="26" col="14" format="number">2.07<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="26" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="26" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="26" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="27" col="1" format="text">  Office expense</cell>
+    <cell row="27" col="2" format="percent">0.93<format-args decimal-places="2" /></cell>
+    <cell row="27" col="3" format="number">2839024858<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="27" col="4" format="percent">0.01133<format-args decimal-places="2" /></cell>
+    <cell row="27" col="5" format="text" />
+    <cell row="27" col="6" format="percent">1<format-args decimal-places="0" /><style align="center" /></cell>
+    <cell row="27" col="7" format="number">313874<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="27" col="8" format="number">2839024858<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="27" col="9" format="number">11.33<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="27" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="27" col="11" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="27" col="12" format="number">313874<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="27" col="13" format="number">2839024858<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="27" col="14" format="number">11.33<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="27" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="27" col="16" format="number">100<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="27" col="17" format="number">313874<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="28" col="1" format="text">  Other interest expense</cell>
+    <cell row="28" col="2" format="percent">
+      <format-args decimal-places="2" />
+    </cell>
+    <cell row="28" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="28" col="4" format="percent">
+      <format-args decimal-places="2" />
+    </cell>
+    <cell row="28" col="5" format="text" />
+    <cell row="28" col="6" format="percent">
+      <format-args decimal-places="0" />
+      <style align="center" />
+    </cell>
+    <cell row="28" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="28" col="8" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="28" col="9" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="28" col="10" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="28" col="11" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="28" col="12" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="28" col="13" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="28" col="14" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="28" col="15" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="28" col="16" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="28" col="17" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="29" col="1" format="text">  Pension and profit-sharing plan</cell>
+    <cell row="29" col="2" format="percent">
+      <format-args decimal-places="2" />
+    </cell>
+    <cell row="29" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="29" col="4" format="percent">
+      <format-args decimal-places="2" />
+    </cell>
+    <cell row="29" col="5" format="text" />
+    <cell row="29" col="6" format="percent">
+      <format-args decimal-places="0" />
+      <style align="center" />
+    </cell>
+    <cell row="29" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="29" col="8" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="29" col="9" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="29" col="10" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="29" col="11" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="29" col="12" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="29" col="13" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="29" col="14" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="29" col="15" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="29" col="16" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="29" col="17" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="30" col="1" format="text">  Purchases for resale</cell>
+    <cell row="30" col="2" format="percent">
+      <format-args decimal-places="2" />
+    </cell>
+    <cell row="30" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="30" col="4" format="percent">
+      <format-args decimal-places="2" />
+    </cell>
+    <cell row="30" col="5" format="text" />
+    <cell row="30" col="6" format="percent">
+      <format-args decimal-places="0" />
+      <style align="center" />
+    </cell>
+    <cell row="30" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="30" col="8" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="30" col="9" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="30" col="10" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="30" col="11" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="30" col="12" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="30" col="13" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="30" col="14" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="30" col="15" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="30" col="16" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="30" col="17" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="31" col="1" format="text">  Rent or lease</cell>
+    <cell row="31" col="2" format="percent">
+      <format-args decimal-places="2" />
+    </cell>
+    <cell row="31" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="31" col="4" format="percent">
+      <format-args decimal-places="2" />
+    </cell>
+    <cell row="31" col="5" format="text" />
+    <cell row="31" col="6" format="percent">
+      <format-args decimal-places="0" />
+      <style align="center" />
+    </cell>
+    <cell row="31" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="31" col="8" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="31" col="9" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="31" col="10" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="31" col="11" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="31" col="12" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="31" col="13" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="31" col="14" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="31" col="15" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="31" col="16" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="31" col="17" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="32" col="1" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="32" col="2" format="percent">
+      <format-args decimal-places="2" />
+    </cell>
+    <cell row="32" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="32" col="4" format="percent">
+      <format-args decimal-places="2" />
+    </cell>
+    <cell row="32" col="5" format="text" />
+    <cell row="32" col="6" format="percent">
+      <format-args decimal-places="0" />
+      <style align="center" />
+    </cell>
+    <cell row="32" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="32" col="8" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="32" col="9" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="32" col="10" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="32" col="11" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="32" col="12" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="32" col="13" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="32" col="14" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="32" col="15" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="32" col="16" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="32" col="17" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="33" col="1" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="33" col="2" format="percent">
+      <format-args decimal-places="2" />
+    </cell>
+    <cell row="33" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="33" col="4" format="percent">
+      <format-args decimal-places="2" />
+    </cell>
+    <cell row="33" col="5" format="text" />
+    <cell row="33" col="6" format="percent">
+      <format-args decimal-places="0" />
+      <style align="center" />
+    </cell>
+    <cell row="33" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+    </cell>
+    <cell row="33" col="8" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="33" col="9" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="33" col="10" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="33" col="11" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="33" col="12" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="33" col="13" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="33" col="14" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="33" col="15" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="33" col="16" format="text">
+      <style font-size="10" />
+    </cell>
+    <cell row="33" col="17" format="text">
+      <style font-size="10" />
+    </cell>
+  </cells>
+</grid>

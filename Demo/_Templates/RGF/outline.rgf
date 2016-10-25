@@ -1,0 +1,1366 @@
+<?xml version="1.0"?>
+<grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <meta>
+      <culture>en-US</culture>
+      <editor>ReoGrid Core 0.8.8.2</editor>
+      <core-ver>0.8.8.2</core-ver>
+    </meta>
+    <rows>199</rows>
+    <cols>100</cols>
+    <default-row-height>20</default-row-height>
+    <default-col-width>70</default-col-width>
+    <outlines>
+      <row-outline start="11" count="22" collapsed="false" />
+      <row-outline start="11" count="5" collapsed="false" />
+      <row-outline start="17" count="6" collapsed="false" />
+      <row-outline start="24" count="8" collapsed="false" />
+      <row-outline start="13" count="2" collapsed="false" />
+      <col-outline start="2" count="4" collapsed="false" />
+      <col-outline start="7" count="8" collapsed="false" />
+      <col-outline start="16" count="4" collapsed="false" />
+    </outlines>
+    <settings meta="6492158">
+      <show-grid>false</show-grid>
+    </settings>
+    <script />
+  </head>
+  <style color="Black" font="MS Reference Sans Serif" font-size="9" align="general" valign="middle" />
+  <rows>
+    <row row="0" height="8" last-height="20" auto-height="false" />
+    <row row="1" height="16" last-height="20" auto-height="false" />
+    <row row="2" height="16" last-height="20" auto-height="false" />
+    <row row="3" height="5" last-height="20" auto-height="false" />
+    <row row="4" height="62" last-height="68" auto-height="false" />
+    <row row="6" height="10" last-height="20" auto-height="false" />
+    <row row="8" height="27" last-height="20" auto-height="false" />
+    <row row="9" height="31" last-height="38" auto-height="false" />
+    <row row="11" height="16" auto-height="false" />
+    <row row="12" height="16" auto-height="false" />
+    <row row="13" height="16" auto-height="false" />
+    <row row="14" height="16" auto-height="false" />
+    <row row="15" height="16" auto-height="false" />
+    <row row="16" height="16" auto-height="false" />
+    <row row="17" height="16" auto-height="false" />
+    <row row="18" height="16" auto-height="false" />
+    <row row="19" height="16" auto-height="false" />
+    <row row="20" height="16" auto-height="false" />
+    <row row="21" height="16" auto-height="false" />
+    <row row="22" height="16" auto-height="false" />
+    <row row="23" height="16" auto-height="false" />
+    <row row="24" height="16" auto-height="false" />
+    <row row="25" height="16" auto-height="false" />
+    <row row="26" height="16" auto-height="false" />
+    <row row="27" height="16" auto-height="false" />
+    <row row="28" height="16" auto-height="false" />
+    <row row="29" height="16" auto-height="false" />
+    <row row="30" height="16" auto-height="false" />
+    <row row="31" height="16" auto-height="false" />
+    <row row="32" height="16" auto-height="false" />
+    <row row="33" height="24" last-height="20" auto-height="false" />
+    <row row="34" height="4" last-height="7" auto-height="false" />
+  </rows>
+  <cols>
+    <col col="0" width="29" last-width="70" auto-width="false" />
+    <col col="1" width="78" last-width="90" auto-width="false" />
+    <col col="2" width="46" auto-width="false" />
+    <col col="3" width="46" auto-width="false" />
+    <col col="4" width="54" auto-width="false" />
+    <col col="5" width="46" auto-width="false" />
+    <col col="6" width="46" last-width="52" auto-width="false" />
+    <col col="7" width="46" auto-width="false" />
+    <col col="8" width="46" auto-width="false" />
+    <col col="9" width="46" auto-width="false" />
+    <col col="10" width="46" auto-width="false" />
+    <col col="11" width="46" auto-width="false" />
+    <col col="12" width="51" auto-width="false" />
+    <col col="13" width="54" auto-width="false" />
+    <col col="14" width="46" auto-width="false" />
+    <col col="15" width="46" last-width="52" auto-width="false" />
+    <col col="16" width="49" auto-width="false" />
+    <col col="17" width="49" auto-width="false" />
+    <col col="18" width="46" auto-width="false" />
+    <col col="19" width="46" auto-width="false" />
+    <col col="20" width="53" last-width="46" auto-width="false" />
+  </cols>
+  <v-borders>
+    <v-border row="7" col="1" color="Black" style="BoldSolid" pos="left" rows="27" />
+    <v-border row="7" col="2" color="Black" style="BoldSolid" pos="all" rows="27" />
+    <v-border row="8" col="3" color="Black" style="Solid" pos="all" rows="26" />
+    <v-border row="8" col="4" color="Black" style="Solid" pos="all" rows="26" />
+    <v-border row="9" col="5" color="Black" style="Solid" pos="all" rows="25" />
+    <v-border row="9" col="6" color="Black" style="Solid" pos="all" rows="25" />
+    <v-border row="7" col="7" color="Black" style="BoldSolid" pos="all" rows="27" />
+    <v-border row="8" col="8" color="Black" style="Solid" pos="all" rows="26" />
+    <v-border row="8" col="9" color="Black" style="Solid" pos="all" rows="26" />
+    <v-border row="8" col="10" color="Black" style="Solid" pos="all" rows="26" />
+    <v-border row="8" col="11" color="Black" style="Solid" pos="all" rows="26" />
+    <v-border row="8" col="12" color="Black" style="Solid" pos="all" rows="26" />
+    <v-border row="8" col="13" color="Black" style="Solid" pos="all" rows="26" />
+    <v-border row="8" col="14" color="Black" style="Solid" pos="all" rows="26" />
+    <v-border row="8" col="15" color="Black" style="Solid" pos="all" rows="26" />
+    <v-border row="7" col="16" color="Black" style="BoldSolid" pos="all" rows="27" />
+    <v-border row="7" col="17" color="Black" style="Solid" pos="all" rows="27" />
+    <v-border row="7" col="18" color="Black" style="Solid" pos="all" rows="27" />
+    <v-border row="7" col="19" color="Black" style="Solid" pos="all" rows="27" />
+    <v-border row="7" col="20" color="Black" style="Solid" pos="all" rows="27" />
+    <v-border row="7" col="21" color="Black" style="BoldSolid" pos="right" rows="27" />
+  </v-borders>
+  <h-borders>
+    <h-border row="7" col="1" color="Black" style="BoldSolid" pos="top" cols="20" />
+    <h-border row="8" col="2" color="Black" style="Solid" pos="all" cols="14" />
+    <h-border row="9" col="4" color="Black" style="Solid" pos="all" cols="3" />
+    <h-border row="10" col="1" color="Black" style="Solid" pos="all" cols="20" />
+    <h-border row="11" col="1" color="Black" style="Solid" pos="bottom" cols="20" />
+    <h-border row="12" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="13" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="14" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="15" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="16" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="17" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="18" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="19" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="20" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="21" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="22" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="23" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="24" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="25" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="26" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="27" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="28" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="29" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="30" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="31" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="32" col="1" color="Black" style="Dotted" pos="all" cols="20" />
+    <h-border row="33" col="1" color="Black" style="DoubleLine" pos="all" cols="20" />
+    <h-border row="34" col="1" color="Black" style="BoldSolid" pos="bottom" cols="20" />
+  </h-borders>
+  <cells>
+    <cell row="1" col="13" colspan="8">National Police Agency of Japan<style color="#505050" bold="true" align="right" /></cell>
+    <cell row="2" col="13" colspan="8">Emergency Disaster Countermeasures Headquarters<style color="#505050" bold="true" align="right" /></cell>
+    <cell row="4" col="1" colspan="20">Damage Situation and Police Countermeasures associated with 2011Tohoku district - off the Pacific Ocean Earthquake<style font-size="11" bold="true" align="center" /></cell>
+    <cell row="5" col="1" colspan="20" format="datetime">January 10, 2014<format-args pattern="dddd, MMMM dd, yyyy" culture="en-US" /><style align="center" /></cell>
+    <cell row="7" col="1" rowspan="3">Type of damages<style bgcolor="#eeeeee" align="left" text-wrap="word-break"><fill-pattern color="#d0d0d0" style="44" /></style></cell>
+    <cell row="7" col="2" colspan="5">Personnel damages<style bgcolor="#eeeeee" align="center"><fill-pattern color="#d0d0d0" style="44" /></style></cell>
+    <cell row="7" col="7" colspan="9">Property damages<style bgcolor="#eeeeee" align="center"><fill-pattern color="#d0d0d0" style="44" /></style></cell>
+    <cell row="7" col="16" rowspan="3">Damaged roads<style bgcolor="#eeeeee" font-size="7" align="center" text-wrap="word-break"><fill-pattern color="#d0d0d0" style="44" /></style></cell>
+    <cell row="7" col="17" rowspan="3">Damaged bridges<style bgcolor="#eeeeee" font-size="7" align="center" text-wrap="word-break"><fill-pattern color="#d0d0d0" style="44" /></style></cell>
+    <cell row="7" col="18" rowspan="3">Landslides<style bgcolor="#eeeeee" font-size="7" align="center" text-wrap="word-break"><fill-pattern color="#d0d0d0" style="44" /></style></cell>
+    <cell row="7" col="19" rowspan="3">Break of dikes<style bgcolor="#eeeeee" font-size="7" align="center" text-wrap="word-break"><fill-pattern color="#d0d0d0" style="44" /></style></cell>
+    <cell row="7" col="20" rowspan="3">Damaged railways<style bgcolor="#eeeeee" font-size="7" align="center" text-wrap="word-break"><fill-pattern color="#d0d0d0" style="44" /></style></cell>
+    <cell row="8" col="2" rowspan="2">Killed<style font-size="7" /></cell>
+    <cell row="8" col="3" rowspan="2">Missing<style font-size="7" /></cell>
+    <cell row="8" col="4" colspan="3">Injured<style font-size="7" align="center" /></cell>
+    <cell row="8" col="7" rowspan="2">Total collapse<style font-size="7" text-wrap="word-break" /></cell>
+    <cell row="8" col="8" rowspan="2">Half collapse<style font-size="7" text-wrap="word-break" /></cell>
+    <cell row="8" col="9" rowspan="2">Swept out<style font-size="7" text-wrap="word-break" /></cell>
+    <cell row="8" col="10" rowspan="2">Total burn<style font-size="7" text-wrap="word-break" /></cell>
+    <cell row="8" col="11" rowspan="2">Partial burn<style font-size="7" text-wrap="word-break" /></cell>
+    <cell row="8" col="12" rowspan="2">Inundated above floor level<style font-size="7" text-wrap="word-break" /></cell>
+    <cell row="8" col="13" rowspan="2">Inundated below floor level<style font-size="7" text-wrap="word-break" /></cell>
+    <cell row="8" col="14" rowspan="2">Partially damaged<style font-size="7" text-wrap="word-break" /></cell>
+    <cell row="8" col="15" rowspan="2">Non-dwelling houses<style font-size="7" text-wrap="word-break" /></cell>
+    <cell row="9" col="4">Severely injured<style font-size="7" text-wrap="word-break" /></cell>
+    <cell row="9" col="5">Slightly injured<style font-size="7" text-wrap="word-break" /></cell>
+    <cell row="9" col="6">Total<style font-size="7" text-wrap="word-break" /></cell>
+    <cell row="10" col="1">Prefecture<style font-size="7" /></cell>
+    <cell row="10" col="2">Person<style font-size="7" /></cell>
+    <cell row="10" col="3">Person<style font-size="7" /></cell>
+    <cell row="10" col="4">Person<style font-size="7" /></cell>
+    <cell row="10" col="5">Person<style font-size="7" /></cell>
+    <cell row="10" col="6">Person<style font-size="7" /></cell>
+    <cell row="10" col="7">Door<style font-size="7" /></cell>
+    <cell row="10" col="8">Door<style font-size="7" /></cell>
+    <cell row="10" col="9">Door<style font-size="7" /></cell>
+    <cell row="10" col="10">Door<style font-size="7" /></cell>
+    <cell row="10" col="11">Door<style font-size="7" /></cell>
+    <cell row="10" col="12">Door<style font-size="7" /></cell>
+    <cell row="10" col="13">Door<style font-size="7" /></cell>
+    <cell row="10" col="14">Door<style font-size="7" /></cell>
+    <cell row="10" col="15">Door<style font-size="7" /></cell>
+    <cell row="10" col="16">Place<style font-size="7" /></cell>
+    <cell row="10" col="17">Place<style font-size="7" /></cell>
+    <cell row="10" col="18">Place<style font-size="7" /></cell>
+    <cell row="10" col="19">Place<style font-size="7" /></cell>
+    <cell row="10" col="20">Place<style font-size="7" /></cell>
+    <cell row="11" col="1">Hokkaido<style font-size="7" /></cell>
+    <cell row="11" col="2" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="11" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="11" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="11" col="5" format="number">3<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="11" col="6" format="number">3<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="11" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="11" col="8" format="number">4<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="11" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="11" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="11" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="11" col="12" format="number">329<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="11" col="13" format="number">545<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="11" col="14" format="number">7<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="11" col="15" format="number">469<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="11" col="16" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="11" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="11" col="18" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="11" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="11" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="12" col="1">Aomori<style font-size="7" /></cell>
+    <cell row="12" col="2" format="number">3<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="12" col="3" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="12" col="4" format="number">25<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="12" col="5" format="number">86<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="12" col="6" format="number">111<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="12" col="7" format="number">308<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="12" col="8" format="number">701<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="12" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="12" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="12" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="12" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="12" col="13" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="12" col="14" format="number">1006<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="12" col="15" format="number">1402<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="12" col="16" format="number">2<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="12" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="12" col="18" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="12" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="12" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="13" col="1">Iwate<style font-size="7" /></cell>
+    <cell row="13" col="2" format="number">4673<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="13" col="3" format="number">1142<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="13" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="13" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="13" col="6" format="number">213<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="13" col="7" format="number">18460<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="13" col="8" format="number">6563<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="13" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="13" col="10" format="number">33<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="13" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="13" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="13" col="13" format="number">6<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="13" col="14" format="number">14191<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="13" col="15" format="number">5401<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="13" col="16" format="number">30<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="13" col="17" format="number">4<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="13" col="18" format="number">6<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="13" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="13" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="14" col="1">Miyagi<style font-size="7" /></cell>
+    <cell row="14" col="2" format="number">9537<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="14" col="3" format="number">1287<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="14" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="14" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="14" col="6" format="number">4148<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="14" col="7" format="number">82909<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="14" col="8" format="number">155084<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="14" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="14" col="10" format="number">135<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="14" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="14" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="14" col="13" format="number">7796<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="14" col="14" format="number">222875<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="14" col="15" format="number">28749<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="14" col="16" format="number">390<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="14" col="17" format="number">12<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="14" col="18" format="number">51<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="14" col="19" format="number">45<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="14" col="20" format="number">26<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="15" col="1">Akita<style font-size="7" /></cell>
+    <cell row="15" col="2" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="15" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="15" col="4" format="number">4<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="15" col="5" format="number">7<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="15" col="6" format="number">11<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="15" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="15" col="8" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="15" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="15" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="15" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="15" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="15" col="13" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="15" col="14" format="number">3<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="15" col="15" format="number">3<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="15" col="16" format="number">9<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="15" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="15" col="18" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="15" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="15" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="16" col="1">Yamagata<style font-size="7" /></cell>
+    <cell row="16" col="2" format="number">2<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="16" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="16" col="4" format="number">8<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="16" col="5" format="number">21<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="16" col="6" format="number">29<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="16" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="16" col="8" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="16" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="16" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="16" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="16" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="16" col="13" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="16" col="14" format="number">21<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="16" col="15" format="number">96<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="16" col="16" format="number">21<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="16" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="16" col="18" format="number">29<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="16" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="16" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="17" col="1">Fukushima<style font-size="7" /></cell>
+    <cell row="17" col="2" format="number">1607<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="3" format="number">207<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="4" format="number">20<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="5" format="number">162<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="6" format="number">182<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="7" format="number">21225<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="8" format="number">73293<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="17" col="10" format="number">77<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="11" format="number">3<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="12" format="number">1061<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="13" format="number">338<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="14" format="number">167123<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="15" format="number">1117<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="16" format="number">187<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="17" format="number">3<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="18" format="number">9<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="17" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="17" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="18" col="1">Tokyo<style font-size="7" /></cell>
+    <cell row="18" col="2" format="number">7<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="18" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="18" col="4" format="number">20<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="18" col="5" format="number">97<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="18" col="6" format="number">117<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="18" col="7" format="number">15<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="18" col="8" format="number">198<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="18" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="18" col="10" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="18" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="18" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="18" col="13" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="18" col="14" format="number">4847<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="18" col="15" format="number">1101<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="18" col="16" format="number">295<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="18" col="17" format="number">55<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="18" col="18" format="number">6<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="18" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="18" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="19" col="1">Ibaraki<style font-size="7" /></cell>
+    <cell row="19" col="2" format="number">24<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="19" col="3" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="19" col="4" format="number">34<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="19" col="5" format="number">678<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="19" col="6" format="number">712<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="19" col="7" format="number">2628<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="19" col="8" format="number">24325<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="19" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="19" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="19" col="11" format="number">31<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="19" col="12" format="number">1799<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="19" col="13" format="number">779<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="19" col="14" format="number">185722<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="19" col="15" format="number">19939<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="19" col="16" format="number">307<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="19" col="17" format="number">41<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="19" col="18" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="19" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="19" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="20" col="1">Tochigi<style font-size="7" /></cell>
+    <cell row="20" col="2" format="number">4<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="20" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="20" col="4" format="number">7<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="20" col="5" format="number">126<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="20" col="6" format="number">133<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="20" col="7" format="number">261<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="20" col="8" format="number">2118<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="20" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="20" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="20" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="20" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="20" col="13" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="20" col="14" format="number">73299<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="20" col="15" format="number">295<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="20" col="16" format="number">257<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="20" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="20" col="18" format="number">40<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="20" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="20" col="20" format="number">2<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="21" col="1">Gunma<style font-size="7" /></cell>
+    <cell row="21" col="2" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="21" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="21" col="4" format="number">13<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="21" col="5" format="number">26<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="21" col="6" format="number">39<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="21" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="21" col="8" format="number">7<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="21" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="21" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="21" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="21" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="21" col="13" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="21" col="14" format="number">17246<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="21" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="21" col="16" format="number">36<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="21" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="21" col="18" format="number">9<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="21" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="21" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="22" col="1">Saitama<style font-size="7" /></cell>
+    <cell row="22" col="2" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="22" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="22" col="4" format="number">7<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="22" col="5" format="number">38<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="22" col="6" format="number">45<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="22" col="7" format="number">24<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="22" col="8" format="number">199<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="22" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="22" col="10" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="22" col="11" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="22" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="22" col="13" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="22" col="14" format="number">1800<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="22" col="15" format="number">33<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="22" col="16" format="number">160<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="22" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="22" col="18" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="22" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="22" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="23" col="1">Chiba<style font-size="7" /></cell>
+    <cell row="23" col="2" format="number">21<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="23" col="3" format="number">2<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="23" col="4" format="number">29<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="23" col="5" format="number">229<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="23" col="6" format="number">258<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="23" col="7" format="number">801<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="23" col="8" format="number">10120<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="23" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="23" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="23" col="11" format="number">15<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="23" col="12" format="number">157<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="23" col="13" format="number">713<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="23" col="14" format="number">54929<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="23" col="15" format="number">660<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="23" col="16" format="number">2343<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="23" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="23" col="18" format="number">55<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="23" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="23" col="20" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="24" col="1">Kanagawa<style font-size="7" /></cell>
+    <cell row="24" col="2" format="number">4<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="24" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="24" col="4" format="number">17<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="24" col="5" format="number">121<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="24" col="6" format="number">138<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="24" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="24" col="8" format="number">41<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="24" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="24" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="24" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="24" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="24" col="13" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="24" col="14" format="number">459<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="24" col="15" format="number">13<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="24" col="16" format="number">160<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="24" col="17" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="24" col="18" format="number">2<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="24" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="24" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="25" col="1">Niigata<style font-size="7" /></cell>
+    <cell row="25" col="2" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="25" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="25" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="25" col="5" format="number">3<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="25" col="6" format="number">3<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="25" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="25" col="8" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="25" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="25" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="25" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="25" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="25" col="13" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="25" col="14" format="number">17<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="25" col="15" format="number">9<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="25" col="16" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="25" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="25" col="18" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="25" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="25" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="1">Yamanashi<style font-size="7" /></cell>
+    <cell row="26" col="2" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="5" format="number">2<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="26" col="6" format="number">2<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="26" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="8" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="13" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="14" format="number">4<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="26" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="16" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="18" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="26" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="1">Nagano<style font-size="7" /></cell>
+    <cell row="27" col="2" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="5" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="27" col="6" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="27" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="8" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="13" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="14" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="16" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="18" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="27" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="28" col="1">Shizuoka<style font-size="7" /></cell>
+    <cell row="28" col="2" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="28" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="28" col="4" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="28" col="5" format="number">2<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="28" col="6" format="number">3<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="28" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="28" col="8" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="28" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="28" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="28" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="28" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="28" col="13" format="number">5<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="28" col="14" format="number">13<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="28" col="15" format="number">9<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="28" col="16" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="28" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="28" col="18" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="28" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="28" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="1">Gifu<style font-size="7" /></cell>
+    <cell row="29" col="2" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="6" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="8" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="12" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="13" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="14" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="16" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="29" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="18" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="29" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="30" col="1">Mie<style font-size="7" /></cell>
+    <cell row="30" col="2" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="30" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="30" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="30" col="5" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="30" col="6" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="30" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="30" col="8" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="30" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="30" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="30" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="30" col="12" format="number">2<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="30" col="13" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="30" col="14" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="30" col="15" format="number">9<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="30" col="16" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="30" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="30" col="18" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="30" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="30" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="1">Tokushima<style font-size="7" /></cell>
+    <cell row="31" col="2" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="5" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="6" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="8" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="12" format="number">2<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="31" col="13" format="number">9<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="31" col="14" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="16" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="18" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="31" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="32" col="1">Kochi<style font-size="7" /></cell>
+    <cell row="32" col="2" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="32" col="3" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="32" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="32" col="5" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="32" col="6" format="number">1<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="32" col="7" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="32" col="8" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="32" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="32" col="10" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="32" col="11" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="32" col="12" format="number">2<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="32" col="13" format="number">8<format-args decimal-places="0" use-separator="true" /><style font-size="7" /></cell>
+    <cell row="32" col="14" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="32" col="15" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="32" col="16" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="32" col="17" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="32" col="18" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="32" col="19" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="32" col="20" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" />
+    </cell>
+    <cell row="33" col="1">Total<style font-size="7" bold="true" /></cell>
+    <cell row="33" col="2" format="number">15884<formula>SUM(C12:C33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="3" format="number">2640<formula>SUM(D12:D33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="4" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" bold="true" />
+    </cell>
+    <cell row="33" col="5" format="number">1604<formula>SUM(F12:F33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="6" format="number">6150<formula>SUM(G12:G33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="7" format="number">126631<formula>SUM(H12:H33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="8" format="number">272653<formula>SUM(I12:I33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="9" format="number">
+      <format-args decimal-places="0" use-separator="true" />
+      <style font-size="7" bold="true" />
+    </cell>
+    <cell row="33" col="10" format="number">247<formula>SUM(K12:K33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="11" format="number">50<formula>SUM(L12:L33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="12" format="number">3352<formula>SUM(M12:M33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="13" format="number">10200<formula>SUM(N12:N33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="14" format="number">743562<formula>SUM(O12:O33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="15" format="number">59305<formula>SUM(P12:P33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="16" format="number">4198<formula>SUM(Q12:Q33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="17" format="number">116<formula>SUM(R12:R33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="18" format="number">207<formula>SUM(S12:S33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="19" format="number">45<formula>SUM(T12:T33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="33" col="20" format="number">29<formula>SUM(U12:U33)</formula><format-args decimal-places="0" use-separator="true" /><style font-size="7" bold="true" /></cell>
+    <cell row="35" col="1">* Unidentified information is included.</cell>
+  </cells>
+</grid>

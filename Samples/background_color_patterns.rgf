@@ -1,0 +1,358 @@
+<?xml version="1.0"?>
+<grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <meta>
+      <culture>en-US</culture>
+      <editor>ReoGridEditor 0.8.7.0</editor>
+      <core-ver>0.8.7.0</core-ver>
+    </meta>
+    <rows>27</rows>
+    <cols>40</cols>
+    <default-row-height>20</default-row-height>
+    <default-col-width>70</default-col-width>
+    <settings meta="1980414">
+      <show-grid>false</show-grid>
+    </settings>
+    <script />
+  </head>
+  <style color="Black" font="Arial" font-size="9" align="general" valign="middle" />
+  <rows>
+    <row row="0" height="18" />
+    <row row="1" height="41" />
+    <row row="2" height="21" />
+    <row row="4" height="11" />
+    <row row="6" height="25" />
+    <row row="12" height="35" />
+    <row row="13" height="25" />
+    <row row="15" height="9" />
+    <row row="17" height="25" />
+  </rows>
+  <cols>
+    <col col="0" width="29" />
+    <col col="1" width="56" />
+    <col col="2" width="56" />
+    <col col="3" width="56" />
+    <col col="4" width="56" />
+    <col col="5" width="56" />
+    <col col="6" width="56" />
+    <col col="7" width="56" />
+    <col col="8" width="56" />
+    <col col="9" width="56" />
+    <col col="10" width="56" />
+    <col col="11" width="56" />
+    <col col="12" width="56" />
+    <col col="13" width="56" />
+    <col col="14" width="56" />
+    <col col="15" width="56" />
+    <col col="16" width="56" />
+    <col col="17" width="56" />
+    <col col="18" width="56" />
+    <col col="19" width="56" />
+    <col col="20" width="56" />
+    <col col="21" width="56" />
+    <col col="22" width="56" />
+    <col col="23" width="56" />
+    <col col="24" width="56" />
+    <col col="25" width="56" />
+    <col col="26" width="56" />
+    <col col="27" width="56" />
+    <col col="28" width="56" />
+    <col col="29" width="56" />
+    <col col="30" width="56" />
+    <col col="31" width="56" />
+    <col col="32" width="56" />
+    <col col="33" width="56" />
+    <col col="34" width="56" />
+    <col col="35" width="56" />
+    <col col="36" width="56" />
+    <col col="37" width="56" />
+    <col col="38" width="56" />
+    <col col="39" width="56" />
+  </cols>
+  <v-borders />
+  <h-borders>
+    <h-border row="13" col="1" color="Black" style="Solid" pos="all" cols="14" />
+  </h-borders>
+  <cells>
+    <cell row="1" col="1" format="text">Background Color and Patterns<style font-size="20" /></cell>
+    <cell row="3" col="1" format="text">Colors<style color="#009999" font-size="12" /></cell>
+    <cell row="3" col="2" format="text" />
+    <cell row="3" col="3" format="text">
+      <style color="#5d5d5d" />
+    </cell>
+    <cell row="5" col="2" format="text">Fill cell with solid color.<style color="#5d5d5d" /></cell>
+    <cell row="7" col="2">
+      <style bgcolor="#ff0000" />
+    </cell>
+    <cell row="7" col="4">
+      <style bgcolor="#ff9900" />
+    </cell>
+    <cell row="7" col="6">
+      <style bgcolor="#ffff00" />
+    </cell>
+    <cell row="7" col="8">
+      <style bgcolor="#00ff00" />
+    </cell>
+    <cell row="7" col="10">
+      <style bgcolor="#00ffff" />
+    </cell>
+    <cell row="7" col="12">
+      <style bgcolor="#0000ff" />
+    </cell>
+    <cell row="7" col="14">
+      <style bgcolor="#ff00ff" />
+    </cell>
+    <cell row="9" col="2">
+      <style bgcolor="#ffd0d0" />
+    </cell>
+    <cell row="9" col="4">
+      <style bgcolor="#ffd099" />
+    </cell>
+    <cell row="9" col="6">
+      <style bgcolor="#ffffd0" />
+    </cell>
+    <cell row="9" col="8">
+      <style bgcolor="#d0ffd0" />
+    </cell>
+    <cell row="9" col="10">
+      <style bgcolor="#c0ffff" />
+    </cell>
+    <cell row="9" col="12">
+      <style bgcolor="#d0d0ff" />
+    </cell>
+    <cell row="9" col="14">
+      <style bgcolor="#ffd0ff" />
+    </cell>
+    <cell row="11" col="2">
+      <style bgcolor="#ffffff" />
+    </cell>
+    <cell row="11" col="4">
+      <style bgcolor="#eeeeee" />
+    </cell>
+    <cell row="11" col="6">
+      <style bgcolor="#d9d9d9" />
+    </cell>
+    <cell row="11" col="8">
+      <style bgcolor="#acacac" />
+    </cell>
+    <cell row="11" col="10">
+      <style bgcolor="#7c7c7c" />
+    </cell>
+    <cell row="11" col="12">
+      <style bgcolor="#404040" />
+    </cell>
+    <cell row="11" col="14">
+      <style bgcolor="#000000" />
+    </cell>
+    <cell row="14" col="1" format="text">Patterns<style color="#009999" font-size="12" /></cell>
+    <cell row="14" col="3" format="text">
+      <style color="#5d5d5d" />
+    </cell>
+    <cell row="16" col="2" format="text">Fill cell with fill patterns. Pattern can be specified by foreground and background color.<style color="#5d5d5d" /></cell>
+    <cell row="18" col="2" format="text">
+      <style bgcolor="#ffd099">
+        <fill-pattern color="#ff9999" style="36" />
+      </style>
+    </cell>
+    <cell row="18" col="3" format="text">
+      <style bgcolor="#ffd099">
+        <fill-pattern color="#ff9999" style="36" />
+      </style>
+    </cell>
+    <cell row="18" col="4" format="text">
+      <style bgcolor="#ffd099">
+        <fill-pattern color="#ff9999" style="36" />
+      </style>
+    </cell>
+    <cell row="18" col="6">
+      <style bgcolor="#d0d0ff">
+        <fill-pattern color="#ff00ff" style="38" />
+      </style>
+    </cell>
+    <cell row="18" col="7">
+      <style bgcolor="#d0d0ff">
+        <fill-pattern color="#ff00ff" style="38" />
+      </style>
+    </cell>
+    <cell row="18" col="8">
+      <style bgcolor="#d0d0ff">
+        <fill-pattern color="#ff00ff" style="38" />
+      </style>
+    </cell>
+    <cell row="18" col="10">
+      <style bgcolor="#ffd0d0">
+        <fill-pattern color="#999900" style="39" />
+      </style>
+    </cell>
+    <cell row="18" col="11">
+      <style bgcolor="#ffd0d0">
+        <fill-pattern color="#999900" style="39" />
+      </style>
+    </cell>
+    <cell row="18" col="12">
+      <style bgcolor="#ffd0d0">
+        <fill-pattern color="#999900" style="39" />
+      </style>
+    </cell>
+    <cell row="18" col="14">
+      <style bgcolor="#ffd0d0">
+        <fill-pattern color="#ff99ff" style="28" />
+      </style>
+    </cell>
+    <cell row="19" col="2" format="text">
+      <style bgcolor="#ffd099">
+        <fill-pattern color="#ff9999" style="36" />
+      </style>
+    </cell>
+    <cell row="19" col="3" format="text">
+      <style bgcolor="#ffd099">
+        <fill-pattern color="#ff9999" style="36" />
+      </style>
+    </cell>
+    <cell row="19" col="4" format="text">
+      <style bgcolor="#ffd099">
+        <fill-pattern color="#ff9999" style="36" />
+      </style>
+    </cell>
+    <cell row="19" col="6">
+      <style bgcolor="#d0d0ff">
+        <fill-pattern color="#ff00ff" style="38" />
+      </style>
+    </cell>
+    <cell row="19" col="7">
+      <style bgcolor="#d0d0ff">
+        <fill-pattern color="#ff00ff" style="38" />
+      </style>
+    </cell>
+    <cell row="19" col="8">
+      <style bgcolor="#d0d0ff">
+        <fill-pattern color="#ff00ff" style="38" />
+      </style>
+    </cell>
+    <cell row="19" col="10">
+      <style bgcolor="#ffd0d0">
+        <fill-pattern color="#999900" style="39" />
+      </style>
+    </cell>
+    <cell row="19" col="11">
+      <style bgcolor="#ffd0d0">
+        <fill-pattern color="#999900" style="39" />
+      </style>
+    </cell>
+    <cell row="19" col="12">
+      <style bgcolor="#ffd0d0">
+        <fill-pattern color="#999900" style="39" />
+      </style>
+    </cell>
+    <cell row="19" col="14">
+      <style bgcolor="#ffd0d0">
+        <fill-pattern color="#ff99ff" style="28" />
+      </style>
+    </cell>
+    <cell row="20" col="14">
+      <style bgcolor="#ffd0d0">
+        <fill-pattern color="#ff99ff" style="28" />
+      </style>
+    </cell>
+    <cell row="21" col="2">
+      <style bgcolor="#99ffff">
+        <fill-pattern color="#70ff70" style="48" />
+      </style>
+    </cell>
+    <cell row="21" col="3">
+      <style bgcolor="#99ffff">
+        <fill-pattern color="#70ff70" style="48" />
+      </style>
+    </cell>
+    <cell row="21" col="4">
+      <style bgcolor="#99ffff">
+        <fill-pattern color="#70ff70" style="48" />
+      </style>
+    </cell>
+    <cell row="21" col="6">
+      <style bgcolor="#9999ff">
+        <fill-pattern color="#eeeeee" style="18" />
+      </style>
+    </cell>
+    <cell row="21" col="7">
+      <style bgcolor="#9999ff">
+        <fill-pattern color="#eeeeee" style="18" />
+      </style>
+    </cell>
+    <cell row="21" col="8">
+      <style bgcolor="#9999ff">
+        <fill-pattern color="#eeeeee" style="18" />
+      </style>
+    </cell>
+    <cell row="21" col="10">
+      <style bgcolor="White">
+        <fill-pattern color="#505050" style="8" />
+      </style>
+    </cell>
+    <cell row="21" col="11">
+      <style bgcolor="White">
+        <fill-pattern color="#505050" style="8" />
+      </style>
+    </cell>
+    <cell row="21" col="12">
+      <style bgcolor="White">
+        <fill-pattern color="#505050" style="8" />
+      </style>
+    </cell>
+    <cell row="21" col="14">
+      <style bgcolor="#ffd0d0">
+        <fill-pattern color="#ff99ff" style="28" />
+      </style>
+    </cell>
+    <cell row="22" col="2">
+      <style bgcolor="#99ffff">
+        <fill-pattern color="#70ff70" style="48" />
+      </style>
+    </cell>
+    <cell row="22" col="3">
+      <style bgcolor="#99ffff">
+        <fill-pattern color="#70ff70" style="48" />
+      </style>
+    </cell>
+    <cell row="22" col="4">
+      <style bgcolor="#99ffff">
+        <fill-pattern color="#70ff70" style="48" />
+      </style>
+    </cell>
+    <cell row="22" col="6">
+      <style bgcolor="#9999ff">
+        <fill-pattern color="#eeeeee" style="18" />
+      </style>
+    </cell>
+    <cell row="22" col="7">
+      <style bgcolor="#9999ff">
+        <fill-pattern color="#eeeeee" style="18" />
+      </style>
+    </cell>
+    <cell row="22" col="8">
+      <style bgcolor="#9999ff">
+        <fill-pattern color="#eeeeee" style="18" />
+      </style>
+    </cell>
+    <cell row="22" col="10">
+      <style bgcolor="White">
+        <fill-pattern color="#505050" style="8" />
+      </style>
+    </cell>
+    <cell row="22" col="11">
+      <style bgcolor="White">
+        <fill-pattern color="#505050" style="8" />
+      </style>
+    </cell>
+    <cell row="22" col="12">
+      <style bgcolor="White">
+        <fill-pattern color="#505050" style="8" />
+      </style>
+    </cell>
+    <cell row="22" col="14">
+      <style bgcolor="#ffd0d0">
+        <fill-pattern color="#ff99ff" style="28" />
+      </style>
+    </cell>
+  </cells>
+</grid>

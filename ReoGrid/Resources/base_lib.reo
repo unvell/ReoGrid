@@ -1,0 +1,12 @@
+﻿/* Copyright (c) 2012-2016 unvell, All Rights Reserved. */
+
+function Pos(row, col) { this.row = row; this.col = col; }
+
+function Range(row, col, rows, cols) { 
+  this.row = row; this.col = col; this.rows = rows; this.cols = cols;
+
+  this.startPos = new Pos(row, col);
+  this.endPos = new Pos(row + rows, col + cols);
+}
+
+this.grid = workbook;

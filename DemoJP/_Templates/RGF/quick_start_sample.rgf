@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <default-row-height>20</default-row-height>
+    <default-col-width>70</default-col-width>
+    <rows>200</rows>
+    <cols>100</cols>
+    <freeze-row>0</freeze-row>
+    <freeze-col>0</freeze-col>
+    <named-ranges>
+      <named-range name="mydata" address="B6:F10" />
+    </named-ranges>
+    <settings show-grid="true" />
+    <culture>ja-JP</culture>
+    <editor>ReoGridEditor 0.8.6.0</editor>
+    <script />
+  </head>
+  <style bgcolor="none" color="Black" font="MS UI Gothic" font-size="9" align="general" valign="middle" />
+  <rows>
+    <row row="1" height="19" last-height="17" auto-height="false" />
+    <row row="2" height="24" last-height="20" auto-height="false" />
+    <row row="3" height="7" last-height="20" auto-height="false" />
+    <row row="4" height="23" last-height="24" auto-height="false" />
+  </rows>
+  <cols>
+    <col col="0" width="38" last-width="32" />
+    <col col="4" width="106" last-width="70" />
+  </cols>
+  <v-borders>
+    <v-border row="4" col="1" color="Black" style="Solid" pos="left" rows="6" />
+    <v-border row="4" col="2" color="Black" style="Dotted" pos="all" rows="6" />
+    <v-border row="4" col="3" color="Black" style="Dotted" pos="all" rows="6" />
+    <v-border row="4" col="4" color="Black" style="Dotted" pos="all" rows="6" />
+    <v-border row="4" col="5" color="Black" style="Dotted" pos="all" rows="6" />
+    <v-border row="4" col="6" color="Black" style="Solid" pos="right" rows="6" />
+  </v-borders>
+  <h-borders>
+    <h-border row="4" col="1" color="Black" style="Solid" pos="top" cols="5" />
+    <h-border row="5" col="1" color="Black" style="Solid" pos="bottom" cols="5" />
+    <h-border row="10" col="1" color="Black" style="Solid" pos="bottom" cols="5" />
+  </h-borders>
+  <cells>
+    <cell row="1" col="4">Create Time:</cell>
+    <cell row="2" col="1" colspan="5">My Spreadsheet Report<style bgcolor="#eeffee" color="#009900" font="Microsoft Sans Serif" font-size="10.5" /></cell>
+    <cell row="4" col="1">Username<style bgcolor="#ffd099" color="#993200" font="Microsoft Sans Serif" /></cell>
+    <cell row="4" col="2">Email<style bgcolor="#ffd099" color="#993200" font="Microsoft Sans Serif" /></cell>
+    <cell row="4" col="3">Address<style bgcolor="#ffd099" color="#993200" font="Microsoft Sans Serif" /></cell>
+    <cell row="4" col="4">Last Login<style bgcolor="#ffd099" color="#993200" font="Microsoft Sans Serif" /></cell>
+    <cell row="4" col="5">Disabled<style bgcolor="#ffd099" color="#993200" font="Microsoft Sans Serif" /></cell>
+    <cell row="5" col="1">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="5" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="5" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="5" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="5" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="7" col="1">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="7" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="7" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="7" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="7" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="9" col="1">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="9" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="9" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="9" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="9" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+  </cells>
+</grid>

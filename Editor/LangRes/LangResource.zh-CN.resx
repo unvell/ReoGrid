@@ -1,0 +1,958 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlignmentPage_Degrees" xml:space="preserve">
+    <value>度</value>
+  </data>
+  <data name="AlignmentPage_Horizontal" xml:space="preserve">
+    <value>水平(&amp;H):</value>
+  </data>
+  <data name="AlignmentPage_Indent" xml:space="preserve">
+    <value>缩进(&amp;I):</value>
+  </data>
+  <data name="AlignmentPage_Orientation" xml:space="preserve">
+    <value>方向</value>
+  </data>
+  <data name="AlignmentPage_Text_Alignment" xml:space="preserve">
+    <value>文本对齐方式</value>
+  </data>
+  <data name="AlignmentPage_Text_Control" xml:space="preserve">
+    <value>文本控制</value>
+  </data>
+  <data name="AlignmentPage_Vertical" xml:space="preserve">
+    <value>垂直(&amp;V):</value>
+  </data>
+  <data name="AlignmentPage_Wrap_Text" xml:space="preserve">
+    <value>自动换行(&amp;W)</value>
+  </data>
+  <data name="BorderPage_Line" xml:space="preserve">
+    <value>线</value>
+  </data>
+  <data name="BorderPage_Presets" xml:space="preserve">
+    <value>预设(&amp;P)</value>
+  </data>
+  <data name="BorderPage_Style" xml:space="preserve">
+    <value>样式(&amp;S):</value>
+  </data>
+  <data name="Btn_Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Btn_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Msg_Load_Script_Prompt_Title" xml:space="preserve">
+    <value>可执行脚本</value>
+  </data>
+  <data name="FillPage_Background_Color" xml:space="preserve">
+    <value>背景色(&amp;B):</value>
+  </data>
+  <data name="FillPage_Fill_Pattern" xml:space="preserve">
+    <value>填充图案(&amp;P)</value>
+  </data>
+  <data name="FillPage_Fill_Pattern_Color" xml:space="preserve">
+    <value>色(&amp;C)</value>
+  </data>
+  <data name="FillPage_Fill_Pattern_Style" xml:space="preserve">
+    <value>样式(&amp;S)</value>
+  </data>
+  <data name="Filter_Export_As_CSV" xml:space="preserve">
+    <value>CSV 文件(*.csv)|*.csv|文本文件(*.txt)|*.txt|所有文件(*.*)|*.*</value>
+  </data>
+  <data name="Filter_Load_File" xml:space="preserve">
+    <value>所有支持的格式(*.xlsx;*.csv;*.rgf)|*.xlsx;*.csv;*.rgf|RGF 格式(*.rgf)|*.rgf|Excel 2007(*.xlsx)|*.xlsx|CSV 文件(*.csv)|*.csv|所有文件(*.*)|*.*</value>
+  </data>
+  <data name="Filter_Save_File" xml:space="preserve">
+    <value>Excel 2007(*.xlsx)|*.xlsx|RGF 文件(*.rgf)|*.rgf|CSV 文件(*.csv)|*.csv|所有文件(*.*)|*.*</value>
+  </data>
+  <data name="FormatPage_Category" xml:space="preserve">
+    <value>分类(&amp;C):</value>
+  </data>
+  <data name="FormatPage_Decimal_Places" xml:space="preserve">
+    <value>小数点位数(&amp;D):</value>
+  </data>
+  <data name="FormatPage_Locale" xml:space="preserve">
+    <value>区域（国家或地区）(&amp;L):</value>
+  </data>
+  <data name="FormatPage_Negative_Numbers" xml:space="preserve">
+    <value>复数样式(&amp;N):</value>
+  </data>
+  <data name="FormatPage_Pattern" xml:space="preserve">
+    <value>模板(&amp;P):</value>
+  </data>
+  <data name="FormatPage_Symbol" xml:space="preserve">
+    <value>符号(&amp;S):</value>
+  </data>
+  <data name="FormatPage_Type" xml:space="preserve">
+    <value>类型(&amp;T):</value>
+  </data>
+  <data name="FormatPage_Use_1000_Separator" xml:space="preserve">
+    <value>使用3位数字分组({0})(&amp;U)</value>
+  </data>
+  <data name="Horizontal_Alignment_Center" xml:space="preserve">
+    <value>居中</value>
+  </data>
+  <data name="Horizontal_Alignment_Distributed" xml:space="preserve">
+    <value>分散对齐</value>
+  </data>
+  <data name="Horizontal_Alignment_General" xml:space="preserve">
+    <value>标准</value>
+  </data>
+  <data name="Horizontal_Alignment_Left" xml:space="preserve">
+    <value>居左（缩进）</value>
+  </data>
+  <data name="Horizontal_Alignment_Right" xml:space="preserve">
+    <value>居右（缩进）</value>
+  </data>
+  <data name="HP_Homepage" xml:space="preserve">
+    <value>http://reogrid.net/cn</value>
+  </data>
+  <data name="HP_Homepage_Document" xml:space="preserve">
+    <value>http://reogrid.net/cn/document</value>
+  </data>
+  <data name="Label_Color" xml:space="preserve">
+    <value>颜色(&amp;C):</value>
+  </data>
+  <data name="Sample" xml:space="preserve">
+    <value>样本</value>
+  </data>
+  <data name="Menu_Cells" xml:space="preserve">
+    <value>单元格(&amp;C)</value>
+  </data>
+  <data name="Menu_Change_Cells_Type" xml:space="preserve">
+    <value>改变单元格类型(&amp;T)</value>
+  </data>
+  <data name="Menu_Cells_Merge_Cells" xml:space="preserve">
+    <value>合并单元格(&amp;M)</value>
+  </data>
+  <data name="Menu_Cells_Unmerge_Cells" xml:space="preserve">
+    <value>解散单元格(&amp;U)</value>
+  </data>
+  <data name="Menu_Edit" xml:space="preserve">
+    <value>编辑(&amp;E)</value>
+  </data>
+  <data name="Menu_Edit_Clear" xml:space="preserve">
+    <value>清除</value>
+  </data>
+  <data name="Menu_Copy" xml:space="preserve">
+    <value>复制(&amp;C)</value>
+  </data>
+  <data name="Menu_Cut" xml:space="preserve">
+    <value>剪切(&amp;U)</value>
+  </data>
+  <data name="Menu_Edit_Focus_Cell_Style" xml:space="preserve">
+    <value>焦点单元格</value>
+  </data>
+  <data name="Menu_Paste" xml:space="preserve">
+    <value>粘贴(&amp;P)</value>
+  </data>
+  <data name="Menu_Edit_Readonly" xml:space="preserve">
+    <value>只读</value>
+  </data>
+  <data name="Menu_Redo" xml:space="preserve">
+    <value>重做(&amp;R)</value>
+  </data>
+  <data name="Menu_Edit_Repeat_Last_Action" xml:space="preserve">
+    <value>重复最后动作(&amp;A)</value>
+  </data>
+  <data name="Menu_Edit_Selection" xml:space="preserve">
+    <value>选择(&amp;S)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Drag_To_Fill_Serial" xml:space="preserve">
+    <value>拖动填充序列(&amp;F)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Drag_To_Move_Content" xml:space="preserve">
+    <value>拖动移动内容(&amp;D)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode" xml:space="preserve">
+    <value>选择模式(&amp;M)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Cell" xml:space="preserve">
+    <value>单元格(Cell)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Column" xml:space="preserve">
+    <value>列(Column)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_None" xml:space="preserve">
+    <value>禁用(None)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Range" xml:space="preserve">
+    <value>范围（缺省）(&amp;R)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Row" xml:space="preserve">
+    <value>行(Row)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style" xml:space="preserve">
+    <value>选择样式(&amp;T)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style_Default" xml:space="preserve">
+    <value>缺省实线样式</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style_Focus_Rect" xml:space="preserve">
+    <value>Windows焦点样式</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style_None" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="Menu_Edit_Select_All" xml:space="preserve">
+    <value>全选(&amp;A)</value>
+  </data>
+  <data name="Menu_Undo" xml:space="preserve">
+    <value>恢复(&amp;U)</value>
+  </data>
+  <data name="Menu_File" xml:space="preserve">
+    <value>文件(&amp;F)</value>
+  </data>
+  <data name="Menu_File_Edit_RGF_XML" xml:space="preserve">
+    <value>编辑RGF内容&amp;XML...</value>
+  </data>
+  <data name="Menu_File_Exit" xml:space="preserve">
+    <value>退出(&amp;E)</value>
+  </data>
+  <data name="Menu_File_Export_As_CSV" xml:space="preserve">
+    <value>导出为&amp;CSV...</value>
+  </data>
+  <data name="Menu_File_Export_As_CSV_Current_Worksheet" xml:space="preserve">
+    <value>导出当前单元格(&amp;W)...</value>
+  </data>
+  <data name="Menu_File_Export_As_CSV_Selected_Range" xml:space="preserve">
+    <value>导出选择范围(&amp;R)...</value>
+  </data>
+  <data name="Menu_File_Export_As_HTML" xml:space="preserve">
+    <value>导出为&amp;HTML...</value>
+  </data>
+  <data name="Menu_File_New" xml:space="preserve">
+    <value>新建(&amp;N)</value>
+  </data>
+  <data name="Menu_File_New_Window" xml:space="preserve">
+    <value>新窗口(&amp;W)...</value>
+  </data>
+  <data name="Menu_File_Open" xml:space="preserve">
+    <value>打开(&amp;O)</value>
+  </data>
+  <data name="Menu_File_Print" xml:space="preserve">
+    <value>打印(&amp;P)...</value>
+  </data>
+  <data name="Menu_File_Print_Preview" xml:space="preserve">
+    <value>打印预览(&amp;R)...</value>
+  </data>
+  <data name="Menu_File_Print_Settings" xml:space="preserve">
+    <value>打印设置(&amp;S)...</value>
+  </data>
+  <data name="Menu_File_Save" xml:space="preserve">
+    <value>保存(&amp;S)</value>
+  </data>
+  <data name="Menu_File_Save_As" xml:space="preserve">
+    <value>另保存(&amp;A)...</value>
+  </data>
+  <data name="Menu_Formula" xml:space="preserve">
+    <value>公式(&amp;F)</value>
+  </data>
+  <data name="Menu_Formula_Auto_Function" xml:space="preserve">
+    <value>自动完成公式(&amp;A)</value>
+  </data>
+  <data name="Menu_Formula_Define_Name" xml:space="preserve">
+    <value>定义名称(&amp;N)...</value>
+  </data>
+  <data name="Menu_Formula_Name_Manager" xml:space="preserve">
+    <value>命名管理(&amp;M)...</value>
+  </data>
+  <data name="Menu_Formula_Recalculate_Worksheet" xml:space="preserve">
+    <value>重计算工作表(&amp;R)</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows" xml:space="preserve">
+    <value>移除跟踪箭头(&amp;R)</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows_Remove_All_Arrows" xml:space="preserve">
+    <value>移除所有跟踪箭头(&amp;A)</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows_Remove_Dependent_Arrows" xml:space="preserve">
+    <value>移除引用单元格箭头&amp;D)</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows_Remove_Precedent_Arrows" xml:space="preserve">
+    <value>移除丛书单元格箭头(&amp;P)</value>
+  </data>
+  <data name="Menu_Formula_Suspend_Reference_Updates" xml:space="preserve">
+    <value>设置自动计算为手动(&amp;S)</value>
+  </data>
+  <data name="Menu_Formula_Trace_Dependents" xml:space="preserve">
+    <value>跟踪引用单元格(&amp;D)</value>
+  </data>
+  <data name="Menu_Formula_Trace_Precedents" xml:space="preserve">
+    <value>跟踪从属单元格(&amp;P)</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>帮助(&amp;H)</value>
+  </data>
+  <data name="Menu_Help_About" xml:space="preserve">
+    <value>关于(&amp;A)...</value>
+  </data>
+  <data name="Menu_Help_Documents" xml:space="preserve">
+    <value>文档(&amp;D)...</value>
+  </data>
+  <data name="Menu_Help_Homepage" xml:space="preserve">
+    <value>官方网站(&amp;H)...</value>
+  </data>
+  <data name="Menu_Script" xml:space="preserve">
+    <value>脚本(&amp;R)</value>
+  </data>
+  <data name="Menu_Script_Run_Function" xml:space="preserve">
+    <value>运行函数(&amp;F)...</value>
+  </data>
+  <data name="Menu_Script_Script_Editor" xml:space="preserve">
+    <value>脚本编辑器(&amp;E)...</value>
+  </data>
+  <data name="Menu_Sheet" xml:space="preserve">
+    <value>工作表(&amp;S)</value>
+  </data>
+  <data name="Menu_Sheet_Clear_Filter" xml:space="preserve">
+    <value>移除过滤器</value>
+  </data>
+  <data name="Menu_Sheet_Filter" xml:space="preserve">
+    <value>过滤器(&amp;F)</value>
+  </data>
+  <data name="Menu_Sheet_Group" xml:space="preserve">
+    <value>分组(&amp;G)</value>
+  </data>
+  <data name="Menu_Sheet_Group_Rows" xml:space="preserve">
+    <value>行分组(&amp;R)</value>
+  </data>
+  <data name="Menu_Sheet_Insert" xml:space="preserve">
+    <value>插入(&amp;I)</value>
+  </data>
+  <data name="Menu_Sheet_Resize" xml:space="preserve">
+    <value>行列数(&amp;R)...</value>
+  </data>
+  <data name="Menu_Sheet_Settings" xml:space="preserve">
+    <value>设定(&amp;S)</value>
+  </data>
+  <data name="Menu_Tools" xml:space="preserve">
+    <value>工具(&amp;T)</value>
+  </data>
+  <data name="Menu_Tools_Control_Appearance" xml:space="preserve">
+    <value>控件外观(&amp;A)...</value>
+  </data>
+  <data name="Menu_View" xml:space="preserve">
+    <value>表示(&amp;V)</value>
+  </data>
+  <data name="Menu_View_Components" xml:space="preserve">
+    <value>组件(&amp;C)</value>
+  </data>
+  <data name="Menu_View_Components_FormulaBar" xml:space="preserve">
+    <value>公式栏(&amp;F)</value>
+  </data>
+  <data name="Menu_View_Components_StatusBar" xml:space="preserve">
+    <value>状态栏(&amp;S)</value>
+  </data>
+  <data name="Menu_View_Components_Toolbar" xml:space="preserve">
+    <value>工具栏(&amp;T)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Cell" xml:space="preserve">
+    <value>固定到指定单元格(&amp;F)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges" xml:space="preserve">
+    <value>固定到指定单元格及边(&amp;E)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Bottom" xml:space="preserve">
+    <value>底部(&amp;B)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Bottom_Left" xml:space="preserve">
+    <value>底部左边(&amp;F)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Bottom_Right" xml:space="preserve">
+    <value>底部右边(&amp;G)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Left" xml:space="preserve">
+    <value>左边(&amp;L)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Right" xml:space="preserve">
+    <value>右边(&amp;R)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Top" xml:space="preserve">
+    <value>顶部(&amp;T)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Top_Left" xml:space="preserve">
+    <value>顶部左边(&amp;O)</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Top_Right" xml:space="preserve">
+    <value>顶部右边(&amp;I)</value>
+  </data>
+  <data name="Menu_Reset_All_Page_Breaks" xml:space="preserve">
+    <value>重置所有分页(&amp;B)</value>
+  </data>
+  <data name="Menu_View_Unfreeze" xml:space="preserve">
+    <value>取消固定行列</value>
+  </data>
+  <data name="Menu_View_Visible" xml:space="preserve">
+    <value>可见(&amp;V)</value>
+  </data>
+  <data name="Menu_View_Visible_Column_Header" xml:space="preserve">
+    <value>列头(&amp;C)</value>
+  </data>
+  <data name="Menu_View_Visible_Column_Outline_Panel" xml:space="preserve">
+    <value>列大纲面板(&amp;P)</value>
+  </data>
+  <data name="Menu_View_Visible_Forzen_Line" xml:space="preserve">
+    <value>固定行列表示线(&amp;F)</value>
+  </data>
+  <data name="Menu_View_Visible_Grid_Lines" xml:space="preserve">
+    <value>表格线(&amp;G)</value>
+  </data>
+  <data name="Menu_View_Visible_Horizontal_ScrollBar" xml:space="preserve">
+    <value>水平滚动条(&amp;H)</value>
+  </data>
+  <data name="Menu_View_Visible_Page_Breaks" xml:space="preserve">
+    <value>分页(&amp;B)</value>
+  </data>
+  <data name="Menu_View_Visible_Row_Header" xml:space="preserve">
+    <value>行头(&amp;R)</value>
+  </data>
+  <data name="Menu_View_Visible_Row_Outline_Panel" xml:space="preserve">
+    <value>行大纲面板(&amp;O)</value>
+  </data>
+  <data name="Menu_View_Visible_Sheet_Tab" xml:space="preserve">
+    <value>工作表选项卡(&amp;S)</value>
+  </data>
+  <data name="Menu_View_Visible_Vertical_ScrollBar" xml:space="preserve">
+    <value>垂直滚动条(&amp;V)</value>
+  </data>
+  <data name="Msg_File_Not_Found" xml:space="preserve">
+    <value>找不到指定文件： </value>
+  </data>
+  <data name="Msg_Load_File_Failed" xml:space="preserve">
+    <value>读取文件失败：</value>
+  </data>
+  <data name="Msg_Load_Script_Prompt" xml:space="preserve">
+    <value>文档包含可执行的脚本（宏），是否立即执行？</value>
+  </data>
+  <data name="Msg_Named_Range_Overwrite" xml:space="preserve">
+    <value>命名已被定义为其他的范围，是否要覆盖？</value>
+  </data>
+  <data name="Msg_Only_RGF_Edit_XML" xml:space="preserve">
+    <value>XML 内容编辑仅在当前文件格式为 RGF(.rgf;*.xml) 时可用。</value>
+  </data>
+  <data name="Msg_Operation_Aborted" xml:space="preserve">
+    <value>操作无法继续。</value>
+  </data>
+  <data name="Msg_Outline_Already_Exist" xml:space="preserve">
+    <value>在相同位置有其他的大纲存在。</value>
+  </data>
+  <data name="Msg_Outline_Intersected" xml:space="preserve">
+    <value>新建的大纲不能与其他大纲重叠或相交。大纲仅可包围其他大纲或被其他大纲包围。</value>
+  </data>
+  <data name="Msg_Outline_Not_Found" xml:space="preserve">
+    <value>在指定位置找不到大纲。</value>
+  </data>
+  <data name="Msg_Outline_Out_Of_Range" xml:space="preserve">
+    <value>不能在指定的位置创建大纲。工作表的最后一行或列无法被分组到任何大纲中。</value>
+  </data>
+  <data name="Msg_Outline_Too_Much" xml:space="preserve">
+    <value>大纲数量太多，不能超过10个。</value>
+  </data>
+  <data name="Msg_Range_Intersection_Exception" xml:space="preserve">
+    <value>操作无法继续，要更改的范围可能包含其他任何合并单元格的一部分。</value>
+  </data>
+  <data name="Msg_Save_Changes" xml:space="preserve">
+    <value>是否要保存变更？</value>
+  </data>
+  <data name="Msg_Save_File_Immediately" xml:space="preserve">
+    <value>编辑器将保存当前文档，是否继续？</value>
+  </data>
+  <data name="Msg_Script_Not_Available" xml:space="preserve">
+    <value>脚本执行功能不可用在当前的版本中。</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="ProtectionPage_Locked" xml:space="preserve">
+    <value>锁定（只读）(&amp;R)</value>
+  </data>
+  <data name="Untitled" xml:space="preserve">
+    <value>无题</value>
+  </data>
+  <data name="Vertical_Alignment_Bottom" xml:space="preserve">
+    <value>靠下</value>
+  </data>
+  <data name="Vertical_Alignment_General" xml:space="preserve">
+    <value>常规</value>
+  </data>
+  <data name="Vertical_Alignment_Middle" xml:space="preserve">
+    <value>中间</value>
+  </data>
+  <data name="Vertical_Alignment_Top" xml:space="preserve">
+    <value>靠上</value>
+  </data>
+  <data name="Menu_More" xml:space="preserve">
+    <value>更多...</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="AppearanceEditor_Export_CSharp" xml:space="preserve">
+    <value>导出 C#</value>
+  </data>
+  <data name="AppearanceEditor_Export_VBNET" xml:space="preserve">
+    <value>导出 VB.NET</value>
+  </data>
+  <data name="AppearanceEditor_Highlight" xml:space="preserve">
+    <value>高亮(&amp;H):</value>
+  </data>
+  <data name="AppearanceEditor_Main" xml:space="preserve">
+    <value>主色(&amp;M):</value>
+  </data>
+  <data name="AppearanceEditor_Reset_To_Default" xml:space="preserve">
+    <value>重置为缺省(&amp;D)</value>
+  </data>
+  <data name="AppearanceEditor_Selection_Border_Width" xml:space="preserve">
+    <value>选择范围边线宽(&amp;W):</value>
+  </data>
+  <data name="AppearanceEditor_Use_System_Highligh_Color" xml:space="preserve">
+    <value>使用系统高亮色(&amp;S)</value>
+  </data>
+  <data name="Btn_Close" xml:space="preserve">
+    <value>关闭(&amp;C)</value>
+  </data>
+  <data name="Btn_Delete" xml:space="preserve">
+    <value>删除(&amp;D)</value>
+  </data>
+  <data name="Btn_Edit" xml:space="preserve">
+    <value>编辑(&amp;E)</value>
+  </data>
+  <data name="Btn_New" xml:space="preserve">
+    <value>新建(&amp;N)</value>
+  </data>
+  <data name="Column" xml:space="preserve">
+    <value>列</value>
+  </data>
+  <data name="DefineNamedRange_Caption" xml:space="preserve">
+    <value>新命名</value>
+  </data>
+  <data name="DefineNamedRange_Comment" xml:space="preserve">
+    <value>备注(&amp;C):</value>
+  </data>
+  <data name="DefineNamedRange_Name" xml:space="preserve">
+    <value>命名(&amp;N):</value>
+  </data>
+  <data name="DefineNamedRange_Range" xml:space="preserve">
+    <value>范围(&amp;R):</value>
+  </data>
+  <data name="HeaderProperty_Auto_Fit_To_Cell" xml:space="preserve">
+    <value>自动适应单元格大小(&amp;F)</value>
+  </data>
+  <data name="HeaderProperty_Caption" xml:space="preserve">
+    <value>头属性</value>
+  </data>
+  <data name="HeaderProperty_Default_Column_Type" xml:space="preserve">
+    <value>缺省列单元格类型(&amp;T):</value>
+  </data>
+  <data name="HeaderProperty_Panel_Width" xml:space="preserve">
+    <value>面板宽(&amp;W):</value>
+  </data>
+  <data name="HeaderProperty_Text" xml:space="preserve">
+    <value>文本(&amp;T):</value>
+  </data>
+  <data name="HeaderProperty_Text_Color" xml:space="preserve">
+    <value>文本色(&amp;C):</value>
+  </data>
+  <data name="Inch" xml:space="preserve">
+    <value>英寸</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>横</value>
+  </data>
+  <data name="Msg_Create_Named_Range_Failed" xml:space="preserve">
+    <value>不能以指定的名称定义范围。请确认：
+  名称不能以数字开头
+  名称中不包含空格及无效的字符
+  名称不与任何单元格及范围的地址相同
+  名称不与 ReoGrid 内置的对象及函数名相同</value>
+  </data>
+  <data name="Msg_Create_Named_Range_Failed_Title" xml:space="preserve">
+    <value>定义命名失败</value>
+  </data>
+  <data name="Msg_Delete_Named_Range_Confirm" xml:space="preserve">
+    <value>删除选择的命名吗？</value>
+  </data>
+  <data name="Msg_Delete_Named_Range_Confirm_Title" xml:space="preserve">
+    <value>删除命名</value>
+  </data>
+  <data name="Msg_Input_Name_Of_Range" xml:space="preserve">
+    <value>请输入命名。</value>
+  </data>
+  <data name="Msg_Invalid_Address_Of_Range" xml:space="preserve">
+    <value>请输入有效的地址。</value>
+  </data>
+  <data name="Msg_No_Current_Worksheet" xml:space="preserve">
+    <value>无有效的工作表。</value>
+  </data>
+  <data name="Msg_Source_Code_Exported_Into_Clipboard" xml:space="preserve">
+    <value>代码已经被导出到剪贴板中。</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>命名</value>
+  </data>
+  <data name="NamedRangeManage_Caption" xml:space="preserve">
+    <value>命名管理器</value>
+  </data>
+  <data name="NamedRangeManage_Named_Ranges" xml:space="preserve">
+    <value>命名：</value>
+  </data>
+  <data name="Paging_Order" xml:space="preserve">
+    <value>分页顺序</value>
+  </data>
+  <data name="Paper" xml:space="preserve">
+    <value>纸张</value>
+  </data>
+  <data name="Pixel" xml:space="preserve">
+    <value>像素</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>纵</value>
+  </data>
+  <data name="PrintSettings_Adjust_To" xml:space="preserve">
+    <value>调整到</value>
+  </data>
+  <data name="PrintSettings_Down_Then_Over" xml:space="preserve">
+    <value>从上到下</value>
+  </data>
+  <data name="PrintSettings_Orientation" xml:space="preserve">
+    <value>方向:</value>
+  </data>
+  <data name="PrintSettings_Over_Then_Down" xml:space="preserve">
+    <value>从左到右</value>
+  </data>
+  <data name="PrintSettings_Paper_Size" xml:space="preserve">
+    <value>纸张大小:</value>
+  </data>
+  <data name="PrintSettings_Percent_Normal_Size" xml:space="preserve">
+    <value>% 缩放比</value>
+  </data>
+  <data name="PrintSettings_Setup" xml:space="preserve">
+    <value>设置(&amp;S)</value>
+  </data>
+  <data name="PrintSettings_Show_Grid_Lines" xml:space="preserve">
+    <value>打印单元格线(&amp;G)</value>
+  </data>
+  <data name="PrintSettings_Show_Margins" xml:space="preserve">
+    <value>打印余白表示线(&amp;M)</value>
+  </data>
+  <data name="PrintSettings_Visible_Settings" xml:space="preserve">
+    <value>可见设置</value>
+  </data>
+  <data name="Resize_Caption" xml:space="preserve">
+    <value>更改工作表大小</value>
+  </data>
+  <data name="Resize_Columns" xml:space="preserve">
+    <value>列数(&amp;C):</value>
+  </data>
+  <data name="Resize_Columns_Remark" xml:space="preserve">
+    <value>（最大： 32,768）</value>
+  </data>
+  <data name="Resize_Rows" xml:space="preserve">
+    <value>行数(&amp;R):</value>
+  </data>
+  <data name="Resize_Rows_Remark" xml:space="preserve">
+    <value>（最大: 1,048,576）</value>
+  </data>
+  <data name="Row" xml:space="preserve">
+    <value>行</value>
+  </data>
+  <data name="RunFunction_Caption" xml:space="preserve">
+    <value>运行脚本函数</value>
+  </data>
+  <data name="RunFunction_Close_This_Window_After_Running" xml:space="preserve">
+    <value>运行后关闭(&amp;C)</value>
+  </data>
+  <data name="RunFunction_Functions" xml:space="preserve">
+    <value>函数(&amp;F):</value>
+  </data>
+  <data name="RunFunction_Run" xml:space="preserve">
+    <value>运行(&amp;R)</value>
+  </data>
+  <data name="Scaling" xml:space="preserve">
+    <value>缩放</value>
+  </data>
+  <data name="SetHeaderSize_Caption_Column" xml:space="preserve">
+    <value>列宽</value>
+  </data>
+  <data name="SetHeaderSize_Caption_Row" xml:space="preserve">
+    <value>行高</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>文本</value>
+  </data>
+  <data name="Alignment" xml:space="preserve">
+    <value>对齐</value>
+  </data>
+  <data name="Border" xml:space="preserve">
+    <value>边框</value>
+  </data>
+  <data name="Fill" xml:space="preserve">
+    <value>填充</value>
+  </data>
+  <data name="Format" xml:space="preserve">
+    <value>格式</value>
+  </data>
+  <data name="Protection" xml:space="preserve">
+    <value>保护</value>
+  </data>
+  <data name="AppearanceEditor_Caption" xml:space="preserve">
+    <value>控件外观编辑器</value>
+  </data>
+  <data name="PrintSettings_Caption" xml:space="preserve">
+    <value>打印设置</value>
+  </data>
+  <data name="CtxMenu_Cell_Merge" xml:space="preserve">
+    <value>合并(&amp;M)</value>
+  </data>
+  <data name="CtxMenu_Cell_Unmerge" xml:space="preserve">
+    <value>解散(&amp;U)</value>
+  </data>
+  <data name="CtxMenu_Col_Clear_Filter" xml:space="preserve">
+    <value>移除过滤器</value>
+  </data>
+  <data name="CtxMenu_Col_Column_Width" xml:space="preserve">
+    <value>列宽(&amp;W)...</value>
+  </data>
+  <data name="CtxMenu_Col_Delete_Columns" xml:space="preserve">
+    <value>删除(&amp;D)</value>
+  </data>
+  <data name="CtxMenu_Col_Filter" xml:space="preserve">
+    <value>过滤器(&amp;F)</value>
+  </data>
+  <data name="CtxMenu_Col_Insert_Columns" xml:space="preserve">
+    <value>插入(&amp;I)</value>
+  </data>
+  <data name="CtxMenu_Col_Reset_To_Default_Width" xml:space="preserve">
+    <value>重置为默认宽</value>
+  </data>
+  <data name="CtxMenu_Row_Delete_Rows" xml:space="preserve">
+    <value>删除(&amp;D)</value>
+  </data>
+  <data name="CtxMenu_Row_Insert_Rows" xml:space="preserve">
+    <value>插入(&amp;I)</value>
+  </data>
+  <data name="CtxMenu_Row_Reset_to_Default_Height" xml:space="preserve">
+    <value>重置为默认高</value>
+  </data>
+  <data name="CtxMenu_Row_Row_Height" xml:space="preserve">
+    <value>行高(&amp;H)...</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>缺省</value>
+  </data>
+  <data name="Menu_Edit_Selection_Move_Direction" xml:space="preserve">
+    <value>移动方向(&amp;M)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Move_Direction_Down" xml:space="preserve">
+    <value>下(&amp;D)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Move_Direction_Right" xml:space="preserve">
+    <value>右(缺省)(&amp;R)</value>
+  </data>
+  <data name="Menu_Format_Cells" xml:space="preserve">
+    <value>设置单元格格式(&amp;F)...</value>
+  </data>
+  <data name="Menu_Group" xml:space="preserve">
+    <value>分组(&amp;G)</value>
+  </data>
+  <data name="Menu_Hide" xml:space="preserve">
+    <value>隐藏(&amp;H)</value>
+  </data>
+  <data name="Menu_Insert_Page_Break" xml:space="preserve">
+    <value>插入分页(&amp;B)</value>
+  </data>
+  <data name="Menu_Property" xml:space="preserve">
+    <value>属性(&amp;P)...</value>
+  </data>
+  <data name="Menu_Remove_Page_Break" xml:space="preserve">
+    <value>删除分页</value>
+  </data>
+  <data name="Menu_Sheet_Group_Columns" xml:space="preserve">
+    <value>列分组(&amp;C)</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup" xml:space="preserve">
+    <value>解散(&amp;U)</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_All_Columns" xml:space="preserve">
+    <value>所有列</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_All_Rows" xml:space="preserve">
+    <value>所有行</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_Selection_Columns" xml:space="preserve">
+    <value>选择的列</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_Selection_Rows" xml:space="preserve">
+    <value>选择的行</value>
+  </data>
+  <data name="Menu_Ungroup" xml:space="preserve">
+    <value>解散组</value>
+  </data>
+  <data name="Menu_Ungroup_All" xml:space="preserve">
+    <value>解散所有组</value>
+  </data>
+  <data name="Menu_Unhide" xml:space="preserve">
+    <value>表示(&amp;U)</value>
+  </data>
+  <data name="NamedRangeManage_New" xml:space="preserve">
+    <value>新建(&amp;N)...</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="CellBody" xml:space="preserve">
+    <value>单元格体</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>货币</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>数据</value>
+  </data>
+  <data name="Data_Format" xml:space="preserve">
+    <value>数据格式</value>
+  </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>日期时间</value>
+  </data>
+  <data name="FormatPage_Caption" xml:space="preserve">
+    <value>格式化单元格</value>
+  </data>
+  <data name="Formula" xml:space="preserve">
+    <value>公式</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>常规</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>数字</value>
+  </data>
+  <data name="Percentage" xml:space="preserve">
+    <value>百分比</value>
+  </data>
+  <data name="Style" xml:space="preserve">
+    <value>样式</value>
+  </data>
+  <data name="NoColor" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="SolidColor" xml:space="preserve">
+    <value>纯色</value>
+  </data>
+</root>

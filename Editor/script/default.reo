@@ -1,0 +1,7 @@
+﻿// 'workbook' is the predefined global object for workbook instance of control
+//
+
+var sheet = workbook.currentWorksheet;
+
+sheet.getCell("A1").data = 'hello';
+sheet.getCell(0, 1).data = 'world';

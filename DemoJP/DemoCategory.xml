@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/*****************************************************************************
+ * 
+ * ReoGrid - .NET 表計算スプレッドシートコンポーネント
+ * http://reogrid.net/jp
+ *
+ * ReoGrid 日本語版デモプロジェクトは MIT ライセンスでリリースされています。
+ * 
+ * このソフトウェアは無保証であり、このソフトウェアの使用により生じた直接・間接の損害に対し、
+ * 著作権者は補償を含むあらゆる責任を負いません。 
+ * 
+ * Copyright (c) 2012-2016 unvell.com, All Rights Reserved.
+ * http://www.unvell.com/jp
+ * 
+ ****************************************************************************/
+-->
+<Demo BaseSite="https://reogrid.net/jp/" DefaultItem="バージョン1.3 新機能">
+
+	<New>
+		<Item Name="ようこそ"></Item>
+		<Item Name="折れ線グラフ"></Item>
+		<Item Name="縦棒グラフ"></Item>
+		<Item Name="横棒グラフ"></Item>
+		<Item Name="面グラフ"></Item>
+		<Item Name="円2Dグラフ"></Item>
+		<Item Name="カスタマイズしたデータ書式"></Item>
+	</New>
+		
+	<Categories>
+		<Category Name="ようこそ" Expansion="True">
+			<Item Name="バージョン1.3 新機能" Class="Welcome.WhatsNewDemo"></Item>
+		</Category>
+			
+		<Category Name="グラフ" Expansion="True" Namespace="ChartDemo">
+			<Item Name="折れ線グラフ" Class="ChartDemo.LineChartDemo">
+				<Doc-Url>document/chart</Doc-Url>
+			</Item>
+			
+			<Item Name="縦棒グラフ" Class="ChartDemo.ColumnChartDemo">
+				<Doc-Url>document/chart</Doc-Url>
+			</Item>
+
+			<Item Name="横棒グラフ" Class="ChartDemo.BarChartDemo">
+				<Doc-Url>document/chart</Doc-Url>
+			</Item>
+			
+			<Item Name="面グラフ" Class="ChartDemo.AreaChartDemo">
+				<Doc-Url>document/chart</Doc-Url>
+			</Item>
+
+			<Item Name="円2Dグラフ" Class="ChartDemo.Pie2DChartDemo">
+				<Doc-Url>document/chart</Doc-Url>
+			</Item>
+			
+			<Item Name="ドーナツグラフ" Class="ChartDemo.DoughnutChartDemo">
+				<Doc-Url>document/chart</Doc-Url>
+			</Item>
+		</Category>
+
+		<Category Name="描画" Expansion="False">
+			<Item Name="描画オブジェクト" Class="Drawings.AddingObjectDemo" />
+			<Item Name="描画オブジェクトスタイル" Class="Drawings.DrawingObjectStyleDemo" />
+			<!--<Item Name="Basic Shapes" Class="Drawings.BasicShapesDemo" />-->
+		</Category>
+
+		<Category Name="スプレッドシート応用例" Expansion="True">
+			<Item Name="請求書" Class="DocumentDemo.InvoiceExcelDocDemo" />
+			<Item Name="振替伝票" Class="DocumentDemo.FurikaeDenpyoDemo" />
+			<Item Name="月別人口推計" Class="DocumentDemo.MonthlyPopulationStatDemo" />
+			<Item Name="財務分析" Class="DocumentDemo.FinancialAnalysisDemo" />
+			<Item Name="職員情報管理" Class="DocumentDemo.StaffInformationDemo" />
+			<Item Name="貸借対照表" Class="DocumentDemo.BalanceSheetDemo" />
+
+			<Item Name="月別カレンダー（読み込み専用）" Class="DocumentDemo.MonthCalendarDocDemo" />
+			<Item Name="年間カレンダー（読み込み専用）" Class="DocumentDemo.YearCalendarDocDemo" />
+
+			<Item Name="注文書（英語）" Class="DocumentDemo.OrderDocDemo" />
+			<Item Name="プロジェクト報告書（英語）" Class="DocumentDemo.ProjectSummaryDocDemo" />
+			<Item Name="プロジェクトビルド報告書（英語）" Class="DocumentDemo.ProjectBuildReportDemo" />
+			<Item Name="データ書式サンプル（英語）" Class="DocumentDemo.DataFormatDocDemo" />
+			<Item Name="財務指標報告書（英語）" Class="DocumentDemo.FinancialRatiosDocDemo" />
+			
+			<Item Name="迷路" Class="DocumentDemo.MazeDocDemo" />
+		</Category>
+		
+		<Category Name="セル" Expansion="True">
+			<Item Name="セルデータの設定" Class="CellDemo.CellDataDemo">
+				<!--<Doc-Url>document/cell</Doc-Url>-->
+			</Item>
+			
+			<Item Name="セル範囲データの設定" Class="CellDemo.RangeUsageDemo">
+				<Doc-Url>document/worksheet/range</Doc-Url>
+			</Item>
+		
+			<Item Name="セル中テキストの操作" Class="CellDemo.CellTextDemo">
+				<!--<Doc-Url>document/cell</Doc-Url>-->
+			</Item>
+						
+			<Item Name="カスタマイズしたデータ書式" Class="CellDemo.CustomDataFormatDemo">
+				<!--<Doc-Url>document/custom-data-format</Doc-Url>-->
+			</Item>
+				
+			<Item Name="セルの結合" Class="CellDemo.MergeCellsDemo">
+				<Doc-Url>document/worksheet/range/merge-and-unmerge</Doc-Url>
+			</Item>
+			
+			<Item Name="セルイベント" Class="CellDemo.CellsEventDemo">
+				<Doc-Url>document/event</Doc-Url>
+			</Item>
+			
+			<Item Name="セルの反復" Class="CellDemo.IterateCellsDemo">
+				<Doc-Url>document/worksheet/iterate-cells</Doc-Url>
+			</Item>
+			
+			<Item Name="罫線のスタイル設定" Class="CellDemo.BorderStylesDemo" >
+				<Doc-Url>document/border</Doc-Url>
+			</Item>
+
+			<Item Name="セル中のリッチテキスト" Class="CellDemo.RichTextDemo">
+				<Doc-Url>document/rich-text</Doc-Url>
+			</Item>
+		</Category>
+		
+		<Category Name="様々な入力方法とセル型" Expansion="True">
+			<Item Name="内蔵セル型" Class="CellTypeDemo.BuiltInCellTypesDemo">
+				<Doc-Url>document/built-in-cell-types</Doc-Url>
+			</Item>
+
+			<Item Name="カスタマイズしたドロップダウンリスト" Class="CellTypeDemo.CustomDropdownDemo">
+				<Doc-Url>how-to/create-custom-drop-down-cell/</Doc-Url>
+			</Item>
+
+			<Item Name="カスタマイズした数字プログレスバー" Class="CellTypeDemo.NumericProgressDemo">
+				<Doc-Url>document/custom-cell</Doc-Url>
+			</Item>
+			
+			<Item Name="カスタマイズしたスライドセル型" Class="CellTypeDemo.SlideCellDemo">
+				<Doc-Url>document/custom-cell</Doc-Url>
+			</Item>
+
+			<Item Name="アニメーションセル" Class="CellTypeDemo.AnimationCellDemo">
+				<Doc-Url>document/custom-cell</Doc-Url>
+			</Item>
+		</Category>
+
+		<Category Name="ワークブック">
+			<Item Name="マルチシートの制御" Class="WorkbookDemo.MultisheetDemo">
+				<Doc-Url>document/workbook</Doc-Url>
+			</Item>
+			<Item Name="スクロールバーの同期" Class="WorkbookDemo.SynchronizeScrollDemo">
+			</Item>
+			<Item Name="コンポーネント外観スタイルの設定" Class="WorkbookDemo.ControlAppearanceDemo">
+				<Doc-Url>document/control-appearance</Doc-Url>
+			</Item>
+		</Category>
+
+		<Category Name="ワークシート" Namespace="" Expansion="True">
+			
+			<Item Name="カスタマイズしたヘッダー" Class="WorksheetDemo.CustomHeaderDemo" >
+				<!--<Doc-Url>document/row-and-column</Doc-Url>-->
+			</Item>
+
+			<Item Name="マルチ選択の実装" Class="WorksheetDemo.MultiSelectionDemo" >
+				<Doc-Url>document/style</Doc-Url>
+			</Item>
+			
+			<Item Name="イベントを利用して数字のみに入力制御" Class="WorksheetDemo.OnlyNumberInputDemo">
+				<Doc-Url>document/event</Doc-Url>
+			</Item>
+			
+			<Item Name="イベントを利用して編集可能な範囲を指定" Class="WorksheetDemo.SetEditableRangeDemo">
+				<Doc-Url>document/event</Doc-Url>
+			</Item>
+
+			<Item Name="選択モード" Class="WorksheetDemo.SelectionModeDemo" >
+				<Doc-Url>document/selection</Doc-Url>
+			</Item>
+			
+			<Item Name="カスタマイズした選択制御" Class="WorksheetDemo.CustomSelectionDemo">
+				<Doc-Url>document/selection</Doc-Url>
+			</Item>
+
+			<Item Name="クリップボードの制御" Class="WorksheetDemo.ClipboardEventDemo">
+				<Doc-Url>document/clipboard</Doc-Url>
+			</Item>
+
+			<Item Name="フィルターとソート" Class="WorksheetDemo.ColumnFilterAndSortDemo">
+				<Doc-Url>document/filter-and-sort</Doc-Url>
+			</Item>
+			
+			<Item Name="アウトライン" Class="WorksheetDemo.OutlineDemo">
+				<!--<Doc-Url>document/group-and-outline</Doc-Url>-->
+			</Item>
+			
+			<Item Name="アウトラインと行列の固定" Class="WorksheetDemo.OutlineWithFreezeDemo">
+				<!--<Doc-Url>document/group-and-outline</Doc-Url>-->
+			</Item>
+			
+			<Item Name="ワークシートから範囲をピックアップする" Class="WorksheetDemo.PickRangeDemo">
+				<Doc-Url>document/pick-range</Doc-Url>
+			</Item>
+			
+			<Item Name="拡大縮小" Class="WorksheetDemo.ZoomDemo">
+				<Doc-Url>document/zoom</Doc-Url>
+			</Item>
+
+
+		</Category>
+		
+		<Category Name="行列の固定">
+			<Item Name="上部に固定" Class="WorksheetDemo.EdgeFreeze.TopFreezeDemo" >
+				<Doc-Url>document/freeze</Doc-Url>
+			</Item>
+
+			<Item Name="底部に固定" Class="WorksheetDemo.EdgeFreeze.BottomFreezeDemo" >
+				<Doc-Url>document/freeze</Doc-Url>
+			</Item>
+
+			<Item Name="左側に固定" Class="WorksheetDemo.EdgeFreeze.LeftFreezeDemo" >
+				<Doc-Url>document/freeze</Doc-Url>
+			</Item>
+
+			<Item Name="右側に固定" Class="WorksheetDemo.EdgeFreeze.RightFreezeDemo" >
+				<Doc-Url>document/freeze</Doc-Url>
+			</Item>
+
+			<Item Name="左上に固定" Class="WorksheetDemo.EdgeFreeze.TopLeftFreezeDemo" >
+				<Doc-Url>document/freeze</Doc-Url>
+			</Item>
+
+			<Item Name="右上に固定" Class="WorksheetDemo.EdgeFreeze.TopRightFreezeDemo" >
+				<Doc-Url>document/freeze</Doc-Url>
+			</Item>
+
+			<Item Name="左下に固定" Class="WorksheetDemo.EdgeFreeze.BottomLeftFreezeDemo" >
+				<Doc-Url>document/freeze</Doc-Url>
+			</Item>
+
+			<Item Name="右下に固定" Class="WorksheetDemo.EdgeFreeze.BottomRightFreezeDemo" >
+				<Doc-Url>document/freeze</Doc-Url>
+			</Item>
+
+		</Category>
+		
+		<Category Name="印刷">
+			<Item Name="印刷プレビュー" Class="PrintDemo.PrintPreviewDemo" >
+				<Doc-Url>document/print</Doc-Url>
+			</Item>
+			
+			<Item Name="マルチワークシートの印刷" Class="PrintDemo.PrintMultipleWorksheetDemo">
+				<Doc-Url>document/print</Doc-Url>
+			</Item>
+		</Category>
+		
+		<Category Name="数式計算">
+			<Item Name="数式計算" Class="FormulaDemo.GeneralFormulaDemo">
+				<Doc-Url>document/formula</Doc-Url>
+			</Item>
+
+			<Item Name="名前範囲" Class="FormulaDemo.NamedRangeReferenceDemo" >
+				<Doc-Url>document/named-range</Doc-Url>
+			</Item>
+			
+			<Item Name="カスタマイズした数式計算用関数" Class="FormulaDemo.CustomizeFunctionDemo" >
+				<Doc-Url>document/custom-function</Doc-Url>
+			</Item>
+		</Category>
+
+		<Category Name="性能">
+			<Item Name="セル更新のレスポンス" Class="PerformanceDemo.UpdateDataFormatDemo" >
+				<Doc-Url>performance/</Doc-Url>
+			</Item>
+			<Item Name="データ初期化の性能" Class="PerformanceDemo.RowPerformanceDemo" >
+				<Doc-Url>performance/</Doc-Url>
+			</Item>
+			<Item Name="複雑なワークシートの性能" Class="PerformanceDemo.ComplexMergedCellDemo" >
+				<Doc-Url>performance/</Doc-Url>
+			</Item>
+			<Item Name="最大行列数のワークシートの性能" Class="PerformanceDemo.MaximumGridDemo" />
+		</Category>
+
+		<Category Name="スクリプト実行">
+			<Item Name="スクリプトの実行デモ" Class="Scripts.RunScriptDemo" >
+				<!--<Doc-Url>document/script-execution</Doc-Url>-->
+			</Item>
+			<Item Name="スクリプトのイベント" Class="Scripts.HandleEventsDemo" >
+				<!--<Doc-Url>document/script-execution</Doc-Url>-->
+			</Item>
+			<Item Name="スクリプトでワークシートを操作" Class="Scripts.LoadScriptDocDemo" />
+			<Item Name="ReoQuery" Class="Scripts.ReoQueryScriptDemo" />
+			
+		</Category>	
+		
+	</Categories>
+</Demo>

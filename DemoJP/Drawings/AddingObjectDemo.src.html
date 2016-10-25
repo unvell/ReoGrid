@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+	<style type="text/css">
+		.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: Consolas, "Courier New", Courier, Monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+
+.csharpcode pre { margin: 0em; }
+
+.csharpcode .rem { color: #008000; }
+
+.csharpcode .kwrd { color: #0000ff; }
+
+.csharpcode .str { color: #a31515; }
+
+.csharpcode .op { color: #0000c0; }
+
+.csharpcode .preproc { color: #cc6633; }
+
+.csharpcode .asp { background-color: #ffff00; }
+
+.csharpcode .html { color: #800000; }
+
+.csharpcode .attr { color: #ff0000; }
+
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+
+.csharpcode .lnum { color: #606060; }
+	</style>
+</head>
+<body>
+	<!-- code formatted by http://manoli.net/csharpformat/ -->
+<pre class="csharpcode">
+<span class="kwrd">var</span> worksheet = <span class="kwrd">this</span>.grid.CurrentWorksheet;
+worksheet[<span class="str">"A2"</span>] = <span class="str">"Easy to add drawing shapes onto worksheet."</span>;
+
+<span class="preproc">#region</span> Rect 1
+<span class="rem">// create drawing object: rectangle shape</span>
+<span class="kwrd">var</span> rect1 = <span class="kwrd">new</span> Drawing.Shapes.RectangleShape()
+    {
+        Location = <span class="kwrd">new</span> Graphics.Point(60, 90),
+        Size = <span class="kwrd">new</span> Graphics.Size(160, 80),
+        Text = <span class="str">"Create drawing object"</span>,
+    };
+<span class="rem">// add shape into worksheet</span>
+worksheet.FloatingObjects.Add(rect1);
+<span class="preproc">#endregion</span> <span class="rem">// Rect 1</span>
+
+<span class="preproc">#region</span> Line 1
+<span class="kwrd">var</span> line1 = <span class="kwrd">new</span> Drawing.Shapes.Line
+{
+    StartPoint = <span class="kwrd">new</span> Graphics.Point(220, 130),
+    EndPoint = <span class="kwrd">new</span> Graphics.Point(280, 130),
+};
+line1.Style.LineWidth = 1.5f;
+line1.Style.EndCap = Graphics.LineCapStyles.Arrow;
+worksheet.FloatingObjects.Add(line1);
+<span class="preproc">#endregion</span> <span class="rem">// Line 1</span>
+
+<span class="preproc">#region</span> Rect 2
+<span class="rem">// create drawing object: rectangle shape</span>
+Drawing.Shapes.RectangleShape rect2 = <span class="kwrd">new</span> Drawing.Shapes.RectangleShape()
+{
+    Location = <span class="kwrd">new</span> Graphics.Point(280, 90),
+    Size = <span class="kwrd">new</span> Graphics.Size(160, 80),
+    Text = <span class="str">"Set text and styles"</span>,
+};
+<span class="rem">// add shape into worksheet</span>
+worksheet.FloatingObjects.Add(rect2);
+<span class="preproc">#endregion</span> <span class="rem">// Rect 2</span>
+
+<span class="preproc">#region</span> Line 2
+<span class="kwrd">var</span> line2 = <span class="kwrd">new</span> Drawing.Shapes.Line
+{
+    StartPoint = <span class="kwrd">new</span> Graphics.Point(440, 130),
+    EndPoint = <span class="kwrd">new</span> Graphics.Point(500, 130),
+};
+line2.Style.LineWidth = 1.5f;
+line2.Style.EndCap = Graphics.LineCapStyles.Arrow;
+worksheet.FloatingObjects.Add(line2);
+<span class="preproc">#endregion</span> <span class="rem">// Line 2</span>
+
+<span class="preproc">#region</span> Rect 3
+<span class="rem">// create drawing object: rectangle shape</span>
+Drawing.Shapes.RectangleShape rect3 = <span class="kwrd">new</span> Drawing.Shapes.RectangleShape()
+{
+    Location = <span class="kwrd">new</span> Graphics.Point(500, 90),
+    Size = <span class="kwrd">new</span> Graphics.Size(160, 80),
+    Text = <span class="str">"Add onto worksheet"</span>,
+};
+<span class="rem">// add shape into worksheet</span>
+worksheet.FloatingObjects.Add(rect3);
+<span class="preproc">#endregion</span> <span class="rem">// Rect 3</span>
+</pre></body>
+</html>

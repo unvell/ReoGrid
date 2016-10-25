@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <meta>
+      <culture>en-US</culture>
+      <editor>ReoGrid Core 0.8.8.6</editor>
+      <core-ver>0.8.8.6</core-ver>
+    </meta>
+    <rows>99</rows>
+    <cols>103</cols>
+    <default-row-height>20</default-row-height>
+    <default-col-width>70</default-col-width>
+    <settings meta="6492158">
+      <show-grid>false</show-grid>
+    </settings>
+    <script />
+  </head>
+  <style font="Microsoft Sans Serif" font-size="8.25" align="general" valign="middle" />
+  <rows>
+    <row row="0" height="4">
+      <style bgcolor="#d0d0d0" />
+    </row>
+    <row row="2" height="36" />
+    <row row="5" height="10" />
+    <row row="8" height="16" />
+    <row row="13" height="13" />
+    <row row="16" height="34" />
+    <row row="18" height="18" />
+    <row row="21" height="15" />
+    <row row="27" height="34" />
+    <row row="29" height="11" />
+    <row row="34" height="34" />
+    <row row="36" height="10" />
+  </rows>
+  <cols>
+    <col col="0" width="3">
+      <style bgcolor="#bcbcbc" />
+    </col>
+    <col col="1" width="50" />
+    <col col="2" width="331" />
+    <col col="3" width="128" />
+    <col col="4" width="52" />
+    <col col="5" width="126" />
+    <col col="6" width="49" />
+    <col col="7" width="4">
+      <style bgcolor="#bcbcbc" />
+    </col>
+    <col col="8" width="70">
+      <style bgcolor="#d0d0d0" />
+    </col>
+    <col col="9" width="70">
+      <style bgcolor="#d0d0d0" />
+    </col>
+    <col col="10" width="70">
+      <style bgcolor="#d0d0d0" />
+    </col>
+    <col col="11" width="70">
+      <style bgcolor="#d0d0d0" />
+    </col>
+    <col col="12" width="70">
+      <style bgcolor="#d0d0d0" />
+    </col>
+    <col col="13" width="70">
+      <style bgcolor="#d0d0d0" />
+    </col>
+    <col col="14" width="70">
+      <style bgcolor="#d0d0d0" />
+    </col>
+  </cols>
+  <v-borders />
+  <h-borders>
+    <h-border row="8" col="2" color="Black" style="Dotted" pos="top" cols="4" />
+    <h-border row="21" col="2" color="Black" style="Dotted" pos="top" cols="4" />
+    <h-border row="32" col="2" color="Black" style="Dotted" pos="top" cols="4" />
+    <h-border row="39" col="2" color="Black" style="Dotted" pos="top" cols="4" />
+  </h-borders>
+  <cells>
+    <cell row="0" col="0">
+      <style bgcolor="#bcbcbc" />
+    </cell>
+    <cell row="0" col="1">
+      <style bgcolor="#bcbcbc" />
+    </cell>
+    <cell row="0" col="2">
+      <style bgcolor="#bcbcbc" />
+    </cell>
+    <cell row="0" col="3">
+      <style bgcolor="#bcbcbc" />
+    </cell>
+    <cell row="0" col="4">
+      <style bgcolor="#bcbcbc" />
+    </cell>
+    <cell row="0" col="5">
+      <style bgcolor="#bcbcbc" />
+    </cell>
+    <cell row="0" col="6">
+      <style bgcolor="#bcbcbc" />
+    </cell>
+    <cell row="0" col="7">
+      <style bgcolor="#bcbcbc" />
+    </cell>
+    <cell row="1" col="5" format="text">(Tips: Press F2 on cell can enter edit mode)<style color="#505050" font-size="8" align="right" /></cell>
+    <cell row="2" col="2" format="text">Data Format Demo<style font-size="20" /></cell>
+    <cell row="4" col="2" format="text">Numbers<style color="#009999" font-size="12" bold="true" /></cell>
+    <cell row="6" col="2" format="text" />
+    <cell row="6" col="3" format="text">Original Data<style color="Black" font="Arial" font-size="9" align="right" /></cell>
+    <cell row="6" col="4" format="text" />
+    <cell row="6" col="5" format="text">Formatted Text<style color="Black" font="Arial" font-size="9" align="right" /></cell>
+    <cell row="7" col="3" format="text">(Cell without format specified)<style color="#505050" font="Arial" font-size="8" align="right" /></cell>
+    <cell row="7" col="4">
+      <style color="#505050" font="Arial" font-size="9" />
+    </cell>
+    <cell row="7" col="5" format="text">(Cell with format specified)<style color="#505050" font="Arial" font-size="8" align="right" /></cell>
+    <cell row="9" col="2" format="text">Numbers with thousands separator<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="9" col="3">1000000</cell>
+    <cell row="9" col="5" format="number">1000000<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="10" col="2" format="text">Red negative numbers<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="10" col="3">-500</cell>
+    <cell row="10" col="5" format="number">-500<format-args decimal-places="0" use-separator="true" negative-style="red" /></cell>
+    <cell row="11" col="2" format="text">Brackets around negative numbers<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="11" col="3">-500</cell>
+    <cell row="11" col="5" format="number">-500<format-args decimal-places="2" use-separator="true" negative-style="brackets" /></cell>
+    <cell row="12" col="2" format="text">Brackets around red negative numbers<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="12" col="3">-1500</cell>
+    <cell row="12" col="5" format="number">-1500<format-args decimal-places="0" use-separator="true" negative-style="red brackets" /></cell>
+    <cell row="14" col="2" format="text">Numbers with 4 decimal digits<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="14" col="3">3.14159265</cell>
+    <cell row="14" col="5" format="number">3.14159265<format-args decimal-places="4" use-separator="true" /></cell>
+    <cell row="15" col="2" format="text">Numbers without decimal digits<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="15" col="3">3.14159265</cell>
+    <cell row="15" col="5" format="number">3.14159265<format-args decimal-places="0" use-separator="true" /></cell>
+    <cell row="17" col="2" format="text">Date &amp; Time<style color="#009999" font="Arial" font-size="12" bold="true" /></cell>
+    <cell row="19" col="2" format="text">Data Pattern</cell>
+    <cell row="19" col="3" format="text">
+      <style color="Black" font="Arial" font-size="9" align="right" />
+    </cell>
+    <cell row="19" col="4" format="text" />
+    <cell row="19" col="5" format="text">Formatted Text<style color="Black" font="Arial" font-size="9" align="right" /></cell>
+    <cell row="20" col="2" format="text">2012/11/20 09:30:45</cell>
+    <cell row="20" col="3" format="text">
+      <style color="Black" font="Arial" font-size="8" align="right" />
+    </cell>
+    <cell row="20" col="5" format="text">(Cell with format specified)<style color="#505050" font="Arial" font-size="8" align="right" /></cell>
+    <cell row="22" col="2" format="text">M/d/yyyy (English - US)<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="22" col="3" format="text">
+      <style color="Black" font="Arial" font-size="9" align="right" />
+    </cell>
+    <cell row="22" col="5" format="datetime">2012/11/20 09:30:45<format-args pattern="M/d/yyyy" culture="en-US" /></cell>
+    <cell row="23" col="2" format="text">dddd, MMMM dd, yyyy (English - US)<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="23" col="3" format="text" />
+    <cell row="23" col="5" format="datetime">2012/11/20 09:30:45<format-args pattern="dddd, MMMM dd, yyyy" culture="en-US" /></cell>
+    <cell row="24" col="2" format="text">dddd, MMMM dd, yyyy h:mm:ss tt (English - US)<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="24" col="5" format="datetime">2012/11/20 09:30:45<format-args pattern="dddd, MMMM dd, yyyy h:mm:ss tt" culture="en-US" /></cell>
+    <cell row="25" col="2" format="text">yyyy'年'M'月'd'日' (Japanese - Japan)<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="25" col="5" format="datetime">2012/11/20 09:30:45<format-args pattern="yyyy'年'M'月'd'日'" culture="ja-JP" /></cell>
+    <cell row="26" col="2" format="text">yyyy'年'M'月'd'日' H:mm:ss (Chinese - China)<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="26" col="5" format="datetime">2012/11/20 09:30:45<format-args pattern="yyyy'年'M'月'd'日' H:mm:ss" culture="zh-CN" /></cell>
+    <cell row="27" col="5" format="datetime">
+      <format-args pattern="yyyy'年'M'月'd'日'" culture="ja-JP" />
+    </cell>
+    <cell row="28" col="2" format="text">Percent<style color="#009999" font="Arial" font-size="12" bold="true" /></cell>
+    <cell row="29" col="3" format="text">
+      <style color="Black" font="Arial" font-size="9" align="right" />
+    </cell>
+    <cell row="29" col="4" format="text">
+      <style color="Black" font="Arial" font-size="9" align="right" />
+    </cell>
+    <cell row="29" col="5" format="text">
+      <style color="Black" font="Arial" font-size="9" align="right" />
+    </cell>
+    <cell row="30" col="2" format="text" />
+    <cell row="30" col="3" format="text">Original Data<style color="Black" font="Arial" font-size="9" align="right" /></cell>
+    <cell row="30" col="4" format="text">
+      <style color="Black" font="Arial" font-size="9" align="right" />
+    </cell>
+    <cell row="30" col="5" format="text">Formatted Text<style color="Black" font="Arial" font-size="9" align="right" /></cell>
+    <cell row="31" col="3" format="text">(Cell without format specified)<style color="#505050" font="Arial" font-size="8" align="right" /></cell>
+    <cell row="31" col="4" format="text">
+      <style color="#505050" font="Arial" font-size="8" align="right" />
+    </cell>
+    <cell row="31" col="5" format="text">(Cell with format specified)<style color="#505050" font="Arial" font-size="8" align="right" /></cell>
+    <cell row="32" col="2" format="text">Percent with 2 decimal digits<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="32" col="3">80</cell>
+    <cell row="32" col="5" format="percent">0.80<format-args decimal-places="0" /></cell>
+    <cell row="33" col="2" format="text">Percent without decimal digits<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="33" col="3">40.56</cell>
+    <cell row="33" col="5" format="percent">0.4056<format-args decimal-places="2" /></cell>
+    <cell row="35" col="2" format="text">Currency<style color="#009999" font="Arial" font-size="12" bold="true" /></cell>
+    <cell row="36" col="3" format="text">
+      <style color="Black" font="Arial" font-size="9" align="right" />
+    </cell>
+    <cell row="36" col="4" format="text">
+      <style color="Black" font="Arial" font-size="9" align="right" />
+    </cell>
+    <cell row="36" col="5" format="text">
+      <style color="Black" font="Arial" font-size="9" align="right" />
+    </cell>
+    <cell row="37" col="2" format="text" />
+    <cell row="37" col="3" format="text">Original Data<style color="Black" font="Arial" font-size="9" align="right" /></cell>
+    <cell row="37" col="4" format="text">
+      <style color="Black" font="Arial" font-size="9" align="right" />
+    </cell>
+    <cell row="37" col="5" format="text">Formatted Text<style color="Black" font="Arial" font-size="9" align="right" /></cell>
+    <cell row="38" col="3" format="text">(Cell without format specified)<style color="#505050" font="Arial" font-size="8" align="right" /></cell>
+    <cell row="38" col="4" format="text">
+      <style color="#505050" font="Arial" font-size="8" align="right" />
+    </cell>
+    <cell row="38" col="5" format="text">(Cell with format specified)<style color="#505050" font="Arial" font-size="8" align="right" /></cell>
+    <cell row="39" col="2" format="text">Regular (English - US)<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="39" col="3">3145</cell>
+    <cell row="39" col="5" format="currency">3145<format-args decimal-places="2" pattern="$" culture="English (United States)" /></cell>
+    <cell row="40" col="2" format="text">Red negative currency (English - US)<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="40" col="3">-500</cell>
+    <cell row="40" col="5" format="currency">-500<format-args decimal-places="2" pattern="$" culture="English (United States)" negative-style="red" /></cell>
+    <cell row="41" col="2" format="text">Brackets around negative currency (English - US)<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="41" col="3">-1000</cell>
+    <cell row="41" col="5" format="currency">-1000<format-args decimal-places="2" pattern="$" culture="English (United States)" negative-style="brackets" /></cell>
+    <cell row="42" col="2" format="text">Brackets around red negative currency (English - US)<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="42" col="3">-1500</cell>
+    <cell row="42" col="5" format="currency">-1500<format-args decimal-places="2" pattern="$" culture="English (United States)" negative-style="red brackets" /></cell>
+    <cell row="43" col="2" format="text">Red negative currency without decmial digits (Japanese - Japan)<style color="#505050" font="Arial" font-size="9" /></cell>
+    <cell row="43" col="3">-7500</cell>
+    <cell row="43" col="5" format="currency">-7500<format-args decimal-places="0" pattern="¥" culture="Japanese (Japan)" negative-style="red" /></cell>
+  </cells>
+</grid>

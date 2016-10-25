@@ -1,0 +1,958 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlignmentPage_Degrees" xml:space="preserve">
+    <value>градусов</value>
+  </data>
+  <data name="AlignmentPage_Horizontal" xml:space="preserve">
+    <value>По горизонтали:</value>
+  </data>
+  <data name="AlignmentPage_Indent" xml:space="preserve">
+    <value>Отступ:</value>
+  </data>
+  <data name="AlignmentPage_Orientation" xml:space="preserve">
+    <value>Ориентация</value>
+  </data>
+  <data name="AlignmentPage_Text_Alignment" xml:space="preserve">
+    <value>Выравнивание текста</value>
+  </data>
+  <data name="AlignmentPage_Text_Control" xml:space="preserve">
+    <value>Текстовый элемент управления</value>
+  </data>
+  <data name="AlignmentPage_Vertical" xml:space="preserve">
+    <value>По вертикали:</value>
+  </data>
+  <data name="AlignmentPage_Wrap_Text" xml:space="preserve">
+    <value>&amp;Перенос текста</value>
+  </data>
+  <data name="BorderPage_Line" xml:space="preserve">
+    <value>Линия</value>
+  </data>
+  <data name="BorderPage_Presets" xml:space="preserve">
+    <value>Предустановки</value>
+  </data>
+  <data name="BorderPage_Style" xml:space="preserve">
+    <value>Стиль:</value>
+  </data>
+  <data name="Btn_Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Btn_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Msg_Load_Script_Prompt_Title" xml:space="preserve">
+    <value>Исполняемый сценарий</value>
+  </data>
+  <data name="FillPage_Background_Color" xml:space="preserve">
+    <value>&amp;Цвет фона:</value>
+  </data>
+  <data name="FillPage_Fill_Pattern" xml:space="preserve">
+    <value>Шаблон заливки (узор)</value>
+  </data>
+  <data name="FillPage_Fill_Pattern_Color" xml:space="preserve">
+    <value>Цвет шаблона заливки (узора)</value>
+  </data>
+  <data name="FillPage_Fill_Pattern_Style" xml:space="preserve">
+    <value>Стиль шаблона заливки (узора)</value>
+  </data>
+  <data name="Filter_Export_As_CSV" xml:space="preserve">
+    <value>CSV файл(*.csv)|*.csv|Текстовый файл(*.txt)|*.txt|Все файлы(*.*)|*.*</value>
+  </data>
+  <data name="Filter_Load_File" xml:space="preserve">
+    <value>Все поддерживаемые файлы(*.xlsx;*.csv;*.rgf)|*.xlsx;*.csv;*.rgf|Формат ReoGrid XML(*.rgf)|*.rgf|Excel 2007(*.xlsx)|*.xlsx|CSV файл(*.csv)|*.csv|Все файлы(*.*)|*.*</value>
+  </data>
+  <data name="Filter_Save_File" xml:space="preserve">
+    <value>Excel 2007(*.xlsx)|*.xlsx|Формат ReoGrid XML(*.rgf)|*.rgf|CSV файл(*.csv)|*.csv|Все файлы(*.*)|*.*</value>
+  </data>
+  <data name="FormatPage_Category" xml:space="preserve">
+    <value>&amp;Числовые форматы:</value>
+  </data>
+  <data name="FormatPage_Decimal_Places" xml:space="preserve">
+    <value>&amp;Десятичных знаков:</value>
+  </data>
+  <data name="FormatPage_Locale" xml:space="preserve">
+    <value>&amp;Язык (местоположение):</value>
+  </data>
+  <data name="FormatPage_Negative_Numbers" xml:space="preserve">
+    <value>&amp;Отрицательные числа:</value>
+  </data>
+  <data name="FormatPage_Pattern" xml:space="preserve">
+    <value>&amp;Шаблон:</value>
+  </data>
+  <data name="FormatPage_Symbol" xml:space="preserve">
+    <value>&amp;Символ:</value>
+  </data>
+  <data name="FormatPage_Type" xml:space="preserve">
+    <value>&amp;Тип:</value>
+  </data>
+  <data name="FormatPage_Use_1000_Separator" xml:space="preserve">
+    <value>&amp;Разделитель групп разрядов ({0})</value>
+  </data>
+  <data name="Horizontal_Alignment_Center" xml:space="preserve">
+    <value>По центру</value>
+  </data>
+  <data name="Horizontal_Alignment_Distributed" xml:space="preserve">
+    <value>Распределённый (отступ)</value>
+  </data>
+  <data name="Horizontal_Alignment_General" xml:space="preserve">
+    <value>По значению</value>
+  </data>
+  <data name="Horizontal_Alignment_Left" xml:space="preserve">
+    <value>По левому краю</value>
+  </data>
+  <data name="Horizontal_Alignment_Right" xml:space="preserve">
+    <value>По правому краю</value>
+  </data>
+  <data name="HP_Homepage" xml:space="preserve">
+    <value>http://reogrid.net/ru</value>
+  </data>
+  <data name="HP_Homepage_Document" xml:space="preserve">
+    <value>http://reogrid.net/ru/document</value>
+  </data>
+  <data name="Label_Color" xml:space="preserve">
+    <value>&amp;Цвет:</value>
+  </data>
+  <data name="Sample" xml:space="preserve">
+    <value>Образец</value>
+  </data>
+  <data name="Menu_Cells" xml:space="preserve">
+    <value>&amp;Ячейки</value>
+  </data>
+  <data name="Menu_Change_Cells_Type" xml:space="preserve">
+    <value>Изменить тип ячеек</value>
+  </data>
+  <data name="Menu_Cells_Merge_Cells" xml:space="preserve">
+    <value>&amp;Объединить ячейки</value>
+  </data>
+  <data name="Menu_Cells_Unmerge_Cells" xml:space="preserve">
+    <value>&amp;Разбить ячейки</value>
+  </data>
+  <data name="Menu_Edit" xml:space="preserve">
+    <value>&amp;Правка</value>
+  </data>
+  <data name="Menu_Edit_Clear" xml:space="preserve">
+    <value>Очистить</value>
+  </data>
+  <data name="Menu_Copy" xml:space="preserve">
+    <value>&amp;Копировать</value>
+  </data>
+  <data name="Menu_Cut" xml:space="preserve">
+    <value>Вырезать</value>
+  </data>
+  <data name="Menu_Edit_Focus_Cell_Style" xml:space="preserve">
+    <value>Стиль фокуса ячейки</value>
+  </data>
+  <data name="Menu_Paste" xml:space="preserve">
+    <value>&amp;Вставить</value>
+  </data>
+  <data name="Menu_Edit_Readonly" xml:space="preserve">
+    <value>Только чтение</value>
+  </data>
+  <data name="Menu_Redo" xml:space="preserve">
+    <value>&amp;Вернуть</value>
+  </data>
+  <data name="Menu_Edit_Repeat_Last_Action" xml:space="preserve">
+    <value>Повторить последнее действие</value>
+  </data>
+  <data name="Menu_Edit_Selection" xml:space="preserve">
+    <value>&amp;Выделение</value>
+  </data>
+  <data name="Menu_Edit_Selection_Drag_To_Fill_Serial" xml:space="preserve">
+    <value>Перетащить чтобы выполнить автозаполнение</value>
+  </data>
+  <data name="Menu_Edit_Selection_Drag_To_Move_Content" xml:space="preserve">
+    <value>&amp;Перетащить чтобы переместить содержимое</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode" xml:space="preserve">
+    <value>Режим выделения</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Cell" xml:space="preserve">
+    <value>Ячейка</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Column" xml:space="preserve">
+    <value>Столбец</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_None" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Range" xml:space="preserve">
+    <value>&amp;Диапазон (по умолчанию)</value>
+  </data>
+  <data name="Menu_Edit_Selection_Mode_Row" xml:space="preserve">
+    <value>Строка</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style" xml:space="preserve">
+    <value>Стиль выделения</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style_Default" xml:space="preserve">
+    <value>Сплошной прямоугольник по умолчанию</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style_Focus_Rect" xml:space="preserve">
+    <value>Прямоугольник фокуса Windows</value>
+  </data>
+  <data name="Menu_Edit_Selection_Style_None" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="Menu_Edit_Select_All" xml:space="preserve">
+    <value>Выделить все</value>
+  </data>
+  <data name="Menu_Undo" xml:space="preserve">
+    <value>&amp;Отменить</value>
+  </data>
+  <data name="Menu_File" xml:space="preserve">
+    <value>&amp;Файл</value>
+  </data>
+  <data name="Menu_File_Edit_RGF_XML" xml:space="preserve">
+    <value>Править RGF &amp;XML...</value>
+  </data>
+  <data name="Menu_File_Exit" xml:space="preserve">
+    <value>&amp;Выход</value>
+  </data>
+  <data name="Menu_File_Export_As_CSV" xml:space="preserve">
+    <value>Экспортировать в &amp;CSV...</value>
+  </data>
+  <data name="Menu_File_Export_As_CSV_Current_Worksheet" xml:space="preserve">
+    <value>Экспортировать текущий лист...</value>
+  </data>
+  <data name="Menu_File_Export_As_CSV_Selected_Range" xml:space="preserve">
+    <value>Экспортировать выделенный диапазон...</value>
+  </data>
+  <data name="Menu_File_Export_As_HTML" xml:space="preserve">
+    <value>Экспортировать в &amp;HTML...</value>
+  </data>
+  <data name="Menu_File_New" xml:space="preserve">
+    <value>&amp;Новый</value>
+  </data>
+  <data name="Menu_File_New_Window" xml:space="preserve">
+    <value>Новое окно...</value>
+  </data>
+  <data name="Menu_File_Open" xml:space="preserve">
+    <value>&amp;Открыть</value>
+  </data>
+  <data name="Menu_File_Print" xml:space="preserve">
+    <value>&amp;Печать...</value>
+  </data>
+  <data name="Menu_File_Print_Preview" xml:space="preserve">
+    <value>Предварительный просмотр...</value>
+  </data>
+  <data name="Menu_File_Print_Settings" xml:space="preserve">
+    <value>Параметры печати...</value>
+  </data>
+  <data name="Menu_File_Save" xml:space="preserve">
+    <value>&amp;Сохранить</value>
+  </data>
+  <data name="Menu_File_Save_As" xml:space="preserve">
+    <value>Сохранить &amp;как...</value>
+  </data>
+  <data name="Menu_Formula" xml:space="preserve">
+    <value>&amp;Формула</value>
+  </data>
+  <data name="Menu_Formula_Auto_Function" xml:space="preserve">
+    <value>&amp;Автофункция</value>
+  </data>
+  <data name="Menu_Formula_Define_Name" xml:space="preserve">
+    <value>Определить именованный диапазон...</value>
+  </data>
+  <data name="Menu_Formula_Name_Manager" xml:space="preserve">
+    <value>Управление именами...</value>
+  </data>
+  <data name="Menu_Formula_Recalculate_Worksheet" xml:space="preserve">
+    <value>Пересчитать лист</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows" xml:space="preserve">
+    <value>&amp;Удалить стрелки трассировки</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows_Remove_All_Arrows" xml:space="preserve">
+    <value>Удалить все стрелки</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows_Remove_Dependent_Arrows" xml:space="preserve">
+    <value>Удалить стрелки зависимостей</value>
+  </data>
+  <data name="Menu_Formula_Remove_Trace_Arrows_Remove_Precedent_Arrows" xml:space="preserve">
+    <value>Удалить стрелки прецедентов</value>
+  </data>
+  <data name="Menu_Formula_Suspend_Reference_Updates" xml:space="preserve">
+    <value>&amp;Приостановить обновления ссылок</value>
+  </data>
+  <data name="Menu_Formula_Trace_Dependents" xml:space="preserve">
+    <value>Трассировка зависимостей</value>
+  </data>
+  <data name="Menu_Formula_Trace_Precedents" xml:space="preserve">
+    <value>Трассировка прецедентов</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>&amp;Справка</value>
+  </data>
+  <data name="Menu_Help_About" xml:space="preserve">
+    <value>&amp;О программе...</value>
+  </data>
+  <data name="Menu_Help_Documents" xml:space="preserve">
+    <value>&amp;Документы...</value>
+  </data>
+  <data name="Menu_Help_Homepage" xml:space="preserve">
+    <value>&amp;Домашняя страница...</value>
+  </data>
+  <data name="Menu_Script" xml:space="preserve">
+    <value>Сценарий</value>
+  </data>
+  <data name="Menu_Script_Run_Function" xml:space="preserve">
+    <value>Запустить функцию...</value>
+  </data>
+  <data name="Menu_Script_Script_Editor" xml:space="preserve">
+    <value>Редактор сценариев...</value>
+  </data>
+  <data name="Menu_Sheet" xml:space="preserve">
+    <value>&amp;Лист</value>
+  </data>
+  <data name="Menu_Sheet_Clear_Filter" xml:space="preserve">
+    <value>Очистить фильтр</value>
+  </data>
+  <data name="Menu_Sheet_Filter" xml:space="preserve">
+    <value>&amp;Фильтр</value>
+  </data>
+  <data name="Menu_Sheet_Group" xml:space="preserve">
+    <value>&amp;Группировка</value>
+  </data>
+  <data name="Menu_Sheet_Group_Rows" xml:space="preserve">
+    <value>Группировка строк</value>
+  </data>
+  <data name="Menu_Sheet_Insert" xml:space="preserve">
+    <value>&amp;Вставить</value>
+  </data>
+  <data name="Menu_Sheet_Resize" xml:space="preserve">
+    <value>&amp;Изменить размер...</value>
+  </data>
+  <data name="Menu_Sheet_Settings" xml:space="preserve">
+    <value>&amp;Установки</value>
+  </data>
+  <data name="Menu_Tools" xml:space="preserve">
+    <value>&amp;Сервис</value>
+  </data>
+  <data name="Menu_Tools_Control_Appearance" xml:space="preserve">
+    <value>Оформление элемента управления...</value>
+  </data>
+  <data name="Menu_View" xml:space="preserve">
+    <value>&amp;Вид</value>
+  </data>
+  <data name="Menu_View_Components" xml:space="preserve">
+    <value>&amp;Компоненты</value>
+  </data>
+  <data name="Menu_View_Components_FormulaBar" xml:space="preserve">
+    <value>&amp;Строка формул</value>
+  </data>
+  <data name="Menu_View_Components_StatusBar" xml:space="preserve">
+    <value>&amp;Строка состояния</value>
+  </data>
+  <data name="Menu_View_Components_Toolbar" xml:space="preserve">
+    <value>&amp;Панель инструментов</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Cell" xml:space="preserve">
+    <value>&amp;Фиксация относительно ячейки</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges" xml:space="preserve">
+    <value>Фиксация относительно краёв:</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Bottom" xml:space="preserve">
+    <value>Нижнего</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Bottom_Left" xml:space="preserve">
+    <value>Нижнего и левого</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Bottom_Right" xml:space="preserve">
+    <value>Нижнего и правого</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Left" xml:space="preserve">
+    <value>Левого</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Right" xml:space="preserve">
+    <value>Правого</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Top" xml:space="preserve">
+    <value>Верхнего</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Top_Left" xml:space="preserve">
+    <value>Верхнего и левого</value>
+  </data>
+  <data name="Menu_View_Freeze_To_Edges_Top_Right" xml:space="preserve">
+    <value>Верхнего и правого</value>
+  </data>
+  <data name="Menu_Reset_All_Page_Breaks" xml:space="preserve">
+    <value>Сбросить все разрывы страниц</value>
+  </data>
+  <data name="Menu_View_Unfreeze" xml:space="preserve">
+    <value>Отменить фиксацию</value>
+  </data>
+  <data name="Menu_View_Visible" xml:space="preserve">
+    <value>&amp;Видимость</value>
+  </data>
+  <data name="Menu_View_Visible_Column_Header" xml:space="preserve">
+    <value>&amp;Заголовок столбца</value>
+  </data>
+  <data name="Menu_View_Visible_Column_Outline_Panel" xml:space="preserve">
+    <value>Панель внешних границ столбцов</value>
+  </data>
+  <data name="Menu_View_Visible_Forzen_Line" xml:space="preserve">
+    <value>&amp;Линия фиксации</value>
+  </data>
+  <data name="Menu_View_Visible_Grid_Lines" xml:space="preserve">
+    <value>&amp;Линии сетки</value>
+  </data>
+  <data name="Menu_View_Visible_Horizontal_ScrollBar" xml:space="preserve">
+    <value>&amp;Горизонтальная полоса прокрутки</value>
+  </data>
+  <data name="Menu_View_Visible_Page_Breaks" xml:space="preserve">
+    <value>Разрывы страниц</value>
+  </data>
+  <data name="Menu_View_Visible_Row_Header" xml:space="preserve">
+    <value>&amp;Заголовок строки</value>
+  </data>
+  <data name="Menu_View_Visible_Row_Outline_Panel" xml:space="preserve">
+    <value>Панель внешних границ строк</value>
+  </data>
+  <data name="Menu_View_Visible_Sheet_Tab" xml:space="preserve">
+    <value>&amp;Переключатель листов</value>
+  </data>
+  <data name="Menu_View_Visible_Vertical_ScrollBar" xml:space="preserve">
+    <value>&amp;Вертикальная полоса прокрутки</value>
+  </data>
+  <data name="Msg_File_Not_Found" xml:space="preserve">
+    <value>Указанный файл не найден: </value>
+  </data>
+  <data name="Msg_Load_File_Failed" xml:space="preserve">
+    <value>Загрузка не удалась: </value>
+  </data>
+  <data name="Msg_Load_Script_Prompt" xml:space="preserve">
+    <value>Документ содержит макрос и исполняемый сценарий. Хотите ли вы запустить сценарий?</value>
+  </data>
+  <data name="Msg_Named_Range_Overwrite" xml:space="preserve">
+    <value>Диапазон с таким же именем уже существует, вы хотите перезаписать его?</value>
+  </data>
+  <data name="Msg_Only_RGF_Edit_XML" xml:space="preserve">
+    <value>Правка XML доступна только тогда, когда текущим форматом файла является ReoGrid Format File (.rgf;*.xml).</value>
+  </data>
+  <data name="Msg_Operation_Aborted" xml:space="preserve">
+    <value>Операция не может быть выполнена.</value>
+  </data>
+  <data name="Msg_Outline_Already_Exist" xml:space="preserve">
+    <value>В этой позиции уже существует внешняя граница.</value>
+  </data>
+  <data name="Msg_Outline_Intersected" xml:space="preserve">
+    <value>Добавление внешних границ вызовет пересечение с другим экземпляром.</value>
+  </data>
+  <data name="Msg_Outline_Not_Found" xml:space="preserve">
+    <value>В указанной позиции не найдены внешние границы.</value>
+  </data>
+  <data name="Msg_Outline_Out_Of_Range" xml:space="preserve">
+    <value>Недопустимый диапазон для группы строк или столбцов. Убедитесь в том, что последняя строка или столбец листа не относятся ни к каким группам внешних границ.</value>
+  </data>
+  <data name="Msg_Outline_Too_Much" xml:space="preserve">
+    <value>Уровень внешних границ достиг максимального значения (10).</value>
+  </data>
+  <data name="Msg_Range_Intersection_Exception" xml:space="preserve">
+    <value>Операция не может быть выполнена, так как диапазон может содержать часть другой объединённой ячейки</value>
+  </data>
+  <data name="Msg_Save_Changes" xml:space="preserve">
+    <value>Хотите ли вы сохранить изменения?</value>
+  </data>
+  <data name="Msg_Save_File_Immediately" xml:space="preserve">
+    <value>Редактор сохранит текущий файл, продолжить?</value>
+  </data>
+  <data name="Msg_Script_Not_Available" xml:space="preserve">
+    <value>Выполнение сценариев не поддерживается этим изданием</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="ProtectionPage_Locked" xml:space="preserve">
+    <value>Блокировка (только чтение)</value>
+  </data>
+  <data name="Untitled" xml:space="preserve">
+    <value>Безымянный</value>
+  </data>
+  <data name="Vertical_Alignment_Bottom" xml:space="preserve">
+    <value>По нижнему краю</value>
+  </data>
+  <data name="Vertical_Alignment_General" xml:space="preserve">
+    <value>По значению</value>
+  </data>
+  <data name="Vertical_Alignment_Middle" xml:space="preserve">
+    <value>По центру</value>
+  </data>
+  <data name="Vertical_Alignment_Top" xml:space="preserve">
+    <value>По верхнему краю</value>
+  </data>
+  <data name="Menu_More" xml:space="preserve">
+    <value>Больше...</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="AppearanceEditor_Export_CSharp" xml:space="preserve">
+    <value>Экспорт C#</value>
+  </data>
+  <data name="AppearanceEditor_Export_VBNET" xml:space="preserve">
+    <value>Экспорт VB.NET</value>
+  </data>
+  <data name="AppearanceEditor_Highlight" xml:space="preserve">
+    <value>&amp;Выделение:</value>
+  </data>
+  <data name="AppearanceEditor_Main" xml:space="preserve">
+    <value>&amp;Основное:</value>
+  </data>
+  <data name="AppearanceEditor_Reset_To_Default" xml:space="preserve">
+    <value>По умолчанию (сброс)</value>
+  </data>
+  <data name="AppearanceEditor_Selection_Border_Width" xml:space="preserve">
+    <value>Ширина границы выделения:</value>
+  </data>
+  <data name="AppearanceEditor_Use_System_Highligh_Color" xml:space="preserve">
+    <value>Системный цвет выделения</value>
+  </data>
+  <data name="Btn_Close" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="Btn_Delete" xml:space="preserve">
+    <value>&amp;Удалить</value>
+  </data>
+  <data name="Btn_Edit" xml:space="preserve">
+    <value>&amp;Правка</value>
+  </data>
+  <data name="Btn_New" xml:space="preserve">
+    <value>&amp;Новый</value>
+  </data>
+  <data name="Column" xml:space="preserve">
+    <value>Столбец</value>
+  </data>
+  <data name="DefineNamedRange_Caption" xml:space="preserve">
+    <value>Новое имя</value>
+  </data>
+  <data name="DefineNamedRange_Comment" xml:space="preserve">
+    <value>&amp;Коммент.:</value>
+  </data>
+  <data name="DefineNamedRange_Name" xml:space="preserve">
+    <value>&amp;Имя:</value>
+  </data>
+  <data name="DefineNamedRange_Range" xml:space="preserve">
+    <value>&amp;Диапазон:</value>
+  </data>
+  <data name="HeaderProperty_Auto_Fit_To_Cell" xml:space="preserve">
+    <value>Автоподбор к ячейке</value>
+  </data>
+  <data name="HeaderProperty_Caption" xml:space="preserve">
+    <value>Свойства заголовка</value>
+  </data>
+  <data name="HeaderProperty_Default_Column_Type" xml:space="preserve">
+    <value>Тип столбца по умолчанию:</value>
+  </data>
+  <data name="HeaderProperty_Panel_Width" xml:space="preserve">
+    <value>Ширина панели:</value>
+  </data>
+  <data name="HeaderProperty_Text" xml:space="preserve">
+    <value>&amp;Текст:</value>
+  </data>
+  <data name="HeaderProperty_Text_Color" xml:space="preserve">
+    <value>Цвет текста:</value>
+  </data>
+  <data name="Inch" xml:space="preserve">
+    <value>дюйм</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Альбомная</value>
+  </data>
+  <data name="Msg_Create_Named_Range_Failed" xml:space="preserve">
+    <value>Невозможно определить именованный диапазон по указанному имени. Убедитесь в том, что:
+  Имя не начинается с цифры
+  Имя не содержит пробелов или других неподдерживаемых символов
+  Имя не является адресом ячейки или диапазона
+  Имя не совпадает с названием какой-либо встроенной функции</value>
+  </data>
+  <data name="Msg_Create_Named_Range_Failed_Title" xml:space="preserve">
+    <value>Определение именованного диапазона не удалось</value>
+  </data>
+  <data name="Msg_Delete_Named_Range_Confirm" xml:space="preserve">
+    <value>Вы действительно хотите удалить выбранные именованные диапазоны?</value>
+  </data>
+  <data name="Msg_Delete_Named_Range_Confirm_Title" xml:space="preserve">
+    <value>Удаление именованного диапазона</value>
+  </data>
+  <data name="Msg_Input_Name_Of_Range" xml:space="preserve">
+    <value>Пожалуйста, введите имя диапазона.</value>
+  </data>
+  <data name="Msg_Invalid_Address_Of_Range" xml:space="preserve">
+    <value>Неправильный адрес диапазона.</value>
+  </data>
+  <data name="Msg_No_Current_Worksheet" xml:space="preserve">
+    <value>Книга не содержит листов.</value>
+  </data>
+  <data name="Msg_Source_Code_Exported_Into_Clipboard" xml:space="preserve">
+    <value>код экспортирован в Буфер обмена.</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="NamedRangeManage_Caption" xml:space="preserve">
+    <value>Управление именованными диапазонами</value>
+  </data>
+  <data name="NamedRangeManage_Named_Ranges" xml:space="preserve">
+    <value>Именованные диапазоны:</value>
+  </data>
+  <data name="Paging_Order" xml:space="preserve">
+    <value>Порядок страниц</value>
+  </data>
+  <data name="Paper" xml:space="preserve">
+    <value>Бумага</value>
+  </data>
+  <data name="Pixel" xml:space="preserve">
+    <value>пикселей</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Книжная</value>
+  </data>
+  <data name="PrintSettings_Adjust_To" xml:space="preserve">
+    <value>Подгонка:</value>
+  </data>
+  <data name="PrintSettings_Down_Then_Over" xml:space="preserve">
+    <value>Вниз, затем вправо</value>
+  </data>
+  <data name="PrintSettings_Orientation" xml:space="preserve">
+    <value>Ориентация:</value>
+  </data>
+  <data name="PrintSettings_Over_Then_Down" xml:space="preserve">
+    <value>Вправо, затем вниз</value>
+  </data>
+  <data name="PrintSettings_Paper_Size" xml:space="preserve">
+    <value>Размер:</value>
+  </data>
+  <data name="PrintSettings_Percent_Normal_Size" xml:space="preserve">
+    <value>% нормального размера</value>
+  </data>
+  <data name="PrintSettings_Setup" xml:space="preserve">
+    <value>&amp;Параметры</value>
+  </data>
+  <data name="PrintSettings_Show_Grid_Lines" xml:space="preserve">
+    <value>Показывать линии сетки</value>
+  </data>
+  <data name="PrintSettings_Show_Margins" xml:space="preserve">
+    <value>Показывать отступы</value>
+  </data>
+  <data name="PrintSettings_Visible_Settings" xml:space="preserve">
+    <value>Настройки видимости</value>
+  </data>
+  <data name="Resize_Caption" xml:space="preserve">
+    <value>Изменение размера листа</value>
+  </data>
+  <data name="Resize_Columns" xml:space="preserve">
+    <value>&amp;Столбцов:</value>
+  </data>
+  <data name="Resize_Columns_Remark" xml:space="preserve">
+    <value>(макс: 32768)</value>
+  </data>
+  <data name="Resize_Rows" xml:space="preserve">
+    <value>&amp;Строк:</value>
+  </data>
+  <data name="Resize_Rows_Remark" xml:space="preserve">
+    <value>(макс: 1048576)</value>
+  </data>
+  <data name="Row" xml:space="preserve">
+    <value>Строка</value>
+  </data>
+  <data name="RunFunction_Caption" xml:space="preserve">
+    <value>Запуск функций-сценариев</value>
+  </data>
+  <data name="RunFunction_Close_This_Window_After_Running" xml:space="preserve">
+    <value>&amp;Закрыть это окно после запуска</value>
+  </data>
+  <data name="RunFunction_Functions" xml:space="preserve">
+    <value>&amp;Функции:</value>
+  </data>
+  <data name="RunFunction_Run" xml:space="preserve">
+    <value>&amp;Запуск</value>
+  </data>
+  <data name="Scaling" xml:space="preserve">
+    <value>Масштаб</value>
+  </data>
+  <data name="SetHeaderSize_Caption_Column" xml:space="preserve">
+    <value>Ширина столбца</value>
+  </data>
+  <data name="SetHeaderSize_Caption_Row" xml:space="preserve">
+    <value>Высота строки</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Текст</value>
+  </data>
+  <data name="Alignment" xml:space="preserve">
+    <value>Выравнивание</value>
+  </data>
+  <data name="Border" xml:space="preserve">
+    <value>Граница</value>
+  </data>
+  <data name="Fill" xml:space="preserve">
+    <value>Заливка</value>
+  </data>
+  <data name="Format" xml:space="preserve">
+    <value>Формат</value>
+  </data>
+  <data name="Protection" xml:space="preserve">
+    <value>Защита</value>
+  </data>
+  <data name="AppearanceEditor_Caption" xml:space="preserve">
+    <value>Редактор оформления элемента управления</value>
+  </data>
+  <data name="PrintSettings_Caption" xml:space="preserve">
+    <value>Настройки печати</value>
+  </data>
+  <data name="CtxMenu_Cell_Merge" xml:space="preserve">
+    <value>&amp;Объединить</value>
+  </data>
+  <data name="CtxMenu_Cell_Unmerge" xml:space="preserve">
+    <value>&amp;Разбить</value>
+  </data>
+  <data name="CtxMenu_Col_Clear_Filter" xml:space="preserve">
+    <value>Очистить фильтр</value>
+  </data>
+  <data name="CtxMenu_Col_Column_Width" xml:space="preserve">
+    <value>Ширина столбца...</value>
+  </data>
+  <data name="CtxMenu_Col_Delete_Columns" xml:space="preserve">
+    <value>&amp;Удалить столбцы</value>
+  </data>
+  <data name="CtxMenu_Col_Filter" xml:space="preserve">
+    <value>&amp;Фильтр</value>
+  </data>
+  <data name="CtxMenu_Col_Insert_Columns" xml:space="preserve">
+    <value>&amp;Вставить столбцы</value>
+  </data>
+  <data name="CtxMenu_Col_Reset_To_Default_Width" xml:space="preserve">
+    <value>Сброс к значению ширины по умолчанию</value>
+  </data>
+  <data name="CtxMenu_Row_Delete_Rows" xml:space="preserve">
+    <value>&amp;Удалить строки</value>
+  </data>
+  <data name="CtxMenu_Row_Insert_Rows" xml:space="preserve">
+    <value>&amp;Вставить строки</value>
+  </data>
+  <data name="CtxMenu_Row_Reset_to_Default_Height" xml:space="preserve">
+    <value>Сброс к значению высоты по умолчанию</value>
+  </data>
+  <data name="CtxMenu_Row_Row_Height" xml:space="preserve">
+    <value>Высота строки...</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>По умолчанию</value>
+  </data>
+  <data name="Menu_Edit_Selection_Move_Direction" xml:space="preserve">
+    <value>&amp;Направление перемещения</value>
+  </data>
+  <data name="Menu_Edit_Selection_Move_Direction_Down" xml:space="preserve">
+    <value>&amp;Вниз</value>
+  </data>
+  <data name="Menu_Edit_Selection_Move_Direction_Right" xml:space="preserve">
+    <value>&amp;Вправо (по умолчанию)</value>
+  </data>
+  <data name="Menu_Format_Cells" xml:space="preserve">
+    <value>&amp;Формат ячеек...</value>
+  </data>
+  <data name="Menu_Group" xml:space="preserve">
+    <value>&amp;Группировка</value>
+  </data>
+  <data name="Menu_Hide" xml:space="preserve">
+    <value>&amp;Скрыть</value>
+  </data>
+  <data name="Menu_Insert_Page_Break" xml:space="preserve">
+    <value>Вставить разрыв страницы</value>
+  </data>
+  <data name="Menu_Property" xml:space="preserve">
+    <value>&amp;Свойства...</value>
+  </data>
+  <data name="Menu_Remove_Page_Break" xml:space="preserve">
+    <value>Удалить разрыв страниц</value>
+  </data>
+  <data name="Menu_Sheet_Group_Columns" xml:space="preserve">
+    <value>Группировка столбцов</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup" xml:space="preserve">
+    <value>Разгруппировка</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_All_Columns" xml:space="preserve">
+    <value>Все столбцы</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_All_Rows" xml:space="preserve">
+    <value>Все строки</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_Selection_Columns" xml:space="preserve">
+    <value>Выделенные столбцы</value>
+  </data>
+  <data name="Menu_Sheet_Ungroup_Selection_Rows" xml:space="preserve">
+    <value>Выделенные строки</value>
+  </data>
+  <data name="Menu_Ungroup" xml:space="preserve">
+    <value>Разгруппировать</value>
+  </data>
+  <data name="Menu_Ungroup_All" xml:space="preserve">
+    <value>Разгруппировать все</value>
+  </data>
+  <data name="Menu_Unhide" xml:space="preserve">
+    <value>&amp;Показать</value>
+  </data>
+  <data name="NamedRangeManage_New" xml:space="preserve">
+    <value>&amp;Новый...</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="CellBody" xml:space="preserve">
+    <value>Тело ячейки</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Денежный</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Данные</value>
+  </data>
+  <data name="Data_Format" xml:space="preserve">
+    <value>Формат данных</value>
+  </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>Дата и время</value>
+  </data>
+  <data name="FormatPage_Caption" xml:space="preserve">
+    <value>Формат ячеек</value>
+  </data>
+  <data name="Formula" xml:space="preserve">
+    <value>Формула</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>Общий</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Количество</value>
+  </data>
+  <data name="Percentage" xml:space="preserve">
+    <value>Процентный</value>
+  </data>
+  <data name="Style" xml:space="preserve">
+    <value>Стиль</value>
+  </data>
+  <data name="NoColor" xml:space="preserve">
+    <value>Нет цвета</value>
+  </data>
+  <data name="SolidColor" xml:space="preserve">
+    <value>Сплошной</value>
+  </data>
+</root>
