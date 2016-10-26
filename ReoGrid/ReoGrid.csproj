@@ -72,7 +72,7 @@
     <DocumentationFile>bin\Minimum\unvell.ReoGrid.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>reogrid-0.8.6.pfx</AssemblyOriginatorKeyFile>
