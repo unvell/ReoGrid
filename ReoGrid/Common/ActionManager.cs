@@ -11,10 +11,8 @@
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * This software released under LGPLv3 license.
- * Author: Jing Lu <lujing at unvell.com>
+ * Author: Jing <lujing at unvell.com>
  * 
-
  * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
  * Copyright (c) 2012-2016 unvell.com, all rights reserved.
  * 

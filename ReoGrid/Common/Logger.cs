@@ -9,17 +9,13 @@
  * - Common log framework to support .NET Applications output information.
  * 
  * - By implementing and specifying ILogWritter interface to write log 
- *   to different destination, such as console, stream and file.
+ *   to different destinations, such as console, stream or file.
  *   
- * This software released under LGPLv3 license.
- * Author: Jing Lu <lujing at unvell.com>
- * 
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  * 
-
  * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
  * Copyright (c) 2012-2016 unvell.com, all rights reserved.
  * 
