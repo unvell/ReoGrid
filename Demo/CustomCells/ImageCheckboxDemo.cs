@@ -34,8 +34,12 @@ namespace unvell.ReoGrid.Demo.CustomCells
 			var worksheet = this.grid.CurrentWorksheet;
 
 			worksheet["B3"] = new object[,] {
-				{ new ImageCheckBox(), "Image checkbox"},
+				{ new ImageCheckBox(), "Automatically update to latest version"},
+				{ new ImageCheckBox(true), "Startup when windows starting"},
 			};
+
+			worksheet["C6"] = "Images downloaded from icons8.com";
+			worksheet.Cells["C6"].Style.FontSize = 9;
 		}
 
 		class ImageCheckBox : CheckBoxCell
