@@ -153,12 +153,12 @@ namespace unvell.ReoGrid
 				{
 					editText = (string)cell.InnerData;
 				}
-#if DRAWING && RICHTEXT
+#if DRAWING
 				else if (cell.InnerData is Drawing.RichText)
 				{
 					editText = ((Drawing.RichText)cell.InnerData).ToString();
 				}
-#endif // DRAWING && RICHTEXT
+#endif // DRAWING
 				else
 				{
 					editText = Convert.ToString(cell.InnerData);

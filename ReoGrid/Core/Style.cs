@@ -821,19 +821,19 @@ namespace unvell.ReoGrid
 				return;
 			}
 
-#if DRAWING && RICHTEXT
+#if DRAWING
 			// rich text object doesn't need update font
 			if (!(cell.Data is Drawing.RichText))
 			{
-#endif // DRAWING && RICHTEXT
+#endif // DRAWING
 
 				if (ir == null) ir = this.controlAdapter.Renderer;
 
 				ir.UpdateCellRenderFont(cell, reason);
 
-#if DRAWING && RICHTEXT
+#if DRAWING
 			}
-#endif // DRAWING && RICHTEXT
+#endif // DRAWING
 
 			cell.FontDirty = false;
 
@@ -886,7 +886,7 @@ namespace unvell.ReoGrid
 			Size oldSize;
 			Size size;
 
-#if DRAWING && RICHTEXT
+#if DRAWING
 			if (cell.Data is Drawing.RichText)
 			{
 				var rt = (Drawing.RichText)cell.Data;
@@ -904,7 +904,7 @@ namespace unvell.ReoGrid
 			}
 			else
 			{
-#endif // DRAWING && RICHTEXT
+#endif // DRAWING
 
 			oldSize = cell.TextBounds.Size;
 
@@ -1005,9 +1005,9 @@ namespace unvell.ReoGrid
 			}
 			#endregion // Update Text Size Cache
 
-#if DRAWING && RICHTEXT
+#if DRAWING
 			}
-#endif // DRAWING && RICHTEXT
+#endif // DRAWING
 
 			if (drawMode == DrawMode.View 
 				&& reason != UpdateFontReason.ScaleChanged)

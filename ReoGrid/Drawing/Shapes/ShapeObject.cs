@@ -69,6 +69,9 @@ namespace unvell.ReoGrid.Drawing.Shapes
 
 		private RichText richText;
 
+		/// <summary>
+		/// Get or set rich format text.
+		/// </summary>
 		public RichText RichText
 		{
 			get { return this.richText; }

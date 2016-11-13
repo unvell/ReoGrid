@@ -778,7 +778,7 @@ namespace unvell.ReoGrid
 						this.UpdateCellFont(cell);
 					}
 
-#if DRAWING && RICHTEXT
+#if DRAWING
 					var rt = cell.Data as Drawing.RichText;
 
 					if (rt != null)
@@ -792,7 +792,7 @@ namespace unvell.ReoGrid
 					}
 					else
 					{
-#endif // DRAWING && RICHTEXT
+#endif // DRAWING
 						RGFloat textHeight = cell.TextBounds.Height / this.renderScaleFactor;
 
 						if (maxHeight < textHeight)
@@ -800,9 +800,9 @@ namespace unvell.ReoGrid
 							maxHeight = textHeight;
 						}
 
-#if DRAWING && RICHTEXT
+#if DRAWING
 					}
-#endif // DRAWING && RICHTEXT
+#endif // DRAWING
 
 				}
 			}
@@ -860,7 +860,7 @@ namespace unvell.ReoGrid
 						this.UpdateCellFont(cell);
 					}
 
-#if DRAWING && RICHTEXT
+#if DRAWING
 					var rt = cell.Data as Drawing.RichText;
 
 					if (rt != null)
@@ -874,7 +874,7 @@ namespace unvell.ReoGrid
 					}
 					else
 					{
-#endif // DRAWING && RICHTEXT
+#endif // DRAWING
 
 						RGFloat textWidth = cell.TextBounds.Width / this.renderScaleFactor;
 
@@ -883,9 +883,9 @@ namespace unvell.ReoGrid
 							maxWidth = textWidth;
 						}
 
-#if DRAWING && RICHTEXT
+#if DRAWING
 					}
-#endif // DRAWING && RICHTEXT
+#endif // DRAWING
 				}
 			}
 

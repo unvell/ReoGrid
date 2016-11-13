@@ -719,7 +719,7 @@ namespace unvell.ReoGrid.Views
 		{
 			var g = dc.Graphics;
 
-#if FORMULA && DRAWING && RICHTEXT
+#if FORMULA && DRAWING
 			var rt = cell.Data as Drawing.RichText;
 
 			if (rt != null)
@@ -790,7 +790,7 @@ namespace unvell.ReoGrid.Views
 				#endregion // Rich Text
 			}
 			else
-#endif // FORMULA && DRAWING && RICHTEXT
+#endif // FORMULA && DRAWING
 			{
 				#region Plain Text
 
