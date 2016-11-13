@@ -17,12 +17,6 @@
  ****************************************************************************/
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using unvell.ReoGrid.Chart;
 
@@ -71,6 +65,12 @@ namespace unvell.ReoGrid.Demo.Charts
 					CategoryNameRange = categoryNamesRange,
 				}
 			};
+
+			// Make all serial colors semi-transparent
+			foreach (var style in chart.DataSerialStyles)
+			{
+				style.FillColor = new Graphics.SolidColor(100, style.FillColor.ToSolidColor());
+			}
 
 			worksheet.FloatingObjects.Add(chart);
 

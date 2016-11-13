@@ -20,7 +20,7 @@
  ****************************************************************************/
 -->
 
-<Demo BaseSite="http://reogrid.net/" DefaultItem="What's in 1.0">
+<Demo BaseSite="http://reogrid.net/" DefaultItem="What's new in 2.0">
 
 	<New>
 		<Item Name="Welcome"></Item>
@@ -34,7 +34,7 @@
 		
 	<Categories>
 		<Category Name="Welcome" Expansion="True">
-			<Item Name="What's in 1.0" Class="Welcome.V100WhatsNew"></Item>
+			<Item Name="What's new in 2.0" Class="Welcome.V100WhatsNew"></Item>
 		</Category>
 			
 		<Category Name="Chart" Expansion="True">
@@ -50,9 +50,18 @@
 				<Doc-Url>document/chart/bar-chart</Doc-Url>
 			</Item>
 			
+			<Item Name="Area Chart" Class="Charts.AreaChartDemo">
+				<Doc-Url>document/chart/area-chart</Doc-Url>
+			</Item>
+			
 			<Item Name="Pie 2D Chart" Class="Charts.Pie2DChartDemo">
 				<Doc-Url>document/chart/pie-chart-2d</Doc-Url>
 			</Item>
+
+			<Item Name="Doughnut Chart" Class="Charts.DoughnutChartDemo">
+				<Doc-Url>document/chart/doughnut-chart</Doc-Url>
+			</Item>
+	
 		</Category>
 
 		<Category Name="Drawing" Expansion="True">
@@ -114,6 +123,10 @@
 			</Item>
 
 			<Item Name="Animation Cell" Class="CustomCells.AnimationCellDemo">
+				<Doc-Url>document/custom-cell</Doc-Url>
+			</Item>
+
+			<Item Name="Image Checkbox Cell" Class="CustomCells.ImageCheckboxDemo">
 				<Doc-Url>document/custom-cell</Doc-Url>
 			</Item>
 		</Category>

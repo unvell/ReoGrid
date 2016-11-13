@@ -18,7 +18,7 @@
 
 namespace unvell.ReoGrid.Demo.CustomCells
 {
-	partial class ImageOwnerDrawingDemo
+	partial class ImageCheckboxDemo
 	{
 		/// <summary> 
 		/// Required designer variable.
@@ -46,18 +46,41 @@ namespace unvell.ReoGrid.Demo.CustomCells
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.grid = new unvell.ReoGrid.ReoGridControl();
 			this.SuspendLayout();
 			// 
-			// ImageOwnerDrawingDemo
+			// grid
+			// 
+			this.grid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.grid.ColumnHeaderContextMenuStrip = null;
+			this.grid.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grid.LeadHeaderContextMenuStrip = null;
+			this.grid.Location = new System.Drawing.Point(0, 0);
+			this.grid.Name = "grid";
+			this.grid.RowHeaderContextMenuStrip = null;
+			this.grid.Script = null;
+			this.grid.SheetTabContextMenuStrip = null;
+			this.grid.SheetTabNewButtonVisible = true;
+			this.grid.SheetTabVisible = true;
+			this.grid.SheetTabWidth = 238;
+			this.grid.ShowScrollEndSpacing = true;
+			this.grid.Size = new System.Drawing.Size(654, 408);
+			this.grid.TabIndex = 3;
+			this.grid.Text = "reoGridControl1";
+			// 
+			// ImageCheckboxDemo
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Name = "ImageOwnerDrawingDemo";
-			this.Size = new System.Drawing.Size(278, 290);
+			this.Controls.Add(this.grid);
+			this.Name = "ImageCheckboxDemo";
+			this.Size = new System.Drawing.Size(654, 408);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
+
+		private ReoGridControl grid;
 	}
 }

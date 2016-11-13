@@ -181,11 +181,11 @@
     <Compile Include="CustomCells\AnimationCellDemo.Designer.cs">
       <DependentUpon>AnimationCellDemo.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomCells\ImageOwnerDrawingDemo.cs">
+    <Compile Include="CustomCells\ImageCheckboxDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomCells\ImageOwnerDrawingDemo.Designer.cs">
-      <DependentUpon>ImageOwnerDrawingDemo.cs</DependentUpon>
+    <Compile Include="CustomCells\ImageCheckboxDemo.Designer.cs">
+      <DependentUpon>ImageCheckboxDemo.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomCells\NumericProgressDemo.cs">
       <SubType>UserControl</SubType>
@@ -553,8 +553,8 @@
       <DependentUpon>AnimationCellDemo.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomCells\ImageOwnerDrawingDemo.resx">
-      <DependentUpon>ImageOwnerDrawingDemo.cs</DependentUpon>
+    <EmbeddedResource Include="CustomCells\ImageCheckboxDemo.resx">
+      <DependentUpon>ImageCheckboxDemo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomCells\NumericProgressDemo.resx">
       <DependentUpon>NumericProgressDemo.cs</DependentUpon>
@@ -797,10 +797,7 @@
     <Compile Include="Scripts\RunScriptDemo.Designer.cs">
       <DependentUpon>RunScriptDemo.cs</DependentUpon>
     </Compile>
-    <None Include="_Templates\Excel\welcome-093.xlsx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="_Templates\Excel\welcome-100.xlsx">
+    <None Include="_Templates\Excel\welcome-200.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="_Templates\RGF\calendar_2008_1.rgf">

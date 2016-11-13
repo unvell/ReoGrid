@@ -17,15 +17,9 @@
  ****************************************************************************/
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 using unvell.ReoGrid.Chart;
-using unvell.ReoGrid.Graphics;
 
 namespace unvell.ReoGrid.Demo.Charts
 {
@@ -60,19 +54,20 @@ namespace unvell.ReoGrid.Demo.Charts
 			worksheet.AddHighlightRange(categoryNamesRange);
 			worksheet.AddHighlightRange(dataRange);
 
-			var c1 = new Chart.BarChart
+			var chart = new Chart.BarChart
 			{
-				Location = new Graphics.Point(460, 30),
+				Location = new Graphics.Point(220, 160),
 				Size = new Graphics.Size(400, 260),
 
 				Title = "Bar Chart Sample",
+
 				DataSource = new WorksheetChartDataSource(worksheet, rowTitleRange, dataRange)
 				{
 					CategoryNameRange = categoryNamesRange,
 				},
 			};
 
-			worksheet.FloatingObjects.Add(c1);
+			worksheet.FloatingObjects.Add(chart);
 		}
 
 	}

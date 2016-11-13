@@ -37,9 +37,10 @@ using unvell.ReoGrid.WinForm;
 using unvell.ReoGrid.IO;
 using unvell.ReoGrid.DataFormat;
 using unvell.ReoGrid.Graphics;
-using unvell.ReoGrid.Print;
 using unvell.ReoGrid.Rendering;
 using unvell.ReoGrid.Editor.LangRes;
+
+using unvell.ReoGrid.Print;
 
 #if EX_SCRIPT
 using unvell.ReoScript.Editor;

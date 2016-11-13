@@ -177,7 +177,7 @@ namespace unvell.ReoGrid.Views
 			#region Display Text Cells
 
 			drawedCells.Clear();
-			
+
 			for (int r = visibleRegion.startRow; r < toRow && r <= sheet.cells.MaxRow; r++)
 			{
 				RowHeader rowHead = sheet.rows[r];
@@ -724,9 +724,9 @@ namespace unvell.ReoGrid.Views
 
 			if (rt != null)
 			{
-				#region Rich Text
+			#region Rich Text
 
-				#region Determine clip region
+			#region Determine clip region
 				bool needWidthClip = (cell.IsMergedCell || cell.InnerStyle.TextWrapMode == TextWrapMode.WordBreak);
 
 				if (!needWidthClip && dc.AllowCellClip)
@@ -756,7 +756,7 @@ namespace unvell.ReoGrid.Views
 							&& !string.IsNullOrEmpty(prevCell.DisplayText);
 					}
 				}
-				#endregion // Determine clip region
+			#endregion // Determine clip region
 
 				var rtBounds = cell.Bounds * this.scaleFactor;
 
@@ -787,7 +787,7 @@ namespace unvell.ReoGrid.Views
 				//}
 
 				rt.Draw(g, rtBounds);
-				#endregion // Rich Text
+			#endregion // Rich Text
 			}
 			else
 #endif // FORMULA && DRAWING
@@ -1558,7 +1558,7 @@ namespace unvell.ReoGrid.Views
 
 #if PRINT
 				case OperationStatus.AdjustPageBreakRow:
-					#region Page Break Row
+				#region Page Break Row
 					if (buttons == MouseButtons.Left
 						&& sheet.pageBreakAdjustRow > -1)
 					{
@@ -1575,11 +1575,11 @@ namespace unvell.ReoGrid.Views
 
 						isProcessed = true;
 					}
-					#endregion // Page Break Row
+				#endregion // Page Break Row
 					break;
 
 				case OperationStatus.AdjustPageBreakColumn:
-					#region Page Break Column
+				#region Page Break Column
 					if (buttons == MouseButtons.Left
 						&& sheet.pageBreakAdjustCol > -1)
 					{
@@ -1596,7 +1596,7 @@ namespace unvell.ReoGrid.Views
 
 						isProcessed = true;
 					}
-					#endregion // Page Break Column
+				#endregion // Page Break Column
 					break;
 #endif // PRINT
 
@@ -1707,8 +1707,9 @@ namespace unvell.ReoGrid.Views
 					#endregion // Submit Selection Range Move
 					break;
 
+#if DRAWING
 				case OperationStatus.DragSelectionFillSerial:
-					#region Submit Selection Drag
+				#region Submit Selection Drag
 					sheet.operationStatus = OperationStatus.Default;
 
 					bool performed = false;
@@ -1761,8 +1762,9 @@ namespace unvell.ReoGrid.Views
 
 					sheet.RequestInvalidate();
 					isProcessed = true;
-					#endregion // Submit Selection Drag
+				#endregion // Submit Selection Drag
 					break;
+#endif // DRAWING
 
 				case OperationStatus.RangeSelect:
 				case OperationStatus.FullRowSelect:
@@ -1834,7 +1836,7 @@ namespace unvell.ReoGrid.Views
 
 #if PRINT
 				case OperationStatus.AdjustPageBreakColumn:
-					#region Adjust Page Break Column
+				#region Adjust Page Break Column
 					if (sheet.pageBreakAdjustCol > -1)
 					{
 						//SetPageBreakColIndex(this.pageBreakAdjustCol, this.commonMouseMoveColIndex);
@@ -1857,11 +1859,11 @@ namespace unvell.ReoGrid.Views
 					sheet.pageBreakAdjustFocusIndex = -1;
 					sheet.operationStatus = OperationStatus.Default;
 					isProcessed = true;
-					#endregion // Adjust Page Break Column
+				#endregion // Adjust Page Break Column
 					break;
 
 				case OperationStatus.AdjustPageBreakRow:
-					#region Adjust Page Break Row
+				#region Adjust Page Break Row
 					if (sheet.pageBreakAdjustRow > -1)
 					{
 						int oldIndex = sheet.pageBreakRows[sheet.pageBreakAdjustRow];
@@ -1882,7 +1884,7 @@ namespace unvell.ReoGrid.Views
 					sheet.pageBreakAdjustFocusIndex = -1;
 					sheet.operationStatus = OperationStatus.Default;
 					isProcessed = true;
-					#endregion // Adjust Page Break Row
+				#endregion // Adjust Page Break Row
 					break;
 #endif // PRINT
 
@@ -2004,19 +2006,19 @@ namespace unvell.ReoGrid.Views
 			try
 			{
 #endif
-				// binary search to find the row which contains the give position
-				return ArrayHelper.QuickFind((visibleRegion.endRow - visibleRegion.startRow + 1) / 2,
-					0, sheet.rows.Count - 1, i =>
-					{
-						var rowHeader = sheet.rows[i];
+			// binary search to find the row which contains the give position
+			return ArrayHelper.QuickFind((visibleRegion.endRow - visibleRegion.startRow + 1) / 2,
+				0, sheet.rows.Count - 1, i =>
+				{
+					var rowHeader = sheet.rows[i];
 
-						if (rowHeader.Bottom < y)
-							return 1;
-						else if (rowHeader.Top > y)
-							return -1;
-						else
-							return 0;
-					});
+					if (rowHeader.Bottom < y)
+						return 1;
+					else if (rowHeader.Top > y)
+						return -1;
+					else
+						return 0;
+				});
 
 #if DEBUG
 			}

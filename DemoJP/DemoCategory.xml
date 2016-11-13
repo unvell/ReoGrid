@@ -15,7 +15,7 @@
  * 
  ****************************************************************************/
 -->
-<Demo BaseSite="https://reogrid.net/jp/" DefaultItem="バージョン1.3 新機能">
+<Demo BaseSite="https://reogrid.net/jp/" DefaultItem="バージョン2.0 新機能">
 
 	<New>
 		<Item Name="ようこそ"></Item>
@@ -29,7 +29,7 @@
 		
 	<Categories>
 		<Category Name="ようこそ" Expansion="True">
-			<Item Name="バージョン1.3 新機能" Class="Welcome.WhatsNewDemo"></Item>
+			<Item Name="バージョン2.0 新機能" Class="Welcome.WhatsNewDemo"></Item>
 		</Category>
 			
 		<Category Name="グラフ" Expansion="True" Namespace="ChartDemo">

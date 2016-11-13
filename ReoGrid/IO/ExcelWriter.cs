@@ -772,6 +772,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 			return id;
 		}
 
+#if DRAWING
 		private static int AddSharedString(Document doc, Drawing.RichText rt)
 		{
 			if (doc.SharedStrings == null)
@@ -801,7 +802,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 					foreach (var r in p.Runs)
 					{
-						#region Run Properties
+		#region Run Properties
 						var rpr = new RunProperty
 						{
 							color = new ColorValue(r.TextColor),
@@ -834,7 +835,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 						{
 							rpr.vertAlign = "subscript";
 						}
-						#endregion // Run Properties
+		#endregion // Run Properties
 
 						ssi.runs.Add(lastRun = new Run
 						{
@@ -856,6 +857,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 			return id;
 		}
+#endif // DRAWING
 		#endregion // Shared Strings
 
 		#region Drawing Objects
@@ -1231,12 +1233,14 @@ namespace unvell.ReoGrid.IO.OpenXML
 							{
 								cell.value = new ElementText(Convert.ToString(data, EnglishCulture));
 							}
+#if DRAWING
 							else if (data is Drawing.RichText)
 							{
 								int sharedStrId = AddSharedString(doc, (Drawing.RichText)data);
 								cell.value = new ElementText(sharedStrId.ToString());
 								cell.dataType = "s";
 							}
+#endif // DRAWING
 							else if (data is DateTime)
 							{
 								var dt = (DateTime)data;
@@ -1265,23 +1269,23 @@ namespace unvell.ReoGrid.IO.OpenXML
 								}
 							}
 
-							#endregion // Data
+#endregion // Data
 
-							#region Formula
+#region Formula
 							// formula
 							if (hasFormula)
 							{
 								cell.formula = new Schema.Formula { val = rgCell.InnerFormula };
 							}
-							#endregion // Formula
+#endregion // Formula
 
-							#region Data Format
+#region Data Format
 							if (rgCell.DataFormat != DataFormat.CellDataFormatFlag.General)
 							{
 								dflag = rgCell.DataFormat;
 								dfarg = rgCell.DataFormatArgs;
 							}
-							#endregion // Data Format
+#endregion // Data Format
 
 							// cell styles
 							switch (rgCell.StyleParentKind)
@@ -1318,18 +1322,18 @@ namespace unvell.ReoGrid.IO.OpenXML
 							}
 						}
 					}
-					#endregion // Cell
+#endregion // Cell
 
-					#region Border
+#region Border
 
 					var top = rgSheet.GetValidHBorderByPos(r, c, Core.HBorderOwnerPosition.Top);
 					var bottom = rgSheet.GetValidHBorderByPos(r + 1, c, Core.HBorderOwnerPosition.Bottom);
 					var left = rgSheet.GetValidVBorderByPos(r, c, Core.VBorderOwnerPosition.Left);
 					var right = rgSheet.GetValidVBorderByPos(r, c + 1, Core.VBorderOwnerPosition.Right);
 
-					#endregion // Border
+#endregion // Border
 
-					#region Style
+#region Style
 					if (rgStyle == null && top == null && bottom == null && left == null && right == null)
 					{
 						c += spans;
@@ -1355,9 +1359,9 @@ namespace unvell.ReoGrid.IO.OpenXML
 						dflag, dfarg).ToString();
 					//}
 
-					#endregion Style
+#endregion Style
 
-					#region Add into row
+#region Add into row
 
 					if (row == null)
 					{
@@ -1376,7 +1380,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 					row.cells.Add(cell);
 
-					#endregion // Add into row
+#endregion // Add into row
 
 					c++;
 				}
@@ -1389,7 +1393,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 				row = null;
 			}
 
-			#region Floating Objects
+#region Floating Objects
 #if DRAWING
 			if (rgSheet.FloatingObjects != null && rgSheet.FloatingObjects.Count > 0)
 			{
@@ -1409,14 +1413,14 @@ namespace unvell.ReoGrid.IO.OpenXML
 				}
 			}
 #endif // DRAWING
-			#endregion // Floating Objects
+#endregion // Floating Objects
 		}
-		#endregion // Worksheet
+#endregion // Worksheet
 	}
 
-	#endregion // Writer
+#endregion // Writer
 
-	#region Document
+#region Document
 	internal partial class Document : OpenXMLFile
 	{
 		internal ContentType contentType;
@@ -1533,7 +1537,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 			return this.SharedStrings;
 		}
 
-		#region Drawing & Images
+#region Drawing & Images
 #if DRAWING
 		private int drawingFileCount = 0;
 
@@ -1596,7 +1600,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 			return blip;
 		}
 #endif // DRAWING
-		#endregion // Drawing & Images
+#endregion // Drawing & Images
 
 		internal void CreateCoreProperties()
 		{
@@ -1708,11 +1712,11 @@ namespace unvell.ReoGrid.IO.OpenXML
 			// .rels
 			WriteFile(this._relationFile._xmlTarget, this._relationFile);
 
-			#region Workbook
+#region Workbook
 			WriteOpenXMLFile(this.Workbook);
-			#endregion Workbook
+#endregion Workbook
 
-			#region SharedStrings
+#region SharedStrings
 			if (this.SharedStrings != null)
 			{
 				this.SharedStrings.count = this.SharedStrings.items.Count.ToString();
@@ -1720,9 +1724,9 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 				WriteFile(this.SharedStrings._xmlTarget, this.SharedStrings);
 			}
-			#endregion // SharedStrings
+#endregion // SharedStrings
 
-			#region Theme1.xml
+#region Theme1.xml
 			//this.Workbook.AddRelationship(OpenXMLRelationTypes.theme____________, "theme/theme1.xml");
 			//IZipFileEntry themeEntry = this.zipArchive.AddFile("xl/theme/theme1.xml");
 			//using (var s = new StreamWriter(themeEntry.CreateStream()))
@@ -1734,9 +1738,9 @@ namespace unvell.ReoGrid.IO.OpenXML
 			//	PartName = "/xl/theme/theme1.xml",
 			//	ContentType = OpenXMLContentTypes.Theme_________
 			//});
-			#endregion // Theme1.xml
+#endregion // Theme1.xml
 
-			#region Styles
+#region Styles
 #if DEBUG1
 			WriteDebugFile("styles", this.Stylesheet);
 #endif // DEBUG
@@ -1750,12 +1754,12 @@ namespace unvell.ReoGrid.IO.OpenXML
 			//		sw.Write("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<styleSheet xmlns=\"http://schemas.openxmlformats.org/spreadsheetml/2006/main\" xmlns:mc=\"http://schemas.openxmlformats.org/markup-compatibility/2006\" mc:Ignorable=\"x14ac\" xmlns:x14ac=\"http://schemas.microsoft.com/office/spreadsheetml/2009/9/ac\">\r\n\t<fonts count=\"1\" x14ac:knownFonts=\"1\">\r\n\t\t<font>\r\n\t\t\t<sz val=\"11\"/>\r\n\t\t\t<color theme=\"1\"/>\r\n\t\t\t<name val=\"Calibri\"/>\r\n\t\t\t<family val=\"2\"/>\r\n\t\t\t<scheme val=\"minor\"/>\r\n\t\t</font>\r\n\t</fonts>\r\n\t<fills count=\"2\">\r\n\t\t<fill>\r\n\t\t\t<patternFill patternType=\"none\"/>\r\n\t\t</fill>\r\n\t\t<fill>\r\n\t\t\t<patternFill patternType=\"gray125\"/>\r\n\t\t</fill>\r\n\t</fills>\r\n\t<borders count=\"1\">\r\n\t\t<border>\r\n\t\t\t<left/>\r\n\t\t\t<right/>\r\n\t\t\t<top/>\r\n\t\t\t<bottom/>\r\n\t\t\t<diagonal/>\r\n\t\t</border>\r\n\t</borders>\r\n\t<cellStyleXfs count=\"1\">\r\n\t\t<xf numFmtId=\"0\" fontId=\"0\" fillId=\"0\" borderId=\"0\"/>\r\n\t</cellStyleXfs>\r\n\t<cellXfs count=\"1\">\r\n\t\t<xf numFmtId=\"0\" fontId=\"0\" fillId=\"0\" borderId=\"0\" xfId=\"0\"/>\r\n\t</cellXfs>\r\n\t<cellStyles count=\"1\">\r\n\t\t<cellStyle name=\"Normal\" xfId=\"0\" builtinId=\"0\"/>\r\n\t</cellStyles>\r\n\t<dxfs count=\"0\"/>\r\n\t<tableStyles count=\"0\" defaultTableStyle=\"TableStyleMedium2\" defaultPivotStyle=\"PivotStyleMedium9\"/>\r\n\t<extLst>\r\n\t\t<ext uri=\"{EB79DEF2-80B8-43e5-95BD-54CBDDF9020C}\" xmlns:x14=\"http://schemas.microsoft.com/office/spreadsheetml/2009/9/main\">\r\n\t\t\t<x14:slicerStyles defaultSlicerStyle=\"SlicerStyleLight1\"/>\r\n\t\t</ext>\r\n\t\t<ext uri=\"{9260A510-F301-46a8-8635-F512D64BE5F5}\" xmlns:x15=\"http://schemas.microsoft.com/office/spreadsheetml/2010/11/main\">\r\n\t\t\t<x15:timelineStyles defaultTimelineStyle=\"TimeSlicerStyleLight1\"/>\r\n\t\t</ext>\r\n\t</extLst>\r\n</styleSheet>");
 			//	}
 			//}
-			#endregion // Styles
+#endregion // Styles
 
-			#region Worksheets
+#region Worksheets
 			foreach (var sheet in this.Workbook.sheets)
 			{
-				#region Drawings
+#region Drawings
 #if DRAWING
 				if (sheet._instance.drawing != null
 					&& sheet._instance.drawing._instance != null)
@@ -1763,7 +1767,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 					var drawing = sheet._instance.drawing._instance;
 					WriteOpenXMLFile(drawing);
 
-					#region Floating Images
+#region Floating Images
 					if (drawing._images != null)
 					{
 						foreach (var blip in drawing._images)
@@ -1789,42 +1793,42 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 						}
 					}
-					#endregion // Floating Images
+#endregion // Floating Images
 				}
 #endif // DRAWING
-				#endregion // Drawings
+#endregion // Drawings
 
 #if DEBUG1
 				WriteDebugFile("output\\sheet1", sheet._instance);
 #endif
 				WriteOpenXMLFile(sheet._instance);
 			}
-			#endregion Worksheets
+#endregion Worksheets
 
-			#region CoreProperties
+#region CoreProperties
 			if (this.coreProp != null)
 			{
 				WriteFile(this.coreProp._xmlTarget, this.coreProp);
 			}
-			#endregion // CoreProperties
+#endregion // CoreProperties
 
-			#region AppProperties
+#region AppProperties
 			if (this.appProp != null)
 			{
 				WriteFile(this.appProp._xmlTarget, this.appProp);
 			}
-			#endregion // AppProperties
+#endregion // AppProperties
 
 			this.zipArchive.Flush();
 			this.zipArchive.Close();
 		}
 	}
-	#endregion // Document
+#endregion // Document
 }
 
 namespace unvell.ReoGrid.IO.OpenXML.Schema
 {
-	#region Workbook
+#region Workbook
 	partial class Workbook
 	{
 		internal Document _doc;
@@ -1868,9 +1872,9 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 			return sheet;
 		}
 	}
-	#endregion // Workbook
+#endregion // Workbook
 
-	#region Relationships
+#region Relationships
 	partial class OpenXMLFile
 	{
 		internal string GetAvailableRelationId()
@@ -1910,5 +1914,5 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 			return rid;
 		}
 	}
-	#endregion // Relationships
+#endregion // Relationships
 }

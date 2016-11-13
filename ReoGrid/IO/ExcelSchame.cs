@@ -1120,14 +1120,15 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 		[XmlElement("r")]
 		public List<Run> runs;
 
+#if DRAWING
 		[XmlIgnore]
 		internal ReoGrid.Drawing.RichText _rt;
-
+#endif // DRAWING
 	}
 
-	#endregion // SharedStringTable
+#endregion // SharedStringTable
 
-	#region Drawing
+#region Drawing
 #if DRAWING
 
 	[XmlRoot("wsDr", Namespace = OpenXMLNamespaces.XDR__________)]
@@ -1581,9 +1582,9 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 	{
 	}
 
-	#endregion // Drawing
+#endregion // Drawing
 
-	#region Chart
+#region Chart
 	[XmlRoot("chartSpace", Namespace = OpenXMLNamespaces.Chart________)]
 	public class ChartSpace
 	{
@@ -1630,7 +1631,7 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 		public ValueAxis valueAxis;
 	}
 
-	#region PlotArea
+#region PlotArea
 	public class LineChart
 	{
 		[XmlElement("ser")]
@@ -1828,19 +1829,19 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 		[XmlElement("min")]
 		public ElementValue<int> min;
 	}
-	#endregion // PlotArea
+#endregion // PlotArea
 
-	#region Legend
+#region Legend
 	public class Legend
 	{
 		[XmlElement("legendPos")]
 		public ElementValue<string> legendPos;
 	}
-	#endregion // Legend
+#endregion // Legend
 
-	#endregion // Chart
+#endregion // Chart
 
-	#region Theme
+#region Theme
 	[XmlRoot("theme", Namespace = OpenXMLNamespaces.Drawing______)]
 	public class Theme
 	{
@@ -1865,7 +1866,7 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 
 	}
 
-	#region Theme Colors
+#region Theme Colors
 	[XmlInclude(typeof(CompColor))]
 	[XmlInclude(typeof(GradientFill))]
 	public class ClrScheme
@@ -1935,9 +1936,9 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 		public ElementValue<int> alpha;
 	}
 
-	#endregion // Theme Colors
+#endregion // Theme Colors
 
-	#region Drawing Format
+#region Drawing Format
 	public class FormatScheme
 	{
 		[XmlArray("fillStyleLst")]
@@ -1966,7 +1967,7 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 	//	public CompColorVar srgbClr;
 	//}
 
-	#region Gradient Fill
+#region Gradient Fill
 	public class GradientFill
 	{
 		[XmlAttribute("rotWithShape")]
@@ -1981,9 +1982,9 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 		[XmlAttribute("pos")]
 		public int pos;
 	}
-	#endregion // Gradient Fill
+#endregion // Gradient Fill
 
-	#region Line Style
+#region Line Style
 	public class LineStyle
 	{
 		[XmlAttribute("w")]
@@ -2010,9 +2011,9 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 		[XmlAttribute("lim")]
 		public int limit;
 	}
-	#endregion // Line Style
+#endregion // Line Style
 
-	#region Effect Style
+#region Effect Style
 	public class EffectStyle
 	{
 		[XmlArray("effectLst"), XmlArrayItem("outerShdw")]
@@ -2025,12 +2026,12 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 		[XmlElement("srgbClr")]
 		public CompColorVar srgbClr;
 	}
-	#endregion // Effect Style
+#endregion // Effect Style
 
-	#endregion // Drawing Format
-	#endregion // Theme
+#endregion // Drawing Format
+#endregion // Theme
 
-	#region Relationships
+#region Relationships
 	[XmlRoot("Relationships", Namespace = OpenXMLNamespaces.Relationships)]
 	public class Relationships
 	{
@@ -2078,9 +2079,9 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 		[XmlIgnore]
 		internal string _rsTarget;
 	}
-	#endregion // Relationships
+#endregion // Relationships
 
-	#region Typed Element
+#region Typed Element
 	public class InnerTextElement
 	{
 		[XmlText]
@@ -2113,7 +2114,7 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 			this.value = value.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ");
 		}
 	}
-	#endregion // Typed Element
+#endregion // Typed Element
 }
 
 #pragma warning restore 1591

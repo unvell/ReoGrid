@@ -16,6 +16,8 @@
  * 
  ****************************************************************************/
 
+#if FORMULA
+
 using System;
 
 using unvell.ReoGrid.Formula;
@@ -25,12 +27,17 @@ namespace unvell.ReoGrid
 {
 	partial class Worksheet
 	{
+		/// <summary>
+		/// Auto fill specified serial in range.
+		/// </summary>
+		/// <param name="fromAddressOrName">Range to read filling rules.</param>
+		/// <param name="toAddressOrName">Range to be filled.</param>
 		public void AutoFillSerial(string fromAddressOrName, string toAddressOrName)
 		{
 			NamedRange fromNRange, toNRange;
 			RangePosition fromRange, toRange;
 
-			#region fromRange
+#region fromRange
 			if (this.TryGetNamedRange(fromAddressOrName, out fromNRange))
 			{
 				fromRange = fromNRange.Position;
@@ -43,9 +50,9 @@ namespace unvell.ReoGrid
 			{
 				throw new InvalidAddressException(fromAddressOrName);
 			}
-			#endregion // fromRange
+#endregion // fromRange
 
-			#region toRange
+#region toRange
 			if (this.TryGetNamedRange(toAddressOrName, out toNRange))
 			{
 				toRange = toNRange.Position;
@@ -58,17 +65,22 @@ namespace unvell.ReoGrid
 			{
 				throw new InvalidAddressException(toAddressOrName);
 			}
-			#endregion // toRange
+#endregion // toRange
 
 			this.AutoFillSerial(fromRange, toRange);
 		}
 
+		/// <summary>
+		/// Auto fill specified serial in range.
+		/// </summary>
+		/// <param name="fromRange">Range to read filling rules.</param>
+		/// <param name="toRange">Range to be filled.</param>
 		public void AutoFillSerial(RangePosition fromRange, RangePosition toRange)
 		{
 			fromRange = this.FixRange(fromRange);
 			toRange = this.FixRange(toRange);
 
-			#region Arguments Check
+#region Arguments Check
 			if (fromRange.IntersectWith(toRange))
 			{
 				throw new ArgumentException("fromRange and toRange cannot being intersected.");
@@ -78,16 +90,16 @@ namespace unvell.ReoGrid
 			{
 				throw new ArgumentException("cannot change a part of merged range.");
 			}
-			#endregion // Arguments Check
+#endregion // Arguments Check
 
 			if (fromRange.Col == toRange.Col && fromRange.Cols == toRange.Cols)
 			{
-				#region Vertical Fill
+#region Vertical Fill
 				for (int c = toRange.Col; c <= toRange.EndCol; c++)
 				{
 					double diff = 1;
 
-					#region Calc diff
+#region Calc diff
 					if (fromRange.Rows > 1)
 					{
 						for (int r = fromRange.Row; r < fromRange.EndRow; r++)
@@ -114,9 +126,9 @@ namespace unvell.ReoGrid
 							}
 						}
 					}
-					#endregion // Calc diff
+#endregion // Calc diff
 
-					#region Up to Down
+#region Up to Down
 					for (int toRow = toRange.Row, index = 0; toRow < toRange.EndRow + 1; index++)
 					{
 						Cell toCell = this.cells[toRow, c];
@@ -140,36 +152,36 @@ namespace unvell.ReoGrid
 
 						if (fromCell != null && !string.IsNullOrEmpty(fromCell.InnerFormula))
 						{
-							#region Fill Formula
+#region Fill Formula
 							FormulaRefactor.Reuse(this, fromPos, new RangePosition(toRow, c, 1, 1));
-							#endregion // Fill Formula
+#endregion // Fill Formula
 						}
 						else
 						{
-							#region Fill Number
+#region Fill Number
 							double refValue = 0;
 
 							if (CellUtility.TryGetNumberData(fromCell.Data, out refValue))
 							{
 								this[toRow, c] = refValue + diff * (toRow - fromPos.Row);
 							}
-							#endregion // Fill Number
+#endregion // Fill Number
 						}
 
 						toRow += Math.Max(fromCell.Rowspan, toCell == null ? 1 : toCell.Rowspan);
 					}
-					#endregion // Up to Down
+#endregion // Up to Down
 				}
-				#endregion // Vertical Fill
+#endregion // Vertical Fill
 			}
 			else if (fromRange.Row == toRange.Row && fromRange.Rows == toRange.Rows)
 			{
-				#region Horizontal Fill
+#region Horizontal Fill
 				for (int r = toRange.Row; r <= toRange.EndRow; r++)
 				{
 					double diff = 1;
 
-					#region Calc diff
+#region Calc diff
 					if (fromRange.Cols > 1)
 					{
 						for (int c = fromRange.Col; r < fromRange.EndCol; c++)
@@ -196,9 +208,9 @@ namespace unvell.ReoGrid
 							}
 						}
 					}
-					#endregion // Calc diff
+#endregion // Calc diff
 
-					#region Left to Right
+#region Left to Right
 					for (int toCol = toRange.Col, index = 0; toCol < toRange.EndCol + 1; index++)
 					{
 						Cell toCell = this.cells[r, toCol];
@@ -222,30 +234,32 @@ namespace unvell.ReoGrid
 
 						if (fromCell != null && !string.IsNullOrEmpty(fromCell.InnerFormula))
 						{
-							#region Fill Formula
+#region Fill Formula
 							FormulaRefactor.Reuse(this, fromPos, new RangePosition(r, toCol, 1, 1));
-							#endregion // Fill Formula
+#endregion // Fill Formula
 						}
 						else
 						{
-							#region Fill Number
+#region Fill Number
 							double refValue = 0;
 
 							if (CellUtility.TryGetNumberData(fromCell.Data, out refValue))
 							{
 								this[r, toCol] = refValue + diff * (toCol - fromPos.Col);
 							}
-							#endregion // Fill Number
+#endregion // Fill Number
 						}
 
 						toCol += Math.Max(fromCell.Colspan, toCell == null ? 1 : toCell.Colspan);
 					}
-					#endregion // Left to Right
+#endregion // Left to Right
 				}
-				#endregion // Vertical Fill
+#endregion // Vertical Fill
 			}
 			else
 				throw new InvalidOperationException("The fromRange and toRange must be having same number of rows or same number of columns.");
 		}
 	}
 }
+
+#endif // FORMULA

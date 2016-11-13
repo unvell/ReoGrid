@@ -308,6 +308,7 @@ namespace unvell.ReoGrid
 			}
 #endif // FORMULA
 
+#if DRAWING
 			if (cell.Data is Drawing.RichText)
 			{
 				var rt = (Drawing.RichText)cell.Data;
@@ -319,6 +320,7 @@ namespace unvell.ReoGrid
 				rt.UpdateText();
 			}
 			else
+#endif // DRAWING
 			{
 				cell.FontDirty = true;
 			}
@@ -344,9 +346,9 @@ namespace unvell.ReoGrid
 			}
 		}
 
-		#endregion // Set Data
+#endregion // Set Data
 
-		#region Set/Remove CellBody
+#region Set/Remove CellBody
 
 		/// <summary>
 		/// Set body of cell at specified position of grid
@@ -438,9 +440,9 @@ namespace unvell.ReoGrid
 			}
 		}
 
-		#endregion // Set/Remove CellBody
+#endregion // Set/Remove CellBody
 
-		#region Get Data/Text
+#region Get Data/Text
 
 		/// <summary>
 		/// Get cell data from specified address or name
@@ -600,7 +602,7 @@ namespace unvell.ReoGrid
 			return string.IsNullOrEmpty(cell.DisplayText) ? string.Empty : cell.DisplayText;
 		}
 
-		#endregion // Get Data/Text
+#endregion // Get Data/Text
 
 		/// <summary>
 		/// Determine whether or not to suspend all data changing event. Suspend this event when 
@@ -641,7 +643,7 @@ namespace unvell.ReoGrid
 		public event EventHandler<CellEventArgs> CellDataChanged;
 	}
 
-	#region Cell
+#region Cell
 
 	/// <summary>
 	/// Represents the cell on worksheet. Cell instances are fully managed
@@ -666,7 +668,7 @@ namespace unvell.ReoGrid
 	[Serializable]
 	public partial class Cell //: IFormulaSource
 	{
-		#region Constructor
+#region Constructor
 
 		/// <summary>
 		/// Instance of worksheet that the cell belongs to
@@ -689,9 +691,9 @@ namespace unvell.ReoGrid
 			this.worksheet = worksheet;
 			this.FontDirty = true;
 		}
-		#endregion // Constructor
+#endregion // Constructor
 
-		#region Position
+#region Position
 
 		internal CellPosition InternalPos;
 
@@ -747,9 +749,9 @@ namespace unvell.ReoGrid
 		//internal ReferenceRange ReferenceRange { get; set; }
 
 		//public ReferenceRange GetContainedRange(){return this.ReferenceRange;}
-		#endregion // Postion
+#endregion // Postion
 
-		#region Rowspan & Colspan
+#region Rowspan & Colspan
 		private short colspan;
 		internal short Colspan
 		{
@@ -775,9 +777,9 @@ namespace unvell.ReoGrid
 		/// </summary>
 		/// <returns></returns>
 		public short GetRowspan() { return rowspan; }
-		#endregion // Rowspan & Colspan
+#endregion // Rowspan & Colspan
 
-		#region Location & Size
+#region Location & Size
 
 		[NonSerialized]
 		private Rectangle bounds;
@@ -823,9 +825,9 @@ namespace unvell.ReoGrid
 			get { return bounds.Bottom; }
 			set { bounds.Height += bounds.Bottom - value; }
 		}
-		#endregion // Location & Size
+#endregion // Location & Size
 
-		#region Data Format
+#region Data Format
 
 		private CellDataFormatFlag dataFormat;
 
@@ -849,9 +851,9 @@ namespace unvell.ReoGrid
 			set { dataFormatArgs = value; }
 		}
 
-		#endregion // Data Format
+#endregion // Data Format
 
-		#region Data, Display
+#region Data, Display
 
 		/// <summary>
 		/// cell data
@@ -969,9 +971,9 @@ namespace unvell.ReoGrid
 			}
 		}
 
-		#endregion // Data and Display
+#endregion // Data and Display
 
-		#region Formula
+#region Formula
 #if FORMULA
 		[NonSerialized]
 		internal STNode formulaTree;
@@ -1025,9 +1027,9 @@ namespace unvell.ReoGrid
 		/// </summary>
 		public bool HasFormula { get { return !string.IsNullOrEmpty(InnerFormula); } }
 
-		#endregion // Formula
+#endregion // Formula
 
-		#region Style
+#region Style
 
 		internal WorksheetRangeStyle InnerStyle { get; set; }
 
@@ -1132,9 +1134,9 @@ namespace unvell.ReoGrid
 		private RGFloat distributedIndentSpacingPrint;
 		internal RGFloat DistributedIndentSpacingPrint { get { return distributedIndentSpacingPrint; } set { distributedIndentSpacingPrint = value; } }
 
-		#endregion // Style
+#endregion // Style
 
-		#region Border Wraps
+#region Border Wraps
 		private CellBorderProperty borderProperty = null;
 
 		/// <summary>
@@ -1152,9 +1154,9 @@ namespace unvell.ReoGrid
 				return borderProperty;
 			}
 		}
-		#endregion // Border Wraps
+#endregion // Border Wraps
 
-		#region Cell Body
+#region Cell Body
 		internal void UpdateContentBounds()
 		{
 			if (this.body != null)
@@ -1206,9 +1208,9 @@ namespace unvell.ReoGrid
 				}
 			}
 		}
-		#endregion
+#endregion
 
-		#region Utility
+#region Utility
 		/// <summary>
 		/// Clone this cell instance by copying its all of properties
 		/// </summary>
@@ -1224,12 +1226,12 @@ namespace unvell.ReoGrid
 		{
 			return "Cell[" + this.Address + "]";
 		}
-		#endregion // Utility
+#endregion // Utility
 	}
 
-	#endregion
+#endregion
 
-	#region CellElementFlag
+#region CellElementFlag
 	/// <summary>
 	/// Cell element flags
 	/// </summary>
@@ -1272,12 +1274,12 @@ namespace unvell.ReoGrid
 		Border = 0x20,
 
 	}
-	#endregion // CellElementFlag
+#endregion // CellElementFlag
 }
 
 namespace unvell.ReoGrid.Utility
 {
-	#region Cell Utility
+#region Cell Utility
 	/// <summary>
 	/// Common utility functions for cell.
 	/// </summary>
@@ -1412,7 +1414,7 @@ namespace unvell.ReoGrid.Utility
 			}
 		}
 
-		#region ConvertCellData
+#region ConvertCellData
 		/// <summary>
 		/// Convert cell data into another type if possible.
 		/// </summary>
@@ -1492,8 +1494,8 @@ namespace unvell.ReoGrid.Utility
 			value = (T)Convert.ChangeType(data, typeof(T));
 			return true;
 		}
-		#endregion // ConvertCellData
+#endregion // ConvertCellData
 
 	}
-	#endregion // Cell Utility
+#endregion // Cell Utility
 }

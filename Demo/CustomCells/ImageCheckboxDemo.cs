@@ -16,13 +16,7 @@
  * 
  ****************************************************************************/
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 using unvell.ReoGrid.CellTypes;
@@ -31,33 +25,41 @@ using unvell.ReoGrid.Demo.Properties;
 
 namespace unvell.ReoGrid.Demo.CustomCells
 {
-	public partial class ImageOwnerDrawingDemo : UserControl
+	public partial class ImageCheckboxDemo : UserControl
 	{
-		public ImageOwnerDrawingDemo()
+		public ImageCheckboxDemo()
 		{
 			InitializeComponent();
-		}
-	}
 
-	class MyCheckBox : CheckBoxCell
-	{
-		Image checkedImage, uncheckedImage;
+			var worksheet = this.grid.CurrentWorksheet;
 
-		public MyCheckBox()
-		{
-			checkedImage = Resources.Checked_Checkbox_20;
-			uncheckedImage = Resources.Unchecked_Checkbox_20;
+			worksheet["B3"] = new object[,] {
+				{ new ImageCheckBox(), "Image checkbox"},
+			};
 		}
 
-		protected override void OnContentPaint(CellDrawingContext dc)
+		class ImageCheckBox : CheckBoxCell
 		{
-			if (this.IsChecked)
+			Image checkedImage, uncheckedImage;
+
+			public ImageCheckBox(bool defaultStatus = false)
 			{
-				dc.Graphics.DrawImage(checkedImage, this.ContentBounds);
+				this.isChecked = defaultStatus;
+
+				checkedImage = Resources.Checked_Checkbox_20;
+				uncheckedImage = Resources.Unchecked_Checkbox_20;
 			}
-			else
+
+			protected override void OnContentPaint(CellDrawingContext dc)
 			{
-				dc.Graphics.DrawImage(uncheckedImage, this.ContentBounds);
+				if (this.IsChecked)
+				{
+					dc.Graphics.DrawImage(checkedImage, this.ContentBounds);
+				}
+				else
+				{
+					dc.Graphics.DrawImage(uncheckedImage, this.ContentBounds);
+				}
 			}
 		}
 	}
