@@ -251,5 +251,6 @@ paket-files/
 .idea/
 *.sln.iml
 
-/NuGet
+/NuGet/NuGet.exe
+/NuGet/packages*/*
 /_Output
