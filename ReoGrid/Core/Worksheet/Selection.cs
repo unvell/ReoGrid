@@ -546,8 +546,10 @@ namespace unvell.ReoGrid
 
 			if ((this.selectionMode == WorksheetSelectionMode.Cell
 				|| this.selectionMode == WorksheetSelectionMode.Range)
-				&& (fixedRange.Cols < this.cols.Count
-				&& fixedRange.Rows < this.rows.Count))
+				&& ((fixedRange.Cols < this.cols.Count
+				&& fixedRange.Rows < this.rows.Count)
+				|| this.cols.Count == 1 || this.rows.Count == 1)
+				)
 			{
 				#region Check and select the whole merged region
 				//#if DEBUG
@@ -555,8 +557,8 @@ namespace unvell.ReoGrid
 				//				{
 				//#endif
 				//
-				// if there any entire rows or columns are selected (full == -1)
-				// the selection bounds of merged region will not be checked.
+				// if there are any entire rows or columns selected (full == -1)
+				// the selection bounds of merged range will not be checked.
 				// any changes to the selection will also not be appiled to the range.
 				//
 				RangePosition checkedRange = CheckMergedRange(new RangePosition(minr, minc, maxr - minr + 1, maxc - minc + 1));
@@ -686,10 +688,10 @@ namespace unvell.ReoGrid
 
 							focusPos.Row = r;
 							focusPos.Col = c;
-							goto out_loop;
+							goto quit_loop;
 						}
 					}
-					out_loop:
+					quit_loop:
 
 					if (focusPos.Col < this.cols.Count
 						&& focusPos.Row < this.rows.Count)
@@ -706,8 +708,8 @@ namespace unvell.ReoGrid
 					this.SelectionRangeChanging?.Invoke(this, new RangeEventArgs(this.selectionRange));
 
 #if EX_SCRIPT
-					// for performance reason
-					//RaiseScriptEvent("onselectionchanging");
+					// comment out this if you get performance problem when using script extension
+					RaiseScriptEvent("onselectionchanging");
 #endif
 				}
 				else
