@@ -1,0 +1,15 @@
+﻿<Window x:Class="unvell.ReoGrid.WPFDemo.TestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:unvell.ReoGrid.WPFDemo"
+				xmlns:rg="clr-namespace:unvell.ReoGrid;assembly=unvell.ReoGrid"
+        mc:Ignorable="d"
+        Title="ReoGrid WPF Demo" Height="640" Width="800">
+    <Grid>
+			<rg:ReoGridControl x:Name="grid" >
+				
+			</rg:ReoGridControl>
+	</Grid>
+</Window>

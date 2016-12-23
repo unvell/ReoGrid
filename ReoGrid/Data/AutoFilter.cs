@@ -30,6 +30,7 @@ using RGFloat = System.Double;
 using unvell.ReoGrid.Graphics;
 using unvell.ReoGrid.Rendering;
 using unvell.ReoGrid.Interaction;
+using System.Windows.Controls;
 
 namespace unvell.ReoGrid.Data
 {
@@ -257,9 +258,10 @@ namespace unvell.ReoGrid.Data
 
 					g.DrawRectangle(bounds, unvell.ReoGrid.Rendering.StaticResources.SystemColor_ControlDark);
 
-					unvell.Common.GraphicsToolkit.FillTriangle(dc.Graphics.PlatformGraphics, Math.Min(7 * dc.Worksheet.renderScaleFactor, 7.0f),
-						new Point(bounds.X + bounds.Width / 2,
-							bounds.Y + bounds.Height / 2), unvell.Common.GraphicsToolkit.TriangleDirection.Down);
+					unvell.Common.GraphicsToolkit.FillTriangle(dc.Graphics.PlatformGraphics, 
+						Math.Min(7 * dc.Worksheet.renderScaleFactor, 7.0f),
+						new Point(bounds.X + bounds.Width / 2, bounds.Y + bounds.Height / 2), 
+						unvell.Common.GraphicsToolkit.TriangleDirection.Down);
 				}
 			}
 
@@ -561,7 +563,9 @@ namespace unvell.ReoGrid.Data
 #if WINFORM
 				unvell.ReoGrid.WinForm.ColumnFilterContextMenu.ShowFilterPanel(headerBody, (System.Drawing.Point)point);
 #elif WPF
-				// todo
+				var ctx = new ContextMenu();
+				ctx.Items.Add(new MenuItem() { Header = "Item" });
+				ctx.IsOpen = true;
 #endif // WPF
 				return true;
 			}

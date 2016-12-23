@@ -176,9 +176,10 @@ namespace unvell.ReoGrid.Views
 
 					if (header.Body != null)
 					{
+						g.PushTransform();
 						g.TranslateTransform(rect.X, rect.Y);
 						header.Body.OnPaint(dc, rect.Size);
-						g.TranslateTransform(-rect.X, -rect.Y);
+						g.PopTransform();
 					}
 				}
 			}

@@ -29,27 +29,27 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Extension|Any CPU = Extension|Any CPU
 		Minimum|Any CPU = Minimum|Any CPU
 		Release|Any CPU = Release|Any CPU
-		WPFExtension|Any CPU = WPFExtension|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Debug|Any CPU.ActiveCfg = Release|Any CPU
-		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Debug|Any CPU.ActiveCfg = WPFDebug|Any CPU
+		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Debug|Any CPU.Build.0 = WPFDebug|Any CPU
+		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Extension|Any CPU.ActiveCfg = WPFExtension|Any CPU
+		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Extension|Any CPU.Build.0 = WPFExtension|Any CPU
 		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Minimum|Any CPU.ActiveCfg = WPFMinimum|Any CPU
 		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Minimum|Any CPU.Build.0 = WPFMinimum|Any CPU
 		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Release|Any CPU.ActiveCfg = WPFRelease|Any CPU
 		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Release|Any CPU.Build.0 = WPFRelease|Any CPU
-		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.WPFExtension|Any CPU.ActiveCfg = WPFExtension|Any CPU
-		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.WPFExtension|Any CPU.Build.0 = WPFExtension|Any CPU
 		{F9CF1873-3C8D-4A85-807F-3BE96B876174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F9CF1873-3C8D-4A85-807F-3BE96B876174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9CF1873-3C8D-4A85-807F-3BE96B876174}.Extension|Any CPU.ActiveCfg = Release|Any CPU
+		{F9CF1873-3C8D-4A85-807F-3BE96B876174}.Extension|Any CPU.Build.0 = Release|Any CPU
 		{F9CF1873-3C8D-4A85-807F-3BE96B876174}.Minimum|Any CPU.ActiveCfg = Release|Any CPU
 		{F9CF1873-3C8D-4A85-807F-3BE96B876174}.Minimum|Any CPU.Build.0 = Release|Any CPU
 		{F9CF1873-3C8D-4A85-807F-3BE96B876174}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9CF1873-3C8D-4A85-807F-3BE96B876174}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F9CF1873-3C8D-4A85-807F-3BE96B876174}.WPFExtension|Any CPU.ActiveCfg = Release|Any CPU
-		{F9CF1873-3C8D-4A85-807F-3BE96B876174}.WPFExtension|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
