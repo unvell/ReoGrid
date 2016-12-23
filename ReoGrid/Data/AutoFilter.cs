@@ -30,7 +30,6 @@ using RGFloat = System.Double;
 using unvell.ReoGrid.Graphics;
 using unvell.ReoGrid.Rendering;
 using unvell.ReoGrid.Interaction;
-using System.Windows.Controls;
 
 namespace unvell.ReoGrid.Data
 {

@@ -690,13 +690,6 @@ namespace unvell.ReoGrid.Views
 		{
 			bool isProcessed = false;
 
-			//this.FocusView = null;
-
-			//if (this.FocusView != null)
-			//{
-			//	isProcessed = this.FocusView.OnMouseMove(this.FocusView.PointToView(location), buttons);
-			//}
-
 			if (!isProcessed)
 			{
 				var targetView = this.view.GetViewByPoint(location);

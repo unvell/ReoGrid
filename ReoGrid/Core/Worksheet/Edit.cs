@@ -283,8 +283,6 @@ namespace unvell.ReoGrid
 
 			RGFloat y = cell.Top * scale + 1;
 
-			//this.viewportController.CellPositionToControl(
-
 			var activeViewport = viewportController.FocusView as IViewport;
 
 			int boxX = (int)Math.Round(x + viewportController.FocusView.Left - (activeViewport == null ? 0 : (activeViewport.ViewLeft * scale)));

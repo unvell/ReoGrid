@@ -276,6 +276,24 @@ namespace unvell.ReoGrid.Views
 
 			return new Rectangle(x1, y1, x2 - x1, y2 - y1);
 		}
+
+		public override IView FocusView
+		{
+			get
+			{
+				return base.FocusView;
+			}
+
+			set
+			{
+				base.FocusView = value;
+
+				if (value == null)
+				{
+					base.FocusView = this.rightBottomViewport;
+				}
+			}
+		}
 		#endregion // Visibility Management
 
 		#region Update
