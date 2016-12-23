@@ -263,6 +263,13 @@ namespace unvell.ReoGrid.Views
 			{
 				int x = c == sheet.cols.Count ? sheet.cols[c - 1].Right : sheet.cols[c].Left;
 
+				if (c < sheet.cols.Count)
+				{
+					// skip invisible vertical borders
+					var colHeader = sheet.cols[c];
+					if (!colHeader.IsVisible) continue;
+				}
+
 				for (int r = visibleRegion.startRow; r <= visibleRegion.endRow;)
 				{
 					int y = r == sheet.rows.Count ? sheet.rows[r - 1].Bottom : sheet.rows[r].Top;
@@ -271,8 +278,6 @@ namespace unvell.ReoGrid.Views
 					if (cellBorder != null && cellBorder.Span > 0 && cellBorder.Style != null)
 					{
 						int endRow = r + Math.Min(cellBorder.Span - 1, visibleRegion.endRow);
-
-						//if (endRow >= sheet.rows.Count) endRow = sheet.rows.Count - 1;
 
 						if (dc.FullCellClip && endRow >= visibleRegion.endRow - 1) endRow = visibleRegion.endRow - 1;
 
@@ -294,6 +299,13 @@ namespace unvell.ReoGrid.Views
 
 			for (int r = visibleRegion.startRow; r <= rightRowBoundary; r++)
 			{
+				if (r < sheet.rows.Count)
+				{
+					// skip invisible horizontal borders
+					var rowHeader = sheet.rows[r];
+					if (!rowHeader.IsVisible) continue;
+				}
+
 				int y = r == sheet.rows.Count ? sheet.rows[r - 1].Bottom : sheet.rows[r].Top;
 
 				for (int c = visibleRegion.startCol; c <= visibleRegion.endCol;)
