@@ -1079,7 +1079,7 @@ namespace unvell.ReoGrid.Views
 			}
 
 			int maxHorizontal = (int)(Math.Round(width + this.mainViewport.Left));
-			int maxVertical = (int)(Math.Round(height + this.mainViewport.Top));
+			int maxVertical = Math.Max(0, (int)(Math.Round(height + this.mainViewport.Top)));
 
 #if WINFORM || ANDROID
 			int offHor = maxHorizontal - this.scrollHorMax;
