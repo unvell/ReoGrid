@@ -24,11 +24,8 @@ namespace unvell.ReoGrid.WPFDemo
 
 			var sheet = grid.CurrentWorksheet;
 
-			sheet[0, 0] = new object[,] {
-				{ "A", "B", "C", "D", "E" }
-			};
-
-			sheet.CreateColumnFilter("A", "E");
+			sheet.AddOutline(RowOrColumn.Column, 5, 2).Collapse();
+			sheet.FreezeToCell(2, 7, FreezeArea.LeftTop);
 		}
 	}
 }
