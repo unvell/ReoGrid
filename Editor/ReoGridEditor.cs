@@ -2891,8 +2891,31 @@ namespace unvell.ReoGrid.Editor
 		private void ForTest()
 		{
 			var sheet = this.grid.CurrentWorksheet;
+		}
+
+		private void TestIssue_7()
+		{
+			var sheet = this.grid.CurrentWorksheet;
+
+			var range = sheet.Ranges["B2:D5"];
 
 			// test code
+			sheet.SetRangeStyles(range, new WorksheetRangeStyle
+			{
+				Flag = PlainStyleFlag.All,
+				FontName = "Arial",
+				Italic = false,
+				Bold = true,
+				Underline = false,
+				FontSize = 30,
+				TextWrapMode = TextWrapMode.NoWrap,
+				HAlign = ReoGridHorAlign.Left,
+				VAlign = ReoGridVerAlign.Middle,
+				TextColor = SolidColor.Black,
+				BackColor = SolidColor.Transparent
+			});
+
+			this.grid.Save("test.xlsx");
 		}
 
 		private void TestAddRectangle()
