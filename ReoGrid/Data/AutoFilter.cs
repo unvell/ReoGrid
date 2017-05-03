@@ -562,8 +562,8 @@ namespace unvell.ReoGrid.Data
 #if WINFORM
 				unvell.ReoGrid.WinForm.ColumnFilterContextMenu.ShowFilterPanel(headerBody, (System.Drawing.Point)point);
 #elif WPF
-				var ctx = new ContextMenu();
-				ctx.Items.Add(new MenuItem() { Header = "Item" });
+				var ctx = new System.Windows.Controls.ContextMenu();
+				ctx.Items.Add(new System.Windows.Controls.MenuItem() { Header = "Item" });
 				ctx.IsOpen = true;
 #endif // WPF
 				return true;
