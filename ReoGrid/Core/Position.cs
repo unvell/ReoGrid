@@ -1067,9 +1067,9 @@ namespace unvell.ReoGrid
 		}
 
 		/// <summary>
-		/// Create range position by specified single cell address. (Range contains only one cell or one merged cell)
+		/// Create range position from a range or cell address.
 		/// </summary>
-		/// <param name="address">Address to locate the cell contained in the range.</param>
+		/// <param name="address">Address to locate the range position.</param>
 		/// <exception cref="ArgumentException">Throw when specified address is invalid.</exception>
 		public RangePosition(string address)
 		{
