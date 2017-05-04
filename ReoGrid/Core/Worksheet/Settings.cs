@@ -79,13 +79,13 @@ namespace unvell.ReoGrid
 		Edit_AllowAdjustRowHeight = 0x00000010L,
 
 		/// <summary>
-		/// Allow automatically adjust column width to fit largest cells.
+		/// Allow automatically adjust column width to fit largest cell.
 		/// </summary>
 		[Obsolete("use Edit_AutoExpandColumnWidth instead")]
 		Edit_AutoAdjustColumnWidth = Edit_AutoExpandColumnWidth,
 
 		/// <summary>
-		/// Allow automatically adjust column width to fit largest cells.
+		/// Allow automatically adjust column width to fit largest cell.
 		/// </summary>
 		Edit_AutoExpandColumnWidth = 0x00000020L,
 
