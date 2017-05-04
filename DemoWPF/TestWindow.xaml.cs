@@ -22,10 +22,30 @@ namespace unvell.ReoGrid.WPFDemo
 		{
 			InitializeComponent();
 
-			var sheet = grid.CurrentWorksheet;
+			TestIssue_11();
+		}
 
-			sheet.AddOutline(RowOrColumn.Column, 5, 2).Collapse();
-			sheet.FreezeToCell(2, 7, FreezeArea.LeftTop);
+		private void TestIssue_11()
+		{
+			// I. A1 'Word Break' Wrap Mode
+			Worksheet worksheet = grid.CurrentWorksheet;
+			Cell cell = worksheet.Cells["A1"];
+			cell.Data = "VeryLongText";// "A Long text with \nlinebreaks";
+
+			WorksheetRangeStyle style = new WorksheetRangeStyle();
+			style.Flag = PlainStyleFlag.LayoutAll;
+			style.TextWrapMode = TextWrapMode.WordBreak;
+
+			worksheet.SetRangeStyles(cell.PositionAsRange, style);
+
+			// II. Enable Edit_AutoExpandRowHeight
+			//worksheet.EnableSettings(WorksheetSettings.Edit_AutoExpandRowHeight);
+
+			// Attempt I
+			worksheet.AutoFitRowHeight(0);
+
+			// Attempt II
+			//grid.CurrentWorksheet.GetRowHeader(0).FitHeightToCells();
 		}
 	}
 }
