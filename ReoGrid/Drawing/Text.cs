@@ -468,8 +468,8 @@ namespace unvell.ReoGrid.Drawing
 							var underlinePen = new RGPen(new RGBrush(lastBrush.Color), 1);
 #endif // WPF
 							{
-								//RGFloat underlineTop = l.leftTop.Y + l.Ascent + y + 2;
-								//g.PlatformGraphics.DrawLine(underlinePen, new Point(b.leftTop.X + x, underlineTop), new Point(b.rightBottom.X + x, underlineTop));
+								RGFloat underlineY = l.Height + y + 1;
+								g.PlatformGraphics.DrawLine(underlinePen, new Point(b.leftTop.X + x, underlineY), new Point(b.rightTop.X + x, underlineY));
 							}
 						}
 
