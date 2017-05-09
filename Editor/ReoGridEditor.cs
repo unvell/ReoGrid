@@ -41,6 +41,8 @@ using unvell.ReoGrid.Rendering;
 using unvell.ReoGrid.Editor.LangRes;
 
 using unvell.ReoGrid.Print;
+using unvell.ReoGrid.Drawing;
+using unvell.ReoGrid.Drawing.Text;
 
 #if EX_SCRIPT
 using unvell.ReoScript.Editor;
@@ -2891,12 +2893,20 @@ namespace unvell.ReoGrid.Editor
 		private void ForTest()
 		{
 			var sheet = this.grid.CurrentWorksheet;
+
+			TestRTFUnderline(sheet);
 		}
 
-		private void TestIssue_7()
+		private void TestRTFUnderline(Worksheet sheet)
 		{
-			var sheet = this.grid.CurrentWorksheet;
+			RichText rt = new RichText();
+			rt.Span("Hello group 日本語_ テスト", fontStyles: FontStyles.Underline);
 
+			sheet["A1"] = rt;
+		}
+
+		private void TestIssue_7(Worksheet sheet)
+		{
 			var range = sheet.Ranges["B2:D5"];
 
 			// test code
@@ -2918,7 +2928,7 @@ namespace unvell.ReoGrid.Editor
 			this.grid.Save("test.xlsx");
 		}
 
-		private void TestAddRectangle()
+		private void TestAddRectangle(Worksheet sheet)
 		{
 			var rectObj = new Drawing.Shapes.RectangleShape()
 			{
@@ -2929,11 +2939,8 @@ namespace unvell.ReoGrid.Editor
 				Size = new Graphics.Size(200, 100),
 			};
 
-			// get current activated worksheet
-			var worksheet = grid.CurrentWorksheet;
-
 			// adding rectangle on worksheet
-			worksheet.FloatingObjects.Add(rectObj);
+			sheet.FloatingObjects.Add(rectObj);
 		}
 
 #endif // DEBUG
