@@ -2893,8 +2893,6 @@ namespace unvell.ReoGrid.Editor
 		private void ForTest()
 		{
 			var sheet = this.grid.CurrentWorksheet;
-
-			TestRTFUnderline(sheet);
 		}
 
 		private void TestRTFUnderline(Worksheet sheet)
