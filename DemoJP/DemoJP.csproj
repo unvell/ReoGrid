@@ -64,6 +64,9 @@
   <PropertyGroup>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Extension|AnyCPU'">
+    <OutputPath>bin\Extension\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\Ref\Antlr3.Runtime.dll</HintPath>

@@ -18,19 +18,26 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Extension|Any CPU = Extension|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Release|Any CPU.ActiveCfg = Extension|Any CPU
-		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Release|Any CPU.Build.0 = Extension|Any CPU
+		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Extension|Any CPU.ActiveCfg = Extension|Any CPU
+		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Extension|Any CPU.Build.0 = Extension|Any CPU
+		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EE03A6AF-2937-4893-80F4-DD71F099A76C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EE03A6AF-2937-4893-80F4-DD71F099A76C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE03A6AF-2937-4893-80F4-DD71F099A76C}.Release|Any CPU.ActiveCfg = Extension|Any CPU
-		{EE03A6AF-2937-4893-80F4-DD71F099A76C}.Release|Any CPU.Build.0 = Extension|Any CPU
+		{EE03A6AF-2937-4893-80F4-DD71F099A76C}.Extension|Any CPU.ActiveCfg = Extension|Any CPU
+		{EE03A6AF-2937-4893-80F4-DD71F099A76C}.Extension|Any CPU.Build.0 = Extension|Any CPU
+		{EE03A6AF-2937-4893-80F4-DD71F099A76C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE03A6AF-2937-4893-80F4-DD71F099A76C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B0DB8D62-8C69-4D23-8BE5-171F89932888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B0DB8D62-8C69-4D23-8BE5-171F89932888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0DB8D62-8C69-4D23-8BE5-171F89932888}.Extension|Any CPU.ActiveCfg = Extension|Any CPU
+		{B0DB8D62-8C69-4D23-8BE5-171F89932888}.Extension|Any CPU.Build.0 = Extension|Any CPU
 		{B0DB8D62-8C69-4D23-8BE5-171F89932888}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0DB8D62-8C69-4D23-8BE5-171F89932888}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

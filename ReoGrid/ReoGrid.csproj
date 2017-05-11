@@ -327,9 +327,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Test\RichTextTestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Test\RichTextTestForm.cs" />
     <Compile Include="Test\RichTextTestForm.Designer.cs">
       <DependentUpon>RichTextTestForm.cs</DependentUpon>
     </Compile>
@@ -401,9 +399,7 @@
     <Compile Include="Views\CellsViewport.cs" />
     <Compile Include="WinForm\Graphics.cs" />
     <Compile Include="Views\NormalViewportController.cs" />
-    <Compile Include="WinForm\FormulaParserForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="WinForm\FormulaParserForm.cs" />
     <Compile Include="WinForm\FormulaParserForm.designer.cs">
       <DependentUpon>FormulaParserForm.cs</DependentUpon>
     </Compile>
