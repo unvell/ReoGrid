@@ -928,14 +928,11 @@ namespace unvell.ReoGrid.DataFormat
 			{
 				try
 				{
-					var val = (double)number;
+                    // Excel/Lotus 2/29/1900 bug   
+                    // original post: http://stackoverflow.com/questions/4538321/reading-datetime-value-from-excel-sheet
+                    value = DateTime.FromOADate(number);
 
-					// Excel/Lotus 2/29/1900 bug   
-					// original post: http://stackoverflow.com/questions/727466/how-do-i-convert-an-excel-serial-date-number-to-a-net-datetime
-					if (val > 59) val -= 1;
-
-					value = BaseStartDate.AddDays(val - 1);
-					isFormat = true;
+                    isFormat = true;
 				}
 				catch { }
 			}
@@ -974,8 +971,12 @@ namespace unvell.ReoGrid.DataFormat
 				{
 					DateTimeFormatArgs dargs = (DateTimeFormatArgs)cell.DataFormatArgs;
 
-					pattern = dargs.Format;
-					culture = (dargs.CultureName == null
+                    if (pattern == null || pattern == String.Empty)
+                    {
+                        pattern = dargs.Format;
+                    }
+
+                    culture = (dargs.CultureName == null
 						|| string.Equals(dargs.CultureName, Thread.CurrentThread.CurrentCulture.Name))
 						? Thread.CurrentThread.CurrentCulture : new CultureInfo(dargs.CultureName);
 				}

@@ -1620,7 +1620,10 @@ namespace unvell.ReoGrid.IO.OpenXML
 						}
 						else if (pattern.Any(c => c == 'm' || c == 'h' || c == 's' || c == 'y' || c == 'd'))
 						{
-							pattern = pattern.Replace("yyyy/mm", "yyyy/MM").Replace("mm/d", "MM/d").Replace("m/d", "M/d").Replace("aaa", "ddd");
+							pattern = pattern.Replace("yyyy/mm", "yyyy/MM").Replace("mm/yy", "MM/yy")
+                                             .Replace("mm/d", "MM/d").Replace("m/d", "M/d")
+                                             .Replace("d/mm", "d/MM").Replace("d/m", "d/M")
+                                             .Replace("aaa", "ddd");
 
 							flag = CellDataFormatFlag.DateTime;
 
