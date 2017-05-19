@@ -928,11 +928,11 @@ namespace unvell.ReoGrid.DataFormat
 			{
 				try
 				{
-                    // Excel/Lotus 2/29/1900 bug   
-                    // original post: http://stackoverflow.com/questions/4538321/reading-datetime-value-from-excel-sheet
-                    value = DateTime.FromOADate(number);
+					// Excel/Lotus 2/29/1900 bug   
+					// original post: http://stackoverflow.com/questions/4538321/reading-datetime-value-from-excel-sheet
+					value = DateTime.FromOADate(number);
 
-                    isFormat = true;
+					isFormat = true;
 				}
 				catch { }
 			}
@@ -971,12 +971,12 @@ namespace unvell.ReoGrid.DataFormat
 				{
 					DateTimeFormatArgs dargs = (DateTimeFormatArgs)cell.DataFormatArgs;
 
-                    if (pattern == null || pattern == String.Empty)
-                    {
-                        pattern = dargs.Format;
-                    }
+					if (pattern == null || pattern == String.Empty)
+					{
+						pattern = dargs.Format;
+					}
 
-                    culture = (dargs.CultureName == null
+					culture = (dargs.CultureName == null
 						|| string.Equals(dargs.CultureName, Thread.CurrentThread.CurrentCulture.Name))
 						? Thread.CurrentThread.CurrentCulture : new CultureInfo(dargs.CultureName);
 				}
