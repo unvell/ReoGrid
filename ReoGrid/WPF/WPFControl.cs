@@ -952,6 +952,7 @@ namespace unvell.ReoGrid
 				}
 				base.OnLostFocus(e);
 			}
+
 			protected override void OnPreviewKeyDown(KeyEventArgs e)
 			{
 				var sheet = this.Owner.CurrentWorksheet;
@@ -959,20 +960,34 @@ namespace unvell.ReoGrid
 				// in single line text
 				if (!TextWrap && Text.IndexOf('\n') == -1)
 				{
+                    Action moveAction = null;
+
 					if (e.Key == Key.Up)
 					{
-						sheet.EndEdit(Text);
-						sheet.MoveSelectionUp();
-						e.Handled = true;
+                        moveAction = () => sheet.MoveSelectionUp();
 					}
 					else if (e.Key == Key.Down)
 					{
-						sheet.EndEdit(Text);
-						sheet.MoveSelectionDown();
-						e.Handled = true;
-					}
+                        moveAction = () => sheet.MoveSelectionDown();
+                    }
+                    else if (e.Key == Key.Left && SelectionStart == 0)
+                    {
+                        moveAction = () => sheet.MoveSelectionLeft();
+                    }
+                    else if (e.Key == Key.Right && SelectionStart == Text.Length)
+                    {
+                        moveAction = () => sheet.MoveSelectionRight();
+                    }
+
+				    if (moveAction != null)
+				    {
+                        sheet.EndEdit(Text);
+				        moveAction();
+                        e.Handled = true;
+                    }
 				}
 			}
+
 			protected override void OnKeyDown(KeyEventArgs e)
 			{
 				var sheet = this.Owner.CurrentWorksheet;
