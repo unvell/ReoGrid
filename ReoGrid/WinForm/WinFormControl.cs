@@ -1066,7 +1066,7 @@ namespace unvell.ReoGrid
                     {
                         if (!Toolkit.IsKeyDown(Win32.VKey.VK_CONTROL) && e.KeyCode == Keys.Enter)
                         {
-                            ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionRight());
+                            ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionForward());
                         }
                     }
                 }
