@@ -1,7 +1,7 @@
 ﻿/*****************************************************************************
- * 
+ *
  * ReoGrid - .NET Spreadsheet Control
- * 
+ *
  * http://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
@@ -13,7 +13,7 @@
  *
  * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
  * Copyright (c) 2012-2016 unvell.com, all rights reserved.
- * 
+ *
  ****************************************************************************/
 
 #if WINFORM
@@ -263,15 +263,15 @@ namespace unvell.ReoGrid
 				BackColor = SystemColors.Control,
 				TabStop = false,
 			});
-			
+
 			Controls.Add(bottomPanel);
 
 			#endregion // Bottom Panel
-			
+
 			this.InitControl();
 
 			ResumeLayout();
-			
+
 			//TODO: detect clipboard changes
 			// need detect and remove the hightlight range when content has been removed from System Clipboard
 			//ClipboardMonitor.Instance.ClipboardChanged += new EventHandler<ClipboardChangedEventArgs>(ClipboardMonitor_ClipboardChanged);
@@ -305,11 +305,11 @@ namespace unvell.ReoGrid
 				this.currentWorksheet.UpdateViewportControllBounds();
 			}
 		}
-		
+
 		/// <summary>
 		/// Release resources used in this component.
 		/// </summary>
-		/// <param name="disposing">True to release both managed and unmanaged resources; 
+		/// <param name="disposing">True to release both managed and unmanaged resources;
 		/// False to release only unmanaged resources.</param>
 		protected override void Dispose(bool disposing)
 		{
@@ -329,7 +329,7 @@ namespace unvell.ReoGrid
 			if (builtInFullColSelectCursor != null) builtInFullColSelectCursor.Dispose();
 			if (builtInFullRowSelectCursor != null) builtInFullRowSelectCursor.Dispose();
 		}
-		
+
 		#endregion // Constructor
 
 		#region Adapter
@@ -437,7 +437,7 @@ namespace unvell.ReoGrid
 					case CursorStyle.Selection: this.control.Cursor = this.control.internalCurrentCursor; break;
 					case CursorStyle.Busy: this.control.Cursor = Cursors.WaitCursor; break;
 					case CursorStyle.Hand: this.control.Cursor = Cursors.Hand; break;
-					case CursorStyle.FullColumnSelect: 
+					case CursorStyle.FullColumnSelect:
 						this.control.Cursor = this.control.FullColumnSelectionCursor!=null ?
 							this.control.FullColumnSelectionCursor : this.control.builtInFullColSelectCursor;
 						break;
@@ -457,7 +457,7 @@ namespace unvell.ReoGrid
 					case CursorStyle.Cross: this.control.Cursor = this.control.builtInCrossCursor; break;
 				}
 			}
-			
+
 			public void RestoreCursor()
 			{
 				if (this.oldCursor != null)
@@ -894,7 +894,7 @@ namespace unvell.ReoGrid
 				this.CurrentWorksheet = sheet;
 			}
 		}
-		
+
 		private void ShowSheetTabControl()
 		{
 			if (!this.bottomPanel.Visible)
@@ -1028,46 +1028,58 @@ namespace unvell.ReoGrid
 			{
 				sf = new StringFormat(StringFormat.GenericDefault);
 			}
-			protected override void OnKeyDown(KeyEventArgs e)
-			{
-				var sheet = owner.currentWorksheet;
+            protected override void OnKeyDown(KeyEventArgs e)
+            {
+                var sheet = owner.currentWorksheet;
 
-				if (sheet.currentEditingCell != null && Visible)
-				{
-					bool isProcessed = false;
+                if (sheet.currentEditingCell != null && Visible)
+                {
+                    bool isProcessed = false;
 
-					// in single line text
-					if (!TextWrap && Text.IndexOf('\n') == -1)
-					{
-						if (e.KeyCode == Keys.Up)
-						{
-							e.SuppressKeyPress = true;
-							sheet.EndEdit(Text);
-							sheet.MoveSelectionUp();
-							isProcessed = true;
-						}
-						else if (e.KeyCode == Keys.Down)
-						{
-							e.SuppressKeyPress = true;
-							sheet.EndEdit(Text);
-							sheet.MoveSelectionDown();
-							isProcessed = true;
-						}
-					}
+                    // in single line text
+                    if (!TextWrap && Text.IndexOf('\n') == -1)
+                    {
+                        isProcessed = true;
+                        if (e.KeyCode == Keys.Up)
+                        {
+                            ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionUp());
+                        }
+                        else if (e.KeyCode == Keys.Down)
+                        {
+                            ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionDown());
+                        }
+                        else if (e.KeyCode == Keys.Left && SelectionStart == 0)
+                        {
+                            ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionLeft());
+                        }
+                        else if (e.KeyCode == Keys.Right && SelectionStart == Text.Length)
+                        {
+                            ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionRight());
+                        }
+                        else
+                        {
+                            isProcessed = false;
+                        }
+                    }
 
-					if (!isProcessed)
-					{
-						if (!Toolkit.IsKeyDown(Win32.VKey.VK_CONTROL) && e.KeyCode == Keys.Enter)
-						{
-							e.SuppressKeyPress = true;
-							sheet.EndEdit(Text);
-							sheet.MoveSelectionForward();
-						}
-					}
-				}
-			}
+                    if (!isProcessed)
+                    {
+                        if (!Toolkit.IsKeyDown(Win32.VKey.VK_CONTROL) && e.KeyCode == Keys.Enter)
+                        {
+                            ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionRight());
+                        }
+                    }
+                }
+            }
 
-			protected override bool ProcessCmdKey(ref Message msg, System.Windows.Forms.Keys keyData)
+            private void ProcessSelectionMoveKey(KeyEventArgs e, Worksheet sheet, Action moveAction)
+            {
+                e.SuppressKeyPress = true;
+                sheet.EndEdit(Text);
+                moveAction();
+            }
+
+            protected override bool ProcessCmdKey(ref Message msg, System.Windows.Forms.Keys keyData)
 			{
 				var sheet = owner.currentWorksheet;
 
@@ -1300,7 +1312,7 @@ namespace unvell.ReoGrid
 				return;
 			}
 			else
-				// Chinese and Japanese IME will send this message 
+				// Chinese and Japanese IME will send this message
 				// before start to accept user's input
 				if (m.Msg == (int)Win32.WMessages.WM_IME_STARTCOMPOSITION)
 				{
@@ -1336,7 +1348,7 @@ namespace unvell.ReoGrid
 			{
 				this.currentWorksheet.UpdateViewportControllBounds();
 			}
-			
+
 			base.OnResize(e);
 
 			if (this.sheetTab.Right > this.bottomPanel.Width - 40)
