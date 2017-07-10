@@ -167,6 +167,11 @@ namespace unvell.ReoGrid
                 var toCellPosition = toCells[toCellIndex];
                 var toCell = Cells[toCellPosition];
 
+                if (toCell != null && toCell.IsReadOnly)
+                {
+                    continue;
+                }
+
                 if (fromCell == null)
                 {
                     continue;
