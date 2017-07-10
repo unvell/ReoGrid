@@ -19,247 +19,211 @@
 #if FORMULA
 
 using System;
-
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using unvell.ReoGrid.Formula;
 using unvell.ReoGrid.Utility;
 
 namespace unvell.ReoGrid
 {
-	partial class Worksheet
-	{
-		/// <summary>
-		/// Auto fill specified serial in range.
-		/// </summary>
-		/// <param name="fromAddressOrName">Range to read filling rules.</param>
-		/// <param name="toAddressOrName">Range to be filled.</param>
-		public void AutoFillSerial(string fromAddressOrName, string toAddressOrName)
-		{
-			NamedRange fromNRange, toNRange;
-			RangePosition fromRange, toRange;
+    partial class Worksheet
+    {
+        /// <summary>
+        /// Auto fill specified serial in range.
+        /// </summary>
+        /// <param name="fromAddressOrName">Range to read filling rules.</param>
+        /// <param name="toAddressOrName">Range to be filled.</param>
+        public void AutoFillSerial(string fromAddressOrName, string toAddressOrName)
+        {
+            NamedRange fromNRange, toNRange;
+            RangePosition fromRange, toRange;
 
-#region fromRange
-			if (this.TryGetNamedRange(fromAddressOrName, out fromNRange))
-			{
-				fromRange = fromNRange.Position;
-			}
-			else if (RangePosition.IsValidAddress(fromAddressOrName))
-			{
-				fromRange = new RangePosition(fromAddressOrName);
-			}
-			else
-			{
-				throw new InvalidAddressException(fromAddressOrName);
-			}
-#endregion // fromRange
+            #region fromRange
+            if (this.TryGetNamedRange(fromAddressOrName, out fromNRange))
+            {
+                fromRange = fromNRange.Position;
+            }
+            else if (RangePosition.IsValidAddress(fromAddressOrName))
+            {
+                fromRange = new RangePosition(fromAddressOrName);
+            }
+            else
+            {
+                throw new InvalidAddressException(fromAddressOrName);
+            }
+            #endregion // fromRange
 
-#region toRange
-			if (this.TryGetNamedRange(toAddressOrName, out toNRange))
-			{
-				toRange = toNRange.Position;
-			}
-			else if (RangePosition.IsValidAddress(toAddressOrName))
-			{
-				toRange = new RangePosition(toAddressOrName);
-			}
-			else
-			{
-				throw new InvalidAddressException(toAddressOrName);
-			}
-#endregion // toRange
+            #region toRange
+            if (this.TryGetNamedRange(toAddressOrName, out toNRange))
+            {
+                toRange = toNRange.Position;
+            }
+            else if (RangePosition.IsValidAddress(toAddressOrName))
+            {
+                toRange = new RangePosition(toAddressOrName);
+            }
+            else
+            {
+                throw new InvalidAddressException(toAddressOrName);
+            }
+            #endregion // toRange
 
-			this.AutoFillSerial(fromRange, toRange);
-		}
+            this.AutoFillSerial(fromRange, toRange);
+        }
 
-		/// <summary>
-		/// Auto fill specified serial in range.
-		/// </summary>
-		/// <param name="fromRange">Range to read filling rules.</param>
-		/// <param name="toRange">Range to be filled.</param>
-		public void AutoFillSerial(RangePosition fromRange, RangePosition toRange)
-		{
-			fromRange = this.FixRange(fromRange);
-			toRange = this.FixRange(toRange);
+        /// <summary>
+        /// Auto fill specified serial in range.
+        /// </summary>
+        /// <param name="fromRange">Range to read filling rules.</param>
+        /// <param name="toRange">Range to be filled.</param>
+        public void AutoFillSerial(RangePosition fromRange, RangePosition toRange)
+        {
+            fromRange = this.FixRange(fromRange);
+            toRange = this.FixRange(toRange);
 
-#region Arguments Check
-			if (fromRange.IntersectWith(toRange))
-			{
-				throw new ArgumentException("fromRange and toRange cannot being intersected.");
-			}
+            #region Arguments Check
+            if (fromRange.IntersectWith(toRange))
+            {
+                throw new ArgumentException("fromRange and toRange cannot being intersected.");
+            }
 
-			if (toRange != CheckMergedRange(toRange))
-			{
-				throw new ArgumentException("cannot change a part of merged range.");
-			}
-#endregion // Arguments Check
+            if (toRange != CheckMergedRange(toRange))
+            {
+                throw new ArgumentException("cannot change a part of merged range.");
+            }
+            #endregion // Arguments Check
 
-			if (fromRange.Col == toRange.Col && fromRange.Cols == toRange.Cols)
-			{
-#region Vertical Fill
-				for (int c = toRange.Col; c <= toRange.EndCol; c++)
-				{
-					double diff = 1;
+            List<CellPosition> fromCells, toCells;
 
-#region Calc diff
-					if (fromRange.Rows > 1)
-					{
-						for (int r = fromRange.Row; r < fromRange.EndRow; r++)
-						{
-							double val1 = 0;
+            if (fromRange.Col == toRange.Col && fromRange.Cols == toRange.Cols)
+            {
+                for (int c = toRange.Col; c <= toRange.EndCol; c++)
+                {
+                    fromCells = GetColumnCellPositionsFromRange(fromRange, c);
+                    toCells = GetColumnCellPositionsFromRange(toRange, c);
+                    AutoFillSerialCells(fromCells, toCells);
+                }
+            }
+            else if (fromRange.Row == toRange.Row && fromRange.Rows == toRange.Rows)
+            {
+                for (int r = toRange.Row; r <= toRange.EndRow; r++)
+                {
+                    fromCells = GetRowCellPositionsFromRange(fromRange, r);
+                    toCells = GetRowCellPositionsFromRange(toRange, r);
+                    AutoFillSerialCells(fromCells, toCells);
+                }
+            }
+            else
+                throw new InvalidOperationException("The fromRange and toRange must be having same number of rows or same number of columns.");
+        }
 
-							if (!this.TryGetNumberData(r, c, out val1))
-							{
-								break;
-							}
+        private List<CellPosition> GetColumnCellPositionsFromRange(RangePosition fromRange, int columnIndex)
+        {
+            var result = new List<CellPosition>();
+            for (int rowIndex = fromRange.Row; rowIndex < fromRange.EndRow + 1; rowIndex++)
+            {
+                var cellPosition = new CellPosition(rowIndex, columnIndex);
+                AddCellIfValid(cellPosition, result);
+            }
 
-							double val2;
+            return result;
+        }
 
-							if (this.TryGetNumberData(r + 1, c, out val2))
-							{
-								if (r == fromRange.Row)
-								{
-									diff = (val2 - val1);
-								}
-								else
-								{
-									diff = (diff + (val2 - val1)) / 2;
-								}
-							}
-						}
-					}
-#endregion // Calc diff
+        private List<CellPosition> GetRowCellPositionsFromRange(RangePosition fromRange, int rowIndex)
+        {
+            var result = new List<CellPosition>();
+            for (int columnIndex = fromRange.Col; columnIndex < fromRange.EndCol + 1; columnIndex++)
+            {
+                var cellPosition = new CellPosition(rowIndex, columnIndex);
+                AddCellIfValid(cellPosition, result);
+            }
 
-#region Up to Down
-					for (int toRow = toRange.Row, index = 0; toRow < toRange.EndRow + 1; index++)
-					{
-						Cell toCell = this.cells[toRow, c];
+            return result;
+        }
 
-						if (toCell != null && toCell.Rowspan < 0)
-						{
-							toRow++;
-							continue;
-						}
+        private void AddCellIfValid(CellPosition cellPosition, List<CellPosition> result)
+        {
+            var cell = Cells[cellPosition];
 
-						CellPosition fromPos = new CellPosition(fromRange.Row + (index % fromRange.Rows), c);
+            // Exclude merged cells
+            if (cell != null && !cell.IsValidCell)
+            {
+                return;
+            }
 
-						Cell fromCell = this.cells[fromPos.Row, fromPos.Col];
+            result.Add(cellPosition);
+        }
 
-						if (fromCell == null || fromCell.Rowspan <= 0)
-						{
-							this[toRow, c] = null;
-							toRow++;
-							continue;
-						}
+        private void AutoFillSerialCells(List<CellPosition> fromCells, List<CellPosition> toCells)
+        {
+            double diff = GetCellsDifference(fromCells);
 
-						if (fromCell != null && !string.IsNullOrEmpty(fromCell.InnerFormula))
-						{
-#region Fill Formula
-							FormulaRefactor.Reuse(this, fromPos, new RangePosition(toRow, c, 1, 1));
-#endregion // Fill Formula
-						}
-						else
-						{
-#region Fill Number
-							double refValue = 0;
+            for (var toCellIndex = 0; toCellIndex < toCells.Count; toCellIndex++)
+            {
+                var fromCellIndex = toCellIndex % fromCells.Count;
+                var fromCellPosition = fromCells[fromCellIndex];
+                var fromCell = Cells[fromCellPosition];
+                var toCellPosition = toCells[toCellIndex];
+                var toCell = Cells[toCellPosition];
 
-							if (CellUtility.TryGetNumberData(fromCell.Data, out refValue))
-							{
-								this[toRow, c] = refValue + diff * (toRow - fromPos.Row);
-							}
-#endregion // Fill Number
-						}
+                if (fromCell == null)
+                {
+                    continue;
+                }
 
-						toRow += Math.Max(fromCell.Rowspan, toCell == null ? 1 : toCell.Rowspan);
-					}
-#endregion // Up to Down
-				}
-#endregion // Vertical Fill
-			}
-			else if (fromRange.Row == toRange.Row && fromRange.Rows == toRange.Rows)
-			{
-#region Horizontal Fill
-				for (int r = toRange.Row; r <= toRange.EndRow; r++)
-				{
-					double diff = 1;
+                if (!string.IsNullOrEmpty(fromCell.InnerFormula))
+                {
+                    FormulaRefactor.Reuse(this, fromCellPosition, new RangePosition(toCellPosition));
+                }
+                else
+                {
+                    double refValue = 0;
 
-#region Calc diff
-					if (fromRange.Cols > 1)
-					{
-						for (int c = fromRange.Col; r < fromRange.EndCol; c++)
-						{
-							double val1 = 0;
+                    if (CellUtility.TryGetNumberData(fromCell.Data, out refValue))
+                    {
+                        toCell.Data = refValue + diff * (fromCells.Count + toCellIndex - fromCellIndex);
+                    }
+                }
+            }
+        }
 
-							if (!this.TryGetNumberData(r, c, out val1))
-							{
-								break;
-							}
+        private double GetCellsDifference(List<CellPosition> fromCells)
+        {
+            double diff = 1;
 
-							double val2;
+            if (fromCells.Count > 1)
+            {
+                for (var i = 0; i < fromCells.Count - 1; i++)
+                {
+                    var cell1 = Cells[fromCells[i]];
+                    var cell2 = Cells[fromCells[i+1]];
 
-							if (this.TryGetNumberData(r, c + 1, out val2))
-							{
-								if (c == fromRange.Col)
-								{
-									diff = (val2 - val1);
-								}
-								else
-								{
-									diff = (diff + (val2 - val1)) / 2;
-								}
-							}
-						}
-					}
-#endregion // Calc diff
+                    if (cell1 == null || cell2 == null)
+                    {
+                        continue;
+                    }
 
-#region Left to Right
-					for (int toCol = toRange.Col, index = 0; toCol < toRange.EndCol + 1; index++)
-					{
-						Cell toCell = this.cells[r, toCol];
+                    double value1, value2;
 
-						if (toCell != null && toCell.Colspan < 0)
-						{
-							toCol++;
-							continue;
-						}
-
-						CellPosition fromPos = new CellPosition(r, fromRange.Col + (index % fromRange.Cols));
-
-						Cell fromCell = this.cells[fromPos.Row, fromPos.Col];
-
-						if (fromCell == null || fromCell.Colspan <= 0)
-						{
-							this[r, toCol] = null;
-							toCol++;
-							continue;
-						}
-
-						if (fromCell != null && !string.IsNullOrEmpty(fromCell.InnerFormula))
-						{
-#region Fill Formula
-							FormulaRefactor.Reuse(this, fromPos, new RangePosition(r, toCol, 1, 1));
-#endregion // Fill Formula
-						}
-						else
-						{
-#region Fill Number
-							double refValue = 0;
-
-							if (CellUtility.TryGetNumberData(fromCell.Data, out refValue))
-							{
-								this[r, toCol] = refValue + diff * (toCol - fromPos.Col);
-							}
-#endregion // Fill Number
-						}
-
-						toCol += Math.Max(fromCell.Colspan, toCell == null ? 1 : toCell.Colspan);
-					}
-#endregion // Left to Right
-				}
-#endregion // Vertical Fill
-			}
-			else
-				throw new InvalidOperationException("The fromRange and toRange must be having same number of rows or same number of columns.");
-		}
-	}
+                    if (CellUtility.TryGetNumberData(cell1, out value1) &&
+                        CellUtility.TryGetNumberData(cell2, out value2))
+                    {
+                        if (i == 0)
+                        {
+                            diff = value2 - value1;
+                        }
+                        else
+                        {
+                            diff = (diff + (value2 - value1)) / 2;
+                        }
+                    }
+                }
+            }
+            
+            return diff;
+        }
+    }
 }
 
 #endif // FORMULA
