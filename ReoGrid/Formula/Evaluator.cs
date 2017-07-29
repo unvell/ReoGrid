@@ -304,7 +304,15 @@ namespace unvell.ReoGrid.Formula
 						FormulaValue v1 = Evaluate(workbook, cell, node[0]);
 						FormulaValue v2 = Evaluate(workbook, cell, node[1]);
 
-						if (v1.type != v2.type) return true;
+						if (v1.type == FormulaValueType.String && ((string)v1.value) == string.Empty)
+						{
+							if (v2.type == FormulaValueType.Nil) return false;
+						}
+
+						if (v2.type == FormulaValueType.String && ((string)v2.value) == string.Empty)
+						{
+							if (v1.type == FormulaValueType.Nil) return false;
+						}
 
 						switch (v1.type)
 						{
@@ -318,7 +326,7 @@ namespace unvell.ReoGrid.Formula
 								return (bool)v1.value != (bool)v2.value;
 
 							default:
-								return true;
+								return false;
 						}
 					}
 				#endregion // Not Equals

@@ -883,7 +883,10 @@ namespace unvell.ReoGrid.Formula
 				}
 				else if (val.type == FormulaValueType.Number)
 				{
-					return ((double)val.value != 0);
+					if ((double)val.value != 0)
+					{
+						return true;
+					}
 				}
 			}
 
