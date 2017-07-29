@@ -453,6 +453,10 @@ namespace unvell.ReoGrid
 			{
 				return data.CompareTo(Convert.ToString(@base));
 			}
+			else if (data is DateTime)
+			{
+				return (int)((DateTime)data).Ticks;
+			}
 			else
 			{
 				try

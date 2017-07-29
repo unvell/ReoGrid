@@ -916,8 +916,39 @@ namespace unvell.ReoGrid.DataFormat
 
 			bool isFormat = false;
 			double number;
+			string pattern = Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern;
 			DateTime value = baseStartDate;
 			string formattedText = null;
+
+			CultureInfo culture = null;
+
+			if (cell.DataFormatArgs is DateTimeFormatArgs)
+			{
+				DateTimeFormatArgs dargs = (DateTimeFormatArgs)cell.DataFormatArgs;
+
+				culture = (dargs.CultureName == null
+					|| string.Equals(dargs.CultureName, Thread.CurrentThread.CurrentCulture.Name))
+					? Thread.CurrentThread.CurrentCulture : new CultureInfo(dargs.CultureName);
+				
+				if (!string.IsNullOrEmpty(dargs.Format)) {
+					pattern = dargs.Format;
+				}
+				else
+				{
+					pattern = culture.DateTimeFormat.ShortDatePattern;
+				}
+			}
+			else
+			{
+				culture = System.Threading.Thread.CurrentThread.CurrentCulture;
+				cell.DataFormatArgs = new DateTimeFormatArgs { Format = culture.DateTimeFormat.ShortDatePattern, CultureName = culture.Name };
+			}
+
+			if (culture.Name.StartsWith("ja") && pattern.Contains("g"))
+			{
+				culture = new CultureInfo("ja-JP", true);
+				culture.DateTimeFormat.Calendar = new JapaneseCalendar();
+			}
 
 			if (data is DateTime)
 			{
@@ -935,6 +966,11 @@ namespace unvell.ReoGrid.DataFormat
 					isFormat = true;
 				}
 				catch { }
+			}
+			else if (DateTime.TryParseExact(Convert.ToString(data), pattern, culture, DateTimeStyles.None, out value))
+			{
+				isFormat = true;
+				//cell.InnerData = value;
 			}
 			else
 			{
@@ -961,35 +997,6 @@ namespace unvell.ReoGrid.DataFormat
 				if (cell.InnerStyle.HAlign == ReoGridHorAlign.General)
 				{
 					cell.RenderHorAlign = ReoGridRenderHorAlign.Right;
-				}
-
-				CultureInfo culture = null;
-
-				string pattern = System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern;
-
-				if (cell.DataFormatArgs != null && cell.DataFormatArgs is DateTimeFormatArgs)
-				{
-					DateTimeFormatArgs dargs = (DateTimeFormatArgs)cell.DataFormatArgs;
-
-					if (pattern == null || pattern == String.Empty)
-					{
-						pattern = dargs.Format;
-					}
-
-					culture = (dargs.CultureName == null
-						|| string.Equals(dargs.CultureName, Thread.CurrentThread.CurrentCulture.Name))
-						? Thread.CurrentThread.CurrentCulture : new CultureInfo(dargs.CultureName);
-				}
-				else
-				{
-					culture = System.Threading.Thread.CurrentThread.CurrentCulture;
-					cell.DataFormatArgs = new DateTimeFormatArgs { Format = pattern, CultureName = culture.Name };
-				}
-					
-				if (culture.Name.StartsWith("ja") && pattern.Contains("g"))
-				{
-					culture = new CultureInfo("ja-JP", true);
-					culture.DateTimeFormat.Calendar = new JapaneseCalendar();
 				}
 
 				try
