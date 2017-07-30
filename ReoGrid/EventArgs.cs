@@ -867,22 +867,41 @@ namespace unvell.ReoGrid.Events
 	#region Selection
 
 	/// <summary>
-	/// Event raised when selection will move to another position. 
-	/// ReoGrid automatically move the selection to 'Right' or 'Down' according
-	/// to 'SelectionForwardDirection' property of control. 
+	/// Event raised when selection moved to next position. 
+	/// ReoGrid automatically move selection to right cell or below cell according
+	/// to <code>SelectionForwardDirection</code> property of worksheet. 
 	/// </summary>
-	public class SelectionMoveForwardEventArgs : EventArgs
+	public class SelectionMovedForwardEventArgs : EventArgs
 	{
 		/// <summary>
-		/// Decide whether to cancel current operation
+		/// Decide whether to cancel current move operation.
 		/// </summary>
 		public bool IsCancelled { get; set; }
 
 		/// <summary>
-		/// Create instance for SelectionMoveForwardEventArgs with specified 
-		/// position.
+		/// Create instance of SelectionMovedForwardEventArgs with specified position.
 		/// </summary>
-		public SelectionMoveForwardEventArgs()
+		public SelectionMovedForwardEventArgs()
+		{
+		}
+	}
+
+	/// <summary>
+	/// Event raised when selection moved to previous position. 
+	/// ReoGrid automatically move selection to left cell or above cell according
+	/// to <code>SelectionForwardDirection</code> property of worksheet. 
+	/// </summary>
+	public class SelectionMovedBackwardEventArgs : EventArgs
+	{
+		/// <summary>
+		/// Decide whether to cancel current move operation.
+		/// </summary>
+		public bool IsCancelled { get; set; }
+
+		/// <summary>
+		/// Create instance of SelectionMovedBackwardEventArgs with specified position.
+		/// </summary>
+		public SelectionMovedBackwardEventArgs()
 		{
 		}
 	}
