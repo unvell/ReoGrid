@@ -871,7 +871,7 @@ namespace unvell.ReoGrid.Events
 	/// ReoGrid automatically move the selection to 'Right' or 'Down' according
 	/// to 'SelectionForwardDirection' property of control. 
 	/// </summary>
-	public class SelectionMoveForwardEventArgs : EventArgs
+	public class SelectionMovedForwardEventArgs : EventArgs
 	{
 		/// <summary>
 		/// Decide whether to cancel current operation
@@ -879,10 +879,9 @@ namespace unvell.ReoGrid.Events
 		public bool IsCancelled { get; set; }
 
 		/// <summary>
-		/// Create instance for SelectionMoveForwardEventArgs with specified 
-		/// position.
+		/// Create instance of SelectionMovedForwardEventArgs with specified position.
 		/// </summary>
-		public SelectionMoveForwardEventArgs()
+		public SelectionMovedForwardEventArgs()
 		{
 		}
 	}

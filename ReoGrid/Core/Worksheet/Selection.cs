@@ -1062,7 +1062,7 @@ namespace unvell.ReoGrid
 		{
 			if (SelectionMovedForward != null)
 			{
-				var arg = new SelectionMoveForwardEventArgs();
+				var arg = new SelectionMovedForwardEventArgs();
 				SelectionMovedForward(this, arg);
 				if (arg.IsCancelled)
 				{
@@ -1477,7 +1477,7 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Event raised when focus-selection move to next position
 		/// </summary>
-		public event EventHandler<SelectionMoveForwardEventArgs> SelectionMovedForward;
+		public event EventHandler<SelectionMovedForwardEventArgs> SelectionMovedForward;
 
 		/// <summary>
 		/// Event raised when focus-selection move to previous position
