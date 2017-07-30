@@ -1125,8 +1125,8 @@ namespace unvell.ReoGrid
 		{
 			if (SelectionMovedBackward != null)
 			{
-				var arg = new SelectionMoveForwardEventArgs();
-				SelectionMovedForward(this, arg);
+				var arg = new SelectionMovedBackwardEventArgs();
+				SelectionMovedBackward(this, arg);
 				if (arg.IsCancelled)
 				{
 					return;
