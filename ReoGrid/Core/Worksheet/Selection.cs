@@ -1482,7 +1482,7 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Event raised when focus-selection move to previous position
 		/// </summary>
-		public event EventHandler<SelectionMoveForwardEventArgs> SelectionMovedBackward;
+		public event EventHandler<SelectionMovedBackwardEventArgs> SelectionMovedBackward;
 
 		#endregion // Events
 	}

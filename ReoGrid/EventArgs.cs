@@ -887,6 +887,26 @@ namespace unvell.ReoGrid.Events
 	}
 
 	/// <summary>
+	/// Event raised when selection moved to previous position. 
+	/// ReoGrid automatically move selection to left cell or above cell according
+	/// to <code>SelectionForwardDirection</code> property of worksheet. 
+	/// </summary>
+	public class SelectionMovedBackwardEventArgs : EventArgs
+	{
+		/// <summary>
+		/// Decide whether to cancel current move operation.
+		/// </summary>
+		public bool IsCancelled { get; set; }
+
+		/// <summary>
+		/// Create instance of SelectionMovedBackwardEventArgs with specified position.
+		/// </summary>
+		public SelectionMovedBackwardEventArgs()
+		{
+		}
+	}
+
+	/// <summary>
 	/// Argument class for event of BeforeSelectionChange
 	/// </summary>
 	public class BeforeSelectionChangeEventArgs : EventArgs
