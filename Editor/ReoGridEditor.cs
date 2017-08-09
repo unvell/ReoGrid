@@ -683,6 +683,11 @@ namespace unvell.ReoGrid.Editor
 					MessageBox.Show(this, LangResource.Msg_Range_Intersection_Exception,
 						"ReoGrid Editor", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 				}
+				else if (e.Exception is OperationOnReadonlyCellException)
+				{
+					MessageBox.Show(this, LangResource.Msg_Operation_Aborted,
+						"ReoGrid Editor", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+				}
 			};
 
 			this.grid.CurrentWorksheetChanged += (s, e) =>
