@@ -96,6 +96,11 @@ namespace unvell.ReoGrid
 
             List<CellPosition> fromCells, toCells;
 
+            if (CheckRangeReadonly(toRange))
+            {
+                throw new RangeContainsReadonlyCellsException(toRange);
+            }
+
             if (fromRange.Col == toRange.Col && fromRange.Cols == toRange.Cols)
             {
                 for (int c = toRange.Col; c <= toRange.EndCol; c++)
@@ -166,11 +171,6 @@ namespace unvell.ReoGrid
                 var fromCell = Cells[fromCellPosition];
                 var toCellPosition = toCells[toCellIndex];
                 var toCell = Cells[toCellPosition];
-
-                if (toCell != null && toCell.IsReadOnly)
-                {
-                    continue;
-                }
 
                 if (fromCell == null)
                 {

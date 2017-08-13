@@ -840,12 +840,12 @@ namespace unvell.ReoGrid
 
 			if (CheckRangeReadonly(fromRange))
 			{
-				throw new RangeContainsReadonlyCellsException(fromRange, "Operation cannot be performed since target range contains read-only cells.");
+				throw new RangeContainsReadonlyCellsException(fromRange);
 			}
 
 			if (CheckRangeReadonly(toRange))
 			{
-				throw new RangeContainsReadonlyCellsException(fromRange, "Operation cannot be performed since target range contains read-only cells.");
+				throw new RangeContainsReadonlyCellsException(fromRange);
 			}
 
 			var bcmrearg = new BeforeCopyOrMoveRangeEventArgs(fromRange, toRange);
