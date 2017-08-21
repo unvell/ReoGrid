@@ -51,12 +51,15 @@ namespace unvell.ReoGrid.Rendering
 		{
 			if (lastGetDPI == 0)
 			{
-				PresentationSource source = PresentationSource.FromVisual(Application.Current.MainWindow);
+				Window win = new Window();
+				PresentationSource source = PresentationSource.FromVisual(win);
 
 				if (source != null)
 				{
 					lastGetDPI = 96.0 * source.CompositionTarget.TransformToDevice.M11;
 				}
+
+				win.Close();
 
 				if (lastGetDPI == 0) lastGetDPI = 96;
 			}
