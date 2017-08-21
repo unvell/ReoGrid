@@ -263,7 +263,7 @@ namespace unvell.ReoGrid
 							clipboardText = data.GetText();
 						}
 					}
-					
+
 #elif ANDROID
 
 #endif // WINFORM || WPF
@@ -303,6 +303,13 @@ namespace unvell.ReoGrid
 						{
 							// TODO: paste range overflow
 							// need to notify user-code to handle this 
+							return false;
+						}
+
+						// check whether the range to be pasted contains readonly cell
+						if (this.CheckRangeReadonly(targetRange))
+						{
+							this.NotifyExceptionHappen(new OperationOnReadonlyCellException("specified range contains readonly cell"));
 							return false;
 						}
 
