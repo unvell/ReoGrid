@@ -66,7 +66,7 @@ namespace unvell.ReoGrid.Chart
 			{
 				if (index < MaxDataSerials)
 				{
-					for (int i = defaultDataSerialColors.Count; i < index; i++)
+					for (int i = defaultDataSerialColors.Count; i <= index; i++)
 					{
 						defaultDataSerialColors.Add(SolidColor.Randomly());
 					}
