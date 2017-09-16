@@ -1,7 +1,7 @@
 ﻿/*****************************************************************************
- * 
+ *
  * ReoGrid - .NET Spreadsheet Control
- * 
+ *
  * http://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
@@ -13,7 +13,7 @@
  *
  * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
  * Copyright (c) 2012-2016 unvell.com, all rights reserved.
- * 
+ *
  ****************************************************************************/
 
 #if FORMULA
@@ -103,7 +103,7 @@ namespace unvell.ReoGrid
 
             if (fromRange.Col == toRange.Col && fromRange.Cols == toRange.Cols)
             {
-                for (int c = toRange.Col; c <= toRange.EndCol; c++)
+                for (var c = toRange.Col; c <= toRange.EndCol; c++)
                 {
                     fromCells = GetColumnCellPositionsFromRange(fromRange, c);
                     toCells = GetColumnCellPositionsFromRange(toRange, c);
@@ -112,7 +112,7 @@ namespace unvell.ReoGrid
             }
             else if (fromRange.Row == toRange.Row && fromRange.Rows == toRange.Rows)
             {
-                for (int r = toRange.Row; r <= toRange.EndRow; r++)
+                for (var r = toRange.Row; r <= toRange.EndRow; r++)
                 {
                     fromCells = GetRowCellPositionsFromRange(fromRange, r);
                     toCells = GetRowCellPositionsFromRange(toRange, r);
@@ -162,6 +162,11 @@ namespace unvell.ReoGrid
 
         private void AutoFillSerialCells(List<CellPosition> fromCells, List<CellPosition> toCells)
         {
+            if (!fromCells.Any() || !toCells.Any())
+            {
+                return;
+            }
+
             double diff = GetCellsDifference(fromCells);
 
             for (var toCellIndex = 0; toCellIndex < toCells.Count; toCellIndex++)
@@ -225,7 +230,7 @@ namespace unvell.ReoGrid
                     }
                 }
             }
-            
+
             return diff;
         }
     }
