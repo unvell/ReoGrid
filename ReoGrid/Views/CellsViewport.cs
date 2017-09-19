@@ -1683,12 +1683,12 @@ namespace unvell.ReoGrid.Views
 						{
 							if (this.sheet.CheckRangeReadonly(fromRange))
 							{
-								throw new RangeContainsReadonlyCellsException(fromRange, "Operation cannot be performed since target range contains read-only cells.");
+								throw new RangeContainsReadonlyCellsException(fromRange);
 							}
 
 							if (this.sheet.CheckRangeReadonly(toRange))
 							{
-								throw new RangeContainsReadonlyCellsException(toRange, "Operation cannot be performed since target range contains read-only cells.");
+								throw new RangeContainsReadonlyCellsException(toRange);
 							}
 
 							BaseWorksheetAction action;

@@ -543,15 +543,26 @@ namespace unvell.ReoGrid
 		/// </summary>
 		public RangePosition Range { get; set; }
 
-		/// <summary>
-		/// Create exception with additional message.
-		/// </summary>
-		/// <param name="msg">The additional message to describe this exception.</param>
-		public RangeContainsReadonlyCellsException(RangePosition range, string msg)
+        /// <summary>
+        /// Create exception with the default message.
+        /// </summary>
+        /// <param name="range">Range that operation applied on.</param>
+        public RangeContainsReadonlyCellsException(RangePosition range)
+            : this(range, "Operation cannot be performed since target range contains read-only cells.")
+        {
+        }
+
+        /// <summary>
+        /// Create exception with additional message.
+        /// </summary>
+        /// <param name="range">Range that operation applied on.</param>
+        /// <param name="msg">The additional message to describe this exception.</param>
+        public RangeContainsReadonlyCellsException(RangePosition range, string msg)
 			: base(msg)
 		{
+		    Range = range;
 		}
-	}
+    }
 
 	/// <summary>
 	/// Exception will be thrown when the cell body cannot be created for a cell automatically.
