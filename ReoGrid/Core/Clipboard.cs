@@ -93,6 +93,22 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Paste data from tabbed string into worksheet.
 		/// </summary>
+		/// <param name="address">Start cell position to be filled.</param>
+		/// <param name="content">Data to be pasted.</param>
+		/// <returns>Range position that indicates the actually filled range.</returns>
+		public RangePosition PasteFromString(string address, string content)
+		{
+			if (!CellPosition.IsValidAddress(address))
+			{
+				throw new InvalidAddressException(address);
+			}
+
+			return this.PasteFromString(new CellPosition(address), content);
+		}
+
+		/// <summary>
+		/// Paste data from tabbed string into worksheet.
+		/// </summary>
 		/// <param name="startPos">Start position to fill data.</param>
 		/// <param name="str">Tabbed string to be pasted.</param>
 		/// <returns>Range position that indicates the actually filled range.</returns>
