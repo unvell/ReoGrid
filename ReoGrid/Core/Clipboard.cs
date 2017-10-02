@@ -110,9 +110,9 @@ namespace unvell.ReoGrid
 		/// Paste data from tabbed string into worksheet.
 		/// </summary>
 		/// <param name="startPos">Start position to fill data.</param>
-		/// <param name="str">Tabbed string to be pasted.</param>
+		/// <param name="content">Tabbed string to be pasted.</param>
 		/// <returns>Range position that indicates the actually filled range.</returns>
-		public RangePosition PasteFromString(CellPosition startPos, string str)
+		public RangePosition PasteFromString(CellPosition startPos, string content)
 		{
 			//int rows = 0, cols = 0;
 
