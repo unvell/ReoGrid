@@ -93,50 +93,75 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Paste data from tabbed string into worksheet.
 		/// </summary>
-		/// <param name="startPos">Start position to fill data.</param>
-		/// <param name="str">Tabbed string to be pasted.</param>
+		/// <param name="address">Start cell position to be filled.</param>
+		/// <param name="content">Data to be pasted.</param>
 		/// <returns>Range position that indicates the actually filled range.</returns>
-		public RangePosition PasteFromString(CellPosition startPos, string str)
+		public RangePosition PasteFromString(string address, string content)
 		{
-			int rows = 0, cols = 0;
-
-			string[] lines = str.Split(new string[] { "\r\n" }, StringSplitOptions.None);
-			for (int r = 0; r < lines.Length; r++)
+			if (!CellPosition.IsValidAddress(address))
 			{
-				string line = lines[r];
-				if (line.EndsWith("\n")) line = line.Substring(0, line.Length - 1);
-				//line = line.Trim();
-
-				if (line.Length > 0)
-				{
-					string[] tabs = line.Split('\t');
-					cols = Math.Max(cols, tabs.Length);
-
-					for (int c = 0; c < tabs.Length; c++)
-					{
-						int toRow = selectionRange.Row + r;
-						int toCol = selectionRange.Col + c;
-
-						if (!this.IsValidCell(toRow, toCol))
-						{
-							throw new RangeIntersectionException(new RangePosition(toRow, toCol, 1, 1));
-						}
-
-						string text = tabs[c];
-
-						if (text.StartsWith("\"") && text.EndsWith("\""))
-						{
-							text = text.Substring(1, text.Length - 2);
-						}
-
-						SetCellData(toRow, toCol, text);
-					}
-
-					rows++;
-				}
+				throw new InvalidAddressException(address);
 			}
 
-			return new RangePosition(startPos.Row, startPos.Col, rows, cols);
+			return this.PasteFromString(new CellPosition(address), content);
+		}
+
+		/// <summary>
+		/// Paste data from tabbed string into worksheet.
+		/// </summary>
+		/// <param name="startPos">Start position to fill data.</param>
+		/// <param name="content">Tabbed string to be pasted.</param>
+		/// <returns>Range position that indicates the actually filled range.</returns>
+		public RangePosition PasteFromString(CellPosition startPos, string content)
+		{
+			//int rows = 0, cols = 0;
+
+			//string[] lines = content.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+			//for (int r = 0; r < lines.Length; r++)
+			//{
+			//	string line = lines[r];
+			//	if (line.EndsWith("\n")) line = line.Substring(0, line.Length - 1);
+			//	//line = line.Trim();
+
+			//	if (line.Length > 0)
+			//	{
+			//		string[] tabs = line.Split('\t');
+			//		cols = Math.Max(cols, tabs.Length);
+
+			//		for (int c = 0; c < tabs.Length; c++)
+			//		{
+			//			int toRow = startPos.Row + r;
+			//			int toCol = startPos.Col + c;
+
+			//			if (!this.IsValidCell(toRow, toCol))
+			//			{
+			//				throw new RangeIntersectionException(new RangePosition(toRow, toCol, 1, 1));
+			//			}
+
+			//			string text = tabs[c];
+
+			//			if (text.StartsWith("\"") && text.EndsWith("\""))
+			//			{
+			//				text = text.Substring(1, text.Length - 2);
+			//			}
+
+			//			SetCellData(toRow, toCol, text);
+			//		}
+
+			//		rows++;
+			//	}
+			//}
+
+			object[,] parsedData = RGUtility.ParseTabbedString(content);
+
+			int rows = parsedData.GetLength(0);
+			int cols = parsedData.GetLength(1);
+
+			var range = new RangePosition(startPos.Row, startPos.Col, rows, cols);
+
+			this.SetRangeData(range, parsedData);
+
+			return range;
 		}
 
 		#region Copy
