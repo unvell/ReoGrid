@@ -98,45 +98,54 @@ namespace unvell.ReoGrid
 		/// <returns>Range position that indicates the actually filled range.</returns>
 		public RangePosition PasteFromString(CellPosition startPos, string str)
 		{
-			int rows = 0, cols = 0;
+			//int rows = 0, cols = 0;
 
-			string[] lines = str.Split(new string[] { "\r\n" }, StringSplitOptions.None);
-			for (int r = 0; r < lines.Length; r++)
-			{
-				string line = lines[r];
-				if (line.EndsWith("\n")) line = line.Substring(0, line.Length - 1);
-				//line = line.Trim();
+			//string[] lines = content.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+			//for (int r = 0; r < lines.Length; r++)
+			//{
+			//	string line = lines[r];
+			//	if (line.EndsWith("\n")) line = line.Substring(0, line.Length - 1);
+			//	//line = line.Trim();
 
-				if (line.Length > 0)
-				{
-					string[] tabs = line.Split('\t');
-					cols = Math.Max(cols, tabs.Length);
+			//	if (line.Length > 0)
+			//	{
+			//		string[] tabs = line.Split('\t');
+			//		cols = Math.Max(cols, tabs.Length);
 
-					for (int c = 0; c < tabs.Length; c++)
-					{
-						int toRow = selectionRange.Row + r;
-						int toCol = selectionRange.Col + c;
+			//		for (int c = 0; c < tabs.Length; c++)
+			//		{
+			//			int toRow = startPos.Row + r;
+			//			int toCol = startPos.Col + c;
 
-						if (!this.IsValidCell(toRow, toCol))
-						{
-							throw new RangeIntersectionException(new RangePosition(toRow, toCol, 1, 1));
-						}
+			//			if (!this.IsValidCell(toRow, toCol))
+			//			{
+			//				throw new RangeIntersectionException(new RangePosition(toRow, toCol, 1, 1));
+			//			}
 
-						string text = tabs[c];
+			//			string text = tabs[c];
 
-						if (text.StartsWith("\"") && text.EndsWith("\""))
-						{
-							text = text.Substring(1, text.Length - 2);
-						}
+			//			if (text.StartsWith("\"") && text.EndsWith("\""))
+			//			{
+			//				text = text.Substring(1, text.Length - 2);
+			//			}
 
-						SetCellData(toRow, toCol, text);
-					}
+			//			SetCellData(toRow, toCol, text);
+			//		}
 
-					rows++;
-				}
-			}
+			//		rows++;
+			//	}
+			//}
 
-			return new RangePosition(startPos.Row, startPos.Col, rows, cols);
+			object[,] parsedData = RGUtility.ParseTabbedString(content);
+
+			int rows = parsedData.GetLength(0);
+			int cols = parsedData.GetLength(1);
+
+			var range = new RangePosition(startPos.Row, startPos.Col, rows, cols);
+
+			this.SetRangeData(range, parsedData);
+
+			return range;
 		}
 
 		#region Copy
