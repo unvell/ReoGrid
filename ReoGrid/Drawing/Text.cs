@@ -1204,14 +1204,25 @@ namespace unvell.ReoGrid.Drawing.Text
 			var glyphTypeface = this.FontInfo.GlyphTypeface;
 			var size = this.fontSize * 1.33d;
 
+			this.GlyphIndexes.Clear();
 			this.GlyphIndexes.Capacity = text.Length;
 
 			for (int n = 0; n < text.Length; n++)
 			{
-				ushort glyphIndex = glyphTypeface.CharacterToGlyphMap[text[n]];
-				GlyphIndexes.Add(glyphIndex);
+				double width;
 
-				double width = glyphTypeface.AdvanceWidths[glyphIndex] * size;
+				ushort glyphIndex;
+				if (glyphTypeface.CharacterToGlyphMap.TryGetValue(text[n], out glyphIndex))
+				{
+					GlyphIndexes.Add(glyphIndex);
+					width = glyphTypeface.AdvanceWidths[glyphIndex] * size;
+				}
+				else
+				{
+					GlyphIndexes.Add(0);
+					width = 16 * size;
+				}
+
 				this.TextSizes.Add(width);
 			}
 
