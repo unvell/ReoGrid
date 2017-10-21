@@ -2424,6 +2424,13 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 		private static void AddRunIntoRichText(Document doc, RichText rt, Run r)
 		{
+			if (string.IsNullOrEmpty(r.text.innerText))
+			{
+				// FIXME: need support to read single white space XML text
+				//        https://github.com/unvell/ReoGrid/issues/29
+				return;
+			}
+
 			string fontName = null;
 			RGFloat fontSize = 8.5f;
 			SolidColor foreColor = SolidColor.Black;
