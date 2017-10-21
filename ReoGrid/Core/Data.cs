@@ -19,11 +19,9 @@
 #if FORMULA
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using unvell.ReoGrid.Formula;
-using unvell.ReoGrid.Utility;
 
 namespace unvell.ReoGrid
 {
@@ -167,7 +165,11 @@ namespace unvell.ReoGrid
                 return;
             }
 
-            double diff = GetCellsDifference(fromCells);
+            var autoFillSequenceInput = fromCells
+                .Select(cellPosition => this[cellPosition])
+                .ToList();
+            var autoFillSequence = new AutoFillSequence(autoFillSequenceInput);
+            var autoFillExtrapolatedValues = autoFillSequence.Extrapolate(toCells.Count);
 
             for (var toCellIndex = 0; toCellIndex < toCells.Count; toCellIndex++)
             {
@@ -177,61 +179,15 @@ namespace unvell.ReoGrid
                 var toCellPosition = toCells[toCellIndex];
                 var toCell = Cells[toCellPosition];
 
-                if (fromCell == null)
-                {
-                    continue;
-                }
-
-                if (!string.IsNullOrEmpty(fromCell.InnerFormula))
+                if (!string.IsNullOrEmpty(fromCell?.InnerFormula))
                 {
                     FormulaRefactor.Reuse(this, fromCellPosition, new RangePosition(toCellPosition));
                 }
                 else
                 {
-                    double refValue = 0;
-
-                    if (CellUtility.TryGetNumberData(fromCell.Data, out refValue))
-                    {
-                        toCell.Data = refValue + diff * (fromCells.Count + toCellIndex - fromCellIndex);
-                    }
+                    toCell.Data = autoFillExtrapolatedValues[toCellIndex];
                 }
             }
-        }
-
-        private double GetCellsDifference(List<CellPosition> fromCells)
-        {
-            double diff = 1;
-
-            if (fromCells.Count > 1)
-            {
-                for (var i = 0; i < fromCells.Count - 1; i++)
-                {
-                    var cell1 = Cells[fromCells[i]];
-                    var cell2 = Cells[fromCells[i+1]];
-
-                    if (cell1 == null || cell2 == null)
-                    {
-                        continue;
-                    }
-
-                    double value1, value2;
-
-                    if (CellUtility.TryGetNumberData(cell1, out value1) &&
-                        CellUtility.TryGetNumberData(cell2, out value2))
-                    {
-                        if (i == 0)
-                        {
-                            diff = value2 - value1;
-                        }
-                        else
-                        {
-                            diff = (diff + (value2 - value1)) / 2;
-                        }
-                    }
-                }
-            }
-
-            return diff;
         }
     }
 }

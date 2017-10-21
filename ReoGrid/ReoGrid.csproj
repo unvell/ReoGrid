@@ -259,17 +259,24 @@
     <Compile Include="Chart\Title.cs" />
     <Compile Include="Chart\Utility.cs" />
     <Compile Include="Control\Interfaces.cs" />
+    <Compile Include="Core\AutoFillSerial\AutoFillSectionEntryFactory.cs" />
+    <Compile Include="Core\AutoFillSerial\AutoFillSection.cs" />
+    <Compile Include="Core\AutoFillSerial\AutoFillSequence.cs" />
     <Compile Include="Core\Cell\Merge.cs" />
     <Compile Include="Core\Cell\Text.cs" />
     <Compile Include="Core\CSV.cs" />
     <Compile Include="Core\Data.cs" />
     <Compile Include="Core\Drawing.cs" />
     <Compile Include="Core\FilterSort.cs" />
+    <Compile Include="Core\AutoFillSerial\NumericalAutoFillSectionEntry.cs" />
+    <Compile Include="Core\AutoFillSerial\IAutoFillSectionEntry.cs" />
+    <Compile Include="Core\AutoFillSerial\NullAutoFillSectionEntry.cs" />
     <Compile Include="Core\Range\HighlightRange.cs" />
     <Compile Include="Core\Range\Merge.cs" />
     <Compile Include="Core\Position.cs" />
     <Compile Include="Core\Range\NamedRange.cs" />
     <Compile Include="Core\Range\ReferenceRange.cs" />
+    <Compile Include="Core\AutoFillSerial\TextAutoFillSectionEntry.cs" />
     <Compile Include="Core\ViewControl.cs" />
     <Compile Include="Core\Workbook\Appearance.cs" />
     <Compile Include="Core\Workbook\Languages.cs" />
@@ -327,7 +334,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Test\RichTextTestForm.cs" />
+    <Compile Include="Test\RichTextTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Test\RichTextTestForm.Designer.cs">
       <DependentUpon>RichTextTestForm.cs</DependentUpon>
     </Compile>
@@ -399,7 +408,9 @@
     <Compile Include="Views\CellsViewport.cs" />
     <Compile Include="WinForm\Graphics.cs" />
     <Compile Include="Views\NormalViewportController.cs" />
-    <Compile Include="WinForm\FormulaParserForm.cs" />
+    <Compile Include="WinForm\FormulaParserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="WinForm\FormulaParserForm.designer.cs">
       <DependentUpon>FormulaParserForm.cs</DependentUpon>
     </Compile>
