@@ -1,7 +1,7 @@
 @ECHO OFF
 
 SET ERRORLEVEL=0
-SET VER=2.0.2.0
+SET VER=2.1.0.0
 
 REM #SET MSB="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild"
 SET MSB="C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
@@ -164,16 +164,44 @@ XCOPY Editor\Bin\Extension\zh-CN %OUT_DIR%\zh-CN\ /e
 
 ECHO -------------------  WPFExtension -----------------------
 
-SET CFG=WPFExtension
-%MSB% ReoGridWPF.sln %MSB_ARG% /p:Configuration=%CFG%;TargetFrameworkVersion=v3.5,Profile=Client
+SET CFG=Extension
+%MSB% ReoGrid\ReoGrid.csproj %MSB_ARG% /p:Configuration=%CFG%;TargetFrameworkVersion=v3.5,Profile=Client
 
-SET OUT_DIR=%OUT_REPO%\ReoGrid-%VER%-%CFG%
+SET OUT_DIR=%OUT_REPO%\ReoGrid-%VER%-WPF%CFG%
 IF EXIST %OUT_DIR% RMDIR %OUT_DIR% /S /Q
 MKDIR %OUT_DIR%
 COPY ReoGrid\bin\%CFG%\unvell.ReoGrid.dll %OUT_DIR%\
 COPY ReoGrid\bin\%CFG%\unvell.ReoGrid.xml %OUT_DIR%\
 COPY Ref\Antlr3.Runtime.dll %OUT_DIR%\
 COPY Ref\unvell.ReoScript.dll %OUT_DIR%\
+COPY "license*" %OUT_DIR%\
+COPY "README.md" %OUT_DIR%\
+
+
+ECHO -------------------  WPFRelease -----------------------
+
+SET CFG=Release
+%MSB% ReoGrid\ReoGrid.csproj %MSB_ARG% /p:Configuration=%CFG%;TargetFrameworkVersion=v3.5,Profile=Client
+
+SET OUT_DIR=%OUT_REPO%\ReoGrid-%VER%-WPF%CFG%
+IF EXIST %OUT_DIR% RMDIR %OUT_DIR% /S /Q
+MKDIR %OUT_DIR%
+COPY ReoGrid\bin\%CFG%\unvell.ReoGrid.dll %OUT_DIR%\
+COPY ReoGrid\bin\%CFG%\unvell.ReoGrid.xml %OUT_DIR%\
+COPY "license*" %OUT_DIR%\
+COPY "README.md" %OUT_DIR%\
+
+
+ECHO -------------------  WPFMinimum -----------------------
+
+SET CFG=Minimum
+%MSB% ReoGrid\ReoGrid.csproj %MSB_ARG% /p:Configuration=%CFG%;TargetFrameworkVersion=v3.5,Profile=Client
+
+SET OUT_DIR=%OUT_REPO%\ReoGrid-%VER%-WPF%CFG%
+IF EXIST %OUT_DIR% RMDIR %OUT_DIR% /S /Q
+MKDIR %OUT_DIR%
+COPY ReoGrid\bin\%CFG%\unvell.ReoGrid.dll %OUT_DIR%\
+COPY ReoGrid\bin\%CFG%\unvell.ReoGrid.xml %OUT_DIR%\
 COPY "license*" %OUT_DIR%\
 COPY "README.md" %OUT_DIR%\
 
@@ -219,13 +247,13 @@ ECHO ----------------- Demo Source Ja ---------------------
 IF EXIST %OUT_FILE% del %OUT_FILE%
 %ZIP% a -tzip %OUT_FILE% ..\DemoJP ..\Readme.md ..\license* ..\DemoJP.sln -xr!?svn\* -xr!?.vs\* -xr!?*.user
 
-REM @SET OUT_FILE=ReoGrid-%VER%-Demo-Binary.zip
-REM IF EXIST %OUT_FILE% del %OUT_FILE%
-REM %ZIP% a -tzip %OUT_FILE% ReoGrid-%VER%-Demo-Binary
+@SET OUT_FILE=ReoGrid-%VER%-Demo-Binary.zip
+IF EXIST %OUT_FILE% del %OUT_FILE%
+%ZIP% a -tzip %OUT_FILE% ReoGrid-%VER%-Demo-Binary\
 
-REM @SET OUT_FILE=ReoGrid-%VER%-DemoWPF-Binary.zip
-REM IF EXIST %OUT_FILE% del %OUT_FILE%
-REM %ZIP% a -tzip %OUT_FILE% ReoGrid-%VER%-WPFDemo-Binary
+@SET OUT_FILE=ReoGrid-%VER%-DemoWPF-Binary.zip
+IF EXIST %OUT_FILE% del %OUT_FILE%
+%ZIP% a -tzip %OUT_FILE% ReoGrid-%VER%-WPFDemo-Binary\
 
 ECHO ----------------- Demo WPF Source ---------------------
 @SET OUT_FILE=ReoGrid-%VER%-WPFDemo-Source.zip
@@ -245,7 +273,7 @@ SET OUT_PKG_NAME=ReoGrid-%VER%-All-Packages.zip
  ReoGrid-%VER%-Extension ^
  ReoGrid-%VER%-WPFExtension ^
  ReoGrid-%VER%-Demo-Source.zip ^
- ReoGrid-%VER%-WPFDemo-Source.zip 
+ ReoGrid-%VER%-WPFDemo-Source.zip
 
 ECHO ----------------- All Packages Ja ---------------------
 SET OUT_PKG_NAME=ReoGrid-%VER%-All-Packages-Ja.zip
