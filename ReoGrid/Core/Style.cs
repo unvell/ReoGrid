@@ -410,7 +410,7 @@ namespace unvell.ReoGrid
 					| PlainStyleFlag.VerticalAlign
 					| PlainStyleFlag.TextWrap
 					| PlainStyleFlag.Indent
-					| PlainStyleFlag.RotateAngle))
+					| PlainStyleFlag.RotationAngle))
 				{
 					UpdateCellTextBounds(cell);
 				}
@@ -1260,10 +1260,12 @@ namespace unvell.ReoGrid
 		/// </summary>
 		Padding = 0x800000,
 
+		[Obsolete("use RotationAngle instead")]
+		RotateAngle = RotationAngle,
 		/// <summary>
-		/// Rotation angle for cell text (0.8.8 Reserved)
+		/// Rotation angle for cell text
 		/// </summary>
-		RotateAngle = 0x1000000,
+		RotationAngle = 0x1000000,
 
 		/// <summary>
 		/// [Union flag] All flags of font style
@@ -1284,7 +1286,7 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// [Union flag] All layout styles (Text-wrap, padding and angle)
 		/// </summary>
-		LayoutAll = TextWrap | Padding | RotateAngle,
+		LayoutAll = TextWrap | Padding | RotationAngle,
 
 		/// <summary>
 		/// [Union flag] Both horizontal and vertical alignments
@@ -1580,10 +1582,16 @@ namespace unvell.ReoGrid
 		/// </summary>
 		public PaddingValue Padding { get; set; }
 
+		[Obsolete("use RotationAngle instead")]
 		/// <summary>
 		/// Get or set rotate angle.
 		/// </summary>
 		public int RotateAngle { get; set; }
+
+		/// <summary>
+		/// Get or set rotate angle.
+		/// </summary>
+		public float RotationAngle { get; set; }
 
 		/// <summary>
 		/// Create an empty style set.
@@ -1663,8 +1671,8 @@ namespace unvell.ReoGrid
 				&& this.Indent != s2.Indent) return false;
 			if ((this.Flag & PlainStyleFlag.Padding) == PlainStyleFlag.Padding
 				&& this.Padding != s2.Padding) return false;
-			if ((this.Flag & PlainStyleFlag.RotateAngle) == PlainStyleFlag.RotateAngle
-				&& this.RotateAngle != s2.RotateAngle) return false;
+			if ((this.Flag & PlainStyleFlag.RotationAngle) == PlainStyleFlag.RotationAngle
+				&& this.RotationAngle != s2.RotationAngle) return false;
 
 			return true;
 		}
@@ -1767,7 +1775,7 @@ namespace unvell.ReoGrid
 				case PlainStyleFlag.FontStyleStrikethrough: style.Strikethrough = (bool)(object)value; break;
 				case PlainStyleFlag.HorizontalAlign: style.HAlign = (ReoGridHorAlign)(object)value; break;
 				case PlainStyleFlag.VerticalAlign: style.VAlign = (ReoGridVerAlign)(object)value; break;
-				case PlainStyleFlag.RotateAngle: style.RotateAngle = (int)(object)value; break;
+				case PlainStyleFlag.RotationAngle: style.RotationAngle = (int)(object)value; break;
 			}
 
 			this.Worksheet.SetRangeStyles(row, col, rows, cols, style);
@@ -2873,23 +2881,30 @@ namespace unvell.ReoGrid
 			}
 		}
 
+		[Obsolete("use RotationAngle instead")]
+		public int RotateAngle
+		{
+			get { return (int)this.RotationAngle; }
+			set { this.RotationAngle = value; }
+		}
+
 		/// <summary>
 		/// Get or set text rotation angle. (-90° ~ 90°)
 		/// </summary>
-		public int RotateAngle
+		public float RotationAngle
 		{
 			get
 			{
 				CheckReferenceValidity();
-				return this.Cell.InnerStyle.RotateAngle;
+				return this.Cell.InnerStyle.RotationAngle;
 			}
 			set
 			{
 				CheckReferenceValidity();
 				this.Worksheet.SetCellStyleOwn(this.Cell, new WorksheetRangeStyle
 				{
-					Flag = PlainStyleFlag.RotateAngle,
-					RotateAngle = value,
+					Flag = PlainStyleFlag.RotationAngle,
+					RotationAngle = value,
 				});
 			}
 		}

@@ -122,10 +122,10 @@ namespace unvell.ReoGrid.Utility
 				distinctedFlag &= ~PlainStyleFlag.Padding;
 			}
 
-			if (StyleUtility.HasStyle(style, PlainStyleFlag.RotateAngle)
-				&& style.RotateAngle == referStyle.RotateAngle)
+			if (StyleUtility.HasStyle(style, PlainStyleFlag.RotationAngle)
+				&& style.RotationAngle == referStyle.RotationAngle)
 			{
-				distinctedFlag &= ~PlainStyleFlag.RotateAngle;
+				distinctedFlag &= ~PlainStyleFlag.RotationAngle;
 			}
 
 			return distinctedFlag;
@@ -236,8 +236,8 @@ namespace unvell.ReoGrid.Utility
 			if ((flag & PlainStyleFlag.Padding) == PlainStyleFlag.Padding)
 				targetStyle.Padding = sourceStyle.Padding;
 
-			if ((flag & PlainStyleFlag.RotateAngle) == PlainStyleFlag.RotateAngle)
-				targetStyle.RotateAngle = sourceStyle.RotateAngle;
+			if ((flag & PlainStyleFlag.RotationAngle) == PlainStyleFlag.RotationAngle)
+				targetStyle.RotationAngle = sourceStyle.RotationAngle;
 
 			targetStyle.Flag |= flag;
 		}
@@ -327,10 +327,10 @@ namespace unvell.ReoGrid.Utility
 			else if ((flag2 & PlainStyleFlag.Padding) == PlainStyleFlag.Padding)
 				style.Padding = style2.Padding;
 
-			if ((flag1 & PlainStyleFlag.RotateAngle) == PlainStyleFlag.RotateAngle)
-				style.RotateAngle = style1.RotateAngle;
-			else if ((flag2 & PlainStyleFlag.RotateAngle) == PlainStyleFlag.RotateAngle)
-				style.RotateAngle = style2.RotateAngle;
+			if ((flag1 & PlainStyleFlag.RotationAngle) == PlainStyleFlag.RotationAngle)
+				style.RotationAngle = style1.RotationAngle;
+			else if ((flag2 & PlainStyleFlag.RotationAngle) == PlainStyleFlag.RotationAngle)
+				style.RotationAngle = style2.RotationAngle;
 
 			return style;
 		}
@@ -432,8 +432,8 @@ namespace unvell.ReoGrid.Utility
 				xmlStyle.indent = style.Indent.ToString();
 			if (StyleUtility.HasStyle(style, PlainStyleFlag.Padding))
 				xmlStyle.padding = TextFormatHelper.EncodePadding(style.Padding);
-			if (StyleUtility.HasStyle(style, PlainStyleFlag.RotateAngle))
-				xmlStyle.rotateAngle = style.RotateAngle.ToString();
+			if (StyleUtility.HasStyle(style, PlainStyleFlag.RotationAngle))
+				xmlStyle.rotateAngle = style.RotationAngle.ToString();
 
 			return xmlStyle;
 		}
@@ -562,8 +562,8 @@ namespace unvell.ReoGrid.Utility
 			if (!string.IsNullOrEmpty(xmlStyle.rotateAngle) 
 				&& int.TryParse(xmlStyle.rotateAngle, out angle))
 			{
-				style.Flag |= PlainStyleFlag.RotateAngle;
-				style.RotateAngle = angle;
+				style.Flag |= PlainStyleFlag.RotationAngle;
+				style.RotationAngle = angle;
 			}
 
 			return style;
@@ -655,8 +655,8 @@ namespace unvell.ReoGrid.Utility
 				&& styleA.Padding != styleB.Padding)
 				return false;
 
-			if (styleA.HasStyle(PlainStyleFlag.RotateAngle)
-				&& styleA.RotateAngle != styleB.RotateAngle)
+			if (styleA.HasStyle(PlainStyleFlag.RotationAngle)
+				&& styleA.RotationAngle != styleB.RotationAngle)
 				return false;
 
 			return true;
@@ -687,7 +687,7 @@ namespace unvell.ReoGrid.Utility
 				case PlainStyleFlag.TextWrap: return style.TextWrapMode;
 				case PlainStyleFlag.Indent: return style.Indent;
 				case PlainStyleFlag.Padding: return style.Padding;
-				case PlainStyleFlag.RotateAngle: return style.RotateAngle;
+				case PlainStyleFlag.RotationAngle: return style.RotationAngle;
 
 				default: return null;
 			}

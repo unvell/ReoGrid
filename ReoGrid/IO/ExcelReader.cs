@@ -1228,11 +1228,11 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 					if (int.TryParse(style.alignment.textRotation, out angle))
 					{
-						styleset.Flag |= PlainStyleFlag.RotateAngle;
+						styleset.Flag |= PlainStyleFlag.RotationAngle;
 
 						if (angle > 90) angle = 90 - angle;
 
-						styleset.RotateAngle = angle;
+						styleset.RotationAngle = angle;
 					}
 				}
 			}

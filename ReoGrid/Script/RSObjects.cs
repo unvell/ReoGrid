@@ -614,7 +614,7 @@ namespace unvell.ReoGrid.Script
 							Flag = PlainStyleFlag.BackColor,
 							BackColor = color,
 						});
-						
+
 						this.sheet.RequestInvalidate();
 					}
 				});
@@ -632,16 +632,16 @@ namespace unvell.ReoGrid.Script
 							Flag = PlainStyleFlag.TextColor,
 							TextColor = color,
 						});
-				
+
 						this.sheet.RequestInvalidate();
 					}
 				});
 
-			this["fontName"] = new ExternalProperty(() => cell.Style.FontName, 
+			this["fontName"] = new ExternalProperty(() => cell.Style.FontName,
 				(v) => cell.Style.FontName = ScriptRunningMachine.ConvertToString(v));
 
 			this["fontSize"] = new ExternalProperty(
-				() => cell.Style.FontSize, 
+				() => cell.Style.FontSize,
 				(v) => cell.Style.FontSize = TextFormatHelper.GetFloatPixelValue(ScriptRunningMachine.ConvertToString(v),
 					System.Drawing.SystemFonts.DefaultFont.Size));
 
@@ -666,6 +666,19 @@ namespace unvell.ReoGrid.Script
 					{
 						Flag = PlainStyleFlag.VerticalAlign,
 						VAlign = XmlFileFormatHelper.DecodeVerticalAlign(ScriptRunningMachine.ConvertToString(v)),
+					});
+
+					this.sheet.RequestInvalidate();
+				});
+
+			this["rotationAngle"] = new ExternalProperty(
+				() => cell.Style.VAlign,
+				(v) =>
+				{
+					this.sheet.SetCellStyleOwn(cell.InternalPos, new WorksheetRangeStyle
+					{
+						Flag = PlainStyleFlag.RotationAngle,
+						RotationAngle = ScriptRunningMachine.GetFloatValue(v),
 					});
 
 					this.sheet.RequestInvalidate();
