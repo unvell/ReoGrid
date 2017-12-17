@@ -1586,6 +1586,11 @@ namespace unvell.ReoGrid
 		public int RotateAngle { get; set; }
 
 		/// <summary>
+		/// Get or set rotate angle.
+		/// </summary>
+		public float RotationAngle { get; set; }
+
+		/// <summary>
 		/// Create an empty style set.
 		/// </summary>
 		public WorksheetRangeStyle() { }
@@ -2876,20 +2881,20 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Get or set text rotation angle. (-90° ~ 90°)
 		/// </summary>
-		public int RotateAngle
+		public float RotationAngle
 		{
 			get
 			{
 				CheckReferenceValidity();
-				return this.Cell.InnerStyle.RotateAngle;
+				return this.Cell.InnerStyle.RotationAngle;
 			}
 			set
 			{
 				CheckReferenceValidity();
 				this.Worksheet.SetCellStyleOwn(this.Cell, new WorksheetRangeStyle
 				{
-					Flag = PlainStyleFlag.RotateAngle,
-					RotateAngle = value,
+					Flag = PlainStyleFlag.RotationAngle,
+					RotationAngle = value,
 				});
 			}
 		}
