@@ -999,7 +999,7 @@ namespace unvell.ReoGrid
 						this.InnerDisplay = null;
 #if DEBUG
 						Logger.Log("cell", "Cell not attached to any worksheet: {0}", this.Position.ToAddress());
-#endif
+#endif // DEBUG
 					}
 					else
 					{
@@ -1014,9 +1014,9 @@ namespace unvell.ReoGrid
 							this.worksheet.SetCellFormula(this, value);
 							this.worksheet.RecalcCell(this);
 						}
-#else
+#else // FORMULA
 						this.worksheet.SetSingleCellData(this, value);
-#endif
+#endif // FORMULA
 					}
 				}
 			}
@@ -1037,7 +1037,7 @@ namespace unvell.ReoGrid
 
 #if DEBUG
 		private static int _count;
-#endif
+#endif // DEBUG
 
 		internal void CreateOwnStyle()
 		{
@@ -1050,7 +1050,7 @@ namespace unvell.ReoGrid
 			{
 				unvell.Common.Logger.Log("style", "new style created, count: " + _count);
 			}
-#endif
+#endif // DEBUG
 		}
 
 		[NonSerialized]
