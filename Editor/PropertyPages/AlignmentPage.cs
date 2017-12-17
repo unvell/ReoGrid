@@ -94,7 +94,7 @@ namespace unvell.ReoGrid.Editor.PropertyPages
 		private ReoGridHorAlign backupHorAlign;
 		private ReoGridVerAlign backupVerAlign;
 		private ushort backupIndent = 0;
-		private int backupRotateAngle = 0;
+		private float backupRotateAngle = 0;
 
 		public void LoadPage()
 		{
@@ -148,14 +148,14 @@ namespace unvell.ReoGrid.Editor.PropertyPages
 
 			// cell text rotate
 
-			var angle = style.RotateAngle;
+			var angle = style.RotationAngle;
 
 			if (angle < -90) angle = -90;
 			if (angle > 90) angle = 90;
 
 			backupRotateAngle = angle;
-			textRotateControl.Angle = angle;
-			numRotationAngle.Value = angle;
+			textRotateControl.Angle = (int)angle;
+			numRotationAngle.Value = (int)angle;
 		}
 
 		public WorksheetReusableAction CreateUpdateAction()
@@ -218,8 +218,8 @@ namespace unvell.ReoGrid.Editor.PropertyPages
 
 			if (backupRotateAngle != textRotateControl.Angle)
 			{
-				style.RotateAngle = textRotateControl.Angle;
-				style.Flag |= PlainStyleFlag.RotateAngle;
+				style.RotationAngle = textRotateControl.Angle;
+				style.Flag |= PlainStyleFlag.RotationAngle;
 			}
 
 			return style.Flag == PlainStyleFlag.None ? null : new SetRangeStyleAction(grid.CurrentWorksheet.SelectionRange, style);

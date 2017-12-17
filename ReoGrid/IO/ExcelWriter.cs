@@ -620,8 +620,8 @@ namespace unvell.ReoGrid.IO.OpenXML
 					textWrap = true;
 				}
 
-				if ((rgStyle.Flag & PlainStyleFlag.RotateAngle) == PlainStyleFlag.RotateAngle
-					&& rgStyle.RotateAngle != 0)
+				if ((rgStyle.Flag & PlainStyleFlag.RotationAngle) == PlainStyleFlag.RotationAngle
+					&& rgStyle.RotationAngle != 0)
 				{
 					textRotate = true;
 				}
@@ -644,7 +644,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 				&& ((textWrap && s.alignment != null && s.alignment.wrapText == "1")
 				|| (!textWrap && (s.alignment == null || s.alignment.wrapText == null)))
 
-				&& ((textRotate && s.alignment != null && s.alignment._rotateAngle == (int)rgStyle.RotateAngle)
+				&& ((textRotate && s.alignment != null && s.alignment._rotateAngle == (int)rgStyle.RotationAngle)
 				|| (!textRotate && (s.alignment == null || s.alignment.textRotation == null)))
 
 				);
@@ -691,8 +691,8 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 				if (textRotate)
 				{
-					align._rotateAngle = rgStyle.RotateAngle;
-					align.textRotation = (rgStyle.RotateAngle < 0 ? Math.Abs(rgStyle.RotateAngle - 90) : rgStyle.RotateAngle).ToString();
+					align._rotateAngle = (int)rgStyle.RotationAngle;
+					align.textRotation = (rgStyle.RotationAngle < 0 ? Math.Abs(rgStyle.RotationAngle - 90) : rgStyle.RotationAngle).ToString();
 				}
 
 				style.applyAlignment = "true";

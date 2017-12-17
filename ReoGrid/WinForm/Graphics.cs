@@ -713,7 +713,7 @@ namespace unvell.ReoGrid.WinForm
 				var g = base.PlatformGraphics;
 
 				#region Rotate text
-				if (cell.InnerStyle.RotateAngle != 0)
+				if (cell.InnerStyle.RotationAngle != 0)
 				{
 #if DEBUG1
 					g.DrawRectangle(Pens.Red, (System.Drawing.Rectangle)textBounds);
@@ -722,7 +722,7 @@ namespace unvell.ReoGrid.WinForm
 					this.PushTransform();
 
 					this.TranslateTransform(textBounds.OriginX, textBounds.OriginY);
-					this.RotateTransform(-cell.InnerStyle.RotateAngle);
+					this.RotateTransform(-cell.InnerStyle.RotationAngle);
 
 					sf.LineAlignment = StringAlignment.Center;
 					sf.Alignment = StringAlignment.Center;
@@ -815,9 +815,9 @@ namespace unvell.ReoGrid.WinForm
 
 			//if (sf == null) sf = new System.Drawing.StringFormat(System.Drawing.StringFormat.GenericTypographic);
 
-			if (cell.Style.RotateAngle != 0)
+			if (cell.Style.RotationAngle != 0)
 			{
-				double d = (style.RotateAngle * Math.PI / 180.0d);
+				double d = (style.RotationAngle * Math.PI / 180.0d);
 				s = Math.Sin(d);
 				c = Math.Cos(d);
 			}
@@ -836,7 +836,7 @@ namespace unvell.ReoGrid.WinForm
 					// get cell available width
 					float cellWidth = 0;
 
-					if (cell.Style.RotateAngle != 0)
+					if (cell.Style.RotationAngle != 0)
 					{
 						cellWidth = (float)(Math.Abs(cell.Bounds.Width * c) + Math.Abs(cell.Bounds.Height * s));
 					}
@@ -888,7 +888,7 @@ namespace unvell.ReoGrid.WinForm
 				SizeF size = g.MeasureString(cell.DisplayText, scaledFont, fieldWidth, sf);
 				size.Height++;
 
-				if (style.RotateAngle != 0)
+				if (style.RotationAngle != 0)
 				{
 					float w = (float)(Math.Abs(size.Width * c) + Math.Abs(size.Height * s));
 					float h = (float)(Math.Abs(size.Width * s) + Math.Abs(size.Height * c));
