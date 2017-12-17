@@ -1,5 +1,5 @@
 
-SET VER=2.0.1.0
+SET VER=2.1.0.0
 
 SET MSB="C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
 SET MSB_ARG=/tv:14.0 /t:Build
