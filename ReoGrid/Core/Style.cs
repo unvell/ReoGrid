@@ -1580,6 +1580,7 @@ namespace unvell.ReoGrid
 		/// </summary>
 		public PaddingValue Padding { get; set; }
 
+		[Obsolete("use RotationAngle instead")]
 		/// <summary>
 		/// Get or set rotate angle.
 		/// </summary>
@@ -2876,6 +2877,13 @@ namespace unvell.ReoGrid
 					Padding = value,
 				});
 			}
+		}
+
+		[Obsolete("use RotationAngle instead")]
+		public int RotateAngle
+		{
+			get { return (int)this.RotationAngle; }
+			set { this.RotationAngle = value; }
 		}
 
 		/// <summary>
