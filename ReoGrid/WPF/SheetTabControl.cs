@@ -618,11 +618,7 @@ namespace unvell.ReoGrid.WPF
 				// split border
 				if (index > 0)
 				{
-					//var prevTab = this.owner.canvas.Children[index - 1] as SheetTabItem;
-					//if (prevTab == null || !prevTab.IsSelected)
-					{
-						g.DrawLine(new Pen(SystemColors.ControlDarkDarkBrush, 1), new Point(0, 2), new Point(0, bottom - 2));
-					}
+					g.DrawLine(new Pen(SystemColors.ControlDarkDarkBrush, 1), new Point(0, 2), new Point(0, bottom - 2));
 				}
 
 				// top border
