@@ -761,7 +761,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 				doc.SharedStrings = doc.CreateSharedStrings();
 			}
 
-			var id = doc.SharedStrings.items.FindIndex(s => s.text.val == str);
+			var id = doc.SharedStrings.items.FindIndex(s => s.text != null && s.text.val == str);
 
 			if (id < 0)
 			{
