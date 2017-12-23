@@ -369,26 +369,7 @@ namespace unvell.ReoGrid.WPF
 
 			Grid.SetColumn(tab, index);
 
-			tab.MouseDown += (s, e) =>
-			{
-				var arg = new SheetTabMouseEventArgs()
-				{
-					Handled = false,
-					Location = e.GetPosition(this),
-					Index = index,
-					MouseButtons = WPFUtility.ConvertToUIMouseButtons(e),
-				};
-
-				if (this.TabMouseDown != null)
-				{
-					this.TabMouseDown(this, arg);
-				}
-
-				if (!arg.Handled)
-				{
-					this.SelectedIndex = index;
-				}
-			};
+			tab.MouseDown += Tab_MouseDown;
 
 			if (this.canvas.Children.Count == 1)
 			{
@@ -396,10 +377,42 @@ namespace unvell.ReoGrid.WPF
 			}
 		}
 
+		private void Tab_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+		{
+			var index = this.canvas.Children.IndexOf((UIElement)sender);
+
+			var arg = new SheetTabMouseEventArgs()
+			{
+				Handled = false,
+				Location = e.GetPosition(this),
+				Index = index,
+				MouseButtons = WPFUtility.ConvertToUIMouseButtons(e),
+			};
+
+			if (this.TabMouseDown != null)
+			{
+				this.TabMouseDown(this, arg);
+			}
+
+			if (!arg.Handled)
+			{
+				this.SelectedIndex = index;
+			}
+		}
+
 		public void RemoveTab(int index)
 		{
+			var tab = (SheetTabItem)this.canvas.Children[index];
+
 			this.canvas.Children.RemoveAt(index);
 			this.canvas.ColumnDefinitions.RemoveAt(index);
+
+			for (int i = index; i < this.canvas.Children.Count; i++)
+			{
+				Grid.SetColumn(this.canvas.Children[i], i);
+			}
+
+			this.canvas.Width -= tab.Width;
 		}
 
 		public void UpdateTab(int index, string title
@@ -615,7 +628,7 @@ namespace unvell.ReoGrid.WPF
 					null, new Rect(0, 0, right, bottom));
 
 				int index = this.owner.canvas.Children.IndexOf(this);
-				// split border
+
 				if (index > 0)
 				{
 					g.DrawLine(new Pen(SystemColors.ControlDarkDarkBrush, 1), new Point(0, 2), new Point(0, bottom - 2));
