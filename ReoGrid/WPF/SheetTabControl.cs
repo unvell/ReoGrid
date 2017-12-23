@@ -362,8 +362,8 @@ namespace unvell.ReoGrid.WPF
 				Height = this.canvas.Height,
 			};
 
-			this.canvas.Width += tab.Width+1;
-			this.canvas.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(tab.Width+1) });
+			this.canvas.Width += tab.Width + 1;
+			this.canvas.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(tab.Width + 1) });
 
 			this.canvas.Children.Add(tab);
 
@@ -572,8 +572,8 @@ namespace unvell.ReoGrid.WPF
 
 		private GuidelineSet gls = new GuidelineSet();
 
-		public Color BackColor {get;set;}
-		public Color TextColor {get;set;}
+		public Color BackColor { get; set; }
+		public Color TextColor { get; set; }
 
 		protected override void OnRender(DrawingContext drawingContext)
 		{
@@ -598,7 +598,7 @@ namespace unvell.ReoGrid.WPF
 			if (IsSelected)
 			{
 				g.DrawRectangle(
-					this.BackColor.A>0 ? new SolidColorBrush(this.BackColor) : Brushes.White, 
+					this.BackColor.A > 0 ? new SolidColorBrush(this.BackColor) : Brushes.White,
 					null, new Rect(0, 0, right, bottom));
 
 				g.DrawLine(p, new Point(0, 0), new Point(0, bottom));
@@ -611,7 +611,7 @@ namespace unvell.ReoGrid.WPF
 			else
 			{
 				g.DrawRectangle(
-					this.BackColor.A > 0 ? new SolidColorBrush(this.BackColor) : SystemColors.ControlBrush, 
+					this.BackColor.A > 0 ? new SolidColorBrush(this.BackColor) : SystemColors.ControlBrush,
 					null, new Rect(0, 0, right, bottom));
 
 				int index = this.owner.canvas.Children.IndexOf(this);
