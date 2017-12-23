@@ -37,7 +37,7 @@ namespace unvell.ReoGrid
 #if DEBUG
 			Stopwatch sw = Stopwatch.StartNew();
 			Debug.WriteLine("start creating worksheet...");
-#endif
+#endif // DEBUG
 
 			this.SuspendUIUpdates();
 
@@ -103,7 +103,7 @@ namespace unvell.ReoGrid
 			{
 				Debug.WriteLine("creating worksheet done: " + ms + " ms.");
 			}
-#endif
+#endif // DEBUG
 		}
 
 		internal void Clear()

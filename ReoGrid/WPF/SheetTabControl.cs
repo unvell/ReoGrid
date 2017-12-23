@@ -549,9 +549,9 @@ namespace unvell.ReoGrid.WPF
 		{
 			this.owner = owner;
 
-			SnapsToDevicePixels = true;
+			this.SnapsToDevicePixels = true;
 
-			ChangeTitle(title);
+			this.ChangeTitle(title);
 		}
 
 		public void ChangeTitle(string title)
@@ -566,8 +566,8 @@ namespace unvell.ReoGrid.WPF
 
 			label.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
 
-			Child = label;
-			Width = label.DesiredSize.Width + 9;
+			this.Child = label;
+			this.Width = label.DesiredSize.Width + 9;
 		}
 
 		private GuidelineSet gls = new GuidelineSet();
