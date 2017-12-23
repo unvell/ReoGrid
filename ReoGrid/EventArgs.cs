@@ -657,7 +657,7 @@ namespace unvell.ReoGrid.Events
 	/// <summary>
 	/// Argument for event that will be raised when columns width is changed.
 	/// </summary>
-	public class RowsHeightChangedEventArgs : WorksheetColumnsEventArgs
+	public class RowsHeightChangedEventArgs : WorksheetRowsEventArgs
 	{
 		/// <summary>
 		/// The new height that has been changed for rows.
