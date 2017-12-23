@@ -392,7 +392,7 @@ namespace unvell.ReoGrid
 		public bool RemoveWorksheet(int index)
 		{
 			if (index < 0 || index >= this.worksheets.Count)
-				throw new ArgumentNullException("index");
+				throw new ArgumentOutOfRangeException("index");
 
 			if (this.sheetTab != null)
 			{
