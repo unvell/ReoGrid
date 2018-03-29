@@ -874,20 +874,18 @@ namespace unvell.ReoGrid.Formula
 			{
 				FormulaValue val = Evaluator.Evaluate(cell, node);
 
-				if (val.type == FormulaValueType.Boolean)
-				{
-					if ((bool)val.value == true)
-					{
+				if (val.type == FormulaValueType.Boolean) {
+					if (( bool ) val.value == true) {
 						return true;
 					}
-				}
-				else if (val.type == FormulaValueType.Number)
-				{
-					return ((double)val.value != 0);
+				} else if (val.type == FormulaValueType.Number) {
+					return ( ( double ) val.value != 0 );
+				} else {
+					throw new FormulaTypeMismatchException ( cell );
 				}
 			}
-
-			throw new FormulaTypeMismatchException(cell);
+			return false; // for return false when use OR(FALSE,FALSE)
+			
 		}
 		#endregion // OR
 

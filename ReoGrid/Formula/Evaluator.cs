@@ -1041,6 +1041,9 @@ namespace unvell.ReoGrid.Formula
 
 			var val = Evaluator.Evaluate(cell, argNodes[0]);
 
+			// Return empty string if val.type == Nil and type = String
+			if (type == FormulaValueType.String && val.type == FormulaValueType.Nil) return "";
+
 			// given value type does not meet function's requirement
 			if (val.type != type)
 			{
