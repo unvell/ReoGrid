@@ -884,16 +884,16 @@ namespace unvell.ReoGrid.Views
 
 			if ((dir & ScrollDirection.Horizontal) == ScrollDirection.Horizontal)
 			{
-				if (scrollHorValue + x > scrollHorMax - scrollHorLarge)
-					x = scrollHorMax - scrollHorLarge - scrollHorValue;
+				if (scrollHorValue + x > scrollHorMax)
+					x = scrollHorMax - scrollHorValue;
 				if (scrollHorValue + x < scrollHorMin)
 					x = scrollHorMin - scrollHorValue;
 			}
 
 			if ((dir & ScrollDirection.Vertical) == ScrollDirection.Vertical)
 			{
-				if (scrollVerValue + y > scrollVerMax - scrollVerLarge)
-					y = scrollVerMax - scrollVerLarge - scrollVerValue;
+				if (scrollVerValue + y > scrollVerMax)
+					y = scrollVerMax - scrollVerValue;
 				if (scrollVerValue + y < scrollVerMin)
 					y = scrollVerMin - scrollVerValue;
 			}
@@ -1079,25 +1079,25 @@ namespace unvell.ReoGrid.Views
 
 			if (worksheet.cols.Count > 0)
 			{
-				width = worksheet.cols[worksheet.cols.Count - 1].Right + mainViewport.Width - mainViewport.Width / scale + 1;
+				width = worksheet.cols[worksheet.cols.Count - 1].Right + -mainViewport.Width;
 			}
 
 			if (worksheet.rows.Count > 0)
 			{
-				height = worksheet.rows[worksheet.rows.Count - 1].Bottom + mainViewport.Height - mainViewport.Height / scale + 1;
+				height = worksheet.rows[worksheet.rows.Count - 1].Bottom + -mainViewport.Height;
 			}
 
-			if (this.worksheet.controlAdapter != null
-				&& this.worksheet.controlAdapter.ControlInstance != null
-				&& this.worksheet.controlAdapter.ControlInstance.ShowScrollEndSpacing
-				&& this.worksheet.FreezeArea == FreezeArea.None)
-			{
-				width += 100 / scale;
-				height += 100 / scale;
-			}
+			//if (this.worksheet.controlAdapter != null
+			//	&& this.worksheet.controlAdapter.ControlInstance != null
+			//	&& this.worksheet.controlAdapter.ControlInstance.ShowScrollEndSpacing
+			//	&& this.worksheet.FreezeArea == FreezeArea.None)
+			//{
+			//	width += 100 / scale;
+			//	height += 100 / scale;
+			//}
 
-			int maxHorizontal = (int)(Math.Round(width + this.mainViewport.Left));
-			int maxVertical = Math.Max(0, (int)(Math.Round(height + this.mainViewport.Top)));
+			int maxHorizontal = (int)(Math.Round(width));
+			int maxVertical = Math.Max(0, (int)(Math.Round(height)));
 
 #if WINFORM || ANDROID
 			int offHor = maxHorizontal - this.scrollHorMax;
