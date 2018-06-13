@@ -365,6 +365,11 @@ namespace unvell.ReoGrid.Rendering
 
 		Matrix IGraphics.PopTransform()
 		{
+			return this.PopTransformSelf();
+		}
+
+		public Matrix PopTransformSelf()
+		{
 			this.g.Pop();
 			return this.transformStack.Pop().Matrix;
 		}
@@ -551,8 +556,30 @@ namespace unvell.ReoGrid.Rendering
 			//{
 			//	sheet.UpdateCellFont(cell);
 			//}
+			var textBounds = cell.TextBounds;
+		
+			#region Rotate text
+			if (cell.InnerStyle.RotationAngle != 0)
+			{
 
-			this.PlatformGraphics.DrawText(cell.formattedText, cell.TextBounds.Location);
+#if DEBUG1
+					g.DrawRectangle(Pens.Red, (System.Drawing.Rectangle)textBounds);
+#endif // DEBUG
+
+				this.PushTransform();
+
+				this.TranslateTransform(textBounds.OriginX, textBounds.OriginY);
+				this.RotateTransform(-cell.InnerStyle.RotationAngle);
+
+				this.PlatformGraphics.DrawText(cell.formattedText, textBounds.Location);
+
+				this.PopTransformSelf();
+			}
+			else
+			#endregion // Rotate text
+			{
+				this.PlatformGraphics.DrawText(cell.formattedText, textBounds.Location);
+			}
 		}
 
 		public void UpdateCellRenderFont(Cell cell, Core.UpdateFontReason reason)

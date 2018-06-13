@@ -36,6 +36,8 @@ namespace unvell.ReoGrid.WPFDemo
 
 			// add demo sheet 3: cell types
 			AddDemoSheet3();
+
+			AddDemoSheet4();
 		}
 
 		private void UpdateMenuChecks()
@@ -282,6 +284,18 @@ namespace unvell.ReoGrid.WPFDemo
 			sheet[19, 0] = text;
 		}
 		#endregion // Demo Sheet 3 : Built-in Cell Types
+
+		#region Demo Sheet 4 : Cell Styles
+		private void AddDemoSheet4()
+		{
+			/****************** Sheet3 : Built-in Cell Types ********************/
+			var sheet = grid.NewWorksheet("Cell Styles");
+
+			var cell = sheet.Cells["A3"];
+			cell.Data = "Hello";
+			cell.Style.RotationAngle = 90;
+		}
+		#endregion // Demo Sheet 4 : Cell Styles
 
 		#region Menu - File
 		private void File_New_Click(object sender, RoutedEventArgs e)
