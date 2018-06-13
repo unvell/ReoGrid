@@ -518,7 +518,15 @@ namespace unvell.ReoGrid.PropertyPages
 
 			public override string ToString()
 			{
-				return string.Format("{0} ({1})", this.Culture.EnglishName, this.Culture.NumberFormat.CurrencySymbol);
+				// some cultures doesn't have currency symbol
+				try
+				{
+					return string.Format("{0} ({1})", this.Culture.EnglishName, this.Culture.NumberFormat.CurrencySymbol);
+				}
+				catch
+				{
+					return Culture.EnglishName;
+				}
       }
 		}
 		#endregion // CurrencySymbolListItem
