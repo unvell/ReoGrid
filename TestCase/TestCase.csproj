@@ -101,6 +101,7 @@
       <DependentUpon>RunForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestsNUnit\PartialGridTests.cs" />
     <Compile Include="TestsNUnit\AutoFillSerialTests.cs" />
     <Compile Include="Tests\ExcelInTest.cs" />
     <Compile Include="Tests\FloatingTest.cs" />

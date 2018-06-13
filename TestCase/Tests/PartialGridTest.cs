@@ -403,6 +403,29 @@ namespace unvell.ReoGrid.Tests
 
 			AssertTrue(worksheet._Debug_Validate_All());
 		}
+
+		[TestCase]
+		void CopyMergedCell_Issue95()
+		{
+			// https://github.com/unvell/ReoGrid/issues/95
+
+			SetUp(30, 30);
+
+			if (Grid.Worksheets.Count < 2) Grid.NewWorksheet();
+
+			var fs = Grid.Worksheets[0];
+			fs.MergeRange("A1:G1");
+			fs.MergeRange("F2:G2");
+
+			var ts = Grid.Worksheets[1];
+
+			var pg = fs.GetPartialGrid("A1:G2");
+			ts.SetPartialGrid("A1", pg);
+
+			var pg2 = ts.GetPartialGrid("A1:G2");
+
+			AssertTrue(pg.Equals(pg2));
+		}
 	}
 
 }
