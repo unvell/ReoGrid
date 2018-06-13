@@ -653,10 +653,7 @@ namespace unvell.ReoGrid
 			{
 				if (this.sheetTab != null)
 				{
-					this.sheetTab.UpdateTab(index, worksheet.Name
-						, worksheet.NameBackColor
-						, worksheet.NameTextColor
-						);
+					this.sheetTab.UpdateTab(index, worksheet.Name, worksheet.NameBackColor, worksheet.NameTextColor);
 				}
 
 				if (this.WorksheetNameChanged != null)

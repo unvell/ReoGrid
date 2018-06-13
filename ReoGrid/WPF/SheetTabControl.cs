@@ -415,10 +415,7 @@ namespace unvell.ReoGrid.WPF
 			this.canvas.Width -= tab.Width;
 		}
 
-		public void UpdateTab(int index, string title
-			, Color backColor
-			, Color textColor
-			)
+		public void UpdateTab(int index, string title, Color backColor, Color textColor)
 		{
 			SheetTabItem item = this.canvas.Children[index] as SheetTabItem;
 			if (item != null)
