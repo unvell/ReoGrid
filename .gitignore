@@ -254,3 +254,5 @@ paket-files/
 /NuGet/NuGet.exe
 /NuGet/packages*/*
 /_Output
+TestCase/xlsx/OUT*.xlsx
+TestCase/rgf/*Output.rgf
