@@ -1554,7 +1554,7 @@ namespace unvell.ReoGrid
 		}
 
 		/// <summary>
-		/// Create range position instance from specified four coordinates. 
+		/// Create range position instance from specified coordinates. 
 		/// This method finds and uses the minimum and maximum row and column automatically.
 		/// </summary>
 		/// <param name="startRow">Number of row.</param>
