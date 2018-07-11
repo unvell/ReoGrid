@@ -418,7 +418,7 @@ namespace unvell.ReoGrid
 
 			if (index < 0 || index >= this.worksheets.Count)
 			{
-				throw new WorksheetNotFoundException("Worksheet cannot be found by specified index.");
+				throw new WorksheetNotFoundException("Specified worksheet cannot be found.");
 			}
 
 			return RemoveWorksheet(index);
