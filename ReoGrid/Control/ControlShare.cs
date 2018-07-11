@@ -671,7 +671,7 @@ namespace unvell.ReoGrid
 			}
 			set
 			{
-				this.workbook.Readonly = true;
+				this.workbook.Readonly = value;
 			}
 		}
 
