@@ -229,7 +229,7 @@ namespace unvell.ReoGrid.WPFDemo
 				{new RadioButtonCell() { RadioGroup = radioGroup }, "Orange"},
 				{new RadioButtonCell() { RadioGroup = radioGroup }, "Banana"}
 			};
-			radioGroup.RadioButtons.ForEach(rb => rb.CheckChanged += (s, e) => 
+			radioGroup.RadioButtons.ForEach(rb => rb.CheckChanged += (s, e) =>
 				ShowText(worksheet, "Radio button selected: " + worksheet[rb.Cell.Row, rb.Cell.Column + 1]));
 			worksheet[10, 2] = true;
 			worksheet[13, 2] = "(By adding radio buttons into same RadioGroup to make them toggle each other automatically)";
@@ -366,5 +366,14 @@ namespace unvell.ReoGrid.WPFDemo
 			grid.CurrentWorksheet.SetSettings(WorksheetSettings.View_ShowPageBreaks, viewPageBreaksVisible.IsChecked);
 		}
 		#endregion // Menu - View
+
+		#region Menu - Sheet
+
+		private void Sheet_Append_100_Rows_Click(object sender, RoutedEventArgs e)
+		{
+			grid.DoAction(new Actions.InsertRowsAction(grid.CurrentWorksheet.Rows, 100));
+		}
+
+		#endregion Menu - Sheet
 	}
 }

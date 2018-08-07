@@ -22,6 +22,11 @@
 				<MenuItem x:Name="viewVerticalScrollbarVisible" IsCheckable="true" IsChecked="true" Header="Vertical Scrollbar" Click="View_VerticalScrollbar_Click"/>
 				<MenuItem x:Name="viewPageBreaksVisible" IsCheckable="true" IsChecked="true" Header="Print Page Breakes" Click="View_PageBreaks_Click"/>
 			</MenuItem>
+			<MenuItem Header="_Sheet">
+				<MenuItem x:Name="append100Rows" Header="Append 100 Rows" Click="Sheet_Append_100_Rows_Click"/>
+
+			</MenuItem>
+
 		</Menu>
 
 		<Border x:Name="border" Background="LightBlue" BorderBrush="Black" Padding="8">
