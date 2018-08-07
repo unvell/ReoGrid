@@ -32,7 +32,7 @@ namespace unvell.ReoGrid.Formula
 	{
 		#region Parser API
 		/// <summary>
-		/// Convert formula to syntax tree
+		/// Convert formula to syntax tree.
 		/// </summary>
 		/// <param name="workbook">Workbook instance.</param>
 		/// <param name="cell">Cell instance.</param>
@@ -49,6 +49,17 @@ namespace unvell.ReoGrid.Formula
 			}
 
 			return node;
+		}
+
+		private static string ParameterSeparator = ",";
+
+		static Parser()
+		{
+			try
+			{
+				ParameterSeparator = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ListSeparator;
+			}
+			catch { }
 		}
 		#endregion // Parser API
 
@@ -295,7 +306,7 @@ namespace unvell.ReoGrid.Formula
 				nodes.Add(node);
 				i++;
 
-				if (!lexer.SkipToken(",")) break;
+				if (!lexer.SkipToken(Parser.ParameterSeparator)) break;
 			}
 
 			while (nodes.Count > 0 && nodes[nodes.Count - 1] == null)
