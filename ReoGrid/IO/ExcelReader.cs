@@ -1235,6 +1235,17 @@ namespace unvell.ReoGrid.IO.OpenXML
 						styleset.RotationAngle = angle;
 					}
 				}
+
+				// indent
+				if (!string.IsNullOrEmpty(style.alignment.indent))
+				{
+					ushort indent;
+
+					if (ushort.TryParse(style.alignment.indent, out indent))
+					{
+						styleset.Indent = indent;
+					}
+				}
 			}
 #endregion // Alignment
 

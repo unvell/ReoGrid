@@ -676,6 +676,10 @@ namespace unvell.ReoGrid.IO.OpenXML
 				{
 					align.horizontal = ConvertToExcelHorAlign(rgStyle.HAlign);
 					align._horAlign = rgStyle.HAlign;
+					if (rgStyle.HAlign == ReoGridHorAlign.Left)
+					{
+						align.indent = Convert.ToString(rgStyle.Indent);
+					}
 				}
 
 				if (verAlign)
