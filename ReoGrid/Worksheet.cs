@@ -1124,6 +1124,7 @@ namespace unvell.ReoGrid
 		/// <returns>true if specified position is valid cell.</returns>
 		public bool IsValidCell(int row, int col)
 		{
+			if (row < 0 || col < 0 || row >= this.cells.RowCapacity || col >= this.cells.ColCapacity) return false;
 			var cell = cells[row, col];
 			return cell == null || cell.IsValidCell;
 		}

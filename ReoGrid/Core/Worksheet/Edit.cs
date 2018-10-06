@@ -103,6 +103,8 @@ namespace unvell.ReoGrid
 		/// <returns>True if worksheet entered edit-mode successfully; Otherwise return false.</returns>
 		public bool StartEdit(int row, int col, string newText)
 		{
+			if (row < 0 || col < 0 || row >= this.cells.RowCapacity || col >= this.cells.ColCapacity) return false;
+
 			// if cell is part of merged cell
 			if (!IsValidCell(row, col))
 			{
