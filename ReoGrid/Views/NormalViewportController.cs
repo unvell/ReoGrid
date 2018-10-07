@@ -884,16 +884,16 @@ namespace unvell.ReoGrid.Views
 
 			if ((dir & ScrollDirection.Horizontal) == ScrollDirection.Horizontal)
 			{
-				if (scrollHorValue + x > scrollHorMax)
-					x = scrollHorMax - scrollHorValue;
+				if (scrollHorValue + x > scrollHorMax - scrollHorLarge)
+					x = scrollHorMax - scrollHorValue - scrollHorLarge;
 				if (scrollHorValue + x < scrollHorMin)
 					x = scrollHorMin - scrollHorValue;
 			}
 
 			if ((dir & ScrollDirection.Vertical) == ScrollDirection.Vertical)
 			{
-				if (scrollVerValue + y > scrollVerMax)
-					y = scrollVerMax - scrollVerValue;
+				if (scrollVerValue + y > scrollVerMax - scrollVerLarge)
+					y = scrollVerMax - scrollVerValue - scrollVerLarge;
 				if (scrollVerValue + y < scrollVerMin)
 					y = scrollVerMin - scrollVerValue;
 			}
@@ -1079,25 +1079,16 @@ namespace unvell.ReoGrid.Views
 
 			if (worksheet.cols.Count > 0)
 			{
-				width = worksheet.cols[worksheet.cols.Count - 1].Right + -mainViewport.Width;
+				width = worksheet.cols[worksheet.cols.Count - 1].Right  + mainViewport.Width - mainViewport.Width / scale;
 			}
 
 			if (worksheet.rows.Count > 0)
 			{
-				height = worksheet.rows[worksheet.rows.Count - 1].Bottom + -mainViewport.Height;
+				height = worksheet.rows[worksheet.rows.Count - 1].Bottom + mainViewport.Height - mainViewport.Height / scale;
 			}
 
-			//if (this.worksheet.controlAdapter != null
-			//	&& this.worksheet.controlAdapter.ControlInstance != null
-			//	&& this.worksheet.controlAdapter.ControlInstance.ShowScrollEndSpacing
-			//	&& this.worksheet.FreezeArea == FreezeArea.None)
-			//{
-			//	width += 100 / scale;
-			//	height += 100 / scale;
-			//}
-
-			int maxHorizontal = (int)(Math.Round(width));
-			int maxVertical = Math.Max(0, (int)(Math.Round(height)));
+			int maxHorizontal = Math.Max(0, (int)(Math.Ceiling(width + this.mainViewport.Left)));
+			int maxVertical = Math.Max(0, (int)(Math.Ceiling(height + this.mainViewport.Top))) ;
 
 #if WINFORM || ANDROID
 			int offHor = maxHorizontal - this.scrollHorMax;
