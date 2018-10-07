@@ -136,10 +136,9 @@ namespace unvell.ReoGrid.Formula
 
 			STNode node = ReadConnect(lexer);
 
-			return new STNode(STNodeType.EQUALS, 0, 0,
-				new List<STNode> { null, 
-					node != null && node.Type != STNodeType.IDENTIFIER ? node : 
-						new STStringNode(input, 0, input.Length) });
+			return new STNode(STNodeType.EQUALS, 0, input.Length, new List<STNode> { null,
+				(node != null && node.Type != STNodeType.IDENTIFIER) ? node : 
+				new STStringNode(input, 0, input.Length) });
 		}
 
 		private static STNode ReadConnect(ExcelFormulaLexer lexer)
@@ -825,7 +824,14 @@ namespace unvell.ReoGrid.Formula
 		{
 			if (input != null)
 			{
-				this.Text = input.Substring(start + 1, len - 2);
+				if (input[start] == '"' || input[start] == '\'')
+				{
+					this.Text = input.Substring(start + 1, len - 2);
+				}
+				else
+				{
+					this.Text = input.Substring(start, len);
+				}
 			}
 		}
 

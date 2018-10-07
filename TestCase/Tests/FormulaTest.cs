@@ -447,5 +447,45 @@ namespace unvell.ReoGrid.Tests
 			AssertEquals((double)worksheet.EvaluateFormula("mycell*2"), 20d);
 		}
 #endif // NO_SUPPORT_V088
+
+		[TestCase]
+		void CountIF_String()
+		{
+			worksheet.Reset();
+
+			worksheet.SetRangeData("A1:I1", new object[] { "A", "B", "A", "B", "C", "B", "A", "A", "B" });
+			worksheet["J1"] = "=COUNTIF(A:I,\"A\")";
+
+			AssertSame(worksheet["J1"], 4, "\"A\"");
+		}
+
+		[TestCase]
+		void CountIF_Number()
+		{
+			worksheet.SetRangeData("A2:I2", new object[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+
+			worksheet["K1"] = "=COUNTIF(A2:I2, \"A\")";
+			AssertSame(worksheet["K1"], 0, "K1: \"A\"");
+
+			worksheet["L1"] = "=COUNTIF(A2:I2, \">5\")";
+			AssertSame(worksheet["L1"], 4, "L1: >5");
+
+			worksheet["M1"] = "=COUNTIF(A2:I2, \"<=5\")";
+			AssertSame(worksheet["M1"], 5, "M1: <=5");
+		}
+
+		[TestCase]
+		void CountIF_Union()
+		{
+			worksheet["O1"] = "=COUNTIF(A:I, \"A\")";
+			AssertSame(worksheet["O1"], 4, "O1: \"A\"");
+
+			worksheet["P1"] = "=COUNTIF(A:I, \">5\")";
+			AssertSame(worksheet["P1"], 13, "P1: >5");
+
+			worksheet["Q1"] = "=COUNTIF(A:I, \"<=5\")";
+			AssertSame(worksheet["Q1"], 5, "Q1: <=5");
+		}
+
 	}
 }
