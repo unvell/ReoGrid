@@ -1263,16 +1263,18 @@ namespace unvell.ReoGrid.DataFormat
 				}
 				else
 				{
-					DateTime date = new DateTime(1900, 1, 1);
-					if (DateTime.TryParse(str, out date))
-					{
-						currency = (date - new DateTime(1900, 1, 1)).TotalDays;
-						isFormat = true;
-					}
-					else
-					{
-						isFormat = double.TryParse(str, out currency);
-					}
+					// Stop trying to convert datetime value to currency, #170
+					//
+					//DateTime date = new DateTime(1900, 1, 1);
+					//if (DateTime.TryParse(str, out date))
+					//{
+					//	currency = (date - new DateTime(1900, 1, 1)).TotalDays;
+					//	isFormat = true;
+					//}
+					//else
+					//{
+					isFormat = double.TryParse(str, out currency);
+					//}
 				}
 			}
 
