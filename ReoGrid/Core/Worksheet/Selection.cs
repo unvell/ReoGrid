@@ -145,10 +145,7 @@ namespace unvell.ReoGrid
 
 					this.focusPosStyle = value;
 
-					if (FocusPosStyleChanged != null)
-					{
-						FocusPosStyleChanged(this, null);
-					}
+					FocusPosStyleChanged?.Invoke(this, null);
 				}
 			}
 		}
@@ -243,10 +240,7 @@ namespace unvell.ReoGrid
 						}
 					}
 
-					if (HoverPosChanged != null)
-					{
-						HoverPosChanged(this, new CellPosEventArgs(hoverPos));
-					}
+					HoverPosChanged?.Invoke(this, new CellPosEventArgs(hoverPos));
 				}
 			}
 		}
