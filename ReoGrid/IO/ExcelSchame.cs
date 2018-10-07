@@ -29,6 +29,7 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 	#region Namespaces Definitions
 	internal class OpenXMLNamespaces
 	{
+		internal const string NET_XML______ = "http://www.w3.org/XML/1998/namespace";
 		internal const string NET_XSI______ = "http://www.w3.org/2001/XMLSchema-instance";
 		internal const string NET_XSD______ = "http://www.w3.org/2001/XMLSchema";
 
@@ -1067,8 +1068,19 @@ namespace unvell.ReoGrid.IO.OpenXML.Schema
 		[XmlText]
 		public string val;
 
+		[XmlAttribute("space", Namespace = OpenXMLNamespaces.NET_XML______)]
+		public string space;
+
 		public ElementText() { }
-		internal ElementText(string val) { this.val = val; }
+
+		internal ElementText(string val)
+		{
+			this.val = val;
+			if (val.Length > 0 && (Char.IsWhiteSpace(val[0]) || Char.IsWhiteSpace(val[val.Length - 1])))
+			{
+				this.space = "preserve";
+			}
+		}
 
 		public static implicit operator string(ElementText t)
 		{
