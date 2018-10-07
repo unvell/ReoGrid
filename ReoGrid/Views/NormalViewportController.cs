@@ -1027,40 +1027,36 @@ namespace unvell.ReoGrid.Views
 
 				double offsetX = 0, offsetY = 0;
 
-				if (rect.Height < view.Height)
+				if (rect.Height < view.Height
+					&& (view.ScrollableDirections & ScrollDirection.Vertical) == ScrollDirection.Vertical)
 				{
 					// skip to scroll y if entire row is selected
-					if ((view.ScrollableDirections & ScrollDirection.Vertical) == ScrollDirection.Vertical)
+					if (range.Rows < this.worksheet.rows.Count)
 					{
-						if (range.Rows < this.worksheet.rows.Count)
+						if (rect.Y < top/* && (range.Row <= view.VisibleRegion.startRow)*/)
 						{
-							if (rect.Y < top/* && (range.Row <= view.VisibleRegion.startRow)*/)
-							{
-								offsetY = (rect.Y - top) / this.ScaleFactor;
-							}
-							else if (rect.Bottom >= bottom/* && (range.EndRow >= view.VisibleRegion.endRow)*/)
-							{
-								offsetY = (rect.Bottom - bottom) / this.ScaleFactor + 1;
-							}
+							offsetY = (rect.Y - top) / this.ScaleFactor;
+						}
+						else if (rect.Bottom >= bottom/* && (range.EndRow >= view.VisibleRegion.endRow)*/)
+						{
+							offsetY = (rect.Bottom - bottom) / this.ScaleFactor + 1;
 						}
 					}
 				}
 
-				if (rect.Width < view.Width)
+				if (rect.Width < view.Width
+					&& (view.ScrollableDirections & ScrollDirection.Horizontal) == ScrollDirection.Horizontal)
 				{
 					// skip to scroll x if entire column is selected
-					if ((view.ScrollableDirections & ScrollDirection.Horizontal) == ScrollDirection.Horizontal)
+					if (range.Cols < this.worksheet.cols.Count)
 					{
-						if (range.Cols < this.worksheet.cols.Count)
+						if (rect.X < left /*&& (range.Col <= view.VisibleRegion.startCol)*/)
 						{
-							if (rect.X < left /*&& (range.Col <= view.VisibleRegion.startCol)*/)
-							{
-								offsetX = (rect.X - left) / this.ScaleFactor;
-							}
-							else if (rect.Right >= right/* && (range.EndCol >= view.VisibleRegion.endCol)*/)
-							{
-								offsetX = (rect.Right - right) / this.ScaleFactor + 1;
-							}
+							offsetX = (rect.X - left) / this.ScaleFactor;
+						}
+						else if (rect.Right >= right/* && (range.EndCol >= view.VisibleRegion.endCol)*/)
+						{
+							offsetX = (rect.Right - right) / this.ScaleFactor + 1;
 						}
 					}
 				}

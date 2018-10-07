@@ -1205,6 +1205,8 @@ namespace unvell.ReoGrid.Views
 
 						if (!isProcessed)
 						{
+							this.SetFocus();
+
 							#region Range Selection
 							//else
 							// do not change focus cell if selection mode is null
@@ -1244,8 +1246,6 @@ namespace unvell.ReoGrid.Views
 								}
 							}
 							#endregion // Cell Selection
-
-							this.SetFocus();
 
 							if (buttons == MouseButtons.Right)
 							{
@@ -2107,6 +2107,11 @@ namespace unvell.ReoGrid.Views
 				selectionBorderWidth + 2, selectionBorderWidth + 2);
 
 			return thumbRect.Contains(location);
+		}
+
+		public override string ToString()
+		{
+			return string.Format("CellsViewport[{0}]", this.ViewBounds);
 		}
 		#endregion // Utility
 	}
