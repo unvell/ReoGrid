@@ -23,6 +23,7 @@
 				<MenuItem x:Name="viewPageBreaksVisible" IsCheckable="true" IsChecked="true" Header="Print Page Breakes" Click="View_PageBreaks_Click"/>
 			</MenuItem>
 			<MenuItem Header="_Sheet">
+				<MenuItem x:Name="freezeToCell" Header="Freeze To Cell" Click="freezeToCell_Click"/>
 				<MenuItem x:Name="append100Rows" Header="Append 100 Rows" Click="Sheet_Append_100_Rows_Click"/>
 
 			</MenuItem>

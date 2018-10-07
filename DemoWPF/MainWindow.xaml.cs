@@ -369,11 +369,17 @@ namespace unvell.ReoGrid.WPFDemo
 
 		#region Menu - Sheet
 
+		private void freezeToCell_Click(object sender, RoutedEventArgs e)
+		{
+			grid.CurrentWorksheet.FreezeToCell(grid.CurrentWorksheet.FocusPos);
+		}
+
 		private void Sheet_Append_100_Rows_Click(object sender, RoutedEventArgs e)
 		{
 			grid.DoAction(new Actions.InsertRowsAction(grid.CurrentWorksheet.Rows, 100));
 		}
 
 		#endregion Menu - Sheet
+
 	}
 }
