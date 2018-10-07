@@ -1087,8 +1087,8 @@ namespace unvell.ReoGrid.Views
 				height = worksheet.rows[worksheet.rows.Count - 1].Bottom + mainViewport.Height - mainViewport.Height / scale;
 			}
 
-			int maxHorizontal = Math.Max(0, (int)(Math.Ceiling(width + this.mainViewport.Left)));
-			int maxVertical = Math.Max(0, (int)(Math.Ceiling(height + this.mainViewport.Top))) ;
+			int maxHorizontal = Math.Max(0, (int)(Math.Floor(width + this.mainViewport.Left))) + 1;
+			int maxVertical = Math.Max(0, (int)(Math.Floor(height + this.mainViewport.Top))) + 1;
 
 #if WINFORM || ANDROID
 			int offHor = maxHorizontal - this.scrollHorMax;
