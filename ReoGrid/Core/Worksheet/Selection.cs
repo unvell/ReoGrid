@@ -630,8 +630,12 @@ namespace unvell.ReoGrid
 			if (processed)
 			{
 				if (this.HasSettings(WorksheetSettings.Behavior_ScrollToFocusCell)
-					&& (this.selectionRange.Rows != this.rows.Count
-					&& this.selectionRange.Cols != this.cols.Count))
+					// commented out before the case of entire row or column 
+					// is checked inside NormalViewportController.ScrollToRange method
+					// issue #179
+					//&& (this.selectionRange.Rows != this.rows.Count
+					//&& this.selectionRange.Cols != this.cols.Count)
+					)
 				{
 					this.ScrollToCell(this.selEnd);
 				}
