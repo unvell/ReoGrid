@@ -46,6 +46,22 @@ namespace unvell.ReoGrid
 
 		private RangePosition currentCopingRange = RangePosition.Empty;
 
+		public string StringifyRange(string addressOrName)
+		{
+			NamedRange namedRange;
+
+			if (RangePosition.IsValidAddress(addressOrName))
+			{
+				return this.StringifyRange(new RangePosition(addressOrName));
+			}
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out namedRange))
+			{
+				return this.StringifyRange(namedRange);
+			}
+			else
+				throw new InvalidAddressException(addressOrName);
+		}
+
 		/// <summary>
 		/// Convert all data from specified range to a tabbed string.
 		/// </summary>
