@@ -369,6 +369,12 @@ namespace unvell.ReoGrid.Rendering
 			return this.transformStack.Pop().Matrix;
 		}
 
+		public Matrix PopTransform()
+		{
+			this.g.Pop();
+			return this.transformStack.Pop().Matrix;
+		}
+
 		public void TranslateTransform(double x, double y)
 		{
 			if (transformStack.Count > 0)
@@ -541,6 +547,24 @@ namespace unvell.ReoGrid.Rendering
 			this.headerTextTypeface = unvell.ReoGrid.Rendering.PlatformUtility.GetFontDefaultTypeface(System.Windows.SystemFonts.SmallCaptionFontFamily);
 		}
 
+		public Graphics.Size MeasureCellText(Cell cell, DrawMode drawMode, double scale)
+		{
+			if (cell.InnerStyle.RotationAngle != 0)
+			{
+				System.Windows.Media.Matrix m = System.Windows.Media.Matrix.Identity;
+
+				double hw = cell.formattedText.Width * 0.5, hh = cell.formattedText.Height * 0.5;
+				WPFPoint p1 = new WPFPoint(-hw, -hh), p2 = new WPFPoint(hw, hh);
+				m.Rotate(cell.InnerStyle.RotationAngle);
+				p1 *= m; p2 *= m;
+				return new Graphics.Size(Math.Abs(p1.X - p2.X), Math.Abs(p1.Y - p2.Y));
+			}
+			else
+			{
+				return new Graphics.Size(cell.formattedText.Width, cell.formattedText.Height);
+			}
+		}
+
 		public void DrawCellText(Cell cell, SolidColor textColor, DrawMode drawMode, double scale)
 		{
 			var sheet = cell.Worksheet;
@@ -552,7 +576,20 @@ namespace unvell.ReoGrid.Rendering
 			//	sheet.UpdateCellFont(cell);
 			//}
 
-			this.PlatformGraphics.DrawText(cell.formattedText, cell.TextBounds.Location);
+			if (cell.InnerStyle.RotationAngle != 0)
+			{
+				System.Windows.Media.Matrix m = System.Windows.Media.Matrix.Identity;
+				m.Rotate(cell.InnerStyle.RotationAngle);
+				m.Translate(cell.Bounds.OriginX, cell.Bounds.OriginY);
+
+				this.PushTransform(m);
+				this.PlatformGraphics.DrawText(cell.formattedText, new WPFPoint(-cell.formattedText.Width * 0.5, -cell.formattedText.Height * 0.5));
+				this.PopTransform();
+			}
+			else
+			{
+				this.PlatformGraphics.DrawText(cell.formattedText, cell.TextBounds.Location);
+			}
 		}
 
 		public void UpdateCellRenderFont(Cell cell, Core.UpdateFontReason reason)
@@ -602,11 +639,6 @@ namespace unvell.ReoGrid.Rendering
 			cell.formattedText.SetFontStyle(PlatformUtility.ToWPFFontStyle(cell.InnerStyle.fontStyles));
 
 			cell.formattedText.SetTextDecorations(PlatformUtility.ToWPFFontDecorations(cell.InnerStyle.fontStyles));
-		}
-
-		public Graphics.Size MeasureCellText(Cell cell, DrawMode drawMode, double scale)
-		{
-			return new Graphics.Size(cell.formattedText.Width, cell.formattedText.Height);
 		}
 
 		public void DrawRunningFocusRect(double x, double y, double w, double h, SolidColor color, int runningOffset)

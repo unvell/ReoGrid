@@ -892,14 +892,15 @@ namespace unvell.ReoGrid.Views
 
 				#endregion // Determine clip region
 
-				//dc.Renderer.DrawRectangle(clipRect, SolidColor.LightCoral);
-
 				dc.Renderer.DrawCellText(cell, textColor, dc.DrawMode, this.scaleFactor);
 
+				#region clip region
 				if (needWidthClip)
 				{
 					dc.Graphics.PopClip();
 				}
+				#endregion clip region
+
 				#endregion // Plain Text
 			}
 		}
