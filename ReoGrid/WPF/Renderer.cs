@@ -580,7 +580,7 @@ namespace unvell.ReoGrid.Rendering
 			{
 				System.Windows.Media.Matrix m = System.Windows.Media.Matrix.Identity;
 				m.Rotate(cell.InnerStyle.RotationAngle);
-				m.Translate(cell.Bounds.OriginX, cell.Bounds.OriginY);
+				m.Translate(cell.Bounds.OriginX * sheet.ScaleFactor, cell.Bounds.OriginY * sheet.ScaleFactor);
 
 				this.PushTransform(m);
 				this.PlatformGraphics.DrawText(cell.formattedText, new WPFPoint(-cell.formattedText.Width * 0.5, -cell.formattedText.Height * 0.5));
