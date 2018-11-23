@@ -53,19 +53,19 @@ namespace unvell.ReoGrid
 		/// <returns>Tabbed string contains all data converted from specified range.</returns>
 		public string StringifyRange(RangePosition range)
 		{
-			int erow = currentCopingRange.EndRow;
-			int ecol = currentCopingRange.EndCol;
+			int erow = range.EndRow;
+			int ecol = range.EndCol;
 
 			// copy plain text
 			StringBuilder sb = new StringBuilder();
 
 			bool isFirst = true;
-			for (int r = currentCopingRange.Row; r <= erow; r++)
+			for (int r = range.Row; r <= erow; r++)
 			{
 				if (isFirst) isFirst = false; else sb.Append('\n');
 
 				bool isFirst2 = true;
-				for (int c = currentCopingRange.Col; c <= ecol; c++)
+				for (int c = range.Col; c <= ecol; c++)
 				{
 					if (isFirst2) isFirst2 = false; else sb.Append('\t');
 
