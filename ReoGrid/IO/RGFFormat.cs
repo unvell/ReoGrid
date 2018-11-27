@@ -651,10 +651,34 @@ namespace unvell.ReoGrid
 							throw new ReoGridLoadException("Cannot create cell body instance from type: " + xmlCell.bodyType, ex);
 						}
 					}
+
+					if (type == typeof(CellTypes.ImageCell))
+					{
+						int leftIndex = xmlCell.data.IndexOf(',');
+						if (leftIndex > 0)
+						{
+							string mimetype = xmlCell.data.Substring(0, leftIndex);
+							if (mimetype == "image/png")
+							{
+								string imgcode = xmlCell.data.Substring(leftIndex + 1);
+
+								using (var ms = new MemoryStream(Convert.FromBase64String(imgcode)))
+								{
+									var img = System.Drawing.Image.FromStream(ms);
+									((CellTypes.ImageCell)cell.body).Image = img;
+								}
+
+								cellValue = null;
+							}
+						}
+					}
 				}
 				#endregion // Body
 
-				SetSingleCellData(cell, cellValue);
+				if (!string.IsNullOrEmpty(cellValue))
+				{
+					SetSingleCellData(cell, cellValue);
+				}
 
 #if FORMULA
 				if (!string.IsNullOrEmpty(formula))
@@ -1231,7 +1255,7 @@ namespace unvell.ReoGrid
 								 {
 									 bool addCell = false;
 
-									 if (cell.InnerData != null || cell.Rowspan > 1 || cell.Colspan > 1) addCell = true;
+									 if (cell.InnerData != null || cell.Rowspan > 1 || cell.Colspan > 1 || cell.body != null) addCell = true;
 
 									 RGXmlCellStyle xmlStyle = null;
 
@@ -1314,6 +1338,16 @@ namespace unvell.ReoGrid
 										 else if (cell.InnerData is bool)
 										 {
 											 xmlCell.formula = new RGXmlCellFormual { val = (bool)cell.InnerData ? "True" : "False" };
+										 }
+
+										 if (cell.body is CellTypes.ImageCell)
+										 {
+											 var imageBody = (CellTypes.ImageCell)cell.body;
+											 using (var ms = new MemoryStream())
+											 {
+												 imageBody.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+												 xmlCell.data = "image/png," + Convert.ToBase64String(ms.ToArray());
+											 }
 										 }
 
 										 body.cells.Add(xmlCell);

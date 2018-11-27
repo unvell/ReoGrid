@@ -235,6 +235,20 @@ namespace unvell.ReoGrid
 				}
 			}
 
+			// experimental: directly set an image as cell data
+			//
+			//else if (data is System.Drawing.Image)
+			//{
+			//	if (cell.body == null)
+			//	{
+			//		cell.Body = new ImageCell((System.Drawing.Image)data);
+			//	}
+			//	else if (cell.body is ImageCell)
+			//	{
+			//		((ImageCell)cell.body).Image = (System.Drawing.Image)data;
+			//	}
+			//}
+
 #if FORMULA
 			if (formulaRanges.Count > 0)
 			{
