@@ -1073,6 +1073,10 @@ namespace unvell.ReoGrid.Editor
 			}
 		}
 
+		#endregion // Utility
+
+		#region Language
+
 		void SetupUILanguage()
 		{
 			#region Menu
@@ -1263,7 +1267,35 @@ namespace unvell.ReoGrid.Editor
 			#endregion // Menu
 		}
 
-		#endregion // Utility
+		System.Globalization.CultureInfo cultureEN_US;
+		System.Globalization.CultureInfo cultureJP_JP;
+		System.Globalization.CultureInfo cultureZH_CN;
+
+		private void englishenUSToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (cultureEN_US == null) cultureEN_US = new System.Globalization.CultureInfo("en-US");
+			System.Threading.Thread.CurrentThread.CurrentUICulture = cultureEN_US;
+
+			SetupUILanguage();
+		}
+
+		private void japanesejpJPToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (cultureJP_JP == null) cultureJP_JP = new System.Globalization.CultureInfo("ja-JP");
+			System.Threading.Thread.CurrentThread.CurrentUICulture = cultureJP_JP;
+
+			SetupUILanguage();
+		}
+
+		private void simplstChinesezhCNToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (cultureZH_CN == null) cultureZH_CN = new System.Globalization.CultureInfo("zh-CN");
+			System.Threading.Thread.CurrentThread.CurrentUICulture = cultureZH_CN;
+
+			SetupUILanguage();
+		}
+
+		#endregion // Langauge
 
 		#region Update Menus & Toolbars
 		private bool isUIUpdating = false;
