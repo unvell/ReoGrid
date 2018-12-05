@@ -33,6 +33,7 @@ using unvell.ReoGrid.Events;
 using unvell.ReoGrid.CellTypes;
 using unvell.ReoGrid.Actions;
 using unvell.ReoGrid.Utility;
+using System.Collections;
 
 #if OUTLINE
 using unvell.ReoGrid.Outline;
@@ -2880,7 +2881,7 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Row header collection
 		/// </summary>
-		public class RowHeaderCollection
+		public class RowHeaderCollection : IEnumerable<RowHeader>
 		{
 			internal Worksheet GridControl { get; set; }
 
@@ -2902,12 +2903,27 @@ namespace unvell.ReoGrid
 					return (index < 0 || index >= grid.rows.Count) ? null : grid.rows[index];
 				}
 			}
+
+			private IEnumerator<RowHeader> GetEnum()
+			{
+				return this.GridControl.rows.GetEnumerator();
+			}
+
+			public IEnumerator<RowHeader> GetEnumerator()
+			{
+				return this.GetEnum();
+			}
+
+			IEnumerator IEnumerable.GetEnumerator()
+			{
+				return this.GetEnum();
+			}
 		}
 
 		/// <summary>
 		/// Column header collection
 		/// </summary>
-		public class ColumnHeaderCollection
+		public class ColumnHeaderCollection : IEnumerable<ColumnHeader>
 		{
 			internal Worksheet GridControl { get; set; }
 
@@ -2942,6 +2958,21 @@ namespace unvell.ReoGrid
 					int index = RGUtility.GetNumberOfChar(address);
 					return this[index];
 				}
+			}
+
+			private IEnumerator<ColumnHeader> GetEnum()
+			{
+				return this.GridControl.cols.GetEnumerator();
+			}
+
+			public IEnumerator<ColumnHeader> GetEnumerator()
+			{
+				return this.GetEnum();
+			}
+
+			IEnumerator IEnumerable.GetEnumerator()
+			{
+				return this.GetEnum();
 			}
 		}
 
