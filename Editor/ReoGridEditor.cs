@@ -1271,7 +1271,7 @@ namespace unvell.ReoGrid.Editor
 		System.Globalization.CultureInfo cultureJP_JP;
 		System.Globalization.CultureInfo cultureZH_CN;
 
-		private void englishenUSToolStripMenuItem_Click(object sender, EventArgs e)
+		public void ChangeLanguageToEnglish()
 		{
 			if (cultureEN_US == null) cultureEN_US = new System.Globalization.CultureInfo("en-US");
 			System.Threading.Thread.CurrentThread.CurrentUICulture = cultureEN_US;
@@ -1279,7 +1279,7 @@ namespace unvell.ReoGrid.Editor
 			SetupUILanguage();
 		}
 
-		private void japanesejpJPToolStripMenuItem_Click(object sender, EventArgs e)
+		public void ChangeLanguageToJapanese()
 		{
 			if (cultureJP_JP == null) cultureJP_JP = new System.Globalization.CultureInfo("ja-JP");
 			System.Threading.Thread.CurrentThread.CurrentUICulture = cultureJP_JP;
@@ -1287,12 +1287,27 @@ namespace unvell.ReoGrid.Editor
 			SetupUILanguage();
 		}
 
-		private void simplstChinesezhCNToolStripMenuItem_Click(object sender, EventArgs e)
+		public void ChangeLanguageToChinese()
 		{
 			if (cultureZH_CN == null) cultureZH_CN = new System.Globalization.CultureInfo("zh-CN");
 			System.Threading.Thread.CurrentThread.CurrentUICulture = cultureZH_CN;
 
 			SetupUILanguage();
+		}
+
+		private void englishenUSToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			ChangeLanguageToEnglish();
+		}
+
+		private void japanesejpJPToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			ChangeLanguageToJapanese();
+		}
+
+		private void simplifiedChinesezhCNToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			ChangeLanguageToChinese();
 		}
 
 		#endregion // Langauge

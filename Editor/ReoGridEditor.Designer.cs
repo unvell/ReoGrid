@@ -381,7 +381,7 @@ namespace unvell.ReoGrid.Editor
 			this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.englishenUSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.japanesejpJPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.simplstChinesezhCNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.simplifiedChinesezhCNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip1.SuspendLayout();
 			this.columnContextMenuStrip.SuspendLayout();
 			this.rowContextMenuStrip.SuspendLayout();
@@ -2963,6 +2963,7 @@ namespace unvell.ReoGrid.Editor
 			// 
 			this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.controlStyleToolStripMenuItem,
+						this.languageToolStripMenuItem,
             this.toolStripMenuItem13,
             this.debugToolStripMenuItem});
 			this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
@@ -3135,7 +3136,7 @@ namespace unvell.ReoGrid.Editor
 			this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.englishenUSToolStripMenuItem,
             this.japanesejpJPToolStripMenuItem,
-            this.simplstChinesezhCNToolStripMenuItem});
+            this.simplifiedChinesezhCNToolStripMenuItem});
 			this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
 			this.languageToolStripMenuItem.Size = new System.Drawing.Size(266, 30);
 			this.languageToolStripMenuItem.Text = "&Language";
@@ -3156,10 +3157,10 @@ namespace unvell.ReoGrid.Editor
 			// 
 			// simplstChinesezhCNToolStripMenuItem
 			// 
-			this.simplstChinesezhCNToolStripMenuItem.Name = "simplstChinesezhCNToolStripMenuItem";
-			this.simplstChinesezhCNToolStripMenuItem.Size = new System.Drawing.Size(294, 30);
-			this.simplstChinesezhCNToolStripMenuItem.Text = "Simplest &Chinese (zh-CN)";
-			this.simplstChinesezhCNToolStripMenuItem.Click += new System.EventHandler(this.simplstChinesezhCNToolStripMenuItem_Click);
+			this.simplifiedChinesezhCNToolStripMenuItem.Name = "simplifiedChinesezhCNToolStripMenuItem";
+			this.simplifiedChinesezhCNToolStripMenuItem.Size = new System.Drawing.Size(294, 30);
+			this.simplifiedChinesezhCNToolStripMenuItem.Text = "Simplified &Chinese (zh-CN)";
+			this.simplifiedChinesezhCNToolStripMenuItem.Click += new System.EventHandler(this.simplifiedChinesezhCNToolStripMenuItem_Click);
 			// 
 			// ReoGridEditor
 			// 
@@ -3528,7 +3529,7 @@ namespace unvell.ReoGrid.Editor
 		private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem englishenUSToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem japanesejpJPToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem simplstChinesezhCNToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem simplifiedChinesezhCNToolStripMenuItem;
 	}
 }
 
