@@ -664,16 +664,26 @@ namespace unvell.ReoGrid
 
 								using (var ms = new MemoryStream(Convert.FromBase64String(imgcode)))
 								{
-									var img = System.Drawing.Image.FromStream(ms);
+#if WPF
+                                    var bi = new System.Windows.Media.Imaging.BitmapImage();
+                                    bi.BeginInit();
+                                    bi.CacheOption = System.Windows.Media.Imaging.BitmapCacheOption.OnLoad;
+                                    bi.EndInit();
+                                    bi.Freeze();
+                                    ((CellTypes.ImageCell)cell.body).Image = bi;
+#else
+                                    var img = System.Drawing.Image.FromStream(ms);
 									((CellTypes.ImageCell)cell.body).Image = img;
-								}
+#endif
 
-								cellValue = null;
+                                }
+
+                                cellValue = null;
 							}
 						}
 					}
 				}
-				#endregion // Body
+#endregion // Body
 
 				if (!string.IsNullOrEmpty(cellValue))
 				{
@@ -708,11 +718,11 @@ namespace unvell.ReoGrid
 					cellsTraceDependents.Add(cell);
 				}
 			}
-			#endregion // Cells
+#endregion // Cells
 
 			suspendDataChangedEvent = false;
 
-			#region Formula
+#region Formula
 #if FORMULA
 			foreach (var cell in this.formulaRanges.Keys)
 			{
@@ -736,9 +746,9 @@ namespace unvell.ReoGrid
 				}
 			}
 #endif // FORMULA
-			#endregion // Formula
+#endregion // Formula
 
-			#region Freeze
+#region Freeze
 			int freezeRow = 0, freezeCol = 0;
 
 			if (!string.IsNullOrEmpty(xmlSheet.head.freezeRow))
@@ -761,9 +771,9 @@ namespace unvell.ReoGrid
 				viewDirty = true;
 				UpdateViewportController();
 			}
-			#endregion // Freeze
+#endregion // Freeze
 
-			#region Apply Settings
+#region Apply Settings
 			// apply control settings
 			this.settings = controlSettings;
 
@@ -771,9 +781,9 @@ namespace unvell.ReoGrid
 			{
 				AddedSettings = this.settings,
 			});
-			#endregion // Apply Settings
+#endregion // Apply Settings
 
-			#region Print Settings
+#region Print Settings
 #if PRINT
 			if ((this.userPageBreakCols != null && this.userPageBreakCols.Count > 0)
 				|| (this.userPageBreakRows != null && this.userPageBreakRows.Count > 0))
@@ -781,9 +791,9 @@ namespace unvell.ReoGrid
 				this.AutoSplitPage();
 			}
 #endif // PRINT
-			#endregion // Apply Print Settings
+#endregion // Apply Print Settings
 
-			#region Script
+#region Script
 #if EX_SCRIPT
 
 			// load scripts
@@ -814,7 +824,7 @@ namespace unvell.ReoGrid
 				this.RaiseScriptEvent("onload");
 			}
 #endif // EX_SCRIPT
-			#endregion // Script
+#endregion // Script
 
 #if DEBUG
 			stop.Stop();
@@ -828,9 +838,9 @@ namespace unvell.ReoGrid
 		/// </summary>
 		public event EventHandler<FileLoadedEventArgs> FileLoaded;
 
-		#endregion // Load
+#endregion // Load
 
-		#region Save
+#region Save
 
 		/// <summary>
 		/// Save current worksheet into file.
@@ -955,7 +965,7 @@ namespace unvell.ReoGrid
 			System.Reflection.Assembly assembly = this.GetType().Assembly;
 			FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
 
-			#region Head
+#region Head
 			RGXmlSheet body = new RGXmlSheet()
 			{
 				head = new RGXmlHead
@@ -981,7 +991,7 @@ namespace unvell.ReoGrid
 					focusCellStyle = this.focusPosStyle == FocusPosStyle.Default ? null :
 						XmlFileFormatHelper.EncodeFocusPosStyle(this.focusPosStyle),
 
-					#region Settings
+#region Settings
 					settings = new RGXmlWorksheetSetting
 					{
 						showGrid = TextFormatHelper.EncodeBool(this.HasSettings(WorksheetSettings.View_ShowGridLine),
@@ -1007,7 +1017,7 @@ namespace unvell.ReoGrid
 
 						metaValue = ((long)this.settings).ToString(),
 					},
-					#endregion // Settings
+#endregion // Settings
 
 					meta = new RGXmlMeta
 					{
@@ -1023,9 +1033,9 @@ namespace unvell.ReoGrid
 			};
 
 			var head = body.head;
-			#endregion // Head
+#endregion // Head
 
-			#region Print
+#region Print
 #if PRINT
 			if ((this.printSettings != null)
 				&& (this.pageBreakRows != null && this.pageBreakCols != null
@@ -1064,9 +1074,9 @@ namespace unvell.ReoGrid
 				}
 			}
 #endif // PRINT
-			#endregion // Print
+#endregion // Print
 
-			#region Freeze
+#region Freeze
 			CellPosition freezePos = this.FreezePos;
 
 			if (freezePos.Row > 0 || freezePos.Col > 0)
@@ -1075,9 +1085,9 @@ namespace unvell.ReoGrid
 				head.freezeCol = freezePos.Col.ToString();
 				head.freezeArea = XmlFileFormatHelper.EncodeFreezeArea(this.FreezeArea);
 			}
-			#endregion // Freeze
+#endregion // Freeze
 
-			#region Outlines
+#region Outlines
 #if OUTLINE
 			// outlines
 			if (this.outlines != null)
@@ -1122,9 +1132,9 @@ namespace unvell.ReoGrid
 				}
 			}
 #endif // OUTLINE
-			#endregion // Outlines
+#endregion // Outlines
 
-			#region Named Ranges
+#region Named Ranges
 			// named ranges
 			if (this.registeredNamedRanges.Count > 0)
 			{
@@ -1139,12 +1149,12 @@ namespace unvell.ReoGrid
 						address = nr.Position.ToAddress()
 					});
 			}
-			#endregion // Named Ranges
+#endregion // Named Ranges
 
 			int maxRow = this.MaxContentRow;
 			int maxCol = this.MaxContentCol;
 
-			#region Rows
+#region Rows
 			// row-headers
 			foreach (var r in rows)
 			{
@@ -1173,9 +1183,9 @@ namespace unvell.ReoGrid
 					});
 				}
 			}
-			#endregion // Rows
+#endregion // Rows
 
-			#region Columns
+#region Columns
 			// col-headers
 			foreach (var c in cols)
 			{
@@ -1207,9 +1217,9 @@ namespace unvell.ReoGrid
 					});
 				}
 			}
-			#endregion // Columns
+#endregion // Columns
 
-			#region Borders
+#region Borders
 			// h-borders
 			for (int r = 0; r <= maxRow + 1; r++)
 			{
@@ -1245,9 +1255,9 @@ namespace unvell.ReoGrid
 						r++;
 				}
 			}
-			#endregion // Borders
+#endregion // Borders
 
-			#region Cells
+#region Cells
 			// cells
 			this.cells.Iterate(0, 0, maxRow + 1, maxCol + 1, true, (r, c, cell) =>
 							 {
@@ -1267,7 +1277,7 @@ namespace unvell.ReoGrid
 										 if (xmlStyle != null) addCell = true;
 									 }
 
-									 #region Data Format
+#region Data Format
 									 RGXmlCellDataFormatArgs xmlFormatArgs = null;
 									 if (cell.DataFormat != CellDataFormatFlag.General)
 									 {
@@ -1306,9 +1316,9 @@ namespace unvell.ReoGrid
 												 break;
 										 }
 									 }
-									 #endregion // Data Format
+#endregion // Data Format
 
-									 #region Cell
+#region Cell
 									 if (addCell)
 									 {
 										 var xmlCell = new RGXmlCell()
@@ -1345,19 +1355,28 @@ namespace unvell.ReoGrid
 											 var imageBody = (CellTypes.ImageCell)cell.body;
 											 using (var ms = new MemoryStream())
 											 {
-												 imageBody.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-												 xmlCell.data = "image/png," + Convert.ToBase64String(ms.ToArray());
-											 }
-										 }
+#if WPF
+                                                 var img = ((CellTypes.ImageCell)cell.body).Image; 
+                                                 var enc = new System.Windows.Media.Imaging.PngBitmapEncoder();
+                                                 enc.Frames.Add(System.Windows.Media.Imaging.BitmapFrame.Create((System.Windows.Media.Imaging.BitmapSource)img));
+                                                 enc.Save(ms);
+#else
+                                                 imageBody.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+
+#endif
+                                                xmlCell.data = "image/png," + Convert.ToBase64String(ms.ToArray());
+
+                                             }
+                                         }
 
 										 body.cells.Add(xmlCell);
 									 }
-									 #endregion // Cell
+#endregion // Cell
 								 }
 
 								 return 1;
 							 });
-			#endregion // Cells
+#endregion // Cells
 
 			XmlSerializer xmlWriter = new XmlSerializer(typeof(RGXmlSheet));
 			xmlWriter.Serialize(s, body);
@@ -1369,6 +1388,6 @@ namespace unvell.ReoGrid
 		/// Event raised when worksheet saved into a file.
 		/// </summary>
 		public event EventHandler<FileSavedEventArgs> FileSaved;
-		#endregion // Save
+#endregion // Save
 	}
 }
