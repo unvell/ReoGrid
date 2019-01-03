@@ -1,9 +1,11 @@
 # ReoGrid
 
-Open Source .NET Spreadsheet Component
+Powerful Open Source .NET Spreadsheet Component
 
 https://reogrid.net
 
+# License
+
 MIT License
 
-Copyright (c) 2013-2017 jingwood, unvell.com, All rights reserved.
+Copyright (c) Jingwood & unvell.com 2012-2019, All rights reserved.
