@@ -407,6 +407,8 @@ namespace unvell.ReoGrid
 		/// <param name="col">Zero-based number of column to freeze worksheet.</param>
 		public void FreezeToCell(int row, int col)
 		{
+			if (row < 0 || col < 0 || row >= this.rows.Count || col >= this.cols.Count) return;
+
 			this.FreezeToCell(row, col, FreezeArea.LeftTop);
 			//this.FreezePos = new CellPosition(row, col);
 
