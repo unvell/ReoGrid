@@ -17,9 +17,6 @@
  ****************************************************************************/
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using unvell.ReoGrid.Utility;
 
 namespace unvell.ReoGrid.Graphics
@@ -42,7 +39,7 @@ namespace unvell.ReoGrid.Graphics
 	}
 
 	/// <summary>
-	/// Represents ARGB format solid color.
+	/// Represents 32 bits ARGB format solid color. (0~255)
 	/// </summary>
 	[Serializable]
 	public struct SolidColor : IColor
@@ -138,22 +135,6 @@ namespace unvell.ReoGrid.Graphics
 			this.G = g;
 			this.B = b;
 		}
-
-		///// <summary>
-		///// Construct color value with specified ARGB value. (0-1)
-		///// </summary>
-		///// <param name="a">Alpha value.</param>
-		///// <param name="r">Red value.</param>
-		///// <param name="g">Green value.</param>
-		///// <param name="b">Blue value.</param>
-		//public SolidColor(RGFloat a, RGFloat r, RGFloat g, RGFloat b)
-		//	: this()
-		//{
-		//	this.A = a;
-		//	this.R = r;
-		//	this.G = g;
-		//	this.B = b;
-		//}
 
 		/// <summary>
 		/// Create color with specified alpha factor and another solid color.
