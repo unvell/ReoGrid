@@ -79,6 +79,8 @@ namespace unvell.ReoGrid
 		/// <returns>True if the editing operation has been started</returns>
 		public bool StartEdit(int row, int col)
 		{
+			if (row < 0 || col < 0 || row >= this.rows.Count || col >= this.cols.Count) return false;
+
 			// if cell is part of merged cell
 			if (!IsValidCell(row, col))
 			{
