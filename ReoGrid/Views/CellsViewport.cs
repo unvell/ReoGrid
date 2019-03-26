@@ -1722,64 +1722,42 @@ namespace unvell.ReoGrid.Views
 					#endregion // Submit Selection Range Move
 					break;
 
-#if DRAWING
 				case OperationStatus.DragSelectionFillSerial:
-				#region Submit Selection Drag
+					#region Submit Selection Drag
 					sheet.operationStatus = OperationStatus.Default;
-
-					bool performed = false;
 
 					if (sheet.draggingSelectionRange.Rows > sheet.selectionRange.Rows
 						|| sheet.draggingSelectionRange.Cols > sheet.selectionRange.Cols)
 					{
+						RangePosition targetRange = RangePosition.Empty;
+
 						if (sheet.draggingSelectionRange.Rows == sheet.selectionRange.Rows)
 						{
-							var targetRange = new RangePosition(
+							targetRange = new RangePosition(
 								sheet.draggingSelectionRange.Row,
 								sheet.draggingSelectionRange.Col + sheet.selectionRange.Cols,
 								sheet.draggingSelectionRange.Rows,
 								sheet.draggingSelectionRange.Cols - sheet.selectionRange.Cols);
-
-							try
-							{
-								sheet.AutoFillSerial(sheet.selectionRange, targetRange);
-								performed = true;
-							}
-							catch (Exception ex)
-							{
-								this.sheet.NotifyExceptionHappen(ex);
-							}
 						}
 						else if (sheet.draggingSelectionRange.Cols == sheet.selectionRange.Cols)
 						{
-							var targetRange = new RangePosition(
+							targetRange = new RangePosition(
 								sheet.draggingSelectionRange.Row + sheet.selectionRange.Rows,
 								sheet.draggingSelectionRange.Col,
 								sheet.draggingSelectionRange.Rows - sheet.selectionRange.Rows,
 								sheet.draggingSelectionRange.Cols);
-
-							try
-							{
-								sheet.AutoFillSerial(sheet.selectionRange, targetRange);
-								performed = true;
-							}
-							catch (Exception ex)
-							{
-								this.sheet.NotifyExceptionHappen(ex);
-							}
 						}
-					}
 
-					if (performed)
-					{
-						sheet.selectionRange = sheet.draggingSelectionRange;
+						if (targetRange != RangePosition.Empty)
+						{
+							sheet.DoAction(new AutoFillSerialAction(sheet.SelectionRange, targetRange));
+						}
 					}
 
 					sheet.RequestInvalidate();
 					isProcessed = true;
-				#endregion // Submit Selection Drag
+					#endregion // Submit Selection Drag
 					break;
-#endif // DRAWING
 
 				case OperationStatus.RangeSelect:
 				case OperationStatus.FullRowSelect:
