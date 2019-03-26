@@ -2381,6 +2381,8 @@ namespace unvell.ReoGrid.Actions
 
 	}
 
+#if FORMULA
+
 	/// <summary>
 	/// Action that performs serial range fill according to given source and target ranges.
 	/// </summary>
@@ -2443,6 +2445,7 @@ namespace unvell.ReoGrid.Actions
 		}
 
 	}
+#endif // FORMULA
 
 	#endregion // Actions - Range & Cell Edit
 

@@ -1722,6 +1722,7 @@ namespace unvell.ReoGrid.Views
 					#endregion // Submit Selection Range Move
 					break;
 
+#if FORMULA
 				case OperationStatus.DragSelectionFillSerial:
 					#region Submit Selection Drag
 					sheet.operationStatus = OperationStatus.Default;
@@ -1758,6 +1759,7 @@ namespace unvell.ReoGrid.Views
 					isProcessed = true;
 					#endregion // Submit Selection Drag
 					break;
+#endif // FORMULA
 
 				case OperationStatus.RangeSelect:
 				case OperationStatus.FullRowSelect:
