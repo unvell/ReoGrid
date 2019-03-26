@@ -256,6 +256,12 @@ namespace unvell.ReoGrid.Views
 
 			#endregion // Cells
 
+#if DEBUG
+			Stopwatch sw = new Stopwatch();
+			sw.Reset();
+			sw.Start();
+#endif // DEBUG
+
 			#region Vertical Borders
 			int rightColBoundary = visibleRegion.endCol + (dc.FullCellClip ? 0 : 1);
 
@@ -331,6 +337,14 @@ namespace unvell.ReoGrid.Views
 				}
 			}
 			#endregion
+
+#if DEBUG
+			sw.Stop();
+			if (sw.ElapsedMilliseconds > 1000)
+			{
+				Debug.WriteLine($"draw border ({sw.ElapsedMilliseconds} ms.)");
+			}
+#endif // DEBUG
 
 			#region View Mode Visible
 
