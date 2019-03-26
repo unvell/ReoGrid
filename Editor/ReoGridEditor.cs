@@ -2941,7 +2941,7 @@ namespace unvell.ReoGrid.Editor
 		}
 		#endregion // Filter
 
-#if DEBUG
+		#if DEBUG
 		private void ForTest()
 		{
 			var sheet = this.grid.CurrentWorksheet;
@@ -2993,7 +2993,7 @@ namespace unvell.ReoGrid.Editor
 			sheet.FloatingObjects.Add(rectObj);
 		}
 
-#endif // DEBUG
+		#endif // DEBUG
 
 	}
 }

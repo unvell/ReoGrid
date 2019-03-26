@@ -994,7 +994,7 @@ namespace unvell.ReoGrid.Views
 							g.FillRectangle(scaledSelectionRect, selectionFillColor);
 						}
 #elif WPF
-						g.FillRectangle(scaledSelectionRect, selectionFillColor); 
+						g.FillRectangle(scaledSelectionRect, selectionFillColor);
 #endif // WPF
 
 						if (selectionBorderColor.A > 0)

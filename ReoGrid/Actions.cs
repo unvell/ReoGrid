@@ -196,7 +196,7 @@ namespace unvell.ReoGrid.Actions
 		/// </summary>
 		public Worksheet Worksheet { get; internal set; }
 
-	/// <summary>
+		/// <summary>
 		/// Do this action.
 		/// </summary>
 		public abstract void Do();
@@ -213,7 +213,7 @@ namespace unvell.ReoGrid.Actions
 		{
 			this.Do();
 		}
-	
+
 		/// <summary>
 		/// Get friendly name of this action.
 		/// </summary>
@@ -922,7 +922,7 @@ namespace unvell.ReoGrid.Actions
 		// main backups 
 		private PartialGrid backupData = null;
 		private int[] backupHeights;
-		
+
 		// additional backups
 		internal List<NamedRange> deletedNamedRanges;
 		internal List<HighlightRange> deletedHighlightRanges;
@@ -977,7 +977,7 @@ namespace unvell.ReoGrid.Actions
 				Logger.Log("remove rows", "attempt to undo removing all rows from the worksheet must it must be have at least one row, operation aborted.");
 				return;
 			}
-			
+
 			Worksheet.InsertRows(Range.Row, Range.Rows);
 
 			if (backupData == null)
@@ -1025,7 +1025,7 @@ namespace unvell.ReoGrid.Actions
 			//		changedRangeInfo.Key.Rows = changedRangeInfo.Value.count;
 			//	}
 			//}
-			
+
 			if (this.deletedNamedRanges != null)
 			{
 				foreach (var namedRange in this.deletedNamedRanges)
@@ -1358,7 +1358,7 @@ namespace unvell.ReoGrid.Actions
 	[Obsolete("use SetColumnsWidthAction instead")]
 	public class SetColsWidthAction : SetColumnsWidthAction
 	{
-	/// <summary>
+		/// <summary>
 		/// Create instance for SetColsWidthAction
 		/// </summary>
 		/// <param name="col">Index of column start to set</param>
@@ -1368,7 +1368,7 @@ namespace unvell.ReoGrid.Actions
 			: base(col, count, width)
 		{
 		}
-}
+	}
 
 	/// <summary>
 	/// Action for adjusting columns width.
@@ -1725,7 +1725,7 @@ namespace unvell.ReoGrid.Actions
 			return new SetRangeBorderAction(range, borders);
 		}
 	}
-	
+
 	/// <summary>
 	/// Action of Removing borders from specified range
 	/// </summary>
@@ -2001,7 +2001,7 @@ namespace unvell.ReoGrid.Actions
 					cell.ExpandRowHeight();
 				}
 			}
-			catch(Exception ex)
+			catch (Exception ex)
 			{
 				this.Worksheet.NotifyExceptionHappen(ex);
 			}
@@ -2183,7 +2183,7 @@ namespace unvell.ReoGrid.Actions
 	public class RemoveRangeDataAction : WorksheetReusableAction
 	{
 		private object[,] backupData;
-		
+
 		/// <summary>
 		/// Create action to remove data from specified range.
 		/// </summary>
@@ -2366,7 +2366,7 @@ namespace unvell.ReoGrid.Actions
 				this.FromRange.Rows, this.FromRange.Cols);
 
 			this.Worksheet.SetPartialGrid(targetRange, this.backupGrid);
-		
+
 			this.Worksheet.SelectionRange = this.FromRange;
 		}
 
@@ -2539,7 +2539,7 @@ namespace unvell.ReoGrid.Actions
 		///// Indicates how many title rows exist on the spreadsheet
 		///// </summary>
 		//public int TitleRows { get; private set; }
-		
+
 		/// <summary>
 		/// Get filter apply range.
 		/// </summary>
