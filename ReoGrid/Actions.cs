@@ -2402,8 +2402,16 @@ namespace unvell.ReoGrid.Actions
 			this.TargetRange = targetRange;
 		}
 
+		/// <summary>
+		/// Backuped cells content used to recover the target range.
+		/// </summary>
+		PartialGrid backupedGrid;
+
 		public override void Do()
 		{
+			// Get a backup of target range that will be overwritten
+			backupedGrid = Worksheet.GetPartialGrid(TargetRange, PartialGridCopyFlag.CellData, ExPartialGridCopyFlag.None);
+
 			try
 			{
 				Worksheet.AutoFillSerial(SourceRange, TargetRange);
@@ -2419,7 +2427,8 @@ namespace unvell.ReoGrid.Actions
 		{
 			try
 			{
-				Worksheet.DeleteRangeData(TargetRange);
+				// Restore the range filled by this action
+				Worksheet.SetPartialGrid(TargetRange, backupedGrid);
 				Worksheet.SelectionRange = SourceRange;
 			}
 			catch (Exception ex)
