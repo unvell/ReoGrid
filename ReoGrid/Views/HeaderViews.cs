@@ -537,7 +537,15 @@ namespace unvell.ReoGrid.Views
 
 							g.DrawHeaderText(headerText, textBrush, rect);
 						}
-					}
+
+                        if (row.Body != null)
+                        {
+                            g.PushTransform();
+                            g.TranslateTransform(rect.X, rect.Y);
+                            row.Body.OnPaint(dc, rect.Size);
+                            g.PopTransform();
+                        }
+                    }
 				}
 			}
 
