@@ -490,6 +490,7 @@ namespace unvell.ReoGrid.Editor
 
 					hpf.HeaderText = sampleHeader.Text;
 					hpf.HeaderTextColor = sampleHeader.TextColor ?? Color.Empty;
+					hpf.DefaultCellBody = sampleHeader.DefaultCellBody;
 					hpf.RowHeaderWidth = sheet.RowHeaderWidth;
 					hpf.AutoFitToCell = sampleHeader.IsAutoHeight;
 
@@ -507,6 +508,7 @@ namespace unvell.ReoGrid.Editor
 							}
 
 							header.TextColor = hpf.HeaderTextColor;
+							header.DefaultCellBody = hpf.DefaultCellBody;
 							header.IsAutoHeight = hpf.AutoFitToCell;
 						}
 

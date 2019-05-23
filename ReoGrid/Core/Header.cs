@@ -3055,6 +3055,13 @@ namespace unvell.ReoGrid
 				this.Worksheet.RequestInvalidate();
 			}
 		}
+
+		/// <summary>
+		/// Get or set the default cell body type for all cells on this column.
+		/// If this value is not null, when an new instance of cells on this column is created,
+		/// the cell will have a body automatically that is the instance of the type specified by this value.
+		/// </summary>
+		public Type DefaultCellBody { get; set; }
 	}
 
 	/// <summary>
@@ -3206,13 +3213,6 @@ namespace unvell.ReoGrid
 				throw new Exception("Column header must be associated to worksheet instance.");
 			}
 		}
-
-		/// <summary>
-		/// Get or set the default cell body type for all cells on this column.
-		/// If this value is not null, when an new instance of cells on this column is created,
-		/// the cell will have a body automatically that is the instance of the type specified by this value.
-		/// </summary>
-		public Type DefaultCellBody { get; set; }
 
 		/// <summary>
 		/// Get or set color for display the header text on spreadsheet.
