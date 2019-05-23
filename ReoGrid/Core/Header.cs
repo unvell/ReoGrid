@@ -3040,6 +3040,21 @@ namespace unvell.ReoGrid
 		/// Get or set user data.
 		/// </summary>
 		public object Tag { get; set; }
+		
+		private IHeaderBody body;
+
+		/// <summary>
+		/// Header body
+		/// </summary>
+		public IHeaderBody Body
+		{
+			get { return this.body; }
+			set
+			{
+				this.body = value;
+				this.Worksheet.RequestInvalidate();
+			}
+		}
 	}
 
 	/// <summary>
@@ -3219,32 +3234,7 @@ namespace unvell.ReoGrid
 		{
 			this.FitWidthToCells(byAction);
 		}
-
-		#region Header Body
-		private IHeaderBody body;
-
-		/// <summary>
-		/// Header body
-		/// </summary>
-		public IHeaderBody Body
-		{
-			get { return this.body; }
-			set
-			{
-				this.body = value;
-
-#if _unused
-				if (this.body != null)
-				{
-				}
-#endif // _unused
-
-				this.Worksheet.RequestInvalidate();
-			}
-		}
-
-		#endregion
-
+		
 		internal ColumnHeader Clone(Worksheet newSheet)
 		{
 			return new ColumnHeader(newSheet)
@@ -3256,7 +3246,7 @@ namespace unvell.ReoGrid
 				TextColor = this.TextColor,
 				text = this.text,
 				RenderText = this.RenderText,
-				body = this.body,
+				Body = this.Body,
 				DefaultCellBody = this.DefaultCellBody,
 				Col = this.Col,
 				LastWidth = this.LastWidth,
@@ -3467,6 +3457,7 @@ namespace unvell.ReoGrid
 				IsAutoHeight = this.IsAutoHeight,
 				TextColor = this.TextColor,
 				text = this.text,
+				Body = this.Body,
 				Row = this.Row,
 				LastHeight = this.LastHeight,
 			};
