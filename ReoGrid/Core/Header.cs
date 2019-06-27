@@ -953,6 +953,8 @@ namespace unvell.ReoGrid
 			}
 
 			UpdateViewportController();
+
+			ColumnsInserted?.Invoke(this, new ColumnsInsertedEventArgs(this.cols.Count - count, count));
 		}
 
 		/// <summary>
@@ -988,6 +990,8 @@ namespace unvell.ReoGrid
 			}
 
 			UpdateViewportController();
+
+			RowsInserted?.Invoke(this, new RowsInsertedEventArgs(this.rows.Count - count, count));
 		}
 
 		#endregion // Append
