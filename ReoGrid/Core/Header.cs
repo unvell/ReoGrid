@@ -996,6 +996,7 @@ namespace unvell.ReoGrid
 					Top = y,
 					IsAutoHeight = true,
 				});
+
 				y += defaultRowHeight;
 			}
 
@@ -1104,7 +1105,7 @@ namespace unvell.ReoGrid
 			}
 			#endregion // Check
 
-			if (row == this.rows.Count)
+			if (row >= this.rows.Count)
 			{
 				AppendRows(count);
 				return;
@@ -1391,10 +1392,7 @@ namespace unvell.ReoGrid
 			UpdateViewportController();
 
 			// raise event
-			if (RowsInserted != null)
-			{
-				RowsInserted(this, new RowsInsertedEventArgs(row));
-			}
+			RowsInserted?.Invoke(this, new RowsInsertedEventArgs(row, count));
 
 #if DEBUG
 			watch.Stop();
@@ -1426,7 +1424,7 @@ namespace unvell.ReoGrid
 				throw new ArgumentException("count must be >= 1");
 			}
 
-			if (col == this.cols.Count)
+			if (col >= this.cols.Count)
 			{
 				AppendColumns(count);
 				return;
@@ -1680,10 +1678,7 @@ namespace unvell.ReoGrid
 			UpdateViewportController();
 
 			// raise event
-			if (ColumnsInserted != null)
-			{
-				ColumnsInserted(this, new ColumnsInsertedEventArgs(col, count));
-			}
+			ColumnsInserted?.Invoke(this, new ColumnsInsertedEventArgs(col, count));
 
 #if DEBUG
 			sw.Stop();
