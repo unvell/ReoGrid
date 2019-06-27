@@ -919,10 +919,20 @@ namespace unvell.ReoGrid
 		#region Append
 
 		/// <summary>
-		/// Append specified columns at right of grid
+		/// Append specified columns at right of spreadsheet
 		/// </summary>
 		/// <param name="count">number of columns</param>
+		[Obsolete("Use <code>AppendColumns</code> instead")]
 		public void AppendCols(int count)
+		{
+			AppendColumns(count);
+		}
+
+		/// <summary>
+		/// Append specified columns at right of spreadsheet
+		/// </summary>
+		/// <param name="count">number of columns</param>
+		public void AppendColumns(int count)
 		{
 			if (count < 0)
 			{
@@ -1009,7 +1019,7 @@ namespace unvell.ReoGrid
 			{
 				if (cols > this.cols.Count)
 				{
-					AppendCols(cols - this.cols.Count);
+					AppendColumns(cols - this.cols.Count);
 				}
 				else if (cols < this.cols.Count)
 				{
@@ -1418,7 +1428,7 @@ namespace unvell.ReoGrid
 
 			if (col == this.cols.Count)
 			{
-				AppendCols(count);
+				AppendColumns(count);
 				return;
 			}
 
