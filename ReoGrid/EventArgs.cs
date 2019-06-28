@@ -632,8 +632,8 @@ namespace unvell.ReoGrid.Events
 	/// </summary>
 	public class RowsInsertedEventArgs : WorksheetRowsEventArgs
 	{
-		internal RowsInsertedEventArgs(int row)
-			: base(row)
+		internal RowsInsertedEventArgs(int row, int count)
+			: base(row, count)
 		{
 		}
 	}

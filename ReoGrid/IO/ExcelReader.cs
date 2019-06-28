@@ -2153,7 +2153,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 			if (archor.to.col >= rgSheet.ColumnCount)
 			{
-				rgSheet.AppendCols(archor.to.col - rgSheet.ColumnCount + 1);
+				rgSheet.AppendColumns(archor.to.col - rgSheet.ColumnCount + 1);
 			}
 
 			RGFloat dpi = PlatformUtility.GetDPI();
