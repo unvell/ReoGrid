@@ -892,8 +892,9 @@ namespace unvell.ReoGrid
 
 			if (maxWidth > 0)
 			{
-				if (maxWidth < 0) maxWidth = 0;
-				if (maxWidth > ushort.MaxValue - 2) maxWidth = ushort.MaxValue - 2;
+				maxWidth += 10;
+				if (maxWidth < 30) maxWidth = 30;
+				else if (maxWidth > ushort.MaxValue - 2) maxWidth = ushort.MaxValue - 2;
 
 				ushort targetWidth = (ushort)(maxWidth + 2);
 
