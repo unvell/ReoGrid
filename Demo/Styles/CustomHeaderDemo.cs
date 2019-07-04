@@ -26,11 +26,23 @@ using System.Text;
 using System.Windows.Forms;
 
 using unvell.ReoGrid.CellTypes;
+using unvell.ReoGrid.Graphics;
+using unvell.ReoGrid.Rendering;
+using Point = unvell.ReoGrid.Graphics.Point;
+using Rectangle = unvell.ReoGrid.Graphics.Rectangle;
 
 namespace unvell.ReoGrid.Demo.Styles
 {
 	public partial class CustomHeaderDemo : UserControl
 	{
+		private class CustomHeaderBody : HeaderBody
+		{
+			public override void OnPaint(CellDrawingContext dc, unvell.ReoGrid.Graphics.Size headerSize)
+			{
+				dc.Graphics.FillRectangle(HatchStyles.OutlinedDiamond, Color.FromArgb(120, Color.BlueViolet), SolidColor.Transparent, new Rectangle(new Point(0, 0), headerSize));
+			}
+		}
+
 		private Worksheet worksheet;
 
 		public CustomHeaderDemo()
@@ -49,6 +61,10 @@ namespace unvell.ReoGrid.Demo.Styles
 			checkBoxHeader.Style.HorizontalAlign = ReoGridHorAlign.Center;
 			checkBoxHeader.Style.VerticalAlign = ReoGridVerAlign.Middle;
 			checkBoxHeader.Style.Padding = new PaddingValue(3);
+
+			// set custom header body
+			worksheet.ColumnHeaders[1].Body = new CustomHeaderBody();
+			worksheet.RowHeaders[1].Body = new CustomHeaderBody();
 
 			// set other headers
 			worksheet.ColumnHeaders[1].Text = "Product";

@@ -897,8 +897,9 @@ namespace unvell.ReoGrid
 			cells[row, col] = cell;
 
 			var colHeader = this.cols[col];
+			var rowHeader = this.rows[row];
 
-			// create cell body if the column header has a default body type specified
+			// create cell body if the either column or row header has a default body type specified
 			if (colHeader.DefaultCellBody != null)
 			{
 				try
@@ -910,11 +911,23 @@ namespace unvell.ReoGrid
 					throw new CannotCreateCellBodyException(
 						"Cannot create instance of default cell body specified in column header.", ex);
 				}
-
-				if (cell.body != null)
+			}
+			else if (rowHeader.DefaultCellBody != null)
+			{
+				try
 				{
-					cell.body.OnSetup(cell);
+					cell.Body = System.Activator.CreateInstance(rowHeader.DefaultCellBody) as ICellBody;
 				}
+				catch (Exception ex)
+				{
+					throw new CannotCreateCellBodyException(
+						"Cannot create instance of default cell body specified in row header.", ex);
+				}
+			}
+
+			if (cell.body != null)
+			{
+				cell.body.OnSetup(cell);
 			}
 
 			if (updateStyle)

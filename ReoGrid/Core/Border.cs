@@ -260,17 +260,11 @@ namespace unvell.ReoGrid
 			// raise border added event
 			if (!style.IsEmpty)
 			{
-				if (BorderAdded != null)
-				{
-					BorderAdded(this, new BorderAddedEventArgs(range, pos, style));
-				}
+				BorderAdded?.Invoke(this, new BorderAddedEventArgs(range, pos, style));
 			}
 			else
 			{
-				if (BorderRemoved != null)
-				{
-					BorderRemoved(this, new BorderRemovedEventArgs(range, pos));
-				}
+				BorderRemoved?.Invoke(this, new BorderRemovedEventArgs(range, pos));
 			}
 		}
 

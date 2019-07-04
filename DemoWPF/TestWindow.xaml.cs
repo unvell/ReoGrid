@@ -18,6 +18,8 @@ namespace unvell.ReoGrid.WPFDemo
 	/// </summary>
 	public partial class TestWindow : Window
 	{
+		//Data.Index4DArray<int> arr = new Data.Index4DArray<int>();
+
 		public TestWindow()
 		{
 			InitializeComponent();

@@ -47,28 +47,26 @@ namespace unvell.ReoGrid.Editor
 
 			SetupUILanguage();
 
+			this.cmbCellBody.Items.Add("(null)");
+
+			foreach (var cellType in CellTypesManager.CellTypes)
+			{
+				var name = cellType.Key;
+				if (name.EndsWith("Cell")) name = name.Substring(0, name.Length - 4);
+
+				cmbCellBody.Items.Add(new CellBodyItem
+				{
+					Name = name,
+					Type = cellType.Value,
+				});
+			}
+
 			if (this.RowOrColumn == ReoGrid.RowOrColumn.Column)
 			{
-				this.cmbCellBody.Items.Add("(null)");
-
-				foreach (var cellType in CellTypesManager.CellTypes)
-				{
-					var name = cellType.Key;
-					if (name.EndsWith("Cell")) name = name.Substring(0, name.Length - 4);
-
-					cmbCellBody.Items.Add(new CellBodyItem
-											{
-												Name = name,
-												Type = cellType.Value,
-											});
-				}
-				
-				labCellBody.Visible = cmbCellBody.Visible = cmbCellBody.Enabled = true;
 				labRowHeaderWidth.Visible = numRowHeaderWidth.Visible = numRowHeaderWidth.Enabled = false;
 			}
 			else
 			{
-				labCellBody.Visible = cmbCellBody.Visible = cmbCellBody.Enabled = false;
 				labRowHeaderWidth.Visible = numRowHeaderWidth.Visible = numRowHeaderWidth.Enabled = true;
 			}
 

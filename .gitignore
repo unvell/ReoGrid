@@ -254,4 +254,6 @@ paket-files/
 /NuGet/NuGet.exe
 /NuGet/packages*/*
 /_Output
+
+# Test output files
 /TestCase/xlsx/OUT*.xlsx

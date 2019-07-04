@@ -490,6 +490,7 @@ namespace unvell.ReoGrid.Editor
 
 					hpf.HeaderText = sampleHeader.Text;
 					hpf.HeaderTextColor = sampleHeader.TextColor ?? Color.Empty;
+					hpf.DefaultCellBody = sampleHeader.DefaultCellBody;
 					hpf.RowHeaderWidth = sheet.RowHeaderWidth;
 					hpf.AutoFitToCell = sampleHeader.IsAutoHeight;
 
@@ -507,6 +508,7 @@ namespace unvell.ReoGrid.Editor
 							}
 
 							header.TextColor = hpf.HeaderTextColor;
+							header.DefaultCellBody = hpf.DefaultCellBody;
 							header.IsAutoHeight = hpf.AutoFitToCell;
 						}
 
@@ -2941,7 +2943,7 @@ namespace unvell.ReoGrid.Editor
 		}
 		#endregion // Filter
 
-#if DEBUG
+		#if DEBUG
 		private void ForTest()
 		{
 			var sheet = this.grid.CurrentWorksheet;
@@ -2993,7 +2995,7 @@ namespace unvell.ReoGrid.Editor
 			sheet.FloatingObjects.Add(rectObj);
 		}
 
-#endif // DEBUG
+		#endif // DEBUG
 
 	}
 }
