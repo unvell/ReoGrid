@@ -177,10 +177,12 @@ namespace unvell.ReoGrid.PropertyPages
 				UpdateSample();
 			};
 
-			var cultures = CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures).OrderBy(c => c.EnglishName);
+			var cultures = CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures).Where(c => !c.IsNeutralCulture).OrderBy(c => c.EnglishName);
+
 			foreach (CultureInfo info in cultures)
 			{
 				datetimeLocationList.Items.Add(info);
+
 				if (info.Equals(currentCulture))
 				{
 					datetimeLocationList.SelectedItem = info;
@@ -521,7 +523,14 @@ namespace unvell.ReoGrid.PropertyPages
 				// some cultures doesn't have currency symbol
 				try
 				{
-					return string.Format("{0} ({1})", this.Culture.EnglishName, this.Culture.NumberFormat.CurrencySymbol);
+					try
+					{
+						return string.Format("{0} ({1})", this.Culture.EnglishName, this.Culture.NumberFormat.CurrencySymbol);
+					}
+					catch
+					{
+						return string.Format("{0}", this.Culture.EnglishName);
+					}
 				}
 				catch
 				{
