@@ -766,6 +766,7 @@ namespace unvell.ReoGrid
 				throw new ArgumentOutOfRangeException("row");
 			}
 
+			var height = GetRowHeight(row);
 			RGFloat maxHeight = 0;
 
 			for (int c = 0; c <= this.MaxContentCol; c++)
@@ -815,6 +816,8 @@ namespace unvell.ReoGrid
 
 				ushort targetHeight = (ushort)(maxHeight + 2);
 
+				if (targetHeight == height) return true;
+				
 				if (byAction)
 				{
 					this.DoAction(new SetRowsHeightAction(row, 1, targetHeight));
@@ -847,6 +850,7 @@ namespace unvell.ReoGrid
 				throw new ArgumentOutOfRangeException("col");
 			}
 
+			var width = GetColumnWidth(col);
 			RGFloat maxWidth = 0;
 
 			for (int r = 0; r <= this.MaxContentRow; r++)
@@ -898,6 +902,8 @@ namespace unvell.ReoGrid
 
 				ushort targetWidth = (ushort)(maxWidth + 2);
 
+				if (targetWidth == width) return true;
+				
 				if (byAction)
 				{
 					this.DoAction(new SetColumnsWidthAction(col, 1, targetWidth));
