@@ -1,8 +1,17 @@
 ---
 name: Bug report
 about: Create a report to help us improve
+title: ''
+labels: ''
+assignees: ''
 
 ---
+
+```
+!!! Reproduce the bug is important !!!
+Post your code or upload a project to reproduce the bug
+It's difficult to fix the bug without reproduce method
+```
 
 **Describe the bug**
 A clear and concise description of what the bug is.

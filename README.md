@@ -1,5 +1,7 @@
 # ReoGrid
 
+![NuGet](https://img.shields.io/nuget/v/unvell.ReoGrid.DLL.svg)
+
 Fast and powerful open source .NET spreadsheet component
 
 https://reogrid.net

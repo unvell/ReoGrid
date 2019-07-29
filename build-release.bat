@@ -3,17 +3,24 @@
 SET ERRORLEVEL=0
 SET VER=2.1.0.0
 
-REM #SET MSB="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild"
-SET MSB="C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
-SET MSB_ARG=/tv:14.0 /t:Build
+REM ### set MSB to locate the msbuild.exe in your environment ###
+SET MSB="%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild.exe"
 
-SET ZIP="C:\Program Files\7-Zip\7z.exe"
+REM ### Set /tv to fit build tool version of your environment ###
+REM ### Visual Studio 2015: 14 ###
+REM ### Visual Studio 2017: 15 ###
+SET MSB_ARG=/tv:15.0 /t:Build
+
+REM ### set ZIP to locate the 7z.exe in your environment ###
+SET ZIP="%ProgramFiles%\7-Zip\7z.exe"
 SET ZIPEXL="-xr!.svn\* -xr!.vs\* -xr!bin -xr!obj -xr!*.user"
 
-SET OUT_REPO=_Output
+IF NOT EXIST %MSB% (
+  SET MSB="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe"
+)
 
 IF NOT EXIST %MSB% (
-  ECHO Missing MSB
+  ECHO Cannot found msbuild.exe, set MSB to locate the msbuild.exe in your environment
   GOTO :EOF
 )
 
@@ -22,8 +29,9 @@ IF NOT EXIST %ZIP% (
   GOTO :EOF
 )
 
-IF "%1"=="-x" GOTO archive
+SET OUT_REPO=_Output
 
+IF "%1"=="-x" GOTO archive
 
 ECHO ---------------------- Minimum -------------------------
 SET CFG=Minimum

@@ -919,10 +919,20 @@ namespace unvell.ReoGrid
 		#region Append
 
 		/// <summary>
-		/// Append specified columns at right of grid
+		/// Append specified columns at right of spreadsheet
 		/// </summary>
 		/// <param name="count">number of columns</param>
+		[Obsolete("Use <code>AppendColumns</code> instead")]
 		public void AppendCols(int count)
+		{
+			AppendColumns(count);
+		}
+
+		/// <summary>
+		/// Append specified columns at right of spreadsheet
+		/// </summary>
+		/// <param name="count">number of columns</param>
+		public void AppendColumns(int count)
 		{
 			if (count < 0)
 			{
@@ -953,6 +963,8 @@ namespace unvell.ReoGrid
 			}
 
 			UpdateViewportController();
+
+			ColumnsInserted?.Invoke(this, new ColumnsInsertedEventArgs(this.cols.Count - count, count));
 		}
 
 		/// <summary>
@@ -984,10 +996,13 @@ namespace unvell.ReoGrid
 					Top = y,
 					IsAutoHeight = true,
 				});
+
 				y += defaultRowHeight;
 			}
 
 			UpdateViewportController();
+
+			RowsInserted?.Invoke(this, new RowsInsertedEventArgs(this.rows.Count - count, count));
 		}
 
 		#endregion // Append
@@ -1005,7 +1020,7 @@ namespace unvell.ReoGrid
 			{
 				if (cols > this.cols.Count)
 				{
-					AppendCols(cols - this.cols.Count);
+					AppendColumns(cols - this.cols.Count);
 				}
 				else if (cols < this.cols.Count)
 				{
@@ -1090,7 +1105,7 @@ namespace unvell.ReoGrid
 			}
 			#endregion // Check
 
-			if (row == this.rows.Count)
+			if (row >= this.rows.Count)
 			{
 				AppendRows(count);
 				return;
@@ -1377,10 +1392,7 @@ namespace unvell.ReoGrid
 			UpdateViewportController();
 
 			// raise event
-			if (RowsInserted != null)
-			{
-				RowsInserted(this, new RowsInsertedEventArgs(row));
-			}
+			RowsInserted?.Invoke(this, new RowsInsertedEventArgs(row, count));
 
 #if DEBUG
 			watch.Stop();
@@ -1412,9 +1424,9 @@ namespace unvell.ReoGrid
 				throw new ArgumentException("count must be >= 1");
 			}
 
-			if (col == this.cols.Count)
+			if (col >= this.cols.Count)
 			{
-				AppendCols(count);
+				AppendColumns(count);
 				return;
 			}
 
@@ -1666,10 +1678,7 @@ namespace unvell.ReoGrid
 			UpdateViewportController();
 
 			// raise event
-			if (ColumnsInserted != null)
-			{
-				ColumnsInserted(this, new ColumnsInsertedEventArgs(col, count));
-			}
+			ColumnsInserted?.Invoke(this, new ColumnsInsertedEventArgs(col, count));
 
 #if DEBUG
 			sw.Stop();
@@ -3040,6 +3049,28 @@ namespace unvell.ReoGrid
 		/// Get or set user data.
 		/// </summary>
 		public object Tag { get; set; }
+		
+		private IHeaderBody body;
+
+		/// <summary>
+		/// Header body
+		/// </summary>
+		public IHeaderBody Body
+		{
+			get { return this.body; }
+			set
+			{
+				this.body = value;
+				this.Worksheet.RequestInvalidate();
+			}
+		}
+
+		/// <summary>
+		/// Get or set the default cell body type for all cells on this column.
+		/// If this value is not null, when an new instance of cells on this column is created,
+		/// the cell will have a body automatically that is the instance of the type specified by this value.
+		/// </summary>
+		public Type DefaultCellBody { get; set; }
 	}
 
 	/// <summary>
@@ -3193,13 +3224,6 @@ namespace unvell.ReoGrid
 		}
 
 		/// <summary>
-		/// Get or set the default cell body type for all cells on this column.
-		/// If this value is not null, when an new instance of cells on this column is created,
-		/// the cell will have a body automatically that is the instance of the type specified by this value.
-		/// </summary>
-		public Type DefaultCellBody { get; set; }
-
-		/// <summary>
 		/// Get or set color for display the header text on spreadsheet.
 		/// </summary>
 		public SolidColor? TextColor { get; set; }
@@ -3219,32 +3243,7 @@ namespace unvell.ReoGrid
 		{
 			this.FitWidthToCells(byAction);
 		}
-
-		#region Header Body
-		private IHeaderBody body;
-
-		/// <summary>
-		/// Header body
-		/// </summary>
-		public IHeaderBody Body
-		{
-			get { return this.body; }
-			set
-			{
-				this.body = value;
-
-#if _unused
-				if (this.body != null)
-				{
-				}
-#endif // _unused
-
-				this.Worksheet.RequestInvalidate();
-			}
-		}
-
-		#endregion
-
+		
 		internal ColumnHeader Clone(Worksheet newSheet)
 		{
 			return new ColumnHeader(newSheet)
@@ -3256,7 +3255,7 @@ namespace unvell.ReoGrid
 				TextColor = this.TextColor,
 				text = this.text,
 				RenderText = this.RenderText,
-				body = this.body,
+				Body = this.Body,
 				DefaultCellBody = this.DefaultCellBody,
 				Col = this.Col,
 				LastWidth = this.LastWidth,
@@ -3467,6 +3466,7 @@ namespace unvell.ReoGrid
 				IsAutoHeight = this.IsAutoHeight,
 				TextColor = this.TextColor,
 				text = this.text,
+				Body = this.Body,
 				Row = this.Row,
 				LastHeight = this.LastHeight,
 			};

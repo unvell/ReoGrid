@@ -256,6 +256,12 @@ namespace unvell.ReoGrid.Views
 
 			#endregion // Cells
 
+#if DEBUG
+			Stopwatch sw = new Stopwatch();
+			sw.Reset();
+			sw.Start();
+#endif // DEBUG
+
 			#region Vertical Borders
 			int rightColBoundary = visibleRegion.endCol + (dc.FullCellClip ? 0 : 1);
 
@@ -331,6 +337,14 @@ namespace unvell.ReoGrid.Views
 				}
 			}
 			#endregion
+
+#if DEBUG
+			sw.Stop();
+			if (sw.ElapsedMilliseconds > 1000)
+			{
+				Debug.WriteLine($"draw border ({sw.ElapsedMilliseconds} ms.)");
+			}
+#endif // DEBUG
 
 			#region View Mode Visible
 
@@ -994,7 +1008,7 @@ namespace unvell.ReoGrid.Views
 							g.FillRectangle(scaledSelectionRect, selectionFillColor);
 						}
 #elif WPF
-						g.FillRectangle(scaledSelectionRect, selectionFillColor); 
+						g.FillRectangle(scaledSelectionRect, selectionFillColor);
 #endif // WPF
 
 						if (selectionBorderColor.A > 0)
@@ -1722,64 +1736,44 @@ namespace unvell.ReoGrid.Views
 					#endregion // Submit Selection Range Move
 					break;
 
-#if DRAWING
+#if FORMULA
 				case OperationStatus.DragSelectionFillSerial:
-				#region Submit Selection Drag
+					#region Submit Selection Drag
 					sheet.operationStatus = OperationStatus.Default;
-
-					bool performed = false;
 
 					if (sheet.draggingSelectionRange.Rows > sheet.selectionRange.Rows
 						|| sheet.draggingSelectionRange.Cols > sheet.selectionRange.Cols)
 					{
+						RangePosition targetRange = RangePosition.Empty;
+
 						if (sheet.draggingSelectionRange.Rows == sheet.selectionRange.Rows)
 						{
-							var targetRange = new RangePosition(
+							targetRange = new RangePosition(
 								sheet.draggingSelectionRange.Row,
 								sheet.draggingSelectionRange.Col + sheet.selectionRange.Cols,
 								sheet.draggingSelectionRange.Rows,
 								sheet.draggingSelectionRange.Cols - sheet.selectionRange.Cols);
-
-							try
-							{
-								sheet.AutoFillSerial(sheet.selectionRange, targetRange);
-								performed = true;
-							}
-							catch (Exception ex)
-							{
-								this.sheet.NotifyExceptionHappen(ex);
-							}
 						}
 						else if (sheet.draggingSelectionRange.Cols == sheet.selectionRange.Cols)
 						{
-							var targetRange = new RangePosition(
+							targetRange = new RangePosition(
 								sheet.draggingSelectionRange.Row + sheet.selectionRange.Rows,
 								sheet.draggingSelectionRange.Col,
 								sheet.draggingSelectionRange.Rows - sheet.selectionRange.Rows,
 								sheet.draggingSelectionRange.Cols);
-
-							try
-							{
-								sheet.AutoFillSerial(sheet.selectionRange, targetRange);
-								performed = true;
-							}
-							catch (Exception ex)
-							{
-								this.sheet.NotifyExceptionHappen(ex);
-							}
 						}
-					}
 
-					if (performed)
-					{
-						sheet.selectionRange = sheet.draggingSelectionRange;
+						if (targetRange != RangePosition.Empty)
+						{
+							sheet.DoAction(new AutoFillSerialAction(sheet.SelectionRange, targetRange));
+						}
 					}
 
 					sheet.RequestInvalidate();
 					isProcessed = true;
-				#endregion // Submit Selection Drag
+					#endregion // Submit Selection Drag
 					break;
-#endif // DRAWING
+#endif // FORMULA
 
 				case OperationStatus.RangeSelect:
 				case OperationStatus.FullRowSelect:
