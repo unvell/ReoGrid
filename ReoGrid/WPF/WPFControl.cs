@@ -595,7 +595,7 @@ namespace unvell.ReoGrid
 				{
 					default:
 					case CursorStyle.PlatformDefault: this.canvas.Cursor = Cursors.Arrow; break;
-					case CursorStyle.Selection: this.canvas.Cursor = this.canvas.internalCurrentCursor; break;
+					case CursorStyle.Selection: this.canvas.Cursor = Cursors.Arrow; break;
 					case CursorStyle.Busy: this.canvas.Cursor = Cursors.AppStarting; break;
 					case CursorStyle.Hand: this.canvas.Cursor = Cursors.Hand; break;
 					case CursorStyle.FullColumnSelect: this.canvas.Cursor = this.canvas.builtInFullColSelectCursor; break;
