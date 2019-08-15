@@ -380,13 +380,10 @@ namespace unvell.ReoGrid
 			}
 
 			// event
-			if (this.WorksheetInserted != null)
+			this.WorksheetInserted?.Invoke(this, new WorksheetInsertedEventArgs(sheet)
 			{
-				this.WorksheetInserted(this, new WorksheetInsertedEventArgs(sheet)
-				{
-					Index = index,
-				});
-			}
+				Index = index,
+			});
 		}
 
 		public bool RemoveWorksheet(int index)
@@ -404,10 +401,7 @@ namespace unvell.ReoGrid
 
 			this.worksheets.RemoveAt(index);
 
-			if (this.WorksheetRemoved != null)
-			{
-				this.WorksheetRemoved(this, new WorksheetRemovedEventArgs(sheet));
-			}
+			this.WorksheetRemoved?.Invoke(this, new WorksheetRemovedEventArgs(sheet));
 
 			return true;
 		}
