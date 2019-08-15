@@ -99,6 +99,11 @@ namespace unvell.ReoGrid.Print
 		/// </summary>
 		public void Print()
 		{
+			foreach (var sheet in this.Worksheets)
+			{
+				sheet.Recalculate();
+			}
+
 			this.printDocument.Print();
 		}
 
