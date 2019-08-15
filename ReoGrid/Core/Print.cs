@@ -228,22 +228,29 @@ namespace unvell.ReoGrid
 		/// </summary>
 		public class RowPageBreakIndexCollection : ICollection<int>
 		{
-			private Worksheet GridControl { get; set; }
+			private Worksheet Worksheet { get; set; }
 
-			internal RowPageBreakIndexCollection(Worksheet grid)
+			internal RowPageBreakIndexCollection(Worksheet sheet)
 			{
-				this.GridControl = grid;
+				this.Worksheet = sheet;
+			}
+
+			private List<int> ValidPageBreakArray {
+				get
+				{
+					return (this.Worksheet.pageBreakRows != null && this.Worksheet.pageBreakRows.Count > 1)
+						? this.Worksheet.pageBreakRows : this.Worksheet.userPageBreakRows;
+				}
 			}
 
 			private IEnumerator<int> GetEnum()
 			{
-				if (this.GridControl == null)
+				if (this.Worksheet == null)
 				{
 					throw new ReferenceObjectNotAssociatedException("Collection of row page breaks must be created from valid instance of ReoGrid control.");
 				}
 
-				return ((this.GridControl.pageBreakRows != null && this.GridControl.pageBreakRows.Count > 1)
-					? this.GridControl.pageBreakRows : this.GridControl.userPageBreakRows).GetEnumerator();
+				return ValidPageBreakArray.GetEnumerator();
 			}
 
 			/// <summary>
@@ -266,12 +273,12 @@ namespace unvell.ReoGrid
 			/// <param name="rowIndex">row index to be inserted</param>
 			public void Add(int rowIndex)
 			{
-				if (this.GridControl == null)
+				if (this.Worksheet == null)
 				{
 					throw new ReferenceObjectNotAssociatedException("Collection of row page break must be created from valid grid control.");
 				}
 
-				this.GridControl.InsertRowPageBreak(rowIndex);
+				this.Worksheet.InsertRowPageBreak(rowIndex);
 			}
 
 			/// <summary>
@@ -279,12 +286,12 @@ namespace unvell.ReoGrid
 			/// </summary>
 			public void Clear()
 			{
-				if (this.GridControl == null)
+				if (this.Worksheet == null)
 				{
 					throw new ReferenceObjectNotAssociatedException("Collection of row page break must be created from valid grid control.");
 				}
 
-				this.GridControl.ClearRowPageBreaks();
+				this.Worksheet.ClearRowPageBreaks();
 			}
 
 			/// <summary>
@@ -294,8 +301,7 @@ namespace unvell.ReoGrid
 			/// <returns></returns>
 			public bool Contains(int index)
 			{
-				return (this.GridControl.userPageBreakRows == null) ? false
-					: this.GridControl.userPageBreakRows.Contains(index);
+				return ValidPageBreakArray.Contains(index);
 			}
 
 			/// <summary>
@@ -305,10 +311,7 @@ namespace unvell.ReoGrid
 			/// <param name="arrayIndex">Start index to copy</param>
 			public void CopyTo(int[] array, int arrayIndex)
 			{
-				if (this.GridControl.userPageBreakRows != null)
-				{
-					this.GridControl.userPageBreakRows.CopyTo(array, arrayIndex);
-				}
+				ValidPageBreakArray.CopyTo(array, arrayIndex);
 			}
 
 			/// <summary>
@@ -316,7 +319,7 @@ namespace unvell.ReoGrid
 			/// </summary>
 			public int Count
 			{
-				get { return this.GridControl.userPageBreakRows == null ? 0 : this.GridControl.userPageBreakRows.Count; }
+				get { return ValidPageBreakArray.Count; }
 			}
 
 			/// <summary>
@@ -334,14 +337,14 @@ namespace unvell.ReoGrid
 			/// <returns>True if element was found and removed successfully</returns>
 			public bool Remove(int rowIndex)
 			{
-				if (this.GridControl == null)
+				if (this.Worksheet == null)
 				{
 					throw new ReferenceObjectNotAssociatedException("Collection of row page break must be created from valid grid control.");
 				}
 
 				try
 				{
-					this.GridControl.RemoveRowPageBreak(rowIndex);
+					this.Worksheet.RemoveRowPageBreak(rowIndex);
 					return true;
 				}
 				catch
@@ -359,13 +362,11 @@ namespace unvell.ReoGrid
 			{
 				get
 				{
-					return (this.GridControl.userPageBreakRows == null
-						|| index < 0 || index >= this.GridControl.userPageBreakRows.Count) ? -1 :
-						this.GridControl.userPageBreakRows[index];
+					return ValidPageBreakArray[index];
 				}
 				set
 				{
-					this.GridControl.ChangeRowPageBreak(index, value);
+					this.Worksheet.ChangeRowPageBreak(index, value);
 				}
 			}
 		}
@@ -404,9 +405,18 @@ namespace unvell.ReoGrid
 		{
 			private Worksheet Worksheet { get; set; }
 
-			internal ColumnPageBreakIndexCollection(Worksheet worksheet)
+			internal ColumnPageBreakIndexCollection(Worksheet sheet)
 			{
-				this.Worksheet = worksheet;
+				this.Worksheet = sheet;
+			}
+
+			private List<int> ValidPageBreakArray
+			{
+				get
+				{
+					return (this.Worksheet.pageBreakCols != null && this.Worksheet.pageBreakCols.Count > 1)
+						? this.Worksheet.pageBreakCols : this.Worksheet.userPageBreakCols;
+				}
 			}
 
 			private IEnumerator<int> GetEnum()
@@ -418,8 +428,7 @@ namespace unvell.ReoGrid
 
 				this.Worksheet.CheckAndInitPrintableRegion();
 
-				return ((this.Worksheet.pageBreakCols != null && this.Worksheet.pageBreakCols.Count > 1)
-					? this.Worksheet.pageBreakCols : this.Worksheet.userPageBreakCols).GetEnumerator();
+				return ValidPageBreakArray.GetEnumerator();
 			}
 
 			/// <summary>
@@ -470,8 +479,7 @@ namespace unvell.ReoGrid
 			/// <returns>true if the page break has been added, otherwise return false</returns>
 			public bool Contains(int index)
 			{
-				return (this.Worksheet.userPageBreakCols == null) ? false
-					: this.Worksheet.userPageBreakCols.Contains(index);
+				return ValidPageBreakArray.Contains(index);
 			}
 
 			/// <summary>
@@ -481,10 +489,7 @@ namespace unvell.ReoGrid
 			/// <param name="arrayIndex">number of index to start copy the array</param>
 			public void CopyTo(int[] array, int arrayIndex)
 			{
-				if (this.Worksheet.userPageBreakCols != null)
-				{
-					this.Worksheet.userPageBreakCols.CopyTo(array, arrayIndex);
-				}
+				ValidPageBreakArray.CopyTo(array, arrayIndex);
 			}
 
 			/// <summary>
@@ -492,7 +497,7 @@ namespace unvell.ReoGrid
 			/// </summary>
 			public int Count
 			{
-				get { return this.Worksheet.userPageBreakCols == null ? 0 : this.Worksheet.userPageBreakCols.Count; }
+				get { return ValidPageBreakArray.Count; }
 			}
 
 			/// <summary>
@@ -535,13 +540,11 @@ namespace unvell.ReoGrid
 			{
 				get
 				{
-					return (this.Worksheet.userPageBreakCols == null
-						|| index < 0 || index >= this.Worksheet.userPageBreakCols.Count) ? -1 :
-						this.Worksheet.userPageBreakCols[index];
+					return ValidPageBreakArray[index];
 				}
 				set
 				{
-					if (this.Worksheet.userPageBreakCols == null || this.Worksheet.userPageBreakCols.Count == 0)
+					if (ValidPageBreakArray.Count == 0)
 						throw new PageBreakNotFoundException(index);
 
 					this.Worksheet.ChangeColumnPageBreak(index, value);
