@@ -302,6 +302,7 @@ namespace unvell.ReoGrid
 		/// <returns>True if test passed</returns>
 		public bool _Debug_Validate_Unmerged_Range(RangePosition range)
 		{
+			if (this.rows.Count <= 0 || this.cols.Count <= 0) return true;
 			//if (range.IsEmpty)
 			//{
 			//	range = new ReoGridRange(0, 0, rows.Count, cols.Count);
