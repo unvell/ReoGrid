@@ -171,7 +171,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 			var sheet = doc.LoadRelationResourceById<Schema.Worksheet>(doc.Workbook, sheetIndex.resId);
 
-			float fixedCharWidth = 7.0f; //ResourcePoolManager.Instance.GetFont("Arial", 10f, System.Drawing.FontStyle.Regular).SizeInPoints;
+			const float fixedCharWidth = 7.0f; //ResourcePoolManager.Instance.GetFont("Arial", 10f, System.Drawing.FontStyle.Regular).SizeInPoints;
 
 			#region SheetView
 			var sheetView = sheet.sheetViews.FirstOrDefault() as SheetView;
