@@ -167,6 +167,7 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Construct empty control appearance
 		/// </summary>
+		[Obsolete("use ControlAppearanceStyle.CreateDefaultControlStyle() to create instance")]
 		public ControlAppearanceStyle()
 		{
 			this.SelectionBorderWidth = 3f;
