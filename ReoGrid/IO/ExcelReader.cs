@@ -235,22 +235,30 @@ namespace unvell.ReoGrid.IO.OpenXML
 			}
 			#endregion // SheetFormatProperty
 
-			#region Dimension
+			#region Resize
 			// resize to dimension 
+
+			int sheetRowCount = sheet.rows.Count;
+			int sheetColCount = sheet.cols.Count;
+
 			if (sheet.dimension != null && !string.IsNullOrEmpty(sheet.dimension.address))
 			{
 				RangePosition contentRange = new RangePosition(sheet.dimension.address);
 
-				if (rgSheet.RowCount <= contentRange.EndRow)
-				{
-					rgSheet.Rows = contentRange.EndRow + 1;
-				}
-				if (rgSheet.ColumnCount <= contentRange.EndCol)
-				{
-					rgSheet.Columns = contentRange.EndCol + 1;
-				}
+				sheetRowCount = Math.Max(sheetRowCount, contentRange.EndRow + 1);
+				sheetColCount = Math.Max(sheetColCount, contentRange.EndCol + 1);
 			}
-			#endregion // Dimension
+
+			if (rgSheet.RowCount < sheetRowCount)
+			{
+				rgSheet.Rows = sheetRowCount;
+			}
+
+			if (rgSheet.ColumnCount < sheetColCount)
+			{
+				rgSheet.Columns = sheetColCount;
+			}
+			#endregion // Resize
 
 			#region Columns
 			// columns
