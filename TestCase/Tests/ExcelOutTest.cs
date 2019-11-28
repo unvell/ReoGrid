@@ -51,7 +51,7 @@ namespace unvell.ReoGrid.Tests
 
 			worksheet.SetRangeDataFormat("G1", CellDataFormatFlag.Number, null);
 
-			worksheet["A2"] = new double[] { -10000, -10000, -10000, -10000, -10000, -10000, -10000, -10000, -10000, -10000, -10000 };
+			worksheet["A2"] = new double[] { -12345.67890, -12345.67890, -12345.67890, -12345.67890, -12345.67890, -12345.67890, -12345.67890, -12345.67890, -12345.67890, -12345.67890, -12345.67890, -12345.67890, -12345.67890, -12345.67890 };
 
 			worksheet.SetRangeDataFormat("A2", CellDataFormatFlag.Number,
 				new NumberDataFormatter.NumberFormatArgs { UseSeparator = false, DecimalPlaces = 0 });
@@ -75,8 +75,15 @@ namespace unvell.ReoGrid.Tests
 				new NumberDataFormatter.NumberFormatArgs { UseSeparator = true, DecimalPlaces = 3, NegativeStyle = NumberDataFormatter.NumberNegativeStyle.RedBrackets });
 
 			worksheet.SetRangeDataFormat("J2", CellDataFormatFlag.Number,
-				new NumberDataFormatter.NumberFormatArgs { UseSeparator = true, DecimalPlaces = 0, NegativeStyle = NumberDataFormatter.NumberNegativeStyle.Prefix_Sankaku });
+				new NumberDataFormatter.NumberFormatArgs { UseSeparator = true, DecimalPlaces = 0, NegativeStyle = NumberDataFormatter.NumberNegativeStyle.RedMinus });
 			worksheet.SetRangeDataFormat("K2", CellDataFormatFlag.Number,
+				new NumberDataFormatter.NumberFormatArgs { UseSeparator = true, DecimalPlaces = 1, NegativeStyle = NumberDataFormatter.NumberNegativeStyle.BracketsMinus });
+			worksheet.SetRangeDataFormat("L2", CellDataFormatFlag.Number,
+				new NumberDataFormatter.NumberFormatArgs { UseSeparator = true, DecimalPlaces = 3, NegativeStyle = NumberDataFormatter.NumberNegativeStyle.RedBracketsMinus });
+
+			worksheet.SetRangeDataFormat("M2", CellDataFormatFlag.Number,
+				new NumberDataFormatter.NumberFormatArgs { UseSeparator = true, DecimalPlaces = 0, NegativeStyle = NumberDataFormatter.NumberNegativeStyle.Prefix_Sankaku });
+			worksheet.SetRangeDataFormat("N2", CellDataFormatFlag.Number,
 				new NumberDataFormatter.NumberFormatArgs { UseSeparator = true, DecimalPlaces = 3, NegativeStyle = NumberDataFormatter.NumberNegativeStyle.Prefix_Sankaku });
 
 			Grid.Save(GetExcelFileName("OUT01"));
