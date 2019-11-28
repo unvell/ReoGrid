@@ -788,7 +788,9 @@ namespace unvell.ReoGrid
 				this.CurrentWorksheet = sheet;
 			}
 
-			if (ActionPerformed != null) ActionPerformed(this, new WorkbookActionEventArgs(action));
+			// fix #282, https://github.com/unvell/ReoGrid/issues/282
+			// comment out to avoid invoke ActionPerformed event, which is already invoked by actionManager above.
+			//if (ActionPerformed != null) ActionPerformed(this, new WorkbookActionEventArgs(action));
 		}
 
 		/// <summary>
@@ -907,9 +909,9 @@ namespace unvell.ReoGrid
 				}
 			}
 
-			if (this.actionManager.CanRedo())
+			if (this.CanRedo())
 			{
-				this.actionManager.Redo();
+				this.Redo();
 			}
 			else
 			{
@@ -920,7 +922,8 @@ namespace unvell.ReoGrid
 
 					this.actionManager.DoAction(newAction);
 
-					this.ActionPerformed?.Invoke(this, new WorkbookActionEventArgs(newAction));
+					// fix #282, https://github.com/unvell/ReoGrid/issues/282
+					//this.ActionPerformed?.Invoke(this, new WorkbookActionEventArgs(newAction));
 
 					this.currentWorksheet.RequestInvalidate();
 				}
