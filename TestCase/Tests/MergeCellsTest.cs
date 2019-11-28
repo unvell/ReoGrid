@@ -168,5 +168,43 @@ namespace unvell.ReoGrid.Tests
 			AssertEquals(worksheet.Cells["C10"].Style.BackColor, noneColor);
 			AssertEquals(worksheet.Cells["G5"].Style.BackColor, noneColor);
 		}
+
+		/// <summary>
+		/// Issue #285 https://github.com/unvell/ReoGrid/issues/285
+		/// </summary>
+		[TestCase]
+		void GetMergedCellOfRangeTest()
+		{
+			SetUp(20, 20);
+
+			worksheet.MergeRange("C3:H10");
+
+			AssertEquals(worksheet.GetMergedCellOfRange("C3").Address, "C3");
+			AssertEquals(worksheet.GetMergedCellOfRange("C4").Address, "C3");
+			AssertEquals(worksheet.GetMergedCellOfRange("D3").Address, "C3");
+			AssertEquals(worksheet.GetMergedCellOfRange("G9").Address, "C3");
+			AssertEquals(worksheet.GetMergedCellOfRange("H9").Address, "C3");
+			AssertEquals(worksheet.GetMergedCellOfRange("G10").Address, "C3");
+
+			AssertEquals(worksheet.GetMergedCellOfRange("A1").Address, "A1");
+			AssertEquals(worksheet.GetMergedCellOfRange("J12").Address, "J12");
+
+			AssertFalse(worksheet.Cells["A1"].IsMergedCell);
+			AssertFalse(worksheet.Cells["A1"].InsideMergedRange);
+			AssertFalse(worksheet.Cells["J12"].IsMergedCell);
+			AssertFalse(worksheet.Cells["J12"].InsideMergedRange);
+
+			AssertTrue(worksheet.Cells["C3"].IsMergedCell);
+			AssertTrue(worksheet.Cells["C3"].InsideMergedRange);
+			AssertFalse(worksheet.Cells["D4"].IsMergedCell);
+			AssertTrue(worksheet.Cells["D4"].InsideMergedRange);
+			AssertFalse(worksheet.Cells["H9"].IsMergedCell);
+			AssertTrue(worksheet.Cells["H9"].InsideMergedRange);
+			AssertFalse(worksheet.Cells["G10"].IsMergedCell);
+			AssertTrue(worksheet.Cells["G10"].InsideMergedRange);
+
+			AssertTrue(worksheet.IsMergedCell("C3"));
+			AssertFalse(worksheet.IsMergedCell("C4"));
+		}
 	}
 }

@@ -441,6 +441,11 @@ namespace unvell.ReoGrid.Tests
 			TestAssert.AssertTrue(value, msg);
 		}
 
+		protected void AssertFalse(bool value, string msg = null)
+		{
+			TestAssert.AssertTrue(!value, msg);
+		}
+
 		protected void AssertEquals(object value, object expect, string msg = null)
 		{
 			TestAssert.AssertEquals(value, expect, msg);
