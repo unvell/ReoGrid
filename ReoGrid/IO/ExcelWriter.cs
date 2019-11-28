@@ -300,7 +300,8 @@ namespace unvell.ReoGrid.IO.OpenXML
 				default:
 				case NumberDataFormatter.NumberNegativeStyle.Default:
 					if (!string.IsNullOrEmpty(prefix)) sb.Append(prefix);
-					sb.Append("-" + digits);
+					sb.Append('-');
+					sb.Append(digits);
 					if (!string.IsNullOrEmpty(postfix)) sb.Append(postfix);
 					break;
 
@@ -308,7 +309,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 				case NumberDataFormatter.NumberNegativeStyle.RedMinus:
 					if (!string.IsNullOrEmpty(prefix)) sb.Append(prefix);
 					sb.Append("[Red]");
-                    if (NumberDataFormatter.NumberNegativeStyle.RedMinus == arg.NegativeStyle) sb.Append("-");
+					if ((arg.NegativeStyle & NumberDataFormatter.NumberNegativeStyle.Minus) == NumberDataFormatter.NumberNegativeStyle.Minus) sb.Append("-");
 					sb.Append(digits);
 					if (!string.IsNullOrEmpty(postfix)) sb.Append(postfix);
 					break;
@@ -317,8 +318,8 @@ namespace unvell.ReoGrid.IO.OpenXML
 				case NumberDataFormatter.NumberNegativeStyle.BracketsMinus:
 					if (!string.IsNullOrEmpty(prefix)) sb.Append(prefix);
 					sb.Append('(');
-                    if (NumberDataFormatter.NumberNegativeStyle.BracketsMinus == arg.NegativeStyle) sb.Append("-");
-                    sb.Append(digits);
+					if ((arg.NegativeStyle & NumberDataFormatter.NumberNegativeStyle.Minus) == NumberDataFormatter.NumberNegativeStyle.Minus) sb.Append("-");
+          sb.Append(digits);
 					sb.Append(')');
 					if (!string.IsNullOrEmpty(postfix)) sb.Append(postfix);
 					break;
@@ -327,8 +328,8 @@ namespace unvell.ReoGrid.IO.OpenXML
 				case NumberDataFormatter.NumberNegativeStyle.RedBracketsMinus:
 					if (!string.IsNullOrEmpty(prefix)) sb.Append(prefix);
 					sb.Append("[Red](");
-                    if (NumberDataFormatter.NumberNegativeStyle.RedBracketsMinus == arg.NegativeStyle) sb.Append("-");
-                    sb.Append(digits);
+					if ((arg.NegativeStyle & NumberDataFormatter.NumberNegativeStyle.Minus) == NumberDataFormatter.NumberNegativeStyle.Minus) sb.Append("-");
+					sb.Append(digits);
 					sb.Append(')');
 					if (!string.IsNullOrEmpty(postfix)) sb.Append(postfix);
 					break;
