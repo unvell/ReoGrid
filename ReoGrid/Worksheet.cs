@@ -1030,7 +1030,7 @@ namespace unvell.ReoGrid
 		{
 			if (cell == null) return null;
 
-			if (cell.IsMergedCell)
+			if (cell.InsideMergedRange)
 			{
 				if (cell.IsStartMergedCell)
 					return cell;
