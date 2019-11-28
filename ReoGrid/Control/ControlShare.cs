@@ -909,9 +909,9 @@ namespace unvell.ReoGrid
 				}
 			}
 
-			if (this.actionManager.CanRedo())
+			if (this.CanRedo())
 			{
-				this.actionManager.Redo();
+				this.Redo();
 			}
 			else
 			{
