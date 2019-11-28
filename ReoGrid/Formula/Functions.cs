@@ -870,6 +870,11 @@ namespace unvell.ReoGrid.Formula
 		#region OR
 		public static FormulaValue Or(Cell cell, List<STNode> list)
 		{
+			if (list == null || list.Count <= 0)
+			{
+				throw new FormulaParameterMismatchException(cell, "At least one parameter is needed, but nothing specified.");
+			}
+
 			foreach (var node in list)
 			{
 				FormulaValue val = Evaluator.Evaluate(cell, node);
@@ -883,11 +888,18 @@ namespace unvell.ReoGrid.Formula
 				}
 				else if (val.type == FormulaValueType.Number)
 				{
-					return ((double)val.value != 0);
+					if ((double)val.value != 0)
+					{
+						return true;
+					}
+				}
+				else
+				{
+					throw new FormulaTypeMismatchException(cell);
 				}
 			}
 
-			throw new FormulaTypeMismatchException(cell);
+			return false;
 		}
 		#endregion // OR
 

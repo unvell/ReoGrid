@@ -1270,7 +1270,7 @@ namespace unvell.ReoGrid.Formula
 		CircularReference,
 
 		/// <summary>
-		/// A number value was required in formula calculation, but no valid number found. (Similar to "#VALUE!" in Excel)
+		/// A specified type was required during formula calculation, but no valid type found. (Similar to "#VALUE!" in Excel)
 		/// </summary>
 		InvalidValue,
 

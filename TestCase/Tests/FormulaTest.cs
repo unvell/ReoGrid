@@ -487,5 +487,66 @@ namespace unvell.ReoGrid.Tests
 			AssertSame(worksheet["Q1"], 5, "Q1: <=5");
 		}
 
+		[TestCase]
+		void OR_Logic()
+		{
+			SetUp(10, 10);
+
+			worksheet["A1"] = "=OR(TRUE)";
+			AssertEquals(worksheet["A1"], true);
+
+			worksheet["B1"] = "=OR(FALSE)";
+			AssertEquals(worksheet["B1"], false);
+
+			worksheet["C1"] = "=OR(TRUE,TRUE)";
+			AssertEquals(worksheet["C1"], true);
+
+			worksheet["D1"] = "=OR(FALSE,FALSE)";
+			AssertEquals(worksheet["D1"], false);
+
+			worksheet["E1"] = "=OR(TRUE,FALSE)";
+			AssertEquals(worksheet["E1"], true);
+
+			worksheet["A2"] = "=OR(1)";
+			AssertEquals(worksheet["A2"], true, "=OR(1)");
+
+			worksheet["B2"] = "=OR(0)";
+			AssertEquals(worksheet["B2"], false, "=OR(0)");
+
+			worksheet["C2"] = "=OR(1, 0)";
+			AssertEquals(worksheet["C2"], true, "=OR(1, 0)");
+
+			worksheet["D2"] = "=OR(0, 1)";
+			AssertEquals(worksheet["D2"], true, "=OR(0, 1)");
+
+			worksheet["E2"] = "=OR(1, 1)";
+			AssertEquals(worksheet["E2"], true, "=OR(1, 1)");
+
+			worksheet["F2"] = "=OR(0, 0)";
+			AssertEquals(worksheet["F2"], false, "=OR(0, 0)");
+
+			worksheet["A3"] = "1";
+			worksheet["B3"] = "=OR(A3)";
+			AssertEquals(worksheet["B3"], true, "=OR(A3)");
+
+			worksheet["C3"] = "0";
+			worksheet["D3"] = "=OR(C3)";
+			AssertEquals(worksheet["D3"], false, "=OR(C3)");
+
+			worksheet["E3"] = "=OR(A3, C3)";
+			AssertEquals(worksheet["E3"], true, "=OR(A3, C3)");
+
+			worksheet["F3"] = "=OR(A3, A3)";
+			AssertEquals(worksheet["F3"], true, "=OR(A3, A3)");
+
+			worksheet["G3"] = "=OR(C3, C3)";
+			AssertEquals(worksheet["G3"], false, "=OR(C3, C3)");
+
+			worksheet["A5"] = "=OR()";
+			AssertEquals(worksheet.Cells["A5"].FormulaStatus, FormulaStatus.MismatchedParameter, "=OR()");
+
+			worksheet["C5"] = "=OR(B5)";
+			AssertEquals(worksheet.Cells["C5"].FormulaStatus, FormulaStatus.InvalidValue, "=OR(B5)");
+		}
 	}
 }
