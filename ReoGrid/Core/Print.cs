@@ -301,7 +301,7 @@ namespace unvell.ReoGrid
 			/// <returns></returns>
 			public bool Contains(int index)
 			{
-				return ValidPageBreakArray.Contains(index);
+				return ValidPageBreakArray == null ? false : ValidPageBreakArray.Contains(index);
 			}
 
 			/// <summary>
@@ -479,7 +479,7 @@ namespace unvell.ReoGrid
 			/// <returns>true if the page break has been added, otherwise return false</returns>
 			public bool Contains(int index)
 			{
-				return ValidPageBreakArray.Contains(index);
+				return ValidPageBreakArray == null ? false : ValidPageBreakArray.Contains(index);
 			}
 
 			/// <summary>
