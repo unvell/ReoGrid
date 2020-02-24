@@ -289,6 +289,13 @@
     <Compile Include="Core\Worksheet\Selection.cs" />
     <Compile Include="Core\Worksheet\Utility.cs" />
     <Compile Include="Core\Worksheet\WorksheetInterface.cs" />
+    <Compile Include="DataFormat\CurrencyDataFormatter.cs" />
+    <Compile Include="DataFormat\DataFormatterManager.cs" />
+    <Compile Include="DataFormat\GeneralDataFormatter.cs" />
+    <Compile Include="DataFormat\NumberDataFormatter.cs" />
+    <Compile Include="DataFormat\DateTimeDataFormatter.cs" />
+    <Compile Include="DataFormat\PercentDataFormatter.cs" />
+    <Compile Include="DataFormat\TextDataFormatter.cs" />
     <Compile Include="Drawing\Canvas.cs" />
     <Compile Include="Drawing\DrawingContext.cs" />
     <Compile Include="Drawing\Events.cs" />
@@ -528,7 +535,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\theme1.xml" />
-    <None Include="reogrid-0.8.6.pfx" />
     <None Include="Resources\base_lib.reo" />
     <None Include="Resources\EULA_EN.txt" />
     <Content Include="Resources\cross.cur" />
