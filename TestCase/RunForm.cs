@@ -247,6 +247,12 @@ namespace unvell.ReoGrid.Tests
 			set { worksheet = value; }
 		}
 
+		public Worksheet sheet
+		{
+			get { return worksheet; }
+			set { worksheet = value; }
+		}
+
 		public void SetUp(int rows ,int cols)
 		{
 			if (worksheet != null) worksheet.Reset(rows, cols);

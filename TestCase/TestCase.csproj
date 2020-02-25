@@ -104,6 +104,7 @@
     <Compile Include="TestsNUnit\AutoFillSerialTests.cs" />
     <Compile Include="Tests\ExcelInTest.cs" />
     <Compile Include="Tests\FloatingTest.cs" />
+    <Compile Include="Tests\CellFormatTest.cs" />
     <Compile Include="Tests\FunctionTest.cs" />
     <Compile Include="Tests\RGFTest.cs" />
     <Compile Include="Tests\FreezeTest.cs" />
