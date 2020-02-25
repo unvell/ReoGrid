@@ -45,20 +45,20 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Default Settings
 		/// </summary>
-		Default = View_Default | Behaivor_Default | View_ShowScrolls 
+		Default = View_Default | Behavior_Default | View_ShowScrolls 
 #if EX_SCRIPT
 			| Script_Default
 #endif // EX_SCRIPT
 			,
 
-		#region Behaivor
+		#region Behavior
 
 		/// <summary>
-		/// Default behaivor settings
+		/// Default behavior settings
 		/// </summary>
-		Behaivor_Default = 0L,
+		Behavior_Default = 0L,
 
-		#endregion // Behaivor
+		#endregion // Behavior
 
 		#region View
 
