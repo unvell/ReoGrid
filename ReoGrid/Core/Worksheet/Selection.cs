@@ -631,7 +631,12 @@ namespace unvell.ReoGrid
 					//&& this.selectionRange.Cols != this.cols.Count)
 					)
 				{
-					this.ScrollToCell(this.selEnd);
+					// skip to scroll if entire worksheet is selected
+					if (!(start.Row == 0 && start.Col == 0
+						&& selEnd.Row == this.rows.Count - 1 && selEnd.Col == this.cols.Count - 1))
+					{
+						this.ScrollToCell(selEnd);
+					}
 				}
 			}
 		}
