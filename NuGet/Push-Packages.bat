@@ -1,9 +1,7 @@
 
-SET VER=2.1.0.0
+SET VER=2.1.1.0
 
-cd packages-wpf
-
-..\NuGet push unvell.ReoGridWPF.dll.%VER%.nupkg
+NuGet push packages-wpf\unvell.ReoGridWPF.dll.%VER%.nupkg
 
 cd ..
 
