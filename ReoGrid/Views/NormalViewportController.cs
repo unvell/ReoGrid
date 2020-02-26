@@ -914,46 +914,26 @@ namespace unvell.ReoGrid.Views
 
 			foreach (var v in this.view.Children)
 			{
-				if (v is IViewport)
+				if (v is IViewport vp)
 				{
-					IViewport viewpart = v as IViewport;
-
-#if WIN32_SCROLL
-						bool scrolled = false;
-						Rectangle scrolledRect = Rectangle.Empty;
-#endif
-
-					if (viewpart.ScrollableDirections == dir)
+					if (vp.ScrollableDirections == dir)
 					{
-
-#if WIN32_SCROLL
-							viewpart.Scroll(left, top);
-#else
-						viewpart.Scroll(x, y);
-#endif
+						vp.Scroll(x, y);
 					}
 					else
 					{
-						if ((viewpart.ScrollableDirections & ScrollDirection.Horizontal) == ScrollDirection.Horizontal
+						if ((vp.ScrollableDirections & ScrollDirection.Horizontal) == ScrollDirection.Horizontal
 							&& (dir & ScrollDirection.Horizontal) == ScrollDirection.Horizontal
 							&& x != 0)
 						{
-#if WIN32_SCROLL
-								viewpart.Scroll(x, 0);
-#else
-							viewpart.Scroll(x, 0);
-#endif
+							vp.Scroll(x, 0);
 						}
 
-						if ((viewpart.ScrollableDirections & ScrollDirection.Vertical) == ScrollDirection.Vertical
+						if ((vp.ScrollableDirections & ScrollDirection.Vertical) == ScrollDirection.Vertical
 						 && (dir & ScrollDirection.Vertical) == ScrollDirection.Vertical
 						 && y != 0)
 						{
-#if WIN32_SCROLL
-								viewpart.Scroll(0, y);
-#else
-							viewpart.Scroll(0, y);
-#endif
+							vp.Scroll(0, y);
 						}
 					}
 				}
@@ -964,33 +944,7 @@ namespace unvell.ReoGrid.Views
 
 			this.view.UpdateView();
 
-#if WIN32_SCROLL
-				var	updateRect = bounds;
-
-				if (left > 0)
-				{
-					updateRect.X = updateRect.Right - left;
-					updateRect.Width = left;
-				}
-				else if (left < 0)
-				{
-					updateRect.Width = -left;
-				}
-
-				if (top > 0)
-				{
-					updateRect.Y = updateRect.Bottom - top;
-					updateRect.Height = top;
-				}
-				else if (top < 0)
-				{
-					updateRect.Height = -top;
-				}
-
-				grid.Invalidate(updateRect);
-#else
 			worksheet.RequestInvalidate();
-#endif
 
 			scrollHorValue += x;
 			scrollVerValue += y;
@@ -1102,8 +1056,8 @@ namespace unvell.ReoGrid.Views
 			int offHor = maxHorizontal - this.scrollHorMax;
 			int offVer = maxVertical - this.scrollVerMax;
 #elif WPF
-				int offHor = (int)Math.Round(maxHorizontal - this.scrollHorMax);
-				int offVer = (int)Math.Round(maxVertical - this.scrollVerMax);
+			int offHor = (int)Math.Round(maxHorizontal - this.scrollHorMax);
+			int offVer = (int)Math.Round(maxVertical - this.scrollVerMax);
 #elif ANDROID || iOS
 			RGFloat offHor = maxHorizontal - this.scrollHorMax;
 			RGFloat offVer = maxVertical - this.scrollVerMax;
@@ -1145,9 +1099,9 @@ namespace unvell.ReoGrid.Views
 			this.worksheet.controlAdapter.ScrollBarHorizontalValue = (int)Math.Round(this.scrollHorValue);
 			this.worksheet.controlAdapter.ScrollBarVerticalValue = (int)Math.Round(this.scrollVerValue);
 		}
-		#endregion // Scroll
+#endregion // Scroll
 
-		#region Freeze
+#region Freeze
 
 		//private CellPosition freezePos = new CellPosition(0, 0);
 
@@ -1322,7 +1276,7 @@ namespace unvell.ReoGrid.Views
 			this.colHeaderPart2.ViewLeft = gridLoc.X;
 			this.rowHeaderPart2.ViewTop = gridLoc.Y;
 
-			#region Outline
+#region Outline
 #if OUTLINE
 			if (colOutlinePart2 != null)
 			{
@@ -1348,7 +1302,7 @@ namespace unvell.ReoGrid.Views
 				}
 			}
 #endif // OUTLINE
-			#endregion // Outline
+#endregion // Outline
 
 			// scroll bars start at view-start of the main-viewport
 			this.worksheet.controlAdapter.ScrollBarHorizontalMinimum = this.scrollHorMin = (int)Math.Round(this.mainViewport.ViewLeft);
@@ -1396,9 +1350,9 @@ namespace unvell.ReoGrid.Views
 #endif // OUTLINE
 		}
 
-		#endregion // Freeze
+#endregion // Freeze
 
-		#region Outline
+#region Outline
 #if OUTLINE
 		private RowOutlineView rowOutlinePart2;
 		private RowOutlineView rowOutlinePart1;
@@ -1408,16 +1362,16 @@ namespace unvell.ReoGrid.Views
 		private ColumnOutlineHeadPart colOutlineHeadPart;
 		private OutlineLeftTopSpace outlineLeftTopSpace;
 #endif // OUTLINE
-		#endregion // Outline
+#endregion // Outline
 
-		#region Draw
+#region Draw
 		public override void Draw(CellDrawingContext dc)
 		{
 			base.Draw(dc);
 
 			var g = dc.Graphics;
 
-			#region Freeze Split Line
+#region Freeze Split Line
 			if (this.view != null
 				&& this.worksheet.HasSettings(WorksheetSettings.View_ShowFrozenLine))
 			{
@@ -1433,8 +1387,8 @@ namespace unvell.ReoGrid.Views
 					g.DrawLine(this.view.Left, rightTopViewport.Bottom, this.view.Right, rightTopViewport.Bottom, SolidColor.Gray);
 				}
 			}
-			#endregion // Freeze Split Line
+#endregion // Freeze Split Line
 		}
-		#endregion // Draw
+#endregion // Draw
 	}
 }

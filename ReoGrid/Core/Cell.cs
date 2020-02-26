@@ -272,7 +272,7 @@ namespace unvell.ReoGrid
 		/// </summary>
 		/// <param name="cell">cell to be updated</param>
 		/// <param name="data">data to be updated</param>
-		/// <param name="dirtyCellStack">A stack to save cells that is marked as dirty cell, the dirty cell will be updated delay</param>
+		/// <param name="dirtyCellStack">A stack to save cells that are marked as dirty cell, the dirty cell will be updated delay</param>
 		internal void UpdateCellData(Cell cell, object data, Stack<List<Cell>> dirtyCellStack = null)
 		{
 			if (cell.body != null)

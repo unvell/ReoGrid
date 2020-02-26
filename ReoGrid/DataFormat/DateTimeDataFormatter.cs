@@ -106,6 +106,7 @@ namespace unvell.ReoGrid.DataFormat
 				{
 					DateTimeFormatArgs dargs = (DateTimeFormatArgs)cell.DataFormatArgs;
 
+					// fixes issue #203: pattern is ignored incorrectly
 					if (!string.IsNullOrEmpty(dargs.Format))
 					{
 						pattern = dargs.Format;
