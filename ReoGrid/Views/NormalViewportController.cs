@@ -898,7 +898,7 @@ namespace unvell.ReoGrid.Views
 #if WPF
 				if (scrollVerValue + y > scrollVerMax) y = scrollVerMax - scrollVerValue;
 #else // WINFORM
-				(scrollVerValue + y > scrollVerMax - scrollVerLarge) y = scrollVerMax - scrollVerValue - scrollVerLarge;
+				if (scrollVerValue + y > scrollVerMax - scrollVerLarge) y = scrollVerMax - scrollVerValue - scrollVerLarge;
 #endif // WINFORM
 
 				if (scrollVerValue + y < scrollVerMin) y = scrollVerMin - scrollVerValue;
