@@ -884,18 +884,24 @@ namespace unvell.ReoGrid.Views
 
 			if ((dir & ScrollDirection.Horizontal) == ScrollDirection.Horizontal)
 			{
-				if (scrollHorValue + x > scrollHorMax - scrollHorLarge)
-					x = scrollHorMax - scrollHorValue - scrollHorLarge;
-				if (scrollHorValue + x < scrollHorMin)
-					x = scrollHorMin - scrollHorValue;
+#if WPF
+				if (scrollHorValue + x > scrollHorMax) x = scrollHorMax - scrollHorValue;
+#else // WINFORM
+				if (scrollHorValue + x > scrollHorMax - scrollHorLarge) x = scrollHorMax - scrollHorValue - scrollHorLarge;
+#endif // WINFORM
+
+				if (scrollHorValue + x < scrollHorMin) x = scrollHorMin - scrollHorValue;
 			}
 
 			if ((dir & ScrollDirection.Vertical) == ScrollDirection.Vertical)
 			{
-				if (scrollVerValue + y > scrollVerMax - scrollVerLarge)
-					y = scrollVerMax - scrollVerValue - scrollVerLarge;
-				if (scrollVerValue + y < scrollVerMin)
-					y = scrollVerMin - scrollVerValue;
+#if WPF
+				if (scrollVerValue + y > scrollVerMax) y = scrollVerMax - scrollVerValue;
+#else // WINFORM
+				(scrollVerValue + y > scrollVerMax - scrollVerLarge) y = scrollVerMax - scrollVerValue - scrollVerLarge;
+#endif // WINFORM
+
+				if (scrollVerValue + y < scrollVerMin) y = scrollVerMin - scrollVerValue;
 			}
 
 			if (x == 0 && y == 0) return;
@@ -1075,12 +1081,18 @@ namespace unvell.ReoGrid.Views
 
 			if (worksheet.cols.Count > 0)
 			{
-				width = worksheet.cols[worksheet.cols.Count - 1].Right  + mainViewport.Width - mainViewport.Width / scale;
+				width = worksheet.cols[worksheet.cols.Count - 1].Right + mainViewport.Width - mainViewport.Width / scale;
+#if WPF
+				width -= scrollHorLarge;
+#endif // WPF 
 			}
 
 			if (worksheet.rows.Count > 0)
 			{
 				height = worksheet.rows[worksheet.rows.Count - 1].Bottom + mainViewport.Height - mainViewport.Height / scale;
+#if WPF
+				height -= scrollVerLarge;
+#endif // WPF
 			}
 
 			int maxHorizontal = Math.Max(0, (int)(Math.Floor(width + this.mainViewport.Left))) + 1;
