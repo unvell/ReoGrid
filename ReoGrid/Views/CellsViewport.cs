@@ -854,9 +854,9 @@ namespace unvell.ReoGrid.Views
 
 				Rectangle clipRect = new Rectangle(this.ViewLeft * this.scaleFactor, cell.Top * this.scaleFactor, this.Width, cellScaledHeight);
 
-				bool needWidthClip = (cell.IsMergedCell || cell.InnerStyle.TextWrapMode == TextWrapMode.WordBreak);
+				bool needWidthClip = cell.IsMergedCell || cell.InnerStyle.TextWrapMode == TextWrapMode.WordBreak || dc.AllowCellClip;
 
-				if (!needWidthClip && dc.AllowCellClip)
+				if (!needWidthClip)
 				{
 					if (cell.InternalCol < this.sheet.cols.Count - 1)
 					{
