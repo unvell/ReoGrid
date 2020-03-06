@@ -2950,10 +2950,6 @@ namespace unvell.ReoGrid.Editor
 
 		}
 
-
-
-
 #endif // DEBUG
-
 	}
 }

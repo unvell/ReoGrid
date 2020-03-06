@@ -275,7 +275,7 @@ namespace unvell.ReoGrid
 		Formula_AutoUpdateReferenceCell = 0x100000000L,
 
 		/// <summary>
-		/// Allow to pick an address from selected cell during formula editing.
+		/// Allow to pick an address from selected cell during formula editing. (Reserved)
 		/// </summary>
 		Formula_AutoPickingCellAddress = 0x200000000L,
 

@@ -410,23 +410,6 @@ namespace unvell.ReoGrid
 			if (row < 0 || col < 0 || row >= this.rows.Count || col >= this.cols.Count) return;
 
 			this.FreezeToCell(row, col, FreezeArea.LeftTop);
-			//this.FreezePos = new CellPosition(row, col);
-
-			//if (viewportController is IFreezableViewportController)
-			//{
-			//	var lastFreezePos = ((IFreezableViewportController)viewportController).FreezePosition;
-
-			//	if (lastFreezePos == FreezeArea.None)
-			//	{
-			//		lastFreezePos = FreezeArea.LeftTop;
-			//	}
-
-			//	FreezeToCell(row, col, lastFreezePos);
-			//}
-			////else
-			////{
-			////	throw new FreezeUnsupportedException();
-			////}
 		}
 
 		private CellPosition lastFrozenPosition;
