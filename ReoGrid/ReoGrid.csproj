@@ -246,6 +246,23 @@
     <Compile Include="Android\Renderer.cs" />
     <Compile Include="Android\ReoGridView.cs" />
     <Compile Include="Android\Platform.cs" />
+    <Compile Include="CellTypes\ButtonCell.cs" />
+    <Compile Include="CellTypes\CellBody.cs" />
+    <Compile Include="CellTypes\CellTypesManager.cs" />
+    <Compile Include="CellTypes\CheckboxCell.cs" />
+    <Compile Include="CellTypes\DatePickerCell.cs" />
+    <Compile Include="CellTypes\DropdownCell.cs" />
+    <Compile Include="CellTypes\DropdownListCell.cs" />
+    <Compile Include="CellTypes\ColumnDropdownListCell.cs" />
+    <Compile Include="CellTypes\HyperlinkCell.cs" />
+    <Compile Include="CellTypes\ICellBody.cs" />
+    <Compile Include="CellTypes\IHeaderBody.cs" />
+    <Compile Include="CellTypes\ImageButtonCell.cs" />
+    <Compile Include="CellTypes\ImageCell.cs" />
+    <Compile Include="CellTypes\NegativeProgressCell.cs" />
+    <Compile Include="CellTypes\NumberInputCell.cs" />
+    <Compile Include="CellTypes\ProgressCell.cs" />
+    <Compile Include="CellTypes\RadioButtonCell.cs" />
     <Compile Include="Chart\AreaLine.cs" />
     <Compile Include="Chart\Axis.cs" />
     <Compile Include="Chart\Bar.cs" />
@@ -360,7 +377,6 @@
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Actions.cs" />
-    <Compile Include="CellTypes.cs" />
     <Compile Include="Chart\Interface.cs" />
     <Compile Include="Common\ActionManager.cs" />
     <Compile Include="Common\GraphicsToolkit.cs" />
