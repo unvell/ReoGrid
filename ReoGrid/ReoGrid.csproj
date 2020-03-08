@@ -580,7 +580,6 @@
     <Compile Include="Worksheet.cs" />
     <Compile Include="ExtendTrigger.cs" />
     <Compile Include="Utility\RGUtility.cs" />
-    <Compile Include="Script\RSFunctions.cs" />
     <Compile Include="Script\RSObjects.cs" />
     <Compile Include="Script\ScriptExtend.cs" />
     <Compile Include="Settings.cs" />
