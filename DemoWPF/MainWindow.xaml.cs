@@ -63,15 +63,20 @@ namespace unvell.ReoGrid.WPFDemo
 			}
 
 			// fill data into worksheet
-			var dataRange = worksheet.Ranges["A21:G35"];
+			var dataRange = worksheet.Ranges["A21:F35"];
 
 			dataRange.Data = new object[,]
 			{
-				{"[23423423]", "Product ABC", 15, 150, 2250},
-				{"[45645645]", "Product DEF", 1, 75, 75},
-				{"[78978978]", "Product GHI", 2, 30, 60},
+				{"[23423423]", "Product ABC", 15, 150},
+				{"[45645645]", "Product DEF", 1, 75},
+				{"[78978978]", "Product GHI", 2, 30},
 			};
 
+			// set subtotal formula
+			worksheet.Cells["G21"].Formula = "E21*F21";
+
+			// auto fill other subtotals
+			worksheet.AutoFillSerial("G21", "G22:G35");
 		}
 		#endregion // Demo Sheet 1 : Document Template
 
