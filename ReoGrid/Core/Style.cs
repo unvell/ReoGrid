@@ -65,6 +65,7 @@ namespace unvell.ReoGrid.Core
 	{
 		FontChanged,
 		ScaleChanged,
+		TextColorChanged,
 	}
 }
 
@@ -414,6 +415,12 @@ namespace unvell.ReoGrid
 				{
 					UpdateCellTextBounds(cell);
 				}
+#if WPF
+				else if (style.Flag.Has(PlainStyleFlag.TextColor))
+				{
+					UpdateCellFont(cell, UpdateFontReason.TextColorChanged);
+				}
+#endif // WPF
 			}
 			//else
 			//{
