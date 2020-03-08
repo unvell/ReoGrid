@@ -592,34 +592,40 @@ namespace unvell.ReoGrid.Rendering
 			}
 		}
 
+		private static Color DecideTextColor(Cell cell) {
+			var sheet = cell.Worksheet;
+			var controlStyle = sheet.controlAdapter.ControlStyle;
+			SolidColor textColor;
+
+			if (!cell.RenderColor.IsTransparent)
+			{
+				textColor = cell.RenderColor;
+			}
+			else if (cell.InnerStyle.HasStyle(PlainStyleFlag.TextColor))
+			{
+				// cell text color, specified by SetRangeStyle
+				textColor = cell.InnerStyle.TextColor;
+			}
+			else if (!controlStyle.TryGetColor(ControlAppearanceColors.GridText, out textColor))
+			{
+				// default cell text color
+				textColor = SolidColor.Black;
+			}
+
+			return textColor;
+		}
+
 		public void UpdateCellRenderFont(Cell cell, Core.UpdateFontReason reason)
 		{
 			var sheet = cell.Worksheet;
 			if (sheet == null || sheet.controlAdapter == null) return;
-
-			var controlStyle = sheet.controlAdapter.ControlStyle;
 
 			double dpi = PlatformUtility.GetDPI();
 			double fontSize = cell.InnerStyle.FontSize * sheet.renderScaleFactor * dpi / 72.0;
 
 			if (cell.formattedText == null || cell.formattedText.Text != cell.InnerDisplay)
 			{
-				SolidColor textColor;
-
-				if (!cell.RenderColor.IsTransparent)
-				{
-					textColor = cell.RenderColor;
-				}
-				else if (cell.InnerStyle.HasStyle(PlainStyleFlag.TextColor))
-				{
-					// cell text color, specified by SetRangeStyle
-					textColor = cell.InnerStyle.TextColor;
-				}
-				else if (!controlStyle.TryGetColor(ControlAppearanceColors.GridText, out textColor))
-				{
-					// default cell text color
-					textColor = SolidColor.Black;
-				}
+				SolidColor textColor = DecideTextColor(cell);
 
 				cell.formattedText = new System.Windows.Media.FormattedText(cell.InnerDisplay,
 					System.Globalization.CultureInfo.CurrentCulture, System.Windows.FlowDirection.LeftToRight,
@@ -627,18 +633,28 @@ namespace unvell.ReoGrid.Rendering
 					fontSize,
 					base.resourceManager.GetBrush(textColor));
 			}
-			else
+			else if (reason == Core.UpdateFontReason.FontChanged || reason == Core.UpdateFontReason.ScaleChanged)
 			{
 				cell.formattedText.SetFontFamily(cell.InnerStyle.FontName);
 				cell.formattedText.SetFontSize(fontSize);
 			}
+			else if (reason == Core.UpdateFontReason.TextColorChanged)
+			{
+				SolidColor textColor = DecideTextColor(cell);
+				cell.formattedText.SetForegroundBrush(resourceManager.GetBrush(textColor));
+			}
 
-			cell.formattedText.SetFontWeight(
-				cell.InnerStyle.Bold ? System.Windows.FontWeights.Bold : System.Windows.FontWeights.Normal);
+			var ft = cell.formattedText;
 
-			cell.formattedText.SetFontStyle(PlatformUtility.ToWPFFontStyle(cell.InnerStyle.fontStyles));
+			if (reason == Core.UpdateFontReason.FontChanged || reason == Core.UpdateFontReason.ScaleChanged)
+			{
+				ft.SetFontWeight(
+					cell.InnerStyle.Bold ? System.Windows.FontWeights.Bold : System.Windows.FontWeights.Normal);
 
-			cell.formattedText.SetTextDecorations(PlatformUtility.ToWPFFontDecorations(cell.InnerStyle.fontStyles));
+				ft.SetFontStyle(PlatformUtility.ToWPFFontStyle(cell.InnerStyle.fontStyles));
+
+				ft.SetTextDecorations(PlatformUtility.ToWPFFontDecorations(cell.InnerStyle.fontStyles));
+			}
 		}
 
 		public void DrawRunningFocusRect(double x, double y, double w, double h, SolidColor color, int runningOffset)
