@@ -63,29 +63,12 @@ namespace unvell.ReoGrid.CellTypes
 		public string LinkURL { get; set; }
 
 		/// <summary>
-		/// Create hyperlink cell body instance.
-		/// </summary>
-		public HyperlinkCell()
-			: this(null, true)
-		{
-		}
-
-		/// <summary>
-		/// Create instane of hyperlink cell body with specified navigation url and AutoNavigate property.
-		/// </summary>
-		/// <param name="navigationURL">Navigation url redirected to when hyperlink clicked. (Default is emtpy)</param>
-		public HyperlinkCell(string navigationURL)
-			: this(navigationURL, true)
-		{
-		}
-
-		/// <summary>
 		/// Create instane of hyperlink cell body with specified navigation url and AutoNavigate property.
 		/// </summary>
 		/// <param name="navigationURL">Navigation url redirected to when hyperlink clicked. (Default is emtpy)</param>
 		/// <param name="autoNavigate">Determine whether or not redirect to specified url 
 		/// when hyperlink clicked automatically. (Default is true)</param>
-		public HyperlinkCell(string navigationURL, bool autoNavigate)
+		public HyperlinkCell(string navigationURL = null, bool autoNavigate = true)
 		{
 			this.ActivateColor = SolidColor.Red;
 			this.LinkColor = SolidColor.Blue;
@@ -161,7 +144,7 @@ namespace unvell.ReoGrid.CellTypes
 		/// <returns>True if event has been handled.</returns>
 		public override bool OnMouseMove(CellMouseEventArgs e)
 		{
-			if (e.Cell.TextBounds.Contains(e.RelativePosition))
+			if (e.Cell.TextBounds.Contains(e.AbsolutePosition))
 			{
 				if (!this.IsOverLink)
 				{
@@ -213,7 +196,7 @@ namespace unvell.ReoGrid.CellTypes
 		/// </summary>
 		public void PerformClick()
 		{
-			if (AutoNavigate && LinkURL != null)
+			if (AutoNavigate && !string.IsNullOrEmpty(LinkURL))
 			{
 				try
 				{
