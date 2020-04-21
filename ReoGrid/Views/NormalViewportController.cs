@@ -914,7 +914,9 @@ namespace unvell.ReoGrid.Views
 
 			foreach (var v in this.view.Children)
 			{
-				if (v is IViewport vp)
+				var vp = (v as IViewport);
+
+				if (vp != null)
 				{
 					if (vp.ScrollableDirections == dir)
 					{
