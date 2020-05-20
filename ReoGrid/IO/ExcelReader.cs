@@ -1534,6 +1534,16 @@ namespace unvell.ReoGrid.IO.OpenXML
 				arg.DecimalPlaces = 0;
 			}
 
+			const string commonUnderscoreClose = @"_)";
+			if (pattern.EndsWith(commonUnderscoreClose))
+			{
+				if (decimalSeparatorIndex >= 0)
+				{
+					// Adjust DecimalPlaces minus 2
+					arg.DecimalPlaces -= (short)commonUnderscoreClose.Length;
+				}
+			}
+
 			arg.UseSeparator = (pattern.IndexOf(culture.NumberFormat.NumberGroupSeparator) > 0);
 
 			return arg;
