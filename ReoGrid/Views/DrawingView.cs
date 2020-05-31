@@ -75,20 +75,45 @@ namespace unvell.ReoGrid.Views
 
 			return null;
 		}
-		#endregion // Find View
+        #endregion // Find View
 
-		#region UI Hanlders
-		public override bool OnMouseDown(Point location, MouseButtons buttons)
+        #region UI Hanlders
+
+        public override void FreeFocus()
+        {
+            //所有的子image全部失去focus
+            this.sheet.drawingCanvas.SetChildrenLostFocus();
+            base.FreeFocus();
+        }
+
+        public override bool OnMouseDown(Point location, MouseButtons buttons)
 		{
-			return this.sheet.drawingCanvas.OnMouseDown(location, buttons);
+            #region //-------custom-------
+            this.SetFocus();
+            if (buttons == MouseButtons.Right)
+            {
+                bool locked = false;
+                var obj = sheet.drawingCanvas.GetImageObject(location);
+                if (obj != null)
+                    locked = obj.IsLocked;
+                sheet.controlAdapter.ShowContextMenuStrip(locked ? ViewTypes.FloatingImgLocked : ViewTypes.FloatingImg, PointToController(location));
+            }
+            #endregion
+            return this.sheet.drawingCanvas.OnMouseDown(location, buttons);
 		}
 
 		public override bool OnMouseMove(Point location, MouseButtons buttons)
 		{
-			return this.sheet.drawingCanvas.OnMouseMove(location, buttons);
-		}
+            #region //---------custom--------
+            //if view is not focused then return false to stop send the move event
+            if (this.ViewportController.FocusView == this)
+                return this.sheet.drawingCanvas.OnMouseMove(location, buttons);
+            return false;
+        // return this.sheet.drawingCanvas.OnMouseMove(location, buttons);
+            #endregion //---------custom--------
+        }
 
-		public override bool OnMouseUp(Point location, MouseButtons buttons)
+        public override bool OnMouseUp(Point location, MouseButtons buttons)
 		{
 			return this.sheet.drawingCanvas.OnMouseUp(location, buttons);
 		}

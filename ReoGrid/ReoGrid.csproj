@@ -408,6 +408,7 @@
     <Compile Include="Utility\FileUtility.cs" />
     <Compile Include="Utility\LangUtility.cs" />
     <Compile Include="Utility\MeasureToolkit.cs" />
+    <Compile Include="Utility\OtherUtility.cs" />
     <Compile Include="Utility\PrinterUtility.cs" />
     <Compile Include="Utility\StyleUtility.cs" />
     <Compile Include="WinForm\AboutForm.cs">

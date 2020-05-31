@@ -24,6 +24,7 @@ using System.Linq;
 using System.Text;
 
 using unvell.ReoGrid.Rendering;
+using unvell.ReoGrid.Graphics;
 using unvell.ReoGrid.Views;
 
 namespace unvell.ReoGrid.Drawing
@@ -58,17 +59,104 @@ namespace unvell.ReoGrid.Drawing
 			}
 		}
 
-		/// <summary>
-		/// Worksheet Drawing Canvas alwayas keep transparent and doesn't draw anything from itself
-		/// </summary>
-		/// <param name="dc">Platform no-associated drawing context instance.</param>
-		protected override void OnPaint(DrawingContext dc)
+        #region //-----custom-------
+        public ImageObject GetImageObject(Point p)
+        {
+            foreach (ImageObject obj in this.drawingObjects)
+            {
+                if (obj.Bounds.Contains(p) && obj.Visible)
+                    return obj;
+            }
+            return null;
+        }
+        public ImageObject GetSelectedImageObject()
+        {
+            foreach (ImageObject obj in this.drawingObjects)
+            {
+                if (obj.IsSelected && obj.Visible)
+                    return obj;
+            }
+            return null;
+        }
+
+        public void DeleteSelectedImage()
+        {
+            ImageObject sobj = null;
+            foreach (ImageObject obj in this.drawingObjects)
+            {
+                if (obj.IsSelected && obj.Visible)
+                {
+                    sobj = obj;
+                    break;
+                }
+            }
+            if (sobj != null)
+                this.drawingObjects.Remove(sobj);
+        }
+
+        public void MoveSelectedLayer(bool isUp)
+        {
+            ImageObject sobj = null;
+            foreach (ImageObject obj in this.drawingObjects)
+            {
+                if (obj.IsSelected && obj.Visible)
+                {
+                    sobj = obj;
+                    break;
+                }
+            }
+            if (sobj != null)
+            {
+                var origin = this.drawingObjects.IndexOf(sobj);
+                if (isUp)
+                {
+                    if (origin > 0)
+                        Utility.OtherUtility.SwapItems<IDrawingObject>(this.drawingObjects, origin, origin - 1);
+                }
+                else
+                {
+                    if (origin < this.drawingObjects.Count - 1)
+                        Utility.OtherUtility.SwapItems<IDrawingObject>(this.drawingObjects, origin, origin + 1);
+                }
+            }
+        }
+
+        #endregion //-----custom-------
+
+        /// <summary>
+        /// Worksheet Drawing Canvas alwayas keep transparent and doesn't draw anything from itself
+        /// </summary>
+        /// <param name="dc">Platform no-associated drawing context instance.</param>
+        protected override void OnPaint(DrawingContext dc)
 		{
 			dc.Graphics.IsAntialias = true;
+          //draw backwards the last in  first to draw
+            if (this.drawingObjects?.Count > 0)
+            {
+                for (int i = this.drawingObjects.Count - 1; i >= 0; i--)
+                {
+                    var child = this.drawingObjects[i];
+                    if (child is DrawingObject)
+                    {
+                        var drawingObject = (DrawingObject)child;
+                        if (!drawingObject.Visible) continue;
+                    }
 
-			base.DrawChildren(dc);
+                    if (this.ClipBounds.Width > 0 || this.ClipBounds.Height > 0)
+                    {
+                        if (child.Bounds.IntersectWith(this.ClipBounds))
+                        {
+                            child.Draw(dc);
+                        }
+                    }
+                    else
+                    {
+                        child.Draw(dc);
+                    }
+                }
+            }
 
-			dc.Graphics.IsAntialias = false;
+            dc.Graphics.IsAntialias = false;
 		}
 
 		internal WorksheetDrawingObjectCollection worksheetDrawingObjectCollection;

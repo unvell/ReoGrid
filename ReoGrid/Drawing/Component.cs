@@ -218,28 +218,102 @@ namespace unvell.ReoGrid.Drawing
 		#region UI Handles
 		public override bool OnMouseDown(Point location, MouseButtons button)
 		{
-			bool isProcessed = false;
+            bool isProcessed = false;
+            bool selectflag = false;
+            foreach (var obj in this.drawingObjects)
+            {
+                if (obj.Bounds.Contains(location))
+                {
+                    if (selectflag)
+                    {
+                        obj.FreeFocus();
+                        continue;
+                    }
+                    isProcessed = obj.OnMouseDown(new Point(location.X - obj.X, location.Y - obj.Y), button);
+                    selectflag = true;
+                    //  if (isProcessed) break;
+                }
+                else
+                {
+                    //if click empty area ,free all
+                    obj.FreeFocus();
+                }
+            }
 
-			foreach (var obj in this.drawingObjects)
-			{
-				if (obj.Bounds.Contains(location))
-				{
-					isProcessed = obj.OnMouseDown(new Point(location.X - obj.X, location.Y - obj.Y), button);
-					if (isProcessed) break;
-				}
-			}
+            if (!isProcessed)
+            {
+                isProcessed = base.OnMouseDown(location, button);
+            }
 
-			if (!isProcessed)
-			{
-				isProcessed = base.OnMouseDown(location, button);
-			}
+            return isProcessed;
+        }
 
-			return isProcessed;
-		}
-		#endregion // UI Handles
-	}
+        #region //-------------custom------------
+        //if drawingviewport have not  focused this method would not be called
+        public override bool OnMouseMove(Point location, MouseButtons buttons)
+        {
+            bool isProcessed = false;
+            foreach (var obj in this.drawingObjects)
+            {
+                if (obj is ImageObject)
+                {
+                    var imgobj = obj as ImageObject;
+                    if (imgobj.IsResize)
+                    {
+                        imgobj.OnMouseMove(new Point(location.X - obj.X, location.Y - obj.Y), buttons);
+                        continue;
+                    }
+                }
+                if (obj.Bounds.Contains(location))
+                {
+                    isProcessed = obj.OnMouseMove(new Point(location.X - obj.X, location.Y - obj.Y), buttons);
+                    if (isProcessed) break;
+                }
+            }
+            if (!isProcessed)
+            {
+                isProcessed = base.OnMouseMove(location, buttons);
+            }
+            return isProcessed;
+        }
 
-	/*
+        public override bool OnMouseUp(Point location, MouseButtons buttons)
+        {
+            bool isProcessed = false;
+            foreach (var obj in this.drawingObjects)
+            {
+                if (obj.Bounds.Contains(location))
+                {
+                    isProcessed = obj.OnMouseUp(new Point(location.X - obj.X, location.Y - obj.Y), buttons);
+                    if (isProcessed) break;
+                    if (obj is ImageObject)
+                    {
+                        var imgobj = obj as ImageObject;
+                        imgobj.IsResize = false;
+                    }
+                }
+            }
+            if (!isProcessed)
+            {
+                isProcessed = base.OnMouseUp(location, buttons);
+            }
+            return isProcessed;
+        }
+        public void SetChildrenLostFocus()
+        {
+            foreach (var obj in this.drawingObjects)
+            {
+                obj.FreeFocus();
+            }
+        }
+
+        #endregion //-------------custom------------
+
+
+        #endregion // UI Handles
+    }
+
+    /*
 	/// <summary>
 	/// Represents layout drawing component.
 	/// </summary>

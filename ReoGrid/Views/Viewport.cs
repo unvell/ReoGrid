@@ -37,6 +37,7 @@ using unvell.ReoGrid.Graphics;
 using unvell.ReoGrid.Rendering;
 using unvell.ReoGrid.Interaction;
 using unvell.ReoGrid.Main;
+using System.Linq;
 
 namespace unvell.ReoGrid.Views
 {
@@ -55,12 +56,17 @@ namespace unvell.ReoGrid.Views
 		ColOutline = 0x10,
 		RowOutline = 0x20,
 		Outlines = ColOutline | RowOutline,
-	}
 
-	#endregion // ViewFlags
+        #region //------floatingimage-------
+        FloatingImg = 0x30,
+        FloatingImgLocked = 0x40,
+        #endregion //------floatingimage-------
+    }
 
-	#region GridRegion
-	internal struct GridRegion
+    #endregion // ViewFlags
+
+    #region GridRegion
+    internal struct GridRegion
 	{
 		internal int startRow;
 		internal int endRow;
@@ -688,20 +694,32 @@ namespace unvell.ReoGrid.Views
 		#region UI Handle
 		public virtual bool OnMouseDown(Point location, MouseButtons buttons)
 		{
-			bool isProcessed = false;
+            bool isProcessed = false;
 
-			if (!isProcessed)
-			{
-				var targetView = this.view.GetViewByPoint(location);
+            if (!isProcessed)
+            {
+                var targetView = this.view.GetViewByPoint(location);
+                #region //-----custom--------
+                //if view not selected then free drawingviewport selected state
+                if (targetView == null || !(targetView is DrawingViewport))
+                {
+                    var sheetview = this.view.Children.Where((v) => v is SheetViewport).FirstOrDefault();
+                    if (sheetview != null)
+                    {
+                        var dview = sheetview.Children.Where((v) => v is DrawingViewport).FirstOrDefault();
+                        if (dview != null)
+                            dview.FreeFocus();
+                    }
+                }
+                #endregion //-----custom--------
+                if (targetView != null)
+                {
+                    isProcessed = targetView.OnMouseDown(targetView.PointToView(location), buttons);
+                }
+            }
 
-				if (targetView != null)
-				{
-					isProcessed = targetView.OnMouseDown(targetView.PointToView(location), buttons);
-				}
-			}
-
-			return isProcessed;
-		}
+            return isProcessed;
+        }
 
 		public virtual bool OnMouseMove(Point location, MouseButtons buttons)
 		{
@@ -709,7 +727,7 @@ namespace unvell.ReoGrid.Views
 
 			if (this.FocusView != null)
 			{
-				this.FocusView.OnMouseMove(this.FocusView.PointToView(location), buttons);
+			    isProcessed=	this.FocusView.OnMouseMove(this.FocusView.PointToView(location), buttons);
 			}
 
 			if (!isProcessed)

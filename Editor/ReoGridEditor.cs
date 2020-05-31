@@ -2950,6 +2950,109 @@ namespace unvell.ReoGrid.Editor
 
 		}
 
+        #region FloatingImage
+
+        private void addFloatingImageContextMenuStrip_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new OpenFileDialog())
+            {
+                dialog.Multiselect = false;//该值确定是否可以选择多个文件
+                dialog.CheckFileExists = true;
+                dialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+                if (dialog.ShowDialog() == DialogResult.OK && !string.IsNullOrEmpty(dialog.FileName))
+                {
+                    var filename = dialog.FileName;
+                    try
+                    {
+                        if (!File.Exists(filename)) throw new FileNotFoundException();
+                        var img = Image.FromFile(filename);
+                        System.Drawing.Size size = new System.Drawing.Size();
+                        Point pos = new Point();
+                        pos.X = this.grid.Size.Width / 2;
+                        pos.Y = this.grid.Size.Height / 2;
+                        if (img.Size.Width > 1024 || img.Size.Height > 1024)
+                        {
+                            size.Width = 1024;
+                            size.Height = 1024;
+                        }
+                        else
+                            size = img.Size;
+                        var imageObject = new unvell.ReoGrid.Drawing.ImageObject(img)
+                        {
+                            Size = size,
+                            Location = pos
+                        };
+                        this.grid.CurrentWorksheet.FloatingObjects.Add(imageObject);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.Assert(false, "adding image error:" + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void deleteFloatingImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.grid.DeleteSelectedFloatingImage();
+            this.Refresh();
+        }
+
+        private void lockFloatingImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var p = floatingImageContextMenuStrip.Bounds.Location;
+            this.grid.LockCurrentFloatingImage(true,this.grid.PointToClient(p));
+        }
+
+        private void unlockFloatingImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var p = floatingImageContextMenuStrip.Bounds.Location;
+            this.grid.LockCurrentFloatingImage(false, this.grid.PointToClient(p));
+        }
+
+        private void moveLayerUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.grid.MoveSelectedFloatingImageUp();
+            this.Refresh();
+        }
+
+        private void moveLayerDownToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.grid.MoveSelectedFloatingImageDown();
+            this.Refresh();
+        }
+
+        private void saveImageAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var image = this.grid.GetSelectedImage())
+            {
+                if (image != null)
+                {
+                    using (var dialog = new SaveFileDialog())
+                    {
+                        dialog.Filter = "All files (*.bmp*)|*.bmp*";
+                        if (dialog.ShowDialog() == DialogResult.OK && !string.IsNullOrEmpty(dialog.FileName))
+                        {
+                            var rawname = Path.ChangeExtension(dialog.FileName, Utility.OtherUtility.GetImageExtension(image.RawFormat));
+                            try
+                            {
+                                image.Save(rawname);
+                                MessageBox.Show("save successed");
+                            }
+                            catch (Exception ex)
+                            {
+                                File.Delete(rawname);
+                                MessageBox.Show("save filed:" + ex.Message);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #endregion
+
 #endif // DEBUG
-	}
+    }
 }

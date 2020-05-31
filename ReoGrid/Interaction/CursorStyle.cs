@@ -79,11 +79,20 @@ namespace unvell.ReoGrid.Interaction
 		/// Change Row Height
 		/// </summary>
 		ChangeRowHeight,
-
-		/// <summary>
-		/// Horizontal Resize
-		/// </summary>
-		ResizeHorizontal,
+      
+        /// <summary>
+        /// arrow from top left to bottom rigth
+        /// </summary>
+        ResizeLeftToRight,
+        /// <summary>
+        /// arrow from top right to bottom left
+        /// </summary>
+        ResizeRightToLeft,
+    
+        /// <summary>
+        /// Horizontal Resize
+        /// </summary>
+        ResizeHorizontal,
 
 		/// <summary>
 		/// Vertical Resize

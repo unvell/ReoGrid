@@ -393,13 +393,12 @@ namespace unvell.ReoGrid
 				set { this.control.vScrollBar.LargeChange = value; }
 			}
 
-			#endregion
+            #endregion
 
-			#region Cursor & Context Menu
+            #region Cursor & Context Menu
 			public void ShowContextMenuStrip(ViewTypes viewType, Graphics.Point containerLocation)
 			{
 				Point p = Point.Round(containerLocation);
-
 				switch (viewType)
 				{
 					default:
@@ -422,8 +421,23 @@ namespace unvell.ReoGrid
 						if (this.control.leadHeaderContextMenuStrip != null)
 							this.control.leadHeaderContextMenuStrip.Show(this.control, p);
 						break;
-				}
-			}
+                    #region //-----floatingimag------
+                    case ViewTypes.FloatingImg:
+                        
+                        if (this.control.floatinfImgMenuStrip != null)
+                        {
+                            this.control.floatinfImgMenuStrip.Show(this.control, p);
+                        }
+                        break;
+                    case ViewTypes.FloatingImgLocked:
+                        if (this.control.floatinfImgMenuStrip != null)
+                        {
+                            this.control.floatinfImgMenuStrip.Show(this.control, p);
+                        }
+                        break;
+                        #endregion //-----floatingimage-------
+                }
+            }
 
 			private Cursor oldCursor = null;
 			public void ChangeCursor(CursorStyle cursor)
@@ -453,7 +467,11 @@ namespace unvell.ReoGrid
 					case CursorStyle.ChangeRowHeight: this.control.Cursor = Cursors.HSplit; break;
 					case CursorStyle.ResizeHorizontal: this.control.Cursor = Cursors.SizeWE; break;
 					case CursorStyle.ResizeVertical: this.control.Cursor = Cursors.SizeNS; break;
-					case CursorStyle.Move: this.control.Cursor = Cursors.SizeAll; break;
+                    //add two directions
+                    case CursorStyle.ResizeLeftToRight: this.control.Cursor = Cursors.SizeNWSE; break;
+                    case CursorStyle.ResizeRightToLeft: this.control.Cursor = Cursors.SizeNESW; break;
+
+                    case CursorStyle.Move: this.control.Cursor = Cursors.SizeAll; break;
 					case CursorStyle.Cross: this.control.Cursor = this.control.builtInCrossCursor; break;
 				}
 			}
@@ -1000,12 +1018,101 @@ namespace unvell.ReoGrid
 			set { leadHeaderContextMenuStrip = value; }
 		}
 
-		#endregion // Cursor & Context Menu
+        #region //--------custom-----
+        public ContextMenuStrip FloatingImageContextMenuStrip
+        {
+            get { return floatinfImgMenuStrip; }
+            set { floatinfImgMenuStrip = value; }
+        }
+        private ContextMenuStrip floatinfImgMenuStrip;
 
-		#region Edit Control
+        /// <summary>
+        ///  lock or unlock selected floating image,pass the current cursor position argument
+        /// </summary>
+        /// <param name="b">is lock</param>
+        /// <param name="p">current   </param>
+        public void LockCurrentFloatingImage(bool b,Point p)
+        {
+            if (this.CurrentWorksheet.ViewportController.FocusView != null)
+            {
+                if (this.CurrentWorksheet.ViewportController.FocusView is DrawingViewport)
+                {
+                    if (b)
+                    {
+                        var obj = this.CurrentWorksheet.drawingCanvas.GetSelectedImageObject();
+                        if (obj != null)
+                            obj.IsLocked = b;
+                    }
+                    else
+                    {
+                        var pt = this.CurrentWorksheet.ViewportController.FocusView.PointToView(p);
+                        var obj = this.CurrentWorksheet.drawingCanvas.GetImageObject(pt);
+                        if (obj != null)
+                            obj.IsLocked = b;
+                    }
 
-		#region InputTextBox
-		private class InputTextBox : TextBox
+                }
+            }
+        }
+        /// <summary>
+        /// delete selected floating image
+        /// </summary>
+        public void DeleteSelectedFloatingImage()
+        {
+            if (this.CurrentWorksheet.ViewportController.FocusView != null)
+            {
+                if (this.CurrentWorksheet.ViewportController.FocusView is DrawingViewport)
+                {
+                    this.CurrentWorksheet.drawingCanvas.DeleteSelectedImage();
+                }
+            }
+        }
+
+        public void MoveSelectedFloatingImageUp()
+        {
+            if (this.CurrentWorksheet.ViewportController.FocusView != null)
+            {
+                if (this.CurrentWorksheet.ViewportController.FocusView is DrawingViewport)
+                {
+                    this.CurrentWorksheet.drawingCanvas.MoveSelectedLayer(true);
+                }
+            }
+        }
+
+        public void MoveSelectedFloatingImageDown()
+        {
+            if (this.CurrentWorksheet.ViewportController.FocusView != null)
+            {
+                if (this.CurrentWorksheet.ViewportController.FocusView is DrawingViewport)
+                {
+                    this.CurrentWorksheet.drawingCanvas.MoveSelectedLayer(false);
+                }
+            }
+        }
+
+        public Image GetSelectedImage()
+        {
+            if (this.CurrentWorksheet.ViewportController.FocusView != null)
+            {
+                if (this.CurrentWorksheet.ViewportController.FocusView is DrawingViewport)
+                {
+
+                    var img = this.CurrentWorksheet.drawingCanvas.GetSelectedImageObject().Image;
+
+                    return new Bitmap(img);
+                }
+            }
+            return null;
+        }
+
+        #endregion //--------custom-----
+
+        #endregion // Cursor & Context Menu
+
+        #region Edit Control
+
+        #region InputTextBox
+        private class InputTextBox : TextBox
 		{
 			private ReoGridControl owner;
 			internal bool TextWrap { get; set; }

@@ -718,9 +718,22 @@ namespace unvell.ReoGrid
 					cellsTraceDependents.Add(cell);
 				}
 			}
-			#endregion // Cells
+            #endregion // Cells
 
-			suspendDataChangedEvent = false;
+            #region Floatimage
+            if (xmlSheet.customimg.Count != 0)
+            {
+                foreach (var floatingObject in xmlSheet.customimg)
+                {
+                    var img = floatingObject.ToImage();
+                    if (img != null)
+                        this.FloatingObjects.Add(img);
+                }
+            }
+
+            #endregion
+
+            suspendDataChangedEvent = false;
 
 			#region Formula
 #if FORMULA
@@ -1378,9 +1391,27 @@ namespace unvell.ReoGrid
 
 								 return 1;
 							 });
-			#endregion // Cells
+            #endregion // Cells
 
-			XmlSerializer xmlWriter = new XmlSerializer(typeof(RGXmlSheet));
+            #region Floatimage
+            if (this.FloatingObjects.Count != 0)
+            {
+                foreach (var floatingObject in this.FloatingObjects)
+                {
+                    // check whether or not the floating object is an image
+                    if (floatingObject is Drawing.ImageObject)
+                    {
+                        var imageObject = (Drawing.ImageObject)floatingObject;
+                        var imagenode = CustomXmlFloatImg.FromImage(imageObject);
+                        if (imagenode != null)
+                            body.customimg.Add(imagenode);
+                    }
+                }
+            }
+
+            #endregion
+
+            XmlSerializer xmlWriter = new XmlSerializer(typeof(RGXmlSheet));
 			xmlWriter.Serialize(s, body);
 
 			return true;

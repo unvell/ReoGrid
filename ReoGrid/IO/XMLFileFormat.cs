@@ -33,6 +33,7 @@ using System.Reflection;
 using unvell.Common;
 using unvell.ReoGrid.Core;
 using unvell.ReoGrid.DataFormat;
+using System.IO;
 
 #if PRINT
 using unvell.ReoGrid.Print;
@@ -448,7 +449,10 @@ namespace unvell.ReoGrid
 
 			[XmlArray("cells"), XmlArrayItem("cell")]
 			public List<RGXmlCell> cells = new List<RGXmlCell>();
-		}
+
+            [XmlArray("floatimgs"), XmlArrayItem("floatimg")]
+            public List<CustomXmlFloatImg> customimg = new List<CustomXmlFloatImg>();
+        }
 
 		[Obfuscation(Feature = "renaming", Exclude = true)]
 		public class RGXmlHead
@@ -747,7 +751,68 @@ namespace unvell.ReoGrid
 			}
 		}
 
-		public class RGXmlCell
+        #region //-------custom-floatimg----------
+        public class CustomXmlFloatImg
+        {
+            [XmlText]
+            public string data;
+            [XmlAttribute("x")]
+            public float X;
+            [XmlAttribute("y")]
+            public float Y;
+            [XmlAttribute("width")]
+            public float width;
+            [XmlAttribute("height")]
+            public float height;
+
+            public static CustomXmlFloatImg FromImage(unvell.ReoGrid.Drawing.ImageObject image)
+            {
+                if (image == null) return null;
+                try
+                {
+                    var node = new CustomXmlFloatImg();
+                    using (var ms = new MemoryStream())
+                    {
+                        using (var bmp = new System.Drawing.Bitmap(image.Image))
+                        {
+                            bmp.Save(ms, image.Image.RawFormat);
+                        }
+                        node.data = Convert.ToBase64String(ms.ToArray());
+                        node.X = image.Bounds.X;
+                        node.Y = image.Bounds.Y;
+                        node.width = image.Bounds.Width;
+                        node.height = image.Bounds.Height;
+                        return node;
+                    }
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            public Drawing.ImageObject ToImage()
+            {
+                if (string.IsNullOrEmpty(data) || data?.Trim().Length == 0) return null;
+                try
+                {
+                    using (var ms = new MemoryStream(Convert.FromBase64String(data)))
+                    {
+                        var img = System.Drawing.Image.FromStream(ms);
+                        var node = new Drawing.ImageObject(img);
+                        node.Bounds = new Rectangle(this.X, this.Y, width, height);
+                        return node;
+                    }
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+
+        #endregion //-------custom-floatimg----------
+
+        public class RGXmlCell
 		{
 			[XmlAttribute]
 			public int row;

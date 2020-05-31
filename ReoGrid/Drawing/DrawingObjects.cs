@@ -329,7 +329,9 @@ namespace unvell.ReoGrid.Drawing
 			{
 				if (this.isSelected != value)
 				{
-					this.isSelected = true;
+                    this.isSelected = value;
+                    //previous  error code 
+					//this.isSelected = true;
 
 					if (this.isSelected)
 					{
@@ -626,7 +628,10 @@ namespace unvell.ReoGrid.Drawing
 			this.halfHeight = this.innerHeight / 2;
 			this.OriginPoint = new Point(halfWidth, halfHeight);
 
-			base.InternalBoundsUpdate(oldBounds);
+            //update resizepoints position
+            this.UpdateResizeThumbPoints();
+
+            base.InternalBoundsUpdate(oldBounds);
 		}
 
 		///// <summary>
@@ -758,9 +763,75 @@ namespace unvell.ReoGrid.Drawing
 			resizePoints[6] = new ResizeThumb(ResizeThumbPosition.Bottom, this.innerX + this.halfWidth, this.Bottom);
 			resizePoints[7] = new ResizeThumb(ResizeThumbPosition.BottomRight, this.Right, this.Bottom);
 		}
-		#endregion // Thumb
 
-	}
+
+        public struct ResizeCursorAndDir
+        {
+            public ResizeCursorAndDir(CursorStyle cur = CursorStyle.PlatformDefault, ResizeThumbPosition? pos = null)
+            {
+                Cusror = cur;
+                Dir = pos;
+            }
+            public CursorStyle Cusror;
+            public ResizeThumbPosition? Dir;
+        }
+
+        public ResizeCursorAndDir GetResizeCursorByPoint(Point p)
+        {
+            var rect = new Rectangle();
+            ResizeCursorAndDir result = new ResizeCursorAndDir();
+            for (int i = 0; i < resizePoints.Length; i++)
+            {
+                var pt = resizePoints[i].Point;
+                rect.X = pt.X - this.X - 4;
+                rect.Y = pt.Y - this.Y - 4;
+                rect.Width = 8;
+                rect.Height = 8;
+                if (!rect.Contains(p))
+                    continue;
+                switch (resizePoints[i].Position)
+                {
+                    case ResizeThumbPosition.Top:
+                        result.Cusror = CursorStyle.ResizeVertical;
+                        result.Dir = ResizeThumbPosition.Top;
+                        break;
+                    case ResizeThumbPosition.Bottom:
+                        result.Cusror = CursorStyle.ResizeVertical;
+                        result.Dir = ResizeThumbPosition.Bottom;
+                        break;
+                    case ResizeThumbPosition.Left:
+                        result.Cusror = CursorStyle.ResizeHorizontal;
+                        result.Dir = ResizeThumbPosition.Left;
+                        break;
+                    case ResizeThumbPosition.Right:
+                        result.Cusror = CursorStyle.ResizeHorizontal;
+                        result.Dir = ResizeThumbPosition.Right;
+                        break;
+                    case ResizeThumbPosition.TopLeft:
+                        result.Cusror = CursorStyle.ResizeLeftToRight;
+                        result.Dir = ResizeThumbPosition.TopLeft;
+                        break;
+                    case ResizeThumbPosition.BottomRight:
+                        result.Cusror = CursorStyle.ResizeLeftToRight;
+                        result.Dir = ResizeThumbPosition.BottomRight;
+                        break;
+                    case ResizeThumbPosition.TopRight:
+                        result.Cusror = CursorStyle.ResizeRightToLeft;
+                        result.Dir = ResizeThumbPosition.TopRight;
+                        break;
+                    case ResizeThumbPosition.BottomLeft:
+                        result.Cusror = CursorStyle.ResizeRightToLeft;
+                        result.Dir = ResizeThumbPosition.BottomLeft;
+                        break;
+                }
+                return result; ;
+            }
+            return result;
+        }
+
+        #endregion // Thumb
+
+    }
 
 	#region DrawingObjectCollection
 	/// <summary>
