@@ -733,6 +733,18 @@ namespace unvell.ReoGrid
 
             #endregion
 
+            #region background image
+
+            if (xmlSheet.sheetbackimage != null)
+            {
+                this.BackgroundImage = xmlSheet.sheetbackimage.ToImage();
+                this.BackImageWarpMode = (ImageWarpMode)xmlSheet.sheetbackimage.warpmode;
+            }
+            else
+            {
+                this.BackgroundImage = null;
+            }
+            #endregion
             suspendDataChangedEvent = false;
 
 			#region Formula
@@ -1411,7 +1423,26 @@ namespace unvell.ReoGrid
 
             #endregion
 
-            XmlSerializer xmlWriter = new XmlSerializer(typeof(RGXmlSheet));
+            #region background image
+            if (this.BackgroundImage != null)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    using (var bmp = new System.Drawing.Bitmap(this.BackgroundImage))
+                    {
+                        bmp.Save(ms, this.BackgroundImage.RawFormat);
+                    }
+                    var idata = Convert.ToBase64String(ms.ToArray());
+                    body.sheetbackimage = new XmlSheetBackImage
+                    {
+                        data = idata,
+                        warpmode = (int)this.BackImageWarpMode
+                    };
+                }
+            }
+                #endregion
+
+                XmlSerializer xmlWriter = new XmlSerializer(typeof(RGXmlSheet));
 			xmlWriter.Serialize(s, body);
 
 			return true;

@@ -452,6 +452,9 @@ namespace unvell.ReoGrid
 
             [XmlArray("floatimgs"), XmlArrayItem("floatimg")]
             public List<CustomXmlFloatImg> customimg = new List<CustomXmlFloatImg>();
+
+            [XmlElement("backgoundimage")]
+            public XmlSheetBackImage sheetbackimage;
         }
 
 		[Obfuscation(Feature = "renaming", Exclude = true)]
@@ -751,7 +754,7 @@ namespace unvell.ReoGrid
 			}
 		}
 
-        #region //-------custom-floatimg----------
+        #region //-------custom-images----------
         public class CustomXmlFloatImg
         {
             [XmlText]
@@ -810,7 +813,32 @@ namespace unvell.ReoGrid
             }
         }
 
-        #endregion //-------custom-floatimg----------
+        public class XmlSheetBackImage
+        {
+            [XmlAttribute("warpmode")]
+            public int warpmode;
+            [XmlText]
+            public string data;
+
+            public System.Drawing.Image ToImage()
+            {
+                if (string.IsNullOrEmpty(data) || data?.Trim().Length == 0) return null;
+                try
+                {
+                    using (var ms = new MemoryStream(Convert.FromBase64String(data)))
+                    {
+                        var img = System.Drawing.Image.FromStream(ms);
+                        return img;
+                    }
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+
+        #endregion //-------custom-images---------
 
         public class RGXmlCell
 		{

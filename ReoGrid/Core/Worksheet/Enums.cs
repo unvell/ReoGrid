@@ -310,4 +310,21 @@ namespace unvell.ReoGrid
 		/// </summary>
 		Custom,
 	}
+
+    public enum ImageWarpMode
+    {
+        /// <summary>
+        /// fill entire sheet area ,not keep proportion
+        /// </summary>
+        strech,
+        /// <summary>
+        /// center the image in sheet area and keep proportion
+        /// </summary>
+        center,
+        /// <summary>
+        /// clip the image in sheet area
+        /// </summary>
+        clip
+    }
+
 }

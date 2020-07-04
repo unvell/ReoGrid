@@ -2941,14 +2941,7 @@ namespace unvell.ReoGrid.Editor
 				columnFilter.Detach();
 			}
 		}
-		#endregion // Filter
-
-		#if DEBUG
-		private void ForTest()
-		{
-			var sheet = this.grid.CurrentWorksheet;
-
-		}
+        #endregion // Filter
 
         #region FloatingImage
 
@@ -3002,7 +2995,7 @@ namespace unvell.ReoGrid.Editor
         private void lockFloatingImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var p = floatingImageContextMenuStrip.Bounds.Location;
-            this.grid.LockCurrentFloatingImage(true,this.grid.PointToClient(p));
+            this.grid.LockCurrentFloatingImage(true, this.grid.PointToClient(p));
         }
 
         private void unlockFloatingImageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3050,8 +3043,38 @@ namespace unvell.ReoGrid.Editor
                 }
             }
         }
+        #endregion
+
+        #region background image
+
+        private void backgroundImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new OpenFileDialog())
+            {
+                dialog.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+                dialog.Multiselect = false;
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    var img = Image.FromFile(dialog.FileName);
+                    {
+                        this.grid.CurrentWorksheet.BackgroundImage = img;
+                        this.grid.CurrentWorksheet.BackImageWarpMode = ImageWarpMode.strech;
+                    }
+                }
+
+            }
+        }
 
         #endregion
+
+#if DEBUG
+        private void ForTest()
+		{
+			var sheet = this.grid.CurrentWorksheet;
+
+		}
+
+      
 
 #endif // DEBUG
     }

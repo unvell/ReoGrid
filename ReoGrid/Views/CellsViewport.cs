@@ -70,8 +70,10 @@ namespace unvell.ReoGrid.Views
 			{
 				return;
 			}
+            //first draw
+            DrawBackgroudImage(dc);
 
-			if (
+            if (
 
 				// view mode
 				(sheet.HasSettings(WorksheetSettings.View_ShowGridLine)
@@ -1034,13 +1036,91 @@ namespace unvell.ReoGrid.Views
 				}
 			}
 		}
-		#endregion // Draw Selection
+        #endregion // Draw Selection
 
-		#endregion // Draw
+        #region Draw Background Image
 
-		#region Mouse
+        /// <summary>
+        /// draw sheet's background image ,if image is null will ignore
+        /// </summary>
+        /// <param name="dc"></param>
+        internal void DrawBackgroudImage(CellDrawingContext dc)
+        {
+            if (sheet.BackgroundImage == null || scaleFactor < 0.4) return;
 
-		public override bool OnMouseDown(Point location, MouseButtons buttons)
+            var sbounds = sheet.GetRangeBounds(0, 0, sheet.rows.Count, sheet.cols.Count);
+            var targetRect = new Rectangle(sbounds.X, sbounds.Y, sbounds.Width * scaleFactor, sbounds.Height * scaleFactor);
+
+            var src = sheet.BackgroundImage;
+            var warpmode = sheet.BackImageWarpMode;
+
+            if (warpmode == ImageWarpMode.strech)
+            {
+                dc.Graphics.DrawImage(sheet.BackgroundImage, targetRect);
+            }
+            else if (warpmode == ImageWarpMode.center)
+            {
+                float scaling;
+                float scalingY = src.Height / targetRect.Height;
+                float scalingX = src.Width / targetRect.Width;
+                if (scalingX > scalingY)
+                    scaling = scalingX;
+                else scaling = scalingY;
+
+                float newWidth;
+                float newHeight;
+                if (scaling > 1)
+                {
+                    //resize to fit sheet area
+                    newWidth = src.Width / scaling;
+                    newHeight = src.Height / scaling;
+                }
+                else
+                {
+                    newWidth = src.Width * scaleFactor;
+                    newHeight = src.Height * scaleFactor;
+                }
+
+                float shiftX = 0;
+                float shiftY = 0;
+
+                //start from center to draw
+                if (newWidth > targetRect.Width)
+                {
+                    shiftX = (newWidth - targetRect.Width) / 2;
+                }
+                else
+                {
+                    shiftX = (targetRect.Width - newWidth) / 2;
+                }
+
+                if (newHeight > targetRect.Height)
+                {
+                    shiftY = (newHeight - targetRect.Height) / 2;
+                }
+                else
+                {
+                    shiftY = (targetRect.Height - newHeight) / 2;
+                }
+
+                dc.Graphics.DrawImage(src, shiftX, shiftY, newWidth, newHeight);
+            }
+            else
+            {
+                //clip 
+                dc.Graphics.PlatformGraphics.DrawImage(sheet.BackgroundImage, targetRect,
+                    //always clip source image same area
+                    new Rectangle(0, 0, targetRect.Width / scaleFactor, targetRect.Height / scaleFactor), System.Drawing.GraphicsUnit.Pixel);
+            }
+        }
+
+        #endregion
+
+        #endregion // Draw
+
+        #region Mouse
+
+        public override bool OnMouseDown(Point location, MouseButtons buttons)
 		{
 			bool isProcessed = false;
 

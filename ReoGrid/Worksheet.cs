@@ -2319,13 +2319,20 @@ namespace unvell.ReoGrid
 			RGHTMLExporter.Export(s, this, string.IsNullOrEmpty(pageTitle) ? "Exported ReoGrid" : pageTitle, exportHeader);
 		}
 
-		#endregion // Export
+        #endregion // Export
 
-		/// <summary>
-		/// Convert to friendly string.
-		/// </summary>
-		/// <returns>Friendly string.</returns>
-		public override string ToString()
+
+        #region background image
+        public System.Drawing.Image BackgroundImage { get; set; }
+        public ImageWarpMode BackImageWarpMode { get; set; } = ImageWarpMode.strech;
+        #endregion
+
+
+        /// <summary>
+        /// Convert to friendly string.
+        /// </summary>
+        /// <returns>Friendly string.</returns>
+        public override string ToString()
 		{
 			return string.Format("Worksheet[{0}]", this.name);
 		}
