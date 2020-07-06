@@ -273,7 +273,7 @@ namespace unvell.ReoGrid
 						var cell = this.GetCell(r, c);
 						if (cell == null || !cell.IsValidCell)
 						{
-							sb.Append(',');
+							sb.Append(' ');
 							c++;
 						}
 						else
