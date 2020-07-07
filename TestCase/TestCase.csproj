@@ -106,6 +106,7 @@
     <Compile Include="Tests\FloatingTest.cs" />
     <Compile Include="Tests\CellFormatTest.cs" />
     <Compile Include="Tests\FunctionTest.cs" />
+    <Compile Include="Tests\InoprtExportTest.cs" />
     <Compile Include="Tests\RGFTest.cs" />
     <Compile Include="Tests\FreezeTest.cs" />
     <Compile Include="Tests\SelectionTest.cs" />

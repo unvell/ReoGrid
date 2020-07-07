@@ -273,20 +273,27 @@ namespace unvell.ReoGrid
 						var cell = this.GetCell(r, c);
 						if (cell == null || !cell.IsValidCell)
 						{
-							sb.Append(',');
 							c++;
 						}
 						else
 						{
 							var data = cell.Data;
-							string str = null;
+
 							bool quota = false;
+							//if (!quota)
+							//{
+							//	if (cell.DataFormat == CellDataFormatFlag.Text)
+							//	{
+							//		quota = true;
+							//	}
+							//}
 
-							if (data is string)
+							if (data is string str)
 							{
-								str = (string)data;
-
-								if (str.IndexOf('"') >= 0)
+								if (!string.IsNullOrEmpty(str)
+									&& (cell.DataFormat == CellDataFormatFlag.Text
+									|| str.IndexOf(',') >= 0 || str.IndexOf('"') >= 0
+									|| str.StartsWith(" ") || str.EndsWith(" ")))
 								{
 									quota = true;
 								}
@@ -296,18 +303,10 @@ namespace unvell.ReoGrid
 								str = Convert.ToString(data);
 							}
 
-							if (!quota)
-							{
-								if (cell.DataFormat == CellDataFormatFlag.Text)
-								{
-									quota = true;
-								}
-							}
-
 							if (quota)
 							{
 								sb.Append('"');
-								sb.Append(str);
+								sb.Append(str.Replace("\"", "\"\""));
 								sb.Append('"');
 							}
 							else
