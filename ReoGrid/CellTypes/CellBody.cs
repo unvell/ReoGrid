@@ -144,7 +144,6 @@ namespace unvell.ReoGrid.CellTypes
 		/// <param name="dc">Platform independency graphics context.</param>
 		public virtual void OnPaint(CellDrawingContext dc)
 		{
-			dc.DrawCellBackground();
 			dc.DrawCellText();
 		}
 
@@ -267,7 +266,6 @@ namespace unvell.ReoGrid.CellTypes
 		/// <param name="dc">Platform independency graphics context.</param>
 		public override void OnPaint(CellDrawingContext dc)
 		{
-			dc.DrawCellBackground();
 
 			if (this.ContentBounds.Width > 0 || this.ContentBounds.Height > 0)
 			{
