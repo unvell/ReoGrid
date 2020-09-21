@@ -820,6 +820,11 @@ namespace unvell.ReoGrid.IO.OpenXML
 							//schema = "minor",
 						};
 
+						if ((r.FontStyles & Drawing.Text.FontStyles.Strikethrough) == Drawing.Text.FontStyles.Strikethrough)
+						{
+							rpr.strike = new ElementValue<string>();
+						}
+
 						if ((r.FontStyles & Drawing.Text.FontStyles.Bold) == Drawing.Text.FontStyles.Bold)
 						{
 							rpr.b = new ElementValue<string>();

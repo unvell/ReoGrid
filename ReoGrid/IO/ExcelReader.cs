@@ -2489,6 +2489,11 @@ namespace unvell.ReoGrid.IO.OpenXML
 					foreColor = doc.ConvertFromCompColor(rpr.solidFill);
 				}
 
+				if (rpr.strike != null)
+				{
+					fontStyles |= Drawing.Text.FontStyles.Strikethrough;
+				}
+
 				if (rpr.b != null)
 				{
 					fontStyles |= Drawing.Text.FontStyles.Bold;
