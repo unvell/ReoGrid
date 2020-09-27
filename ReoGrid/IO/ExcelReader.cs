@@ -375,7 +375,8 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 				if (//row.customHeight == "1"
 						//&& 
-					!string.IsNullOrEmpty(row.height) && double.TryParse(row.height, out rowHeight))
+					!string.IsNullOrEmpty(row.height) && double.TryParse(row.height, System.Globalization.NumberStyles.Number,
+					ExcelWriter.EnglishCulture, out rowHeight))
 				{
 					rowHeader = rgSheet.GetRowHeader(rowIndex);
 					ushort height = (ushort)Math.Round(rowHeight * dpi / 72f);
