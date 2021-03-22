@@ -358,7 +358,17 @@ namespace unvell.ReoGrid
 				&& this.currentWorksheet.workbook != null
 				&& this.currentWorksheet.controlAdapter != null)
 			{
-				dc.DrawRectangle(Brushes.White, null, new Rect(0, 0, this.RenderSize.Width, this.RenderSize.Height));
+				SolidColorBrush bgBrush;
+				if (this.controlStyle.TryGetColor(ControlAppearanceColors.GridBackground, out SolidColor bgColor))
+				{
+					bgBrush = new SolidColorBrush(bgColor);
+				}
+				else
+				{
+					bgBrush = Brushes.White;
+				}
+
+				dc.DrawRectangle(bgBrush, null, new Rect(0, 0, this.RenderSize.Width, this.RenderSize.Height));
 
 				this.renderer.Reset();
 
