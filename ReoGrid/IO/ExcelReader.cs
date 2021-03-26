@@ -47,6 +47,11 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 	internal sealed class ExcelReader
 	{
+		static ExcelReader()
+		{
+			//Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+		}
+
 		#region Read Stream
 		public static void ReadStream(RGWorkbook rgWorkbook, Stream stream)
 		{
@@ -90,7 +95,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 			{
 				Logger.Log("file format", "reading excel format takes " + ms + " ms.");
 			}
-#endif
+#endif // DEBUG
 		}
 		#endregion // Read Stream
 

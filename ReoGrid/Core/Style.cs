@@ -920,7 +920,7 @@ namespace unvell.ReoGrid
 
 			if (size.Width <= 0 || size.Height <= 0) return;
 
-			// TODO: need fix: get incorrect size if CJK fonts
+			// FIXME: get incorrect size if CJK fonts
 			size.Width += 2;
 			size.Height += 1;
 			#endregion // Plain Text Measure Size

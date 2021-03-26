@@ -178,7 +178,7 @@ namespace unvell.ReoGrid.Utility
 
 	internal class MZipArchive : IZipArchive
 	{
-		private ZipFile zip;
+		private Ionic.Zip.ZipFile zip;
 
 		private Stream stream;
 
@@ -190,7 +190,7 @@ namespace unvell.ReoGrid.Utility
 		{
 			return new MZipArchive()
 			{
-				zip = ZipFile.Read(stream),
+				zip = Ionic.Zip.ZipFile.Read(stream),
 				stream = stream,
 			};
 		}
@@ -199,7 +199,7 @@ namespace unvell.ReoGrid.Utility
 		{
 			var mzip = new MZipArchive()
 			{
-				zip = new ZipFile(),
+				zip = new Ionic.Zip.ZipFile(),
 				stream = stream,
 			};
 
