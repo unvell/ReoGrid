@@ -121,7 +121,7 @@ namespace unvell.ReoGrid.Demo.Properties {
         /// * 
         /// * ReoGrid - .NET Spreadsheet Control
         /// 
-        /// * http://reogrid.net
+        /// * https://reogrid.net
         /// *
         /// * THIS CODE AND INFORMATION IS PROVIDED &quot;AS IS&quot; WITHOUT WARRANTY OF ANY
         /// * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE

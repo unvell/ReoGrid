@@ -220,10 +220,10 @@
     <value>居右（缩进）</value>
   </data>
   <data name="HP_Homepage" xml:space="preserve">
-    <value>http://reogrid.net/cn</value>
+    <value>https://reogrid.net/cn</value>
   </data>
   <data name="HP_Homepage_Document" xml:space="preserve">
-    <value>http://reogrid.net/cn/document</value>
+    <value>https://reogrid.net/cn/document</value>
   </data>
   <data name="Label_Color" xml:space="preserve">
     <value>颜色(&amp;C):</value>

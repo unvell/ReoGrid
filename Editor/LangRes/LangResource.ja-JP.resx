@@ -340,10 +340,10 @@
     <value>右詰め</value>
   </data>
   <data name="HP_Homepage" xml:space="preserve">
-    <value>http://reogrid.net/jp</value>
+    <value>https://reogrid.net/jp</value>
   </data>
   <data name="HP_Homepage_Document" xml:space="preserve">
-    <value>http://reogrid.net/jp/document</value>
+    <value>https://reogrid.net/jp/document</value>
   </data>
   <data name="Inch" xml:space="preserve">
     <value>インチ</value>

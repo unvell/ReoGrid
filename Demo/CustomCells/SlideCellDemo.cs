@@ -2,7 +2,7 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net
+ * https://reogrid.net
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
@@ -11,7 +11,7 @@
  *
  * ReoGrid and ReoGrid Demo project is released under MIT license.
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
+ * Copyright (c) 2012-2021 Jing Lu <jingwood at unvell.com>
  * Copyright (c) 2012-2016 unvell.com, all rights reserved.
  * 
  ****************************************************************************/
@@ -78,7 +78,7 @@ namespace unvell.ReoGrid.Demo.CustomCells
 			worksheet.MergeRange(12, 0, 1, 7);
 			worksheet[11, 0] = "More info about Custom Cell:";
 			worksheet[12, 0] = new unvell.ReoGrid.CellTypes.HyperlinkCell(
-				"http://reogrid.net/document/Custom%20Cell", true);
+				"https://reogrid.net/document/Custom%20Cell", true);
 		}
 	}
 

@@ -189,7 +189,7 @@ namespace unvell.ReoGrid.DemoJP.Properties {
         ////*****************************************************************************
         /// * 
         /// * ReoGrid - .NET 表計算スプレッドシートコンポーネント
-        /// * http://reogrid.net/jp
+        /// * https://reogrid.net/jp
         /// *
         /// * ReoGrid 日本語版デモプロジェクトは MIT ライセンスでリリースされています。
         /// * 

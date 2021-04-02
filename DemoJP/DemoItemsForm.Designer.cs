@@ -2,7 +2,7 @@
  * 
  * ReoGrid - .NET 表計算スプレッドシートコンポーネント
  * 
- * http://reogrid.net/jp
+ * https://reogrid.net/jp
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
