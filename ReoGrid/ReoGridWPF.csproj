@@ -26,11 +26,11 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DefineConstants>TRACE;DEBUG;EX_SCRIPT;VP_DEBUG_OFF;ALWAYS_CELL_CLIP;WINFORM;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;WPF;EX_SCRIPT;VP_DEBUG_OFF;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
     <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DefineConstants>TRACE;FORMULA;WINFORM;LANG_JP;OUTLINE;DRAWING;PRINT;RICHTEXT;</DefineConstants>
+    <DefineConstants>TRACE;WPF;FORMULA;LANG_JP;OUTLINE;DRAWING;PRINT;RICHTEXT;</DefineConstants>
     <DocumentationFile>bin\Release\unvell.ReoGrid.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Minimum|AnyCPU' ">
@@ -131,21 +131,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Control\ControlShare.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="WinForm\SheetTabControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="WinForm\FilterGUI.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="ClipboardMonitor.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="WinForm\WinFormControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Update="Control\ControlShare.cs" />
+    <Compile Update="WinForm\SheetTabControl.cs" />
+    <Compile Update="WinForm\FilterGUI.cs" />
+    <Compile Update="ClipboardMonitor.cs" />
+    <Compile Update="WinForm\WinFormControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\cross.cur" />
