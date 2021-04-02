@@ -1,24 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B0DB8D62-8C69-4D23-8BE5-171F89932888}</ProjectGuid>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>unvell.ReoGrid.DemoJP</RootNamespace>
     <AssemblyName>ReoGridDemoJP</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>3.5</OldToolsVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -33,33 +19,19 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;EX_SCRIPT;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;EX_SCRIPT;</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
@@ -74,21 +46,12 @@
     <Reference Include="FastColoredTextBox">
       <HintPath>..\Ref\FastColoredTextBox.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
+    <Reference Update="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Xml.Linq">
+    <Reference Update="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
     <Reference Include="unvell.ReoScript, Version=1.4.4.0, Culture=neutral, PublicKeyToken=85339a558a3a0c58, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
@@ -99,855 +62,327 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cell\CellStyleDemo.cs">
+    <Compile Update="Cell\CellStyleDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Cell\CellStyleDemo.Designer.cs">
-      <DependentUpon>CellStyleDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cell\IterateCellsDemo.cs">
+    <Compile Update="Cell\IterateCellsDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Cell\IterateCellsDemo.Designer.cs">
-      <DependentUpon>IterateCellsDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cell\CustomDataFormatDemo.cs">
+    <Compile Update="Cell\CustomDataFormatDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Cell\CustomDataFormatDemo.Designer.cs">
-      <DependentUpon>CustomDataFormatDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cell\CellTextDemo.cs">
+    <Compile Update="Cell\CellTextDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Cell\CellTextDemo.Designer.cs">
-      <DependentUpon>CellTextDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cell\RangeUsageDemo.cs">
+    <Compile Update="Cell\RangeUsageDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Cell\RangeUsageDemo.Designer.cs">
-      <DependentUpon>RangeUsageDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cell\CellDataDemo.cs">
+    <Compile Update="Cell\CellDataDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Cell\CellDataDemo.Designer.cs">
-      <DependentUpon>CellDataDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Chart\AreaChartDemo.cs">
+    <Compile Update="Chart\AreaChartDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Chart\AreaChartDemo.Designer.cs">
-      <DependentUpon>AreaChartDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Chart\BarChartDemo.cs">
+    <Compile Update="Chart\BarChartDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Chart\BarChartDemo.Designer.cs">
-      <DependentUpon>BarChartDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Chart\DoughnutChartDemo.cs">
+    <Compile Update="Chart\DoughnutChartDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Chart\DoughnutChartDemo.Designer.cs">
-      <DependentUpon>DoughnutChartDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Chart\Pie2DChartDemo.cs">
+    <Compile Update="Chart\Pie2DChartDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Chart\Pie2DChartDemo.Designer.cs">
-      <DependentUpon>Pie2DChartDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Chart\ColumnChartDemo.cs">
+    <Compile Update="Chart\ColumnChartDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Chart\ColumnChartDemo.Designer.cs">
-      <DependentUpon>ColumnChartDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Chart\LineChartDemo.cs">
+    <Compile Update="Chart\LineChartDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Chart\LineChartDemo.Designer.cs">
-      <DependentUpon>LineChartDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CustomCell\CustomDropdownDemo.cs">
+    <Compile Update="CustomCell\CustomDropdownDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomCell\CustomDropdownDemo.Designer.cs">
-      <DependentUpon>CustomDropdownDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CustomCell\BuiltInCellTypesDemo.cs">
+    <Compile Update="CustomCell\BuiltInCellTypesDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomCell\BuiltInCellTypesDemo.Designer.cs">
-      <DependentUpon>BuiltInCellTypesDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CustomCell\AnimationCellDemo.cs">
+    <Compile Update="CustomCell\AnimationCellDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomCell\AnimationCellDemo.Designer.cs">
-      <DependentUpon>AnimationCellDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CustomCell\ImageOwnerDrawingDemo.cs">
+    <Compile Update="CustomCell\ImageOwnerDrawingDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomCell\ImageOwnerDrawingDemo.Designer.cs">
-      <DependentUpon>ImageOwnerDrawingDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CustomCell\NumericProgressDemo.cs">
+    <Compile Update="CustomCell\NumericProgressDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomCell\NumericProgressDemo.Designer.cs">
-      <DependentUpon>NumericProgressDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CustomCell\SlideCellDemo.cs">
+    <Compile Update="CustomCell\SlideCellDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomCell\SlideCellDemo.Designer.cs">
-      <DependentUpon>SlideCellDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DemoItemsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DemoItemsForm.Designer.cs">
-      <DependentUpon>DemoItemsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\DataFormatDocDemo.cs">
+    <Compile Update="Documents\DataFormatDocDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Documents\DataFormatDocDemo.Designer.cs">
-      <DependentUpon>DataFormatDocDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\BalanceSheetDemo.cs">
+    <Compile Update="Documents\BalanceSheetDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Documents\BalanceSheetDemo.Designer.cs">
-      <DependentUpon>BalanceSheetDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\StaffInformationDemo.cs">
+    <Compile Update="Documents\StaffInformationDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Documents\StaffInformationDemo.Designer.cs">
-      <DependentUpon>StaffInformationDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\FinancialRatiosDocDemo.cs">
+    <Compile Update="Documents\FinancialRatiosDocDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Documents\FinancialRatiosDocDemo.Designer.cs">
-      <DependentUpon>FinancialRatiosDocDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\FinancialAnalysisDemo.cs">
+    <Compile Update="Documents\FinancialAnalysisDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Documents\FinancialAnalysisDemo.Designer.cs">
-      <DependentUpon>FinancialAnalysisDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\MonthlyPopulationStatDemo.cs">
+    <Compile Update="Documents\MonthlyPopulationStatDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Documents\MonthlyPopulationStatDemo.Designer.cs">
-      <DependentUpon>MonthlyPopulationStatDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\FurikaeDenpyoDemo.cs">
+    <Compile Update="Documents\FurikaeDenpyoDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Documents\FurikaeDenpyoDemo.Designer.cs">
-      <DependentUpon>FurikaeDenpyoDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\InvoiceExcelDocDemo.cs">
+    <Compile Update="Documents\InvoiceExcelDocDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Documents\InvoiceExcelDocDemo.Designer.cs">
-      <DependentUpon>InvoiceExcelDocDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\KamokuPanel.cs">
+    <Compile Update="Documents\KamokuPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Documents\KamokuPanel.designer.cs">
-      <DependentUpon>KamokuPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\ProjectBuildReportDemo.cs">
+    <Compile Update="Documents\ProjectBuildReportDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Documents\ProjectBuildReportDemo.Designer.cs">
-      <DependentUpon>ProjectBuildReportDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\YearCalendarDocDemo.cs">
+    <Compile Update="Documents\YearCalendarDocDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Documents\YearCalendarDocDemo.Designer.cs">
-      <DependentUpon>YearCalendarDocDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\MazeDocDemo.cs">
+    <Compile Update="Documents\MazeDocDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Documents\MazeDocDemo.Designer.cs">
-      <DependentUpon>MazeDocDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\MonthCalendarDocDemo.cs">
+    <Compile Update="Documents\MonthCalendarDocDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Documents\MonthCalendarDocDemo.Designer.cs">
-      <DependentUpon>MonthCalendarDocDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\OrderDocDemo.cs">
+    <Compile Update="Documents\OrderDocDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Documents\OrderDocDemo.Designer.cs">
-      <DependentUpon>OrderDocDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\ProjectSummaryDocDemo.cs">
+    <Compile Update="Documents\ProjectSummaryDocDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Documents\ProjectSummaryDocDemo.Designer.cs">
-      <DependentUpon>ProjectSummaryDocDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Drawings\DrawingObjectStyleDemo.cs">
+    <Compile Update="Drawings\DrawingObjectStyleDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Drawings\DrawingObjectStyleDemo.Designer.cs">
-      <DependentUpon>DrawingObjectStyleDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Drawings\AddingObjectDemo.cs">
+    <Compile Update="Drawings\AddingObjectDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Drawings\AddingObjectDemo.Designer.cs">
-      <DependentUpon>AddingObjectDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Drawings\BasicShapesDemo.cs">
+    <Compile Update="Drawings\BasicShapesDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Drawings\BasicShapesDemo.Designer.cs">
-      <DependentUpon>BasicShapesDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DropdownButton.cs">
+    <Compile Update="DropdownButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Formula\AddressFunctionDemo.cs">
+    <Compile Update="Formula\AddressFunctionDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Formula\AddressFunctionDemo.Designer.cs">
-      <DependentUpon>AddressFunctionDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Worksheet\ClipboardEventDemo.cs">
+    <Compile Update="Worksheet\ClipboardEventDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Worksheet\ClipboardEventDemo.Designer.cs">
-      <DependentUpon>ClipboardEventDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cell\CellsEventDemo.cs">
+    <Compile Update="Cell\CellsEventDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Cell\CellsEventDemo.Designer.cs">
-      <DependentUpon>CellsEventDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Workbook\ControlAppearanceDemo.cs">
+    <Compile Update="Workbook\ControlAppearanceDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Workbook\ControlAppearanceDemo.Designer.cs">
-      <DependentUpon>ControlAppearanceDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EdgeFreeze\BottomFreezeDemo.cs">
+    <Compile Update="EdgeFreeze\BottomFreezeDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EdgeFreeze\BottomFreezeDemo.Designer.cs">
-      <DependentUpon>BottomFreezeDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EdgeFreeze\LeftFreezeDemo.cs">
+    <Compile Update="EdgeFreeze\LeftFreezeDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EdgeFreeze\LeftFreezeDemo.Designer.cs">
-      <DependentUpon>LeftFreezeDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EdgeFreeze\RightFreezeDemo.cs">
+    <Compile Update="EdgeFreeze\RightFreezeDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EdgeFreeze\RightFreezeDemo.Designer.cs">
-      <DependentUpon>RightFreezeDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EdgeFreeze\BottomRightFreezeDemo.cs">
+    <Compile Update="EdgeFreeze\BottomRightFreezeDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EdgeFreeze\BottomRightFreezeDemo.Designer.cs">
-      <DependentUpon>BottomRightFreezeDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EdgeFreeze\BottomLeftFreezeDemo.cs">
+    <Compile Update="EdgeFreeze\BottomLeftFreezeDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EdgeFreeze\BottomLeftFreezeDemo.Designer.cs">
-      <DependentUpon>BottomLeftFreezeDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EdgeFreeze\TopRightFreezeDemo.cs">
+    <Compile Update="EdgeFreeze\TopRightFreezeDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EdgeFreeze\TopRightFreezeDemo.Designer.cs">
-      <DependentUpon>TopRightFreezeDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EdgeFreeze\TopFreezeDemo.cs">
+    <Compile Update="EdgeFreeze\TopFreezeDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EdgeFreeze\TopFreezeDemo.Designer.cs">
-      <DependentUpon>TopFreezeDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Worksheet\OutlineDemo.cs">
+    <Compile Update="Worksheet\OutlineDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Worksheet\OutlineDemo.Designer.cs">
-      <DependentUpon>OutlineDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Worksheet\ColumnFilterAndSortDemo.cs">
+    <Compile Update="Worksheet\ColumnFilterAndSortDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Worksheet\ColumnFilterAndSortDemo.Designer.cs">
-      <DependentUpon>ColumnFilterAndSortDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EdgeFreeze\TopLeftFreezeDemo.cs">
+    <Compile Update="EdgeFreeze\TopLeftFreezeDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EdgeFreeze\TopLeftFreezeDemo.Designer.cs">
-      <DependentUpon>TopLeftFreezeDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cell\RichTextDemo.cs">
+    <Compile Update="Cell\RichTextDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Cell\RichTextDemo.Designer.cs">
-      <DependentUpon>RichTextDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Workbook\SynchronizeScrollDemo.cs">
+    <Compile Update="Workbook\SynchronizeScrollDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Workbook\SynchronizeScrollDemo.Designer.cs">
-      <DependentUpon>SynchronizeScrollDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Performance\ComplexMergedCellDemo.cs">
+    <Compile Update="Performance\ComplexMergedCellDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Performance\ComplexMergedCellDemo.Designer.cs">
-      <DependentUpon>ComplexMergedCellDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Performance\RowPerformanceDemo.cs">
+    <Compile Update="Performance\RowPerformanceDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Performance\RowPerformanceDemo.Designer.cs">
-      <DependentUpon>RowPerformanceDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Worksheet\OutlineWithFreezeDemo.cs">
+    <Compile Update="Worksheet\OutlineWithFreezeDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Worksheet\OutlineWithFreezeDemo.Designer.cs">
-      <DependentUpon>OutlineWithFreezeDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Worksheet\PickRangeDemo.cs">
+    <Compile Update="Worksheet\PickRangeDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Worksheet\PickRangeDemo.Designer.cs">
-      <DependentUpon>PickRangeDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Workbook\MultisheetDemo.cs">
+    <Compile Update="Workbook\MultisheetDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Workbook\MultisheetDemo.Designer.cs">
-      <DependentUpon>MultisheetDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Worksheet\CustomSelectionDemo.cs">
+    <Compile Update="Worksheet\CustomSelectionDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Worksheet\CustomSelectionDemo.Designer.cs">
-      <DependentUpon>CustomSelectionDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Worksheet\ZoomDemo.cs">
+    <Compile Update="Worksheet\ZoomDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Worksheet\ZoomDemo.Designer.cs">
-      <DependentUpon>ZoomDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formula\NamedRangeReferenceDemo.cs">
+    <Compile Update="Formula\NamedRangeReferenceDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Formula\NamedRangeReferenceDemo.Designer.cs">
-      <DependentUpon>NamedRangeReferenceDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formula\GeneralFormulaDemo.cs">
+    <Compile Update="Formula\GeneralFormulaDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Formula\GeneralFormulaDemo.Designer.cs">
-      <DependentUpon>GeneralFormulaDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Scripts\ReoQueryScriptDemo.cs">
+    <Compile Update="Scripts\ReoQueryScriptDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Scripts\ReoQueryScriptDemo.Designer.cs">
-      <DependentUpon>ReoQueryScriptDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Scripts\LoadScriptDocDemo.cs">
+    <Compile Update="Scripts\LoadScriptDocDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Scripts\LoadScriptDocDemo.Designer.cs">
-      <DependentUpon>LoadScriptDocDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Worksheet\MultiSelectionDemo.cs">
+    <Compile Update="Worksheet\MultiSelectionDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Worksheet\MultiSelectionDemo.Designer.cs">
-      <DependentUpon>MultiSelectionDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\WhatsNewDemo.cs">
+    <Compile Update="General\WhatsNewDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="General\WhatsNewDemo.Designer.cs">
-      <DependentUpon>WhatsNewDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WorksheetForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WorksheetForm.Designer.cs">
-      <DependentUpon>WorksheetForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Performance\MaximumGridDemo.cs">
+    <Compile Update="Performance\MaximumGridDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Performance\MaximumGridDemo.Designer.cs">
-      <DependentUpon>MaximumGridDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Print\PrintMultipleWorksheetDemo.cs">
+    <Compile Update="Print\PrintMultipleWorksheetDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Print\PrintMultipleWorksheetDemo.Designer.cs">
-      <DependentUpon>PrintMultipleWorksheetDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Print\PrintPreviewDemo.cs">
+    <Compile Update="Print\PrintPreviewDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Print\PrintPreviewDemo.Designer.cs">
-      <DependentUpon>PrintPreviewDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Cell\BorderStylesDemo.cs">
+    <Compile Update="Cell\BorderStylesDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Cell\BorderStylesDemo.Designer.cs">
-      <DependentUpon>BorderStylesDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Worksheet\SelectionModeDemo.cs">
+    <Compile Update="Worksheet\SelectionModeDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Worksheet\SelectionModeDemo.Designer.cs">
-      <DependentUpon>SelectionModeDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Worksheet\CustomHeaderDemo.cs">
+    <Compile Update="Worksheet\CustomHeaderDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Worksheet\CustomHeaderDemo.Designer.cs">
-      <DependentUpon>CustomHeaderDemo.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Cell\CellStyleDemo.resx">
-      <DependentUpon>CellStyleDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cell\IterateCellsDemo.resx">
-      <DependentUpon>IterateCellsDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cell\CustomDataFormatDemo.resx">
-      <DependentUpon>CustomDataFormatDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cell\CellTextDemo.resx">
-      <DependentUpon>CellTextDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cell\RangeUsageDemo.resx">
-      <DependentUpon>RangeUsageDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cell\CellDataDemo.resx">
-      <DependentUpon>CellDataDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Chart\AreaChartDemo.resx">
-      <DependentUpon>AreaChartDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Chart\BarChartDemo.resx">
-      <DependentUpon>BarChartDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Chart\DoughnutChartDemo.resx">
-      <DependentUpon>DoughnutChartDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Chart\Pie2DChartDemo.resx">
-      <DependentUpon>Pie2DChartDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Chart\ColumnChartDemo.resx">
-      <DependentUpon>ColumnChartDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Chart\LineChartDemo.resx">
-      <DependentUpon>LineChartDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CustomCell\CustomDropdownDemo.resx">
-      <DependentUpon>CustomDropdownDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CustomCell\BuiltInCellTypesDemo.resx">
-      <DependentUpon>BuiltInCellTypesDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CustomCell\AnimationCellDemo.resx">
-      <DependentUpon>AnimationCellDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CustomCell\ImageOwnerDrawingDemo.resx">
-      <DependentUpon>ImageOwnerDrawingDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CustomCell\NumericProgressDemo.resx">
-      <DependentUpon>NumericProgressDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CustomCell\SlideCellDemo.resx">
-      <DependentUpon>SlideCellDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DemoItemsForm.resx">
-      <DependentUpon>DemoItemsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\DataFormatDocDemo.resx">
-      <DependentUpon>DataFormatDocDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\BalanceSheetDemo.resx">
-      <DependentUpon>BalanceSheetDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\StaffInformationDemo.resx">
-      <DependentUpon>StaffInformationDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\FinancialRatiosDocDemo.resx">
-      <DependentUpon>FinancialRatiosDocDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\FinancialAnalysisDemo.resx">
-      <DependentUpon>FinancialAnalysisDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\MonthlyPopulationStatDemo.resx">
-      <DependentUpon>MonthlyPopulationStatDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\FurikaeDenpyoDemo.resx">
-      <DependentUpon>FurikaeDenpyoDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\InvoiceExcelDocDemo.resx">
-      <DependentUpon>InvoiceExcelDocDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\KamokuPanel.resx">
-      <DependentUpon>KamokuPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\ProjectBuildReportDemo.resx">
-      <DependentUpon>ProjectBuildReportDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\YearCalendarDocDemo.resx">
-      <DependentUpon>YearCalendarDocDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\MazeDocDemo.resx">
-      <DependentUpon>MazeDocDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\MonthCalendarDocDemo.resx">
-      <DependentUpon>MonthCalendarDocDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\OrderDocDemo.resx">
-      <DependentUpon>OrderDocDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\ProjectSummaryDocDemo.resx">
-      <DependentUpon>ProjectSummaryDocDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Drawings\DrawingObjectStyleDemo.resx">
-      <DependentUpon>DrawingObjectStyleDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Drawings\AddingObjectDemo.resx">
-      <DependentUpon>AddingObjectDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Drawings\BasicShapesDemo.resx">
-      <DependentUpon>BasicShapesDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formula\AddressFunctionDemo.resx">
-      <DependentUpon>AddressFunctionDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Worksheet\ClipboardEventDemo.resx">
-      <DependentUpon>ClipboardEventDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cell\CellsEventDemo.resx">
-      <DependentUpon>CellsEventDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workbook\ControlAppearanceDemo.resx">
-      <DependentUpon>ControlAppearanceDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EdgeFreeze\BottomFreezeDemo.resx">
-      <DependentUpon>BottomFreezeDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EdgeFreeze\LeftFreezeDemo.resx">
-      <DependentUpon>LeftFreezeDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EdgeFreeze\RightFreezeDemo.resx">
-      <DependentUpon>RightFreezeDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EdgeFreeze\BottomRightFreezeDemo.resx">
-      <DependentUpon>BottomRightFreezeDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EdgeFreeze\BottomLeftFreezeDemo.resx">
-      <DependentUpon>BottomLeftFreezeDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EdgeFreeze\TopRightFreezeDemo.resx">
-      <DependentUpon>TopRightFreezeDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EdgeFreeze\TopFreezeDemo.resx">
-      <DependentUpon>TopFreezeDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Worksheet\OutlineDemo.resx">
-      <DependentUpon>OutlineDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Worksheet\ColumnFilterAndSortDemo.resx">
-      <DependentUpon>ColumnFilterAndSortDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EdgeFreeze\TopLeftFreezeDemo.resx">
-      <DependentUpon>TopLeftFreezeDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cell\RichTextDemo.resx">
-      <DependentUpon>RichTextDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workbook\SynchronizeScrollDemo.resx">
-      <DependentUpon>SynchronizeScrollDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Performance\ComplexMergedCellDemo.resx">
-      <DependentUpon>ComplexMergedCellDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Performance\RowPerformanceDemo.resx">
-      <DependentUpon>RowPerformanceDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Worksheet\OutlineWithFreezeDemo.resx">
-      <DependentUpon>OutlineWithFreezeDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Worksheet\PickRangeDemo.resx">
-      <DependentUpon>PickRangeDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workbook\MultisheetDemo.resx">
-      <DependentUpon>MultisheetDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Worksheet\CustomSelectionDemo.resx">
-      <DependentUpon>CustomSelectionDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Worksheet\ZoomDemo.resx">
-      <DependentUpon>ZoomDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formula\NamedRangeReferenceDemo.resx">
-      <DependentUpon>NamedRangeReferenceDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formula\GeneralFormulaDemo.resx">
-      <DependentUpon>GeneralFormulaDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Scripts\ReoQueryScriptDemo.resx">
-      <DependentUpon>ReoQueryScriptDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Scripts\LoadScriptDocDemo.resx">
-      <DependentUpon>LoadScriptDocDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Worksheet\MultiSelectionDemo.resx">
-      <DependentUpon>MultiSelectionDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\WhatsNewDemo.resx">
-      <DependentUpon>WhatsNewDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WorksheetForm.resx">
-      <DependentUpon>WorksheetForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Performance\MaximumGridDemo.resx">
-      <DependentUpon>MaximumGridDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Print\PrintMultipleWorksheetDemo.resx">
-      <DependentUpon>PrintMultipleWorksheetDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Print\PrintPreviewDemo.resx">
-      <DependentUpon>PrintPreviewDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Performance\UpdateDataFormatDemo.resx">
-      <DependentUpon>UpdateDataFormatDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cell\MergeCellsDemo.resx">
-      <DependentUpon>MergeCellsDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Worksheet\OnlyNumberInputDemo.resx">
-      <DependentUpon>OnlyNumberInputDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Worksheet\SetEditableRangeDemo.resx">
-      <DependentUpon>SetEditableRangeDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formula\CustomizeFunctionDemo.resx">
-      <DependentUpon>CustomizeFunctionDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Scripts\HandleEventsDemo.resx">
-      <DependentUpon>HandleEventsDemo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Scripts\RunScriptDemo.resx">
-      <DependentUpon>RunScriptDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cell\BorderStylesDemo.resx">
-      <DependentUpon>BorderStylesDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Worksheet\SelectionModeDemo.resx">
-      <DependentUpon>SelectionModeDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Worksheet\CustomHeaderDemo.resx">
-      <DependentUpon>CustomHeaderDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="Performance\UpdateDataFormatDemo.cs">
+    <Compile Update="Performance\UpdateDataFormatDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Performance\UpdateDataFormatDemo.Designer.cs">
-      <DependentUpon>UpdateDataFormatDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cell\MergeCellsDemo.cs">
+    <Compile Update="Cell\MergeCellsDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Cell\MergeCellsDemo.Designer.cs">
-      <DependentUpon>MergeCellsDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Worksheet\OnlyNumberInputDemo.cs">
+    <Compile Update="Worksheet\OnlyNumberInputDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Worksheet\OnlyNumberInputDemo.Designer.cs">
-      <DependentUpon>OnlyNumberInputDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Worksheet\SetEditableRangeDemo.cs">
+    <Compile Update="Worksheet\SetEditableRangeDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Worksheet\SetEditableRangeDemo.Designer.cs">
-      <DependentUpon>SetEditableRangeDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formula\CustomizeFunctionDemo.cs">
+    <Compile Update="Formula\CustomizeFunctionDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Formula\CustomizeFunctionDemo.Designer.cs">
-      <DependentUpon>CustomizeFunctionDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Scripts\HandleEventsDemo.cs">
+    <Compile Update="Scripts\HandleEventsDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Scripts\HandleEventsDemo.Designer.cs">
-      <DependentUpon>HandleEventsDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Scripts\RunScriptDemo.cs">
+    <Compile Update="Scripts\RunScriptDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Scripts\RunScriptDemo.Designer.cs">
-      <DependentUpon>RunScriptDemo.cs</DependentUpon>
-    </Compile>
-    <None Include="_Templates\CSV\13TOKYO.CSV">
+    <None Update="_Templates\CSV\13TOKYO.CSV">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\Excel\flowchart.xlsx" />
-    <None Include="_Templates\Excel\welcome.xlsx">
+    <None Update="_Templates\Excel\welcome.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\Excel\振替伝票.xlsx">
+    <None Update="_Templates\Excel\振替伝票.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\Excel\月別人口推計.xlsx">
+    <None Update="_Templates\Excel\月別人口推計.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\Excel\職員情報.xlsx">
+    <None Update="_Templates\Excel\職員情報.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\Excel\請求書.xlsx">
+    <None Update="_Templates\Excel\請求書.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\Excel\財務分析.xlsx">
+    <None Update="_Templates\Excel\財務分析.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\Excel\財務報告.xlsx">
+    <None Update="_Templates\Excel\財務報告.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\Excel\貸借対照表.xlsx">
+    <None Update="_Templates\Excel\貸借対照表.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\Excel\領収書001.xlsx">
+    <None Update="_Templates\Excel\領収書001.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\Excel\領収書006.xlsx">
+    <None Update="_Templates\Excel\領収書006.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\Excel\simple-invoice.xlsx" />
-    <None Include="_Templates\CSV\zip_code_sample.csv">
+    <None Update="_Templates\CSV\zip_code_sample.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\13TOKYO.rgf">
+    <None Update="_Templates\RGF\13TOKYO.rgf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\calendar_2008_1.rgf">
+    <None Update="_Templates\RGF\calendar_2008_1.rgf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\calendar_2013.rgf">
+    <None Update="_Templates\RGF\calendar_2013.rgf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\cell_format.rgf">
+    <None Update="_Templates\RGF\cell_format.rgf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\change_colors.rgf">
+    <None Update="_Templates\RGF\change_colors.rgf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\Financial_Ratios.rgf">
+    <None Update="_Templates\RGF\Financial_Ratios.rgf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\Maze.rgf">
+    <None Update="_Templates\RGF\Maze.rgf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\merged_range.rgf">
+    <None Update="_Templates\RGF\merged_range.rgf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\order_sample.rgf">
+    <None Update="_Templates\RGF\order_sample.rgf">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\outline.rgf">
+    <None Update="_Templates\RGF\outline.rgf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\printable_report.rgf">
+    <None Update="_Templates\RGF\printable_report.rgf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\project_building_report.rgf">
+    <None Update="_Templates\RGF\project_building_report.rgf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\project_cost_summary.rgf">
+    <None Update="_Templates\RGF\project_cost_summary.rgf">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\quick_start_sample.rgf">
+    <None Update="_Templates\RGF\quick_start_sample.rgf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\商品管理.rgf">
+    <None Update="_Templates\RGF\商品管理.rgf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="_Templates\RGF\職員情報.rgf">
+    <None Update="_Templates\RGF\職員情報.rgf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -957,27 +392,12 @@
     </Content>
     <Content Include="Drawings\AddingObjectDemo.src.html" />
     <Content Include="favicon.ico" />
-    <None Include="Resources\User Groups-32.png" />
-    <None Include="Resources\User Group-32.png" />
-    <None Include="Resources\Unchecked Checkbox-20.png" />
-    <None Include="Resources\Checked Checkbox-20.png" />
-    <None Include="Resources\Briefcase Filled-32.png" />
-    <None Include="Resources\Classroom-32.png" />
-    <None Include="Resources\Calendar-16.png" />
     <Content Include="Resources\computer_laptop.png" />
-    <None Include="Resources\Table_748.png" />
-    <None Include="Resources\Folder_6222.png" />
-    <None Include="Resources\DialogGroup_5846_16x.png" />
-    <None Include="Resources\image5.png" />
     <None Include="Resources\image3.png" />
     <None Include="Resources\image1.png" />
     <None Include="Resources\image2.png" />
     <None Include="Resources\image4.png" />
-    <None Include="Resources\find_5650.png" />
-    <None Include="Resources\Conference Call-32.png" />
-    <None Include="Resources\Contact Card-32.png" />
     <None Include="Resources\Contacts-32 %281%29.png" />
-    <None Include="Resources\Contacts-32.png" />
     <None Include="Resources\image11.png" />
     <None Include="Resources\image21.png" />
     <None Include="Resources\image31.png" />
@@ -997,21 +417,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Editor\Editor.csproj">
-      <Project>{ee03a6af-2937-4893-80f4-dd71f099a76c}</Project>
-      <Name>Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ReoGrid\ReoGrid.csproj">
-      <Project>{8b62357a-abbc-4db0-8633-f1d6a6c1ea53}</Project>
-      <Name>ReoGrid</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\Editor\Editor.csproj" />
+    <ProjectReference Include="..\ReoGrid\ReoGrid.csproj" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="DemoForm.resx" />
+    <EmbeddedResource Remove="Worksheet\CustomCellsForm.resx" />
+  </ItemGroup>
 </Project>
