@@ -1,25 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\packages\NUnit3TestAdapter.3.8.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.8.0\build\net35\NUnit3TestAdapter.props')" />
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C19B14BE-FAA6-4563-B1D8-9F3F8C8F062E}</ProjectGuid>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>unvell.ReoGrid.Tests</RootNamespace>
     <AssemblyName>ReoGridUnitTest</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <StartupObject>
-    </StartupObject>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>3.5</OldToolsVersion>
+    <StartupObject></StartupObject>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -35,148 +21,31 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;EX_SCRIPT</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;EX_SCRIPT</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=3.8.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.8.1\lib\net35\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
+    <Reference Update="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Xml.Linq">
+    <Reference Update="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
     <Reference Include="unvell.ReoScript, Version=1.4.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
     </Reference>
-    <Reference Include="WindowsBase" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ConsoleRunner.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="RunForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RunForm.Designer.cs">
-      <DependentUpon>RunForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestsNUnit\AutoFillSerialTests.cs" />
-    <Compile Include="Tests\ExcelInTest.cs" />
-    <Compile Include="Tests\FloatingTest.cs" />
-    <Compile Include="Tests\CellFormatTest.cs" />
-    <Compile Include="Tests\FunctionTest.cs" />
-    <Compile Include="Tests\InoprtExportTest.cs" />
-    <Compile Include="Tests\RGFTest.cs" />
-    <Compile Include="Tests\FreezeTest.cs" />
-    <Compile Include="Tests\SelectionTest.cs" />
-    <Compile Include="Tests\RichTextTest.cs" />
-    <Compile Include="Tests\CellsTypeTest.cs" />
-    <Compile Include="Tests\ExcelOutTest.cs" />
-    <Compile Include="Tests\MemWorkbookTest.cs" />
-    <Compile Include="Tests\WorkbookTest.cs" />
-    <EmbeddedResource Include="RunForm.resx">
-      <DependentUpon>RunForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="TestCaseManager.cs" />
-    <Compile Include="Tests\BorderTest.cs" />
-    <Compile Include="Tests\CellDataTest.cs" />
-    <Compile Include="Tests\CellSizeTest.cs" />
-    <Compile Include="Tests\ColumnFilterTest.cs" />
-    <Compile Include="Tests\ClipboardTest.cs" />
-    <Compile Include="Tests\ScriptTest.cs" />
-    <Compile Include="Tests\OutlineTest.cs" />
-    <Compile Include="Tests\CustomCellTest.cs" />
-    <Compile Include="Tests\PrintTest.cs" />
-    <Compile Include="Tests\PartialGridTest.cs" />
-    <Compile Include="Tests\PosAndRangeTests.cs" />
-    <Compile Include="Tests\StyleTest.cs" />
-    <Compile Include="Tests\DoActionTest.cs" />
-    <Compile Include="Tests\MergeCellsTest.cs" />
-    <Compile Include="Tests\DeleteColsTest.cs" />
-    <Compile Include="Tests\FormulaTest.cs" />
-    <Compile Include="Tests\DeleteRowsTest.cs" />
-    <Compile Include="Tests\InsertColsTest.cs" />
-    <Compile Include="Tests\InsertRowsTest.cs" />
-    <Compile Include="Tests\GenericTest.cs" />
-    <None Include="Resources\reogrid.lic" />
-    <None Include="xlsx\A01.xlsx" />
-    <None Include="xlsx\A02.xlsx" />
-    <None Include="xlsx\A03.xlsx" />
-    <None Include="xlsx\A04.xlsx" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\FormRunHS.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cmd.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\DataContainer_MoveNextHS.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -191,32 +60,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\CheckBoxDeHS.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\CheckBoxHS.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ReoGrid\ReoGrid.csproj">
-      <Project>{8b62357a-abbc-4db0-8633-f1d6a6c1ea53}</Project>
-      <Name>ReoGrid</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\ReoGrid\ReoGrid.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.8.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.8.0\build\net35\NUnit3TestAdapter.props'))" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.8.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.8.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
 </Project>
