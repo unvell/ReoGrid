@@ -32,7 +32,7 @@
 			<Item Name="バージョン2.1 新機能" Class="Welcome.WhatsNewDemo"></Item>
 		</Category>
 			
-		<Category Name="グラフ" Expansion="True" Namespace="ChartDemo">
+		<Category Name="グラフ" Expansion="False" Namespace="ChartDemo">
 			<Item Name="折れ線グラフ" Class="ChartDemo.LineChartDemo">
 				<Doc-Url>document/chart</Doc-Url>
 			</Item>
