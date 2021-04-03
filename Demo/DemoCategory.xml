@@ -21,7 +21,6 @@
 -->
 
 <Demo BaseSite="https://reogrid.net/" DefaultItem="What's new in 2.1">
-
 	<New>
 		<Item Name="Welcome"></Item>
 		<Item Name="Line Chart"></Item>
@@ -33,7 +32,8 @@
 	</New>
 		
 	<Categories>
-		<Category Name="Welcome" Expansion="False">
+
+		<Category Name="Welcome" Expansion="True">
 			<Item Name="What's new in 2.1" Class="Welcome.V100WhatsNew"></Item>
 		</Category>
 			

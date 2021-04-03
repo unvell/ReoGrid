@@ -95,6 +95,28 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Android\**" />
+    <Compile Remove="iOS\**" />
+    <Compile Remove="Test\**" />
+    <Compile Remove="WinForm\**" />
+    <Content Remove="Android\**" />
+    <Content Remove="iOS\**" />
+    <Content Remove="Test\**" />
+    <Content Remove="WinForm\**" />
+    <EmbeddedResource Remove="Android\**" />
+    <EmbeddedResource Remove="iOS\**" />
+    <EmbeddedResource Remove="Test\**" />
+    <EmbeddedResource Remove="WinForm\**" />
+    <None Remove="Android\**" />
+    <None Remove="iOS\**" />
+    <None Remove="Test\**" />
+    <None Remove="WinForm\**" />
+    <Page Remove="Android\**" />
+    <Page Remove="iOS\**" />
+    <Page Remove="Test\**" />
+    <Page Remove="WinForm\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="Antlr3.Runtime" Condition=" '$(Configuration)|$(Platform)' == 'Extension|AnyCPU' ">
       <HintPath>..\Ref\Antlr3.Runtime.dll</HintPath>
     </Reference>
@@ -107,13 +129,9 @@
     <Reference Include="Mono.Android" Condition=" '$(Configuration)|$(Platform)' == 'DebugAndroid|AnyCPU' ">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v4.0.3\Mono.Android.dll</HintPath>
     </Reference>
-    <Reference Include="ReachFramework" />
     <Reference Update="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Design" />
-    <Reference Include="System.Printing" />
-    <Reference Include="System.Workflow.ComponentModel" />
     <Reference Update="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -132,10 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Control\ControlShare.cs" />
-    <Compile Update="WinForm\SheetTabControl.cs" />
-    <Compile Update="WinForm\FilterGUI.cs" />
     <Compile Update="ClipboardMonitor.cs" />
-    <Compile Update="WinForm\WinFormControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\cross.cur" />
