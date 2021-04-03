@@ -107,13 +107,9 @@
     <Reference Include="Mono.Android" Condition=" '$(Configuration)|$(Platform)' == 'DebugAndroid|AnyCPU' ">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v4.0.3\Mono.Android.dll</HintPath>
     </Reference>
-    <Reference Include="ReachFramework" />
     <Reference Update="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Design" />
-    <Reference Include="System.Printing" />
-    <Reference Include="System.Workflow.ComponentModel" />
     <Reference Update="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>

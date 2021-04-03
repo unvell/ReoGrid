@@ -141,14 +141,14 @@ namespace unvell.ReoGrid.Graphics
 
 	struct LineCap
 	{
-		public LineCapStyles startStyle;
-		public LineCapStyles endStyle;
+		public LineCapStyles StartStyle { get; set; }
+		public LineCapStyles EndStyle { get; set; }
 
-		public Graphics.Size startSize;
-		public Graphics.Size endSize;
+		public Graphics.Size StartSize { get; set; }
+		public Graphics.Size EndSize { get; set; }
 
-		public SolidColor startColor;
-		public SolidColor endColor;
+		public SolidColor StartColor { get; set; }
+		public SolidColor EndColor { get; set; }
 	}
 
 

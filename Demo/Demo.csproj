@@ -328,6 +328,7 @@
   <ItemGroup>
     <Content Include="DemoCategory.xml">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Drawings\AddingObjectDemo.src.html" />
     <Content Include="favicon.ico" />
