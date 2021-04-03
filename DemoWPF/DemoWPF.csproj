@@ -51,7 +51,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReoGrid\ReoGrid.csproj" />
     <ProjectReference Include="..\ReoGrid\ReoGridWPF.csproj" />
   </ItemGroup>
   <ItemGroup>
