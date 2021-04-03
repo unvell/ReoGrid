@@ -50,17 +50,6 @@ namespace unvell.ReoGrid.Formula
 
 			return node;
 		}
-
-		private static string ParameterSeparator = ",";
-
-		static Parser()
-		{
-			try
-			{
-				ParameterSeparator = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ListSeparator;
-			}
-			catch { }
-		}
 		#endregion // Parser API
 
 		#region Parsers
@@ -305,7 +294,7 @@ namespace unvell.ReoGrid.Formula
 				nodes.Add(node);
 				i++;
 
-				if (!lexer.SkipToken(Parser.ParameterSeparator)) break;
+				if (!lexer.SkipToken(FormulaExtension.ParameterSeparator)) break;
 			}
 
 			while (nodes.Count > 0 && nodes[nodes.Count - 1] == null)
@@ -528,10 +517,11 @@ namespace unvell.ReoGrid.Formula
 			"\\s*((?<string>\"(?:\"\"|[^\"])*\")|(?<union_ranges>[A-Z]+[0-9]+:[A-Z]+[0-9]+(\\s[A-Z]+[0-9]+:[A-Z]+[0-9]+)+)"
 			+ "|(?<range>\\$?[A-Z]+\\$?[0-9]*:\\$?[A-Z]+\\$?[0-9]*)"
 			+ "|(?<cell>\\$?[A-Z]+\\$?[0-9]+)"
-			+ "|(?<token>-)|(?<number>\\-?\\d*\\"
-			+ System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator + "?\\d+)"
+			+ "|(?<token>-)|(?<number>\\-?\\d*\\" + FormulaExtension.NumberDecimalSeparator + "?\\d+)"
 			+ "|(?<true>(?i)TRUE)|(?<false>(?i)FALSE)|(?<identifier>\\w+)"
-			+ "|(?<token>\\=\\=|\\<\\>|\\<\\=|\\>\\=|\\<\\>|\\=|\\!|[\\=\\.\\,\\+\\-\\*\\/\\%\\<\\>\\(\\)\\&\\^]))",
+			+ "|(?<token>\\=\\=|\\<\\>|\\<\\=|\\>\\=|\\<\\>|\\=|\\!|[\\=\\.\\"
+			+ FormulaExtension.ParameterSeparator // ,
+			+ "\\+\\-\\*\\/\\%\\<\\>\\(\\)\\&\\^]))",
 			RegexOptions.Compiled);
 
 		public string Input { get; set; }

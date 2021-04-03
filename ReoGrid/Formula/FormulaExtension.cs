@@ -30,6 +30,26 @@ namespace unvell.ReoGrid.Formula
 	/// </summary>
 	public class FormulaExtension
 	{
+		/// <summary>
+		/// Specifies the separator of parameter list in formula. Default is "," but will be ';' in some cultures. Change this property before ReoGrid initializing.
+		/// </summary>
+		public static string ParameterSeparator = ",";
+
+		/// <summary>
+		/// Specifies the separator of number decimal format in formula. Default is "." but will be ',' in some cultures. Change this property before ReoGrid initializing.
+		/// </summary>
+		public static string NumberDecimalSeparator = ".";
+
+		static FormulaExtension()
+		{
+			try
+			{
+				ParameterSeparator = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ListSeparator;
+				NumberDecimalSeparator = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+			}
+			catch { }
+		}
+
 		internal static Dictionary<string, Func<Cell, object[], object>> customFunctions;
 
 		/// <summary>
