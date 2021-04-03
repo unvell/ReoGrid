@@ -42,6 +42,43 @@ using unvell.ReoGrid.Main;
 
 namespace unvell.ReoGrid
 {
+	public interface RGFCustomBodyHandler
+	{
+		string SaveData(Cell cell);
+
+		object LoadData(Cell cell, string data);
+	}
+
+	public static class RGFPersistenceProvider {
+
+		internal static Dictionary<Type, string> CustomBodyTypeIdentifiers { get; } = new();
+
+		internal static Dictionary<string, RGFCustomBodyHandler> CustomBodyTypeHandlers { get; } = new();
+
+		public static CustomBodyTypeProviderCollection CustomBodyTypeProviders { get; } = new();
+	}
+
+	public class CustomBodyTypeProviderCollection
+	{
+		internal CustomBodyTypeProviderCollection() { }
+
+		public void Add(Type type, string identifier, RGFCustomBodyHandler handler)
+		{
+			RGFPersistenceProvider.CustomBodyTypeIdentifiers[type] = identifier;
+			RGFPersistenceProvider.CustomBodyTypeHandlers[identifier] = handler;
+		}
+
+		public void Remove(Type type)
+		{
+			if (RGFPersistenceProvider.CustomBodyTypeIdentifiers.TryGetValue(type, out string identifer))
+			{
+				RGFPersistenceProvider.CustomBodyTypeHandlers.Remove(identifer);
+			}
+
+			RGFPersistenceProvider.CustomBodyTypeIdentifiers.Remove(type);
+		}
+	}
+
 	partial class Worksheet
 	{
 		#region Load
@@ -638,9 +675,7 @@ namespace unvell.ReoGrid
 				// body
 				if (!string.IsNullOrEmpty(xmlCell.bodyType))
 				{
-					Type type = null;
-
-					if (CellTypes.CellTypesManager.CellTypes.TryGetValue(xmlCell.bodyType, out type))
+					if (CellTypes.CellTypesManager.CellTypes.TryGetValue(xmlCell.bodyType, out var type))
 					{
 						try
 						{
@@ -650,20 +685,19 @@ namespace unvell.ReoGrid
 						{
 							throw new ReoGridLoadException("Cannot create cell body instance from type: " + xmlCell.bodyType, ex);
 						}
-					}
 
-					if (type == typeof(CellTypes.ImageCell))
-					{
-						int leftIndex = xmlCell.data.IndexOf(',');
-						if (leftIndex > 0)
+						if (type == typeof(CellTypes.ImageCell))
 						{
-							string mimetype = xmlCell.data.Substring(0, leftIndex);
-							if (mimetype == "image/png")
+							int leftIndex = xmlCell.data.IndexOf(',');
+							if (leftIndex > 0)
 							{
-								string imgcode = xmlCell.data.Substring(leftIndex + 1);
-
-								using (var ms = new MemoryStream(Convert.FromBase64String(imgcode)))
+								string mimetype = xmlCell.data.Substring(0, leftIndex);
+								if (mimetype == "image/png")
 								{
+									string imgcode = xmlCell.data.Substring(leftIndex + 1);
+
+									using (var ms = new MemoryStream(Convert.FromBase64String(imgcode)))
+									{
 #if WPF
 									var img = new System.Windows.Media.Imaging.BitmapImage();
 									img.BeginInit();
@@ -672,15 +706,20 @@ namespace unvell.ReoGrid
 									img.EndInit();
 									((CellTypes.ImageCell)cell.body).Image = img;
 #else // WINFORM
-									var img = System.Drawing.Image.FromStream(ms);
-									((CellTypes.ImageCell)cell.body).Image = img;
+										var img = System.Drawing.Image.FromStream(ms);
+										((CellTypes.ImageCell)cell.body).Image = img;
 #endif // WINFORM | WPF
 
-								}
+									}
 
-								cellValue = null;
+									cellValue = null;
+								}
 							}
 						}
+					}
+					else if (RGFPersistenceProvider.CustomBodyTypeHandlers.TryGetValue(xmlCell.bodyType, out var handler))
+					{
+						cellValue = Convert.ToString(handler.LoadData(cell, xmlCell.data));
 					}
 				}
 				#endregion // Body
@@ -1260,101 +1299,103 @@ namespace unvell.ReoGrid
 			#region Cells
 			// cells
 			this.cells.Iterate(0, 0, maxRow + 1, maxCol + 1, true, (r, c, cell) =>
-							 {
-								 if (cell.IsValidCell || cell.IsStartMergedCell)
-								 {
-									 bool addCell = false;
+			{
+				if (cell.IsValidCell || cell.IsStartMergedCell)
+				{
+					bool addCell = false;
 
-									 if (cell.InnerData != null || cell.Rowspan > 1 || cell.Colspan > 1 || cell.body != null) addCell = true;
+					if (cell.InnerData != null || cell.Rowspan > 1 || cell.Colspan > 1 || cell.body != null) addCell = true;
 
-									 RGXmlCellStyle xmlStyle = null;
+					RGXmlCellStyle xmlStyle = null;
 
-									 if (cell.StyleParentKind == StyleParentKind.Own)
-									 {
-										 xmlStyle = StyleUtility.ConvertToXmlStyle(
-											 StyleUtility.CheckAndRemoveCellStyle(this, cell));
+					if (cell.StyleParentKind == StyleParentKind.Own)
+					{
+						xmlStyle = StyleUtility.ConvertToXmlStyle(
+							StyleUtility.CheckAndRemoveCellStyle(this, cell));
 
-										 if (xmlStyle != null) addCell = true;
-									 }
+						if (xmlStyle != null) addCell = true;
+					}
 
-									 #region Data Format
-									 RGXmlCellDataFormatArgs xmlFormatArgs = null;
-									 if (cell.DataFormat != CellDataFormatFlag.General)
-									 {
-										 addCell = true;
+					#region Data Format
+					RGXmlCellDataFormatArgs xmlFormatArgs = null;
+					if (cell.DataFormat != CellDataFormatFlag.General)
+					{
+						addCell = true;
 
-										 switch (cell.DataFormat)
-										 {
-											 case CellDataFormatFlag.Number:
-												 NumberDataFormatter.NumberFormatArgs nargs = (NumberDataFormatter.NumberFormatArgs)cell.DataFormatArgs;
-												 xmlFormatArgs = new RGXmlCellDataFormatArgs();
-												 xmlFormatArgs.decimalPlaces = nargs.DecimalPlaces.ToString();
-												 xmlFormatArgs.negativeStyle = XmlFileFormatHelper.EncodeNegativeNumberStyle(nargs.NegativeStyle);
-												 xmlFormatArgs.useSeparator = TextFormatHelper.EncodeBool(nargs.UseSeparator);
-												 break;
+						switch (cell.DataFormat)
+						{
+							case CellDataFormatFlag.Number:
+								NumberDataFormatter.NumberFormatArgs nargs = (NumberDataFormatter.NumberFormatArgs)cell.DataFormatArgs;
+								xmlFormatArgs = new RGXmlCellDataFormatArgs();
+								xmlFormatArgs.decimalPlaces = nargs.DecimalPlaces.ToString();
+								xmlFormatArgs.negativeStyle = XmlFileFormatHelper.EncodeNegativeNumberStyle(nargs.NegativeStyle);
+								xmlFormatArgs.useSeparator = TextFormatHelper.EncodeBool(nargs.UseSeparator);
+								break;
 
-											 case CellDataFormatFlag.DateTime:
-												 DateTimeDataFormatter.DateTimeFormatArgs dargs = (DateTimeDataFormatter.DateTimeFormatArgs)cell.DataFormatArgs;
-												 xmlFormatArgs = new RGXmlCellDataFormatArgs();
-												 xmlFormatArgs.culture = dargs.CultureName;
-												 xmlFormatArgs.pattern = dargs.Format;
-												 break;
+							case CellDataFormatFlag.DateTime:
+								DateTimeDataFormatter.DateTimeFormatArgs dargs = (DateTimeDataFormatter.DateTimeFormatArgs)cell.DataFormatArgs;
+								xmlFormatArgs = new RGXmlCellDataFormatArgs();
+								xmlFormatArgs.culture = dargs.CultureName;
+								xmlFormatArgs.pattern = dargs.Format;
+								break;
 
-											 case CellDataFormatFlag.Currency:
-												 CurrencyDataFormatter.CurrencyFormatArgs cargs = (CurrencyDataFormatter.CurrencyFormatArgs)cell.DataFormatArgs;
-												 xmlFormatArgs = new RGXmlCellDataFormatArgs();
-												 xmlFormatArgs.decimalPlaces = cargs.DecimalPlaces.ToString();
-												 xmlFormatArgs.culture = cargs.CultureEnglishName;
-												 xmlFormatArgs.negativeStyle = XmlFileFormatHelper.EncodeNegativeNumberStyle(cargs.NegativeStyle);
-												 xmlFormatArgs.pattern = cargs.PrefixSymbol + "," + cargs.PostfixSymbol;
-												 break;
+							case CellDataFormatFlag.Currency:
+								CurrencyDataFormatter.CurrencyFormatArgs cargs = (CurrencyDataFormatter.CurrencyFormatArgs)cell.DataFormatArgs;
+								xmlFormatArgs = new RGXmlCellDataFormatArgs();
+								xmlFormatArgs.decimalPlaces = cargs.DecimalPlaces.ToString();
+								xmlFormatArgs.culture = cargs.CultureEnglishName;
+								xmlFormatArgs.negativeStyle = XmlFileFormatHelper.EncodeNegativeNumberStyle(cargs.NegativeStyle);
+								xmlFormatArgs.pattern = cargs.PrefixSymbol + "," + cargs.PostfixSymbol;
+								break;
 
-											 case CellDataFormatFlag.Percent:
-												 NumberDataFormatter.NumberFormatArgs pargs = (NumberDataFormatter.NumberFormatArgs)cell.DataFormatArgs;
-												 xmlFormatArgs = new RGXmlCellDataFormatArgs();
-												 xmlFormatArgs.decimalPlaces = pargs.DecimalPlaces.ToString();
-												 break;
-										 }
-									 }
-									 #endregion // Data Format
+							case CellDataFormatFlag.Percent:
+								NumberDataFormatter.NumberFormatArgs pargs = (NumberDataFormatter.NumberFormatArgs)cell.DataFormatArgs;
+								xmlFormatArgs = new RGXmlCellDataFormatArgs();
+								xmlFormatArgs.decimalPlaces = pargs.DecimalPlaces.ToString();
+								break;
+						}
+					}
+					#endregion // Data Format
 
-									 #region Cell
-									 if (addCell)
-									 {
-										 var xmlCell = new RGXmlCell()
-										 {
-											 row = r,
-											 col = c,
-											 colspan = cell.Colspan == 1 ? null : cell.Colspan.ToString(),
-											 rowspan = cell.Rowspan == 1 ? null : cell.Rowspan.ToString(),
-											 style = xmlStyle,
-											 dataFormat = XmlFileFormatHelper.EncodeCellDataFormat(cell.DataFormat),
-											 dataFormatArgs = (xmlFormatArgs == null || xmlFormatArgs.IsEmpty) ? null : xmlFormatArgs,
-											 @readonly = cell.IsReadOnly == false ? null : TextFormatHelper.EncodeBool(cell.IsReadOnly),  // Edited by Rick
+					#region Cell
+					if (addCell)
+					{
+						var xmlCell = new RGXmlCell()
+						{
+							row = r,
+							col = c,
+							colspan = cell.Colspan == 1 ? null : cell.Colspan.ToString(),
+							rowspan = cell.Rowspan == 1 ? null : cell.Rowspan.ToString(),
+							style = xmlStyle,
+							dataFormat = XmlFileFormatHelper.EncodeCellDataFormat(cell.DataFormat),
+							dataFormatArgs = (xmlFormatArgs == null || xmlFormatArgs.IsEmpty) ? null : xmlFormatArgs,
+							@readonly = cell.IsReadOnly == false ? null : TextFormatHelper.EncodeBool(cell.IsReadOnly),  // Edited by Rick
 
-											 bodyType = cell.body == null ? null : cell.body.GetType().Name,
+							bodyType = cell.body == null ? null : cell.body.GetType().Name,
 
 #if FORMULA
-											 tracePrecedents = cell.TraceFormulaPrecedents ? TextFormatHelper.EncodeBool(cell.TraceFormulaPrecedents) : null,
-											 traceDependents = cell.TraceFormulaDependents ? TextFormatHelper.EncodeBool(cell.TraceFormulaDependents) : null,
+							tracePrecedents = cell.TraceFormulaPrecedents ? TextFormatHelper.EncodeBool(cell.TraceFormulaPrecedents) : null,
+							traceDependents = cell.TraceFormulaDependents ? TextFormatHelper.EncodeBool(cell.TraceFormulaDependents) : null,
 #endif // FORMULA
-										 };
+						};
 
-										 if (cell.HasFormula || !(cell.InnerData is bool))
-										 {
-											 xmlCell.data = Convert.ToString(cell.InnerData);
-											 xmlCell.formula = cell.HasFormula ? new RGXmlCellFormual { val = cell.InnerFormula } : null;
-										 }
-										 else if (cell.InnerData is bool)
-										 {
-											 xmlCell.formula = new RGXmlCellFormual { val = (bool)cell.InnerData ? "True" : "False" };
-										 }
+						if (cell.HasFormula || !(cell.InnerData is bool))
+						{
+							xmlCell.data = Convert.ToString(cell.InnerData);
+							xmlCell.formula = cell.HasFormula ? new RGXmlCellFormual { val = cell.InnerFormula } : null;
+						}
+						else if (cell.InnerData is bool)
+						{
+							xmlCell.formula = new RGXmlCellFormual { val = (bool)cell.InnerData ? "True" : "False" };
+						}
 
-										 if (cell.body is CellTypes.ImageCell)
-										 {
-											 var imageBody = (CellTypes.ImageCell)cell.body;
-											 using (var ms = new MemoryStream(4096))
-											 {
+						if (cell.body != null)
+						{
+							if (cell.body is CellTypes.ImageCell)
+							{
+								var imageBody = (CellTypes.ImageCell)cell.body;
+								using (var ms = new MemoryStream(4096))
+								{
 #if WPF
 												 var img = ((CellTypes.ImageCell)cell.body).Image;
 												 var enc = new System.Windows.Media.Imaging.PngBitmapEncoder();
@@ -1364,20 +1405,29 @@ namespace unvell.ReoGrid
 												 catch (NotSupportedException) { }
 												 enc.Save(ms);
 #else // WINFORM
-												 imageBody.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+									imageBody.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
 
 #endif // WINFORM | WPF
-												 xmlCell.data = "image/png," + Convert.ToBase64String(ms.ToArray());
-											 }
-										 }
+									xmlCell.data = "image/png," + Convert.ToBase64String(ms.ToArray());
+								}
+							}
+							else if (RGFPersistenceProvider.CustomBodyTypeIdentifiers.TryGetValue(cell.body.GetType(), out var typeIdentifier))
+							{
+								if (RGFPersistenceProvider.CustomBodyTypeHandlers.TryGetValue(typeIdentifier, out var handler))
+								{
+									xmlCell.bodyType = typeIdentifier;
+									xmlCell.data = handler.SaveData(cell);
+								}
+							}
+						}
 
-										 body.cells.Add(xmlCell);
-									 }
-									 #endregion // Cell
-								 }
+						body.cells.Add(xmlCell);
+					}
+					#endregion // Cell
+				}
 
-								 return 1;
-							 });
+				return 1;
+			});
 			#endregion // Cells
 
 			XmlSerializer xmlWriter = new XmlSerializer(typeof(RGXmlSheet));
