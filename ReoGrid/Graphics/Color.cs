@@ -153,7 +153,7 @@ namespace unvell.ReoGrid.Graphics
 		}
 
 		/// <summary>
-		/// Create color from hex format string. (e.g. AABBCCDD or #AABBCCDD)
+		/// Create color from hex format string. (e.g. AARRGGBB or #AARRGGBB)
 		/// </summary>
 		/// <param name="hex"></param>
 		public SolidColor(string hex)
