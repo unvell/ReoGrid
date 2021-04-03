@@ -657,14 +657,15 @@ namespace unvell.ReoGrid
 		public event EventHandler<CellEventArgs> CellDataChanged;
 	}
 
-#region Cell
+	#region Cell
 
 	/// <summary>
-	/// Represents the cell on worksheet. Cell instances are fully managed
-	/// by ReoGrid core. To create custom cell, use <code>CellBody</code> class or </code>ICellBody</code> interface instead.
+	/// Represents the cell on worksheet. Cell instances are completely managed by ReoGrid. 
+	/// To create custom cell, use <code>CellBody</code> class or </code>ICellBody</code> interface instead.
 	/// </summary>
 	/// <seealso cref="CellBody"/>
 	/// <seealso cref="ICellBody"/>
+	[Obsolete("use Cell instead")]
 	public partial class ReoGridCell : Cell
 	{
 		internal ReoGridCell(Worksheet worksheet)
@@ -674,8 +675,8 @@ namespace unvell.ReoGrid
 	}
 
 	/// <summary>
-	/// Represents the cell on worksheet. Cell instances are fully managed
-	/// by ReoGrid core. To create custom cell, use <code>CellBody</code> class or </code>ICellBody</code> interface instead.
+	/// Represents the cell on worksheet. Cell instances are completely managed by ReoGrid. 
+	/// To create custom cell, use <code>CellBody</code> class or </code>ICellBody</code> interface instead.
 	/// </summary>
 	/// <seealso cref="CellBody"/>
 	/// <seealso cref="ICellBody"/>
