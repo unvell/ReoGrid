@@ -266,7 +266,6 @@ namespace unvell.ReoGrid.Formula
 		public static FormulaValue Average(Cell cell, FormulaValue[] args)
 		{
 			double val = 0, count = 0;
-			double data;
 
 			foreach (var arg in args)
 			{
@@ -277,7 +276,7 @@ namespace unvell.ReoGrid.Formula
 
 						cell.Worksheet.IterateCells((RangePosition)arg.value, (r, c, inCell) =>
 						{
-							if (CellUtility.TryGetNumberData(inCell.InnerData, out data))
+							if (CellUtility.TryGetNumberData(inCell.InnerData, out double data))
 							{
 								val += data;
 								count++;
