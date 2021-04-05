@@ -123,7 +123,7 @@ namespace unvell.ReoGrid
 		/// <param name="bufferLines">decide how many lines int the buffer to read and fill csv data</param>
 		public void LoadCSV(Stream s, Encoding encoding, RangePosition targetRange, bool autoSpread, int bufferLines)
 		{
-			this.controlAdapter.ChangeCursor(CursorStyle.Busy);
+			this.controlAdapter?.ChangeCursor(CursorStyle.Busy);
 
 			try
 			{
@@ -142,7 +142,7 @@ namespace unvell.ReoGrid
 			}
 			finally
 			{
-				this.controlAdapter.ChangeCursor(CursorStyle.PlatformDefault);
+				this.controlAdapter?.ChangeCursor(CursorStyle.PlatformDefault);
 			}
 		}
 
