@@ -16,7 +16,7 @@
  * 
  ****************************************************************************/
 
-#define VP_DEBUG
+//#define VP_DEBUG
 
 using System.Collections.Generic;
 using System.Diagnostics;

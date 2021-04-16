@@ -446,6 +446,8 @@ namespace unvell.ReoGrid
 		}
 		#endregion // Offset, +, -
 
+		public static CellPosition Zero = new CellPosition(0, 0);
+
 #pragma warning disable 618
 		[Obsolete("use CellPosition instead")]
 		public static implicit operator CellPosition(ReoGridPos p)

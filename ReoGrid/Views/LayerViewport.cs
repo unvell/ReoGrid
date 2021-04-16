@@ -39,14 +39,13 @@ namespace unvell.ReoGrid.Views
 					child.Bounds = this.bounds;
 					child.ScaleFactor = this.scaleFactor;
 
-					if (child is IViewport)
+					if (child is IViewport childViewport)
 					{
-						var viewport = (IViewport)child;
-						viewport.ViewStart = this.viewStart;
-						viewport.ScrollX = this.ScrollX;
-						viewport.ScrollY = this.ScrollY;
-						viewport.VisibleRegion = this.visibleRegion;
-						viewport.ScrollableDirections = this.ScrollableDirections;
+						childViewport.ViewStart = this.viewStart;
+						childViewport.ScrollX = this.ScrollX;
+						childViewport.ScrollY = this.ScrollY;
+						childViewport.VisibleRegion = this.visibleRegion;
+						childViewport.ScrollableDirections = this.ScrollableDirections;
 					}
 
 					child.UpdateView();

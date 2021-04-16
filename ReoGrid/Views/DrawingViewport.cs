@@ -30,15 +30,12 @@ namespace unvell.ReoGrid.Views
 		{
 		}
 		
-		#region Draw
 		public override void DrawView(CellDrawingContext dc)
 		{
 			this.sheet.drawingCanvas.ClipBounds = this.ViewBounds;
 			this.sheet.drawingCanvas.Draw(dc);
 		}
-		#endregion // Draw
 
-		#region Update
 		public override void UpdateView()
 		{
 			base.UpdateView();
@@ -46,7 +43,6 @@ namespace unvell.ReoGrid.Views
 			this.sheet.drawingCanvas.ScaleX = this.scaleFactor;
 			this.sheet.drawingCanvas.ScaleY = this.scaleFactor;
 		}
-		#endregion // Update
 
 		#region Find View
 		public override IView GetViewByPoint(Point p)
