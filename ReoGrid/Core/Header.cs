@@ -417,7 +417,7 @@ namespace unvell.ReoGrid
 			{
 				Debug.WriteLine(string.Format("columns width change takes {0} ms.", watch.ElapsedMilliseconds));
 			}
-#endif
+#endif // DEBUG
 		}
 
 		/// <summary>
@@ -655,53 +655,6 @@ namespace unvell.ReoGrid
 			return rows[row].InnerHeight;
 		}
 
-		#region Obsoleted
-		/// <summary>
-		/// Disable auto-row-height adjust on specified row
-		/// </summary>
-		/// <param name="row">row to be disable auto-row-height</param>
-		/// <returns></returns>
-		[Obsolete("use Worksheet.RowHeaders.IsAutoHeight instead")]
-		public bool DisableAutoRowHeight(int row)
-		{
-			if (row >= 0 && row < this.rows.Count)
-			{
-				this.rows[row].IsAutoHeight = false;
-				return true;
-			}
-			else
-				return false;
-		}
-
-		/// <summary>
-		/// Disable auto-row-height adjust on specified row
-		/// </summary>
-		/// <param name="row">row to be disable auto-row-height</param>
-		/// <returns></returns>
-		[Obsolete("use Worksheet.RowHeaders.IsAutoHeight instead")]
-		public bool EnableAutoRowHeight(int row)
-		{
-			if (row >= 0 && row < this.rows.Count)
-			{
-				this.rows[row].IsAutoHeight = true;
-				return true;
-			}
-			else
-				return false;
-		}
-
-		/// <summary>
-		/// Disable auto-row-height adjust on specified row
-		/// </summary>
-		/// <param name="row">row to be disable auto-row-height</param>
-		/// <returns></returns>
-		[Obsolete("use Worksheet.RowHeaders.IsAutoHeight instead")]
-		public bool IsAutoRowHeight(int row)
-		{
-			return (row >= 0 && row < this.rows.Count) ? this.rows[row].IsAutoHeight : false;
-		}
-		#endregion // Obsoleted
-
 		internal bool ExpandRowHeightToFitCell(Cell cell)
 		{
 			if (!cell.IsValidCell) return false;
@@ -917,16 +870,6 @@ namespace unvell.ReoGrid
 		#endregion // Width & Height
 
 		#region Append
-
-		/// <summary>
-		/// Append specified columns at right of spreadsheet
-		/// </summary>
-		/// <param name="count">number of columns</param>
-		[Obsolete("Use <code>AppendColumns</code> instead")]
-		public void AppendCols(int count)
-		{
-			AppendColumns(count);
-		}
 
 		/// <summary>
 		/// Append specified columns at right of spreadsheet

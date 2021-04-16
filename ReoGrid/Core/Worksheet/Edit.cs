@@ -289,8 +289,8 @@ namespace unvell.ReoGrid
 
 			var activeViewport = viewportController.FocusView as IViewport;
 
-			int boxX = (int)Math.Round(x + viewportController.FocusView.Left - (activeViewport == null ? 0 : (activeViewport.ViewLeft * scale)));
-			int boxY = (int)Math.Round(y + viewportController.FocusView.Top - (activeViewport == null ? 0 : (activeViewport.ViewTop * scale)));
+			int boxX = (int)Math.Round(x + viewportController.FocusView.Left - (activeViewport == null ? 0 : (activeViewport.ScrollViewLeft * scale)));
+			int boxY = (int)Math.Round(y + viewportController.FocusView.Top - (activeViewport == null ? 0 : (activeViewport.ScrollViewTop * scale)));
 
 			RGFloat height = (cell.Height - 1) * scale - 1;
 

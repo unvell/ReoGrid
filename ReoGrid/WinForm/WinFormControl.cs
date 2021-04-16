@@ -858,16 +858,16 @@ namespace unvell.ReoGrid
 
 		private void OnHorScroll(object sender, ScrollEventArgs e)
 		{
-			if (this.currentWorksheet.ViewportController is IScrollableViewportController)
+			if (this.currentWorksheet.ViewportController is IScrollableViewportController svc)
 			{
-				((IScrollableViewportController)this.currentWorksheet.ViewportController).HorizontalScroll(e.NewValue);
+				svc.HorizontalScroll(e.NewValue);
 			}
 		}
 		private void OnVerScroll(object sender, ScrollEventArgs e)
 		{
-			if (this.currentWorksheet.ViewportController is IScrollableViewportController)
+			if (this.currentWorksheet.ViewportController is IScrollableViewportController svc)
 			{
-				((IScrollableViewportController)this.currentWorksheet.ViewportController).VerticalScroll(e.NewValue);
+				svc.VerticalScroll(e.NewValue);
 			}
 		}
 
@@ -1344,10 +1344,7 @@ namespace unvell.ReoGrid
 		/// <param name="e">Argument of on-resize event</param>
 		protected override void OnResize(EventArgs e)
 		{
-			if (this.currentWorksheet != null)
-			{
-				this.currentWorksheet.UpdateViewportControllBounds();
-			}
+			this.currentWorksheet?.UpdateViewportControllBounds();
 
 			base.OnResize(e);
 

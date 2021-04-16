@@ -9,10 +9,9 @@
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing Lu <jingwood at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2021 Jing Lu <jingwood at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2021 Jingwood, unvell.com, all rights reserved.
  * 
  ****************************************************************************/
 
@@ -31,15 +30,12 @@ namespace unvell.ReoGrid.Views
 		{
 		}
 		
-		#region Draw
 		public override void DrawView(CellDrawingContext dc)
 		{
 			this.sheet.drawingCanvas.ClipBounds = this.ViewBounds;
 			this.sheet.drawingCanvas.Draw(dc);
 		}
-		#endregion // Draw
 
-		#region Update
 		public override void UpdateView()
 		{
 			base.UpdateView();
@@ -47,7 +43,6 @@ namespace unvell.ReoGrid.Views
 			this.sheet.drawingCanvas.ScaleX = this.scaleFactor;
 			this.sheet.drawingCanvas.ScaleY = this.scaleFactor;
 		}
-		#endregion // Update
 
 		#region Find View
 		public override IView GetViewByPoint(Point p)

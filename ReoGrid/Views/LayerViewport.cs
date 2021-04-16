@@ -30,11 +30,6 @@ namespace unvell.ReoGrid.Views
 		{
 		}
 
-		public override IView GetViewByPoint(Graphics.Point p)
-		{
-			return base.GetChildrenByPoint(p);
-		}
-
 		public override void UpdateView()
 		{
 			if (this.children != null)
@@ -44,52 +39,18 @@ namespace unvell.ReoGrid.Views
 					child.Bounds = this.bounds;
 					child.ScaleFactor = this.scaleFactor;
 
-					if (child is IViewport)
+					if (child is IViewport childViewport)
 					{
-						var viewport = (IViewport)child;
-						viewport.ViewStart = this.viewStart;
-						viewport.VisibleRegion = this.visibleRegion;
-						viewport.ScrollableDirections = this.ScrollableDirections;
+						childViewport.ViewStart = this.viewStart;
+						childViewport.ScrollX = this.ScrollX;
+						childViewport.ScrollY = this.ScrollY;
+						childViewport.VisibleRegion = this.visibleRegion;
+						childViewport.ScrollableDirections = this.ScrollableDirections;
 					}
 
 					child.UpdateView();
 				}
 			}
-		}
-	}
-
-	class SheetViewport : LayerViewport
-	{
-		public SheetViewport(IViewportController vc)
-			: base(vc)
-		{
-			this.children = new List<IView>(4)
-				{
-					new CellsViewport(vc) { PerformTransform = false },
-
-#if DRAWING
-					new DrawingViewport(vc) { PerformTransform = false },
-#if COMMENT
-					new CommentViewport(vc) { PerformTransform = false },
-#endif // COMMENT
-#endif // DRAWING
-
-				new CellsForegroundView(vc) { PerformTransform = false },
-				};
-		}
-	}
-
-}
-
-namespace unvell.ReoGrid
-{
-	using unvell.ReoGrid.Views;
-
-	partial class Worksheet
-	{
-		internal void InitViewportController()
-		{
-			this.viewportController = new NormalViewportController(this);
 		}
 	}
 }

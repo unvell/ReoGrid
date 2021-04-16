@@ -42,7 +42,7 @@ namespace unvell.ReoGrid.Demo.WorkbookDemo
 				if (!this.inScrolling)
 				{
 					this.inScrolling = true;
-					reoGridControl2.ScrollCurrentWorksheet(e.OffsetX, e.OffsetY);
+					reoGridControl2.ScrollCurrentWorksheet(e.X, e.Y);
 					this.inScrolling = false;
 				}
 			};
@@ -53,7 +53,7 @@ namespace unvell.ReoGrid.Demo.WorkbookDemo
 				if (!this.inScrolling)
 				{
 					this.inScrolling = true;
-					reoGridControl1.ScrollCurrentWorksheet(e.OffsetX, e.OffsetY);
+					reoGridControl1.ScrollCurrentWorksheet(e.X, e.Y);
 					this.inScrolling = false;
 				}
 			};

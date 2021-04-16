@@ -172,10 +172,7 @@ namespace unvell.ReoGrid.Views
 
 		public override bool OnMouseMove(Point location, MouseButtons buttons)
 		{
-			if (this.sheet.controlAdapter != null)
-			{
-				this.sheet.controlAdapter.ChangeCursor(CursorStyle.Selection);
-			}
+			this.sheet.controlAdapter?.ChangeCursor(CursorStyle.Selection);
 
 			return base.OnMouseMove(location, buttons);
 		}
@@ -263,8 +260,8 @@ namespace unvell.ReoGrid.Views
 
 		public override Point PointToView(Point p)
 		{
-			return new Point(p.X + (ViewLeft * this.scaleFactor - bounds.X),
-				p.Y + (ViewTop * this.scaleFactor - bounds.Y));
+			return new Point(p.X + (ScrollViewLeft * this.scaleFactor - bounds.X),
+				p.Y + (ScrollViewTop * this.scaleFactor - bounds.Y));
 		}
 
 		#region Mouse
