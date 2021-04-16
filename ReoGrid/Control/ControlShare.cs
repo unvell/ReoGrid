@@ -1297,31 +1297,18 @@ namespace unvell.ReoGrid
 					}
 				}
 
-				if (sheet.ViewportController != null)
-				{
-					sheet.ViewportController.OnMouseDown(location, buttons);
-				}
+				sheet.ViewportController?.OnMouseDown(location, buttons);
 			}
 		}
 
 		private void OnWorksheetMouseMove(RGPointF location, MouseButtons buttons)
 		{
-			var sheet = this.currentWorksheet;
-
-			if (sheet != null && sheet.ViewportController != null)
-			{
-				sheet.ViewportController.OnMouseMove(location, buttons);
-			}
+			this.currentWorksheet?.ViewportController?.OnMouseMove(location, buttons);
 		}
 
 		private void OnWorksheetMouseUp(RGPointF location, MouseButtons buttons)
 		{
-			var sheet = this.currentWorksheet;
-
-			if (sheet != null && sheet.ViewportController != null)
-			{
-				sheet.ViewportController.OnMouseUp(location, buttons);
-			}
+			this.currentWorksheet?.ViewportController?.OnMouseUp(location, buttons);
 		}
 		#endregion // Mouse
 
@@ -1406,12 +1393,11 @@ namespace unvell.ReoGrid
 		/// <param name="offsetY">Scroll value on vertical direction.</param>
 		public void ScrollCurrentWorksheet(RGFloat offsetX, RGFloat offsetY)
 		{
-			if (this.currentWorksheet != null)
+			if (this.currentWorksheet?.ViewportController is IScrollableViewportController svc)
 			{
-				if (this.currentWorksheet.ViewportController is IScrollableViewportController svc)
-				{
-					svc.ScrollViews(ScrollDirection.Both, offsetX, offsetY);
-				}
+				svc.ScrollViews(ScrollDirection.Both, x, y);
+
+				svc.SynchronizeScrollBar();
 			}
 		}
 

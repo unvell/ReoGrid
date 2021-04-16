@@ -417,7 +417,7 @@ namespace unvell.ReoGrid
 			{
 				Debug.WriteLine(string.Format("columns width change takes {0} ms.", watch.ElapsedMilliseconds));
 			}
-#endif
+#endif // DEBUG
 		}
 
 		/// <summary>

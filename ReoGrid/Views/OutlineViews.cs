@@ -172,10 +172,7 @@ namespace unvell.ReoGrid.Views
 
 		public override bool OnMouseMove(Point location, MouseButtons buttons)
 		{
-			if (this.sheet.controlAdapter != null)
-			{
-				this.sheet.controlAdapter.ChangeCursor(CursorStyle.Selection);
-			}
+			this.sheet.controlAdapter?.ChangeCursor(CursorStyle.Selection);
 
 			return base.OnMouseMove(location, buttons);
 		}

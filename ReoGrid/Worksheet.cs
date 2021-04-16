@@ -477,7 +477,7 @@ namespace unvell.ReoGrid
 			this.FreezePos = new CellPosition(row, col);
 			this.FreezeArea = area;
 
-			if (viewportController is IFreezableViewportController)
+			if (viewportController is IFreezableViewportController freezableViewportController)
 			{
 				// freeze via supported viewportcontroller
 				var freezableViewportController = ((IFreezableViewportController)viewportController);
@@ -652,19 +652,14 @@ namespace unvell.ReoGrid
 					this.renderScaleFactor = this.controlAdapter.BaseScale + this._scaleFactor;
 				}
 
-				var scalableViewController = this.viewportController as IScalableViewportController;
-
-				if (scalableViewController != null)
+				if (this.viewportController is IScalableViewportController scalableViewController)
 				{
 					scalableViewController.ScaleFactor = this.renderScaleFactor;
 				}
 
-				if (this.viewportController != null)
-				{
-					this.viewportController.UpdateController();
-				}
+				this.viewportController?.UpdateController();
 
-				if (Scaled != null) Scaled(this, null);
+				Scaled?.Invoke(this, null);
 			}
 		}
 
@@ -1561,7 +1556,7 @@ namespace unvell.ReoGrid
 
 				if (this.HasSettings(WorksheetSettings.Behavior_MouseWheelToScroll))
 				{
-					if (this.viewportController is IScrollableViewportController)
+					if (this.viewportController is IScrollableViewportController svc)
 					{
 						var svc = this.viewportController as IScrollableViewportController;
 

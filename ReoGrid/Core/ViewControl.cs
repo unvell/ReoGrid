@@ -76,6 +76,7 @@ namespace unvell.ReoGrid
 #if DEBUG
 			Stopwatch sw = Stopwatch.StartNew();
 #endif // DEBUG
+
 			AutoAdjustRowHeaderPanelWidth();
 
 			if (viewportController != null)
