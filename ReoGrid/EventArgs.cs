@@ -221,12 +221,12 @@ namespace unvell.ReoGrid.Events
 		/// <summary>
 		/// Scrolled horizontal value.
 		/// </summary>
-		public RGFloat OffsetX { get; internal set; }
+		public RGFloat X { get; internal set; }
 
 		/// <summary>
 		/// Scrolled vertical value.
 		/// </summary>
-		public RGFloat OffsetY { get; internal set; }
+		public RGFloat Y { get; internal set; }
 
 		/// <summary>
 		/// Create the instance of this event argument.

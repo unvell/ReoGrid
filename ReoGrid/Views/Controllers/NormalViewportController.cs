@@ -824,6 +824,8 @@ namespace unvell.ReoGrid.Views
 			if (viewport != null)
 			{
 				viewport.ViewStart = new Point(0, 0);
+				viewport.ScrollX = 0;
+				viewport.ScrollY = 0;
 			}
 
 			//this.view.ScaleFactor = 1f;

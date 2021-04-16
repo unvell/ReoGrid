@@ -209,10 +209,6 @@ namespace unvell.ReoGrid
 			return new Rectangle(colHead.Left * this.renderScaleFactor, rowHead.Top * this.renderScaleFactor, width, height);
 		}
 
-		internal Rectangle GetGridBounds(int row, int col)
-		{
-			return new Rectangle(cols[col].Left, rows[row].Top, cols[col].InnerWidth + 1, rows[row].InnerHeight + 1);
-		}
 
 		internal Rectangle GetCellBounds(CellPosition pos)
 		{
@@ -222,14 +218,21 @@ namespace unvell.ReoGrid
 		internal Rectangle GetCellBounds(int row, int col)
 		{
 			if (cells[row, col] == null)
-				return GetGridBounds(row, col);
+			{
+				return GetCellRectFromHeader(row, col);
+			}
 			else if (cells[row, col].MergeStartPos != CellPosition.Empty)
 			{
 				Cell cell = GetCell(cells[row, col].MergeStartPos);
-				return (cell != null) ? cell.Bounds : GetGridBounds(row, col);
+				return cell?.Bounds ?? GetCellRectFromHeader(row, col);
 			}
 			else
 				return cells[row, col].Bounds;
 		}
+
+		private Rectangle GetCellRectFromHeader(int row, int col)
+		{
+			return new Rectangle(cols[col].Left, rows[row].Top, cols[col].InnerWidth + 1, rows[row].InnerHeight + 1);
+		}	
 	}
 }

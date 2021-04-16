@@ -331,8 +331,8 @@ namespace unvell.ReoGrid
 
 				if (rs)
 				{
-					// bounds of cell must be single grid
-					Rectangle bounds = GetGridBounds(r, c);
+					// bounds of cell must be single cell
+					Rectangle bounds = GetCellRectFromHeader(r, c);
 					if (cell.Bounds != bounds)
 					{
 						_Debug_MarkCellError(r, c, "cell bounds", cell.Bounds, bounds);

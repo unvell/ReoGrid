@@ -378,7 +378,7 @@ namespace unvell.ReoGrid.WinForm
 				Cell cell = grid.GetCell(range.Row,range.Col);
 				if (cell == null)
 				{
-					cellBounds = grid.GetGridBounds(range.Row, range.Col);
+					cellBounds = grid.GetCellBounds(range.Row, range.Col);
 				}
 				else
 				{
