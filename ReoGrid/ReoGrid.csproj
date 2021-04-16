@@ -26,7 +26,7 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DefineConstants>TRACE;DEBUG;EX_SCRIPT;VP_DEBUG_OFF;ALWAYS_CELL_CLIP;WINFORM;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;EX_SCRIPT;ALWAYS_CELL_CLIP;WINFORM;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
     <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
