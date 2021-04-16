@@ -139,39 +139,6 @@ namespace unvell.ReoGrid
 			}
 		}
 
-		/// <summary>
-		/// Force to repaint the canvas region of control
-		/// </summary>
-		[Obsolete("use RequestInvalidate instead")]
-		public void InvalidateSheet()
-		{
-			this.RequestInvalidate();
-		}
-		
-		///// <summary>
-		///// Invalidate control force to repaint specified region by position of cell
-		///// </summary>
-		///// <param name="pos">region of position will be invalidated</param>
-		//internal void InvalidateCell(ReoGridPos pos)
-		//{
-		//	//if (pos.IsEmpty) return;
-		//	//pos = FixPos(pos);
-
-		//	// TODO
-
-		//	InvalidateCanvas();
-		//}
-
-		///// <summary>
-		///// Invalidate control force to repaint specified region by cell
-		///// </summary>
-		///// <param name="cell">region of cell will be invalidated</param>
-		//public void InvalidateCell(ReoGridCell cell)
-		//{
-		//	if (cell == null) return;
-		//	InvalidateCell(cell.InternalPos);
-		//}
-
 		#endregion // Invalidations
 
 		/// <summary>

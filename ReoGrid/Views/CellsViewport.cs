@@ -50,10 +50,6 @@ using unvell.ReoGrid.Interaction;
 
 namespace unvell.ReoGrid.Views
 {
-	interface IRangeSelectableView : IViewport
-	{
-	}
-
 	class CellsViewport : Viewport, IRangeSelectableView
 	{
 		public CellsViewport(IViewportController vc)
@@ -2109,86 +2105,5 @@ namespace unvell.ReoGrid.Views
 			return string.Format("CellsViewport[{0}]", this.ViewBounds);
 		}
 		#endregion // Utility
-	}
-
-	class CellsForegroundView : Viewport
-	{
-		public CellsForegroundView(IViewportController vc) : base(vc) { }
-
-		public override IView GetViewByPoint(Point p)
-		{
-			return null;
-		}
-
-		public override void Draw(CellDrawingContext dc)
-		{
-			var sheet = this.ViewportController.Worksheet;
-			if (sheet == null || sheet.controlAdapter == null) return;
-
-			var g = dc.Graphics;
-			var controlStyle = sheet.workbook.controlAdapter.ControlStyle;
-
-			switch (sheet.operationStatus)
-			{
-				case OperationStatus.AdjustColumnWidth:
-					#region Draw Column Header Adjust Line
-					if (sheet.currentColWidthChanging >= 0)
-					{
-						ColumnHeader col = sheet.cols[sheet.currentColWidthChanging];
-
-						RGFloat left = col.Left * this.scaleFactor;// -ViewLeft * this.scaleFactor;
-						RGFloat right = (col.Left + sheet.headerAdjustNewValue) * this.scaleFactor;// -ViewLeft * this.scaleFactor;
-						RGFloat top = ViewTop * this.scaleFactor;
-						RGFloat bottom = ViewTop * this.scaleFactor + this.Height;
-
-						g.DrawLine(left, top, left, bottom, SolidColor.Black, 1, LineStyles.Dot);
-						g.DrawLine(right, top, right, bottom, SolidColor.Black, 1, LineStyles.Dot);
-					}
-					#endregion // Draw Column Header Adjust Line
-					break;
-
-				case OperationStatus.AdjustRowHeight:
-					#region Draw Row Header Adjust Line
-					if (sheet.currentRowHeightChanging >= 0)
-					{
-						RowHeader row = sheet.rows[sheet.currentRowHeightChanging];
-
-						RGFloat top = row.Top * this.scaleFactor;
-						RGFloat bottom = (row.Top + sheet.headerAdjustNewValue) * this.scaleFactor;
-						RGFloat left = ViewLeft * this.scaleFactor;
-						RGFloat right = ViewLeft * this.scaleFactor + this.Width;
-
-						g.DrawLine(left, top, right, top, SolidColor.Black, 1, LineStyles.Dot);
-						g.DrawLine(left, bottom, right, bottom, SolidColor.Black, 1, LineStyles.Dot);
-					}
-					#endregion // Draw Row Header Adjust Line
-					break;
-
-				case OperationStatus.DragSelectionFillSerial:
-				case OperationStatus.SelectionRangeMovePrepare:
-				case OperationStatus.SelectionRangeMove:
-					#region Selection Moving
-					if (sheet.draggingSelectionRange != RangePosition.Empty
-						&& dc.DrawMode == DrawMode.View
-						&& sheet.HasSettings(WorksheetSettings.Edit_DragSelectionToMoveCells))
-					{
-						var scaledSelectionMovingRect = CellsViewport.GetScaledAndClippedRangeRect(this,
-							sheet.draggingSelectionRange.StartPos,
-							sheet.draggingSelectionRange.EndPos,
-							controlStyle.SelectionBorderWidth);
-
-						scaledSelectionMovingRect.Offset(-1, -1);
-
-						SolidColor selectionBorderColor = controlStyle.Colors[ControlAppearanceColors.SelectionBorder];
-
-						dc.Graphics.DrawRectangle(scaledSelectionMovingRect,
-							ColorUtility.FromAlphaColor(255, selectionBorderColor),
-							controlStyle.SelectionBorderWidth, LineStyles.Solid);
-					}
-					#endregion // Selection Moving
-					break;
-			}
-
-		}
 	}
 }

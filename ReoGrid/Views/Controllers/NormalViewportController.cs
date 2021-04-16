@@ -55,7 +55,7 @@ namespace unvell.ReoGrid.Views
 		private ColumnHeaderView colHeaderPart1 = null;
 
 		// four-viewport, any of one could be set as main-viewport, and others will be forzen
-		private SheetViewport leftTopViewport = null;
+		private SheetViewport topLeftViewport = null;
 		private SheetViewport leftBottomViewport = null;
 		private SheetViewport rightBottomViewport = null;
 		private SheetViewport rightTopViewport = null;
@@ -106,7 +106,7 @@ namespace unvell.ReoGrid.Views
 					colHeaderPart2.Visible = true;
 					colHeaderPart2.VisibleRegion = this.rightBottomViewport.VisibleRegion;
 
-					if (this.FreezePos.Col > 0)
+					if (this.currentFreezePos.Col > 0)
 					{
 						colHeaderPart1.Visible = true;
 						colHeaderPart1.VisibleRegion = frozenVisibleRegion;
@@ -129,7 +129,7 @@ namespace unvell.ReoGrid.Views
 					rowHeaderPart2.Visible = true;
 					rowHeaderPart2.VisibleRegion = this.rightBottomViewport.VisibleRegion;
 
-					if (this.FreezePos.Row > 0)
+					if (this.currentFreezePos.Row > 0)
 					{
 						rowHeaderPart1.Visible = true;
 						rowHeaderPart1.VisibleRegion = frozenVisibleRegion;
@@ -164,10 +164,7 @@ namespace unvell.ReoGrid.Views
 				}
 
 				if (rowOutlinePart2 != null) rowOutlinePart2.Visible = rowOutlineVisible;
-				if (rowOutlinePart1 != null)
-				{
-					rowOutlinePart1.Visible = this.FreezePos.IsEmpty && rowOutlinePart2.Visible;
-				}
+				if (rowOutlinePart1 != null) rowOutlinePart1.Visible = rowOutlineVisible;
 			}
 			else
 			{
@@ -311,28 +308,28 @@ namespace unvell.ReoGrid.Views
 			if (freezePos.Row > 0 || freezePos.Col > 0)
 			{
 				// update left top visible region
-				UpdateViewportVisibleRegion(this.leftTopViewport, NormalViewportController.GetVisibleRegion(this.leftTopViewport));
+				UpdateViewportVisibleRegion(this.topLeftViewport, NormalViewportController.GetVisibleRegion(this.topLeftViewport));
 
 				// update left bottom visible region
 				UpdateViewportVisibleRegion(this.leftBottomViewport, new GridRegion(
 					this.rightBottomViewport.VisibleRegion.startRow,
-					this.leftTopViewport.VisibleRegion.startCol,
+					this.topLeftViewport.VisibleRegion.startCol,
 					this.rightBottomViewport.VisibleRegion.endRow,
-					this.leftTopViewport.VisibleRegion.endCol));
+					this.topLeftViewport.VisibleRegion.endCol));
 
 				// update right top visible region
 				UpdateViewportVisibleRegion(this.rightTopViewport, new GridRegion(
-					this.leftTopViewport.VisibleRegion.startRow,
+					this.topLeftViewport.VisibleRegion.startRow,
 					this.rightBottomViewport.VisibleRegion.startCol,
-					this.leftTopViewport.VisibleRegion.endRow,
+					this.topLeftViewport.VisibleRegion.endRow,
 					this.rightBottomViewport.VisibleRegion.endCol));
 			}
 
 			// frozen headers always are synchronized to left top viewport
-			if (this.leftTopViewport != null)
+			if (this.topLeftViewport != null)
 			{
-				this.colHeaderPart1.VisibleRegion = this.leftTopViewport.VisibleRegion;
-				this.rowHeaderPart1.VisibleRegion = this.leftTopViewport.VisibleRegion;
+				this.colHeaderPart1.VisibleRegion = this.topLeftViewport.VisibleRegion;
+				this.rowHeaderPart1.VisibleRegion = this.topLeftViewport.VisibleRegion;
 			}
 
 			// normal headers always are synchronized to right bottom viewport
@@ -403,14 +400,14 @@ namespace unvell.ReoGrid.Views
 
 			RGFloat scale = sheet.renderScaleFactor;
 
-			Point viewStart = viewport.ViewStart;
+			//Point calcedViewStart = viewport.ViewStart;
 
 			GridRegion region = GridRegion.Empty;
 
-			RGFloat scaledViewLeft = viewStart.X;
-			RGFloat scaledViewTop = viewStart.Y;
-			RGFloat scaledViewRight = viewStart.X + viewport.Width / scale;
-			RGFloat scaledViewBottom = viewStart.Y + viewport.Height / scale;
+			RGFloat scaledViewLeft = viewport.ScrollViewLeft;
+			RGFloat scaledViewTop = viewport.ScrollViewTop;
+			RGFloat scaledViewRight = viewport.ScrollViewLeft + viewport.Width / scale;
+			RGFloat scaledViewBottom = viewport.ScrollViewTop + viewport.Height / scale;
 
 			// begin visible region updating
 			if (viewport.Height > 0 && sheet.rows.Count > 0)
@@ -560,7 +557,7 @@ namespace unvell.ReoGrid.Views
 			{
 				Debug.WriteLine("update visible region takes " + watch.ElapsedMilliseconds + " ms.");
 			}
-#endif
+#endif // DEBUG
 
 			return region;
 		}
@@ -673,7 +670,7 @@ namespace unvell.ReoGrid.Views
 			if (isFrozen)
 			{
 				#region Forzen Bounds Layout
-				Point origin = new Point(0, 0);
+				Point center = new Point(0, 0);
 				Rectangle leftTopRect = new Rectangle(0, 0, 0, 0);
 
 				var freezeArea = this.worksheet.FreezeArea;
@@ -684,7 +681,7 @@ namespace unvell.ReoGrid.Views
 					default:
 					case ReoGrid.FreezeArea.LeftTop:
 						Rectangle gridLoc = GetGridScaleBounds(freezePos);
-						origin = new Point(contentRect.X + gridLoc.X, contentRect.Y + gridLoc.Y);
+						center = new Point(contentRect.X + gridLoc.X, contentRect.Y + gridLoc.Y);
 						break;
 
 					case ReoGrid.FreezeArea.RightBottom:
@@ -692,7 +689,7 @@ namespace unvell.ReoGrid.Views
 							freezePos.Row, freezePos.Col,
 							this.worksheet.RowCount - 1, this.worksheet.ColumnCount - 1));
 
-						origin = new Point(contentRect.Right - freezeBounds.Width, contentRect.Bottom - freezeBounds.Height);
+						center = new Point(contentRect.Right - freezeBounds.Width, contentRect.Bottom - freezeBounds.Height);
 						break;
 
 					case ReoGrid.FreezeArea.LeftBottom:
@@ -700,7 +697,7 @@ namespace unvell.ReoGrid.Views
 							freezePos.Row, freezePos.Col,
 							this.worksheet.RowCount - 1, this.worksheet.ColumnCount - 1));
 
-						origin = new Point(contentRect.X + freezeBounds.X, contentRect.Bottom - freezeBounds.Height);
+						center = new Point(contentRect.X + freezeBounds.X, contentRect.Bottom - freezeBounds.Height);
 						break;
 
 					case ReoGrid.FreezeArea.RightTop:
@@ -708,34 +705,34 @@ namespace unvell.ReoGrid.Views
 							freezePos.Row, freezePos.Col,
 							this.worksheet.RowCount - 1, this.worksheet.ColumnCount - 1));
 
-						origin = new Point(contentRect.Right - freezeBounds.Width, contentRect.Y + freezeBounds.Y);
+						center = new Point(contentRect.Right - freezeBounds.Width, contentRect.Y + freezeBounds.Y);
 						break;
 				}
 
-				if (origin.X < contentRect.X) origin.X = contentRect.X;
-				if (origin.Y < contentRect.Y) origin.Y = contentRect.Y;
-				if (origin.X > contentRect.Right) origin.X = contentRect.Right;
-				if (origin.Y > contentRect.Bottom) origin.Y = contentRect.Bottom;
+				if (center.X < contentRect.X) center.X = contentRect.X;
+				if (center.Y < contentRect.Y) center.Y = contentRect.Y;
+				if (center.X > contentRect.Right) center.X = contentRect.Right;
+				if (center.Y > contentRect.Bottom) center.Y = contentRect.Bottom;
 
 				// set left top
-				leftTopRect = new Rectangle(contentRect.X, contentRect.Y, origin.X - contentRect.X, origin.Y - contentRect.Y);
+				leftTopRect = new Rectangle(contentRect.X, contentRect.Y, center.X - contentRect.X, center.Y - contentRect.Y);
 
 				// set right bottom
 				rightBottomRect = new Rectangle(leftTopRect.Right, leftTopRect.Bottom,
 					contentRect.Width - leftTopRect.Width, contentRect.Height - leftTopRect.Height);
 
 				// viewports
-				this.leftTopViewport.Bounds = leftTopRect;
+				this.topLeftViewport.Bounds = leftTopRect;
 				this.leftBottomViewport.Bounds = new Rectangle(leftTopRect.X, rightBottomRect.Y, leftTopRect.Width, rightBottomRect.Height);
 				this.rightTopViewport.Bounds = new Rectangle(rightBottomRect.X, leftTopRect.Y, rightBottomRect.Width, leftTopRect.Height);
 
 				// column header
-				this.colHeaderPart1.Bounds = new Rectangle(this.leftTopViewport.Left, this.leadHeadPart.Top,
-					this.leftTopViewport.Width, worksheet.colHeaderHeight * scale);
+				this.colHeaderPart1.Bounds = new Rectangle(this.topLeftViewport.Left, this.leadHeadPart.Top,
+					this.topLeftViewport.Width, worksheet.colHeaderHeight * scale);
 
 				// row header
-				this.rowHeaderPart1.Bounds = new Rectangle(this.leadHeadPart.Left, this.leftTopViewport.Top,
-					worksheet.rowHeaderWidth * scale, this.leftTopViewport.Height);
+				this.rowHeaderPart1.Bounds = new Rectangle(this.leadHeadPart.Left, this.topLeftViewport.Top,
+					worksheet.rowHeaderWidth * scale, this.topLeftViewport.Height);
 
 #if OUTLINE
 				CreateOutlineHeaderViewIfNotExist();
@@ -798,7 +795,7 @@ namespace unvell.ReoGrid.Views
 			this.UpdateScrollBarSize();
 
 			// synchronize scale factor
-			if (this.View != null && this.View.Children != null)
+			if (this.View?.Children != null)
 			{
 				foreach (var child in this.View.Children)
 				{
@@ -848,18 +845,18 @@ namespace unvell.ReoGrid.Views
 
 		public void HorizontalScroll(RGIntDouble value)
 		{
-			if (this.mainViewport.ViewLeft != value)
-			{
-				this.ScrollViews(ScrollDirection.Horizontal, value - this.mainViewport.ViewLeft, 0);
-			}
+			//if (this.mainViewport.ViewLeft != value)
+			//{
+				this.ScrollViews(ScrollDirection.Horizontal, value, -1);
+			//}
 		}
 
 		public void VerticalScroll(RGIntDouble value)
 		{
-			if (this.mainViewport.ViewTop != value)
-			{
-				this.ScrollViews(ScrollDirection.Vertical, 0, value - this.mainViewport.ViewTop);
-			}
+			//if (this.mainViewport.ViewTop != value)
+			//{
+				this.ScrollViews(ScrollDirection.Vertical, -1, value);
+			//}
 		}
 
 		private RGIntDouble scrollHorMin;
@@ -872,39 +869,30 @@ namespace unvell.ReoGrid.Views
 		private RGIntDouble scrollVerLarge;
 		private RGFloat scrollVerValue;
 
+		public virtual void ScrollOffsetViews(ScrollDirection dir, RGFloat offsetX, RGFloat offsetY)
+		{
+			ScrollViews(dir,
+				(dir & ScrollDirection.Horizontal) == ScrollDirection.Horizontal ? (this.scrollHorValue + offsetX) : -1,
+				(dir & ScrollDirection.Vertical) == ScrollDirection.Vertical ? (this.scrollVerValue + offsetY) : -1);
+
+			SynchronizeScrollBar();
+		}
+
 		public virtual void ScrollViews(ScrollDirection dir, RGFloat x, RGFloat y)
 		{
-			if (x == 0 && y == 0) return;
+			//if (x == 0 && y == 0) return;
 			if (RGFloat.IsNaN(x) || RGFloat.IsNaN(y)) return;
 
-			scrollHorValue = this.mainViewport.ViewLeft;
-			scrollVerValue = this.mainViewport.ViewTop;
+			if ((dir & ScrollDirection.Horizontal) != ScrollDirection.Horizontal) x = scrollHorValue;
+			if ((dir & ScrollDirection.Vertical) != ScrollDirection.Vertical) y = scrollVerValue;
 
-			var apt = this.worksheet.controlAdapter;
+			if (x == mainViewport.ScrollX && y == mainViewport.ScrollY) return;
 
-			if ((dir & ScrollDirection.Horizontal) == ScrollDirection.Horizontal)
-			{
-#if WPF
-				if (scrollHorValue + x > scrollHorMax) x = scrollHorMax - scrollHorValue;
-#else // WINFORM
-				if (scrollHorValue + x > scrollHorMax - scrollHorLarge) x = scrollHorMax - scrollHorValue - scrollHorLarge;
-#endif // WINFORM
+			if (x > scrollHorMax) x = scrollHorMax;
+			else if (x < 0) x = 0;
 
-				if (scrollHorValue + x < scrollHorMin) x = scrollHorMin - scrollHorValue;
-			}
-
-			if ((dir & ScrollDirection.Vertical) == ScrollDirection.Vertical)
-			{
-#if WPF
-				if (scrollVerValue + y > scrollVerMax) y = scrollVerMax - scrollVerValue;
-#else // WINFORM
-				if (scrollVerValue + y > scrollVerMax - scrollVerLarge) y = scrollVerMax - scrollVerValue - scrollVerLarge;
-#endif // WINFORM
-
-				if (scrollVerValue + y < scrollVerMin) y = scrollVerMin - scrollVerValue;
-			}
-
-			if (x == 0 && y == 0) return;
+			if (y > scrollVerMax) y = scrollVerMax;
+			else if (y < 0) y = 0;
 
 			// if Control is in edit mode, it is necessary to finish the edit mode
 			if (worksheet.IsEditing)
@@ -916,26 +904,7 @@ namespace unvell.ReoGrid.Views
 			{
 				if (v is IViewport vp)
 				{
-					if (vp.ScrollableDirections == dir)
-					{
-						vp.Scroll(x, y);
-					}
-					else
-					{
-						if ((vp.ScrollableDirections & ScrollDirection.Horizontal) == ScrollDirection.Horizontal
-							&& (dir & ScrollDirection.Horizontal) == ScrollDirection.Horizontal
-							&& x != 0)
-						{
-							vp.Scroll(x, 0);
-						}
-
-						if ((vp.ScrollableDirections & ScrollDirection.Vertical) == ScrollDirection.Vertical
-						 && (dir & ScrollDirection.Vertical) == ScrollDirection.Vertical
-						 && y != 0)
-						{
-							vp.Scroll(0, y);
-						}
-					}
+					vp.ScrollTo(x, y);
 				}
 			}
 
@@ -946,24 +915,10 @@ namespace unvell.ReoGrid.Views
 
 			worksheet.RequestInvalidate();
 
-			scrollHorValue += x;
-			scrollVerValue += y;
+			scrollHorValue = this.mainViewport.ScrollX;
+			scrollVerValue = this.mainViewport.ScrollY;
 
-#if WINFORM || ANDROID
-			this.worksheet.controlAdapter.ScrollBarHorizontalValue = (int)Math.Round(scrollHorValue);
-			this.worksheet.controlAdapter.ScrollBarVerticalValue = (int)Math.Round(scrollVerValue);
-#elif WPF
-			this.worksheet.ControlAdapter.ScrollBarHorizontalValue = scrollHorValue;
-			this.worksheet.ControlAdapter.ScrollBarVerticalValue = scrollVerValue;
-#endif // WPF
-
-			if (x != 0 || y != 0)
-			{
-				if (this.worksheet.workbook != null)
-				{
-					this.worksheet.workbook.RaiseWorksheetScrolledEvent(this.worksheet, x, y);
-				}
-			}
+			this.worksheet.workbook?.RaiseWorksheetScrolledEvent(this.worksheet, x, y);
 		}
 
 		public virtual void ScrollToRange(RangePosition range, CellPosition basePos)
@@ -980,10 +935,10 @@ namespace unvell.ReoGrid.Views
 
 				RGFloat scale = this.ScaleFactor;
 
-				double top = view.ViewTop * scale;
-				double bottom = view.ViewTop * scale + view.Height;
-				double left = view.ViewLeft * scale;
-				double right = view.ViewLeft * scale + view.Width;
+				double top = view.ScrollViewTop * scale;
+				double bottom = view.ScrollViewTop * scale + view.Height;
+				double left = view.ScrollViewLeft * scale;
+				double right = view.ScrollViewLeft * scale + view.Width;
 
 				double offsetX = 0, offsetY = 0;
 
@@ -1023,7 +978,7 @@ namespace unvell.ReoGrid.Views
 
 				if (offsetX != 0 || offsetY != 0)
 				{
-					this.ScrollViews(ScrollDirection.Both, (int)Math.Round(offsetX), (int)Math.Round(offsetY));
+					this.ScrollOffsetViews(ScrollDirection.Both, (RGFloat)Math.Round(offsetX), (RGFloat)Math.Round(offsetY));
 				}
 			}
 		}
@@ -1035,7 +990,7 @@ namespace unvell.ReoGrid.Views
 
 			if (worksheet.cols.Count > 0)
 			{
-				width = worksheet.cols[worksheet.cols.Count - 1].Right + mainViewport.Width - mainViewport.Width / scale;
+				width = worksheet.cols[worksheet.cols.Count - 1].Right * scale + mainViewport.Left;
 #if WPF
 				width -= scrollHorLarge;
 #endif // WPF 
@@ -1043,49 +998,71 @@ namespace unvell.ReoGrid.Views
 
 			if (worksheet.rows.Count > 0)
 			{
-				height = worksheet.rows[worksheet.rows.Count - 1].Bottom + mainViewport.Height - mainViewport.Height / scale;
+				height = worksheet.rows[worksheet.rows.Count - 1].Bottom * scale + mainViewport.Top;
+
+				//if (currentFreezePos != CellPosition.Zero)
+				//{
+				//	height -= this.topLeftViewport.Height;
+				//}
 #if WPF
 				height -= scrollVerLarge;
 #endif // WPF
 			}
+			
+			Debug.WriteLine(height);
 
-			int maxHorizontal = Math.Max(0, (int)(Math.Floor(width + this.mainViewport.Left))) + 1;
-			int maxVertical = Math.Max(0, (int)(Math.Floor(height + this.mainViewport.Top))) + 1;
+			int maxHorizontal = Math.Max(0, (int)(Math.Ceiling(width))) + 1;
+			int maxVertical = Math.Max(0, (int)(Math.Ceiling(height))) + 1;
 
-#if WINFORM || ANDROID
-			int offHor = maxHorizontal - this.scrollHorMax;
-			int offVer = maxVertical - this.scrollVerMax;
-#elif WPF
-			int offHor = (int)Math.Round(maxHorizontal - this.scrollHorMax);
-			int offVer = (int)Math.Round(maxVertical - this.scrollVerMax);
-#elif ANDROID || iOS
-			RGFloat offHor = maxHorizontal - this.scrollHorMax;
-			RGFloat offVer = maxVertical - this.scrollVerMax;
+//#if WINFORM || ANDROID
+//			int offHor = maxHorizontal - this.scrollHorMax;
+//			int offVer = maxVertical - this.scrollVerMax;
+//#elif WPF
+//			int offHor = (int)Math.Round(maxHorizontal - this.scrollHorMax);
+//			int offVer = (int)Math.Round(maxVertical - this.scrollVerMax);
+//#elif ANDROID || iOS
+//			RGFloat offHor = maxHorizontal - this.scrollHorMax;
+//			RGFloat offVer = maxVertical - this.scrollVerMax;
 
-#endif // WPF
-			if (offHor > 0) offHor = 0;
-			if (offVer > 0) offVer = 0;
+//#endif // WPF
+			//if (offHor > 0) offHor = 0;
+			//if (offVer > 0) offVer = 0;
 
-			if (offHor < 0 || offVer < 0)
-			{
-				ScrollViews(ScrollDirection.Both, offHor, offVer);
-			}
+			//if (offHor < 0 || offVer < 0)
+			//{
+			//	ScrollViews(ScrollDirection.Both, offHor, offVer);
+			//}
 
-			this.worksheet.controlAdapter.ScrollBarHorizontalMaximum = this.scrollHorMax = maxHorizontal;
-			this.worksheet.controlAdapter.ScrollBarVerticalMaximum = this.scrollVerMax = maxVertical;
+			this.scrollHorMax = maxHorizontal;
+			this.scrollVerMax = maxVertical;
+
+			SynchronizeScrollBar();
 		}
 
 		public void SynchronizeScrollBar()
 		{
+			if (this.worksheet == null || this.worksheet.controlAdapter == null)
+			{
+				return;
+			}
+
 			if (this.scrollHorValue < this.scrollHorMin)
+			{
 				this.scrollHorValue = this.scrollHorMin;
+			}
 			else if (this.scrollHorValue > this.scrollHorMax)
+			{
 				this.scrollHorValue = this.scrollHorMax;
+			}
 
 			if (this.scrollVerValue < this.scrollVerMin)
+			{
 				this.scrollVerValue = this.scrollVerMin;
+			}
 			else if (this.scrollVerValue > this.scrollVerMax)
+			{
 				this.scrollVerValue = this.scrollVerMax;
+			}
 
 			this.worksheet.controlAdapter.ScrollBarHorizontalMaximum = this.scrollHorMax;
 			this.worksheet.controlAdapter.ScrollBarVerticalMaximum = this.scrollVerMax;
@@ -1096,44 +1073,25 @@ namespace unvell.ReoGrid.Views
 			this.worksheet.controlAdapter.ScrollBarHorizontalLargeChange = this.scrollHorLarge;
 			this.worksheet.controlAdapter.ScrollBarVerticalLargeChange = this.scrollVerLarge;
 
-			this.worksheet.controlAdapter.ScrollBarHorizontalValue = (int)Math.Round(this.scrollHorValue);
-			this.worksheet.controlAdapter.ScrollBarVerticalValue = (int)Math.Round(this.scrollVerValue);
+			this.worksheet.controlAdapter.ScrollBarHorizontalValue = (RGIntDouble)Math.Round(this.scrollHorValue);
+			this.worksheet.controlAdapter.ScrollBarVerticalValue = (RGIntDouble)Math.Round(this.scrollVerValue);
 		}
 #endregion // Scroll
 
 #region Freeze
 
-		//private CellPosition freezePos = new CellPosition(0, 0);
+		private CellPosition currentFreezePos = new CellPosition(0, 0);
+		private FreezeArea currentFrozenArea = FreezeArea.None;
+		private Point lastFrozenViewStart;
 
-		public CellPosition FreezePos
+		public void Freeze(CellPosition freezePos, FreezeArea area = ReoGrid.FreezeArea.LeftTop)
 		{
-			get { return this.worksheet.FreezePos; }
-			//set { freezePos = value; }
-		}
-
-		//private Point lastFreezePoint = new Point(0, 0);
-
-		//public FreezeArea FreezeArea { get; set; }
-
-		//internal void Freeze(CellPosition pos)
-		//{
-		//	Freeze(pos.Row, pos.Col);
-		//}
-
-		public void Freeze(/*int row, int col, FreezeArea position = ReoGrid.FreezeArea.LeftTop*/)
-		{
-			int row = this.worksheet.FreezePos.Row;
-			int col = this.worksheet.FreezePos.Col;
-			//var area = this.worksheet.FreezeArea;
-			//this.freezePos.Row = row;
-			//this.freezePos.Col = col;
-			//this.FreezeArea = position;
-
 			// origin freeze-viewports 
-			Rectangle gridLoc = worksheet.GetGridBounds(row, col);
+			Rectangle cellPosition = worksheet.GetCellBounds(freezePos);
 
-			if (row == 0 && col == 0)
+			if (freezePos == CellPosition.Zero)
 			{
+				#region Don't freeze
 				// restore main-viewport to right-bottom-viewport
 				this.mainViewport = this.rightBottomViewport;
 
@@ -1145,9 +1103,9 @@ namespace unvell.ReoGrid.Views
 				this.colHeaderPart2.ScrollableDirections = ScrollDirection.Horizontal;
 
 				// hide freeze viewports
-				if (this.leftTopViewport != null)
+				if (this.topLeftViewport != null)
 				{
-					this.leftTopViewport.Visible =
+					this.topLeftViewport.Visible =
 						this.leftBottomViewport.Visible =
 						this.rightTopViewport.Visible =
 						false;
@@ -1159,9 +1117,13 @@ namespace unvell.ReoGrid.Views
 				if (rowOutlinePart1 != null) rowOutlinePart1.Visible = false;
 				if (colOutlinePart1 != null) colOutlinePart1.Visible = false;
 #endif // OUTLINE
+				#endregion // Don't freeze
 			}
 			else
 			{
+				#region Do freeze
+
+				#region Create viewports if not existed
 				// right-top cells-viewport
 				if (rightTopViewport == null) AddView(rightTopViewport = new SheetViewport(this));
 
@@ -1175,20 +1137,23 @@ namespace unvell.ReoGrid.Views
 				CreateOutlineHeaderViewIfNotExist();
 
 				// left-top cells-viewport
-				if (leftTopViewport == null) AddView(leftTopViewport = new SheetViewport(this));
+				if (topLeftViewport == null) AddView(topLeftViewport = new SheetViewport(this));
+				#endregion // Create viewports if not existed
 
-				// set up viewports view start postion
-				leftTopViewport.ViewStart = new Point(0, 0);
-				leftBottomViewport.ViewStart = new Point(0, gridLoc.Y);
-				rightTopViewport.ViewStart = new Point(gridLoc.X, 0);
-				rightBottomViewport.ViewStart = new Point(gridLoc.X, gridLoc.Y);
+				#region Set viewports view start postion
+				topLeftViewport.ViewStart = new Point(0, 0);
+				leftBottomViewport.ViewStart = new Point(0, cellPosition.Y);
+				rightTopViewport.ViewStart = new Point(cellPosition.X, 0);
+				rightBottomViewport.ViewStart = new Point(cellPosition.X, cellPosition.Y);
+				#endregion // Set viewports view start postion
 
+				#region Decides the scroll directions
 				// set up viewports by selected freeze position
 				switch (this.worksheet.FreezeArea)
 				{
 					default:
 					case ReoGrid.FreezeArea.LeftTop:
-						this.leftTopViewport.ScrollableDirections = ScrollDirection.None;
+						this.topLeftViewport.ScrollableDirections = ScrollDirection.None;
 						this.leftBottomViewport.ScrollableDirections = ScrollDirection.Vertical;
 						this.rightTopViewport.ScrollableDirections = ScrollDirection.Horizontal;
 
@@ -1210,11 +1175,11 @@ namespace unvell.ReoGrid.Views
 						this.colHeaderPart2.ScrollableDirections = ScrollDirection.None;
 						this.rowHeaderPart2.ScrollableDirections = ScrollDirection.None;
 
-						this.mainViewport = this.leftTopViewport;
+						this.mainViewport = this.topLeftViewport;
 						break;
 
 					case ReoGrid.FreezeArea.LeftBottom:
-						this.leftTopViewport.ScrollableDirections = ScrollDirection.Vertical;
+						this.topLeftViewport.ScrollableDirections = ScrollDirection.Vertical;
 						this.leftBottomViewport.ScrollableDirections = ScrollDirection.None;
 						this.rightBottomViewport.ScrollableDirections = ScrollDirection.Horizontal;
 
@@ -1227,7 +1192,7 @@ namespace unvell.ReoGrid.Views
 						break;
 
 					case ReoGrid.FreezeArea.RightTop:
-						this.leftTopViewport.ScrollableDirections = ScrollDirection.Horizontal;
+						this.topLeftViewport.ScrollableDirections = ScrollDirection.Horizontal;
 						this.rightTopViewport.ScrollableDirections = ScrollDirection.None;
 						this.rightBottomViewport.ScrollableDirections = ScrollDirection.Vertical;
 
@@ -1239,8 +1204,10 @@ namespace unvell.ReoGrid.Views
 						this.mainViewport = this.leftBottomViewport;
 						break;
 				}
+				#endregion // Decides the scroll directions for viewports
 
-				leftTopViewport.Visible =
+				#region Set viewports visibility
+				topLeftViewport.Visible =
 					leftBottomViewport.Visible =
 					rightTopViewport.Visible =
 					true;
@@ -1258,29 +1225,33 @@ namespace unvell.ReoGrid.Views
 					this.rowOutlinePart1.Visible = rowOutlinePart2.Visible;
 				}
 #endif // OUTLINE
+				#endregion // Set viewports visibility
 
+				#endregion // Do freeze
 			}
 
 			// Scrollable direction for main viewport always should be Both
 			this.mainViewport.ScrollableDirections = ScrollDirection.Both;
 
+			#region Synchronize other viewports
 			if (this.rowHeaderPart1 != null)
 			{
-				this.rowHeaderPart1.ViewTop = this.leftTopViewport.ViewTop;
+				this.rowHeaderPart1.ViewTop = this.topLeftViewport.ViewTop;
 			}
 			if (this.colHeaderPart1 != null)
 			{
-				this.colHeaderPart1.ViewLeft = this.leftTopViewport.ViewLeft;
+				this.colHeaderPart1.ViewLeft = this.topLeftViewport.ViewLeft;
 			}
 
-			this.colHeaderPart2.ViewLeft = gridLoc.X;
-			this.rowHeaderPart2.ViewTop = gridLoc.Y;
+			this.colHeaderPart2.ViewLeft = rightBottomViewport.ViewLeft;
+			this.rowHeaderPart2.ViewTop = rightBottomViewport.ViewTop;
+			#endregion Synchronize other viewports
 
-#region Outline
+			#region Outline
 #if OUTLINE
 			if (colOutlinePart2 != null)
 			{
-				colOutlinePart2.ViewLeft = gridLoc.X;
+				colOutlinePart2.ViewLeft = rightBottomViewport.ViewLeft;
 				colOutlinePart2.ScrollableDirections = colHeaderPart2.ScrollableDirections;
 
 				if (colOutlinePart1 != null)
@@ -1292,7 +1263,7 @@ namespace unvell.ReoGrid.Views
 
 			if (rowOutlinePart2 != null)
 			{
-				rowOutlinePart2.ViewTop = gridLoc.Y;
+				rowOutlinePart2.ViewTop = rightBottomViewport.ViewTop;
 				rowOutlinePart2.ScrollableDirections = rowHeaderPart2.ScrollableDirections;
 
 				if (rowOutlinePart1 != null)
@@ -1302,19 +1273,26 @@ namespace unvell.ReoGrid.Views
 				}
 			}
 #endif // OUTLINE
-#endregion // Outline
+			#endregion // Outline
 
+			#region Update Scrollbar positions
 			// scroll bars start at view-start of the main-viewport
-			this.worksheet.controlAdapter.ScrollBarHorizontalMinimum = this.scrollHorMin = (int)Math.Round(this.mainViewport.ViewLeft);
-			this.worksheet.controlAdapter.ScrollBarVerticalMinimum = this.scrollVerMin = (int)Math.Round(this.mainViewport.ViewTop);
+			this.worksheet.controlAdapter.ScrollBarHorizontalMinimum = 0;// this.scrollHorMin = (int)Math.Round(this.mainViewport.ViewLeft);
+			this.worksheet.controlAdapter.ScrollBarVerticalMinimum = 0;// this.scrollVerMin = (int)Math.Round(this.mainViewport.ViewTop);
 
-			int hlc = (int)(this.view.Width - gridLoc.X);
-			if (hlc < 0) hlc = 0;
-			int vlc = (int)(this.view.Height - gridLoc.Y);
-			if (vlc < 0) vlc = 0;
+			//int hlc = (int)(this.view.Width - rightBottomViewport.ScrollViewLeft);
+			//if (hlc < 0) hlc = 0;
+			//int vlc = (int)(this.view.Height - rightBottomViewport.ScrollViewTop);
+			//if (vlc < 0) vlc = 0;
 
-			this.worksheet.controlAdapter.ScrollBarHorizontalLargeChange = this.scrollHorLarge = hlc;
-			this.worksheet.controlAdapter.ScrollBarVerticalLargeChange = this.scrollVerLarge = vlc;
+			//this.worksheet.controlAdapter.ScrollBarHorizontalLargeChange = this.scrollHorLarge = hlc;
+			//this.worksheet.controlAdapter.ScrollBarVerticalLargeChange = this.scrollVerLarge = vlc;
+			this.worksheet.controlAdapter.ScrollBarHorizontalLargeChange = (RGIntDouble)Math.Round(mainViewport.Width);
+			this.worksheet.controlAdapter.ScrollBarVerticalLargeChange = (RGIntDouble)Math.Round(mainViewport.Height);
+			#endregion // Update Scrollbar positions
+
+			currentFreezePos = freezePos;
+			currentFrozenArea = area;
 
 			UpdateController();
 		}
