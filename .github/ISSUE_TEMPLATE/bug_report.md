@@ -11,7 +11,7 @@ assignees: ''
 !!! Remove this before you submit the issue !!!
 
 Providing code or test projects to reproduce the bug is important.
-We may close the issue without resolving it if it doesn't include any sample code or reproducing steps.
+We may close the issue without resolving it if the issue doesn't include any sample code or reproducing steps.
 
 Thank you for your cooperation!
 ```
@@ -27,7 +27,7 @@ A clear and concise description of what the bug is.
 4. See error
 
 ## Screenshots
-Press ctrl+v to copy and upload the snapshot images.
+Press ctrl+v to paste and upload the snapshot images.
 
 ## Edition
 Which edition of ReoGrid do you using?
