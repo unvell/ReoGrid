@@ -8,36 +8,32 @@ assignees: ''
 ---
 
 ```
-!!! Reproduce the bug is important !!!
-Post your code or upload a project to reproduce the bug
-It's difficult to fix the bug without reproduce method
+!!! Remove this before you submit the issue !!!
+
+Providing code or test projects to reproduce the bug is important.
+We may close the issue without resolving it if it doesn't include any sample code or reproducing steps.
+
+Thank you for your cooperation!
 ```
 
-**Describe the bug**
+## Description
 A clear and concise description of what the bug is.
 
-**To Reproduce**
-Steps to reproduce the behavior:
+## To Reproduce
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+## Screenshots
+Press ctrl+v to copy and upload the snapshot images.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
-
-**Edition**
+## Edition
 Which edition of ReoGrid do you using?
  - Windows Form
  - WPF
- - Android
 
-**Environment (please complete the following information):**
+## Environment
  - OS: [e.g. Windows 10]
  - Language of OS: English
-
-**Additional context**
-Add any other context about the problem here.
