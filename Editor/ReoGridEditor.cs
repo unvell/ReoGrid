@@ -875,7 +875,7 @@ namespace unvell.ReoGrid.Editor
 
 			var menuItem = sender as ToolStripMenuItem;
 
-			if (menuItem != null && menuItem.Tag is Type && worksheet != null)
+			if (menuItem != null && menuItem.Tag is Type && worksheet != null && !worksheet.SelectionRange.IsEmpty)
 			{
 				foreach (var cell in worksheet.Ranges[worksheet.SelectionRange].Cells)
 				{

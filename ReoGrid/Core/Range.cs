@@ -110,7 +110,15 @@ namespace unvell.ReoGrid
 			/// <returns>Instance of referenced range to worksheet</returns>
 			public ReferenceRange this[RangePosition range]
 			{
-				get { return new ReferenceRange(this.worksheet, this.worksheet.FixRange(range)); }
+				get
+				{
+					if (range.IsEmpty)
+					{
+						throw new ArgumentException("range position is empty", nameof(range));
+					} 
+
+					return new ReferenceRange(this.worksheet, this.worksheet.FixRange(range));
+				}
 			}
 		}
 
