@@ -1555,6 +1555,11 @@ namespace unvell.ReoGrid
 			get { return rows == 1 && cols == 1; }
 		}
 
+		public static RangePosition FromCellPosition(CellPosition startPosition, CellPosition endPosition)
+		{
+			return FromCellPosition(startPosition.Row, startPosition.Col, endPosition.Row, endPosition.Col);
+		}
+
 		/// <summary>
 		/// Create range position instance from specified coordinates. 
 		/// This method finds and uses the minimum and maximum row and column automatically.

@@ -2147,7 +2147,8 @@ namespace unvell.ReoGrid
 
 			UpdateViewportController();
 
-			SelectionRange = FixRange(selectionRange);
+			var selRange = FixRange(selectionRange);
+			ApplyRangeSelection(selRange.StartPos, selRange.EndPos, false);
 
 #if DEBUG
 			sw.Stop();
@@ -2667,8 +2668,9 @@ namespace unvell.ReoGrid
 
 			UpdateViewportController();
 
-			SelectionRange = FixRange(selectionRange);
-
+			var selRange = FixRange(selectionRange);
+			ApplyRangeSelection(selRange.StartPos, selRange.EndPos, false);
+			
 #if DEBUG
 			sw.Stop();
 			long ms = sw.ElapsedMilliseconds;

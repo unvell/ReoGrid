@@ -57,10 +57,10 @@ namespace unvell.ReoGrid
 	/// </summary>
 
 	//[DefaultProperty("Template")]
-//#if WINFORM
-//	[Designer(typeof(ReoGridControlDesigner))]
-//	[ToolboxItem(typeof(ReoGridControlToolboxItem))]
-//#endif // WINFORM
+	//#if WINFORM
+	//	[Designer(typeof(ReoGridControlDesigner))]
+	//	[ToolboxItem(typeof(ReoGridControlToolboxItem))]
+	//#endif // WINFORM
 
 	public partial class ReoGridControl : System.Windows.Forms.Control, IVisualWorkbook,
 		IRangePickableControl, IContextMenuControl, IPersistenceWorkbook, IActionControl, IWorkbook,
@@ -313,7 +313,7 @@ namespace unvell.ReoGrid
 		/// False to release only unmanaged resources.</param>
 		protected override void Dispose(bool disposing)
 		{
-			var gdiRenderer = (GDIRenderer) renderer;
+			var gdiRenderer = (GDIRenderer)renderer;
 
 			if (gdiRenderer != null)
 			{
@@ -438,7 +438,7 @@ namespace unvell.ReoGrid
 					case CursorStyle.Busy: this.control.Cursor = Cursors.WaitCursor; break;
 					case CursorStyle.Hand: this.control.Cursor = Cursors.Hand; break;
 					case CursorStyle.FullColumnSelect:
-						this.control.Cursor = this.control.FullColumnSelectionCursor!=null ?
+						this.control.Cursor = this.control.FullColumnSelectionCursor != null ?
 							this.control.FullColumnSelectionCursor : this.control.builtInFullColSelectCursor;
 						break;
 					case CursorStyle.FullRowSelect:
@@ -1028,58 +1028,58 @@ namespace unvell.ReoGrid
 			{
 				sf = new StringFormat(StringFormat.GenericDefault);
 			}
-            protected override void OnKeyDown(KeyEventArgs e)
-            {
-                var sheet = owner.currentWorksheet;
+			protected override void OnKeyDown(KeyEventArgs e)
+			{
+				var sheet = owner.currentWorksheet;
 
-                if (sheet.currentEditingCell != null && Visible)
-                {
-                    bool isProcessed = false;
+				if (sheet.currentEditingCell != null && Visible)
+				{
+					bool isProcessed = false;
 
-                    // in single line text
-                    if (!TextWrap && Text.IndexOf('\n') == -1)
-                    {
-                        isProcessed = true;
-                        if (e.KeyCode == Keys.Up)
-                        {
-                            ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionUp());
-                        }
-                        else if (e.KeyCode == Keys.Down)
-                        {
-                            ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionDown());
-                        }
-                        else if (e.KeyCode == Keys.Left && SelectionStart == 0)
-                        {
-                            ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionLeft());
-                        }
-                        else if (e.KeyCode == Keys.Right && SelectionStart == Text.Length)
-                        {
-                            ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionRight());
-                        }
-                        else
-                        {
-                            isProcessed = false;
-                        }
-                    }
+					// in single line text
+					if (!TextWrap && Text.IndexOf('\n') == -1)
+					{
+						isProcessed = true;
+						if (e.KeyCode == Keys.Up)
+						{
+							ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionUp());
+						}
+						else if (e.KeyCode == Keys.Down)
+						{
+							ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionDown());
+						}
+						else if (e.KeyCode == Keys.Left && SelectionStart == 0)
+						{
+							ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionLeft());
+						}
+						else if (e.KeyCode == Keys.Right && SelectionStart == Text.Length)
+						{
+							ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionRight());
+						}
+						else
+						{
+							isProcessed = false;
+						}
+					}
 
-                    if (!isProcessed)
-                    {
-                        if (!Toolkit.IsKeyDown(Win32.VKey.VK_CONTROL) && e.KeyCode == Keys.Enter)
-                        {
-                            ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionForward());
-                        }
-                    }
-                }
-            }
+					if (!isProcessed)
+					{
+						if (!Toolkit.IsKeyDown(Win32.VKey.VK_CONTROL) && e.KeyCode == Keys.Enter)
+						{
+							ProcessSelectionMoveKey(e, sheet, () => sheet.MoveSelectionForward());
+						}
+					}
+				}
+			}
 
-            private void ProcessSelectionMoveKey(KeyEventArgs e, Worksheet sheet, Action moveAction)
-            {
-                e.SuppressKeyPress = true;
-                sheet.EndEdit(Text);
-                moveAction();
-            }
+			private void ProcessSelectionMoveKey(KeyEventArgs e, Worksheet sheet, Action moveAction)
+			{
+				e.SuppressKeyPress = true;
+				sheet.EndEdit(Text);
+				moveAction();
+			}
 
-            protected override bool ProcessCmdKey(ref Message msg, System.Windows.Forms.Keys keyData)
+			protected override bool ProcessCmdKey(ref Message msg, System.Windows.Forms.Keys keyData)
 			{
 				var sheet = owner.currentWorksheet;
 
@@ -1221,10 +1221,10 @@ namespace unvell.ReoGrid
 				{
 					int inputChar = m.WParam.ToInt32();
 
-					if (inputChar != 8			// backspace
+					if (inputChar != 8      // backspace
 						&& inputChar != 13     // enter
 						&& inputChar != 27     // escape
-						//&& inputChar != '\t'   // tab
+																	 //&& inputChar != '\t'   // tab
 						)
 					{
 						inputChar = this.owner.currentWorksheet.RaiseCellEditCharInputed(m.WParam.ToInt32());
@@ -1278,10 +1278,10 @@ namespace unvell.ReoGrid
 		{
 			if (Toolkit.IsKeyDown(Win32.VKey.VK_MENU)
 				|| Toolkit.IsKeyDown(Win32.VKey.VK_CONTROL)
-				|| charCode == 8			// backspace
-				|| charCode == 13			// enter
-				|| charCode == 27			// escape
-				|| charCode == '\t'		// tab
+				|| charCode == 8      // backspace
+				|| charCode == 13     // enter
+				|| charCode == 27     // escape
+				|| charCode == '\t'   // tab
 				)
 			{
 				return false;
@@ -1315,21 +1315,21 @@ namespace unvell.ReoGrid
 				// Chinese and Japanese IME will send this message
 				// before start to accept user's input
 				if (m.Msg == (int)Win32.WMessages.WM_IME_STARTCOMPOSITION)
+			{
+				this.currentWorksheet.StartEdit(string.Empty);
+			}
+			else if (m.Msg == (int)Win32.WMessages.WM_MOUSEHWHEEL)
+			{
+				if (this.currentWorksheet.ViewportController is IScrollableViewportController)
 				{
-					this.currentWorksheet.StartEdit(string.Empty);
-				}
-				else if (m.Msg == (int)Win32.WMessages.WM_MOUSEHWHEEL)
-				{
-					if (this.currentWorksheet.ViewportController is IScrollableViewportController)
-					{
-						var svc = this.currentWorksheet.ViewportController as IScrollableViewportController;
+					var svc = this.currentWorksheet.ViewportController as IScrollableViewportController;
 
-						// get an overflow error by my logitech mouse t620
-						// fixed by (int)(long) cast
-						int delta = (short)((long)m.WParam >> 16) / 10; // get delta
-						svc.ScrollViews(ScrollDirection.Horizontal, -delta, 0);
-					}
+					// get an overflow error by my logitech mouse t620
+					// fixed by (int)(long) cast
+					int delta = (short)((long)m.WParam >> 16) / 10; // get delta
+					svc.ScrollViews(ScrollDirection.Horizontal, -delta, 0);
 				}
+			}
 
 			base.WndProc(ref m);
 		}
