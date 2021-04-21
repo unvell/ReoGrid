@@ -93,7 +93,17 @@ namespace unvell.ReoGrid.Demo.CustomCells
 			worksheet.MergeRange(5, 2, 1, 3);
 			var link = new HyperlinkCell("http://www.google.com") { AutoNavigate = false };
 			worksheet[5, 1] = new object[] { "Hyperlink", link };
-			link.Click += (s, e) => System.Diagnostics.Process.Start(worksheet.GetCellText(5, 2));
+			link.Click += (s, e) =>
+			{
+				try
+				{
+					System.Diagnostics.Process.Start(worksheet.GetCellText(5, 2));
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.ToString());
+				}
+			};
 
 			// checkbox
 			var checkbox = new CheckBoxCell();
