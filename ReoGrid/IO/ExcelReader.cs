@@ -47,11 +47,6 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 	internal sealed class ExcelReader
 	{
-		static ExcelReader()
-		{
-			//Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-		}
-
 		#region Read Stream
 		public static void ReadStream(RGWorkbook rgWorkbook, Stream stream)
 		{

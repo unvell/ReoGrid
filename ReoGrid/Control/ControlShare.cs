@@ -79,6 +79,12 @@ namespace unvell.ReoGrid
 		private IRenderer renderer;
 
 		#region Initialize
+
+		static ReoGridControl()
+		{
+			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+		}
+		
 		private void InitControl()
 		{
 #if WINFORM || WPF
