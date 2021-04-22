@@ -24,9 +24,7 @@ namespace unvell.ReoGrid.Tests
 	[TestSet]
 	class ExcelOutTest : ReoGridTestSet
 	{
-		const string XlsxPath = "..\\..\\xlsx";
-
-		static string GetExcelFileName(string name) { return string.Format("{0}\\{1}.xlsx", XlsxPath, name); }
+		static string GetExcelFileName(string name) => $"..\\..\\..\\xlsx\\{name}.xlsx";
 
 		[TestCase]
 		void OutputNumberFormat()

@@ -1,0 +1,491 @@
+<?xml version="1.0"?>
+<grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <meta>
+      <culture>en-US</culture>
+      <editor>ReoGrid Core </editor>
+      <core-ver>1.2.0.0</core-ver>
+    </meta>
+    <rows>229</rows>
+    <cols>104</cols>
+    <default-row-height>20</default-row-height>
+    <default-col-width>70</default-col-width>
+    <named-ranges>
+      <named-range name="mydata" address="B6:F10" />
+    </named-ranges>
+    <print-settings>
+      <page-break-rows>1,40,63</page-break-rows>
+      <page-break-cols>1,11,18</page-break-cols>
+      <scale-factor>0.9984</scale-factor>
+      <paper-size>A4</paper-size>
+      <landscape>false</landscape>
+      <page-order>over-down</page-order>
+      <paper-width>8.5</paper-width>
+      <paper-height>11</paper-height>
+    </print-settings>
+    <settings meta="2086895614">
+      <show-grid>false</show-grid>
+      <show-page-break>true</show-page-break>
+    </settings>
+    <script />
+  </head>
+  <style color="#000000" font="Calibri" font-size="10.25" align="general" valign="middle" />
+  <rows>
+    <row row="1" height="19" last-height="17" auto-height="false" />
+    <row row="2" height="33" last-height="30" auto-height="false" />
+    <row row="3" height="7" last-height="20" auto-height="false" />
+    <row row="4" height="23" />
+    <row row="5" height="23" />
+    <row row="6" height="23" />
+    <row row="7" height="23" />
+    <row row="8" height="23" last-height="24" auto-height="false" />
+    <row row="38" height="8" last-height="20" auto-height="false" />
+  </rows>
+  <cols>
+    <col col="0" width="10" last-width="4" />
+    <col col="1" width="12" last-width="13" />
+    <col col="2" width="75" last-width="70" />
+    <col col="3" width="75" last-width="70" />
+    <col col="4" width="75" last-width="70" />
+    <col col="5" width="75" last-width="70" />
+    <col col="6" width="75" last-width="70" />
+    <col col="7" width="75" last-width="70" />
+    <col col="8" width="75" last-width="70" />
+    <col col="9" width="75" last-width="70" />
+    <col col="10" width="12" />
+    <col col="11" width="12" last-width="14" />
+    <col col="12" width="117" last-width="70" />
+    <col col="13" width="166" last-width="180" />
+    <col col="14" width="155" last-width="125" />
+    <col col="15" width="91" last-width="70" />
+    <col col="17" width="10" last-width="70" />
+  </cols>
+  <v-borders>
+    <v-border row="7" col="2" style="BoldSolid" pos="left" rows="31" />
+    <v-border row="42" col="2" style="BoldSolid" pos="left" rows="10" />
+    <v-border row="55" col="2" pos="left" rows="3" />
+    <v-border row="8" col="3" style="Dotted" pos="all" rows="30" />
+    <v-border row="8" col="4" style="Dotted" pos="left" rows="30" />
+    <v-border row="55" col="4" pos="all" rows="3" />
+    <v-border row="8" col="5" style="Dotted" pos="all" rows="30" />
+    <v-border row="7" col="6" pos="all" rows="31" />
+    <v-border row="55" col="6" pos="all" rows="3" />
+    <v-border row="8" col="7" style="Dotted" pos="all" rows="30" />
+    <v-border row="8" col="8" style="Dotted" pos="right" rows="30" />
+    <v-border row="55" col="8" pos="right" rows="3" />
+    <v-border row="8" col="9" style="Dotted" pos="all" rows="30" />
+    <v-border row="7" col="10" style="BoldSolid" pos="left" rows="31" />
+    <v-border row="42" col="10" style="BoldSolid" pos="left" rows="10" />
+    <v-border row="2" col="12" style="BoldSolid" pos="left" rows="36" />
+    <v-border row="2" col="13" style="Dashed" pos="all" rows="36" />
+    <v-border row="2" col="14" style="Dashed" pos="all" rows="36" />
+    <v-border row="2" col="15" style="Dashed" pos="all" rows="36" />
+    <v-border row="2" col="16" style="Dashed" pos="all" rows="36" />
+    <v-border row="2" col="17" style="BoldSolid" pos="right" rows="36" />
+  </v-borders>
+  <h-borders>
+    <h-border row="2" col="12" style="BoldSolid" pos="top" cols="5" />
+    <h-border row="3" col="12" pos="bottom" cols="5" />
+    <h-border row="7" col="2" style="BoldSolid" pos="all" cols="8" />
+    <h-border row="8" col="2" pos="all" cols="8" />
+    <h-border row="9" col="2" pos="all" cols="8" />
+    <h-border row="38" col="2" style="BoldSolid" pos="bottom" cols="8" />
+    <h-border row="38" col="12" style="BoldSolid" pos="bottom" cols="5" />
+    <h-border row="42" col="2" style="BoldSolid" pos="top" cols="8" />
+    <h-border row="52" col="2" style="BoldSolid" pos="bottom" cols="8" />
+    <h-border row="55" col="2" pos="top" cols="6" />
+    <h-border row="58" col="2" pos="bottom" cols="6" />
+  </h-borders>
+  <cells>
+    <cell row="2" col="2" colspan="8">Inventory Report<style font-size="18" align="center" /></cell>
+    <cell row="2" col="12">PRODUCT ID</cell>
+    <cell row="2" col="13">PRODUCT</cell>
+    <cell row="2" col="14">DESCRIPTION</cell>
+    <cell row="2" col="15">UNIT PRICE</cell>
+    <cell row="2" col="16">QUANTITY</cell>
+    <cell row="4" col="2" colspan="8">A sample for printable report created by ReoGrid Editor<style color="#737373" bold="true" align="center" /></cell>
+    <cell row="6" col="8">Create Time:<style font-size="8" /></cell>
+    <cell row="7" col="2" colspan="4">Received<style align="center" /></cell>
+    <cell row="7" col="6" colspan="4">Shipped<style align="center" /></cell>
+    <cell row="8" col="2">Data In<style bgcolor="#ffd099" color="#993200" /></cell>
+    <cell row="8" col="3">P.O. #<style bgcolor="#ffd099" color="#993200" /></cell>
+    <cell row="8" col="4">
+      <style bgcolor="#ffd099" color="#993200" />
+    </cell>
+    <cell row="8" col="5">Amount<style bgcolor="#ffd099" color="#993200" /></cell>
+    <cell row="8" col="6">Last Login<style bgcolor="#ffd099" color="#993200" /></cell>
+    <cell row="8" col="7">Status<style bgcolor="#ffd099" color="#993200" /></cell>
+    <cell row="8" col="8">
+      <style bgcolor="#ffd099" color="#993200" />
+    </cell>
+    <cell row="8" col="9">Status<style bgcolor="#ffd099" color="#993200" /></cell>
+    <cell row="9" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="9" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="9" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="9" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="9" col="6">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="9" col="7">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="9" col="8">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="9" col="9">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="11" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="11" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="11" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="11" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="11" col="6">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="11" col="7">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="11" col="8">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="11" col="9">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="13" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="13" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="13" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="13" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="13" col="6">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="13" col="7">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="13" col="8">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="13" col="9">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="15" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="15" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="15" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="15" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="15" col="6">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="15" col="7">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="15" col="8">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="15" col="9">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="17" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="17" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="17" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="17" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="17" col="6">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="17" col="7">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="17" col="8">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="17" col="9">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="19" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="19" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="19" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="19" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="19" col="6">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="19" col="7">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="19" col="8">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="19" col="9">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="21" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="21" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="21" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="21" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="21" col="6">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="21" col="7">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="21" col="8">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="21" col="9">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="23" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="23" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="23" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="23" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="23" col="6">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="23" col="7">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="23" col="8">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="23" col="9">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="25" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="25" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="25" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="25" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="25" col="6">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="25" col="7">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="25" col="8">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="25" col="9">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="27" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="27" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="27" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="27" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="27" col="6">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="27" col="7">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="27" col="8">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="27" col="9">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="29" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="29" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="29" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="29" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="29" col="6">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="29" col="7">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="29" col="8">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="29" col="9">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="31" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="31" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="31" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="31" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="31" col="6">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="31" col="7">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="31" col="8">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="31" col="9">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="33" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="33" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="33" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="33" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="33" col="6">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="33" col="7">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="33" col="8">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="33" col="9">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="35" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="35" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="35" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="35" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="35" col="6">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="35" col="7">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="35" col="8">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="35" col="9">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="37" col="2">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="37" col="3">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="37" col="4">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="37" col="5">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="37" col="6">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="37" col="7">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="37" col="8">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="37" col="9">
+      <style bgcolor="#ffffee" />
+    </cell>
+    <cell row="39" col="2">Page 1</cell>
+    <cell row="39" col="12">Page 2</cell>
+    <cell row="41" col="2">REMARK</cell>
+    <cell row="52" col="8">DATE</cell>
+    <cell row="58" col="2">TEAM MANAGER</cell>
+    <cell row="58" col="4">DEPT. MANAGER</cell>
+    <cell row="58" col="6">CEO</cell>
+    <cell row="62" col="2">Page 3</cell>
+  </cells>
+</grid>

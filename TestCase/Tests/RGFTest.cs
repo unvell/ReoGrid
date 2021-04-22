@@ -19,9 +19,7 @@ namespace unvell.ReoGrid.Tests.Tests
 	[TestSet]
 	class RGFTest : ReoGridTestSet
 	{
-		const string RGFPath = "..\\..\\rgf";
-
-		static string GetRGFFileName(string name) { return string.Format("{0}\\{1}.rgf", RGFPath, name); }
+		static string GetRGFFileName(string name) => $"..\\..\\..\\rgf\\{name}.rgf";
 
 		/// <summary>
 		/// https://reogrid.net/forum/viewtopic.php?id=254
