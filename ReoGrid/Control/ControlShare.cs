@@ -699,7 +699,7 @@ namespace unvell.ReoGrid
 
 		#region Actions
 
-		internal ActionManager actionManager = new();
+		internal ActionManager actionManager = new ActionManager();
 
 		private WorksheetReusableAction lastReusableAction;
 

@@ -1899,7 +1899,9 @@ namespace unvell.ReoGrid
 				if (row == 0 || !IsInsideSameMergedCell(row - 1, c, row, c))
 				{
 					if (hBorders[row, c] != null && hBorders[row, c].Span == 0)
+					{
 						hBorders[row, c] = null;
+					}
 				}
 			}
 			#endregion // move columns
@@ -2157,7 +2159,7 @@ namespace unvell.ReoGrid
 			{
 				Debug.WriteLine("delete rows takes " + ms + " ms.");
 			}
-#endif
+#endif // DEBUG
 
 			// raise column deleted event
 			RowsDeleted?.Invoke(this, new RowsDeletedEventArgs(row, count));
@@ -2675,10 +2677,7 @@ namespace unvell.ReoGrid
 #endif
 
 			// raise column deleted event
-			if (ColumnsDeleted != null)
-			{
-				ColumnsDeleted(this, new ColumnsDeletedEventArgs(col, count));
-			}
+			ColumnsDeleted?.Invoke(this, new ColumnsDeletedEventArgs(col, count));
 		}
 
 		#endregion // Delete

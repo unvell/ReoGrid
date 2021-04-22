@@ -61,10 +61,10 @@ namespace unvell.ReoGrid.Demo.CustomCells
 				HAlign = ReoGridHorAlign.Center,
 			};
 
-			var grayTextStyle = new WorksheetRangeStyle 
-			{ 
-				Flag = PlainStyleFlag.TextColor, 
-				TextColor =	Color.DimGray 
+			var grayTextStyle = new WorksheetRangeStyle
+			{
+				Flag = PlainStyleFlag.TextColor,
+				TextColor = Color.DimGray
 			};
 
 			worksheet.MergeRange(1, 1, 1, 6);
@@ -105,7 +105,7 @@ namespace unvell.ReoGrid.Demo.CustomCells
 				}
 			};
 
-			// checkbox
+		 // checkbox
 			var checkbox = new CheckBoxCell();
 			worksheet.SetRangeStyles(7, 2, 1, 1, middleStyle);
 			worksheet.SetRangeStyles(8, 2, 1, 1, grayTextStyle);

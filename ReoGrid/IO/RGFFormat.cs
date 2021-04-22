@@ -51,11 +51,11 @@ namespace unvell.ReoGrid
 
 	public static class RGFPersistenceProvider {
 
-		internal static Dictionary<Type, string> CustomBodyTypeIdentifiers { get; } = new();
+		internal static Dictionary<Type, string> CustomBodyTypeIdentifiers { get; } = new Dictionary<Type, string>();
 
-		internal static Dictionary<string, RGFCustomBodyHandler> CustomBodyTypeHandlers { get; } = new();
+		internal static Dictionary<string, RGFCustomBodyHandler> CustomBodyTypeHandlers { get; } = new Dictionary<string, RGFCustomBodyHandler>();
 
-		public static CustomBodyTypeProviderCollection CustomBodyTypeProviders { get; } = new();
+		public static CustomBodyTypeProviderCollection CustomBodyTypeProviders { get; } = new CustomBodyTypeProviderCollection();
 	}
 
 	public class CustomBodyTypeProviderCollection
@@ -221,10 +221,10 @@ namespace unvell.ReoGrid
 
 				string cultureName = head.meta == null ? null : head.meta.culture;
 
-#pragma warning disable 618
-				// back-forward compatible
-				if (string.IsNullOrEmpty(cultureName)) cultureName = head.culture;
-#pragma warning restore 618
+//#pragma warning disable 618
+//				// back-forward compatible
+//				if (string.IsNullOrEmpty(cultureName)) cultureName = head.culture;
+//#pragma warning restore 618
 
 				// apply culture
 				if (!string.IsNullOrEmpty(cultureName))

@@ -141,6 +141,7 @@ namespace unvell.ReoGrid.Main
 	{
 		void RaiseWorksheetScrolledEvent(Worksheet worksheet, RGFloat x, RGFloat y);
 
+		// FIXME: not implemented
 		bool ShowScrollEndSpacing { get; }
 	}
 

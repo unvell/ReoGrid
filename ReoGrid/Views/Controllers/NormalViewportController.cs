@@ -925,9 +925,7 @@ namespace unvell.ReoGrid.Views
 
 		public virtual void ScrollToRange(RangePosition range, CellPosition basePos)
 		{
-			var view = this.FocusView as Viewport;
-
-			if (view != null)
+			if (this.FocusView is Viewport view)
 			{
 				Rectangle rect = this.worksheet.GetScaledRangeBounds(range);
 
@@ -1011,8 +1009,6 @@ namespace unvell.ReoGrid.Views
 #endif // WPF
 			}
 			
-			Debug.WriteLine(height);
-
 			int maxHorizontal = Math.Max(0, (int)(Math.Ceiling(width))) + 1;
 			int maxVertical = Math.Max(0, (int)(Math.Ceiling(height))) + 1;
 

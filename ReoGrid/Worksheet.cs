@@ -1548,20 +1548,14 @@ namespace unvell.ReoGrid
 		internal bool HasCellMouseMove { get { return this.CellMouseMove != null; } }
 		internal void RaiseCellMouseMove(CellMouseEventArgs args) { if (CellMouseMove != null) { CellMouseMove(this, args); } }
 
-		internal void RaiseSelectionRangeChanged(RangeEventArgs args)
-		{
-			if (SelectionRangeChanged != null)
-			{
-				SelectionRangeChanged(this, args);
-			}
-		}
+		internal void RaiseSelectionRangeChanged(RangeEventArgs args) => SelectionRangeChanged?.Invoke(this, args);
 
 		#endregion // Mouse Events
 
 		/// <summary>
 		/// Get current focused visual object.
 		/// </summary>
-		public IUserVisual FocusVisual { get { return this.viewportController == null ? null : this.viewportController.FocusVisual; } }
+		public IUserVisual FocusVisual { get => this.viewportController?.FocusVisual; }
 
 		#endregion // Mouse
 

@@ -28,6 +28,7 @@ using unvell.ReoGrid.Script;
 using unvell.ReoGrid.Core;
 using unvell.ReoGrid.Events;
 using unvell.ReoGrid.Graphics;
+using unvell.ReoGrid.Views;
 
 namespace unvell.ReoGrid
 {
@@ -659,9 +660,7 @@ namespace unvell.ReoGrid
 		/// <param name="basePos">Base point to scroll views</param>
 		public void ScrollToRange(RangePosition range, CellPosition basePos)
 		{
-			var svc = this.viewportController as unvell.ReoGrid.Views.IScrollableViewportController;
-
-			if (svc != null)
+			if (this.viewportController is IScrollableViewportController svc)
 			{
 				svc.ScrollToRange(this.FixRange(range), basePos);
 			}
