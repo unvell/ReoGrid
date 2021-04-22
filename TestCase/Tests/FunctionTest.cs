@@ -95,7 +95,7 @@ namespace unvell.ReoGrid.Tests
 			AssertSame(worksheet["C3"], 2);
 			AssertSame(worksheet["D3"], 4);
 			AssertSame(worksheet["E3"], 5);
-			AssertSame(worksheet.GetCellText("F3"), "2.4");
+			AssertApproximatelySame(worksheet.GetCellText("F3"), 2.4, "A3");
 
 			// FLOOR
 			worksheet["A4"] = new object[] { "=FLOOR(1.1)", "=FLOOR(1.5)", "=FLOOR(1.01)", "=FLOOR(3.71)", "=FLOOR(3.72, 1)", "=FLOOR(3.72, 0.1)" };
@@ -104,7 +104,7 @@ namespace unvell.ReoGrid.Tests
 			AssertSame(worksheet["C4"], 1);
 			AssertSame(worksheet["D4"], 3);
 			AssertSame(worksheet["E4"], 3);
-			AssertSame(worksheet.GetCellText("F4"), "3.7");
+			AssertApproximatelySame(worksheet.GetCellText("F4"), 3.7);
 
 			// SIN
 			worksheet["A5"] = new object[] { "=ROUND(SIN(0),5)", "=ROUND(SIN(3.14/2),5)", "=ROUND(SIN(3.14/4),5)", "=ROUND(SIN(3.14),5)" };
