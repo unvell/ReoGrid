@@ -20,6 +20,7 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 using System.Diagnostics;
+using unvell.ReoGrid.Utility;
 
 namespace unvell.ReoGrid.Tests
 {
@@ -455,6 +456,11 @@ namespace unvell.ReoGrid.Tests
 		{
 			TestAssert.AssertSame(value, expect, msg);
 		}
+		
+		protected void AssertApproximatelySame(object value, object expect, string msg = null)
+		{
+			TestAssert.AssertApproximatelySame(value, expect, msg);
+		}
 
 		protected void AssertNotSame(object value, object expect, string msg = null)
 		{
@@ -505,6 +511,26 @@ namespace unvell.ReoGrid.Tests
 			//{
 			//	AssertEquals(((System.Drawing.Color)value).ToArgb(), ((System.Drawing.Color)expect).ToArgb(), msg);
 			//}
+			else
+			{
+				AssertEquals(value, expect, msg);
+			}
+		}
+
+		public static void AssertApproximatelySame(object value, object expect, string msg = null)
+		{
+			if (CellUtility.IsNumberData(value) && CellUtility.IsNumberData(expect))
+			{
+				AssertTrue(Math.Abs((double)Convert.ChangeType(value, typeof(double)) - (double)Convert.ChangeType(expect, typeof(double))) < 0.00001, msg);
+			}
+			//else if (value is System.Drawing.Color && expect is System.Drawing.Color)
+			//{
+			//	AssertEquals(((System.Drawing.Color)value).ToArgb(), ((System.Drawing.Color)expect).ToArgb(), msg);
+			//}
+			else if (double.TryParse(Convert.ToString(value), out double v1) && double.TryParse(Convert.ToString(expect), out double v2))
+			{
+				AssertTrue(Math.Abs(v1 - v2) < 0.00001, msg);
+			}
 			else
 			{
 				AssertEquals(value, expect, msg);
