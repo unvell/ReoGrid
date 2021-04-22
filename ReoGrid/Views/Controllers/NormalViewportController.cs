@@ -158,7 +158,7 @@ namespace unvell.ReoGrid.Views
 					this.rowOutlinePart2 = new RowOutlineView(this);
 
 					// set view start position
-					this.rowOutlinePart2.ViewTop = this.rowHeaderPart2.ViewTop;
+					this.rowOutlinePart2.ScrollY = this.rowHeaderPart2.ScrollY;
 
 					this.AddView(this.rowOutlinePart2);
 				}
@@ -196,7 +196,7 @@ namespace unvell.ReoGrid.Views
 					this.colOutlinePart2 = new ColumnOutlinePart(this);
 
 					// set view start position
-					this.colOutlinePart2.ViewLeft = this.colHeaderPart2.ViewLeft;
+					this.colOutlinePart2.ScrollX = this.colHeaderPart2.ScrollX;
 
 					this.AddView(this.colOutlinePart2);
 				}
