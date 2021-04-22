@@ -27,6 +27,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DefineConstants>TRACE;DEBUG;EX_SCRIPT</DefineConstants>
+    <Optimize>false</Optimize>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
