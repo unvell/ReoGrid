@@ -584,7 +584,7 @@ namespace unvell.ReoGrid
 		{
 			CheckForOwnerAssociated();
 
-			this.Worksheet.GroupColumns(this.Column, this.Cols);
+			this.Worksheet.GroupColumns(this.Col, this.Cols);
 		}
 
 		/// <summary>
