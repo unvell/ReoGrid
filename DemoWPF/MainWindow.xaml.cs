@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Windows;
 using System.Windows.Media;
-using unvell.ReoGrid;
 using unvell.ReoGrid.CellTypes;
 using unvell.ReoGrid.Chart;
 using unvell.ReoGrid.Drawing.Shapes;

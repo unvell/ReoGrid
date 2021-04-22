@@ -111,8 +111,6 @@ namespace unvell.ReoGrid.Views
 			ScrollX += offX;
 			ScrollY += offY;
 
-			Debug.WriteLine(ScrollY + " + " + offY + " = " + ViewTop);
-
 			if (ScrollX < 0) ScrollX = 0;
 			if (ScrollY < 0) ScrollY = 0;
 		}

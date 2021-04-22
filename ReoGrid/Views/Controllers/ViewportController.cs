@@ -185,8 +185,6 @@ namespace unvell.ReoGrid.Views
 			{
 				var targetView = this.view.GetViewByPoint(location);
 
-				Debug.WriteLine(targetView);
-
 				if (targetView != null)
 				{
 					isProcessed = targetView.OnMouseDown(targetView.PointToView(location), buttons);
