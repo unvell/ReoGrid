@@ -349,16 +349,6 @@ namespace unvell.ReoGrid
 			get { return this.currentEditingCell; }
 		}
 
-		/// <summary>
-		/// Get position of cell that currently is in edit mode
-		/// </summary>
-		/// <returns>position of cell which is editing</returns>
-		[Obsolete("use EditingCell property instead")]
-		public CellPosition GetEditingCell()
-		{
-			return currentEditingCell == null ? CellPosition.Empty : currentEditingCell.InternalPos;
-		}
-
 		private bool endEditProcessing = false;
 
 		/// <summary>

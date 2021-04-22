@@ -73,18 +73,6 @@ namespace unvell.ReoGrid.Chart
 
 		#region Ranges
 
-		/// <summary>
-		/// Get or set the range to read row serial titles.
-		/// </summary>
-		[Obsolete("use AddSerial method to add data serial instead")]
-		public virtual RangePosition RowTitleRange { get; set; }
-
-		/// <summary>
-		/// Get or set the range to read column serial titles.
-		/// </summary>
-		[Obsolete("use CategoryNameRange instead")]
-		public virtual RangePosition ColTitleRange { get; set; }
-
 		private int categoryCount;
 
 		#endregion // Ranges

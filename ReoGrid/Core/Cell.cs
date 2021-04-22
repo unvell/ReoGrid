@@ -665,21 +665,6 @@ namespace unvell.ReoGrid
 	/// </summary>
 	/// <seealso cref="CellBody"/>
 	/// <seealso cref="ICellBody"/>
-	[Obsolete("use Cell instead")]
-	public partial class ReoGridCell : Cell
-	{
-		internal ReoGridCell(Worksheet worksheet)
-			: base(worksheet)
-		{
-		}
-	}
-
-	/// <summary>
-	/// Represents the cell on worksheet. Cell instances are completely managed by ReoGrid. 
-	/// To create custom cell, use <code>CellBody</code> class or </code>ICellBody</code> interface instead.
-	/// </summary>
-	/// <seealso cref="CellBody"/>
-	/// <seealso cref="ICellBody"/>
 	[Serializable]
 	public partial class Cell //: IFormulaSource
 	{
@@ -1128,18 +1113,6 @@ namespace unvell.ReoGrid
 				if (this.Worksheet == null) return false;
 
 				return this.Worksheet.IsCellVisible(this);
-			}
-		}
-
-		/// <summary>
-		/// Determines whether or not this cell is visible. (Cells on hidden rows or columns will become invisibility)
-		/// </summary>
-		[Obsolete("use !IsVisible instead")]
-		public bool IsHidden
-		{
-			get
-			{
-				return !this.IsVisible;
 			}
 		}
 

@@ -16,13 +16,6 @@
  * 
  ****************************************************************************/
 
-namespace unvell.ReoGrid.Main
-{
-	[System.Obsolete("use unvell.ReoGrid.Interaction.CursorStyle instead")]
-	public enum RGCursor : byte
-	{ }
-}
-
 namespace unvell.ReoGrid.Interaction
 {
 	/// <summary>

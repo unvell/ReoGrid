@@ -111,44 +111,6 @@ namespace unvell.ReoGrid.DataFormat
 			return isFormat ? formattedText : null;
 		}
 
-
-		//[Serializable]
-		[Obsolete("use NumberDataFormatter.NumberFormatArgs instead")]
-		public struct PercentFormatArgs
-		{
-			///// <summary>
-			///// Get or set the decimal places
-			///// </summary>
-			//public short DecimalPlaces { get; set; }
-
-			///// <summary>
-			///// Determine whether or not to display the number using decimal mark
-			///// </summary>
-			//public bool UseSeparator { get; set; }
-
-			///// <summary>
-			///// Compare two objects, check whether or not they are same
-			///// </summary>
-			///// <param name="obj">Another object to be checked with this</param>
-			///// <returns>True if two objects are same</returns>
-			//public override bool Equals(object obj)
-			//{
-			//	if (!(obj is PercentFormatArgs)) return false;
-			//	PercentFormatArgs o = (PercentFormatArgs)obj;
-			//	return this.DecimalPlaces.Equals(o.DecimalPlaces)
-			//		&& this.UseSeparator == o.UseSeparator;
-			//}
-
-			///// <summary>
-			///// Get the hash code of this object
-			///// </summary>
-			///// <returns></returns>
-			//public override int GetHashCode()
-			//{
-			//	return base.GetHashCode();
-			//}
-		}
-
 		/// <summary>
 		/// Perform a format check
 		/// </summary>

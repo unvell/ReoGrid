@@ -188,58 +188,6 @@ namespace unvell.ReoGrid
 	}
 
 	/// <summary>
-	/// Represents the activation area of frozen worksheet.
-	/// </summary>
-	[Obsolete("use FreezeArea instead")]
-	public enum FreezePosition : byte
-	{
-		/// <summary>
-		/// Do not freeze to any positions.
-		/// </summary>
-		None = 0,
-
-		/// <summary>
-		/// Freeze to left .
-		/// </summary>
-		Left = 1,
-
-		/// <summary>
-		/// Freeze to top.
-		/// </summary>
-		Top = 2,
-
-		/// <summary>
-		/// Freeze to right.
-		/// </summary>
-		Right = 3,
-
-		/// <summary>
-		/// Freeze to bottom.
-		/// </summary>
-		Bottom = 4,
-
-		/// <summary>
-		/// Freeze to left and top.
-		/// </summary>
-		LeftTop = 5,
-
-		/// <summary>
-		/// Freeze to left and bottom.
-		/// </summary>
-		LeftBottom = 6,
-
-		/// <summary>
-		/// Freeze to right and top.
-		/// </summary>
-		RightTop = 7,
-
-		/// <summary>
-		/// Freeze to right and bottom.
-		/// </summary>
-		RightBottom = 8,
-	}
-
-	/// <summary>
 	/// Represents the frozen areas.
 	/// </summary>
 	public enum FreezeArea : byte

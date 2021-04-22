@@ -496,13 +496,13 @@ namespace unvell.ReoGrid
 			[XmlElement("settings")]
 			public RGXmlWorksheetSetting settings;
 
-			[Obsolete("moved into meta element")]
-			[XmlElement("culture")]
-			public string culture;
+			//[Obsolete("moved into meta element")]
+			//[XmlElement("culture")]
+			//public string culture;
 
-			[Obsolete("moved into meta element")]
-			[XmlElement("editor")]
-			public string editor;
+			//[Obsolete("moved into meta element")]
+			//[XmlElement("editor")]
+			//public string editor;
 			
 			[XmlElement("script")]
 			public RGXmlScript script;

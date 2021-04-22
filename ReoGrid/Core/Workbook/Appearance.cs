@@ -28,10 +28,6 @@ using unvell.ReoGrid.Utility;
 namespace unvell.ReoGrid
 {
 	#region Appearance
-	[Obsolete("use ControlAppearanceColors instead")]
-	public enum ReoGridControlColors
-	{
-	}
 
 	/// <summary>
 	/// Key of control appearance item
@@ -88,14 +84,6 @@ namespace unvell.ReoGrid
 #pragma warning restore 1591
 	}
 		
-	/// <summary>
-	/// ReoGrid Control Appearance Colors
-	/// </summary>
-	[Obsolete("use ControlAppearanceStyle instead")]
-	public sealed class ReoGridControlStyle : ControlAppearanceStyle
-	{
-	}
-
 	/// <summary>
 	/// ReoGrid Control Appearance Colors
 	/// </summary>

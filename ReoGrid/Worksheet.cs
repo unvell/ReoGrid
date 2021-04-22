@@ -529,62 +529,6 @@ namespace unvell.ReoGrid
 			}
 		}
 
-
-		///// <summary>
-		///// Check whether or not current worksheet is frozen.
-		///// </summary>
-		///// <returns>True if current worksheet is frozen; Otherwise return false.</returns>
-		//public bool IsFrozen()
-		//{
-		//	return this.FreezePos.Row > 0 || this.FreezePos.Col > 0;
-		//	//if (viewportController is IFreezableViewportController)
-		//	//{
-		//	//	IFreezableViewportController vc = ((IFreezableViewportController)viewportController);
-		//	//	return vc.FreezePos.Row > 0 || vc.FreezePos.Col > 0;
-		//	//}
-		//	//else
-		//	//	return false;
-		//}
-
-		/// <summary>
-		/// Get current frozen position.
-		/// </summary>
-		/// <returns>The cell position indicates where to freeze current worksheet.</returns>
-		[Obsolete("use FreezePos property instead")]
-		public CellPosition GetFreezePos()
-		{
-			return this.FreezePos;
-			//if (viewportController is IFreezableViewportController)
-			//{
-			//	IFreezableViewportController vc = ((IFreezableViewportController)viewportController);
-			//	return vc.FreezePos;
-			//}
-			//else
-			//{
-			//	return CellPosition.Empty;
-			//}
-		}
-
-		/// <summary>
-		/// Get current frozen and activated areas.
-		/// </summary>
-		/// <returns>Returns activated area position from current worksheet; return <code>None</code> if worksheet is not frozen.</returns>
-		[Obsolete("use FreezeArea property instead")]
-		public FreezeArea GetFreezePosition()
-		{
-			return this.FreezeArea;
-			//if (viewportController is IFreezableViewportController)
-			//{
-			//	IFreezableViewportController vc = ((IFreezableViewportController)viewportController);
-			//	var freezePos = vc.FreezePos;
-			//	return freezePos.Row == 0 && freezePos.Col == 0 ? FreezeArea.None : vc.FreezePosition;
-			//}
-			//else
-			//{
-			//	return FreezeArea.None;
-			//}
-		}
-
 		/// <summary>
 		/// Event raised when worksheet is frozen.
 		/// </summary>
@@ -1165,41 +1109,6 @@ namespace unvell.ReoGrid
 		public bool IsCellVisible(int row, int col)
 		{
 			return IsRowVisible(row) && IsColumnVisible(col);
-		}
-
-		/// <summary>
-		/// Check whether a cell is on hidden row or column.
-		/// </summary>
-		/// <param name="cell">Instance of cell to be checked.</param>
-		/// <returns>True if the cell is on hidden row or column.</returns>
-		[Obsolete("use !IsCellVisible instead")]
-		public bool IsHiddenCell(Cell cell)
-		{
-			if (cell == null) return false;
-			return IsHiddenCell(cell.InternalPos);
-		}
-
-		/// <summary>
-		/// Check whether a cell is on hidden row or column.
-		/// </summary>
-		/// <param name="pos">Position of cell to be checked.</param>
-		/// <returns>True if the cell is on hidden row or column.</returns>
-		[Obsolete("use !IsCellVisible instead")]
-		public bool IsHiddenCell(CellPosition pos)
-		{
-			return IsHiddenCell(pos.Row, pos.Col);
-		}
-
-		/// <summary>
-		/// Check whether a cell is on hidden row or column.
-		/// </summary>
-		/// <param name="row">Number of row to be checked.</param>
-		/// <param name="col">Number of column to be checked.</param>
-		/// <returns>True if the cell is on hidden row or column.</returns>
-		[Obsolete("use !IsCellVisible instead")]
-		public bool IsHiddenCell(int row, int col)
-		{
-			return IsHiddenRow(row) || IsHiddenColumn(col);
 		}
 
 		/// <summary>

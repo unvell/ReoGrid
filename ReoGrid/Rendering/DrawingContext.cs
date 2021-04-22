@@ -159,11 +159,3 @@ namespace unvell.ReoGrid.Rendering
 	#endregion // CellDrawingContext
 
 }
-
-namespace unvell.ReoGrid
-{
-	[System.Obsolete("use unvell.ReoGrid.Rendering.CellDrawingContext instead")]
-	public sealed class RGDrawingContext
-	{
-	}
-}

@@ -23,16 +23,6 @@ using System.Text;
 
 namespace unvell.ReoGrid.Graphics
 {
-	[Obsolete("use LineStyles instead")]
-  public enum LineStyle : byte
-	{
-		Solid = 1,
-		Dash = 2,
-		Dot = 3,
-		DashDot = 4,
-		DashDotDot = 5,
-	}
-
 	/// <summary>
 	/// Represents line styles.
 	/// </summary>

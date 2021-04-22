@@ -38,16 +38,6 @@ namespace unvell.ReoGrid
 		//private ReoGridRange range = ReoGridRange.Empty;
 
 		/// <summary>
-		/// Get range position.
-		/// </summary>
-		[Obsolete("use property Position instead")]
-		public RangePosition Range
-		{
-			get { return this.Position; }
-			//set { range = value; }
-		}
-
-		/// <summary>
 		/// Get or set start position.
 		/// </summary>
 		public CellPosition StartPos
@@ -86,17 +76,7 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Zero-based number of column to locate the start position of this range.
 		/// </summary>
-		[Obsolete("use Column instead")]
 		public int Col
-		{
-			get { return this.startCell.Column; }
-			set { this.Column = value; }
-		}
-
-		/// <summary>
-		/// Zero-based number of column to locate the start position of this range.
-		/// </summary>
-		public int Column
 		{
 			get { return this.startCell.Column; }
 			set
@@ -144,17 +124,7 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Get or set end number of column.
 		/// </summary>
-		[Obsolete("use EndColumn instead")]
 		public int EndCol
-		{
-			get { return this.endCell.Column; }
-			set { this.EndColumn = value; }
-		}
-
-		/// <summary>
-		/// Get or set end number of column.
-		/// </summary>
-		public int EndColumn
 		{
 			get { return this.endCell.Column; }
 			set

@@ -24,15 +24,6 @@ using System.Text;
 namespace unvell.ReoGrid
 {
 	/// <summary>
-	/// Obsoleted control settings, changed to WorkbookSettings and WorksheetSettings
-	/// </summary>
-	[Obsolete("changed to WorksheetSettings and WorkbookSettings, https://reogrid.net/document/settings")]
-	public enum ReoGridSettings 
-	{
-	}
-
-	#region Settings
-	/// <summary>
 	/// Workbook Control Settings
 	/// </summary>
 	public enum WorkbookSettings : ulong
@@ -108,6 +99,4 @@ namespace unvell.ReoGrid
 #endif // EX_SCRIPT
 		#endregion // Script
 	}
-
-	#endregion
 }

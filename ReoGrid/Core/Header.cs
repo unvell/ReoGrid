@@ -2160,13 +2160,7 @@ namespace unvell.ReoGrid
 #endif
 
 			// raise column deleted event
-			if (RowsDeleted != null) RowsDeleted(this, new RowsDeletedEventArgs(row, count));
-		}
-
-		[Obsolete("use DeleteColumns instead")]
-		public void DeleteCols(int col, int count)
-		{
-			this.DeleteColumns(col, count);
+			RowsDeleted?.Invoke(this, new RowsDeletedEventArgs(row, count));
 		}
 
 		/// <summary>
@@ -2771,32 +2765,6 @@ namespace unvell.ReoGrid
 			return this.cols[col].IsVisible;
 		}
 
-		/// <summary>
-		/// Check whether an entire row is hidden
-		/// </summary>
-		/// <param name="row">number of row to be checked</param>
-		/// <returns>true if the entire row is hidden, otherwise return false</returns>
-		[Obsolete("use IsRowVisible instead")]
-		public bool IsHiddenRow(int row)
-		{
-			return !IsRowVisible(row);
-			//if (row < 0 || row >= this.RowCount) return false;
-			//return this.rows[row].Visible;
-		}
-
-		/// <summary>
-		/// Check whether an entire column is hidden
-		/// </summary>
-		/// <param name="col">number of column to be checked</param>
-		/// <returns>true if the entire column is hidden, otherwise return false</returns>
-		[Obsolete("use IsColumnVisible instead")]
-		public bool IsHiddenColumn(int col)
-		{
-			return !this.IsColumnVisible(col);
-			//if (col < 0 || col >= this.ColumnCount) return false;
-			//return this.cols[col].Visible;
-		}
-
 		#endregion // Visible
 
 		#region Collection
@@ -3076,18 +3044,6 @@ namespace unvell.ReoGrid
 	/// <summary>
 	/// Represents a column header on worksheet.
 	/// </summary>
-	[Obsolete("use ColumnHeader instead")]
-	public sealed class ReoGridColumnHeader : ColumnHeader
-	{
-		internal ReoGridColumnHeader(Worksheet sheet)
-			: base(sheet)
-		{
-		}
-	}
-
-	/// <summary>
-	/// Represents a column header on worksheet.
-	/// </summary>
 	public class ColumnHeader : ReoGridHeader
 	{
 		internal ColumnHeader(Worksheet sheet)
@@ -3205,16 +3161,6 @@ namespace unvell.ReoGrid
 			}
 		}
 
-		/// <summary>
-		/// Get or set the visibility for this column.
-		/// </summary>
-		[Obsolete("use IsVisible instead")]
-		public bool IsHidden
-		{
-			get { return !this.IsVisible; }
-			set { this.IsVisible = !value; }
-		}
-
 		private void VerifyWorksheet()
 		{
 			if (this.Worksheet == null)
@@ -3238,12 +3184,6 @@ namespace unvell.ReoGrid
 			this.Worksheet.AutoFitColumnWidth(this.Col, byAction);
 		}
 
-		[Obsolete("use FitWidthToCells instead")]
-		public void FitColumnToCells(bool byAction = false)
-		{
-			this.FitWidthToCells(byAction);
-		}
-		
 		internal ColumnHeader Clone(Worksheet newSheet)
 		{
 			return new ColumnHeader(newSheet)
@@ -3274,16 +3214,6 @@ namespace unvell.ReoGrid
 				WidthChanged(this, new ColumnsWidthChangedEventArgs(this.Col, 1, this.InnerWidth));
 			}
 		}
-	}
-
-	/// <summary>
-	/// Represents a row header instance of worksheet.
-	/// </summary>
-	[Obsolete("use RowHeader instead")]
-	public sealed class ReoGridRowHeader : RowHeader
-	{
-		internal ReoGridRowHeader(Worksheet sheet)
-			: base(sheet) { }
 	}
 
 	/// <summary>
@@ -3426,16 +3356,6 @@ namespace unvell.ReoGrid
 					this.Worksheet.HideRows(this.Row, 1);
 				}
 			}
-		}
-
-		/// <summary>
-		/// Get or set the visibility for this row.
-		/// </summary>
-		[Obsolete("use IsVisible instead")]
-		public bool IsHidden
-		{
-			get { return !this.IsVisible; }
-			set { this.IsVisible = !value; }
 		}
 
 		private void VerifyWorksheet()

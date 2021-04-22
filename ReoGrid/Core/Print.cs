@@ -198,15 +198,6 @@ namespace unvell.ReoGrid
 
 		private RowPageBreakIndexCollection pageBreakRowCollection;
 
-		[Obsolete("use RowPageBreaks instead")]
-		public RowPageBreakIndexCollection RowPageBreakIndexes
-		{
-			get
-			{
-				return this.RowPageBreaks;
-			}
-		}
-
 		/// <summary>
 		/// Get collection of row page-break indexes
 		/// </summary>
@@ -372,15 +363,6 @@ namespace unvell.ReoGrid
 		}
 
 		private ColumnPageBreakIndexCollection pageBreakColumnCollection;
-
-		[Obsolete("use ColumnPageBreaks instead")]
-		public ColumnPageBreakIndexCollection ColumnPageBreakIndexes
-		{
-			get
-			{
-				return ColumnPageBreaks;
-			}
-		}
 
 		/// <summary>
 		/// Get collection of column page break indexes

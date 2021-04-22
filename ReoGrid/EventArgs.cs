@@ -65,12 +65,6 @@ namespace unvell.ReoGrid.Events
 		}
 	}
 
-	[Obsolete("use WorkbookActionEventArgs instead")]
-	public class ActionPerformedEventArgs : WorkbookActionEventArgs
-	{
-		public ActionPerformedEventArgs(IAction action) : base(action) { }
-	}
-
 	#region Actions
 
 	/// <summary>
@@ -306,12 +300,6 @@ namespace unvell.ReoGrid.Events
 		/// Event source associated mouse position
 		/// </summary>
 		public Point RelativePosition { get; set; }
-
-		/// <summary>
-		/// Event source associated mouse position
-		/// </summary>
-		[Obsolete("use RelativePosition instead, will be removed from 0.8.8")]
-		public Point CursorPosition { get; set; }
 
 		/// <summary>
 		/// Event source unassociated mouse position (Position to control)

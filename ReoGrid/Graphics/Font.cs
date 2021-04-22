@@ -32,11 +32,6 @@ using RGFloat = System.Double;
 
 namespace unvell.ReoGrid.Drawing.Text
 {
-	[Obsolete("use FontStyles instead")]
-	public enum TextStyle
-	{
-	}
-
 	/// <summary>
 	/// Font style
 	/// </summary>

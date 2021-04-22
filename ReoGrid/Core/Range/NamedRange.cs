@@ -252,17 +252,6 @@ namespace unvell.ReoGrid
 		}
 
 		/// <summary>
-		/// Remove named range from current worksheet
-		/// </summary>
-		/// <param name="name">Name of range</param>
-		/// <returns>true if the range was found and removed by specified name</returns>
-		[Obsolete("Use UndefineNamedRange instead, will be removed from 0.8.9")]
-		public bool RemoveNamedRange(string name)
-		{
-			return UndefineNamedRange(name);
-		}
-
-		/// <summary>
 		/// Undefine named range from this worksheet
 		/// </summary>
 		/// <param name="name">Name of range</param>

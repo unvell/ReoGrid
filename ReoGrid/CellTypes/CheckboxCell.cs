@@ -243,16 +243,6 @@ namespace unvell.ReoGrid.CellTypes
 		}
 
 		/// <summary>
-		/// Determines whether or not check-box is pressed or checked.
-		/// </summary>
-		[Obsolete("use IsChecked instead")]
-		public bool Checked
-		{
-			get { return this.IsChecked; }
-			set { this.IsChecked = value; }
-		}
-
-		/// <summary>
 		/// Check status.
 		/// </summary>
 		protected bool isChecked;

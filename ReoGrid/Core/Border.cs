@@ -115,12 +115,6 @@ namespace unvell.ReoGrid
 
 		#region Set Border
 
-		[Obsolete("use SetRangeBorders instead, will be removed from 0.8.9")]
-		public void SetRangeBorder(string addressOrName, BorderPositions pos, RangeBorderStyle style)
-		{
-			SetRangeBorders(addressOrName, pos, style);
-		}
-
 		/// <summary>
 		/// Set borders to specified range
 		/// </summary>
@@ -144,12 +138,6 @@ namespace unvell.ReoGrid
 				throw new InvalidAddressException(addressOrName);
 		}
 
-		[Obsolete("use SetRangeBorders instead, will be removed from 0.8.9")]
-		public void SetRangeBorder(int row, int col, int rows, int cols, BorderPositions pos, RangeBorderStyle style)
-		{
-			SetRangeBorders(row, col, rows, cols, pos, style);
-		}
-
 		/// <summary>
 		/// Set borders to specified range
 		/// </summary>
@@ -162,12 +150,6 @@ namespace unvell.ReoGrid
 		public void SetRangeBorders(int row, int col, int rows, int cols, BorderPositions pos, RangeBorderStyle style)
 		{
 			this.SetRangeBorders(new RangePosition(row, col, rows, cols), pos, style);
-		}
-
-		[Obsolete("use SetRangeBorders instead, will be removed from 0.8.9")]
-		public void SetRangeBorder(RangePosition range, BorderPositions pos, RangeBorderStyle style)
-		{
-			SetRangeBorders(range, pos, style);
 		}
 
 		/// <summary>
@@ -268,12 +250,6 @@ namespace unvell.ReoGrid
 			}
 		}
 
-		[Obsolete("RemoveRangeBorders")]
-		public void RemoveRangeBorder(RangePosition range, BorderPositions pos)
-		{
-			this.RemoveRangeBorders(range, pos);
-		}
-
 		/// <summary>
 		/// Remove border style from specified range.
 		/// </summary>
@@ -296,19 +272,6 @@ namespace unvell.ReoGrid
 		#endregion
 
 		#region Get Border
-		/// <summary>
-		/// Get borders information from specified range identified by address or name
-		/// </summary>
-		/// <param name="range">An valid address or name to locate the range on worksheet</param>
-		/// <param name="pos">The positions to be get from worksheet. To get only all outside around the range,
-		/// use BorderPositions.Outside; to get all borders, use BorderPositions.All.</param>
-		/// <param name="onlyCellsOwn">True to get the borders only owned by its cell, </param>
-		/// <returns>Border information object</returns>
-		[Obsolete("use GetRangeBorders instead, will be removed from 0.8.9")]
-		public RangeBorderInfoSet GetRangeBorder(RangePosition range, BorderPositions pos = BorderPositions.All, bool onlyCellsOwn = true)
-		{
-			return GetRangeBorders(range, pos, onlyCellsOwn);
-		}
 
 		/// <summary>
 		/// Get borders information from specified range identified by address or name.
@@ -1103,9 +1066,6 @@ namespace unvell.ReoGrid
 		/// Borders in top and bottom in range or cell
 		/// </summary>
 		TopBottom = Top | Bottom,
-
-		[Obsolete("use Outside instead")]
-		Outline = Outside,
 
 		/// <summary>
 		/// Borders around range or cell
