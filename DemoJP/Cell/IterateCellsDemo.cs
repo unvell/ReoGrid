@@ -52,10 +52,8 @@ namespace unvell.ReoGrid.Demo.CellDemo
 
 			sheet.IterateCells(range, (r, c, inCell) =>
 			{
-				double data;
-
 				// 数値を取得
-				if (CellUtility.TryGetNumberData(inCell, out data))
+				if (CellUtility.TryGetNumberData(inCell, out var data))
 				{
 					sumVal += data;
 					countVal++;

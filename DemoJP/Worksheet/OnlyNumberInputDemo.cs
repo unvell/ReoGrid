@@ -44,9 +44,7 @@ namespace unvell.ReoGrid.Demo.WorksheetDemo
 		{
 			if (chkOnlyNumeric.Checked)
 			{
-				float val = 0f;
-
-				if (e.NewData == null || !float.TryParse(e.NewData.ToString(), out val))
+				if (e.NewData == null || !float.TryParse(e.NewData.ToString(), out var val))
 				{
 					if (chkErrorPrompt.Checked)
 					{

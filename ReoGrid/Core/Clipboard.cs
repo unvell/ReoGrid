@@ -48,13 +48,11 @@ namespace unvell.ReoGrid
 
 		public string StringifyRange(string addressOrName)
 		{
-			NamedRange namedRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				return this.StringifyRange(new RangePosition(addressOrName));
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out namedRange))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var namedRange))
 			{
 				return this.StringifyRange(namedRange);
 			}

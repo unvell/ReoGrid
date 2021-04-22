@@ -33,13 +33,11 @@ namespace unvell.ReoGrid
 		/// <exception cref="NamedRangeNotFoundException">throw when the specified name of range cannot be found.</exception>
 		public void MergeRange(string addressOrName)
 		{
-			NamedRange refRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				MergeRange(new RangePosition(addressOrName));
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out refRange))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var refRange))
 			{
 				MergeRange(refRange);
 			}

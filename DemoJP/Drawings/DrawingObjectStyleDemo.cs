@@ -76,8 +76,7 @@ namespace unvell.ReoGrid.Demo.Drawings
 			// カスタマイズ関数 formatToDegree を作成。小数を角度の書式で表示
 			ReoGrid.Formula.FormulaExtension.CustomFunctions["formatToDegree"] = (cell, args) =>
 			{
-				double data = 0;
-				unvell.ReoGrid.Utility.CellUtility.TryGetNumberData(args[0], out data);
+				unvell.ReoGrid.Utility.CellUtility.TryGetNumberData(args[0], out var data);
 				return Math.Round(data) + "\u00b0";
 			};
 

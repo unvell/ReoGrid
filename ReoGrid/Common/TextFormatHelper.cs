@@ -369,8 +369,7 @@ namespace unvell.Common
 			{
 				try
 				{
-					float f = 0;
-					float.TryParse(items[i], out f);
+					float.TryParse(items[i], out var f);
 					values[i] = f;
 				}
 				catch { }
@@ -386,8 +385,7 @@ namespace unvell.Common
 			{
 				try
 				{
-					int f = 0;
-					int.TryParse(items[i], out f);
+					int.TryParse(items[i], out var f);
 					values[i] = f;
 				}
 				catch { }
@@ -417,8 +415,7 @@ namespace unvell.Common
 			if (str.EndsWith("px"))
 				str = str.Substring(0, str.Length - 2).Trim();
 
-			float v = 0;
-			float.TryParse(str, NumberStyles.Any, culture, out v);
+			float.TryParse(str, NumberStyles.Any, culture, out var v);
 
 			return v;
 		}

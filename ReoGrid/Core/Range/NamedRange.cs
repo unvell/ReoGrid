@@ -152,8 +152,7 @@ namespace unvell.ReoGrid
 		{
 			if (registeredNamedRanges == null) return null;
 
-			NamedRange range = null;
-			registeredNamedRanges.TryGetValue(name, out range);
+			registeredNamedRanges.TryGetValue(name, out var range);
 
 			return range;
 		}
@@ -258,9 +257,7 @@ namespace unvell.ReoGrid
 		/// <returns>true if the range was found and removed by specified name</returns>
 		public bool UndefineNamedRange(string name)
 		{
-			NamedRange namedRange;
-
-			if (registeredNamedRanges.TryGetValue(name, out namedRange))
+			if (registeredNamedRanges.TryGetValue(name, out var namedRange))
 			{
 				namedRange.Worksheet = null;
 				registeredNamedRanges.Remove(name);
@@ -286,9 +283,7 @@ namespace unvell.ReoGrid
 		/// <returns>true if range could be found by old name, and renamed to new name successfully</returns>
 		public bool RenameNamedRange(string oldName, string newName)
 		{
-			NamedRange namedRange;
-
-			if (this.registeredNamedRanges.TryGetValue(oldName, out namedRange))
+			if (this.registeredNamedRanges.TryGetValue(oldName, out var namedRange))
 			{
 				namedRange.internalName = newName;
 				this.registeredNamedRanges.Remove(oldName);
@@ -572,8 +567,7 @@ namespace unvell.ReoGrid
 		{
 			get
 			{
-				NamedRange range;
-				return this.sheet.TryGetNamedRange(name, out range) ? range : null;
+				return this.sheet.TryGetNamedRange(name, out var range) ? range : null;
 			}
 			set
 			{

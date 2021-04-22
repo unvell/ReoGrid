@@ -220,10 +220,8 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 				if (sheet.sheetFormatProperty.defaultColumnWidth != null)
 				{
-					double defColumnWidth = 0;
-
 					if (double.TryParse(sheet.sheetFormatProperty.defaultColumnWidth, System.Globalization.NumberStyles.Number,
-						ExcelWriter.EnglishCulture, out defColumnWidth))
+						ExcelWriter.EnglishCulture, out var defColumnWidth))
 					{
 						ushort pixelWidth = (ushort)Math.Truncate(((256 * defColumnWidth + Math.Truncate(128 / fixedCharWidth)) / 256) * fixedCharWidth);
 
@@ -451,8 +449,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 						if (//style.applyBorder == "1" && 
 							!string.IsNullOrEmpty(style.borderId))
 						{
-							int id = 0;
-							if (int.TryParse(style.borderId, out id)
+							if (int.TryParse(style.borderId, out var id)
 								&& id >= 0 && id < borders.Count)
 							{
 								var border = borders[id];
@@ -769,8 +766,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 						if (formula.type == "shared")
 						{
-							int sharedIndex = 0;
-							if (int.TryParse(formula.sharedIndex, out sharedIndex))
+							if (int.TryParse(formula.sharedIndex, out var sharedIndex))
 							{
 								if (!string.IsNullOrEmpty(formula.val))
 								{
@@ -1232,9 +1228,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 				// text rotation
 				if (!string.IsNullOrEmpty(style.alignment.textRotation))
 				{
-					int angle;
-
-					if (int.TryParse(style.alignment.textRotation, out angle))
+					if (int.TryParse(style.alignment.textRotation, out var angle))
 					{
 						styleset.Flag |= PlainStyleFlag.RotationAngle;
 
@@ -1247,9 +1241,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 				// indent
 				if (!string.IsNullOrEmpty(style.alignment.indent))
 				{
-					ushort indent;
-
-					if (ushort.TryParse(style.alignment.indent, out indent))
+					if (ushort.TryParse(style.alignment.indent, out var indent))
 					{
 						styleset.Indent = indent;
 					}
@@ -1744,8 +1736,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 					if (prop.line.weight != null)
 					{
-						int weight;
-						if (int.TryParse(prop.line.weight, out weight))
+						if (int.TryParse(prop.line.weight, out var weight))
 						{
 							obj.LineWidth = MeasureToolkit.EMUToPixel(weight, PlatformUtility.GetDPI());
 							overrideLineWeight = true;

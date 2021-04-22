@@ -112,13 +112,11 @@ namespace unvell.ReoGrid
 		/// <returns>Instace of highlight range created in this worksheet</returns>
 		public HighlightRange CreateHighlightRange(string addressOrName, SolidColor color)
 		{
-			NamedRange range;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				return CreateHighlightRange(new RangePosition(addressOrName), color);
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out range))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var range))
 			{
 				return CreateHighlightRange(range.Position, color);
 			}
@@ -152,9 +150,7 @@ namespace unvell.ReoGrid
 			}
 			else if (RGUtility.IsValidName(address))
 			{
-				NamedRange refRange;
-
-				if (registeredNamedRanges.TryGetValue(address, out refRange))
+				if (registeredNamedRanges.TryGetValue(address, out var refRange))
 				{
 					return AddHighlightRange(refRange);
 				}
@@ -205,8 +201,7 @@ namespace unvell.ReoGrid
 			}
 			else if (RGUtility.IsValidName(address))
 			{
-				NamedRange refRange;
-				if (registeredNamedRanges.TryGetValue(address, out refRange))
+				if (registeredNamedRanges.TryGetValue(address, out var refRange))
 				{
 					return RemoveHighlightRange(refRange);
 				}

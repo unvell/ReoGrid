@@ -306,9 +306,7 @@ namespace unvell.ReoGrid.Chart
 
 				for (int i = 0; i < dataCount; i += showTitleStride)
 				{
-					string text = null;
-
-					if (titles.TryGetValue(i, out text) && !string.IsNullOrEmpty(text))
+					if (titles.TryGetValue(i, out var text) && !string.IsNullOrEmpty(text))
 					{
 						var size = boxes[i];
 						var textRect = new Rectangle(columnWidth * i, 0, columnWidth, clientRect.Height);
@@ -329,9 +327,7 @@ namespace unvell.ReoGrid.Chart
 
 				for (int i = 0; i < dataCount; i += showTitleStride)
 				{
-					string text = null;
-
-					if (titles.TryGetValue(i, out text) && !string.IsNullOrEmpty(text))
+					if (titles.TryGetValue(i, out var text) && !string.IsNullOrEmpty(text))
 					{
 						var size = boxes[i];
 						var textRect = new Rectangle(0, rowHeight * i, clientRect.Width, rowHeight);

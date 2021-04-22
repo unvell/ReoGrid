@@ -64,13 +64,11 @@ namespace unvell.ReoGrid
 		/// <param name="data">Data to be set.</param>
 		public void SetCellData(string addressOrName, object data)
 		{
-			NamedRange range;
-
 			if (CellPosition.IsValidAddress(addressOrName))
 			{
 				SetCellData(new CellPosition(addressOrName), data);
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out range))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var range))
 			{
 				SetCellData(range.StartPos, data);
 			}
@@ -471,8 +469,7 @@ namespace unvell.ReoGrid
 				return GetCellData(new CellPosition(addressOrName));
 			}
 
-			NamedRange range;
-			if (this.registeredNamedRanges.TryGetValue(addressOrName, out range))
+			if (this.registeredNamedRanges.TryGetValue(addressOrName, out var range))
 			{
 				return GetCellData(range.StartPos);
 			}
@@ -515,8 +512,7 @@ namespace unvell.ReoGrid
 				return GetCellData<T>(new CellPosition(addressOrName));
 			}
 
-			NamedRange range;
-			if (this.registeredNamedRanges.TryGetValue(addressOrName, out range))
+			if (this.registeredNamedRanges.TryGetValue(addressOrName, out var range))
 			{
 				return GetCellData<T>(range.StartPos);
 			}
@@ -574,8 +570,6 @@ namespace unvell.ReoGrid
 		/// <returns>display text in string returned from specified cell</returns>
 		public string GetCellText(string address)
 		{
-			NamedRange range;
-
 			if (CellPosition.IsValidAddress(address))
 			{
 				return GetCellText(new CellPosition(address));
@@ -585,7 +579,7 @@ namespace unvell.ReoGrid
 				return GetCellText((new RangePosition(address)).StartPos);
 			}
 			else if (NamedRange.IsValidName(address)
-				&& this.TryGetNamedRange(address, out range))
+				&& this.TryGetNamedRange(address, out var range))
 			{
 				return GetCellText(range.StartPos);
 			}
@@ -1440,8 +1434,7 @@ namespace unvell.ReoGrid.Utility
 					return true;
 				}
 
-				double tmpVal;
-				if (!double.TryParse((string)data, out tmpVal))
+				if (!double.TryParse((string)data, out var tmpVal))
 				{
 					value = default(T);
 					return false;
@@ -1456,8 +1449,7 @@ namespace unvell.ReoGrid.Utility
 					return true;
 				}
 
-				double tmpVal;
-				if (!double.TryParse(((StringBuilder)data).ToString(), out tmpVal))
+				if (!double.TryParse(((StringBuilder)data).ToString(), out var tmpVal))
 				{
 					value = default(T);
 					return false;

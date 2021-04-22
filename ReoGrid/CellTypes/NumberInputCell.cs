@@ -219,16 +219,14 @@ namespace unvell.ReoGrid.CellTypes
 
 		internal void ValueAdd(int d)
 		{
-			int value = 0;
-			int.TryParse(textbox.Text, out value);
+			int.TryParse(textbox.Text, out var value);
 			value += d;
 			textbox.Text = value.ToString();
 			textbox.SelectAll();
 		}
 		internal void ValueSub(int d)
 		{
-			int value = 0;
-			int.TryParse(textbox.Text, out value);
+			int.TryParse(textbox.Text, out var value);
 			value -= d;
 			textbox.Text = value.ToString();
 			textbox.SelectAll();
@@ -280,8 +278,7 @@ namespace unvell.ReoGrid.CellTypes
 
 		internal int GetNumericValue()
 		{
-			int num = 0;
-			int.TryParse(textbox.Text, out num);
+			int.TryParse(textbox.Text, out var num);
 			return num;
 		}
 		internal void SelectAll()

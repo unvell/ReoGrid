@@ -170,13 +170,11 @@ namespace unvell.ReoGrid
 		/// <param name="encoding">Text encoding during output text in CSV format.</param>
 		public void ExportAsCSV(string path, string addressOrName, Encoding encoding = null)
 		{
-			NamedRange namedRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				this.ExportAsCSV(path, new RangePosition(addressOrName), encoding);
 			}
-			else if (this.TryGetNamedRange(addressOrName, out namedRange))
+			else if (this.TryGetNamedRange(addressOrName, out var namedRange))
 			{
 				this.ExportAsCSV(path, namedRange, encoding);
 			}
@@ -220,13 +218,11 @@ namespace unvell.ReoGrid
 		/// <param name="encoding">Text encoding during output text in CSV format.</param>
 		public void ExportAsCSV(Stream s, string addressOrName, Encoding encoding = null)
 		{
-			NamedRange namedRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				ExportAsCSV(s, new RangePosition(addressOrName), encoding);
 			}
-			else if (this.TryGetNamedRange(addressOrName, out namedRange))
+			else if (this.TryGetNamedRange(addressOrName, out var namedRange))
 			{
 				ExportAsCSV(s, namedRange, encoding);
 			}

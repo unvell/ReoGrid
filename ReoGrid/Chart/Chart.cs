@@ -723,8 +723,7 @@ namespace unvell.ReoGrid.Chart
 					minData = 0;
 			}
 
-			int scaler;
-			double stride = ChartUtility.CalcLevelStride(minData, maxData, ai.Levels, out scaler);
+			double stride = ChartUtility.CalcLevelStride(minData, maxData, ai.Levels, out var scaler);
 			ai.Scaler = scaler;
 
 			double m;

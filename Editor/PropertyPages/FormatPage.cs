@@ -205,8 +205,7 @@ namespace unvell.ReoGrid.PropertyPages
 			// add valid data formatter
 			foreach (var key in Enum.GetValues(typeof(CellDataFormatFlag)))
 			{
-				IDataFormatter formatter;
-				if (DataFormatterManager.Instance.DataFormatters.TryGetValue((CellDataFormatFlag) key, out formatter))
+				if (DataFormatterManager.Instance.DataFormatters.TryGetValue((CellDataFormatFlag) key, out var formatter))
 				{
 					formatList.Items.Add(key);
 				}

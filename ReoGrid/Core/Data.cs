@@ -34,11 +34,10 @@ namespace unvell.ReoGrid
         /// <param name="toAddressOrName">Range to be filled.</param>
         public void AutoFillSerial(string fromAddressOrName, string toAddressOrName)
         {
-            NamedRange fromNRange, toNRange;
             RangePosition fromRange, toRange;
 
             #region fromRange
-            if (this.TryGetNamedRange(fromAddressOrName, out fromNRange))
+            if (this.TryGetNamedRange(fromAddressOrName, out var fromNRange))
             {
                 fromRange = fromNRange.Position;
             }
@@ -53,7 +52,7 @@ namespace unvell.ReoGrid
             #endregion // fromRange
 
             #region toRange
-            if (this.TryGetNamedRange(toAddressOrName, out toNRange))
+            if (this.TryGetNamedRange(toAddressOrName, out var toNRange))
             {
                 toRange = toNRange.Position;
             }

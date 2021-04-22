@@ -112,9 +112,8 @@ namespace unvell.ReoGrid.Formula
 					#region Identifier
 					{
 						string name = ((STIdentifierNode)node).Identifier;
-						NamedRange range;
 
-						if (cell.Worksheet.TryGetNamedRange(name, out range))
+						if (cell.Worksheet.TryGetNamedRange(name, out var range))
 						{
 							if (range.Position.IsSingleCell)
 							{
@@ -442,9 +441,7 @@ namespace unvell.ReoGrid.Formula
 		{
 			if (obj == null) return FormulaValue.Nil;
 
-			double val;
-
-			if (CellUtility.TryGetNumberData(obj, out val))
+			if (CellUtility.TryGetNumberData(obj, out var val))
 			{
 				return val;
 			}
@@ -955,9 +952,7 @@ namespace unvell.ReoGrid.Formula
 					#region Customize Functions
 					if (FormulaExtension.customFunctions != null)
 					{
-						Func<Cell, object[], object> customFunction;
-
-						if (FormulaExtension.customFunctions.TryGetValue(funNode.Name, out customFunction))
+						if (FormulaExtension.customFunctions.TryGetValue(funNode.Name, out var customFunction))
 						{
 							objArgs = new object[funNode.Children == null ? 0 : funNode.Children.Count];
 

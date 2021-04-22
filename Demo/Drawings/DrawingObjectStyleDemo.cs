@@ -82,8 +82,7 @@ namespace unvell.ReoGrid.Demo.Drawings
 			// create a customize function to format degree number
 			ReoGrid.Formula.FormulaExtension.CustomFunctions["formatToDegree"] = (cell, args) =>
 			{
-				double data = 0;
-				unvell.ReoGrid.Utility.CellUtility.TryGetNumberData(args[0], out data);
+				unvell.ReoGrid.Utility.CellUtility.TryGetNumberData(args[0], out var data);
 				return Math.Round(data) + "\u00b0";
 			};
 

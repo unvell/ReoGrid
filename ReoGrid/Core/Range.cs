@@ -152,13 +152,11 @@ namespace unvell.ReoGrid
 		/// <param name="addressOrName">Address or name to locate range on worksheet.</param>
 		public void DeleteRangeData(string addressOrName)
 		{
-			NamedRange refRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				this.DeleteRangeData(new RangePosition(addressOrName), true);
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out refRange))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var refRange))
 			{
 				this.DeleteRangeData(refRange, true);
 			}
@@ -266,13 +264,11 @@ namespace unvell.ReoGrid
 		/// <param name="data">Data to be set.</param>
 		public void SetRangeData(string addressOrName, object data)
 		{
-			NamedRange refRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				this.SetRangeData(new RangePosition(addressOrName), data);
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out refRange))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var refRange))
 			{
 				this.SetRangeData(refRange, data);
 			}
@@ -616,13 +612,11 @@ namespace unvell.ReoGrid
 		/// <param name="addressOrName">address or name to locate a range</param>
 		public void ScrollToRange(string addressOrName)
 		{
-			NamedRange refRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				this.ScrollToRange(new RangePosition(addressOrName));
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out refRange))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var refRange))
 			{
 				this.ScrollToRange(refRange);
 			}

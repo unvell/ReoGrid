@@ -438,13 +438,11 @@ namespace unvell.ReoGrid
 		/// <param name="flags">Styles specified by this flags to be removed</param>
 		public void RemoveRangeStyles(string addressOrName, PlainStyleFlag flags)
 		{
-			NamedRange namedRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				this.RemoveRangeStyles(new RangePosition(addressOrName), flags);
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out namedRange))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var namedRange))
 			{
 				this.RemoveRangeStyles(namedRange, flags);
 			}

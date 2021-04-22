@@ -265,13 +265,11 @@ namespace unvell.ReoGrid
 			CellElementFlag moveElementFlag = CellElementFlag.Data,
 			Func<int, int, object, object, int> cellDataComparer = null)
 		{
-			RangePosition range;
-
 			if (RangePosition.IsValidAddress(applyRange))
 			{
 				return this.SortColumn(columnIndex, new RangePosition(applyRange), order, moveElementFlag, cellDataComparer);
 			}
-			else if (this.TryGetNamedRangePosition(applyRange, out range))
+			else if (this.TryGetNamedRangePosition(applyRange, out var range))
 			{
 				return this.SortColumn(columnIndex, range, order, moveElementFlag, cellDataComparer);
 			}

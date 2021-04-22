@@ -177,9 +177,7 @@ namespace unvell.ReoGrid
 
 		public void Save(System.IO.Stream stream, IO.FileFormat fileFormat, Encoding encoding)
 		{
-			IFileFormatProvider provider = null;
-
-			if (!FileFormatProviders.TryGetValue(fileFormat, out provider))
+			if (!FileFormatProviders.TryGetValue(fileFormat, out var provider))
 			{
 				throw new FileFormatNotSupportException("Specified file format is not supported");
 			}
@@ -263,9 +261,7 @@ namespace unvell.ReoGrid
 				throw new System.ArgumentException("File format 'Auto' is invalid for loading workbook from stream, try specify a file format.");
 			}
 
-			IFileFormatProvider provider = null;
-
-			if (!FileFormatProviders.TryGetValue(fileFormat, out provider))
+			if (!FileFormatProviders.TryGetValue(fileFormat, out var provider))
 			{
 				throw new FileFormatNotSupportException("Specified file format is not supported.");
 			}

@@ -187,9 +187,7 @@ namespace unvell.ReoGrid.DataFormat
 			}
 			else
 			{
-				IDataFormatter formatter;
-
-				if (DataFormatters.TryGetValue(cell.DataFormat, out formatter))
+				if (DataFormatters.TryGetValue(cell.DataFormat, out var formatter))
 				{
 					string formattedText = DataFormatters[cell.DataFormat].FormatCell(cell);
 

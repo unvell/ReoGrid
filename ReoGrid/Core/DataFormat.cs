@@ -35,13 +35,11 @@ namespace unvell.ReoGrid
 		/// <exception cref="InvalidAddressException">Throw if specified address or name is illegal.</exception>
 		public void SetRangeDataFormat(string addressOrName, CellDataFormatFlag format, object dataFormatArgs = null)
 		{
-			NamedRange namedRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				SetRangeDataFormat(new RangePosition(addressOrName), format, dataFormatArgs);
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out namedRange))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var namedRange))
 			{
 				SetRangeDataFormat(namedRange, format, dataFormatArgs);
 			}
@@ -144,13 +142,11 @@ namespace unvell.ReoGrid
 		#region Get
 		public CellDataFormatFlag GetCellDataFormat(string addressOrName, out object dataFormatArgs)
 		{
-			RangePosition namedRange;
-
 			if (CellPosition.IsValidAddress(addressOrName))
 			{
 				return this.GetCellDataFormat(new CellPosition(addressOrName), out dataFormatArgs);
 			}
-			else if (this.TryGetNamedRangePosition(addressOrName, out namedRange))
+			else if (this.TryGetNamedRangePosition(addressOrName, out var namedRange))
 			{
 				return this.GetCellDataFormat(namedRange.StartPos, out dataFormatArgs);
 			}

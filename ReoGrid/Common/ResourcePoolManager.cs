@@ -77,8 +77,7 @@ namespace unvell.Common
 
 			lock (cachedBrushes)
 			{
-				RGSolidBrush b;
-				if (cachedBrushes.TryGetValue(color, out b))
+				if (cachedBrushes.TryGetValue(color, out var b))
 				{
 					return b;
 				}
@@ -105,11 +104,9 @@ namespace unvell.Common
 		{
 			HatchStyleBrushInfo info = new HatchStyleBrushInfo(style, foreColor, backColor);
 
-			HatchBrush hb;
-
 			lock (this.hatchBrushes)
 			{
-				if (hatchBrushes.TryGetValue(info, out hb))
+				if (hatchBrushes.TryGetValue(info, out var hb))
 				{
 					return hb;
 				}

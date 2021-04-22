@@ -97,8 +97,7 @@ namespace unvell.ReoGrid.Demo.CustomCells
 		public override void OnPaint(CellDrawingContext dc)
 		{
 			// try getting the cell value
-			float value = 0;
-			float.TryParse(dc.Cell.DisplayText, out value);
+			float.TryParse(dc.Cell.DisplayText, out float value);
 
 			// retrieve graphics object
 			var g = dc.Graphics;

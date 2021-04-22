@@ -124,13 +124,11 @@ namespace unvell.ReoGrid
 		/// <exception cref="InvalidAddressException">throw if specified address or name is illegal</exception>
 		public void SetRangeBorders(string addressOrName, BorderPositions pos, RangeBorderStyle style)
 		{
-			NamedRange namedRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				SetRangeBorders(new RangePosition(addressOrName), pos, style);
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out namedRange))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var namedRange))
 			{
 				SetRangeBorders(namedRange, pos, style);
 			}
