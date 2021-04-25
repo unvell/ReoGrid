@@ -34,6 +34,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <Authors>Jingwood</Authors>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Antlr3.Runtime">
@@ -220,6 +221,11 @@
     <Compile Update="Formula\FormulaDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Update="Scripts\ReoQueryScriptDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -271,6 +277,10 @@
     <Compile Update="Scripts\RunScriptDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Update="_Templates\Excel\welcome-300.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

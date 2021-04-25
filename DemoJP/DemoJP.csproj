@@ -35,6 +35,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <Authors>Jingwood</Authors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Extension|AnyCPU'">
     <OutputPath>bin\Extension\</OutputPath>
