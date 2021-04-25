@@ -110,7 +110,7 @@ namespace unvell.ReoGrid
 		/// <param name="targetRange">The range used to fill loaded CSV data.</param>
 		public void LoadCSV(Stream s, Encoding encoding, RangePosition targetRange)
 		{
-			LoadCSV(s, encoding, targetRange, targetRange.IsEntire ? true : false, 256);
+			LoadCSV(s, encoding, targetRange, targetRange.IsEntire, 256);
 		}
 
 		/// <summary>
