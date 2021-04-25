@@ -1,6 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <OutputType>Library</OutputType>
     <RootNamespace>unvell.ReoGrid</RootNamespace>
     <AssemblyName>unvell.ReoGrid</AssemblyName>
@@ -43,6 +43,12 @@
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+    <Authors>Jingwood</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://reogrid.net</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/unvell/ReoGrid/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WPFDebug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -135,9 +141,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Update="WinForm\SheetTabControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Update="WinForm\SheetTabControl.cs" />
     <Compile Update="WinForm\FilterGUI.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -194,6 +198,10 @@
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="..\NuGet\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
     </None>
   </ItemGroup>
 </Project>
