@@ -10,7 +10,7 @@
  * PURPOSE.
  *
  * ReoGrid 日本語版デモプロジェクトは BSD ライセンスでリリースされています。
- * Copyright (c) 2012-2016 http://www.unvell.com/jp All Rights Reserved.
+ * Copyright (c) 2012-2016 https://www.unvell.com/jp All Rights Reserved.
  * 
  ****************************************************************************/
 

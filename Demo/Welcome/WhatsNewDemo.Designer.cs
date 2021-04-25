@@ -18,7 +18,7 @@
 
 namespace unvell.ReoGrid.Demo.Welcome
 {
-	partial class V093WhatsNew
+	partial class WhatsNewDemo
 	{
 		/// <summary> 
 		/// Required designer variable.

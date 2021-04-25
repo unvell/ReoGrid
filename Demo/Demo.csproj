@@ -229,10 +229,7 @@
     <Compile Update="Styles\MultiSelectionDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Welcome\V100WhatsNew.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Welcome\V093WhatsNew.cs">
+    <Compile Update="Welcome\WhatsNewDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Performance\MaximumSheetDemo.cs">
@@ -274,7 +271,7 @@
     <Compile Update="Scripts\RunScriptDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <None Update="_Templates\Excel\welcome-200.xlsx">
+    <None Update="_Templates\Excel\welcome-300.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="_Templates\RGF\calendar_2008_1.rgf">

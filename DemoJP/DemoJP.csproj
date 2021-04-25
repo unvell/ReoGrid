@@ -176,6 +176,11 @@
     <Compile Update="Formula\AddressFunctionDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Update="Worksheet\ClipboardEventDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -299,10 +304,14 @@
     <Compile Update="Scripts\RunScriptDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Update="_Templates\CSV\13TOKYO.CSV">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="_Templates\Excel\welcome.xlsx">
+    <None Update="_Templates\Excel\welcome-300.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="_Templates\Excel\振替伝票.xlsx">

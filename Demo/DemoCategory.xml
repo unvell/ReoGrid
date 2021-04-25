@@ -20,7 +20,7 @@
  ****************************************************************************/
 -->
 
-<Demo BaseSite="https://reogrid.net/" DefaultItem="What's new in 2.1">
+<Demo BaseSite="https://reogrid.net/" DefaultItem="What's new">
 	<New>
 		<Item Name="Welcome"></Item>
 		<Item Name="Line Chart"></Item>
@@ -34,9 +34,21 @@
 	<Categories>
 
 		<Category Name="Welcome" Expansion="True">
-			<Item Name="What's new in 2.1" Class="Welcome.V100WhatsNew"></Item>
+			<Item Name="What's new" Class="Welcome.WhatsNewDemo"></Item>
 		</Category>
-			
+	
+		<Category Name="Document" Expansion="True">
+			<Item Name="Order Report" Class="Documents.OrderDocDemo" />
+			<Item Name="Project Summary" Class="Documents.ProjectSummaryDocDemo" />
+			<Item Name="Project Build Report" Class="Documents.ProjectBuildReportDemo" />
+			<Item Name="Data Format Demo" Class="Documents.DataFormatDocDemo" />
+			<Item Name="Month Calendar Sheet (Readonly)" Class="Documents.MonthCalendarDocDemo" />
+			<Item Name="Year Calendar Sheet (Readonly)" Class="Documents.YearCalendarDocDemo" />
+			<Item Name="Invoice from Excel" Class="Documents.InvoiceExcelDocDemo" />
+			<Item Name="Financial Ratios Sheet" Class="Documents.FinancialRatiosDocDemo" />
+			<Item Name="Maze" Class="Documents.MazeDocDemo" />
+		</Category>
+		
 		<Category Name="Chart" Expansion="False">
 			<Item Name="Line Chart" Class="Charts.LineChartDemo">
 				<Doc-Url>document/chart/line-chart</Doc-Url>
@@ -68,18 +80,6 @@
 			<Item Name="Add Drawing Objects" Class="Drawings.AddingObjectDemo" />
 			<Item Name="Drawing Object Style" Class="Drawings.DrawingObjectStyleDemo" />
 			<!--<Item Name="Basic Shapes" Class="Drawings.BasicShapesDemo" />-->
-		</Category>
-
-		<Category Name="Document" Expansion="True">
-			<Item Name="Order Report" Class="Documents.OrderDocDemo" />
-			<Item Name="Project Summary" Class="Documents.ProjectSummaryDocDemo" />
-			<Item Name="Project Build Report" Class="Documents.ProjectBuildReportDemo" />
-			<Item Name="Data Format Demo" Class="Documents.DataFormatDocDemo" />
-			<Item Name="Month Calendar Sheet (Readonly)" Class="Documents.MonthCalendarDocDemo" />
-			<Item Name="Year Calendar Sheet (Readonly)" Class="Documents.YearCalendarDocDemo" />
-			<Item Name="Invoice from Excel" Class="Documents.InvoiceExcelDocDemo" />
-			<Item Name="Financial Ratios Sheet" Class="Documents.FinancialRatiosDocDemo" />
-			<Item Name="Maze" Class="Documents.MazeDocDemo" />
 		</Category>
 		
 		<Category Name="Cell and Range">
