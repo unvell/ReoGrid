@@ -281,7 +281,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Update="_Templates\Excel\welcome-300.xlsx">
+    <None Update="_Templates\Excel\welcome.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="_Templates\RGF\calendar_2008_1.rgf">
@@ -360,7 +360,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Editor\Editor.csproj" />
-    <ProjectReference Include="..\ReoGrid\ReoGrid.csproj" />
+    <ProjectReference Include="..\ReoGrid\ReoGridEx.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />

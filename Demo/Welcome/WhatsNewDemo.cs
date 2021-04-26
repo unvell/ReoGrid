@@ -34,7 +34,7 @@ namespace unvell.ReoGrid.Demo.Welcome
 			InitializeComponent();
 
 			// load Excel template file
-			this.reoGridControl.Load("_Templates\\Excel\\Welcome-300.xlsx");
+			this.reoGridControl.Load("_Templates\\Excel\\welcome.xlsx");
 
 			var sheet1 = this.reoGridControl.Worksheets[0];
 
