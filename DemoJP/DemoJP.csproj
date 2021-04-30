@@ -312,7 +312,7 @@
     <None Update="_Templates\CSV\13TOKYO.CSV">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="_Templates\Excel\welcome-300.xlsx">
+    <None Update="_Templates\Excel\welcome.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="_Templates\Excel\振替伝票.xlsx">
