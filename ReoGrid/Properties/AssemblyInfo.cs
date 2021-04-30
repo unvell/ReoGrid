@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ReoGrid")]
-[assembly: AssemblyDescription("Opensource .NET Spreadsheet Control")]
+[assembly: AssemblyDescription("Powerful and lightweight opensource .NET spreadsheet component. This is the extension edition of ReoGrid that provides the extented functionality such as script execution like Excel VBA.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("unvell")]
 [assembly: AssemblyProduct("ReoGrid")]
