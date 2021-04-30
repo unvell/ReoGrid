@@ -248,13 +248,17 @@ namespace unvell.ReoGrid.CellTypes
 		/// </summary>
 		public void PerformClick()
 		{
-			if (AutoNavigate && LinkURL != null)
+			if (AutoNavigate && !string.IsNullOrWhiteSpace(LinkURL))
 			{
 				try
 				{
-					System.Diagnostics.Process.Start(LinkURL);
+					RGUtility.OpenFileOrLink(LinkURL);
 				}
-				catch { }
+				catch (Exception ex)
+				{
+					//MessageBox.Show("Error to open link: " + ex.Message);
+					this.Cell?.Worksheet?.NotifyExceptionHappen(ex);
+				}
 			}
 
 			Click?.Invoke(this, null);
