@@ -42,7 +42,7 @@ namespace unvell.ReoGrid.WinForm
 		{
 			InitializeComponent();
 
-			lnkHP.Click += (s, e) => Process.Start(lnkHP.Text);
+			lnkHP.Click += (s, e) => RGUtility.OpenFileOrLink(lnkHP.Text);
 			labVersion.Text = "version " + ProductVersion.ToString();
 
 			textBox2.Text = unvell.ReoGrid.Properties.Resources.EULA_EN;

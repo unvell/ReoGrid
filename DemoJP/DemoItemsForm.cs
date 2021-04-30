@@ -301,7 +301,7 @@ namespace unvell.ReoGrid.Demo
 		#region Help
 		private void reportBugToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Process.Start("https://reogrid.net/forum/");
+			RGUtility.OpenFileOrLink("https://github.com/unvell/ReoGrid/issues");
 		}
 
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -311,11 +311,11 @@ namespace unvell.ReoGrid.Demo
 
 		private void projectHomepageToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Process.Start("https://reogrid.net/jp/");
+			RGUtility.OpenFileOrLink("https://reogrid.net/jp/");
 		}
 		private void downloadToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Process.Start("https://reogrid.net/jp/download");
+			RGUtility.OpenFileOrLink("https://reogrid.net/jp/download");
 		}
 		#endregion // Help
 	}

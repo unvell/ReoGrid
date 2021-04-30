@@ -97,7 +97,7 @@ namespace unvell.ReoGrid.Demo.CustomCells
 			{
 				try
 				{
-					System.Diagnostics.Process.Start(worksheet.GetCellText(5, 2));
+					RGUtility.OpenFileOrLink(worksheet.GetCellText(5, 2));
 				}
 				catch (Exception ex)
 				{

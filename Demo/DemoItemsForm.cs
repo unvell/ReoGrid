@@ -232,17 +232,17 @@ namespace unvell.ReoGrid.Demo
 
 		private void reportBugToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Process.Start("http://forum.reogrid.net/");
+			RGUtility.OpenFileOrLink("http://forum.reogrid.net/");
 		}
 
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Process.Start("https://reogrid.net/about");
+			RGUtility.OpenFileOrLink("https://reogrid.net/about");
 		}
 
 		private void projectHomepageToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Process.Start("https://reogrid.net/");
+			RGUtility.OpenFileOrLink("https://reogrid.net/");
 		}
 
 		private void openFileToolStripMenuItem_Click(object sender, EventArgs e)

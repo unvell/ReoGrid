@@ -308,5 +308,14 @@ namespace unvell.ReoGrid
 		}
 		#endregion // ToAddress
 
+		public static System.Diagnostics.Process OpenFileOrLink(string url, string args = null)
+		{
+			return System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(url)
+			{
+				UseShellExecute = true,
+				Arguments = args,
+				Verb = "open"
+			});
+		}
 	}
 }

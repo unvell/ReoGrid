@@ -84,9 +84,9 @@ namespace unvell.ReoGrid.Demo.CellTypeDemo
 
 			// リンク
 			worksheet.MergeRange(5, 2, 1, 3); // C6:E6
-			var link = new HyperlinkCell("http://www.google.com") { AutoNavigate = false };
+			var link = new HyperlinkCell("https://www.google.com") { AutoNavigate = false };
 			worksheet[5, 1] = new object[] { "ハイパーリンク", link };
-			link.Click += (s, e) => System.Diagnostics.Process.Start(worksheet.GetCellText(5, 2));
+			link.Click += (s, e) => RGUtility.OpenFileOrLink(worksheet.GetCellText(5, 2));
 
 			// チェックボックス
 			var checkbox = new CheckBoxCell();

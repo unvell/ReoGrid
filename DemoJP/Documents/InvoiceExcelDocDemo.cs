@@ -54,7 +54,7 @@ namespace unvell.ReoGrid.Demo.DocumentDemo
 			var button = new CellTypes.ButtonCell("Excelで開く");
 
 			// クリックした場合 Excel で「請求書」を表示する
-			button.Click += (s, e) => System.Diagnostics.Process.Start(filename);
+			button.Click += (s, e) => RGUtility.OpenFileOrLink(filename);
 
 			// セルボタンをワークシートに置く
 			worksheet["L17"] = button;
