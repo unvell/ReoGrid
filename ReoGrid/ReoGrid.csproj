@@ -27,7 +27,6 @@
     <Configurations>Debug;Release;Pack</Configurations>
   </PropertyGroup>
 	<PropertyGroup>
-		<AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
 		<Authors>Jingwood</Authors>
 		<Company>unvell</Company>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>

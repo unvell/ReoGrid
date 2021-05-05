@@ -82,9 +82,11 @@ namespace unvell.ReoGrid
 
 		static ReoGridControl()
 		{
+#if NETCOREAPP3_1_OR_GREATER
 			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+#endif // NETCOREAPP3_1_OR_GREATER
 		}
-		
+
 		private void InitControl()
 		{
 #if WINFORM || WPF
