@@ -127,9 +127,6 @@
   <data name="pick_range" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pick_range.cur;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="seek" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\seek.dat;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="theme1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\theme1.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

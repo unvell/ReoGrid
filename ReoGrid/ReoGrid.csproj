@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFrameworks>netcoreapp3.0;net40</TargetFrameworks>
     <OutputType>Library</OutputType>
     <RootNamespace>unvell.ReoGrid</RootNamespace>
     <AssemblyName>unvell.ReoGrid</AssemblyName>
@@ -16,7 +16,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <StartupObject></StartupObject>
@@ -24,115 +24,77 @@
     <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <Configurations>Debug;Release;Pack</Configurations>
   </PropertyGroup>
+	<PropertyGroup>
+		<AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+		<Authors>Jingwood</Authors>
+		<Company>unvell</Company>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://reogrid.net</PackageProjectUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryUrl>https://github.com/unvell/ReoGrid/</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<VersionPrefix>3.0.0</VersionPrefix>
+		<VersionSuffix></VersionSuffix>
+		<PackageId>unvell.ReoGrid.dll</PackageId>
+		<Description>Powerful and lightweight open source .NET spreadsheet component. Compatible with Excel 2007 format or later. Simple APIs to open/edit/save/print an Excel spreadsheet in the .NET application.</Description>
+		<SignAssembly>true</SignAssembly>
+		<ApplicationIcon>favicon.ico</ApplicationIcon>
+		<Copyright>2012-2021 (c) Jingwood, unvell, all rights reserved.</Copyright>
+		<PackageTags>spreadsheet excel drawing grid workbook worksheet chart data formula script macro outline print</PackageTags>
+	</PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DefineConstants>TRACE;DEBUG;EX_SCRIPT;ALWAYS_CELL_CLIP;WINFORM;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
     <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DefineConstants>TRACE;FORMULA;WINFORM;LANG_JP;OUTLINE;DRAWING;PRINT;RICHTEXT;</DefineConstants>
+    <DefineConstants>TRACE;EX_SCRIPT;ALWAYS_CELL_CLIP;WINFORM;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
     <DocumentationFile>bin\Release\unvell.ReoGrid.XML</DocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Minimum|AnyCPU' ">
-    <OutputPath>bin\Minimum\</OutputPath>
-    <DefineConstants>TRACE;WINFORM;LANG_JP</DefineConstants>
-    <Optimize>true</Optimize>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
-    <DocumentationFile>bin\Minimum\unvell.ReoGrid.XML</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
-    <Authors>Jingwood</Authors>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://reogrid.net</PackageProjectUrl>
-    <PackageIcon>icon.png</PackageIcon>
-    <RepositoryUrl>https://github.com/unvell/ReoGrid/</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WPFDebug|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\WPFDebug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;WPF;EX_SCRIPT;VP_DEBUG_OFF;GRID_GUIDELINE_OFF;FORMULA;LANG_JP;PRO;OUTLINE;DRAWING;RICHTEXT,PRINT</DefineConstants>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Pack|AnyCPU'">
+    <DefineConstants>TRACE;ALWAYS_CELL_CLIP;WINFORM;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
     <DocumentationFile></DocumentationFile>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WPFRelease|AnyCPU'">
-    <OutputPath>bin\WPFRelease\</OutputPath>
-    <DefineConstants>TRACE;WPF;FORMULA;LANG_JP;OUTLINE;DRAWING;PRINT</DefineConstants>
-    <DocumentationFile>bin\WPFRelease\unvell.ReoGrid.XML</DocumentationFile>
-    <Optimize>true</Optimize>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WPFMinimum|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\WPFMinimum\</OutputPath>
-    <DefineConstants>TRACE;WPF;LANG_JP</DefineConstants>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\WPFMinimum\unvell.ReoGrid.XML</DocumentationFile>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Pack|netcoreapp3.0|AnyCPU'">
     <Optimize>true</Optimize>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Extension|AnyCPU' ">
-    <OutputPath>bin\Extension\</OutputPath>
-    <DefineConstants>TRACE;EX;WINFORM;FORMULA;EX_SCRIPT;LANG_JP;OUTLINE;DRAWING;PRINT;RICHTEXT;</DefineConstants>
-    <DocumentationFile>bin\Extension\unvell.ReoGrid.XML</DocumentationFile>
-    <Optimize>true</Optimize>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.0|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'WPFExtension|AnyCPU' ">
-    <OutputPath>bin\WPFExtension\</OutputPath>
-    <DefineConstants>TRACE;EX;WPF;FORMULA;EX_SCRIPT;LANG_JP;OUTLINE;DRAWING;PRINT</DefineConstants>
-    <DocumentationFile>bin\WPFExtension\unvell.ReoGrid.XML</DocumentationFile>
-    <Optimize>true</Optimize>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugAndroid|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\DebugAndroid\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;VP_DEBUG_OFF;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;PRO;OUTLINE;DRAWING;ANDROID</DefineConstants>
-    <LangVersion>default</LangVersion>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugiOS|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\DebugiOS\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;iOS;</DefineConstants>
-    <LangVersion>default</LangVersion>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Antlr3.Runtime" Condition=" '$(Configuration)|$(Platform)' == 'Extension|AnyCPU' ">
-      <HintPath>..\Ref\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Antlr3.Runtime" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-      <HintPath>..\Ref\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Antlr3.Runtime" Condition=" '$(Configuration)|$(Platform)' == 'WPFExtension|AnyCPU' ">
-      <HintPath>..\Ref\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Android" Condition=" '$(Configuration)|$(Platform)' == 'DebugAndroid|AnyCPU' ">
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v4.0.3\Mono.Android.dll</HintPath>
-    </Reference>
-    <Reference Update="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Update="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="unvell.ReoScript" Condition=" '$(Configuration)|$(Platform)' == 'Extension|AnyCPU' ">
-      <HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
-    </Reference>
-    <Reference Include="unvell.ReoScript" Condition=" '$(Configuration)|$(Platform)' == 'WPFExtension|AnyCPU' ">
-      <HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
-    </Reference>
-    <Reference Include="unvell.ReoScript">
-      <HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.iOS" Condition=" '$(Configuration)|$(Platform)' == 'DebugiOS|AnyCPU' ">
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Xamarin.iOS.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
+	<ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<Reference Include="Antlr3.Runtime">
+			<HintPath>..\Ref\Antlr3.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="unvell.ReoScript">
+			<HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<Reference Include="Antlr3.Runtime">
+			<HintPath>..\Ref\Antlr3.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="unvell.ReoScript">
+			<HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Resources\EULA_EN.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Update="System.Core">
+			<RequiredTargetFramework>3.5</RequiredTargetFramework>
+		</Reference>
+		<Reference Update="System.Xml.Linq">
+			<RequiredTargetFramework>3.5</RequiredTargetFramework>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
     <Compile Update="Control\ControlShare.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -153,11 +115,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\cross.cur" />
-    <Content Include="Resources\full_col_select.cur" />
-    <Content Include="Resources\full_row_select.cur" />
-    <Content Include="Resources\grid_select.cur" />
-    <Content Include="Resources\pick_range.cur" />
+    <EmbeddedResource Include="Resources\cross.cur" />
+    <EmbeddedResource Include="Resources\full_col_select.cur" />
+    <EmbeddedResource Include="Resources\full_row_select.cur" />
+    <EmbeddedResource Include="Resources\grid_select.cur" />
+    <EmbeddedResource Include="Resources\pick_range.cur" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -190,6 +152,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\EULA_EN.txt" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DotNetZip" Version="1.15.0" />
