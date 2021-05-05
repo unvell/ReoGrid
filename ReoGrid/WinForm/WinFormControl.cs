@@ -495,7 +495,8 @@ namespace unvell.ReoGrid
 				editTextbox.InitialSize = rect.Size;
 				editTextbox.VAlign = cell.InnerStyle.VAlign;
 				editTextbox.Font = cell.RenderFont;
-				editTextbox.ForeColor = cell.InnerStyle.TextColor;
+				editTextbox.ForeColor = cell.InnerStyle.HasStyle(PlainStyleFlag.TextColor)
+					? cell.InnerStyle.TextColor : this.control.ControlStyle[ControlAppearanceColors.GridText];
 				editTextbox.BackColor = cell.InnerStyle.HasStyle(PlainStyleFlag.BackColor)
 					? cell.InnerStyle.BackColor : this.control.ControlStyle[ControlAppearanceColors.GridBackground];
 				editTextbox.ResumeLayout();

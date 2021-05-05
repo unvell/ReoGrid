@@ -92,15 +92,12 @@ namespace unvell.ReoGrid.Editor
 			ControlAppearanceColors key = (ControlAppearanceColors)Enum.Parse(
 			typeof(ControlAppearanceColors), lstColors.SelectedItem.ToString());
 
-			grid.ControlStyle.SetColor(key, colorPickerControl.SolidColor);
-
-			grid.ControlStyle = grid.ControlStyle;
+			grid.ControlStyle[key] = colorPickerControl.SolidColor;
 		}
 
 		private void NumSelectionWidth_ValueChanged(object sender, EventArgs e)
 		{
 			grid.ControlStyle.SelectionBorderWidth = (float)numSelectionWidth.Value;
-			grid.Invalidate();
 		}
 		#endregion // Set Styles
 

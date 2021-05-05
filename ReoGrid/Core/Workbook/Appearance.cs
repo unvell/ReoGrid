@@ -89,6 +89,8 @@ namespace unvell.ReoGrid
 	/// </summary>
 	public class ControlAppearanceStyle
 	{
+		internal ReoGridControl CurrentControl { get; set; }
+
 		private Dictionary<ControlAppearanceColors, SolidColor> colors = new Dictionary<ControlAppearanceColors, SolidColor>(100);
 
 		internal Dictionary<ControlAppearanceColors, SolidColor> Colors
@@ -116,6 +118,7 @@ namespace unvell.ReoGrid
 		public void SetColor(ControlAppearanceColors colorKey, SolidColor color)
 		{
 			colors[colorKey] = color;
+			this.CurrentControl?.ApplyControlStyle();
 		}
 
 		/// <summary>
@@ -133,7 +136,10 @@ namespace unvell.ReoGrid
 				else
 					return SolidColor.Black;
 			}
-			set { SetColor(colorKey, value); }
+			set
+			{
+				SetColor(colorKey, value);
+			}
 		}
 
 		/// <summary>
