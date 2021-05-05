@@ -107,7 +107,7 @@ namespace unvell.ReoGrid
 			this.builtInCrossCursor = LoadCursorFromResource(unvell.ReoGrid.Properties.Resources.cross);
 #endif // WINFORM || WPF
 
-			this.controlStyle = ControlAppearanceStyle.CreateDefaultControlStyle();
+			this.ControlStyle = ControlAppearanceStyle.CreateDefaultControlStyle();
 		}
 
 		private void InitWorkbook(IControlAdapter adapter)
@@ -1273,21 +1273,39 @@ namespace unvell.ReoGrid
 			get { return this.controlStyle; }
 			set
 			{
-				this.controlStyle = value ?? throw new ArgumentNullException("ControlStyle", "cannot set ControlStyle to null");
+				if (value == null)
+				{
+					throw new ArgumentNullException("ControlStyle", "cannot set ControlStyle to null");
+				}
+
+				if (this.controlStyle != value)
+				{
+					if (this.controlStyle != null) this.controlStyle.CurrentControl = null;
+					this.controlStyle = value;
+				}
 				//workbook.SetControlStyle(value);
 
-				this.adapter.Invalidate();
-
-#if WINFORM
-				sheetTab.BackColor = value[ControlAppearanceColors.SheetTabBackground];
-				this.BackColor = value[ControlAppearanceColors.GridBackground];
-#elif WPF
-				sheetTab.Background = new System.Windows.Media.SolidColorBrush(value[ControlAppearanceColors.SheetTabBackground]);
-#endif // WINFORM & WPF
-
+				this.ApplyControlStyle();
 			}
 		}
-		#endregion // App
+
+		internal void ApplyControlStyle()
+		{
+			this.controlStyle.CurrentControl = this;
+
+#if WINFORM
+			sheetTab.BackColor = this.controlStyle[ControlAppearanceColors.SheetTabBackground];
+			this.BackColor = this.controlStyle[ControlAppearanceColors.GridBackground];
+#elif WPF
+			sheetTab.Background = new System.Windows.Media.SolidColorBrush(this.controlStyle[ControlAppearanceColors.SheetTabBackground]);
+#endif // WINFORM & WPF
+
+			this.adapter?.Invalidate();
+		}
+
+		//private AppearanceStyle appearanceStyle = new AppearanceStyle(this);
+
+		#endregion // Appearance
 
 		#region Mouse
 		private void OnWorksheetMouseDown(RGPointF location, MouseButtons buttons)
