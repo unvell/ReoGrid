@@ -25,9 +25,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using System.Windows.Xps;
-using System.Windows.Xps.Packaging;
-
 using unvell.ReoGrid.Print;
 
 namespace unvell.ReoGrid.Print
