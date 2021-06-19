@@ -34,6 +34,7 @@ using unvell.ReoGrid.CellTypes;
 using unvell.ReoGrid.Actions;
 using unvell.ReoGrid.Utility;
 using System.Collections;
+using unvell.ReoGrid.Formula;
 
 #if OUTLINE
 using unvell.ReoGrid.Outline;
@@ -2144,6 +2145,17 @@ namespace unvell.ReoGrid
 				}
 			}
 			#endregion // Update frozen rows
+
+			#region Update Formulas
+			IterateCells(row + count, 0, MaxContentRow - row - count + 1, MaxContentCol + 1, true, (ir, ic, icell) =>
+				 {
+					 if (icell.HasFormula)
+					 {
+						 FormulaRefactor.OffsetFormulaReferences(this, icell, row + count, 0, -count, 0);
+					 }
+					 return true;
+				 });
+			#endregion Update Formulas
 
 			suspendingUIUpdates = false;
 
