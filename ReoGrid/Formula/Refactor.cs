@@ -38,7 +38,7 @@ namespace unvell.ReoGrid.Formula
 	{
 		#region Generator
 		/// <summary>
-		/// Generate formula from a syntax tree in memory
+		/// Generate formula from a syntax tree in memory.
 		/// </summary>
 		/// <param name="node">root node of syntax tree used to generate formula</param>
 		/// <returns>formula generated from a syntax tree</returns>
@@ -48,7 +48,7 @@ namespace unvell.ReoGrid.Formula
 		}
 
 		/// <summary>
-		/// Generate formula form a syntax tree in memory by specified format styles
+		/// Generate formula form a syntax tree in memory by specified format styles.
 		/// </summary>
 		/// <param name="node">root node of syntax tree used to generate formula</param>
 		/// <param name="flag">generating format style flags</param>
@@ -179,7 +179,7 @@ namespace unvell.ReoGrid.Formula
 			#region Arguments Check
 			if (cell == null
 				|| string.IsNullOrEmpty(cell.InnerFormula)
-				|| cell.FormulaTree == null)
+				|| cell.FormulaSyntaxTree == null)
 			{
 				throw new InvalidOperationException("cannot found formula from specified position, try reset formula for the cell again");
 			}
@@ -195,8 +195,8 @@ namespace unvell.ReoGrid.Formula
 			}
 			#endregion // Arguments Check
 
-			var rs = new ReplacableString(cell.InnerFormula);
-			STNode node = cell.FormulaTree;
+			var formulaString = new ReplacableString(cell.InnerFormula);
+			STNode node = cell.FormulaSyntaxTree;
 
 			Stack<List<Cell>> dirtyCells = new Stack<List<Cell>>();
 
@@ -212,7 +212,7 @@ namespace unvell.ReoGrid.Formula
 						continue;
 					}
 
-					FormulaRefactor.CopyFormula(fromPosition, node, toCell, rs, dirtyCells);
+					FormulaRefactor.CopyFormula(fromPosition, node, toCell, formulaString, dirtyCells);
 					
 					c += cell.Colspan;
 				}

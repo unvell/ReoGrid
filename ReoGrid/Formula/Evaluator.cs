@@ -35,7 +35,7 @@ namespace unvell.ReoGrid.Formula
 		public static FormulaValue Evaluate(Cell cell)
 		{
 			if (cell == null) return null;
-			return Evaluate(cell.Worksheet == null ? null : cell.Worksheet.workbook, cell, cell.FormulaTree);
+			return Evaluate(cell.Worksheet == null ? null : cell.Worksheet.workbook, cell, cell.FormulaSyntaxTree);
 		}
 
 		public static FormulaValue Evaluate(IWorkbook workbook, string input)
