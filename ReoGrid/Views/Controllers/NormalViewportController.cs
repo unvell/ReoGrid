@@ -923,63 +923,94 @@ namespace unvell.ReoGrid.Views
 			this.worksheet.workbook?.RaiseWorksheetScrolledEvent(this.worksheet, x, y);
 		}
 
-		public virtual void ScrollToRange(RangePosition range, CellPosition basePos)
+		public virtual void ScrollToRange(RangePosition range, CellPosition basePos,
+			ScrollDirection allowDir = ScrollDirection.Both)
 		{
-			if (this.FocusView is Viewport view)
+			var selStart = this.worksheet.selStart;
+			Viewport startView;
+			Rectangle startViewRect;
+
+			var view = FindContainViewportByCell(pos);
+			var viewRect = GetScaledScrolledViewRect(view);
+
+			if (this.rowHeaderPart2.ContentRange.Contains(selStart)
+				|| this.colHeaderPart2.ContentRange.Contains(pos))
 			{
-				Rectangle rect = this.worksheet.GetScaledRangeBounds(range);
+				startView = view;
+				startViewRect = viewRect;
+			}
+			else
+			{
+				startView = FindContainViewportByCell(this.worksheet.selStart);
+				startViewRect = GetScaledScrolledViewRect(startView);
+			}
 
-				//var rect = this.worksheet.GetGridBounds(basePos.Row, basePos.Col);
-				//rect.Width /= this.worksheet.scaleFactor;
-				//rect.Height /= this.worksheet.scaleFactor;
+			double offsetX = 0, offsetY = 0;
 
-				RGFloat scale = this.ScaleFactor;
+			Rectangle selRect = this.worksheet.GetScaledRangeBounds(new RangePosition(pos));
 
-				double top = view.ScrollViewTop * scale;
-				double bottom = view.ScrollViewTop * scale + view.Height;
-				double left = view.ScrollViewLeft * scale;
-				double right = view.ScrollViewLeft * scale + view.Width;
-
-				double offsetX = 0, offsetY = 0;
-
-				if (rect.Height < view.Height
-					&& (view.ScrollableDirections & ScrollDirection.Vertical) == ScrollDirection.Vertical)
+			// inside single view
+			if (startView == view)
+			{
+				if (allowDir.HasFlag(ScrollDirection.Horizontal))
 				{
-					// skip to scroll y if entire row is selected
-					if (range.Rows < this.worksheet.rows.Count)
+					offsetX = CalcScrollOffsetX(selRect, viewRect);
+				}
+
+				if (allowDir.HasFlag(ScrollDirection.Vertical))
+				{
+					offsetY = CalcScrollOffsetY(selRect, viewRect);
+				}
+			}
+			// doesn't work very well
+			//else if (selRect.Bottom > viewRect.Bottom + worksheet.defaultRowHeight)
+			//{
+			//	offsetY = worksheet.defaultRowHeight;
+			//}
+			else
+			{
+				if (allowDir.HasFlag(ScrollDirection.Horizontal))
+				{
+					if (selRect.Right > startViewRect.Right)
 					{
-						if (rect.Y < top/* && (range.Row <= view.VisibleRegion.startRow)*/)
+						// overlay a view
+						if (startView == view)
 						{
-							offsetY = (rect.Y - top) / this.ScaleFactor;
+							if (view.ScrollableDirections.HasFlag(ScrollDirection.Horizontal))
+							{
+								offsetX = CalcScrollOffsetX(selRect, viewRect);
+							}
 						}
-						else if (rect.Bottom >= bottom/* && (range.EndRow >= view.VisibleRegion.endRow)*/)
+						else if (view.ScrollableDirections.HasFlag(ScrollDirection.Horizontal))
 						{
-							offsetY = (rect.Bottom - bottom) / this.ScaleFactor + 1;
+							offsetX = -viewRect.Left / this.ScaleFactor;
 						}
 					}
 				}
 
-				if (rect.Width < view.Width
-					&& (view.ScrollableDirections & ScrollDirection.Horizontal) == ScrollDirection.Horizontal)
+				if (allowDir.HasFlag(ScrollDirection.Vertical))
 				{
-					// skip to scroll x if entire column is selected
-					if (range.Cols < this.worksheet.cols.Count)
+					if (selRect.Bottom > startViewRect.Bottom)
 					{
-						if (rect.X < left /*&& (range.Col <= view.VisibleRegion.startCol)*/)
+						// overlay a view
+						if (startView == view)
 						{
-							offsetX = (rect.X - left) / this.ScaleFactor;
+							if (view.ScrollableDirections.HasFlag(ScrollDirection.Vertical))
+							{
+								offsetY = CalcScrollOffsetY(selRect, viewRect);
+							}
 						}
-						else if (rect.Right >= right/* && (range.EndCol >= view.VisibleRegion.endCol)*/)
+						else if (view.ScrollableDirections.HasFlag(ScrollDirection.Vertical))
 						{
-							offsetX = (rect.Right - right) / this.ScaleFactor + 1;
+							offsetY = -viewRect.Top / this.ScaleFactor;
 						}
 					}
 				}
+			}
 
-				if (offsetX != 0 || offsetY != 0)
-				{
-					this.ScrollOffsetViews(ScrollDirection.Both, (RGFloat)Math.Round(offsetX), (RGFloat)Math.Round(offsetY));
-				}
+			if (offsetX != 0 || offsetY != 0)
+			{
+				this.ScrollOffsetViews(ScrollDirection.Both, (RGFloat)Math.Round(offsetX), (RGFloat)Math.Round(offsetY));
 			}
 		}
 

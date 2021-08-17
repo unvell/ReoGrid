@@ -29,6 +29,7 @@ using unvell.ReoGrid.Core;
 using unvell.ReoGrid.Events;
 using unvell.ReoGrid.Graphics;
 using unvell.ReoGrid.Views;
+using unvell.ReoGrid.Main;
 
 namespace unvell.ReoGrid
 {
@@ -574,12 +575,13 @@ namespace unvell.ReoGrid
 		}
 
 		/// <summary>
-		/// Scroll view to make the specified cell visible.
+		/// Scroll to specified cell position
 		/// </summary>
-		/// <param name="pos">index position to locate specified cell</param>
-		public void ScrollToCell(CellPosition pos)
+		/// <param name="row">Number of row</param>
+		/// <param name="col">Number of column</param>
+		public void ScrollToCell(int row, int col)
 		{
-			this.ScrollToRange(new RangePosition(pos), pos);
+			this.ScrollToCell(new CellPosition(row, col));
 		}
 
 		/// <summary>
@@ -597,26 +599,37 @@ namespace unvell.ReoGrid
 		}
 
 		/// <summary>
-		/// Scroll to specified cell position
+		/// Scroll view to make the specified cell visible.
 		/// </summary>
-		/// <param name="row">Number of row</param>
-		/// <param name="col">Number of column</param>
-		public void ScrollToCell(int row, int col)
+		/// <param name="pos">index position to locate specified cell</param>
+		public void ScrollToCell(CellPosition pos)
 		{
-			this.ScrollToRange(this.FixRange(new RangePosition(row, col, 1, 1)));
+			this.ScrollToCell(pos, this.selEnd);
+		}
+
+		internal void ScrollToCell(CellPosition pos, CellPosition lastSelEnd,
+			ScrollDirection scrollableDirection = ScrollDirection.Both)
+		{
+			if (this.viewportController is IScrollableViewportController svc)
+			{
+				svc.ScrollToCell(pos, lastSelEnd, scrollableDirection);
+			}
 		}
 
 		/// <summary>
 		/// Scroll view to make the specified range visible.
 		/// </summary>
 		/// <param name="addressOrName">address or name to locate a range</param>
+		[Obsolete("This function is no longer supported, use ScrollToCell instead")]
 		public void ScrollToRange(string addressOrName)
 		{
+			NamedRange refRange;
+
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				this.ScrollToRange(new RangePosition(addressOrName));
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var refRange))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out refRange))
 			{
 				this.ScrollToRange(refRange);
 			}
@@ -633,6 +646,7 @@ namespace unvell.ReoGrid
 		/// <param name="col">number of column</param>
 		/// <param name="rows">number of rows in the range</param>
 		/// <param name="cols">number of columns in the range</param>
+		[Obsolete("This function is no longer supported, use ScrollToCell instead")]
 		public void ScrollToRange(int row, int col, int rows, int cols)
 		{
 			this.ScrollToRange(new RangePosition(row, col, rows, cols));
@@ -642,6 +656,7 @@ namespace unvell.ReoGrid
 		/// Scroll view to make the specified cell visible.
 		/// </summary>
 		/// <param name="range">range index to locate a range on spreadsheet</param>
+		[Obsolete("This function is no longer supported, use ScrollToCell instead")]
 		public void ScrollToRange(RangePosition range)
 		{
 			this.ScrollToRange(range, range.EndPos);
@@ -651,12 +666,13 @@ namespace unvell.ReoGrid
 		/// Scroll to specified range based on a position to the range
 		/// </summary>
 		/// <param name="range">Range to be displayed</param>
-		/// <param name="basePos">Base point to scroll views</param>
-		public void ScrollToRange(RangePosition range, CellPosition basePos)
+		/// <param name="focusPos">Base point to scroll views</param>
+		[Obsolete("This function is no longer supported, use ScrollToCell instead")]
+		public void ScrollToRange(RangePosition range, CellPosition focusPos)
 		{
 			if (this.viewportController is IScrollableViewportController svc)
 			{
-				svc.ScrollToRange(this.FixRange(range), basePos);
+				svc.ScrollToCell(focusPos, focusPos);
 			}
 		}
 
