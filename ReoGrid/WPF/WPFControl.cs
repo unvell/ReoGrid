@@ -85,7 +85,7 @@ namespace unvell.ReoGrid
 			{
 				Orientation = Orientation.Horizontal,
 				Height = ScrollBarSize,
-				SmallChange=	Worksheet.InitDefaultColumnWidth,
+				SmallChange = Worksheet.InitDefaultColumnWidth,
 			};
 
 			this.verScrollbar = new System.Windows.Controls.Primitives.ScrollBar()
@@ -642,7 +642,7 @@ namespace unvell.ReoGrid
 			public Rectangle GetContainerBounds()
 			{
 				double w = this.canvas.ActualWidth;
-				double h = this.canvas.ActualHeight+1;
+				double h = this.canvas.ActualHeight + 1;
 
 				if (this.canvas.verScrollbar.Visibility == Visibility.Visible)
 				{
@@ -970,31 +970,30 @@ namespace unvell.ReoGrid
 				// in single line text
 				if (!TextWrap && Text.IndexOf('\n') == -1)
 				{
-                    Action moveAction = null;
+					Action moveAction = null;
 
 					if (e.Key == Key.Up)
 					{
-                        moveAction = () => sheet.MoveSelectionUp();
+						moveAction = () => sheet.MoveSelectionUp();
 					}
 					else if (e.Key == Key.Down)
 					{
-                        moveAction = () => sheet.MoveSelectionDown();
-                    }
-                    else if (e.Key == Key.Left && SelectionStart == 0)
-                    {
-                        moveAction = () => sheet.MoveSelectionLeft();
-                    }
-                    else if (e.Key == Key.Right && SelectionStart == Text.Length)
-                    {
-                        moveAction = () => sheet.MoveSelectionRight();
-                    }
-
-				    if (moveAction != null)
-				    {
-                        sheet.EndEdit(Text);
-				        moveAction();
-                        e.Handled = true;
-                    }
+						moveAction = () => sheet.MoveSelectionDown();
+					}
+					else if (e.Key == Key.Left && SelectionStart == 0)
+					{
+						moveAction = () => sheet.MoveSelectionLeft();
+					}
+					else if (e.Key == Key.Right && SelectionStart == Text.Length)
+					{
+						moveAction = () => sheet.MoveSelectionRight();
+					}
+					if (moveAction != null)
+					{
+						sheet.EndEdit(Text);
+						moveAction();
+						e.Handled = true;
+					}
 				}
 			}
 
@@ -1047,7 +1046,7 @@ namespace unvell.ReoGrid
 					int inputChar = e.Text[0];
 					if (inputChar != this.Owner.currentWorksheet.RaiseCellEditCharInputed(inputChar))
 					{
-						
+
 						e.Handled = true;
 					}
 
