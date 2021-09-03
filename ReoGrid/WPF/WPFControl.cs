@@ -1022,6 +1022,20 @@ namespace unvell.ReoGrid
 					{
 						// TODO: auto adjust row height
 					}
+					// shift + tab
+					else if ((Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift)) && e.Key == Key.Tab)
+					{
+						sheet.EndEdit(this.Text);
+						sheet.MoveSelectionBackward();
+						e.Handled = true;
+					}
+					// tab
+					else if (e.Key == Key.Tab)
+					{
+						sheet.EndEdit(this.Text);
+						sheet.MoveSelectionForward();
+						e.Handled = true;
+					}
 					else if (e.Key == Key.Escape)
 					{
 						sheet.EndEdit(EndEditReason.Cancel);
