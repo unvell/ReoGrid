@@ -1006,8 +1006,8 @@ namespace unvell.ReoGrid.IO.OpenXML
 			const float fixedCharWidth = 7f; // todo: get from default font
 			const float columnWidthPad = 0f; // todo: openxml std: 5f
 
-			int maxRows = Math.Max(rgSheet.MaxContentRow, 1);
-			int maxCols = Math.Max(rgSheet.MaxContentCol, 1);
+			int maxRows = Math.Max(rgSheet.MaxContentRow, 0);
+			int maxCols = Math.Max(rgSheet.MaxContentCol, 0);
 
 			#region Sheet Properties
 

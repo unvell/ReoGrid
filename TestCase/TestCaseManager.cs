@@ -472,6 +472,11 @@ namespace unvell.ReoGrid.Tests
 			TestAssert.AssertTrue((value & bit) == bit);
 		}
 
+		protected void Failure(string msg)
+		{
+			TestAssert.Failure(msg);
+		}
+
 		public virtual void SetUp() { }
 		public virtual void SetDown() { }
 	}
