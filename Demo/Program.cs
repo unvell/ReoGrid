@@ -35,6 +35,7 @@ namespace unvell.ReoGrid.Demo
 		static void Main()
 		{
 			Application.EnableVisualStyles();
+
 			Application.SetCompatibleTextRenderingDefault(false);
 
 			Application.Run(new DemoItemsForm());
