@@ -302,6 +302,11 @@ namespace unvell.ReoGrid.Views
 
 					return true;
 				}
+
+                if (!inSeparator && buttons == MouseButtons.Left)
+                {
+					sheet.rows[row].RaiseRowHeaderMouseDoubleClickEvent();
+                }
 			}
 
 			return false;

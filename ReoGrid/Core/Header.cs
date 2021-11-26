@@ -930,34 +930,34 @@ namespace unvell.ReoGrid
 			int y = rows.Count == 0 ? 0 : rows[rows.Count - 1].Bottom;
 			int total = rows.Count + count;
 
-			for (int i = rows.Count; i < total; i++)
-			{
-				rows.Add(new RowHeader(this)
-				{
-					InnerHeight = defaultRowHeight,
-					Row = i,
-					Top = y,
-					IsAutoHeight = true,
-				});
+            for (int i = rows.Count; i < total; i++)
+            {
+                rows.Add(new RowHeader(this)
+                         {
+                             InnerHeight = defaultRowHeight,
+                             Row = i,
+                             Top = y,
+                             IsAutoHeight = true,
+                         });
 
-				y += defaultRowHeight;
-			}
+                y += defaultRowHeight;
+            }
 
-			UpdateViewportController();
+            UpdateViewportController();
 
 			RowsInserted?.Invoke(this, new RowsInsertedEventArgs(this.rows.Count - count, count));
 		}
 
-		#endregion // Append
+        #endregion // Append
 
-		#region Resize
+        #region Resize
 
-		/// <summary>
-		/// Resize grid to specified number of rows and cols.
-		/// </summary>
-		/// <param name="rows">Number of rows to be resized.</param>
-		/// <param name="cols">Number of columns to be resized.</param>
-		public void Resize(int rows, int cols)
+        /// <summary>
+        /// Resize grid to specified number of rows and cols.
+        /// </summary>
+        /// <param name="rows">Number of rows to be resized.</param>
+        /// <param name="cols">Number of columns to be resized.</param>
+        public void Resize(int rows, int cols)
 		{
 			if (cols > 0)
 			{
@@ -3396,14 +3396,24 @@ namespace unvell.ReoGrid
 		/// </summary>
 		public event EventHandler<RowsHeightChangedEventArgs> HeightChanged;
 
-		internal void RaiseHeightChangedEvent()
+		public event EventHandler<WorksheetRowsEventArgs> RowHeaderMouseDoubleClick;
+
+        internal void RaiseHeightChangedEvent()
 		{
 			if (this.HeightChanged != null)
 			{
 				this.HeightChanged(this, new RowsHeightChangedEventArgs(this.Row, 1, this.InnerHeight));
 			}
 		}
-	}
+
+        internal void RaiseRowHeaderMouseDoubleClickEvent()
+        {
+            if (RowHeaderMouseDoubleClick != null)
+            {
+                RowHeaderMouseDoubleClick(this, new WorksheetRowsEventArgs(Row));
+            }
+        }
+    }
 
 	/// <summary>
 	/// Flag to decide which orientation will be handled
