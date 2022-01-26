@@ -504,7 +504,9 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Copy any remove anything from selected range into Clipboard.
 		/// </summary>
-		public bool Cut()
+		/// <param name="byAction">Indicates whether or not perform the cut operation by using an action, which makes the operation can be undone. Default is true.</param>
+		/// <returns></returns>
+		public bool Cut(bool byAction = true)
 		{
 			if (IsEditing)
 			{
@@ -545,7 +547,18 @@ namespace unvell.ReoGrid
 					int rows = partialGrid.Rows;
 					int cols = partialGrid.Columns;
 
-					DoAction(new CutRangeAction(new RangePosition(startRow, startCol, rows, cols), partialGrid));
+					var range = new RangePosition(startRow, startCol, rows, cols);
+
+					if (byAction)
+					{
+						DoAction(new CutRangeAction(range, partialGrid));
+					}
+					else
+					{
+						this.DeleteRangeData(range, true);
+						this.RemoveRangeStyles(range, PlainStyleFlag.All);
+						this.RemoveRangeBorders(range, BorderPositions.All);
+					}
 				}
 
 				if (AfterCut != null)
