@@ -536,9 +536,16 @@ namespace unvell.ReoGrid
 
 				if (!HasSettings(WorksheetSettings.Edit_Readonly))
 				{
-					this.DeleteRangeData(currentCopingRange);
-					this.RemoveRangeStyles(currentCopingRange, PlainStyleFlag.All);
-					this.RemoveRangeBorders(currentCopingRange, BorderPositions.All);
+					DataObject data = Clipboard.GetDataObject() as DataObject;
+					PartialGrid partialGrid = data.GetData(ClipBoardDataFormatIdentify) as PartialGrid;
+
+					int startRow = selectionRange.Row;
+					int startCol = selectionRange.Col;
+
+					int rows = partialGrid.Rows;
+					int cols = partialGrid.Columns;
+
+					DoAction(new CutRangeAction(new RangePosition(startRow, startCol, rows, cols), partialGrid));
 				}
 
 				if (AfterCut != null)
