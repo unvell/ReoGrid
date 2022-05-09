@@ -1539,6 +1539,16 @@ namespace unvell.ReoGrid
 		/// </summary>
 		public event EventHandler<CellMouseEventArgs> CellMouseUp;
 
+		/// <summary>
+		/// Event raised after mouse button released up on spreadsheet when dragging a cell data serial
+		/// </summary>
+		public event EventHandler<BeforeCopyOrMoveRangeEventArgs> BeforeDragSelectionFillSerial;
+
+		/// <summary>
+		/// Event raised after an auto cell data serial is applied
+		/// </summary>
+		public event EventHandler<BeforeCopyOrMoveRangeEventArgs> AfterDragSelectionFillAutoSerial;
+
 		internal bool HasCellMouseDown { get { return this.CellMouseDown != null; } }
 		internal void RaiseCellMouseDown(CellMouseEventArgs args) { if (CellMouseDown != null) { CellMouseDown(this, args); } }
 
@@ -1549,6 +1559,10 @@ namespace unvell.ReoGrid
 		internal void RaiseCellMouseMove(CellMouseEventArgs args) { if (CellMouseMove != null) { CellMouseMove(this, args); } }
 
 		internal void RaiseSelectionRangeChanged(RangeEventArgs args) => SelectionRangeChanged?.Invoke(this, args);
+
+		internal void RaiseBeforeDragSelectionFillSerial(BeforeCopyOrMoveRangeEventArgs args) => BeforeDragSelectionFillSerial?.Invoke(this, args);
+
+		internal void RaiseAfterDragSelectionFillAutoSerial(BeforeCopyOrMoveRangeEventArgs args) => AfterDragSelectionFillAutoSerial?.Invoke(this, args);
 
 		#endregion // Mouse Events
 

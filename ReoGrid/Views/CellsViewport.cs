@@ -1737,10 +1737,12 @@ namespace unvell.ReoGrid.Views
 					#region Submit Selection Drag
 					sheet.operationStatus = OperationStatus.Default;
 
+					bool performed = false;
+
 					if (sheet.draggingSelectionRange.Rows > sheet.selectionRange.Rows
 						|| sheet.draggingSelectionRange.Cols > sheet.selectionRange.Cols)
 					{
-						RangePosition targetRange = new RangePosition();
+						RangePosition targetRange = RangePosition.Empty;
 
 						if (sheet.draggingSelectionRange.Rows == sheet.selectionRange.Rows)
 						{
@@ -1787,9 +1789,28 @@ namespace unvell.ReoGrid.Views
 
 						if (targetRange != RangePosition.Empty)
 						{
-							sheet.DoAction(new AutoFillSerialAction(sheet.SelectionRange, targetRange));
+							try
+							{
+								var args = new BeforeCopyOrMoveRangeEventArgs(sheet.selectionRange, targetRange);
+								sheet.RaiseBeforeDragSelectionFillSerial(args);
+
+								// perform the auto fill if it hasn't been cancelled in the event
+								if (!args.IsCancelled)
+								{
+									sheet.DoAction(new AutoFillSerialAction(sheet.SelectionRange, targetRange));
+									performed = true;
+
+									sheet.RaiseAfterDragSelectionFillAutoSerial(args);
+								}
+							}
+							catch (Exception ex)
+							{
+								this.sheet.NotifyExceptionHappen(ex);
+							}
 						}
 					}
+
+
 
 					sheet.RequestInvalidate();
 					isProcessed = true;
