@@ -1740,23 +1740,49 @@ namespace unvell.ReoGrid.Views
 					if (sheet.draggingSelectionRange.Rows > sheet.selectionRange.Rows
 						|| sheet.draggingSelectionRange.Cols > sheet.selectionRange.Cols)
 					{
-						RangePosition targetRange = RangePosition.Empty;
+						RangePosition targetRange = new RangePosition();
 
 						if (sheet.draggingSelectionRange.Rows == sheet.selectionRange.Rows)
 						{
-							targetRange = new RangePosition(
-								sheet.draggingSelectionRange.Row,
-								sheet.draggingSelectionRange.Col + sheet.selectionRange.Cols,
-								sheet.draggingSelectionRange.Rows,
-								sheet.draggingSelectionRange.Cols - sheet.selectionRange.Cols);
+							if (sheet.draggingSelectionRange.Col == sheet.selectionRange.Col)
+							{
+								// Dragging to the right
+								targetRange = new RangePosition(
+									sheet.draggingSelectionRange.Row,
+									sheet.draggingSelectionRange.Col + sheet.selectionRange.Cols,
+									sheet.draggingSelectionRange.Rows,
+									sheet.draggingSelectionRange.Cols - sheet.selectionRange.Cols);
+							}
+							else
+							{
+								// Dragging to the left
+								targetRange = new RangePosition(
+									sheet.draggingSelectionRange.Row,
+									sheet.draggingSelectionRange.Col,
+									sheet.draggingSelectionRange.Rows,
+									sheet.draggingSelectionRange.Cols - sheet.selectionRange.Cols);
+							}
 						}
 						else if (sheet.draggingSelectionRange.Cols == sheet.selectionRange.Cols)
 						{
-							targetRange = new RangePosition(
-								sheet.draggingSelectionRange.Row + sheet.selectionRange.Rows,
-								sheet.draggingSelectionRange.Col,
-								sheet.draggingSelectionRange.Rows - sheet.selectionRange.Rows,
-								sheet.draggingSelectionRange.Cols);
+							if (sheet.draggingSelectionRange.Row == sheet.selectionRange.Row)
+							{
+								// Dragging down
+								targetRange = new RangePosition(
+									sheet.draggingSelectionRange.Row + sheet.selectionRange.Rows,
+									sheet.draggingSelectionRange.Col,
+									sheet.draggingSelectionRange.Rows - sheet.selectionRange.Rows,
+									sheet.draggingSelectionRange.Cols);
+							}
+							else
+							{
+								// Dragging up
+								targetRange = new RangePosition(
+									sheet.draggingSelectionRange.Row,
+									sheet.draggingSelectionRange.Col,
+									sheet.draggingSelectionRange.Rows - sheet.selectionRange.Rows,
+									sheet.draggingSelectionRange.Cols);
+							}
 						}
 
 						if (targetRange != RangePosition.Empty)
