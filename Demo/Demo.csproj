@@ -60,224 +60,82 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="CellAndRange\IterateCellsAndBorders.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="CellAndRange\CustomDataFormatDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="CellAndRange\CellTextDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="CellAndRange\AccessRangeData.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="CellAndRange\AccessCellDataDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Chart\AreaChartDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Chart\BarChartDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Chart\DoughnutChartDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Chart\Pie2DChartDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Chart\ColumnChartDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Chart\LineChartDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="CustomCells\CustomDropdownDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="CustomCells\BuiltInTypesDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="CustomCells\AnimationCellDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="CustomCells\ImageCheckboxDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="CustomCells\NumericProgressDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="CustomCells\SlideCellDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Documents\DataFormatDocDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Documents\FinancialRatiosDocDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Documents\InvoiceExcelDocDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Documents\ProjectBuildReportDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Documents\YearCalendarDocDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Documents\MazeDocDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Documents\MonthCalendarDocDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Documents\OrderDocDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Documents\ProjectSummaryDocDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Drawings\DrawingObjectStyleDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Drawings\AddingObjectDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Drawings\BasicShapesDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="DropdownButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Features\ClipboardEventDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Features\CellsEventDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Features\ControlAppearanceDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="EdgeFreeze\BottomFreezeDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="EdgeFreeze\LeftFreezeDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="EdgeFreeze\RightFreezeDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="EdgeFreeze\BottomRightFreezeDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="EdgeFreeze\BottomLeftFreezeDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="EdgeFreeze\TopRightFreezeDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="EdgeFreeze\TopFreezeDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Features\OutlineDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Features\ColumnFilterAndSortDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="EdgeFreeze\TopLeftFreezeDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Features\RichTextDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Features\SynchronizeScrollDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Performance\ComplexMergedCellDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Performance\RowPerformanceDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Features\OutlineWithFreezeDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Features\PickRangeDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Features\MultisheetDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Features\CustomSelectionDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Features\ZoomDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Formula\NamedRangeReferenceDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Formula\FormulaDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Update="CellAndRange\IterateCellsAndBorders.cs" />
+    <Compile Update="CellAndRange\CustomDataFormatDemo.cs" />
+    <Compile Update="CellAndRange\CellTextDemo.cs" />
+    <Compile Update="CellAndRange\AccessRangeData.cs" />
+    <Compile Update="CellAndRange\AccessCellDataDemo.cs" />
+    <Compile Update="Chart\AreaChartDemo.cs" />
+    <Compile Update="Chart\BarChartDemo.cs" />
+    <Compile Update="Chart\DoughnutChartDemo.cs" />
+    <Compile Update="Chart\Pie2DChartDemo.cs" />
+    <Compile Update="Chart\ColumnChartDemo.cs" />
+    <Compile Update="Chart\LineChartDemo.cs" />
+    <Compile Update="CustomCells\CustomDropdownDemo.cs" />
+    <Compile Update="CustomCells\BuiltInTypesDemo.cs" />
+    <Compile Update="CustomCells\AnimationCellDemo.cs" />
+    <Compile Update="CustomCells\ImageCheckboxDemo.cs" />
+    <Compile Update="CustomCells\NumericProgressDemo.cs" />
+    <Compile Update="CustomCells\SlideCellDemo.cs" />
+    <Compile Update="Documents\DataFormatDocDemo.cs" />
+    <Compile Update="Documents\FinancialRatiosDocDemo.cs" />
+    <Compile Update="Documents\InvoiceExcelDocDemo.cs" />
+    <Compile Update="Documents\ProjectBuildReportDemo.cs" />
+    <Compile Update="Documents\YearCalendarDocDemo.cs" />
+    <Compile Update="Documents\MazeDocDemo.cs" />
+    <Compile Update="Documents\MonthCalendarDocDemo.cs" />
+    <Compile Update="Documents\OrderDocDemo.cs" />
+    <Compile Update="Documents\ProjectSummaryDocDemo.cs" />
+    <Compile Update="Drawings\DrawingObjectStyleDemo.cs" />
+    <Compile Update="Drawings\AddingObjectDemo.cs" />
+    <Compile Update="Drawings\BasicShapesDemo.cs" />
+    <Compile Update="DropdownButton.cs" />
+    <Compile Update="Features\ClipboardEventDemo.cs" />
+    <Compile Update="Features\CellsEventDemo.cs" />
+    <Compile Update="Features\ControlAppearanceDemo.cs" />
+    <Compile Update="EdgeFreeze\BottomFreezeDemo.cs" />
+    <Compile Update="EdgeFreeze\LeftFreezeDemo.cs" />
+    <Compile Update="EdgeFreeze\RightFreezeDemo.cs" />
+    <Compile Update="EdgeFreeze\BottomRightFreezeDemo.cs" />
+    <Compile Update="EdgeFreeze\BottomLeftFreezeDemo.cs" />
+    <Compile Update="EdgeFreeze\TopRightFreezeDemo.cs" />
+    <Compile Update="EdgeFreeze\TopFreezeDemo.cs" />
+    <Compile Update="Features\OutlineDemo.cs" />
+    <Compile Update="Features\ColumnFilterAndSortDemo.cs" />
+    <Compile Update="EdgeFreeze\TopLeftFreezeDemo.cs" />
+    <Compile Update="Features\RichTextDemo.cs" />
+    <Compile Update="Features\SynchronizeScrollDemo.cs" />
+    <Compile Update="Performance\ComplexMergedCellDemo.cs" />
+    <Compile Update="Performance\RowPerformanceDemo.cs" />
+    <Compile Update="Features\OutlineWithFreezeDemo.cs" />
+    <Compile Update="Features\PickRangeDemo.cs" />
+    <Compile Update="Features\MultisheetDemo.cs" />
+    <Compile Update="Features\CustomSelectionDemo.cs" />
+    <Compile Update="Features\ZoomDemo.cs" />
+    <Compile Update="Formula\NamedRangeReferenceDemo.cs" />
+    <Compile Update="Formula\FormulaDemo.cs" />
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Update="Scripts\ReoQueryScriptDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Scripts\LoadScriptDocDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Styles\MultiSelectionDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Welcome\WhatsNewDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Performance\MaximumSheetDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Print\PrintMultipleWorksheetDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Print\PrintPreviewDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Styles\BorderStylesDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Styles\SelectionModeDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Styles\CustomHeaderDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Performance\UpdateDataFormatDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="CellAndRange\MergeCellsDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Features\OnlyNumberInputDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Features\SetEditableRangeDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Formula\CustomizeFunctionDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Scripts\HandleEventsDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Scripts\RunScriptDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Update="Scripts\ReoQueryScriptDemo.cs" />
+    <Compile Update="Scripts\LoadScriptDocDemo.cs" />
+    <Compile Update="Styles\MultiSelectionDemo.cs" />
+    <Compile Update="Welcome\WhatsNewDemo.cs" />
+    <Compile Update="Performance\MaximumSheetDemo.cs" />
+    <Compile Update="Print\PrintMultipleWorksheetDemo.cs" />
+    <Compile Update="Print\PrintPreviewDemo.cs" />
+    <Compile Update="Styles\BorderStylesDemo.cs" />
+    <Compile Update="Styles\SelectionModeDemo.cs" />
+    <Compile Update="Styles\CustomHeaderDemo.cs" />
+    <Compile Update="Performance\UpdateDataFormatDemo.cs" />
+    <Compile Update="CellAndRange\MergeCellsDemo.cs" />
+    <Compile Update="Features\OnlyNumberInputDemo.cs" />
+    <Compile Update="Features\SetEditableRangeDemo.cs" />
+    <Compile Update="Formula\CustomizeFunctionDemo.cs" />
+    <Compile Update="Scripts\HandleEventsDemo.cs" />
+    <Compile Update="Scripts\RunScriptDemo.cs" />
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

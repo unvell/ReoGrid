@@ -1,6 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.0;net40</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net40</TargetFrameworks>
     <OutputType>Library</OutputType>
     <RootNamespace>unvell.ReoGrid</RootNamespace>
     <AssemblyName>unvell.ReoGrid</AssemblyName>

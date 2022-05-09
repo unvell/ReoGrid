@@ -60,75 +60,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="AddressFieldControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="FormulaBarControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="PropertyPages\AlignmentPage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="PropertyPages\BorderPage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="PropertyPages\FillPage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="PropertyPages\FormatPage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="PropertyPages\ProtectionPage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="UIControls\ColorControls\ColorComboBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UIControls\ColorControls\ColorPickerControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UIControls\ColorControls\ColorPickerPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UIControls\ColorControls\ColorPickerToolStripItem.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UIControls\ColorControls\ColorPickerWindow.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UIControls\ColoredListBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UIControls\FillPatternComboBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UIControls\FlatTabControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UIControls\FontControls\FontDropDownControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UIControls\FontControls\FontListBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UIControls\FontControls\FontSettingsControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="UIControls\FontControls\FontToolStripDropDown.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UIControls\FormLine.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UIControls\LineControls\LineStyleControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UIControls\LineControls\LineWeightControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UIControls\TextRotateControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Update="AddressFieldControl.cs" />
+    <Compile Update="FormulaBarControl.cs" />
+    <Compile Update="PropertyPages\AlignmentPage.cs" />
+    <Compile Update="PropertyPages\BorderPage.cs" />
+    <Compile Update="PropertyPages\FillPage.cs" />
+    <Compile Update="PropertyPages\FormatPage.cs" />
+    <Compile Update="PropertyPages\ProtectionPage.cs" />
+    <Compile Update="UIControls\ColorControls\ColorComboBox.cs" />
+    <Compile Update="UIControls\ColorControls\ColorPickerControl.cs" />
+    <Compile Update="UIControls\ColorControls\ColorPickerPanel.cs" />
+    <Compile Update="UIControls\ColorControls\ColorPickerToolStripItem.cs" />
+    <Compile Update="UIControls\ColorControls\ColorPickerWindow.cs" />
+    <Compile Update="UIControls\ColoredListBox.cs" />
+    <Compile Update="UIControls\FillPatternComboBox.cs" />
+    <Compile Update="UIControls\FlatTabControl.cs" />
+    <Compile Update="UIControls\FontControls\FontDropDownControl.cs" />
+    <Compile Update="UIControls\FontControls\FontListBox.cs" />
+    <Compile Update="UIControls\FontControls\FontSettingsControl.cs" />
+    <Compile Update="UIControls\FontControls\FontToolStripDropDown.cs" />
+    <Compile Update="UIControls\FormLine.cs" />
+    <Compile Update="UIControls\LineControls\LineStyleControl.cs" />
+    <Compile Update="UIControls\LineControls\LineWeightControl.cs" />
+    <Compile Update="UIControls\TextRotateControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -152,6 +106,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="AddressFieldControl.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ReoGrid\ReoGrid.csproj" />
