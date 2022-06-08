@@ -793,11 +793,21 @@ namespace unvell.ReoGrid
 		/// be done by performing action, that will be able to revoke this behavior.</param>
 		/// <returns>Return true if operation actually done; Return false if nothing 
 		/// need to do (cells are default width).</returns>
-		public bool AutoFitColumnWidth(int col, bool byAction = false)
+		public bool AutoFitColumnsWidth(int col, int count, bool byAction = false)
 		{
 			if (col < 0 || col > this.cols.Count - 1)
 			{
-				throw new ArgumentOutOfRangeException("col");
+				throw new ArgumentOutOfRangeException(nameof(col));
+			}
+
+			if (count < 1)
+			{
+				throw new ArgumentOutOfRangeException(nameof(count));
+			}
+
+			if (col + count > this.cols.Count)
+			{
+				throw new ArgumentOutOfRangeException(nameof(count));
 			}
 
 			RGFloat maxWidth = 0;
@@ -3178,9 +3188,10 @@ namespace unvell.ReoGrid
 		/// </summary>
 		/// <param name="byAction">Determines whether or not this operation 
 		/// performed by doing action, which will provide the ability to undo this operation.</param>
+		[Obsolete("For a performance issue, consider use Worksheet.SetColumnsWidthAction instead")]
 		public void FitWidthToCells(bool byAction = false)
 		{
-			this.Worksheet.AutoFitColumnWidth(this.Col, byAction);
+			this.Worksheet.AutoFitColumnsWidth(this.Col, 1, byAction);
 		}
 
 		internal ColumnHeader Clone(Worksheet newSheet)

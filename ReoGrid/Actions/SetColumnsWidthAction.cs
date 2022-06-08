@@ -51,19 +51,19 @@ namespace unvell.ReoGrid.Actions
 			int col = base.Range.Col;
 			int count = base.Range.Cols;
 
-			backupCols.Clear();
+			backupColsWidth.Clear();
 
 			int c2 = col + count;
 			for (int c = col; c < c2; c++)
 			{
 				ColumnHeader colHead = Worksheet.RetrieveColumnHeader(c);
-				backupCols.Add(c, colHead.InnerWidth);
+				backupColsWidth.Add(c, colHead.InnerWidth);
 			}
 
 			Worksheet.SetColumnsWidth(col, count, width);
 		}
 
-		private Dictionary<int, ushort> backupCols = new Dictionary<int, ushort>();
+		private Dictionary<int, ushort> backupColsWidth = new Dictionary<int, ushort>();
 
 		/// <summary>
 		/// Undo this action
@@ -73,7 +73,7 @@ namespace unvell.ReoGrid.Actions
 			int col = base.Range.Col;
 			int count = base.Range.Cols;
 
-			Worksheet.SetColumnsWidth(col, count, c => backupCols[c]);
+			Worksheet.SetColumnsWidth(col, count, c => backupColsWidth[c]);
 		}
 
 		/// <summary>
