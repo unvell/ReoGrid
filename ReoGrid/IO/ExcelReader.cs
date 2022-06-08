@@ -47,9 +47,12 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 	internal sealed class ExcelReader
 	{
+		const System.Globalization.NumberStyles numberStyle = System.Globalization.NumberStyles.Any; //System.Globalization.NumberStyles.Float | System.Globalization.NumberStyles.AllowThousands;
+
 		#region Read Stream
 		public static void ReadStream(RGWorkbook rgWorkbook, Stream stream)
 		{
+			
 #if DEBUG
 			Stopwatch sw = Stopwatch.StartNew();
 #endif
@@ -191,7 +194,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 				if (sheetView.zoomScale != null)
 				{
 					double zoom = 100;
-					if (double.TryParse(sheetView.zoomScale, out zoom))
+					if (double.TryParse(sheetView.zoomScale, numberStyle, System.Globalization.CultureInfo.InvariantCulture, out zoom))
 					{
 						rgSheet.ScaleFactor = (float)(zoom / 100f);
 					}
@@ -373,7 +376,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 				if (//row.customHeight == "1"
 						//&& 
-					!string.IsNullOrEmpty(row.height) && double.TryParse(row.height, out rowHeight))
+					!string.IsNullOrEmpty(row.height) && double.TryParse(row.height, numberStyle, System.Globalization.CultureInfo.InvariantCulture , out rowHeight))
 				{
 					rowHeader = rgSheet.GetRowHeader(rowIndex);
 					ushort height = (ushort)Math.Round(rowHeight * dpi / 72f);
@@ -715,7 +718,14 @@ namespace unvell.ReoGrid.IO.OpenXML
 						}
 						else
 						{
-							rgCell.InnerData = cell.value.val;
+							if (decimal.TryParse(cell.value.val, numberStyle, System.Globalization.CultureInfo.InvariantCulture, out var dv))
+							{
+								rgCell.InnerData = dv;
+							}
+							else
+							{
+								rgCell.InnerData = cell.value.val;
+							}
 						}
 					}
 
@@ -1303,7 +1313,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 							default: rgColor = SolidColor.Black; break;
 						}
 
-						if (double.TryParse(color.tint, out tint))
+						if (double.TryParse(color.tint,numberStyle, System.Globalization.CultureInfo.InvariantCulture, out tint))
 						{
 							HSLColor hlsColor = ColorUtility.RGBToHSL(rgColor);
 							hlsColor.L = ColorUtility.CalculateFinalLumValue((float)tint, (float)hlsColor.L * 255f) / 255f;
@@ -1466,7 +1476,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 		private static Regex currencyFormatRegex = new Regex(@"([^\\\s]*)\\?(\s*)\[\$([^(\-|\])]+)-?[^\]]*\]\\?(\s*)([^\\\s]*)", RegexOptions.Compiled);
 
-		private static NumberDataFormatter.INumberFormatArgs ReadNumberFormatArgs(string pattern, NumberDataFormatter.INumberFormatArgs arg)
+		private static NumberDataFormatter.INumberFormatArgs ReadNumberFormatArgs(string pattern, NumberDataFormatter.INumberFormatArgs arg, System.Globalization.CultureInfo culture)
 		{
 			if (pattern.StartsWith("[Red]", StringComparison.CurrentCultureIgnoreCase))
 			{
@@ -1509,9 +1519,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 				arg.NegativeStyle &= ~NumberDataFormatter.NumberNegativeStyle.Minus;
 
 				pattern = pattern.Substring(2, pattern.Length - 4);
-			}
-
-			var culture = System.Threading.Thread.CurrentThread.CurrentCulture;
+			}			
 
 			int len = pattern.Length;
 
@@ -1574,7 +1582,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 							flag = CellDataFormatFlag.Currency;
 
 							var carg = (CurrencyDataFormatter.CurrencyFormatArgs)ReadNumberFormatArgs(
-								pattern.Substring(3), new CurrencyDataFormatter.CurrencyFormatArgs());
+								pattern.Substring(3), new CurrencyDataFormatter.CurrencyFormatArgs(), System.Globalization.CultureInfo.InvariantCulture);
 
 							carg.PrefixSymbol = "$";
 
@@ -1599,7 +1607,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 									carg.PostfixSymbol = currencyMatch.Groups[2].Value + carg.PostfixSymbol;
 								}
 
-								carg = (CurrencyDataFormatter.CurrencyFormatArgs)ReadNumberFormatArgs(currencyMatch.Groups[1].Value, carg);
+								carg = (CurrencyDataFormatter.CurrencyFormatArgs)ReadNumberFormatArgs(currencyMatch.Groups[1].Value, carg, System.Globalization.CultureInfo.InvariantCulture);
 							}
 							else if (currencyMatch.Groups[5].Length > 0)
 							{
@@ -1613,7 +1621,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 									carg.PrefixSymbol += currencyMatch.Groups[4].Value;
 								}
 
-								carg = (CurrencyDataFormatter.CurrencyFormatArgs)ReadNumberFormatArgs(currencyMatch.Groups[5].Value, carg);
+								carg = (CurrencyDataFormatter.CurrencyFormatArgs)ReadNumberFormatArgs(currencyMatch.Groups[5].Value, carg, System.Globalization.CultureInfo.InvariantCulture);
 							}
 
 							arg = carg;
@@ -1626,7 +1634,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 							pattern = pattern.Substring(0, pattern.Length - 1);
 
-							arg = ReadNumberFormatArgs(pattern, new NumberDataFormatter.NumberFormatArgs());
+							arg = ReadNumberFormatArgs(pattern, new NumberDataFormatter.NumberFormatArgs(), System.Globalization.CultureInfo.InvariantCulture);
 							#endregion // Percent
 						}
 						else if (pattern.Any(c => c == 'm' || c == 'h' || c == 's' || c == 'y' || c == 'd'))
@@ -1646,7 +1654,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 						else
 						{
 							flag = CellDataFormatFlag.Number;
-							arg = ReadNumberFormatArgs(patterns.Length > 1 ? patterns[1] : patterns[0], new NumberDataFormatter.NumberFormatArgs());
+							arg = ReadNumberFormatArgs(patterns.Length > 1 ? patterns[1] : patterns[0], new NumberDataFormatter.NumberFormatArgs(), System.Globalization.CultureInfo.InvariantCulture);
 						}
 
 						if (flag != CellDataFormatFlag.General)
@@ -2624,6 +2632,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 	{
 		public static bool SetFromExcelBuiltinFormat(RGWorksheet rgSheet, Cell cell, int formatId, out CellDataFormatFlag dataFormatFlag)
 		{
+			var currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture;
 			CellDataFormatFlag? format = null;
 			object arg = null;
 
@@ -2665,85 +2674,19 @@ namespace unvell.ReoGrid.IO.OpenXML
 					break;
 
 				case 14:
-					// openxml spec: mm-dd-yy 
-					// Excel implementation: m/d/yyyy 
+				case 15:
+				case 16:
+				case 17:
+				case 18:
+				case 19:
+				case 20:
+				case 21:
+				case 22:
 					format = CellDataFormatFlag.DateTime;
 					arg = new DateTimeDataFormatter.DateTimeFormatArgs
 					{
-						CultureName = "en-US",
-						Format = "M/d/yyyy",
-					};
-					break;
-
-				case 15: // d-mmm-yy
-					format = CellDataFormatFlag.DateTime;
-					arg = new DateTimeDataFormatter.DateTimeFormatArgs
-					{
-						CultureName = "en-US",
-						Format = "d-MMM-yy",
-					};
-					break;
-
-				case 16: // d-mmm
-					format = CellDataFormatFlag.DateTime;
-					arg = new DateTimeDataFormatter.DateTimeFormatArgs
-					{
-						CultureName = "en-US",
-						Format = "d-MMM",
-					};
-					break;
-
-				case 17: // mmm-yy
-					format = CellDataFormatFlag.DateTime;
-					arg = new DateTimeDataFormatter.DateTimeFormatArgs
-					{
-						CultureName = "en-US",
-						Format = "MMM-yy",
-					};
-					break;
-
-				case 18: // h:mm AM/PM
-					format = CellDataFormatFlag.DateTime;
-					arg = new DateTimeDataFormatter.DateTimeFormatArgs
-					{
-						CultureName = "en-US",
-						Format = "h:mm tt",
-					};
-					break;
-
-				case 19: // h:mm:ss AM/PM
-					format = CellDataFormatFlag.DateTime;
-					arg = new DateTimeDataFormatter.DateTimeFormatArgs
-					{
-						CultureName = "en-US",
-						Format = "h:mm:ss tt",
-					};
-					break;
-
-				case 20: // h:mm
-					format = CellDataFormatFlag.DateTime;
-					arg = new DateTimeDataFormatter.DateTimeFormatArgs
-					{
-						CultureName = "en-US",
-						Format = "h:mm",
-					};
-					break;
-
-				case 21: // h:mm:ss
-					format = CellDataFormatFlag.DateTime;
-					arg = new DateTimeDataFormatter.DateTimeFormatArgs
-					{
-						CultureName = "en-US",
-						Format = "H:mm:ss",
-					};
-					break;
-
-				case 22: // m/d/yy h:mm
-					format = CellDataFormatFlag.DateTime;
-					arg = new DateTimeDataFormatter.DateTimeFormatArgs
-					{
-						CultureName = "en-US",
-						Format = "M/d/yy h:mm",
+						CultureName = currentCulture.Name,
+						Format = Properties.DateTimeFormat.ResourceManager.GetString(formatId.ToString(), currentCulture),
 					};
 					break;
 
@@ -2791,7 +2734,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 					format = CellDataFormatFlag.DateTime;
 					arg = new DateTimeDataFormatter.DateTimeFormatArgs
 					{
-						CultureName = "en-US",
+						CultureName = currentCulture.Name,
 						Format = "mm:ss",
 					};
 					break;
@@ -2800,7 +2743,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 					format = CellDataFormatFlag.DateTime;
 					arg = new DateTimeDataFormatter.DateTimeFormatArgs
 					{
-						CultureName = "en-US",
+						CultureName = currentCulture.Name,
 						Format = "h:mm:ss",
 					};
 					break;
@@ -2809,7 +2752,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 					format = CellDataFormatFlag.DateTime;
 					arg = new DateTimeDataFormatter.DateTimeFormatArgs
 					{
-						CultureName = "en-US",
+						CultureName = currentCulture.Name,
 						Format = "mmss.f",
 					};
 					break;
