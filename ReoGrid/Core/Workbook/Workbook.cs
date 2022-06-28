@@ -399,6 +399,8 @@ namespace unvell.ReoGrid
 
 			this.WorksheetRemoved?.Invoke(this, new WorksheetRemovedEventArgs(sheet));
 
+			this.controlAdapter?.Invalidate();
+
 			return true;
 		}
 

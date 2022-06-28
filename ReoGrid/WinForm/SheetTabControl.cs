@@ -821,6 +821,8 @@ namespace unvell.ReoGrid.WinForm
 			}
 
 			this.maxWidth -= width;
+
+			this.Invalidate();
 		}
 
 		public void UpdateTab(int index, string title, Color backgroundColor, Color textColor)
