@@ -1071,8 +1071,8 @@ namespace unvell.ReoGrid.Views
 			this.worksheet.controlAdapter.ScrollBarHorizontalLargeChange = this.scrollHorLarge;
 			this.worksheet.controlAdapter.ScrollBarVerticalLargeChange = this.scrollVerLarge;
 
-			this.worksheet.controlAdapter.ScrollBarHorizontalValue = (RGIntDouble)Math.Round(this.scrollHorValue);
-			this.worksheet.controlAdapter.ScrollBarVerticalValue = (RGIntDouble)Math.Round(this.scrollVerValue);
+			this.worksheet.controlAdapter.ScrollBarHorizontalValue = (RGIntDouble)this.scrollHorValue;
+			this.worksheet.controlAdapter.ScrollBarVerticalValue = (RGIntDouble)this.scrollVerValue;
 		}
 #endregion // Scroll
 
