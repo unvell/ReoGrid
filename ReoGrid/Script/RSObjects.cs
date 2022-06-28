@@ -71,9 +71,15 @@ namespace unvell.ReoGrid.Script
 				{
 					return null;
 				}
+			}, obj =>
+			{
+				if (obj is RSWorksheet rsSheet)
+				{
+					ControlInstance.CurrentWorksheet = rsSheet.Worksheet;
+				}
 			});
 
-			this["createWorksheet"] = new NativeFunctionObject("createWorksheet", (ctx, owner, args) =>
+            this["createWorksheet"] = new NativeFunctionObject("createWorksheet", (ctx, owner, args) =>
 			{
 				return new RSWorksheet(workbook.CreateWorksheet(args.Length > 0 ? ScriptRunningMachine.ConvertToString(args[0]) : null));
 			});
@@ -145,7 +151,9 @@ namespace unvell.ReoGrid.Script
 
 	internal class RSWorksheet : ObjectValue
 	{
-		private Worksheet sheet;
+		public Worksheet sheet;
+
+		public Worksheet Worksheet { get => sheet; private set => sheet = value; }
 
 		private RSSelectionObject selection;
 
