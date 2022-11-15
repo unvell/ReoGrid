@@ -31,6 +31,7 @@ using System.Windows.Forms;
 using unvell.Common;
 using unvell.ReoGrid.Core;
 using unvell.ReoGrid.DataFormat;
+using unvell.ReoGrid.Formula;
 
 namespace unvell.ReoGrid.WinForm
 {
@@ -158,7 +159,18 @@ namespace unvell.ReoGrid.WinForm
 				Cell firstCell = grid.GetCell(range.StartPos);
 				labFormat.Text = firstCell == null ? string.Empty : firstCell.DataFormat.ToString();
 				labFormatArgs.Text = firstCell == null ? string.Empty : DumpFormatArgs(firstCell.DataFormatArgs);
-			}
+
+				// formula
+				if (firstCell == null || string.IsNullOrWhiteSpace(firstCell.Formula))
+				{
+					txtFormulaInfo.Text = "No formula";
+				}
+				else
+				{
+					string parsedFormula = FormulaRefactor.Generate(firstCell.Formula, firstCell.formulaTree);
+					txtFormulaInfo.Text = "Formula: " + firstCell.Formula + "\r\nStatus: " + firstCell.formulaStatus + "\r\nParsed: " + parsedFormula;
+				}
+            }
 		}
 
 		private string DumpFormatArgs(object args)
