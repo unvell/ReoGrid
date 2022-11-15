@@ -39,6 +39,7 @@ using VBorderArray = unvell.ReoGrid.Data.ReoGridVBorderArray;
 #endif // ANDROID
 
 using unvell.ReoGrid.Main;
+using unvell.ReoGrid.Utility;
 
 namespace unvell.ReoGrid
 {
@@ -56,6 +57,12 @@ namespace unvell.ReoGrid
 			Stopwatch sw = Stopwatch.StartNew();
 			Debug.WriteLine("start creating worksheet...");
 #endif // DEBUG
+
+			this.colHeaderHeight = MeasureToolkit.ScaleByDPI(colHeaderHeight);
+			this.rowHeaderWidth = MeasureToolkit.ScaleByDPI(rowHeaderWidth);
+
+			this.defaultRowHeight = MeasureToolkit.ScaleByDPI(defaultRowHeight);
+			this.defaultColumnWidth = MeasureToolkit.ScaleByDPI(defaultColumnWidth);
 
 			this.SuspendUIUpdates();
 

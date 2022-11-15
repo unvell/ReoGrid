@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using unvell.ReoGrid.Rendering;
 
 #if WINFORM || ANDROID
 using RGFloat = System.Single;
@@ -74,6 +75,17 @@ namespace unvell.ReoGrid.Utility
 		public static int PixelToEMU(RGFloat pixel, RGFloat dpi)
 		{
 			return (int)(pixel * _emi_in_inch / dpi);
+		}
+
+		public static T ScaleByDPI<T>(T val)
+		{
+			double dpi = PlatformUtility.GetDPI();
+			double scale = dpi / 96.0;
+
+			double dVal = (double)Convert.ChangeType(val, typeof(double));
+
+			T result = (T)Convert.ChangeType(dVal * scale, typeof(T));
+			return result;
 		}
 	}
 
