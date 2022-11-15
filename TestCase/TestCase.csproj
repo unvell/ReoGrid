@@ -5,7 +5,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>unvell.ReoGrid.Tests</RootNamespace>
     <AssemblyName>ReoGridUnitTest</AssemblyName>
-    <StartupObject></StartupObject>
+    <StartupObject>unvell.ReoGrid.Tests.Program</StartupObject>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>

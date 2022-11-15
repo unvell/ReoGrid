@@ -506,11 +506,10 @@ namespace unvell.ReoGrid.Tests
 
 		public static void AssertSame(object value, object expect, string msg = null)
 		{
-			if((value is double || value is int || value is float || value is long || value is short  || value is byte || value is char || value is ushort)
-				&& (expect is double || expect is int || expect is float || expect is long || expect is short  || expect is byte || expect is char || expect is ushort))
+			if((value is double || value is int || value is float || value is long || value is short  || value is byte || value is char || value is ushort || value is decimal)
+				&& (expect is double || expect is int || expect is float || expect is long || expect is short  || expect is byte || expect is char || expect is ushort || expect is decimal))
 			{
-				AssertEquals((double)(Convert.ChangeType(value, typeof(double))),
-					(double)(Convert.ChangeType(expect, typeof(double))), msg);
+				AssertTrue(((double)Convert.ChangeType(value, typeof(double)) - (double)Convert.ChangeType(expect, typeof(double))) <= double.Epsilon, msg);
 			}
 			//else if (value is System.Drawing.Color && expect is System.Drawing.Color)
 			//{

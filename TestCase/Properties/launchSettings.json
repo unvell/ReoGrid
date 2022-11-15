@@ -1,8 +1,7 @@
 {
   "profiles": {
     "TestCase": {
-      "commandName": "Project",
-      "commandLineArgs": "-gui "
+      "commandName": "Project"
     }
   }
 }
