@@ -312,8 +312,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 			// data
 			SharedStrings sharedStringTable = doc.ReadSharedStringTable();
 
-			var defaultFont = fonts.list.ElementAtOrDefault(0) as Schema.Font;
-			if (defaultFont != null)
+			if (fonts?.list != null && fonts.list.ElementAtOrDefault(0) is Font defaultFont)
 			{
 				SetStyleFont(doc, rgSheet.RootStyle, defaultFont);
 			}
