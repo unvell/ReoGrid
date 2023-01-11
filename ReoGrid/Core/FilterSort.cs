@@ -313,7 +313,7 @@ namespace unvell.ReoGrid
 					throw new InvalidOperationException("Cannot change a part of range, all cells should be having same colspan on column.");
 				}
 
-				IComparer<object> comparer = cellDataComparer == null ? new CellComparer(order) : new CellComparerAdapter(cellDataComparer, order);
+				IComparer<object> comparer = cellDataComparer == null ? (IComparer<object>)new CellComparer(order) : new CellComparerAdapter(cellDataComparer, order);
 
 				var data = this.GetSortedData(columnIndex, range.Row, range.EndRow, range.Col, range.EndCol, ref affectRange, comparer, order);
 
