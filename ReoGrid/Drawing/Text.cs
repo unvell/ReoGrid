@@ -1208,8 +1208,22 @@ namespace unvell.ReoGrid.Drawing.Text
 
 			for (int n = 0; n < text.Length; n++)
 			{
-				ushort glyphIndex = glyphTypeface.CharacterToGlyphMap[text[n]];
-				GlyphIndexes.Add(glyphIndex);
+				char ch = text[n];
+
+				if (glyphTypeface.CharacterToGlyphMap.TryGetValue(ch, out var glyphIndex))
+				{
+					GlyphIndexes.Add(glyphIndex);
+				}
+				else
+				{
+					// current typeface doesn't contains the character, try find another
+					var (otherTypeface, otherGlyphTypeface) = PlatformUtility.FindTypefaceContainsCharacter(ch);
+					if (otherGlyphTypeface != null)
+					{
+						glyphTypeface = otherGlyphTypeface;
+						GlyphIndexes.Add(otherGlyphTypeface.CharacterToGlyphMap[ch]);
+                    }
+                }
 
 				double width = glyphTypeface.AdvanceWidths[glyphIndex] * size;
 				this.TextSizes.Add(width);

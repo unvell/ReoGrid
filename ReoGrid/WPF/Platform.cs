@@ -19,6 +19,7 @@
 #if WPF
 
 using System;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Media;
 
@@ -82,7 +83,34 @@ namespace unvell.ReoGrid.Rendering
 			return null;
 		}
 
-		private static ResourcePoolManager resourcePoolManager;// = new ResourcePoolManager();
+		public static (Typeface, GlyphTypeface) FindTypefaceContainsCharacter(char ch, CultureInfo ci = null)
+		{
+			if (ci == null)
+			{
+				ci = CultureInfo.CurrentCulture;
+			}
+
+			foreach (var font in Fonts.SystemFontFamilies)
+			{
+				foreach (var typeface in font.GetTypefaces())
+				{
+					if (typeface.TryGetGlyphTypeface(out var glyphTypeface))
+					{
+						if (glyphTypeface.FaceNames.TryGetValue(ci, out var name))
+						{
+							if (glyphTypeface.CharacterToGlyphMap.ContainsKey(ch))
+							{
+								return (typeface, glyphTypeface);
+							}
+						}
+					}
+				}
+			}
+
+			return (null, null);
+		}
+
+        private static ResourcePoolManager resourcePoolManager;// = new ResourcePoolManager();
 
 		internal static Graphics.Size MeasureText(IRenderer r, string text, string fontName, double fontSize, Drawing.Text.FontStyles style)
 		{
