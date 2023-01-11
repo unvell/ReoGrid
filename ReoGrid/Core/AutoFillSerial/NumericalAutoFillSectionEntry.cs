@@ -9,9 +9,9 @@
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Copyright (c) 2012-2021 Jing Lu <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
  * Copyright (c) 2017 Koen Visser, all rights reserved.
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 

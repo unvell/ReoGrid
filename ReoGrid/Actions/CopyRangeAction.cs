@@ -11,7 +11,7 @@
  *
  * Thank you to all contributors!
  * 
- * (c) 2012-2020 Jingwood, unvell.com <jingwood at unvell.com>
+ * (c) 2012-2023 Jingwood, unvell inc. <jingwood at unvell.com>
  * 
  ****************************************************************************/
 

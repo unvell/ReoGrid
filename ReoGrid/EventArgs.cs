@@ -11,8 +11,8 @@
  *
  * ReoGrid is open source software released under MIT license.
  *
- * Copyright (c) 2012-2021 Jing Lu <jingwood at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
