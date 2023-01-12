@@ -96,7 +96,7 @@ namespace unvell.ReoGrid.Rendering
 				{
 					if (typeface.TryGetGlyphTypeface(out var glyphTypeface))
 					{
-						if (glyphTypeface.FaceNames.TryGetValue(ci, out var name))
+						if (glyphTypeface.FaceNames.ContainsKey(ci))
 						{
 							if (glyphTypeface.CharacterToGlyphMap.ContainsKey(ch))
 							{
