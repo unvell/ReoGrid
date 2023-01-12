@@ -1204,7 +1204,10 @@ namespace unvell.ReoGrid.Drawing.Text
 			var glyphTypeface = this.FontInfo.GlyphTypeface;
 			var size = this.fontSize * 1.33d;
 
-			this.GlyphIndexes.Capacity = text.Length;
+			if (this.GlyphIndexes.Capacity < text.Length)
+			{
+				this.GlyphIndexes.Capacity = text.Length;
+			}
 
 			for (int n = 0; n < text.Length; n++)
 			{
