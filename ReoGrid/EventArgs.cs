@@ -733,7 +733,7 @@ namespace unvell.ReoGrid.Events
 		}
 	}
 
-    public class BeforeAutoFitColumnWidthEventArgs : WorksheetColumnsEventArgs
+    public class BeforeAutoFitColumnWidthEventArgs : ColumnsWidthChangedEventArgs
     {
         /// <summary>
         /// Whether to cancel current auto fit operation.
@@ -750,8 +750,8 @@ namespace unvell.ReoGrid.Events
         /// </summary>
         /// <param name="index">number of column start to adjust</param>
         /// <param name="count">number of columns to adjust</param>
-        public BeforeAutoFitColumnWidthEventArgs(int index, int count)
-            : base(index, count)
+        public BeforeAutoFitColumnWidthEventArgs(int index, int count, int width)
+            : base(index, count, width)
         {
         }
     }
