@@ -800,7 +800,7 @@ namespace unvell.ReoGrid
 				throw new ArgumentOutOfRangeException("col");
 			}
 
-			RGFloat maxWidth = 0;
+            RGFloat maxWidth = 0;
 
 			for (int r = 0; r <= this.MaxContentRow; r++)
 			{
@@ -843,7 +843,17 @@ namespace unvell.ReoGrid
 				}
 			}
 
-			if (maxWidth > 0)
+            if (BeforeAutoFitColumnWidth != null)
+            {
+                var before_arg = new BeforeAutoFitColumnWidthEventArgs(col, 1, (int)maxWidth);
+                BeforeAutoFitColumnWidth(this, before_arg);
+                if (before_arg.IsCancelled)
+                {
+                    return before_arg.WidthChanged;
+                }
+            }
+
+            if (maxWidth > 0)
 			{
 				if (maxWidth < 0) maxWidth = 0;
 				if (maxWidth > ushort.MaxValue - 2) maxWidth = ushort.MaxValue - 2;
@@ -2986,8 +2996,13 @@ namespace unvell.ReoGrid
 		/// </summary>
 		public event EventHandler<ColumnsWidthChangedEventArgs> ColumnsWidthChanged;
 
-		#endregion // Events
-	}
+        /// <summary>
+        /// Event raised before a column's width is auto changed.
+        /// </summary>
+        public event EventHandler<BeforeAutoFitColumnWidthEventArgs> BeforeAutoFitColumnWidth;
+
+        #endregion // Events
+    }
 
 	#region Header Defines
 	/// <summary>

@@ -733,14 +733,37 @@ namespace unvell.ReoGrid.Events
 		}
 	}
 
-	#endregion // Column Changes
+    public class BeforeAutoFitColumnWidthEventArgs : ColumnsWidthChangedEventArgs
+    {
+        /// <summary>
+        /// Whether to cancel current auto fit operation.
+        /// </summary>
+        public bool IsCancelled { get; set; }
 
-	#region Border Changes
+        /// <summary>
+        /// Whether the width was changed.
+        /// </summary>
+        public bool WidthChanged { get; set; }
 
-	/// <summary>
-	/// Event raised on border added to a range.
-	/// </summary>
-	public class BorderAddedEventArgs : RangeEventArgs
+        /// <summary>
+        /// Create before auto fit column width event argument
+        /// </summary>
+        /// <param name="index">number of column start to adjust</param>
+        /// <param name="count">number of columns to adjust</param>
+        public BeforeAutoFitColumnWidthEventArgs(int index, int count, int width)
+            : base(index, count, width)
+        {
+        }
+    }
+
+    #endregion // Column Changes
+
+    #region Border Changes
+
+    /// <summary>
+    /// Event raised on border added to a range.
+    /// </summary>
+    public class BorderAddedEventArgs : RangeEventArgs
 	{
 		/// <summary>
 		/// Position of border added.
