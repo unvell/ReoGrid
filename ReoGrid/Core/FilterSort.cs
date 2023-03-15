@@ -34,7 +34,7 @@ namespace unvell.ReoGrid
 {
 	partial class Worksheet
 	{
-        public Dictionary<int, int> OldToNewRows { get; private set; }
+        public Dictionary<int, int> SwappedRowIndexes { get; private set; }		
 
         #region Filter
 
@@ -313,7 +313,10 @@ namespace unvell.ReoGrid
 
 			try
 			{
-				this.controlAdapter.ChangeCursor(CursorStyle.Busy);
+				// initialise or remove any old entries
+				SwappedRowIndexes = new Dictionary<int, int>();
+
+                this.controlAdapter.ChangeCursor(CursorStyle.Busy);
 
 				if (!this.CheckQuickSortRange(columnIndex, range.Row, range.EndRow, range.Col, range.EndCol, order, ref affectRange))
 				{
@@ -336,7 +339,7 @@ namespace unvell.ReoGrid
 			finally
 			{
 				// resume to fire events
-				this.ResumeDataChangedEvents();
+                this.ResumeDataChangedEvents();
 			}
 
 			this.RequestInvalidate();
@@ -469,9 +472,6 @@ namespace unvell.ReoGrid
 		private void QuickSortColumn(int columnIndex, int start, int end, int startColumn, int endColumn, SortOrder order,
 			ref RangePosition affectRange, Func<int, int, object, int> cellComparer, int[] sortedOrder)
 		{
-			// remove any previous entries
-			OldToNewRows = new Dictionary<int, int>();
-
 			while (start < end)
 			{
 				object @base = GetCellData((start + end) / 2, columnIndex) as IComparable;
@@ -495,8 +495,16 @@ namespace unvell.ReoGrid
 
 					for (int col = startColumn; col <= endColumn; col++)
 					{
-						SwapCellDataAndPopulateDictionary(col, top, bottom);
-					}
+                        var v = GetCellData(top, col);
+                        SetCellData(top, col, GetCellData(bottom, col));
+                        SetCellData(bottom, col, v);
+
+						// add the swapped row indexes to a dictionary that can be used by the worksheet		
+						if (!SwappedRowIndexes.ContainsKey(top))
+						{
+							SwappedRowIndexes[top] = bottom;
+                        }						
+                    }
 
 					if (affectRange.IsEmpty)
 					{
@@ -520,34 +528,12 @@ namespace unvell.ReoGrid
 				start = bottom + 1;
 			}
 		}
-
-		/// <summary>
-		/// Used for column sorting, swaps cell data & updates a dictionary with the row indexes
-		/// </summary>
-		/// <param name="col"></param>
-		/// <param name="top"></param>
-		/// <param name="bottom"></param>
-        private void SwapCellDataAndPopulateDictionary(int col, int top, int bottom)
-        {
-            var v = GetCellData(top, col);
-            SetCellData(top, col, GetCellData(bottom, col));
-            SetCellData(bottom, col, v);
-
-            if (!OldToNewRows.ContainsKey(top))
-            {
-                if (!OldToNewRows.ContainsValue(bottom))
-                {
-                    OldToNewRows[top] = bottom;
-                }
-            }
-        }
-
+		
         /// <summary>
         /// Event raised when rows sorted on this worksheet.
         /// </summary>
         public event EventHandler<Events.RangeEventArgs> RowsSorted;
 		#endregion // Sort
-
 	}
 
 	/// <summary>
