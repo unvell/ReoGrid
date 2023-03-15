@@ -34,33 +34,35 @@ namespace unvell.ReoGrid
 {
 	partial class Worksheet
 	{
-		#region Filter
+        public Dictionary<int, int> OldToNewRows { get; private set; }
 
-		///// <summary>
-		///// Create filter on specified column.
-		///// </summary>
-		///// <param name="column">Column code that locates a column to create filter.</param>
-		///// <param name="titleRows">Indicates how many title rows exist at the top of worksheet,
-		///// title rows will not be included in filter range.</param>
-		///// <returns>Instance of column filter.</returns>
-		//public AutoColumnFilter CreateColumnFilter(string column, int titleRows = 0,
-		//	AutoColumnFilterUI columnFilterUI = AutoColumnFilterUI.DropdownButtonAndPane)
-		//{
-		//	return CreateColumnFilter(column, column, titleRows, columnFilterUI);
-		//}
+        #region Filter
 
-		/// <summary>
-		/// Create column filter.
-		/// </summary>
-		/// <param name="startColumn">First column specified by an address to create filter.</param>
-		/// <param name="endColumn">Last column specified by an address to the filter.</param>
-		/// <param name="titleRows">Indicates that how many title rows exist at the top of spreadsheet,
-		/// title rows will not be included in filter apply range.</param>
-		/// <param name="columnFilterUI">Indicates whether allow to create graphics user interface (GUI), 
-		/// by default the dropdown-button on the column and candidates dropdown-panel will be created.
-		/// Set this argument as NoGUI to create filter without GUI.</param>
-		/// <returns>Instance of column filter.</returns>
-		public AutoColumnFilter CreateColumnFilter(string startColumn, string endColumn, int titleRows = 0,
+        ///// <summary>
+        ///// Create filter on specified column.
+        ///// </summary>
+        ///// <param name="column">Column code that locates a column to create filter.</param>
+        ///// <param name="titleRows">Indicates how many title rows exist at the top of worksheet,
+        ///// title rows will not be included in filter range.</param>
+        ///// <returns>Instance of column filter.</returns>
+        //public AutoColumnFilter CreateColumnFilter(string column, int titleRows = 0,
+        //	AutoColumnFilterUI columnFilterUI = AutoColumnFilterUI.DropdownButtonAndPane)
+        //{
+        //	return CreateColumnFilter(column, column, titleRows, columnFilterUI);
+        //}
+
+        /// <summary>
+        /// Create column filter.
+        /// </summary>
+        /// <param name="startColumn">First column specified by an address to create filter.</param>
+        /// <param name="endColumn">Last column specified by an address to the filter.</param>
+        /// <param name="titleRows">Indicates that how many title rows exist at the top of spreadsheet,
+        /// title rows will not be included in filter apply range.</param>
+        /// <param name="columnFilterUI">Indicates whether allow to create graphics user interface (GUI), 
+        /// by default the dropdown-button on the column and candidates dropdown-panel will be created.
+        /// Set this argument as NoGUI to create filter without GUI.</param>
+        /// <returns>Instance of column filter.</returns>
+        public AutoColumnFilter CreateColumnFilter(string startColumn, string endColumn, int titleRows = 0,
 			AutoColumnFilterUI columnFilterUI = AutoColumnFilterUI.DropdownButtonAndPanel)
 		{
 			int startIndex = RGUtility.GetNumberOfChar(startColumn);
@@ -467,6 +469,9 @@ namespace unvell.ReoGrid
 		private void QuickSortColumn(int columnIndex, int start, int end, int startColumn, int endColumn, SortOrder order,
 			ref RangePosition affectRange, Func<int, int, object, int> cellComparer, int[] sortedOrder)
 		{
+			// remove any previous entries
+			OldToNewRows = new Dictionary<int, int>();
+
 			while (start < end)
 			{
 				object @base = GetCellData((start + end) / 2, columnIndex) as IComparable;
@@ -490,9 +495,7 @@ namespace unvell.ReoGrid
 
 					for (int col = startColumn; col <= endColumn; col++)
 					{
-						var v = GetCellData(top, col);
-						SetCellData(top, col, GetCellData(bottom, col));
-						SetCellData(bottom, col, v);
+						SwapCellDataAndPopulateDictionary(col, top, bottom);
 					}
 
 					if (affectRange.IsEmpty)
@@ -519,9 +522,30 @@ namespace unvell.ReoGrid
 		}
 
 		/// <summary>
-		/// Event raised when rows sorted on this worksheet.
+		/// Used for column sorting, swaps cell data & updates a dictionary with the row indexes
 		/// </summary>
-		public event EventHandler<Events.RangeEventArgs> RowsSorted;
+		/// <param name="col"></param>
+		/// <param name="top"></param>
+		/// <param name="bottom"></param>
+        private void SwapCellDataAndPopulateDictionary(int col, int top, int bottom)
+        {
+            var v = GetCellData(top, col);
+            SetCellData(top, col, GetCellData(bottom, col));
+            SetCellData(bottom, col, v);
+
+            if (!OldToNewRows.ContainsKey(top))
+            {
+                if (!OldToNewRows.ContainsValue(bottom))
+                {
+                    OldToNewRows[top] = bottom;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Event raised when rows sorted on this worksheet.
+        /// </summary>
+        public event EventHandler<Events.RangeEventArgs> RowsSorted;
 		#endregion // Sort
 
 	}
