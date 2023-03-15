@@ -33,8 +33,8 @@ using unvell.ReoGrid.Interaction;
 namespace unvell.ReoGrid
 {
 	partial class Worksheet
-	{
-        public Dictionary<int, int> SwappedRowIndexes { get; private set; }		
+	{       
+		public List<int[2]> SwappedRowIndexes { get; private set; }
 
         #region Filter
 
@@ -497,14 +497,11 @@ namespace unvell.ReoGrid
 					{
                         var v = GetCellData(top, col);
                         SetCellData(top, col, GetCellData(bottom, col));
-                        SetCellData(bottom, col, v);
-
-						// add the swapped row indexes to a dictionary that can be used by the worksheet		
-						if (!SwappedRowIndexes.ContainsKey(top))
-						{
-							SwappedRowIndexes[top] = bottom;
-                        }						
+                        SetCellData(bottom, col, v);			
                     }
+
+					// add the swapped row indexes to the collection that can be used by the worksheet
+					SwappedRowIndexes.Add(new int[2] { top, bottom });
 
 					if (affectRange.IsEmpty)
 					{
