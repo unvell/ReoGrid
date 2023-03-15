@@ -33,8 +33,8 @@ using unvell.ReoGrid.Interaction;
 namespace unvell.ReoGrid
 {
 	partial class Worksheet
-	{       
-		public List<int[2]> SwappedRowIndexes { get; private set; }
+	{
+		public List<int[]> SwappedRowIndexes { get; private set; }
 
         #region Filter
 
@@ -314,7 +314,7 @@ namespace unvell.ReoGrid
 			try
 			{
 				// initialise or remove any old entries
-				SwappedRowIndexes = new Dictionary<int, int>();
+				SwappedRowIndexes = new List<int[]>();
 
                 this.controlAdapter.ChangeCursor(CursorStyle.Busy);
 
