@@ -34,8 +34,6 @@ namespace unvell.ReoGrid
 {
 	partial class Worksheet
 	{
-		public List<int[]> SwappedRowIndexes { get; private set; }
-
         #region Filter
 
         ///// <summary>
@@ -183,19 +181,25 @@ namespace unvell.ReoGrid
 		/// </summary>
 		public event EventHandler RowsFiltered;
 
-		#endregion // Filter
+        #endregion // Filter
 
-		#region Sort
+        #region Sort
 
-		/// <summary>
-		/// Sort data on specified column.
-		/// </summary>
-		/// <param name="columnAddress">Base column specified by an address to sort data.</param>
-		/// <param name="order">Order of data sort.</param>
-		/// <param name="cellDataComparer">Custom cell data comparer, compares two cells and returns an integer. 
-		/// Set this value to null to use default built-in comparer.</param>
-		/// <returns>Data changed range</returns>
-		public RangePosition SortColumn(string columnAddress, SortOrder order = SortOrder.Ascending,
+        /// <summary>
+        /// a collection of row indexes that is populated after SortColumn is called
+        /// this can then be used to sort the row headers
+        /// </summary>
+        public List<int[]> SwappedRowIndexes { get; private set; }
+
+        /// <summary>
+        /// Sort data on specified column.
+        /// </summary>
+        /// <param name="columnAddress">Base column specified by an address to sort data.</param>
+        /// <param name="order">Order of data sort.</param>
+        /// <param name="cellDataComparer">Custom cell data comparer, compares two cells and returns an integer. 
+        /// Set this value to null to use default built-in comparer.</param>
+        /// <returns>Data changed range</returns>
+        public RangePosition SortColumn(string columnAddress, SortOrder order = SortOrder.Ascending,
 			CellElementFlag moveElementFlag = CellElementFlag.Data,
 			Func<int, int, object, object, int> cellDataComparer = null)
 		{
@@ -501,7 +505,7 @@ namespace unvell.ReoGrid
                     }
 
 					// add the swapped row indexes to the collection that can be used by the worksheet
-					SwappedRowIndexes.Add(new int[2] { top, bottom });
+					SwappedRowIndexes.Add(new[] { top, bottom });
 
 					if (affectRange.IsEmpty)
 					{
