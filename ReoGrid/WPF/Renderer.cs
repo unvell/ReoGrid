@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -222,6 +223,10 @@ namespace unvell.ReoGrid.Rendering
 
         public void DrawRectangle(Rectangle rect, SolidColor color, double width, LineStyles lineStyle)
         {
+            // Debug.WriteLine(rect);
+            // string stackInfo = new StackTrace().ToString();
+            //调取该方法的堆栈信息
+            // Debug.WriteLine(stackInfo);
             var p = this.resourceManager.GetPen(color, width, ToWPFDashStyle(lineStyle));
             if (p != null)
             {

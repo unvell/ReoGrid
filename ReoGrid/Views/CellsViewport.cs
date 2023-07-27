@@ -1020,7 +1020,7 @@ namespace unvell.ReoGrid.Views
 
                 var scaledSelectionRect = GetScaledAndClippedRangeRect(this,
                     sheet.SelectionRange.StartPos, sheet.SelectionRange.EndPos, selectionBorderWidth);
-
+                // Debug.WriteLine(scaledSelectionRect);
                 if (scaledSelectionRect.Width > 0 || scaledSelectionRect.Height > 0)
                 {
                     SolidColor selectionFillColor = controlStyle.Colors[ControlAppearanceColors.SelectionFill];
@@ -1047,7 +1047,7 @@ namespace unvell.ReoGrid.Views
 #elif WPF
                         g.FillRectangle(scaledSelectionRect, selectionFillColor);
 #endif // WPF
-
+                        
                         if (selectionBorderColor.A > 0)
                         {
                             g.DrawRectangle(scaledSelectionRect, selectionBorderColor, selectionBorderWidth, LineStyles.Solid);
