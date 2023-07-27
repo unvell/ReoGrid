@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFrameworks>net7.0-windows;net48</TargetFrameworks>
     <OutputType>WinExe</OutputType>
     <RootNamespace>unvell.ReoGrid.WPFDemo</RootNamespace>
     <AssemblyName>WPFDemo</AssemblyName>

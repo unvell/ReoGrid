@@ -517,11 +517,16 @@ namespace unvell.ReoGrid.Views
 			int width = toColHead.Right - colHead.Left;
 			int height = toRowHead.Bottom - rowHead.Top;
 
-			Rectangle scaledRangeRect = new Rectangle(
+			/*Rectangle scaledRangeRect = new Rectangle(
 					(colHead.Left) * view.ScaleFactor,
 					(rowHead.Top) * view.ScaleFactor,
 					((width) * view.ScaleFactor),
-					((height) * view.ScaleFactor));
+					((height) * view.ScaleFactor));*/
+			Rectangle scaledRangeRect = new Rectangle(
+					(colHead.Left) * view.ScaleFactor - borderWidth/2,
+					(rowHead.Top) * view.ScaleFactor - borderWidth/2,
+					((width) * view.ScaleFactor) + (borderWidth +1),
+					((height) * view.ScaleFactor) + (borderWidth +1));
 
 			return GetClippedRangeRect(view, scaledRangeRect, borderWidth);
 		}

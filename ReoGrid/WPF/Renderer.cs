@@ -219,7 +219,13 @@ namespace unvell.ReoGrid.Rendering
 			var p = this.resourceManager.GetPen(color, width, ToWPFDashStyle(lineStyle));
 			if (p != null)
 			{
-				this.g.DrawRectangle(null, p, rect);
+				GuidelineSet guidelines = new GuidelineSet();
+				guidelines.GuidelinesX.Add(rect.X + p.Thickness/2);
+				guidelines.GuidelinesX.Add(rect.X + rect.Width + p.Thickness/2);
+				guidelines.GuidelinesY.Add(rect.Y + p.Thickness/2);
+				guidelines.GuidelinesY.Add(rect.Y + rect.Height+ p.Thickness/2);
+				g.PushGuidelineSet(guidelines);
+				g.DrawRectangle(null, p, rect);
 			}
 		}
 
