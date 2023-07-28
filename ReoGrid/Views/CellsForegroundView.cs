@@ -117,8 +117,6 @@ namespace unvell.ReoGrid.Views
 							controlStyle.SelectionBorderWidth);
 
 						SolidColor selectionBorderColor = controlStyle.Colors[ControlAppearanceColors.SelectionBorder];
-
-						Debug.WriteLine(scaledSelectionMovingRect);
 						dc.Graphics.DrawRectangle(scaledSelectionMovingRect,
 							ColorUtility.FromAlphaColor(255, selectionBorderColor),
 							controlStyle.SelectionBorderWidth, LineStyles.Solid);
