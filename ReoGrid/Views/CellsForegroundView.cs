@@ -116,8 +116,6 @@ namespace unvell.ReoGrid.Views
 							sheet.draggingSelectionRange.EndPos,
 							controlStyle.SelectionBorderWidth);
 
-						scaledSelectionMovingRect.Offset(-1, -1);
-
 						SolidColor selectionBorderColor = controlStyle.Colors[ControlAppearanceColors.SelectionBorder];
 
 						Debug.WriteLine(scaledSelectionMovingRect);
