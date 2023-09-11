@@ -329,7 +329,7 @@ namespace unvell.ReoGrid.Drawing
 			{
 				if (this.isSelected != value)
 				{
-					this.isSelected = true;
+					this.isSelected = value;
 
 					if (this.isSelected)
 					{
