@@ -399,11 +399,11 @@ namespace unvell.ReoGrid.Graphics
 			return this.ToArgb();
 		}
 
-		#endregion // Operator Overrides
+        #endregion // Operator Overrides
 
-		#region Platform Converters
+        #region Platform Converters
 
-		#region WinForm
+        #region WinForm
 
 #if WINFORM
 		public static implicit operator SolidColor(System.Drawing.Color color)
@@ -459,7 +459,7 @@ namespace unvell.ReoGrid.Graphics
 		//}
 #endif // WINFORM
 
-		#endregion // WinForm
+        #endregion // WinForm
 
 #if WPF
 		public static implicit operator SolidColor(System.Windows.Media.Color color)
@@ -469,6 +469,17 @@ namespace unvell.ReoGrid.Graphics
 		public static implicit operator System.Windows.Media.Color(SolidColor color)
 		{
 			return System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B);
+		}
+#endif // WPF
+
+#if AVALONIA
+        public static implicit operator SolidColor(Avalonia.Media.Color color)
+		{
+			return SolidColor.FromArgb(color.A, color.R, color.G, color.B);
+		}
+		public static implicit operator Avalonia.Media.Color(SolidColor color)
+		{
+			return Avalonia.Media.Color.FromArgb(color.A, color.R, color.G, color.B);
 		}
 #endif // WPF
 
@@ -517,13 +528,13 @@ namespace unvell.ReoGrid.Graphics
 				color.B / 255.0f, color.A / 255.0f);
 		}
 #endif // ANDROID
-		#endregion // Platform Converters
+        #endregion // Platform Converters
 
-		#region Predefined Colors
+        #region Predefined Colors
 #pragma warning disable 1591
 
-		//public static readonly Color Empty = new Color(0, 0, 0, 0);
-		public static readonly SolidColor Transparent = new SolidColor(0, 0, 0, 0);
+        //public static readonly Color Empty = new Color(0, 0, 0, 0);
+        public static readonly SolidColor Transparent = new SolidColor(0, 0, 0, 0);
 
 		public static readonly SolidColor White = new SolidColor(255, 255, 255);
 		public static readonly SolidColor WhiteSmoke = new SolidColor(245, 245, 245);

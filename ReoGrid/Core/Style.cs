@@ -642,8 +642,8 @@ namespace unvell.ReoGrid
 			cell.StyleParentKind = StyleParentKind.Own;
 
 			if ((flags & (/*PlainStyleFlag.AlignAll  // may don't need this  |*/
-				PlainStyleFlag.TextWrap |
-#if WINFORM || WPF || iOS
+				PlainStyleFlag.TextWrap  |
+#if WINFORM || WPF || iOS || AVALONIA
 				PlainStyleFlag.FontAll
 #elif ANDROID
 				PlainStyleFlag.FontName | PlainStyleFlag.FontStyleAll

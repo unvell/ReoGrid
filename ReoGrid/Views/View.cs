@@ -41,7 +41,7 @@ using unvell.ReoGrid.Main;
 
 namespace unvell.ReoGrid.Views
 {
-	internal class View : IView
+    internal class View : IView
 	{
 		private IViewportController viewportController;
 

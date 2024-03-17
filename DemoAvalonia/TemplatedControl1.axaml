@@ -1,0 +1,46 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:unvell.ReoGrid.WPFDemo">
+  <Design.PreviewWith>
+    <controls:TemplatedControl1 />
+  </Design.PreviewWith>
+
+  <Style Selector="controls|TemplatedControl1">
+		  <!-- Set Defaults -->
+		  <Setter Property="Template">
+			  <ControlTemplate>
+
+
+				  <ScrollViewer Name="PART_ScrollViewer"
+								HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+								VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+								IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+								AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+								BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
+					  <Panel>
+
+						  <TextPresenter Name="PART_TextPresenter"
+										Text="{TemplateBinding Text, Mode=TwoWay}"
+										CaretIndex="{TemplateBinding CaretIndex}"
+										SelectionStart="{TemplateBinding SelectionStart}"
+										SelectionEnd="{TemplateBinding SelectionEnd}"
+										TextAlignment="{TemplateBinding TextAlignment}"
+										TextWrapping="{TemplateBinding TextWrapping}"
+										LineHeight="{TemplateBinding LineHeight}"
+										LetterSpacing="{TemplateBinding LetterSpacing}"
+										PasswordChar="{TemplateBinding PasswordChar}"
+										RevealPassword="{TemplateBinding RevealPassword}"
+										SelectionBrush="{TemplateBinding SelectionBrush}"
+										SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+										CaretBrush="{TemplateBinding CaretBrush}"
+										HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+										VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+					  </Panel>
+				  </ScrollViewer>
+
+
+			  </ControlTemplate>
+		  </Setter>
+	  </Style>
+
+</Styles>

@@ -19,15 +19,14 @@
 #if DRAWING
 
 using System;
-
 #if WINFORM || ANDROID
 using RGFloat = System.Single;
-#else
+#elif !GLOBALUSING
 using RGFloat = System.Double;
 #endif // WINFORM
 
-using unvell.ReoGrid.Rendering;
 using unvell.ReoGrid.Graphics;
+using DrawingContext = unvell.ReoGrid.Rendering.DrawingContext;
 
 namespace unvell.ReoGrid.Drawing.Shapes
 {
@@ -52,11 +51,13 @@ namespace unvell.ReoGrid.Drawing.Shapes
 		protected System.Drawing.Drawing2D.GraphicsPath Path = new System.Drawing.Drawing2D.GraphicsPath();
 #elif WPF
 		protected System.Windows.Media.PathGeometry Path = new System.Windows.Media.PathGeometry();
+#elif AVALONIA
+		protected Avalonia.Media.PathGeometry Path = new Avalonia.Media.PathGeometry();
 #elif ANDROID
 		protected Android.Graphics.Path Path = new Android.Graphics.Path();
 #endif // WINFORM
 
-		protected abstract void UpdatePath();
+        protected abstract void UpdatePath();
 
 		/// <summary>
 		/// Render path shape to graphics context.
@@ -138,12 +139,28 @@ namespace unvell.ReoGrid.Drawing.Shapes
 					RadiusY = c
 				});
 			}
+#elif AVALONIA
+
+			Path.Figures.Clear();
+
+			if (c > 0)
+            {
+                var rectangle = new Avalonia.Controls.Shapes.Rectangle
+                    {Width = Width, Height = Height, RadiusX = c, RadiusY = c};
+
+
+               // Path.Add(rectangle.C );
+			}
+            else
+            {
+              //  Path.Figures.Add();
+            }
 
 #elif ANDROID
 #endif // WINFORM
-		}
+        }
 
-		protected override Rectangle TextBounds
+        protected override Rectangle TextBounds
 		{
 			get
 			{
@@ -230,11 +247,26 @@ namespace unvell.ReoGrid.Drawing.Shapes
 
 				Path.Figures.Add(pf);
 			}
+#elif AVALONIA
+
+			Path.Figures.Clear();
+
+			if (this.sweepAngle > 0)
+			{
+				Avalonia.Media.PathFigure pf = new Avalonia.Media.PathFigure();
+			
+				pf.Segments.Add(new Avalonia.Media.LineSegment{Point = this.OriginPoint});
+				pf.Segments.Add(new Avalonia.Media.ArcSegment{Point =new Avalonia.Point(0, 0),
+					Size=new Avalonia.Size(this.Width, this.Height),RotationAngle = this.sweepAngle,IsLargeArc = true,SweepDirection = Avalonia.Media.SweepDirection.Clockwise
+                });
+
+				Path.Figures.Add(pf);
+			}
 
 #elif ANDROID
 #endif // WINFORM
-		}
-	}
+        }
+    }
 	#endregion // Pie
 
 }

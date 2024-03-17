@@ -26,7 +26,7 @@ using unvell.ReoGrid.Graphics;
 using System.Windows.Forms;
 using RGFloat = System.Single;
 using RGImage = System.Drawing.Image;
-#else
+#elif !GLOBALUSING
 using RGFloat = System.Double;
 using RGImage = System.Windows.Media.ImageSource;
 #endif // WINFORM
@@ -181,7 +181,7 @@ namespace unvell.ReoGrid.CellTypes
 			ControlPaint.DrawRadioButton(dc.Graphics.PlatformGraphics,
 				(System.Drawing.Rectangle)this.ContentBounds, state);
 
-#elif WPF
+#elif WPF || AVALONIA
 			var g = dc.Graphics;
 
 			var ox = this.ContentBounds.OriginX;

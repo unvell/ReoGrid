@@ -25,7 +25,7 @@ using System.Linq;
 using System.Windows.Forms;
 using RGFloat = System.Single;
 using RGImage = System.Drawing.Image;
-#else
+#elif !GLOBALUSING
 using RGFloat = System.Double;
 using RGImage = System.Windows.Media.ImageSource;
 #endif // WINFORM

@@ -25,9 +25,12 @@ using System.Linq;
 using System.Windows.Forms;
 using RGFloat = System.Single;
 using RGImage = System.Drawing.Image;
-#else
+#elif !GLOBALUSING
 using RGFloat = System.Double;
 using RGImage = System.Windows.Media.ImageSource;
+#elif AVALONIA
+using Avalonia.Collections;
+using Avalonia.Media;
 #endif // WINFORM
 
 using unvell.ReoGrid.Events;
@@ -203,12 +206,49 @@ namespace unvell.ReoGrid.CellTypes
 
 				g.FillPath(StaticResources.SystemColor_WindowText, path);
 			}
+#elif AVALONIA
+			var g = dc.Graphics;
+
+			if (this.IsPressed)
+			{
+				g.FillRectangle(this.ContentBounds, StaticResources.SystemColor_Control);
+			}
+
+			g.DrawRectangle(this.ContentBounds, StaticResources.SystemColor_ControlDark);
+
+            if (this.isChecked)
+            {
+                var x = this.ContentBounds.X;
+                var y = this.ContentBounds.Y;
+                var w = this.ContentBounds.Width;
+                var h = this.ContentBounds.Height;
+
+                var path = new Avalonia.Media.PathGeometry();
+                var figure = new Avalonia.Media.PathFigure()
+                {
+                    StartPoint = new Avalonia.Point(x + w * 0.167, y + h * 0.546),
+                
+                    Segments = new PathSegments()
+                    {
+                        new Avalonia.Media.LineSegment {Point = new Avalonia.Point(x + w * 0.444, y + h * 0.712)},
+                        new Avalonia.Media.LineSegment {Point = new Avalonia.Point(x + w * 0.833, y + h * 0.157)},
+                        new Avalonia.Media.LineSegment {Point =new Avalonia.Point(x + w * 0.944, y + h * 0.323) },
+                        new Avalonia.Media.LineSegment {Point= new Avalonia.Point(x + w * 0.500, y + h * 0.934) },
+                        new Avalonia.Media.LineSegment {Point = new Avalonia.Point(x + w * 0.080, y + h * 0.712)},
+					},
+
+                };
+
+				path.Figures.Add(figure);
+
+				g.FillPath(StaticResources.SystemColor_WindowText, path);
+			}
 #endif // WPF
-		}
+        }
 
-		#endregion // Paint
+        #endregion // Paint
 
-		public override bool OnStartEdit()
+        public override bool OnStartEdit()
 		{
 			return false;
 		}

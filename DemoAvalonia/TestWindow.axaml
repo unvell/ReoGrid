@@ -1,0 +1,12 @@
+﻿<Window x:Class="unvell.ReoGrid.WPFDemo.TestWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:unvell.ReoGrid.WPFDemo"
+                xmlns:rg="clr-namespace:unvell.ReoGrid;assembly=unvell.ReoGrid"
+        Title="ReoGrid WPF Demo" Height="640" Width="800">
+    <Grid>
+            <rg:ReoGridControl x:Name="grid" Margin="0.5" >
+                
+            </rg:ReoGridControl>
+    </Grid>
+</Window>

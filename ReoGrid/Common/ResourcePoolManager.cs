@@ -17,12 +17,16 @@
  * 
  ****************************************************************************/
 
-#if WINFORM || WPF
- 
+#if WINFORM || WPF || AVALONIA
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
+
+#if AVALONIA
+using Avalonia.Media;
+#else
 
 using WFFont = System.Drawing.Font;
 using WFFontStyle = System.Drawing.FontStyle;
@@ -52,49 +56,50 @@ using RGDashStyle = System.Windows.Media.DashStyle;
 using RGDashStyles = System.Windows.Media.DashStyles;
 
 #endif // WPF
+#endif
 
 using unvell.ReoGrid.Graphics;
 
 namespace unvell.Common
 {
-	internal sealed class ResourcePoolManager : IDisposable
-	{
-		//private static readonly ResourcePoolManager instance = new ResourcePoolManager();
-		//public static ResourcePoolManager Instance { get { return instance; } }
+    internal sealed class ResourcePoolManager : IDisposable
+    {
+        //private static readonly ResourcePoolManager instance = new ResourcePoolManager();
+        //public static ResourcePoolManager Instance { get { return instance; } }
 
-		internal ResourcePoolManager()
-		{
-			Logger.Log("resource pool", "create resource pool...");
-		}
+        internal ResourcePoolManager()
+        {
+            Logger.Log("resource pool", "create resource pool...");
+        }
 
-#region Brush
-#if WINFORM || WPF
-		private Dictionary<SolidColor, RGSolidBrush> cachedBrushes = new Dictionary<SolidColor, RGSolidBrush>();
+        #region Brush
+#if WINFORM || WPF || AVALONIA
+        private Dictionary<SolidColor, RGSolidBrush> cachedBrushes = new Dictionary<SolidColor, RGSolidBrush>();
 
-		public RGSolidBrush GetBrush(SolidColor color)
-		{
-			if (color.A == 0) return null;
+        public RGSolidBrush GetBrush(SolidColor color)
+        {
+            if (color.A == 0) return null;
 
-			lock (cachedBrushes)
-			{
-				if (cachedBrushes.TryGetValue(color, out var b))
-				{
-					return b;
-				}
-				else
-				{
-					b = new RGSolidBrush(color);
-					cachedBrushes.Add(color, b);
+            lock (cachedBrushes)
+            {
+                if (cachedBrushes.TryGetValue(color, out var b))
+                {
+                    return b;
+                }
+                else
+                {
+                    b = new RGSolidBrush(color);
+                    cachedBrushes.Add(color, b);
 
-					if ((cachedBrushes.Count % 10) == 0)
-					{
-						Logger.Log("resource pool", "solid brush count: " + cachedBrushes.Count);
-					}
+                    if ((cachedBrushes.Count % 10) == 0)
+                    {
+                        Logger.Log("resource pool", "solid brush count: " + cachedBrushes.Count);
+                    }
 
-					return b;
-				}
-			}
-		}
+                    return b;
+                }
+            }
+        }
 #endif // WINFORM || WPF
 
 #if WINFORM
@@ -168,74 +173,116 @@ namespace unvell.Common
 			}
 		}
 #endif // WINFORM
-#endregion Brush
+        #endregion Brush
 
-#region Pen
-		private Dictionary<SolidColor, List<RGPen>> cachedPens = new Dictionary<SolidColor, List<RGPen>>();
-		public RGPen GetPen(SolidColor color)
-		{
-			return GetPen(color, 1, RGDashStyles.Solid);
-		}
-		public RGPen GetPen(SolidColor color, RGFloat weight, RGDashStyle style)
-		{
-			if (color.A == 0) return null;
+        #region Pen
+        private Dictionary<SolidColor, List<RGPen>> cachedPens = new Dictionary<SolidColor, List<RGPen>>();
+        public RGPen GetPen(SolidColor color)
+        {
+            return GetPen(color, 1, RGDashStyles.Solid);
+        }
+        public RGPen GetPen(SolidColor color, RGFloat weight, RGDashStyle style)
+        {
+            if (color.A == 0) return null;
 
-			RGPen pen;
-			List<RGPen> penlist;
+            RGPen pen;
+            List<RGPen> penlist;
 
-			lock (cachedPens)
-			{
-				if (!cachedPens.TryGetValue(color, out penlist))
-				{
-					penlist = cachedPens[color] = new List<RGPen>();
+            lock (cachedPens)
+            {
+                if (!cachedPens.TryGetValue(color, out penlist))
+                {
+                    penlist = cachedPens[color] = new List<RGPen>();
 #if WINFORM
 					penlist.Add(pen = new RGPen(color, weight));
-#elif WPF
-				penlist.Add(pen = new RGPen(new RGSolidBrush(color), weight));
+#elif WPF || AVALONIA
+                    penlist.Add(pen = new RGPen(new RGSolidBrush(color), weight));
 #endif // WPF
 
-					pen.DashStyle = style;
+                    pen.DashStyle = style;
 
-					if ((cachedPens.Count % 10) == 0)
-					{
-						Logger.Log("resource pool", "wf pen count: " + cachedPens.Count);
-					}
-				}
-				else
-				{
-					lock (penlist)
-					{
+                    if ((cachedPens.Count % 10) == 0)
+                    {
+                        Logger.Log("resource pool", "wf pen count: " + cachedPens.Count);
+                    }
+                }
+                else
+                {
+                    lock (penlist)
+                    {
 #if WINFORM
 						pen = penlist.FirstOrDefault(p => p.Width == weight && p.DashStyle == style);
-#elif WPF
-						pen = penlist.FirstOrDefault(p => p.Thickness == weight && p.DashStyle == style);
+#elif WPF || AVALONIA
+                        pen = penlist.FirstOrDefault(p => p.Thickness == weight && p.DashStyle == style);
 #endif // WPF
-					}
+                    }
 
-					if (pen == null)
-					{
+                    if (pen == null)
+                    {
 #if WINFORM
 						penlist.Add(pen = new RGPen(color, weight));
-#elif WPF
-					penlist.Add(pen = new RGPen(new RGSolidBrush(color), weight));
+#elif WPF || AVALONIA
+                        penlist.Add(pen = new RGPen(new RGSolidBrush(color), weight));
 #endif // WPF
-						pen.DashStyle = style;
+                        pen.DashStyle = style;
 
-						if ((cachedPens.Count % 10) == 0)
-						{
-							Logger.Log("resource pool", "pen count: " + cachedPens.Count);
-						}
-					}
-				}
-			}
+                        if ((cachedPens.Count % 10) == 0)
+                        {
+                            Logger.Log("resource pool", "pen count: " + cachedPens.Count);
+                        }
+                    }
+                }
+            }
 
-			return pen;
-		}
-#endregion // Pen
+            return pen;
+        }
+        #endregion // Pen
 
-#region Font
 
-		private Dictionary<string, List<WFFont>> fonts = new Dictionary<string, List<WFFont>>();
+        #region Font
+
+#if AVALONIA
+
+        private Dictionary<string, FontFamily> fontFamilies = new();
+
+        public FontFamily GetFontFamily(string name)
+        {
+            FontFamily ff = null;
+            this.fontFamilies.TryGetValue(name, out ff);
+            if (ff == null)
+            {
+                ff = new FontFamily(name);
+                this.fontFamilies[name] = ff;
+            }
+            return ff;
+        }
+
+        private Dictionary<string, List<Typeface>> typefaces = new();
+
+        public Typeface GetTypeface(string name)
+        {
+            return GetTypeface(name, FontWeight.Regular, FontStyle.Normal, FontStretch.Normal);
+        }
+
+        public Typeface GetTypeface(string name, FontWeight weight, FontStyle style, FontStretch stretch)
+        {
+            if (!typefaces.TryGetValue(name, out var list))
+            {
+                this.typefaces[name] = list = new();
+            }
+
+            var typeface = list.FirstOrDefault(t => t.Weight == weight && t.Style == style);
+            if (typeface == default)
+            {
+                list.Add(typeface = new Typeface(new FontFamily(name), style, weight, stretch));
+            }
+
+            return typeface;
+        }
+#else // AVALONIA
+
+
+        private Dictionary<string, List<WFFont>> fonts = new Dictionary<string, List<WFFont>>();
 
 #if WINFORM
 		public WFFont GetFont(string familyName, float emSize, WFFontStyle wfs)
@@ -418,9 +465,11 @@ namespace unvell.Common
 		}
 #endif // WPF
 
-#endregion // Font
+#endif
 
-#region Image
+        #endregion // Font
+
+        #region Image
 #if WINFORM && IMAGE_POOL
 		private Dictionary<Guid, ImageResource> images 
 			= new Dictionary<Guid, ImageResource>();
@@ -479,9 +528,10 @@ namespace unvell.Common
 			return res;
 		}
 #endif
-#endregion
+        #endregion
 
-#region Graphics
+        #region Graphics
+#if !AVALONIA
 
 		private static System.Drawing.Bitmap bitmapForCachedGDIGraphics;
 		private static WFGraphics cachedGDIGraphics;
@@ -498,39 +548,39 @@ namespace unvell.Common
 				return cachedGDIGraphics;
 			}
 		}
+#endif
+        #endregion // Graphics
 
-#endregion // Graphics
+        #region FormattedText
 
-#region FormattedText
+        #endregion // FormattedText
 
-#endregion // FormattedText
+        internal void ReleaseAllResources()
+        {
+            Logger.Log("resource pool", "release all resources...");
 
-		internal void ReleaseAllResources()
-		{
-			Logger.Log("resource pool", "release all resources...");
-
-			int count = 
-				cachedPens.Count +
+            int count =
+                cachedPens.Count +
 
 #if WINFORM
 				hatchBrushes.Count + fonts.Values.Sum(f => f.Count) +
 #endif
-				/*images.Count +*/ cachedBrushes.Count
+                /*images.Count +*/ cachedBrushes.Count
 #if WPF
 				+ typefaces.Sum(t=>t.Value.Count)
 #endif
-				;
+                ;
 
-			// pens
-			foreach (var plist in cachedPens.Values)
-			{
+            // pens
+            foreach (var plist in cachedPens.Values)
+            {
 #if WINFORM
 				foreach (var p in plist) p.Dispose();
 #endif // WINFORM
-				plist.Clear();
-			}
+                plist.Clear();
+            }
 
-			cachedPens.Clear();
+            cachedPens.Clear();
 
 #if WINFORM
 			// fonts
@@ -564,7 +614,7 @@ namespace unvell.Common
 			}
 #endif // WPF
 
-			cachedBrushes.Clear();
+            cachedBrushes.Clear();
 
 #if WINFORM
 
@@ -572,14 +622,14 @@ namespace unvell.Common
 			//if (bitmapForCachedGDIGraphics != null) bitmapForCachedGDIGraphics.Dispose();
 #endif // WINFORM
 
-			Logger.Log("resource pool", count + " objects released.");
-		}
+            Logger.Log("resource pool", count + " objects released.");
+        }
 
-		public void Dispose()
-		{
-			ReleaseAllResources();
-		}
-	}
+        public void Dispose()
+        {
+            ReleaseAllResources();
+        }
+    }
 }
 
 #endif // WINFORM || WPF

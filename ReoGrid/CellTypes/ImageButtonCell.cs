@@ -25,7 +25,7 @@ using System.Linq;
 using System.Windows.Forms;
 using RGFloat = System.Single;
 using RGImage = System.Drawing.Image;
-#else
+#elif !GLOBALUSING
 using RGFloat = System.Double;
 using RGImage = System.Windows.Media.ImageSource;
 #endif // WINFORM
@@ -73,12 +73,17 @@ namespace unvell.ReoGrid.CellTypes
 
 			if (this.Image != null)
 			{
-				RGFloat widthScale = Math.Min((Bounds.Width - 4) / this.Image.Width, 1);
-				RGFloat heightScale = Math.Min((Bounds.Height - 4) / this.Image.Height, 1);
+#if AVALONIA
+				var ImageSize = this.Image.Size;
+#else
+                var ImageSize = this.Image;
+#endif
+                RGFloat widthScale = Math.Min((Bounds.Width - 4) / ImageSize.Width, 1);
+				RGFloat heightScale = Math.Min((Bounds.Height - 4) / ImageSize.Height, 1);
 
 				RGFloat minScale = Math.Min(widthScale, heightScale);
-				RGFloat imageScale = (RGFloat)Image.Height / Image.Width;
-				RGFloat width = Image.Width * minScale;
+				RGFloat imageScale = (RGFloat)ImageSize.Height / ImageSize.Width;
+				RGFloat width = ImageSize.Width * minScale;
 
 				Rectangle r = new Rectangle(0, 0, width, imageScale * width);
 

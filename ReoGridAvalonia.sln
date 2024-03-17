@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8A70DFD7-B3E4-4E79-A6DD-99DC39A80D22}"
+	ProjectSection(SolutionItems) = preProject
+		Samples\background_color_patterns.rgf = Samples\background_color_patterns.rgf
+		Samples\border_styles.rgf = Samples\border_styles.rgf
+		Samples\calendar_2008_1.rgf = Samples\calendar_2008_1.rgf
+		Samples\calendar_2013.rgf = Samples\calendar_2013.rgf
+		Samples\cell_format.rgf = Samples\cell_format.rgf
+		Samples\change_colors.rgf = Samples\change_colors.rgf
+		Samples\Financial_Ratios.rgf = Samples\Financial_Ratios.rgf
+		Samples\input_form.rgf = Samples\input_form.rgf
+		Samples\Maze.rgf = Samples\Maze.rgf
+		Samples\merged_range.rgf = Samples\merged_range.rgf
+		Samples\order_sample.rgf = Samples\order_sample.rgf
+		Samples\outline.rgf = Samples\outline.rgf
+		Samples\printable_report.rgf = Samples\printable_report.rgf
+		Samples\project_cost_summary.rgf = Samples\project_cost_summary.rgf
+		README.txt = README.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReoGridAvalonia", "ReoGrid\ReoGridAvalonia.csproj", "{BDA41722-D9EB-42B4-B3A5-4E799C908FD7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoAvalonia", "DemoAvalonia\DemoAvalonia.csproj", "{6D65F2CF-43C4-4211-9808-C94D0C2EB389}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		WPFDebug|Any CPU = WPFDebug|Any CPU
+		WPFRelease|Any CPU = WPFRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDA41722-D9EB-42B4-B3A5-4E799C908FD7}.Debug|Any CPU.ActiveCfg = AvaloniaDebug|Any CPU
+		{BDA41722-D9EB-42B4-B3A5-4E799C908FD7}.Debug|Any CPU.Build.0 = AvaloniaDebug|Any CPU
+		{BDA41722-D9EB-42B4-B3A5-4E799C908FD7}.Release|Any CPU.ActiveCfg = AvaloniaRelease|Any CPU
+		{BDA41722-D9EB-42B4-B3A5-4E799C908FD7}.Release|Any CPU.Build.0 = AvaloniaRelease|Any CPU
+		{BDA41722-D9EB-42B4-B3A5-4E799C908FD7}.WPFDebug|Any CPU.ActiveCfg = AvaloniaDebug|Any CPU
+		{BDA41722-D9EB-42B4-B3A5-4E799C908FD7}.WPFDebug|Any CPU.Build.0 = AvaloniaDebug|Any CPU
+		{BDA41722-D9EB-42B4-B3A5-4E799C908FD7}.WPFRelease|Any CPU.ActiveCfg = WPFRelease|Any CPU
+		{BDA41722-D9EB-42B4-B3A5-4E799C908FD7}.WPFRelease|Any CPU.Build.0 = WPFRelease|Any CPU
+		{6D65F2CF-43C4-4211-9808-C94D0C2EB389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D65F2CF-43C4-4211-9808-C94D0C2EB389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D65F2CF-43C4-4211-9808-C94D0C2EB389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D65F2CF-43C4-4211-9808-C94D0C2EB389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D65F2CF-43C4-4211-9808-C94D0C2EB389}.WPFDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D65F2CF-43C4-4211-9808-C94D0C2EB389}.WPFDebug|Any CPU.Build.0 = Debug|Any CPU
+		{6D65F2CF-43C4-4211-9808-C94D0C2EB389}.WPFRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{6D65F2CF-43C4-4211-9808-C94D0C2EB389}.WPFRelease|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0E47F93-EC5A-4023-B0B8-460C061CC718}
+	EndGlobalSection
+EndGlobal

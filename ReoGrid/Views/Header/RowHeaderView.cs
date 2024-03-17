@@ -35,7 +35,7 @@ using unvell.ReoGrid.Main;
 namespace unvell.ReoGrid.Views
 {
 
-	class RowHeaderView : HeaderView
+    class RowHeaderView : HeaderView
 	{
 		public RowHeaderView(IViewportController vc)
 			: base(vc)

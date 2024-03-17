@@ -1,0 +1,72 @@
+﻿<Window
+    xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:rg="clr-namespace:unvell.ReoGrid;assembly=unvell.ReoGrid"
+	
+        xmlns:controls="using:unvell.ReoGrid.WPFDemo"
+                x:Class="unvell.ReoGrid.WPFDemo.MainWindow"
+        Title="ReoGrid Avalonia Demo" Height="640" Width="800">
+
+    <DockPanel>
+
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New" Click="File_New_Click" />
+                <MenuItem Header="_Open..." Click="File_Open_Click" />
+                <MenuItem Header="_Save..." Click="File_Save_Click" />
+                <Separator />
+                <MenuItem Header="_Exit" Click="File_Exit_Click" />
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem x:Name="viewSheetTabVisible"  Header="Sheet Tab" Click="View_SheetTab_Click">
+                    <MenuItem.Icon>
+                        <CheckBox x:Name="viewSheetTabVisibleCheckBox" BorderThickness="0" ></CheckBox>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="viewSheetTabNewButtonVisible" Header="Sheet Tab New Button" Click="View_SheetTabNewButton_Click">
+                    <MenuItem.Icon>
+                        <CheckBox x:Name="viewSheetTabNewButtonVisibleCheckBox" BorderThickness="0" ></CheckBox>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="viewGuideLineVisible"  Header="Grid Line" Click="View_GuideLine_Click">
+                    <MenuItem.Icon>
+                        <CheckBox x:Name="viewGuideLineVisibleCheckBox" BorderThickness="0" ></CheckBox>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="viewHorizontalScrollbarVisible" Header="Horizontal Scrollbar" Click="View_HorizontalScrollbar_Click">
+                    <MenuItem.Icon>
+                        <CheckBox x:Name="viewHorizontalScrollbarVisibleCheckBox" BorderThickness="0" ></CheckBox>
+                    </MenuItem.Icon>
+                </MenuItem>
+                    
+                <MenuItem x:Name="viewVerticalScrollbarVisible"  Header="Vertical Scrollbar" Click="View_VerticalScrollbar_Click">
+                    <MenuItem.Icon>
+                        <CheckBox x:Name="viewVerticalScrollbarVisibleCheckBox" BorderThickness="0" ></CheckBox>
+                    </MenuItem.Icon>
+                </MenuItem>
+                    
+                <MenuItem x:Name="viewPageBreaksVisible"  Header="Print Page Breaks" Click="View_PageBreaks_Click">
+                    <MenuItem.Icon>
+                        <CheckBox x:Name="viewPageBreaksVisibleCheckBox" BorderThickness="0" ></CheckBox>
+                    </MenuItem.Icon>
+                </MenuItem>
+                </MenuItem>
+            <MenuItem Header="_Sheet">
+                <MenuItem x:Name="freezeToCell" Header="Freeze To Cell" Click="freezeToCell_Click"/>
+                <MenuItem x:Name="append100Rows" Header="Append 100 Rows" Click="Sheet_Append_100_Rows_Click"/>
+
+            </MenuItem>
+
+        </Menu>
+        
+
+        <Border x:Name="border" Background="LightBlue" BorderBrush="Black" Padding="8">
+	
+            <rg:ReoGridControl x:Name="grid" >
+            </rg:ReoGridControl>
+
+        </Border>
+
+    </DockPanel>
+
+</Window>

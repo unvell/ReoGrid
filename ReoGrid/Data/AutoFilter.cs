@@ -30,6 +30,7 @@ using RGFloat = System.Double;
 using unvell.ReoGrid.Graphics;
 using unvell.ReoGrid.Rendering;
 using unvell.ReoGrid.Interaction;
+using System.Runtime.CompilerServices;
 
 namespace unvell.ReoGrid.Data
 {
@@ -333,6 +334,8 @@ namespace unvell.ReoGrid.Data
 			public System.Windows.Forms.ContextMenuStrip ContextMenuStrip { get; set; }
 #elif WPF
 
+#elif AVALONIA
+			public unvell.ReoGrid.AvaloniaPlatform.ColumnFilterContextMenu ContextMenu { get; set; }
 #endif
 
 			internal List<string> selectedTextItems = new List<string>();
@@ -565,6 +568,8 @@ namespace unvell.ReoGrid.Data
 				var ctx = new System.Windows.Controls.ContextMenu();
 				ctx.Items.Add(new System.Windows.Controls.MenuItem() { Header = "Item" });
 				ctx.IsOpen = true;
+#elif AVALONIA
+				unvell.ReoGrid.AvaloniaPlatform.ColumnFilterContextMenu.ShowFilterPanel(headerBody, point);
 #endif // WPF
 				return true;
 			}
@@ -611,6 +616,8 @@ namespace unvell.ReoGrid.Data
 					}
 #elif WPF
 						// todo
+#elif AVALONIA
+
 #endif
 
 					header.Body = null;

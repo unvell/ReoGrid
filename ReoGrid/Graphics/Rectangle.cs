@@ -327,7 +327,7 @@ namespace unvell.ReoGrid.Graphics
 				Height.ToString(System.Globalization.CultureInfo.CurrentCulture));
 		}
 
-		#region Platform Associated
+        #region Platform Associated
 #if WINFORM
 		/// <summary>
 		/// Convert System.Drawing.Rectangle to unvell.ReoGrid.Graphics.Rectangle.
@@ -396,6 +396,16 @@ namespace unvell.ReoGrid.Graphics
 			return new Rectangle(r.X, r.Y, r.Width, r.Height);
 		}
 #endif // WPF
+#if AVALONIA
+		public static implicit operator Avalonia.Rect(Rectangle r)
+		{
+			return new Avalonia.Rect(r.X, r.Y, r.Width, r.Height);
+		}
+		public static implicit operator Rectangle(Avalonia.Rect r)
+		{
+			return new Rectangle(r.X, r.Y, r.Width, r.Height);
+		}
+#endif // WPF
 
 #if iOS
 		public static implicit operator CoreGraphics.CGRect(Rectangle r)
@@ -407,8 +417,8 @@ namespace unvell.ReoGrid.Graphics
 			return new Rectangle(r.X, r.Y, r.Width, r.Height);
 		}
 #endif // iOS
-		#endregion // Platform Associated
-	}
+        #endregion // Platform Associated
+    }
 }
 
 /* Performance test

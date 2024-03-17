@@ -386,7 +386,7 @@ namespace unvell.ReoGrid.Views
 							{
 #if WINFORM
 								p.Width = 2;
-#elif WPF
+#elif WPF || AVALONIA
 								p.Thickness = 2;
 #endif
 							}
@@ -415,7 +415,7 @@ namespace unvell.ReoGrid.Views
 							// frame
 #if WINFORM
 							p.Width = 1;
-#elif WPF
+#elif WPF || AVALONIA
 								p.Thickness = 1;
 #endif
 							g.DrawRectangle(p, bbRect.X, bbRect.Y, bbRect.Width, bbRect.Height);
@@ -534,7 +534,7 @@ namespace unvell.ReoGrid.Views
 							{
 #if WINFORM
 								p.Width = 2;
-#elif WPF
+#elif WPF || AVALONIA
 								p.Thickness = 2;
 #endif
 							}
@@ -565,7 +565,7 @@ namespace unvell.ReoGrid.Views
 							// frame
 #if WINFORM
 							p.Width = 1;
-#elif WPF
+#elif WPF || AVALONIA
 								p.Thickness = 1;
 #endif
 							g.DrawRectangle(p, bbRect.X, bbRect.Y, bbRect.Width, bbRect.Height);

@@ -23,7 +23,7 @@ using System.Linq;
 using System.Windows.Forms;
 using RGFloat = System.Single;
 using RGImage = System.Drawing.Image;
-#else
+#elif !GLOBALUSING
 using RGFloat = System.Double;
 using RGImage = System.Windows.Media.ImageSource;
 #endif // WINFORM
@@ -119,7 +119,7 @@ namespace unvell.ReoGrid.CellTypes
 			ControlPaint.DrawButton(dc.Graphics.PlatformGraphics, (System.Drawing.Rectangle)Bounds,
 				this.IsPressed ? ButtonState.Pushed :
 				(this.Cell.IsReadOnly ? ButtonState.Inactive : ButtonState.Normal));
-#elif WPF
+#elif WPF || AVALONIA
 
 			var g = dc.Graphics;
 

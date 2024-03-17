@@ -538,7 +538,7 @@ namespace unvell.ReoGrid.Data
 
 	#endregion
 
-#if WINFORM || WPF
+#if WINFORM || WPF || AVALONIA
 
 	#region Index4DArray
 

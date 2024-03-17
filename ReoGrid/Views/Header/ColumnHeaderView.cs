@@ -62,7 +62,7 @@ namespace unvell.ReoGrid.Views
 			var splitterLinePen = r.GetPen(controlStyle.Colors[ControlAppearanceColors.RowHeadSplitter]);
 			var headerTextBrush = r.GetBrush(controlStyle.Colors[ControlAppearanceColors.ColHeadText]);
 
-			bool isFullColSelected = sheet.SelectionRange.Rows == sheet.RowCount;
+            bool isFullColSelected = sheet.SelectionRange.Rows == sheet.RowCount;
 
 			for (int i = visibleRegion.startCol; i <= visibleRegion.endCol; i++)
 			{
@@ -81,9 +81,11 @@ namespace unvell.ReoGrid.Views
 				{
 					Rectangle rect = new Rectangle(x, 0, width, bounds.Height);
 
-#if WINFORM || WPF
-					g.FillRectangleLinear(controlStyle.GetColHeadStartColor(false, isSelected, isSelected && isFullColSelected, false),
-						controlStyle.GetColHeadEndColor(false, isSelected, isSelected && isFullColSelected, false), 90f, rect);
+#if WINFORM || WPF || AVALONIA
+
+                    SolidColor startColor = controlStyle.GetColHeadStartColor(false, isSelected, isSelected && isFullColSelected, false);
+                    SolidColor endColor = controlStyle.GetColHeadEndColor(false, isSelected, isSelected && isFullColSelected, false);
+                    g.FillRectangleLinear(startColor, endColor, 90f, rect);
 #elif ANDROID
 					g.FillRectangle(rect, controlStyle.GetRowHeadEndColor(false, isSelected, isSelected && isFullColSelected, false));
 #endif // ANDROID

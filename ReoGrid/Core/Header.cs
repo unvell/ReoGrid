@@ -23,7 +23,7 @@ using System.Diagnostics;
 #if WINFORM
 using RGFloat = System.Single;
 using RGIntDouble = System.Int32;
-#else
+#elif !GLOBALUSING
 using RGFloat = System.Double;
 using RGIntDouble = System.Double;
 #endif // WINFORM

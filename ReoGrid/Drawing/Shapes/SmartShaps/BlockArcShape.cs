@@ -22,7 +22,7 @@ using System;
 
 #if WINFORM
 using RGFloat = System.Single;
-#else
+#elif !GLOBALUSING
 using RGFloat = System.Double;
 #endif // WINFORM
 
@@ -88,11 +88,25 @@ namespace unvell.ReoGrid.Drawing.Shapes.SmartShapes
 
 				Path.Figures.Add(pf);
 			}
+#elif AVALONIA
+
+			Path.Figures.Clear();
+
+			if (this.SweepAngle > 0)
+			{
+				Avalonia.Media.PathFigure pf = new Avalonia.Media.PathFigure();
+			
+				pf.Segments.Add(new Avalonia.Media.LineSegment{Point = this.OriginPoint});
+				pf.Segments.Add(new Avalonia.Media.ArcSegment{Point = new Avalonia.Point(0, 0),
+					Size = new Avalonia.Size(this.Width, this.Height),RotationAngle = this.SweepAngle,IsLargeArc = true,SweepDirection = Avalonia.Media.SweepDirection.Clockwise});
+
+				Path.Figures.Add(pf);
+			}
 
 #elif ANDROID
 #endif // WINFORM
-		}
-	}
+        }
+    }
 }
 
 #endif // DRAWING

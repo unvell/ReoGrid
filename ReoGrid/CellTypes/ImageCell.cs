@@ -25,7 +25,7 @@ using System.Linq;
 using System.Windows.Forms;
 using RGFloat = System.Single;
 using RGImage = System.Drawing.Image;
-#else
+#elif !GLOBALUSING
 using RGFloat = System.Double;
 using RGImage = System.Windows.Media.ImageSource;
 #endif // WINFORM
@@ -34,183 +34,190 @@ using unvell.ReoGrid.Rendering;
 
 namespace unvell.ReoGrid.CellTypes
 {
-	/// <summary>
-	/// Representation for an image of cell body
-	/// </summary>
-	public class ImageCell : CellBody
-	{
-		/// <summary>
-		/// Get or set the image to be displayed in cell
-		/// </summary>
-		public RGImage Image { get; set; }
+    /// <summary>
+    /// Representation for an image of cell body
+    /// </summary>
+    public class ImageCell : CellBody
+    {
+        /// <summary>
+        /// Get or set the image to be displayed in cell
+        /// </summary>
+        public RGImage Image { get; set; }
 
-		#region Constructor
-		/// <summary>
-		/// Create image cell object.
-		/// </summary>
-		public ImageCell() { }
+        #region Constructor
+        /// <summary>
+        /// Create image cell object.
+        /// </summary>
+        public ImageCell() { }
 
-		/// <summary>
-		/// Construct image cell-body to show a specified image
-		/// </summary>
-		/// <param name="image">Image to be displayed</param>
-		public ImageCell(RGImage image)
-			: this(image, default(ImageCellViewMode))
-		{
-		}
+        /// <summary>
+        /// Construct image cell-body to show a specified image
+        /// </summary>
+        /// <param name="image">Image to be displayed</param>
+        public ImageCell(RGImage image)
+            : this(image, default(ImageCellViewMode))
+        {
+        }
 
-		/// <summary>
-		/// Construct image cell-body to show a image by specified display-method
-		/// </summary>
-		/// <param name="image">Image to be displayed</param>
-		/// <param name="viewMode">View mode decides how to display a image inside a cell</param>
-		public ImageCell(RGImage image, ImageCellViewMode viewMode)
-		{
-			this.Image = image;
-			this.viewMode = viewMode;
-		}
-		#endregion // Constructor
+        /// <summary>
+        /// Construct image cell-body to show a image by specified display-method
+        /// </summary>
+        /// <param name="image">Image to be displayed</param>
+        /// <param name="viewMode">View mode decides how to display a image inside a cell</param>
+        public ImageCell(RGImage image, ImageCellViewMode viewMode)
+        {
+            this.Image = image;
+            this.viewMode = viewMode;
+        }
+        #endregion // Constructor
 
-		#region ViewMode
-		protected ImageCellViewMode viewMode;
+        #region ViewMode
+        protected ImageCellViewMode viewMode;
 
-		/// <summary>
-		/// Set or get the view mode of this image cell
-		/// </summary>
-		public ImageCellViewMode ViewMode
-		{
-			get
-			{
-				return this.viewMode;
-			}
-			set
-			{
-				if (this.viewMode != value)
-				{
-					this.viewMode = value;
+        /// <summary>
+        /// Set or get the view mode of this image cell
+        /// </summary>
+        public ImageCellViewMode ViewMode
+        {
+            get
+            {
+                return this.viewMode;
+            }
+            set
+            {
+                if (this.viewMode != value)
+                {
+                    this.viewMode = value;
 
-					if (base.Cell != null && base.Cell.Worksheet != null)
-					{
-						base.Cell.Worksheet.RequestInvalidate();
-					}
-				}
-			}
-		}
-		#endregion // ViewMode
+                    if (base.Cell != null && base.Cell.Worksheet != null)
+                    {
+                        base.Cell.Worksheet.RequestInvalidate();
+                    }
+                }
+            }
+        }
+        #endregion // ViewMode
 
-		#region OnPaint
-		/// <summary>
-		/// Render the image cell body.
-		/// </summary>
-		/// <param name="dc">Platform no-associated drawing context instance.</param>
-		public override void OnPaint(CellDrawingContext dc)
-		{
-			if (Image != null)
-			{
-				RGFloat x = Bounds.X, y = Bounds.Y, width = 0, height = 0;
-				bool needClip = false;
+        #region OnPaint
+        /// <summary>
+        /// Render the image cell body.
+        /// </summary>
+        /// <param name="dc">Platform no-associated drawing context instance.</param>
+        public override void OnPaint(CellDrawingContext dc)
+        {
+            if (Image != null)
+            {
+                RGFloat x = Bounds.X, y = Bounds.Y, width = 0, height = 0;
+                bool needClip = false;
 
-				switch (this.viewMode)
-				{
-					default:
-					case ImageCellViewMode.Stretch:
-						width = Bounds.Width;
-						height = Bounds.Height;
-						break;
+#if AVALONIA
+				var ImageSize = this.Image.Size;
+#else
+                var ImageSize = this.Image;
+#endif
 
-					case ImageCellViewMode.Zoom:
-						RGFloat widthRatio = (RGFloat)Bounds.Width / Image.Width;
-						RGFloat heightRatio = (RGFloat)Bounds.Height / Image.Height;
-						RGFloat minRatio = Math.Min(widthRatio, heightRatio);
-						width = minRatio * Image.Width;
-						height = minRatio * Image.Height;
-						break;
+                switch (this.viewMode)
+                {
+                    default:
+                    case ImageCellViewMode.Stretch:
+                        width = Bounds.Width;
+                        height = Bounds.Height;
+                        break;
 
-					case ImageCellViewMode.Clip:
-						width = Image.Width;
-						height = Image.Height;
+                    case ImageCellViewMode.Zoom:
+                        RGFloat widthRatio = (RGFloat)Bounds.Width / ImageSize.Width;
+                        RGFloat heightRatio = (RGFloat)Bounds.Height / ImageSize.Height;
+                        RGFloat minRatio = Math.Min(widthRatio, heightRatio);
+                        width = minRatio * ImageSize.Width;
+                        height = minRatio * ImageSize.Height;
+                        break;
 
-						if (width > Bounds.Width || height > Bounds.Height) needClip = true;
-						break;
-				}
+                    case ImageCellViewMode.Clip:
+                        width = ImageSize.Width;
+                        height = ImageSize.Height;
 
-				switch (Cell.Style.HAlign)
-				{
-					default:
-					case ReoGridHorAlign.Left:
-						x = Bounds.X;
-						break;
+                        if (width > Bounds.Width || height > Bounds.Height) needClip = true;
+                        break;
+                }
 
-					case ReoGridHorAlign.Center:
-						x = (Bounds.Width - width) / 2;
-						break;
+                switch (Cell.Style.HAlign)
+                {
+                    default:
+                    case ReoGridHorAlign.Left:
+                        x = Bounds.X;
+                        break;
 
-					case ReoGridHorAlign.Right:
-						x = Bounds.Width - width;
-						break;
-				}
+                    case ReoGridHorAlign.Center:
+                        x = (Bounds.Width - width) / 2;
+                        break;
 
-				switch (Cell.Style.VAlign)
-				{
-					default:
-					case ReoGridVerAlign.Top:
-						y = Bounds.Y;
-						break;
+                    case ReoGridHorAlign.Right:
+                        x = Bounds.Width - width;
+                        break;
+                }
 
-					case ReoGridVerAlign.Middle:
-						y = (Bounds.Height - height) / 2;
-						break;
+                switch (Cell.Style.VAlign)
+                {
+                    default:
+                    case ReoGridVerAlign.Top:
+                        y = Bounds.Y;
+                        break;
 
-					case ReoGridVerAlign.Bottom:
-						y = Bounds.Height - height;
-						break;
-				}
+                    case ReoGridVerAlign.Middle:
+                        y = (Bounds.Height - height) / 2;
+                        break;
 
-				var g = dc.Graphics;
+                    case ReoGridVerAlign.Bottom:
+                        y = Bounds.Height - height;
+                        break;
+                }
 
-				if (needClip)
-				{
-					g.PushClip(Bounds);
-				}
+                var g = dc.Graphics;
 
-				g.DrawImage(Image, x, y, width, height);
 
-				if (needClip)
-				{
-					g.PopClip();
-				}
-			}
+                if (needClip)
+                { 
+                    g.PushClip(Bounds);
+                }
 
-			dc.DrawCellText();
-		}
-		#endregion // OnPaint
+                g.DrawImage(Image, x, y, width, height);
 
-		public override ICellBody Clone()
-		{
-			return new ImageCell(this.Image);
-		}
-	}
+                if (needClip)
+                {
+                    g.PopClip();
+                }
+            }
 
-	#region ImageCellViewMode
-	/// <summary>
-	/// Image dispaly method in ImageCell-body
-	/// </summary>
-	public enum ImageCellViewMode
-	{
-		/// <summary>
-		/// Fill to cell boundary. (default)
-		/// </summary>
-		Stretch,
+            dc.DrawCellText();
+        }
+        #endregion // OnPaint
 
-		/// <summary>
-		/// Lock aspect ratio to fit cell boundary.
-		/// </summary>
-		Zoom,
+        public override ICellBody Clone()
+        {
+            return new ImageCell(this.Image);
+        }
+    }
 
-		/// <summary>
-		/// Keep original image size and clip to fill the cell.
-		/// </summary>
-		Clip,
-	}
-	#endregion // ImageCellViewMode
+    #region ImageCellViewMode
+    /// <summary>
+    /// Image dispaly method in ImageCell-body
+    /// </summary>
+    public enum ImageCellViewMode
+    {
+        /// <summary>
+        /// Fill to cell boundary. (default)
+        /// </summary>
+        Stretch,
+
+        /// <summary>
+        /// Lock aspect ratio to fit cell boundary.
+        /// </summary>
+        Zoom,
+
+        /// <summary>
+        /// Keep original image size and clip to fill the cell.
+        /// </summary>
+        Clip,
+    }
+    #endregion // ImageCellViewMode
 }

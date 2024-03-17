@@ -118,7 +118,7 @@ namespace unvell.ReoGrid.Graphics
 			return size1.Width != size2.Width || size1.Height != size2.Height;
 		}
 
-		#region Platform Associated
+        #region Platform Associated
 #if WINFORM
 		/// <summary>
 		/// Convert System.Drawing.Size to unvell.ReoGrid.Graphics.Size.
@@ -168,6 +168,16 @@ namespace unvell.ReoGrid.Graphics
 			return new Size(size.Width, size.Height);
 		}
 #endif // WPF
-		#endregion // Platform Associated
-	}
+#if AVALONIA
+		public static implicit operator Avalonia.Size(Size size)
+		{
+			return new Avalonia.Size(size.Width, size.Height);
+		}
+		public static implicit operator Size(Avalonia.Size size)
+		{
+			return new Size(size.Width, size.Height);
+		}
+#endif // WPF
+        #endregion // Platform Associated
+    }
 }

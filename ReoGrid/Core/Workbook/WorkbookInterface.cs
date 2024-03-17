@@ -18,7 +18,7 @@ namespace unvell.ReoGrid
 	/// Represents an interface of workbook instance
 	/// </summary>
 	public interface IWorkbook
-#if WINFORM || WPF
+#if WINFORM || WPF || AVALONIA
 		: IDisposable
 #endif // WINFORM || WPF
 	{

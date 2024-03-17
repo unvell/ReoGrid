@@ -92,11 +92,16 @@ namespace unvell.ReoGrid.Main
 		System.Windows.Controls.ContextMenu RowHeaderContextMenu { get; }
 		System.Windows.Controls.ContextMenu ColumnHeaderContextMenu { get; }
 		System.Windows.Controls.ContextMenu LeadHeaderContextMenu { get; }
+#elif AVALONIA
+		Avalonia.Controls.ContextMenu CellsContextMenu { get; }
+		Avalonia.Controls.ContextMenu RowHeaderContextMenu { get; }
+		Avalonia.Controls.ContextMenu ColumnHeaderContextMenu { get; }
+		Avalonia.Controls.ContextMenu LeadHeaderContextMenu { get; }
 #endif
-	}
+    }
 
 #if EX_SCRIPT
-	internal interface IScriptExecutableControl
+    internal interface IScriptExecutableControl
 	{
 		string Script { get; set; }
 

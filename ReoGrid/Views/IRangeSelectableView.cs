@@ -28,7 +28,7 @@ using unvell.ReoGrid.Script;
 
 #if WINFORM || ANDROID
 using RGFloat = System.Single;
-#else
+#elif !GLOBALUSING
 using RGFloat = System.Double;
 #endif // WINFORM
 

@@ -122,7 +122,7 @@ namespace unvell.ReoGrid.Graphics
 			return new Point(p.X * m.a1 + p.Y * m.a2 + m.a3, p.X * m.a1 + p.Y * m.b2 + m.b3);
 		}
 
-		#region Platform Associated
+        #region Platform Associated
 #if WINFORM
 		/// <summary>
 		/// Convert System.Drawing.Point to unvell.ReoGrid.Graphics.Point.
@@ -173,6 +173,17 @@ namespace unvell.ReoGrid.Graphics
 		}
 #endif // WPF
 
+#if AVALONIA
+		public static implicit operator Avalonia.Point(Point p)
+		{
+			return new Avalonia.Point(p.X, p.Y);
+		}
+		public static implicit operator Point(Avalonia.Point p)
+		{
+			return new Point(p.X, p.Y);
+		}
+#endif // WPF
+
 #if ANDROID
 		public static implicit operator Android.Graphics.PointF(Point p)
 		{
@@ -196,7 +207,7 @@ namespace unvell.ReoGrid.Graphics
 #endif // WPF
 
 
-		#endregion // Platform Associated
-	}
+        #endregion // Platform Associated
+    }
 
 }

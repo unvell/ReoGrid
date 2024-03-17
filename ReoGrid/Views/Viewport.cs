@@ -42,194 +42,205 @@ using unvell.ReoGrid.Main;
 
 namespace unvell.ReoGrid.Views
 {
-	internal abstract class Viewport : View, IViewport
-	{
-		protected Worksheet sheet;
+    internal abstract class Viewport : View, IViewport
+    {
+        protected Worksheet sheet;
 
-		internal Worksheet Worksheet { get { return this.sheet; } }
+        internal Worksheet Worksheet { get { return this.sheet; } }
 
-		public Viewport(IViewportController vc)
-			: base(vc)
-		{
-			this.sheet = vc.Worksheet;
-		}
+        public Viewport(IViewportController vc)
+            : base(vc)
+        {
+            this.sheet = vc.Worksheet;
+        }
 
-		#region Visible Region
-		protected GridRegion visibleRegion;
+        #region Visible Region
+        protected GridRegion visibleRegion;
 
-		/// <summary>
-		/// View window for cell address, decides how many cells are visible for this viewport.
-		/// </summary>
-		public virtual GridRegion VisibleRegion
-		{
-			get { return visibleRegion; }
-			set { visibleRegion = value; }
-		}
-		#endregion
+        /// <summary>
+        /// View window for cell address, decides how many cells are visible for this viewport.
+        /// </summary>
+        public virtual GridRegion VisibleRegion
+        {
+            get { return visibleRegion; }
+            set { visibleRegion = value; }
+        }
+        #endregion
 
-		#region View window
-		protected Point viewStart;
+        #region View window
+        protected Point viewStart;
 
-		/// <summary>
-		/// View window start position. (Scroll position)
-		/// </summary>
-		public virtual Point ViewStart { get { return viewStart; } set { viewStart = value; } }
+        /// <summary>
+        /// View window start position. (Scroll position)
+        /// </summary>
+        public virtual Point ViewStart { get { return viewStart; } set { viewStart = value; } }
 
-		/// <summary>
-		/// Top position of view window. (Vertial scroll position)
-		/// </summary>
-		public virtual RGFloat ViewTop { get { return viewStart.Y; } set { viewStart.Y = value; } }
+        /// <summary>
+        /// Top position of view window. (Vertial scroll position)
+        /// </summary>
+        public virtual RGFloat ViewTop { get { return viewStart.Y; } set { viewStart.Y = value; } }
 
-		/// <summary>
-		/// Left position of view window. (Horizontal scroll position)
-		/// </summary>
-		public virtual RGFloat ViewLeft { get { return viewStart.X; } set { viewStart.X = value; } }
-		//public virtual RGFloat ViewRight { get { return viewStart.X  + bounds.Width / this.scaleFactor; } }
-		//public virtual RGFloat ViewBottom { get { return viewStart.Y + bounds.Height / this.scaleFactor; } }
+        /// <summary>
+        /// Left position of view window. (Horizontal scroll position)
+        /// </summary>
+        public virtual RGFloat ViewLeft { get { return viewStart.X; } set { viewStart.X = value; } }
+        //public virtual RGFloat ViewRight { get { return viewStart.X  + bounds.Width / this.scaleFactor; } }
+        //public virtual RGFloat ViewBottom { get { return viewStart.Y + bounds.Height / this.scaleFactor; } }
 
-		/// <summary>
-		/// The bounds of view window, starts from scroll position, ends at scroll position + window size.
-		/// </summary>
-		public virtual Rectangle ViewBounds
-		{
-			get
-			{
-				return new Rectangle(this.ScrollViewLeft, this.ScrollViewTop, this.bounds.Width / this.scaleFactor, this.bounds.Height / this.scaleFactor);
-			}
-		}
+        /// <summary>
+        /// The bounds of view window, starts from scroll position, ends at scroll position + window size.
+        /// </summary>
+        public virtual Rectangle ViewBounds
+        {
+            get
+            {
+                return new Rectangle(this.ScrollViewLeft, this.ScrollViewTop, this.bounds.Width / this.scaleFactor, this.bounds.Height / this.scaleFactor);
+            }
+        }
 
-		public virtual ScrollDirection ScrollableDirections { get; set; } = ScrollDirection.None;
+        public virtual ScrollDirection ScrollableDirections { get; set; } = ScrollDirection.None;
 
-		public RGFloat ScrollX { get; set; }
-		public RGFloat ScrollY { get; set; }
+        public RGFloat ScrollX { get; set; }
+        public RGFloat ScrollY { get; set; }
 
-		public RGFloat ScrollViewLeft { get { return this.viewStart.X + ScrollX; } }
-		public RGFloat ScrollViewTop { get { return this.viewStart.Y + ScrollY; } }
+        public RGFloat ScrollViewLeft { get { return this.viewStart.X + ScrollX; } }
+        public RGFloat ScrollViewTop { get { return this.viewStart.Y + ScrollY; } }
 
-		public virtual void Scroll(RGFloat offX, RGFloat offY)
-		{
-			ScrollX += offX;
-			ScrollY += offY;
+        public virtual void Scroll(RGFloat offX, RGFloat offY)
+        {
+            ScrollX += offX;
+            ScrollY += offY;
 
-			if (ScrollX < 0) ScrollX = 0;
-			if (ScrollY < 0) ScrollY = 0;
-		}
+            if (ScrollX < 0) ScrollX = 0;
+            if (ScrollY < 0) ScrollY = 0;
+        }
 
-		public virtual void ScrollTo(RGFloat x, RGFloat y)
-		{
-			if (x >= 0 && (this.ScrollableDirections & ScrollDirection.Horizontal) == ScrollDirection.Horizontal) ScrollX = x;
-			if (y >= 0 && (this.ScrollableDirections & ScrollDirection.Vertical) == ScrollDirection.Vertical) ScrollY = y;
+        public virtual void ScrollTo(RGFloat x, RGFloat y)
+        {
+            if (x >= 0 && (this.ScrollableDirections & ScrollDirection.Horizontal) == ScrollDirection.Horizontal) ScrollX = x;
+            if (y >= 0 && (this.ScrollableDirections & ScrollDirection.Vertical) == ScrollDirection.Vertical) ScrollY = y;
 
-			if (ScrollX < 0) ScrollX = 0;
-			if (ScrollY < 0) ScrollY = 0;
-		}
+            if (ScrollX < 0) ScrollX = 0;
+            if (ScrollY < 0) ScrollY = 0;
+        }
 
 
-		#endregion // View window
+        #endregion // View window
 
-		#region Point transform
+        #region Point transform
 
-		public override Point PointToView(Point p)
-		{
-			return new Point(
-				(p.X - bounds.Left + ScrollViewLeft * this.scaleFactor) / this.scaleFactor,
-				(p.Y - bounds.Top + ScrollViewTop * this.scaleFactor) / this.scaleFactor);
-		}
+        public override Point PointToView(Point p)
+        {
+            return new Point(
+                (p.X - bounds.Left + ScrollViewLeft * this.scaleFactor) / this.scaleFactor,
+                (p.Y - bounds.Top + ScrollViewTop * this.scaleFactor) / this.scaleFactor);
+        }
 
-		public override Point PointToController(Point p)
-		{
-			return new Point(
-				(p.X - ScrollViewLeft) * this.scaleFactor + bounds.Left,
-				(p.Y - ScrollViewTop) * this.scaleFactor + bounds.Top);
-		}
+        public override Point PointToController(Point p)
+        {
+            return new Point(
+                (p.X - ScrollViewLeft) * this.scaleFactor + bounds.Left,
+                (p.Y - ScrollViewTop) * this.scaleFactor + bounds.Top);
+        }
 
-		#endregion // Point transform
+        #endregion // Point transform
 
-		#region Draw
+        #region Draw
 
-		public override void Draw(CellDrawingContext dc)
-		{
+        public override void Draw(CellDrawingContext dc)
+        {
 #if DEBUG
-			Stopwatch sw = Stopwatch.StartNew();
+            Stopwatch sw = Stopwatch.StartNew();
 #endif
 
-			if (!Visible //|| visibleGridRegion == GridRegion.Empty
-				|| bounds.Width <= 0 || bounds.Height <= 0) return;
+            if (!Visible //|| visibleGridRegion == GridRegion.Empty
+                || bounds.Width <= 0 || bounds.Height <= 0) return;
 
-			//bool needClip = this.Parent == null
-			//	|| this.bounds != this.Parent.Bounds;
+            //bool needClip = this.Parent == null
+            //	|| this.bounds != this.Parent.Bounds;
 
-			//bool needTranslate = this.Parent == null
-			//	|| this.viewStart.X != this.Parent.ViewLeft
-			//	|| this.ViewStart.Y != this.Parent.ViewTop;
+            //bool needTranslate = this.Parent == null
+            //	|| this.viewStart.X != this.Parent.ViewLeft
+            //	|| this.ViewStart.Y != this.Parent.ViewTop;
 
-			var g = dc.Graphics;
+            var g = dc.Graphics;
 
-			if (PerformTransform)
-			{
-				g.PushClip(this.bounds);
-				g.PushTransform();
+            if (PerformTransform)
+            {
+                g.PushClip(this.bounds);
+                g.PushTransform();
 				g.TranslateTransform(bounds.Left - ScrollViewLeft * this.scaleFactor, bounds.Top - ScrollViewTop * this.scaleFactor);
-			}
+            }
 
-			DrawView(dc);
+            DrawView(dc);
 
-			if (this.PerformTransform)
-			{
-				g.PopTransform();
-				g.PopClip();
-			}
+            if (this.PerformTransform)
+            {
+                g.PopTransform();
+                g.PopClip();
+            }
 
 #if VP_DEBUG
 #if WINFORM
-			if (this is SheetViewport
-				|| this is ColumnHeaderView
-				//|| this is RowHeaderView
-				|| this is RowOutlineView)
-			{
-				//var rect = this.bounds;
-				//rect.Width--;
-				//rect.Height--;
-				//dc.Graphics.DrawRectangle(this.bounds, this is SheetViewport ? SolidColor.Blue : SolidColor.Purple);
+            if (this is SheetViewport
+                || this is ColumnHeaderView
+                //|| this is RowHeaderView
+                || this is RowOutlineView)
+            {
+                //var rect = this.bounds;
+                //rect.Width--;
+                //rect.Height--;
+                //dc.Graphics.DrawRectangle(this.bounds, this is SheetViewport ? SolidColor.Blue : SolidColor.Purple);
 
-				var msg = $"{ this.GetType().Name }\n" +
-					$"{visibleRegion.ToRange()}\n" +
-					$"{this.ViewLeft}, {this.ViewTop}, ({ScrollX}, {ScrollY}), {this.Width}, {this.Height}\n" +
-					$"{this.ScrollableDirections}";
+                var msg = $"{ this.GetType().Name }\n" +
+                    $"{visibleRegion.ToRange()}\n" +
+                    $"{this.ViewLeft}, {this.ViewTop}, ({ScrollX}, {ScrollY}), {this.Width}, {this.Height}\n" +
+                    $"{this.ScrollableDirections}";
 
-				dc.Graphics.PlatformGraphics.DrawString(msg,
-						System.Drawing.SystemFonts.DefaultFont, System.Drawing.Brushes.Blue, this.Left + Width / 2, Top + Height / 2);
-			}
+                dc.Graphics.PlatformGraphics.DrawString(msg,
+                        System.Drawing.SystemFonts.DefaultFont, System.Drawing.Brushes.Blue, this.Left + Width / 2, Top + Height / 2);
+            }
 #elif WPF
-			var msg = string.Format("VR {0},{1}-{2},{3} VS X{4},Y{5}\nSD {6}", this.visibleRegion.startRow,
-				this.visibleRegion.startCol, this.visibleRegion.endRow, this.visibleRegion.endCol, this.ViewLeft, this.ViewTop,
-				this.ScrollableDirections.ToString());
+            var msg = string.Format("VR {0},{1}-{2},{3} VS X{4},Y{5}\nSD {6}", this.visibleRegion.startRow,
+                this.visibleRegion.startCol, this.visibleRegion.endRow, this.visibleRegion.endCol, this.ViewLeft, this.ViewTop,
+                this.ScrollableDirections.ToString());
 
-			var ft = new System.Windows.Media.FormattedText(msg, System.Globalization.CultureInfo.CurrentCulture, System.Windows.FlowDirection.LeftToRight, 
-				new System.Windows.Media.Typeface("Arial"), 12, System.Windows.Media.Brushes.Blue, 96);
+            var ft = new System.Windows.Media.FormattedText(msg, System.Globalization.CultureInfo.CurrentCulture, System.Windows.FlowDirection.LeftToRight, 
+                new System.Windows.Media.Typeface("Arial"), 12, System.Windows.Media.Brushes.Blue, 96);
 
-			dc.Graphics.PlatformGraphics.DrawText(ft, new System.Windows.Point(this.Left + 1, this.Top + ((this is CellsViewport) ? 30 : this.Height / 2)));
+            dc.Graphics.PlatformGraphics.DrawText(ft, new System.Windows.Point(this.Left + 1, this.Top + ((this is CellsViewport) ? 30 : this.Height / 2)));
+#elif AVALONIA
+            var msg = string.Format("VR {0},{1}-{2},{3} VS X{4},Y{5}\nSD {6}", this.visibleRegion.startRow,
+                this.visibleRegion.startCol, this.visibleRegion.endRow, this.visibleRegion.endCol, this.ViewLeft, this.ViewTop,
+                this.ScrollableDirections.ToString());
+
+            var ft = new Avalonia.Media.FormattedText(msg, 
+                System.Threading.Thread.CurrentThread.CurrentCulture, 
+                Avalonia.Media.FlowDirection.LeftToRight, 
+                new Avalonia.Media.Typeface("Arial"), 12, Avalonia.Media.Brushes.Blue);
+
+            dc.Graphics.PlatformGraphics.DrawText(ft, new Avalonia.Point(this.Left + 1, this.Top + ((this is CellsViewport) ? 30 : this.Height / 2)));
 #endif // WPF
 #endif // VP_DEBUG
 
 #if DEBUG
-			sw.Stop();
-			if (sw.ElapsedMilliseconds > 20)
-			{
-				Debug.WriteLine("draw viewport takes " + sw.ElapsedMilliseconds + " ms. visible region: rows: " + visibleRegion.Rows + ", cols: " + visibleRegion.Cols);
-			}
+            sw.Stop();
+            if (sw.ElapsedMilliseconds > 20)
+            {
+                Debug.WriteLine("draw viewport takes " + sw.ElapsedMilliseconds + " ms. visible region: rows: " + visibleRegion.Rows + ", cols: " + visibleRegion.Cols);
+            }
 #endif // Debug
 
-		}
+        }
 
-		public virtual void DrawView(CellDrawingContext dc)
-		{
-			this.DrawChildren(dc);
-		}
+        public virtual void DrawView(CellDrawingContext dc)
+        {
+            this.DrawChildren(dc);
+        }
 
-		#endregion // Draw
-	
-	}
+        #endregion // Draw
+    
+    }
 
 }
 

@@ -44,15 +44,18 @@ namespace unvell.ReoGrid.Drawing
 			this.LineColor = SolidColor.Transparent;
 
 			this.Image = image;
-
+#if AVALONIA
+			this.Size = new Graphics.Size(image.Size.Width, image.Size.Height);
+#else
 			this.Size = new Graphics.Size(image.Width, image.Height);
-		}
+#endif
+        }
 
-		/// <summary>
-		/// Draw drawing object to graphics context.
-		/// </summary>
-		/// <param name="dc">Platform no-associated drawing context instance.</param>
-		protected override void OnPaint(DrawingContext dc)
+        /// <summary>
+        /// Draw drawing object to graphics context.
+        /// </summary>
+        /// <param name="dc">Platform no-associated drawing context instance.</param>
+        protected override void OnPaint(DrawingContext dc)
 		{
 			if (this.Image == null)
 			{
