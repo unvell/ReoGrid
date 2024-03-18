@@ -39,10 +39,10 @@ using unvell.ReoGrid.Main;
 
 namespace unvell.ReoGrid.Views
 {
-	/// <summary>
-	/// Standard view controller for normal scene of control
-	/// </summary>
-	class NormalViewportController : ViewportController, IFreezableViewportController,
+    /// <summary>
+    /// Standard view controller for normal scene of control
+    /// </summary>
+    class NormalViewportController : ViewportController, IFreezableViewportController,
 		IScrollableViewportController, IScalableViewportController
 	{
 		#region Constructor
@@ -786,10 +786,10 @@ namespace unvell.ReoGrid.Views
 #if WINFORM || ANDROID
 			this.worksheet.controlAdapter.ScrollBarHorizontalLargeChange = this.scrollHorLarge = (int)Math.Round(this.view.Width);
 			this.worksheet.controlAdapter.ScrollBarVerticalLargeChange = this.scrollVerLarge = (int)Math.Round(this.view.Height);
-#elif WPF
+#elif WPF || AVALONIA
 			this.worksheet.controlAdapter.ScrollBarHorizontalLargeChange = this.scrollHorLarge = this.view.Width;
 			this.worksheet.controlAdapter.ScrollBarVerticalLargeChange = this.scrollVerLarge = this.view.Height;
-#endif // WPF
+#endif // WPF and AVALONIA
 
 			this.UpdateVisibleRegion();
 			this.UpdateScrollBarSize();
@@ -991,22 +991,22 @@ namespace unvell.ReoGrid.Views
 			if (worksheet.cols.Count > 0)
 			{
 				width = worksheet.cols[worksheet.cols.Count - 1].Right * scale + mainViewport.Left;
-#if WPF
+#if WPF || AVALONIA
 				width -= scrollHorLarge;
-#endif // WPF 
+#endif // WPF and AVALONIA
 			}
 
 			if (worksheet.rows.Count > 0)
 			{
 				height = worksheet.rows[worksheet.rows.Count - 1].Bottom * scale + mainViewport.Top;
 
-				//if (currentFreezePos != CellPosition.Zero)
-				//{
-				//	height -= this.topLeftViewport.Height;
-				//}
-#if WPF
-				height -= scrollVerLarge;
-#endif // WPF
+                //if (currentFreezePos != CellPosition.Zero)
+                //{
+                //	height -= this.topLeftViewport.Height;
+                //}
+#if WPF || AVALONIA
+                height -= scrollVerLarge;
+#endif // WPF and AVALONIA
 			}
 			
 			int maxHorizontal = Math.Max(0, (int)(Math.Ceiling(width))) + 1;
