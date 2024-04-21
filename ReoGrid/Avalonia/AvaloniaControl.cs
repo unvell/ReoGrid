@@ -28,12 +28,10 @@ using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Layout;
 using Avalonia.Media;
-using Avalonia.Media.Immutable;
-using Avalonia.Rendering.Composition;
+using Avalonia.Reactive;
 using Avalonia.Threading;
 using System;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using unvell.ReoGrid.Graphics;
 using unvell.ReoGrid.Interaction;
 using unvell.ReoGrid.Main;
@@ -131,7 +129,7 @@ namespace unvell.ReoGrid
             this.sheetTab.SplitterMoving += (s, e) =>
             {
                 var arg = e as PointerEventArgs;
-   
+
                 double width = arg.GetPosition(this).X + 3;
                 if (width < 75) width = 75;
                 if (width > this.Bounds.Size.Width - ScrollBarSize) width = this.Bounds.Size.Width - ScrollBarSize;
@@ -953,14 +951,16 @@ namespace unvell.ReoGrid
 
             static InputTextBox()
             {
-                TextProperty.Changed.Subscribe(OnTextChanged);
-                IsKeyboardFocusWithinProperty.Changed.Subscribe(OnLostKeyboardFocus);
+                TextProperty.Changed
+                    .Subscribe(new AnonymousObserver<AvaloniaPropertyChangedEventArgs>(OnTextChanged));
+                IsKeyboardFocusWithinProperty.Changed
+                    .Subscribe(new AnonymousObserver<AvaloniaPropertyChangedEventArgs<bool>>(OnLostKeyboardFocus));
             }
             internal InputTextBox() : base()
             {
                 AddHandler(KeyDownEvent, OnPreviewKeyDown, RoutingStrategies.Tunnel);
                 AddHandler(TextInputEvent, OnPreviewTextInput, RoutingStrategies.Tunnel);
-                
+
                 this.AcceptsReturn = true;
                 this.Template = new FuncControlTemplate<InputTextBox>((t, ns) =>
                 {
@@ -1102,7 +1102,7 @@ namespace unvell.ReoGrid
             private static void OnLostKeyboardFocus(AvaloniaPropertyChangedEventArgs<bool> args)
             {
                 var @this = args.Sender as InputTextBox;
-                if(@this is not null && args.NewValue == false)
+                if (@this is not null && args.NewValue == false)
                 {
                     @this.Owner.CurrentWorksheet.EndEdit(@this.Text, EndEditReason.NormalFinish);
                 }
