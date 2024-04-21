@@ -741,9 +741,8 @@ namespace unvell.ReoGrid
                 Canvas.SetLeft(this.editTextbox, bounds.X);
                 Canvas.SetTop(this.editTextbox, bounds.Y);
 
-                this.editTextbox.Width = bounds.Width;
-                this.editTextbox.Height = bounds.Height;
-                //this.editTextbox.Bounds.Size = bounds.Size;
+                this.editTextbox.Width = bounds.Width - 1;
+                this.editTextbox.Height = bounds.Height - 1;
 
                 this.editTextbox.CellSize = cell.Bounds.Size;
                 this.editTextbox.VAlign = cell.InnerStyle.VAlign;
@@ -955,15 +954,14 @@ namespace unvell.ReoGrid
             static InputTextBox()
             {
                 TextProperty.Changed.Subscribe(OnTextChanged);
+                IsKeyboardFocusWithinProperty.Changed.Subscribe(OnLostKeyboardFocus);
             }
-            internal InputTextBox()
-                : base()
+            internal InputTextBox() : base()
             {
-                //SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-                //AddHandler(InputElement.KeyDownEvent, OnPreviewKeyDown);
-                AddHandler(TextInputEvent, OnPreviewTextInput);
+                AddHandler(KeyDownEvent, OnPreviewKeyDown, RoutingStrategies.Tunnel);
+                AddHandler(TextInputEvent, OnPreviewTextInput, RoutingStrategies.Tunnel);
                 
-
+                this.AcceptsReturn = true;
                 this.Template = new FuncControlTemplate<InputTextBox>((t, ns) =>
                 {
                     var t1 = new TextPresenter()
@@ -1053,10 +1051,6 @@ namespace unvell.ReoGrid
 
             protected override void OnKeyDown(KeyEventArgs e)
             {
-                OnPreviewKeyDown(this, e);
-                if (e.Handled)
-                    return;
-
                 var sheet = this.Owner.CurrentWorksheet;
 
                 if (sheet.currentEditingCell != null && IsVisible)
@@ -1103,11 +1097,16 @@ namespace unvell.ReoGrid
 
                 base.OnKeyDown(e);
             }
-            //protected override void OnLostKeyboardFocus(KeyboardFocusChangedEventArgs e)
-            //{
-            //	base.OnLostKeyboardFocus(e);
-            //	this.Owner.CurrentWorksheet.EndEdit(Text, EndEditReason.NormalFinish);
-            //}
+
+
+            private static void OnLostKeyboardFocus(AvaloniaPropertyChangedEventArgs<bool> args)
+            {
+                var @this = args.Sender as InputTextBox;
+                if(@this is not null && args.NewValue == false)
+                {
+                    @this.Owner.CurrentWorksheet.EndEdit(@this.Text, EndEditReason.NormalFinish);
+                }
+            }
             private static void OnTextChanged(AvaloniaPropertyChangedEventArgs e)
             {
                 var @this = e.Sender as InputTextBox;
@@ -1115,10 +1114,6 @@ namespace unvell.ReoGrid
                 {
                     @this.Text = @this.Owner.currentWorksheet.RaiseCellEditTextChanging(@this.Text);
                 }
-            }
-
-            protected virtual void OnTextChanged(string? oldValue, string? newValue)
-            {
             }
 
             private void OnPreviewTextInput(object sender, TextInputEventArgs e)
