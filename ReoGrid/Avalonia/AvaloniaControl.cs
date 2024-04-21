@@ -472,7 +472,7 @@ namespace unvell.ReoGrid
         {
             if (!this.currentWorksheet.IsEditing)
             {
-                var wfkeys = (KeyCode)Avalonia.Win32.Input.KeyInterop.VirtualKeyFromKey(e.Key);
+                var wfkeys = AvaloniaUtility.GetKeyCode(e.Key);
 
                 if ((e.KeyModifiers & KeyModifiers.Control) == KeyModifiers.Control)
                 {
@@ -503,7 +503,7 @@ namespace unvell.ReoGrid
         {
             if (!this.currentWorksheet.IsEditing)
             {
-                var wfkeys = (KeyCode)Avalonia.Win32.Input.KeyInterop.VirtualKeyFromKey(e.Key);
+                var wfkeys = AvaloniaUtility.GetKeyCode(e.Key);
 
                 if ((e.KeyModifiers & KeyModifiers.Control) == KeyModifiers.Control)
                 {
