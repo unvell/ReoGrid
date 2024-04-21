@@ -648,10 +648,18 @@ namespace unvell.ReoGrid.Script
 			this["fontName"] = new ExternalProperty(() => cell.Style.FontName,
 				(v) => cell.Style.FontName = ScriptRunningMachine.ConvertToString(v));
 
+#if AVALONIA
+			this["fontSize"] = new ExternalProperty(
+				() => cell.Style.FontSize,
+				(v) => cell.Style.FontSize = TextFormatHelper.GetFloatPixelValue(ScriptRunningMachine.ConvertToString(v),
+					14)); // How to get the default font size ?
+#else
+
 			this["fontSize"] = new ExternalProperty(
 				() => cell.Style.FontSize,
 				(v) => cell.Style.FontSize = TextFormatHelper.GetFloatPixelValue(ScriptRunningMachine.ConvertToString(v),
 					System.Drawing.SystemFonts.DefaultFont.Size));
+#endif
 
 			this["align"] = new ExternalProperty(
 				() => cell.Style.HAlign,

@@ -44,11 +44,11 @@
 	</PropertyGroup>
 	
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='AvaloniaDebug|AnyCPU'">
-    <DefineConstants>TRACE;DEBUG;AVALONIA;GLOBALUSING;EX_SCRIPT;VP_DEBUG_OFF;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;AVALONIA;GLOBALUSING;EX_SCRIPT;VP_DEBUG_OFF;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;RICHTEXT;</DefineConstants>
     <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='AvaloniaRelease|AnyCPU'">
-    <DefineConstants>TRACE;AVALONIA;GLOBALUSING;FORMULA;LANG_JP;OUTLINE;DRAWING;PRINT;RICHTEXT;</DefineConstants>
+    <DefineConstants>TRACE;AVALONIA;GLOBALUSING;FORMULA;LANG_JP;OUTLINE;DRAWING;RICHTEXT;</DefineConstants>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
