@@ -454,10 +454,10 @@ namespace unvell.ReoGrid
             this.OnWorksheetMouseMove(e.GetPosition(this), AvaloniaUtility.ConvertToUIMouseButtons(point.Properties));
         }
 
-
         protected void OnMouseWheel(object sender, PointerWheelEventArgs e)
         {
-            this.currentWorksheet.OnMouseWheel(e.GetPosition(this), (int)e.Delta.Length, AvaloniaUtility.ConvertToUIMouseButtons(MouseButton.Middle));
+            this.currentWorksheet.OnMouseWheel(e.GetPosition(this), e.Delta * 120, e.KeyModifiers,
+                AvaloniaUtility.ConvertToUIMouseButtons(MouseButton.Middle));
         }
 
         #endregion // Mouse

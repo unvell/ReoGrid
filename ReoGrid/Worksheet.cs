@@ -61,6 +61,7 @@ using RGKeys = System.Windows.Forms.Keys;
 using unvell.ReoGrid.Graphics;
 using unvell.ReoGrid.Interaction;
 using unvell.ReoGrid.Main;
+using unvell.ReoGrid.Rendering;
 
 namespace unvell.ReoGrid
 {
@@ -1420,17 +1421,30 @@ namespace unvell.ReoGrid
         internal CellPosition focusMovingRangeOffset = CellPosition.Empty;
 
         #region OnMouseWheel
+#if AVALONIA
+        internal void OnMouseWheel(Point location, Avalonia.Vector delta, Avalonia.Input.KeyModifiers keyModifiers, MouseButtons buttons)
+#else
         internal void OnMouseWheel(Point location, int delta, MouseButtons buttons)
+#endif
         {
             this.waitingEndDirection = false;
-
-
 #if WINFORM || WPF
             if (Toolkit.IsKeyDown(Win32.VKey.VK_CONTROL))
             {
                 if (this.HasSettings(WorksheetSettings.Behavior_MouseWheelToZoom))
                 {
                     SetScale(this.ScaleFactor + 0.001f * delta);
+                }
+            }
+            else
+#elif AVALONIA
+            var control = this.workbook.ControlInstance;
+
+            if (PlatformUtility.IsKeyDown(KeyCode.ControlKey, keyModifiers, control))
+            {
+                if (this.HasSettings(WorksheetSettings.Behavior_MouseWheelToZoom))
+                {
+                    SetScale(this.ScaleFactor + 0.001f * delta.Y);
                 }
             }
             else
@@ -1452,7 +1466,11 @@ namespace unvell.ReoGrid
 
                     var cellWheelEvent = new CellMouseEventArgs(this, cell, this.selStart, rp, location, buttons, 0)
                     {
+#if AVALONIA
+                        Delta = Convert.ToInt32(delta.Y),
+#else
                         Delta = delta,
+#endif
                         CellPosition = this.selStart,
                     };
 
@@ -1474,6 +1492,17 @@ namespace unvell.ReoGrid
                         else
                         {
                             svc.ScrollOffsetViews(ScrollDirection.Vertical, 0, -delta);
+                        }
+#elif AVALONIA
+                        if (PlatformUtility.IsKeyDown(KeyCode.ShiftKey, keyModifiers, control))
+                        {
+                            svc.ScrollOffsetViews(ScrollDirection.Horizontal, -delta.Y, 0);
+                        }
+                        else
+                        {
+                            // Horizontal wheel support
+                            svc.ScrollOffsetViews(ScrollDirection.Horizontal, -delta.X, 0);
+                            svc.ScrollOffsetViews(ScrollDirection.Vertical, 0, -delta.Y);
                         }
 #else
                             svc.ScrollViews(ScrollDirection.Vertical, 0, -delta);

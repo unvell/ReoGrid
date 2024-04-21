@@ -19,6 +19,7 @@
 #if AVALONIA
 
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Media;
 using System;
 #if !AVALONIA
@@ -49,9 +50,28 @@ namespace unvell.ReoGrid.Rendering
 	partial class PlatformUtility
 	{
 		internal static bool IsKeyDown(KeyCode key)
-		{
+            {
 		//	return Toolkit.IsKeyDown((Common.Win32Lib.Win32.VKey)key);
         return false;
+        }
+
+        internal static bool IsKeyDown(KeyCode key, KeyModifiers inputKeyModifiers, Control target)
+        {
+            if(key == KeyCode.ControlKey)
+            {
+                var ctrlOrCmd = TopLevel.GetTopLevel(target)!.PlatformSettings!.HotkeyConfiguration.CommandModifiers;
+                return inputKeyModifiers.HasFlag(ctrlOrCmd);
+            }
+            if (key == KeyCode.ShiftKey)
+            {
+                return inputKeyModifiers.HasFlag(KeyModifiers.Shift);
+            }
+
+            if (key == KeyCode.Alt)
+            {
+                return inputKeyModifiers.HasFlag(KeyModifiers.Alt);
+            }
+            return false;
         }
 
 		private static double lastGetDPI = 0;
