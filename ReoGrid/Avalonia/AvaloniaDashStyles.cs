@@ -13,14 +13,19 @@ class DashStyles
 /// <summary>
 /// System.Drawing.SystemColors
 /// </summary>
-class SystemColors
+static class SystemColors
 {
-    public static RGColor ControlDarkDark { get; } = Color.FromArgb(a: 255, r: 105, g: 105, b: 105);
-    public static RGColor Highlight { get; } = Color.FromArgb(a: 255, r: 0, g: 120, b: 215);
-    public static RGColor Window { get; } = Color.FromArgb(a: 255, r: 255, g: 255, b: 255);
-    public static RGColor WindowText { get; } = Color.FromArgb(a: 255, r: 0, g: 0, b: 0);
-    public static RGColor Control { get; } = Color.FromArgb(a: 255, r: 240, g: 240, b: 240);
-    public static RGColor ControlLight { get; } = Color.FromArgb(a: 255, r: 227, g: 227, b: 227);
-    public static RGColor ControlDark { get; } = Color.FromArgb(a: 255, r: 160, g: 160, b: 160);
+    private static RGColor ToAvaloniaColor(this System.Drawing.Color color)
+    {
+        return RGColor.FromArgb(color.A, color.R, color.G, color.B);
+    }
+
+    public static RGColor ControlDarkDark { get; } = System.Drawing.SystemColors.ControlDarkDark.ToAvaloniaColor();
+    public static RGColor Highlight { get; } = System.Drawing.SystemColors.Highlight.ToAvaloniaColor();
+    public static RGColor Window { get; } = System.Drawing.SystemColors.Window.ToAvaloniaColor();
+    public static RGColor WindowText { get; } = System.Drawing.SystemColors.WindowText.ToAvaloniaColor();
+    public static RGColor Control { get; } = System.Drawing.SystemColors.Control.ToAvaloniaColor();
+    public static RGColor ControlLight { get; } = System.Drawing.SystemColors.ControlLight.ToAvaloniaColor();
+    public static RGColor ControlDark { get; } = System.Drawing.SystemColors.ControlDark.ToAvaloniaColor();
 }
 #endif
