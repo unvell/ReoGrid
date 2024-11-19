@@ -44,7 +44,6 @@
 		<PackageTags>spreadsheet excel drawing grid workbook worksheet chart data formula script macro outline print</PackageTags>
 		<PackageReleaseNotes>https://github.com/unvell/ReoGrid/releases/tag/v3.0.0</PackageReleaseNotes>
 	</PropertyGroup>
-	
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WPFDebug|AnyCPU'">
     <DefineConstants>TRACE;DEBUG;WPF;EX_SCRIPT;VP_DEBUG_OFF;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
     <LangVersion>default</LangVersion>
@@ -140,13 +139,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DotNetZip" Version="1.15.0" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\NuGet\icon.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.IO.Compression" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\DateTimeFormat.it.resx">
