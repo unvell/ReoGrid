@@ -140,13 +140,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DotNetZip" Version="1.15.0" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\NuGet\icon.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.IO.Compression" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\DateTimeFormat.it.resx">
