@@ -44,7 +44,6 @@
 		<PackageTags>spreadsheet excel drawing grid workbook worksheet chart data formula script macro outline print</PackageTags>
 		<PackageReleaseNotes>https://github.com/unvell/ReoGrid/releases/tag/v3.0.0</PackageReleaseNotes>
 	</PropertyGroup>
-	
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WPFDebug|AnyCPU'">
     <DefineConstants>TRACE;DEBUG;WPF;EX_SCRIPT;VP_DEBUG_OFF;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
     <LangVersion>default</LangVersion>
