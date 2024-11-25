@@ -158,9 +158,6 @@
     <EmbeddedResource Include="Resources\EULA_EN.txt" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DotNetZip" Version="1.15.0" />
-  </ItemGroup>
-  <ItemGroup>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

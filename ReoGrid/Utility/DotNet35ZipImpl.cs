@@ -1,49 +1,15 @@
-﻿/*****************************************************************************
- * 
- * ReoGrid - .NET Spreadsheet Control
- * 
- * https://reogrid.net/
- *
- * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
- * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
- * PURPOSE.
- *
- * This software released under LGPLv3 license.
- * 
- * Author:        Jing Lu <lujing at unvell.com>
- * Contributors:  Rick Meyer
- * 
- * Copyright (c) 2012-2023 unvell inc. All rights reserved.
- * Copyright (c) 2014 Rick Meyer, All rights reserved.
- * 
- ****************************************************************************/
-
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.IO.Compression;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 
 namespace unvell.ReoGrid.Utility
 {
-    internal interface IZipArchive
-    {
-        IZipEntry GetFile(string path);
-        IZipEntry AddFile(string path, Stream stream = null);
-        bool IsFileExist(string path);
-        void Flush();
-        void Close();
-    }
-
-    internal interface IZipEntry
-    {
-        Stream GetStream();
-        Stream CreateStream();
-    }
-
+#if false // THIS IMPLEMENTATION IS DEPRECATED
+#if WINFORM || WPF
     internal class NET35ZipArchive : IZipArchive, IDisposable
     {
         internal object external;
@@ -125,7 +91,6 @@ namespace unvell.ReoGrid.Utility
         }
     }
 
-#if WINFORM || WPF
     /// <summary>
     /// Original Document: http://www.codeproject.com/Articles/209731/Csharp-use-Zip-archives-without-external-libraries
     /// </summary>
@@ -165,102 +130,6 @@ namespace unvell.ReoGrid.Utility
             return new NET35ZipArchive();
         }
     }
-#endif // WINFORM || WPF
-
-    //internal class MZipArchiveFactory
-    //{
-    //	public static IZipArchive OpenOnStream(Stream stream)
-    //	{
-    //		return MZipArchive.OpenOnStream(stream);
-    //	}
-
-    //	public static IZipArchive CreateOnStream(Stream stream)
-    //	{
-    //		return MZipArchive.CreateOnStream(stream);
-    //	}
-    //}
-
-    //internal class MZipArchive : IZipArchive
-    //{
-    //	private ZipFile zip;
-
-    //	private Stream stream;
-
-    //	private MZipArchive()
-    //	{
-    //	}
-
-    //	internal static MZipArchive OpenOnStream(Stream stream)
-    //	{
-    //		return new MZipArchive()
-    //		{
-    //			zip = ZipFile.Read(stream),
-    //			stream = stream,
-    //		};
-    //	}
-
-    //	internal static MZipArchive CreateOnStream(Stream stream)
-    //	{
-    //		var mzip = new MZipArchive()
-    //		{
-    //			zip = new ZipFile(),
-    //			stream = stream,
-    //		};
-
-    //		return mzip;
-    //	}
-
-    //	public IZipEntry GetFile(string path)
-    //	{
-    //		var entry = zip.SingleOrDefault(e => e.FileName == path);
-    //		if (entry == null) return null;
-
-    //		return new MZipEntry(entry);
-    //	}
-
-    //	public IZipEntry AddFile(string path, Stream stream)
-    //	{
-    //		return new MZipEntry(zip.AddEntry(path, stream));
-    //	}
-
-    //	public bool IsFileExist(string path)
-    //	{
-    //		return zip.Any(entry => entry.FileName == path);
-    //	}
-
-    //	public void Flush()
-    //	{
-    //		zip.Save(this.stream);
-    //	}
-
-    //	public void Close()
-    //	{
-    //		zip.Dispose();
-    //	}
-    //}
-
-    //internal class MZipEntry : IZipEntry
-    //{
-    //	private ZipEntry entry;
-
-    //	internal MZipEntry(ZipEntry entry)
-    //	{
-    //		this.entry = entry;
-    //	}
-
-    //	public Stream CreateStream()
-    //	{
-    //		return null;
-    //	}
-
-    //	public Stream GetStream()
-    //	{
-    //		var ms = new MemoryStream();
-    //		entry.Extract(ms);
-    //		ms.Position = 0;
-    //		return ms;
-    //	}
-    //}
 
     internal class NET35ZipFileEntry : IZipEntry
     {
@@ -461,4 +330,6 @@ namespace unvell.ReoGrid.Utility
             return compressesData;
         }
     }
+#endif // WINFORM || WPF
+#endif // false
 }
