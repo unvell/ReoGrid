@@ -2802,7 +2802,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 		public static Document ReadFromStream(Stream stream)
 		{
-			IZipArchive zip = SystemIOZipArchiveFactory.OpenOnStream(stream);
+			IZipArchive zip = MZipArchiveFactory.OpenOnStream(stream);
 
 			if (zip == null) return null;
 

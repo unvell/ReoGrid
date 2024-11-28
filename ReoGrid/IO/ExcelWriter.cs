@@ -1446,7 +1446,8 @@ namespace unvell.ReoGrid.IO.OpenXML
 		{
 			Document doc = new Document()
 			{
-				zipArchive = SystemIOZipArchiveFactory.CreateOnStream(stream),
+				//zipArchive = NET35ZipArchiveFactory.OpenOnStream(stream, FileMode.Create, FileAccess.Write, true),
+				zipArchive = MZipArchiveFactory.CreateOnStream(stream),
 				_relationFile = new Relationships("_rels/.rels"),
 			};
 
