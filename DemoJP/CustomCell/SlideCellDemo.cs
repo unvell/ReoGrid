@@ -1,7 +1,7 @@
 ﻿/*****************************************************************************
  * 
  * ReoGrid - .NET 表計算スプレッドシートコンポーネント
- * http://reogrid.net/jp
+ * https://reogrid.net/jp
  *
  * ReoGrid 日本語版デモプロジェクトは MIT ライセンスでリリースされています。
  * 
@@ -9,7 +9,7 @@
  * 著作権者は補償を含むあらゆる責任を負いません。 
  * 
  * Copyright (c) 2012-2016 unvell.com, All Rights Reserved.
- * http://www.unvell.com/jp
+ * https://www.unvell.com/jp
  * 
  ****************************************************************************/
 
@@ -75,7 +75,7 @@ namespace unvell.ReoGrid.Demo.CellTypeDemo
 			worksheet.MergeRange(12, 0, 1, 7);
 			worksheet[11, 0] = "カスタマイズしたセルについて詳しくは：";
 			worksheet[12, 0] = new unvell.ReoGrid.CellTypes.HyperlinkCell(
-				"http://reogrid.net/jp/document/Custom%20Cell", true);
+				"https://reogrid.net/jp/document/Custom%20Cell", true);
 		}
 	}
 

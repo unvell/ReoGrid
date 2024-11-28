@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -209,10 +209,6 @@ namespace unvell.ReoGrid
 			return new Rectangle(colHead.Left * this.renderScaleFactor, rowHead.Top * this.renderScaleFactor, width, height);
 		}
 
-		internal Rectangle GetGridBounds(int row, int col)
-		{
-			return new Rectangle(cols[col].Left, rows[row].Top, cols[col].InnerWidth + 1, rows[row].InnerHeight + 1);
-		}
 
 		internal Rectangle GetCellBounds(CellPosition pos)
 		{
@@ -222,14 +218,21 @@ namespace unvell.ReoGrid
 		internal Rectangle GetCellBounds(int row, int col)
 		{
 			if (cells[row, col] == null)
-				return GetGridBounds(row, col);
+			{
+				return GetCellRectFromHeader(row, col);
+			}
 			else if (cells[row, col].MergeStartPos != CellPosition.Empty)
 			{
 				Cell cell = GetCell(cells[row, col].MergeStartPos);
-				return (cell != null) ? cell.Bounds : GetGridBounds(row, col);
+				return cell?.Bounds ?? GetCellRectFromHeader(row, col);
 			}
 			else
 				return cells[row, col].Bounds;
 		}
+
+		private Rectangle GetCellRectFromHeader(int row, int col)
+		{
+			return new Rectangle(cols[col].Left, rows[row].Top, cols[col].InnerWidth + 1, rows[row].InnerHeight + 1);
+		}	
 	}
 }

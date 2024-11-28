@@ -24,9 +24,7 @@ namespace unvell.ReoGrid.Tests
 	[TestSet]
 	class ExcelOutTest : ReoGridTestSet
 	{
-		const string XlsxPath = "..\\..\\xlsx";
-
-		static string GetExcelFileName(string name) { return string.Format("{0}\\{1}.xlsx", XlsxPath, name); }
+		static string GetExcelFileName(string name) => $"..\\..\\..\\xlsx\\{name}.xlsx";
 
 		[TestCase]
 		void OutputNumberFormat()
@@ -194,6 +192,29 @@ namespace unvell.ReoGrid.Tests
 			var borders = worksheet.GetRangeBorders("J10");
 			AssertSame(borders.Right, RangeBorderStyle.BlackDotted);
 			AssertSame(borders.Bottom, RangeBorderStyle.BlackDotted);
+		}
+
+		/// <summary>
+		///  - Test case for exception happening when worksheet contains only single row or column.
+		/// </summary>
+		[TestCase]
+		public void SingleRowExcelOutputTest()
+		{
+			try
+			{
+				sheet.Resize(1, 1);
+				Grid.Save("TestExcel_SingleRowExcelOutputTest.xlsx");
+
+				sheet.Resize(10, 1);
+				Grid.Save("TestExcel_SingleRowExcelOutputTest.xlsx");
+
+				sheet.Resize(1, 10);
+				Grid.Save("TestExcel_SingleRowExcelOutputTest.xlsx");
+			}
+			catch (Exception ex)
+			{
+				Failure("Expected no exception, but got: " + ex.Message);
+			}
 		}
 	}
 }

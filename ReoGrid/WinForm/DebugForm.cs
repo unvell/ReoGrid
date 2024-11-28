@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -31,6 +31,7 @@ using System.Windows.Forms;
 using unvell.Common;
 using unvell.ReoGrid.Core;
 using unvell.ReoGrid.DataFormat;
+using unvell.ReoGrid.Formula;
 
 namespace unvell.ReoGrid.WinForm
 {
@@ -158,7 +159,18 @@ namespace unvell.ReoGrid.WinForm
 				Cell firstCell = grid.GetCell(range.StartPos);
 				labFormat.Text = firstCell == null ? string.Empty : firstCell.DataFormat.ToString();
 				labFormatArgs.Text = firstCell == null ? string.Empty : DumpFormatArgs(firstCell.DataFormatArgs);
-			}
+
+				// formula
+				if (firstCell == null || string.IsNullOrWhiteSpace(firstCell.Formula))
+				{
+					txtFormulaInfo.Text = "No formula";
+				}
+				else
+				{
+					string parsedFormula = FormulaRefactor.Generate(firstCell.Formula, firstCell.formulaTree);
+					txtFormulaInfo.Text = "Formula: " + firstCell.Formula + "\r\nStatus: " + firstCell.formulaStatus + "\r\nParsed: " + parsedFormula;
+				}
+            }
 		}
 
 		private string DumpFormatArgs(object args)
@@ -378,7 +390,7 @@ namespace unvell.ReoGrid.WinForm
 				Cell cell = grid.GetCell(range.Row,range.Col);
 				if (cell == null)
 				{
-					cellBounds = grid.GetGridBounds(range.Row, range.Col);
+					cellBounds = grid.GetCellBounds(range.Row, range.Col);
 				}
 				else
 				{

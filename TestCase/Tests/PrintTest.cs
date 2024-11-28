@@ -211,7 +211,7 @@ namespace unvell.ReoGrid.Tests
 		{
 			worksheet.Reset();
 
-			worksheet.Load("..\\..\\..\\Demo\\_Templates\\RGF\\printable_report.rgf");
+			worksheet.Load("..\\..\\..\\RGF\\printable_report.rgf");
 
 			worksheet.CreatePrintSession().Print();
 		}

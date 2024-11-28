@@ -19,7 +19,7 @@ namespace unvell.ReoGrid.Editor.LangRes {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class LangResource {
@@ -808,7 +808,7 @@ namespace unvell.ReoGrid.Editor.LangRes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://reogrid.net/.
+        ///   Looks up a localized string similar to https://reogrid.net/.
         /// </summary>
         internal static string HP_Homepage {
             get {
@@ -817,7 +817,7 @@ namespace unvell.ReoGrid.Editor.LangRes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://reogrid.net/document.
+        ///   Looks up a localized string similar to https://reogrid.net/document.
         /// </summary>
         internal static string HP_Homepage_Document {
             get {

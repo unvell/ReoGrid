@@ -2,7 +2,7 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net
+ * https://reogrid.net
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
@@ -11,7 +11,7 @@
  *
  * ReoGrid and ReoGrid Demo project is released under MIT license.
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
+ * Copyright (c) 2012-2021 Jing Lu <jingwood at unvell.com>
  * Copyright (c) 2012-2016 unvell.com, all rights reserved.
  * 
  ****************************************************************************/
@@ -33,7 +33,7 @@ namespace unvell.ReoGrid.Demo.Features
 			// such as data, styles, borders, formula and etc, RGF file can 
 			// be saved and loaded by ReoGrid and ReoGridEditor.
 			//
-			// http://reogrid.net/document/rgf-format
+			// https://reogrid.net/document/rgf-format
 			// 
 			reoGridControl1.CurrentWorksheet.LoadRGF("_Templates\\RGF\\order_sample.rgf");
 			reoGridControl2.CurrentWorksheet.LoadRGF("_Templates\\RGF\\order_sample.rgf");
@@ -44,7 +44,7 @@ namespace unvell.ReoGrid.Demo.Features
 				if (!this.inScrolling)
 				{
 					this.inScrolling = true;
-					reoGridControl2.ScrollCurrentWorksheet(e.OffsetX, e.OffsetY);
+					reoGridControl2.ScrollCurrentWorksheet(e.X, e.Y);
 					this.inScrolling = false;
 				}
 			};
@@ -55,7 +55,7 @@ namespace unvell.ReoGrid.Demo.Features
 				if (!this.inScrolling)
 				{
 					this.inScrolling = true;
-					reoGridControl1.ScrollCurrentWorksheet(e.OffsetX, e.OffsetY);
+					reoGridControl1.ScrollCurrentWorksheet(e.X, e.Y);
 					this.inScrolling = false;
 				}
 			};

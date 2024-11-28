@@ -1,7 +1,7 @@
 ﻿/*****************************************************************************
  * 
  * ReoGrid - .NET 表計算スプレッドシートコンポーネント
- * http://reogrid.net/jp
+ * https://reogrid.net/jp
  *
  * ReoGrid 日本語版デモプロジェクトは MIT ライセンスでリリースされています。
  * 
@@ -9,7 +9,7 @@
  * 著作権者は補償を含むあらゆる責任を負いません。 
  * 
  * Copyright (c) 2012-2016 unvell.com, All Rights Reserved.
- * http://www.unvell.com/jp
+ * https://www.unvell.com/jp
  * 
  ****************************************************************************/
 
@@ -31,7 +31,7 @@ namespace unvell.ReoGrid.Demo.DocumentDemo
 			// such as data, styles, borders, formula and etc, RGF file can 
 			// be saved and loaded by ReoGrid and ReoGridEditor.
 			//
-			// http://reogrid.net/document/rgf-format
+			// https://reogrid.net/document/rgf-format
 			//
 			sheet.LoadRGF("_Templates\\RGF\\cell_format.rgf");
 		}

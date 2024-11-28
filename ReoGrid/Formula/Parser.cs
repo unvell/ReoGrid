@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -49,17 +49,6 @@ namespace unvell.ReoGrid.Formula
 			}
 
 			return node;
-		}
-
-		private static string ParameterSeparator = ",";
-
-		static Parser()
-		{
-			try
-			{
-				ParameterSeparator = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ListSeparator;
-			}
-			catch { }
 		}
 		#endregion // Parser API
 
@@ -305,7 +294,7 @@ namespace unvell.ReoGrid.Formula
 				nodes.Add(node);
 				i++;
 
-				if (!lexer.SkipToken(Parser.ParameterSeparator)) break;
+				if (!lexer.SkipToken(FormulaExtension.ParameterSeparator)) break;
 			}
 
 			while (nodes.Count > 0 && nodes[nodes.Count - 1] == null)
@@ -478,8 +467,7 @@ namespace unvell.ReoGrid.Formula
 			{
 				case STNodeType.NUMBER:
 					string text = lexer.Input.Substring(start, len);
-					double v = 0;
-					return double.TryParse(text, out v) ? new STNumberNode(v, start, len) : null;
+					return double.TryParse(text, out var v) ? new STNumberNode(v, start, len) : null;
 
 				case STNodeType.IDENTIFIER:
 					return new STIdentifierNode(lexer.Cell == null ? null : lexer.Cell.Worksheet, lexer.Input.Substring(start, len), start, len);
@@ -528,10 +516,11 @@ namespace unvell.ReoGrid.Formula
 			"\\s*((?<string>\"(?:\"\"|[^\"])*\")|(?<union_ranges>[A-Z]+[0-9]+:[A-Z]+[0-9]+(\\s[A-Z]+[0-9]+:[A-Z]+[0-9]+)+)"
 			+ "|(?<range>\\$?[A-Z]+\\$?[0-9]*:\\$?[A-Z]+\\$?[0-9]*)"
 			+ "|(?<cell>\\$?[A-Z]+\\$?[0-9]+)"
-			+ "|(?<token>-)|(?<number>\\-?\\d*\\"
-			+ System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator + "?\\d+)"
+			+ "|(?<token>-)|(?<number>\\-?\\d*\\" + FormulaExtension.NumberDecimalSeparator + "?\\d+)"
 			+ "|(?<true>(?i)TRUE)|(?<false>(?i)FALSE)|(?<identifier>\\w+)"
-			+ "|(?<token>\\=\\=|\\<\\>|\\<\\=|\\>\\=|\\<\\>|\\=|\\!|[\\=\\.\\,\\+\\-\\*\\/\\%\\<\\>\\(\\)\\&\\^]))",
+			+ "|(?<token>\\=\\=|\\<\\>|\\<\\=|\\>\\=|\\<\\>|\\=|\\!|[\\=\\.\\"
+			+ FormulaExtension.ParameterSeparator // ,
+			+ "\\+\\-\\*\\/\\%\\<\\>\\(\\)\\&\\^]))",
 			RegexOptions.Compiled);
 
 		public string Input { get; set; }

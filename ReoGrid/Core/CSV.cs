@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -110,7 +110,7 @@ namespace unvell.ReoGrid
 		/// <param name="targetRange">The range used to fill loaded CSV data.</param>
 		public void LoadCSV(Stream s, Encoding encoding, RangePosition targetRange)
 		{
-			LoadCSV(s, encoding, targetRange, targetRange.IsEntire ? true : false, 256);
+			LoadCSV(s, encoding, targetRange, targetRange.IsEntire, 256);
 		}
 
 		/// <summary>
@@ -123,7 +123,7 @@ namespace unvell.ReoGrid
 		/// <param name="bufferLines">decide how many lines int the buffer to read and fill csv data</param>
 		public void LoadCSV(Stream s, Encoding encoding, RangePosition targetRange, bool autoSpread, int bufferLines)
 		{
-			this.controlAdapter.ChangeCursor(CursorStyle.Busy);
+			this.controlAdapter?.ChangeCursor(CursorStyle.Busy);
 
 			try
 			{
@@ -142,7 +142,7 @@ namespace unvell.ReoGrid
 			}
 			finally
 			{
-				this.controlAdapter.ChangeCursor(CursorStyle.PlatformDefault);
+				this.controlAdapter?.ChangeCursor(CursorStyle.PlatformDefault);
 			}
 		}
 
@@ -170,13 +170,11 @@ namespace unvell.ReoGrid
 		/// <param name="encoding">Text encoding during output text in CSV format.</param>
 		public void ExportAsCSV(string path, string addressOrName, Encoding encoding = null)
 		{
-			NamedRange namedRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				this.ExportAsCSV(path, new RangePosition(addressOrName), encoding);
 			}
-			else if (this.TryGetNamedRange(addressOrName, out namedRange))
+			else if (this.TryGetNamedRange(addressOrName, out var namedRange))
 			{
 				this.ExportAsCSV(path, namedRange, encoding);
 			}
@@ -220,13 +218,11 @@ namespace unvell.ReoGrid
 		/// <param name="encoding">Text encoding during output text in CSV format.</param>
 		public void ExportAsCSV(Stream s, string addressOrName, Encoding encoding = null)
 		{
-			NamedRange namedRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				ExportAsCSV(s, new RangePosition(addressOrName), encoding);
 			}
-			else if (this.TryGetNamedRange(addressOrName, out namedRange))
+			else if (this.TryGetNamedRange(addressOrName, out var namedRange))
 			{
 				ExportAsCSV(s, namedRange, encoding);
 			}
@@ -273,20 +269,27 @@ namespace unvell.ReoGrid
 						var cell = this.GetCell(r, c);
 						if (cell == null || !cell.IsValidCell)
 						{
-							sb.Append(',');
 							c++;
 						}
 						else
 						{
 							var data = cell.Data;
-							string str = null;
+
 							bool quota = false;
+							//if (!quota)
+							//{
+							//	if (cell.DataFormat == CellDataFormatFlag.Text)
+							//	{
+							//		quota = true;
+							//	}
+							//}
 
-							if (data is string)
+							if (data is string str)
 							{
-								str = (string)data;
-
-								if (str.IndexOf('"') >= 0)
+								if (!string.IsNullOrEmpty(str)
+									&& (cell.DataFormat == CellDataFormatFlag.Text
+									|| str.IndexOf(',') >= 0 || str.IndexOf('"') >= 0
+									|| str.StartsWith(" ") || str.EndsWith(" ")))
 								{
 									quota = true;
 								}
@@ -296,18 +299,10 @@ namespace unvell.ReoGrid
 								str = Convert.ToString(data);
 							}
 
-							if (!quota)
-							{
-								if (cell.DataFormat == CellDataFormatFlag.Text)
-								{
-									quota = true;
-								}
-							}
-
 							if (quota)
 							{
 								sb.Append('"');
-								sb.Append(str);
+								sb.Append(str.Replace("\"", "\"\""));
 								sb.Append('"');
 							}
 							else

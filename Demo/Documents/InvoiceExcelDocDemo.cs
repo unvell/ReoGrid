@@ -2,7 +2,7 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net
+ * https://reogrid.net
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
@@ -11,7 +11,7 @@
  *
  * ReoGrid and ReoGrid Demo project is released under MIT license.
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
+ * Copyright (c) 2012-2021 Jing Lu <jingwood at unvell.com>
  * Copyright (c) 2012-2016 unvell.com, all rights reserved.
  * 
  ****************************************************************************/
@@ -36,7 +36,7 @@ namespace unvell.ReoGrid.Demo.Documents
 			var filename = "_Templates\\Excel\\simple-invoice.xlsx";
 
 			// load tepmlate from Excel file.
-			// http://reogrid.net/document/excel-file-format
+			// https://reogrid.net/document/excel-file-format
 			// 
 			reoGridControl.Load(filename);
 
@@ -45,7 +45,7 @@ namespace unvell.ReoGrid.Demo.Documents
 			worksheet.Ranges["K16:L16"].Merge();
 
 			var button = new CellTypes.ButtonCell("Open in Excel");
-			button.Click += (s, e) => System.Diagnostics.Process.Start(filename);
+			button.Click += (s, e) => RGUtility.OpenFileOrLink(filename);
 
 			worksheet["K16"] = button;
 		}

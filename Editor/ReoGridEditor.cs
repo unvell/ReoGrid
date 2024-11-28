@@ -2,7 +2,7 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
@@ -11,7 +11,7 @@
  *
  * ReoGrid and ReoGridEditor is released under MIT license.
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
+ * Copyright (c) 2012-2021 Jing Lu <jingwood at unvell.com>
  * Copyright (c) 2012-2016 unvell.com, all rights reserved.
  * 
  ****************************************************************************/
@@ -238,7 +238,7 @@ namespace unvell.ReoGrid.Editor
 							this.CurrentWorksheet.ExportAsHTML(fs);
 						}
 
-						Process.Start(sfd.FileName);
+						RGUtility.OpenFileOrLink(sfd.FileName);
 					}
 				}
 			};
@@ -279,7 +279,7 @@ namespace unvell.ReoGrid.Editor
 					this.CurrentWorksheet.Save(fs);
 				}
 
-				Process p = Process.Start("notepad.exe", filepath);
+				Process p = RGUtility.OpenFileOrLink("notepad.exe", filepath);
 				p.WaitForExit();
 
 				if (p.ExitCode == 0)
@@ -654,7 +654,7 @@ namespace unvell.ReoGrid.Editor
 			{
 				try
 				{
-					Process.Start(LangResource.HP_Homepage);
+					RGUtility.OpenFileOrLink(LangResource.HP_Homepage);
 				}
 				catch { }
 			};
@@ -663,7 +663,7 @@ namespace unvell.ReoGrid.Editor
 			{
 				try
 				{
-					Process.Start(LangResource.HP_Homepage_Document);
+					RGUtility.OpenFileOrLink(LangResource.HP_Homepage_Document);
 				}
 				catch { }
 			};
@@ -790,7 +790,7 @@ namespace unvell.ReoGrid.Editor
 					}
 
 #if DEBUG
-					Process.Start(dlg.FileName);
+					RGUtility.OpenFileOrLink(dlg.FileName);
 #endif
 				}
 			};
@@ -875,7 +875,7 @@ namespace unvell.ReoGrid.Editor
 
 			var menuItem = sender as ToolStripMenuItem;
 
-			if (menuItem != null && menuItem.Tag is Type && worksheet != null)
+			if (menuItem != null && menuItem.Tag is Type && worksheet != null && !worksheet.SelectionRange.IsEmpty)
 			{
 				foreach (var cell in worksheet.Ranges[worksheet.SelectionRange].Cells)
 				{
@@ -1645,7 +1645,7 @@ namespace unvell.ReoGrid.Editor
 				this.SetCurrentDocumentFile(path);
 
 #if DEBUG
-				Process.Start(path);
+				RGUtility.OpenFileOrLink(path);
 #endif
 			}
 			catch (Exception ex)

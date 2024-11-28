@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -76,6 +76,7 @@ namespace unvell.ReoGrid
 #if DEBUG
 			Stopwatch sw = Stopwatch.StartNew();
 #endif // DEBUG
+
 			AutoAdjustRowHeaderPanelWidth();
 
 			if (viewportController != null)
@@ -138,39 +139,6 @@ namespace unvell.ReoGrid
 				if (this.controlAdapter != null) this.controlAdapter.Invalidate();
 			}
 		}
-
-		/// <summary>
-		/// Force to repaint the canvas region of control
-		/// </summary>
-		[Obsolete("use RequestInvalidate instead")]
-		public void InvalidateSheet()
-		{
-			this.RequestInvalidate();
-		}
-		
-		///// <summary>
-		///// Invalidate control force to repaint specified region by position of cell
-		///// </summary>
-		///// <param name="pos">region of position will be invalidated</param>
-		//internal void InvalidateCell(ReoGridPos pos)
-		//{
-		//	//if (pos.IsEmpty) return;
-		//	//pos = FixPos(pos);
-
-		//	// TODO
-
-		//	InvalidateCanvas();
-		//}
-
-		///// <summary>
-		///// Invalidate control force to repaint specified region by cell
-		///// </summary>
-		///// <param name="cell">region of cell will be invalidated</param>
-		//public void InvalidateCell(ReoGridCell cell)
-		//{
-		//	if (cell == null) return;
-		//	InvalidateCell(cell.InternalPos);
-		//}
 
 		#endregion // Invalidations
 

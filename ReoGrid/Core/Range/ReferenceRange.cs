@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -36,16 +36,6 @@ namespace unvell.ReoGrid
 		private Cell startCell;
 		private Cell endCell;
 		//private ReoGridRange range = ReoGridRange.Empty;
-
-		/// <summary>
-		/// Get range position.
-		/// </summary>
-		[Obsolete("use property Position instead")]
-		public RangePosition Range
-		{
-			get { return this.Position; }
-			//set { range = value; }
-		}
 
 		/// <summary>
 		/// Get or set start position.
@@ -86,17 +76,7 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Zero-based number of column to locate the start position of this range.
 		/// </summary>
-		[Obsolete("use Column instead")]
 		public int Col
-		{
-			get { return this.startCell.Column; }
-			set { this.Column = value; }
-		}
-
-		/// <summary>
-		/// Zero-based number of column to locate the start position of this range.
-		/// </summary>
-		public int Column
 		{
 			get { return this.startCell.Column; }
 			set
@@ -144,17 +124,7 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Get or set end number of column.
 		/// </summary>
-		[Obsolete("use EndColumn instead")]
 		public int EndCol
-		{
-			get { return this.endCell.Column; }
-			set { this.EndColumn = value; }
-		}
-
-		/// <summary>
-		/// Get or set end number of column.
-		/// </summary>
-		public int EndColumn
 		{
 			get { return this.endCell.Column; }
 			set
@@ -614,7 +584,7 @@ namespace unvell.ReoGrid
 		{
 			CheckForOwnerAssociated();
 
-			this.Worksheet.GroupColumns(this.Column, this.Cols);
+			this.Worksheet.GroupColumns(this.Col, this.Cols);
 		}
 
 		/// <summary>

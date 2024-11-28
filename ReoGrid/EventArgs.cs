@@ -2,7 +2,7 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
@@ -11,8 +11,8 @@
  *
  * ReoGrid is open source software released under MIT license.
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -63,12 +63,6 @@ namespace unvell.ReoGrid.Events
 		{
 			this.Worksheet = sheet;
 		}
-	}
-
-	[Obsolete("use WorkbookActionEventArgs instead")]
-	public class ActionPerformedEventArgs : WorkbookActionEventArgs
-	{
-		public ActionPerformedEventArgs(IAction action) : base(action) { }
 	}
 
 	#region Actions
@@ -221,12 +215,12 @@ namespace unvell.ReoGrid.Events
 		/// <summary>
 		/// Scrolled horizontal value.
 		/// </summary>
-		public RGFloat OffsetX { get; internal set; }
+		public RGFloat X { get; internal set; }
 
 		/// <summary>
 		/// Scrolled vertical value.
 		/// </summary>
-		public RGFloat OffsetY { get; internal set; }
+		public RGFloat Y { get; internal set; }
 
 		/// <summary>
 		/// Create the instance of this event argument.
@@ -306,12 +300,6 @@ namespace unvell.ReoGrid.Events
 		/// Event source associated mouse position
 		/// </summary>
 		public Point RelativePosition { get; set; }
-
-		/// <summary>
-		/// Event source associated mouse position
-		/// </summary>
-		[Obsolete("use RelativePosition instead, will be removed from 0.8.8")]
-		public Point CursorPosition { get; set; }
 
 		/// <summary>
 		/// Event source unassociated mouse position (Position to control)

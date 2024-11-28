@@ -2,7 +2,7 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net
+ * https://reogrid.net
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
@@ -11,7 +11,7 @@
  *
  * ReoGrid and ReoGrid Demo project is released under MIT license.
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
+ * Copyright (c) 2012-2021 Jing Lu <jingwood at unvell.com>
  * Copyright (c) 2012-2016 unvell.com, all rights reserved.
  * 
  ****************************************************************************/
@@ -61,10 +61,10 @@ namespace unvell.ReoGrid.Demo.CustomCells
 				HAlign = ReoGridHorAlign.Center,
 			};
 
-			var grayTextStyle = new WorksheetRangeStyle 
-			{ 
-				Flag = PlainStyleFlag.TextColor, 
-				TextColor =	Color.DimGray 
+			var grayTextStyle = new WorksheetRangeStyle
+			{
+				Flag = PlainStyleFlag.TextColor,
+				TextColor = Color.DimGray
 			};
 
 			worksheet.MergeRange(1, 1, 1, 6);
@@ -93,9 +93,19 @@ namespace unvell.ReoGrid.Demo.CustomCells
 			worksheet.MergeRange(5, 2, 1, 3);
 			var link = new HyperlinkCell("http://www.google.com") { AutoNavigate = false };
 			worksheet[5, 1] = new object[] { "Hyperlink", link };
-			link.Click += (s, e) => System.Diagnostics.Process.Start(worksheet.GetCellText(5, 2));
+			link.Click += (s, e) =>
+			{
+				try
+				{
+					RGUtility.OpenFileOrLink(worksheet.GetCellText(5, 2));
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.ToString());
+				}
+			};
 
-			// checkbox
+		 // checkbox
 			var checkbox = new CheckBoxCell();
 			worksheet.SetRangeStyles(7, 2, 1, 1, middleStyle);
 			worksheet.SetRangeStyles(8, 2, 1, 1, grayTextStyle);

@@ -1,19 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8B62357A-ABBC-4DB0-8633-F1D6A6C1EA53}</ProjectGuid>
+    <TargetFrameworks>net8.0-windows</TargetFrameworks>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>unvell.ReoGrid</RootNamespace>
     <AssemblyName>unvell.ReoGrid</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
+	 <Platform>Any CPU</Platform>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -24,545 +17,110 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>3.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <StartupObject>
-    </StartupObject>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <StartupObject></StartupObject>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <Configurations>Debug;Release;Pack</Configurations>
   </PropertyGroup>
+	<PropertyGroup>
+		<Authors>Jingwood</Authors>
+		<Company>unvell inc.</Company>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://reogrid.net</PackageProjectUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryUrl>https://github.com/unvell/ReoGrid/</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<VersionPrefix>3.1.0</VersionPrefix>
+		<VersionSuffix></VersionSuffix>
+		<PackageId>unvell.ReoGrid.dll</PackageId>
+		<Description>Powerful and lightweight open source .NET spreadsheet component. Compatible with Excel 2007 format or later. Simple APIs to open/edit/save/print an Excel spreadsheet in the .NET application.</Description>
+		<SignAssembly>true</SignAssembly>
+		<ApplicationIcon>favicon.ico</ApplicationIcon>
+		<Copyright>2012-2023 (c) Jingwood, unvell inc., all rights reserved.</Copyright>
+		<PackageTags>spreadsheet excel drawing grid workbook worksheet chart data formula script macro outline print</PackageTags>
+		<PackageReleaseNotes>https://github.com/unvell/ReoGrid/releases/tag/v3.1.0</PackageReleaseNotes>
+	</PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;EX_SCRIPT;VP_DEBUG_OFF;ALWAYS_CELL_CLIP;WINFORM;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <Prefer32Bit>false</Prefer32Bit>
+    <DefineConstants>TRACE;DEBUG;EX_SCRIPT;ALWAYS_CELL_CLIP;WINFORM;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
     <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;FORMULA;WINFORM;LANG_JP;OUTLINE;DRAWING;PRINT;RICHTEXT;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DefineConstants>TRACE;EX_SCRIPT;ALWAYS_CELL_CLIP;WINFORM;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
     <DocumentationFile>bin\Release\unvell.ReoGrid.XML</DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Minimum|AnyCPU' ">
-    <OutputPath>bin\Minimum\</OutputPath>
-    <DefineConstants>TRACE;WINFORM;LANG_JP</DefineConstants>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Pack|AnyCPU'">
+    <DefineConstants>TRACE;ALWAYS_CELL_CLIP;WINFORM;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
+    <DocumentationFile></DocumentationFile>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Pack|netcoreapp3.0|AnyCPU'">
     <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
-    <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>bin\Minimum\unvell.ReoGrid.XML</DocumentationFile>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.0|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WPFDebug|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\WPFDebug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;WPF;EX_SCRIPT;VP_DEBUG_OFF;GRID_GUIDELINE_OFF;FORMULA;LANG_JP;PRO;OUTLINE;DRAWING;RICHTEXT,PRINT</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>
-    </DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WPFRelease|AnyCPU'">
-    <OutputPath>bin\WPFRelease\</OutputPath>
-    <DefineConstants>TRACE;WPF;FORMULA;LANG_JP;OUTLINE;DRAWING;PRINT</DefineConstants>
-    <DocumentationFile>bin\WPFRelease\unvell.ReoGrid.XML</DocumentationFile>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WPFMinimum|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\WPFMinimum\</OutputPath>
-    <DefineConstants>TRACE;WPF;LANG_JP</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\WPFMinimum\unvell.ReoGrid.XML</DocumentationFile>
-    <Optimize>true</Optimize>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Extension|AnyCPU' ">
-    <OutputPath>bin\Extension\</OutputPath>
-    <DefineConstants>TRACE;EX;WINFORM;FORMULA;EX_SCRIPT;LANG_JP;OUTLINE;DRAWING;PRINT;RICHTEXT;</DefineConstants>
-    <DocumentationFile>bin\Extension\unvell.ReoGrid.XML</DocumentationFile>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'WPFExtension|AnyCPU' ">
-    <OutputPath>bin\WPFExtension\</OutputPath>
-    <DefineConstants>TRACE;EX;WPF;FORMULA;EX_SCRIPT;LANG_JP;OUTLINE;DRAWING;PRINT</DefineConstants>
-    <DocumentationFile>bin\WPFExtension\unvell.ReoGrid.XML</DocumentationFile>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugAndroid|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\DebugAndroid\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;VP_DEBUG_OFF;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;PRO;OUTLINE;DRAWING;ANDROID</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>default</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugiOS|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\DebugiOS\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;iOS;</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>default</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Antlr3.Runtime" Condition=" '$(Configuration)|$(Platform)' == 'Extension|AnyCPU' ">
-      <HintPath>..\Ref\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Antlr3.Runtime" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-      <HintPath>..\Ref\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Antlr3.Runtime" Condition=" '$(Configuration)|$(Platform)' == 'WPFExtension|AnyCPU' ">
-      <HintPath>..\Ref\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Android" Condition=" '$(Configuration)|$(Platform)' == 'DebugAndroid|AnyCPU' ">
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v4.0.3\Mono.Android.dll</HintPath>
-    </Reference>
-    <Reference Include="PresentationCore" Condition=" '$(Configuration)|$(Platform)' == 'WPFDebug|AnyCPU' " />
-    <Reference Include="PresentationCore" Condition=" '$(Configuration)|$(Platform)' == 'WPFMinimum|AnyCPU' " />
-    <Reference Include="PresentationCore" Condition=" '$(Configuration)|$(Platform)' == 'WPFRelease|AnyCPU' " />
-    <Reference Include="PresentationCore" Condition=" '$(Configuration)|$(Platform)' == 'WPFReleasePro|AnyCPU' " />
-    <Reference Include="PresentationCore" Condition=" '$(Configuration)|$(Platform)' == 'WPFExtension|AnyCPU' " />
-    <Reference Include="PresentationCore" Condition=" '$(Configuration)|$(Platform)' == 'WPFExtensionPro|AnyCPU' " />
-    <Reference Include="PresentationFramework" Condition=" '$(Configuration)|$(Platform)' == 'WPFDebug|AnyCPU' " />
-    <Reference Include="PresentationFramework" Condition=" '$(Configuration)|$(Platform)' == 'WPFMinimum|AnyCPU' " />
-    <Reference Include="PresentationFramework" Condition=" '$(Configuration)|$(Platform)' == 'WPFRelease|AnyCPU' " />
-    <Reference Include="PresentationFramework" Condition=" '$(Configuration)|$(Platform)' == 'WPFReleasePro|AnyCPU' " />
-    <Reference Include="PresentationFramework" Condition=" '$(Configuration)|$(Platform)' == 'WPFExtension|AnyCPU' " />
-    <Reference Include="PresentationFramework" Condition=" '$(Configuration)|$(Platform)' == 'WPFExtensionPro|AnyCPU' " />
-    <Reference Include="ReachFramework" />
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Design" />
-    <Reference Include="System.Drawing" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
-    <Reference Include="System.Drawing" Condition=" '$(Configuration)|$(Platform)' == 'DebugPro|AnyCPU' " />
-    <Reference Include="System.Drawing" Condition=" '$(Configuration)|$(Platform)' == 'Minimum|AnyCPU' " />
-    <Reference Include="System.Drawing" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
-    <Reference Include="System.Drawing" Condition=" '$(Configuration)|$(Platform)' == 'ReleasePro|AnyCPU' " />
-    <Reference Include="System.Drawing" Condition=" '$(Configuration)|$(Platform)' == 'Extension|AnyCPU' " />
-    <Reference Include="System.Drawing" Condition=" '$(Configuration)|$(Platform)' == 'ExtensionPro|AnyCPU' " />
-    <Reference Include="System.Drawing" Condition=" '$(Configuration)|$(Platform)' == 'WPFDebug|AnyCPU' " />
-    <Reference Include="System.Drawing" Condition=" '$(Configuration)|$(Platform)' == 'WPFMinimum|AnyCPU' " />
-    <Reference Include="System.Drawing" Condition=" '$(Configuration)|$(Platform)' == 'WPFRelease|AnyCPU' " />
-    <Reference Include="System.Drawing" Condition=" '$(Configuration)|$(Platform)' == 'WPFReleasePro|AnyCPU' " />
-    <Reference Include="System.Drawing" Condition=" '$(Configuration)|$(Platform)' == 'WPFExtension|AnyCPU' " />
-    <Reference Include="System.Drawing" Condition=" '$(Configuration)|$(Platform)' == 'WPFExtensionPro|AnyCPU' " />
-    <Reference Include="System.Printing" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Workflow.ComponentModel" />
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
-    <Reference Include="System.Windows.Forms" Condition=" '$(Configuration)|$(Platform)' == 'DebugPro|AnyCPU' " />
-    <Reference Include="System.Windows.Forms" Condition=" '$(Configuration)|$(Platform)' == 'Minimum|AnyCPU' " />
-    <Reference Include="System.Windows.Forms" Condition=" '$(Configuration)|$(Platform)' == 'Extension|AnyCPU' " />
-    <Reference Include="System.Windows.Forms" Condition=" '$(Configuration)|$(Platform)' == 'ExtensionPro|AnyCPU' " />
-    <Reference Include="System.Windows.Forms" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
-    <Reference Include="System.Windows.Forms" Condition=" '$(Configuration)|$(Platform)' == 'ReleasePro|AnyCPU' " />
-    <Reference Include="System.Xml" />
-    <Reference Include="unvell.ReoScript" Condition=" '$(Configuration)|$(Platform)' == 'Extension|AnyCPU' ">
-      <HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
-    </Reference>
-    <Reference Include="unvell.ReoScript" Condition=" '$(Configuration)|$(Platform)' == 'WPFExtension|AnyCPU' ">
-      <HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
-    </Reference>
-    <Reference Include="unvell.ReoScript">
-      <HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
-    </Reference>
-    <Reference Include="WindowsBase" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
-    <Reference Include="WindowsBase" Condition=" '$(Configuration)|$(Platform)' == 'DebugPro|AnyCPU' " />
-    <Reference Include="WindowsBase" Condition=" '$(Configuration)|$(Platform)' == 'Minimum|AnyCPU' " />
-    <Reference Include="WindowsBase" Condition=" '$(Configuration)|$(Platform)' == 'Extension|AnyCPU' " />
-    <Reference Include="WindowsBase" Condition=" '$(Configuration)|$(Platform)' == 'ExtensionPro|AnyCPU' " />
-    <Reference Include="WindowsBase" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
-    <Reference Include="WindowsBase" Condition=" '$(Configuration)|$(Platform)' == 'ReleasePro|AnyCPU' " />
-    <Reference Include="WindowsBase" Condition=" '$(Configuration)|$(Platform)' == 'WPFDebug|AnyCPU' " />
-    <Reference Include="WindowsBase" Condition=" '$(Configuration)|$(Platform)' == 'WPFMinimum|AnyCPU' " />
-    <Reference Include="WindowsBase" Condition=" '$(Configuration)|$(Platform)' == 'WPFRelease|AnyCPU' " />
-    <Reference Include="WindowsBase" Condition=" '$(Configuration)|$(Platform)' == 'WPFReleasePro|AnyCPU' " />
-    <Reference Include="WindowsBase" Condition=" '$(Configuration)|$(Platform)' == 'WPFExtension|AnyCPU' " />
-    <Reference Include="WindowsBase" Condition=" '$(Configuration)|$(Platform)' == 'WPFExtensionPro|AnyCPU' " />
-    <Reference Include="Xamarin.iOS" Condition=" '$(Configuration)|$(Platform)' == 'DebugiOS|AnyCPU' ">
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Xamarin.iOS.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Android\Graphics.cs" />
-    <Compile Include="Android\Renderer.cs" />
-    <Compile Include="Android\ReoGridView.cs" />
-    <Compile Include="Android\Platform.cs" />
-    <Compile Include="CellTypes\ButtonCell.cs" />
-    <Compile Include="CellTypes\CellBody.cs" />
-    <Compile Include="CellTypes\CellTypesManager.cs" />
-    <Compile Include="CellTypes\CheckboxCell.cs" />
-    <Compile Include="CellTypes\DatePickerCell.cs" />
-    <Compile Include="CellTypes\DropdownCell.cs" />
-    <Compile Include="CellTypes\DropdownListCell.cs" />
-    <Compile Include="CellTypes\ColumnDropdownListCell.cs" />
-    <Compile Include="CellTypes\HyperlinkCell.cs" />
-    <Compile Include="CellTypes\ICellBody.cs" />
-    <Compile Include="CellTypes\IHeaderBody.cs" />
-    <Compile Include="CellTypes\ImageButtonCell.cs" />
-    <Compile Include="CellTypes\ImageCell.cs" />
-    <Compile Include="CellTypes\NegativeProgressCell.cs" />
-    <Compile Include="CellTypes\NumberInputCell.cs" />
-    <Compile Include="CellTypes\ProgressCell.cs" />
-    <Compile Include="CellTypes\RadioButtonCell.cs" />
-    <Compile Include="Chart\AreaLine.cs" />
-    <Compile Include="Chart\Axis.cs" />
-    <Compile Include="Chart\Bar.cs" />
-    <Compile Include="Chart\Column.cs" />
-    <Compile Include="Chart\DataSource.cs" />
-    <Compile Include="Chart\Pie.cs" />
-    <Compile Include="Chart\PlotView.cs" />
-    <Compile Include="Chart\Chart.cs" />
-    <Compile Include="Chart\Legend.cs" />
-    <Compile Include="Chart\Line.cs" />
-    <Compile Include="Chart\Style.cs" />
-    <Compile Include="Chart\Title.cs" />
-    <Compile Include="Chart\Utility.cs" />
-    <Compile Include="Control\Interfaces.cs" />
-    <Compile Include="Core\AutoFillSerial\AutoFillSectionEntryFactory.cs" />
-    <Compile Include="Core\AutoFillSerial\AutoFillSection.cs" />
-    <Compile Include="Core\AutoFillSerial\AutoFillSequence.cs" />
-    <Compile Include="Core\Cell\Merge.cs" />
-    <Compile Include="Core\Cell\Text.cs" />
-    <Compile Include="Core\CSV.cs" />
-    <Compile Include="Core\Data.cs" />
-    <Compile Include="Core\Drawing.cs" />
-    <Compile Include="Core\FilterSort.cs" />
-    <Compile Include="Core\AutoFillSerial\NumericalAutoFillSectionEntry.cs" />
-    <Compile Include="Core\AutoFillSerial\IAutoFillSectionEntry.cs" />
-    <Compile Include="Core\AutoFillSerial\NullAutoFillSectionEntry.cs" />
-    <Compile Include="Core\Range\HighlightRange.cs" />
-    <Compile Include="Core\Range\Merge.cs" />
-    <Compile Include="Core\Position.cs" />
-    <Compile Include="Core\Range\NamedRange.cs" />
-    <Compile Include="Core\Range\ReferenceRange.cs" />
-    <Compile Include="Core\AutoFillSerial\TextAutoFillSectionEntry.cs" />
-    <Compile Include="Core\ViewControl.cs" />
-    <Compile Include="Core\Workbook\Appearance.cs" />
-    <Compile Include="Core\Workbook\Languages.cs" />
-    <Compile Include="Core\Workbook\Workbook.cs" />
-    <Compile Include="Core\Workbook\WorkbookInterface.cs" />
-    <Compile Include="Core\Workbook\WorksheetCollection.cs" />
-    <Compile Include="Core\Worksheet\Edit.cs" />
-    <Compile Include="Core\Worksheet\InitReset.cs" />
-    <Compile Include="Core\Worksheet\PositionCalc.cs" />
-    <Compile Include="Core\Worksheet\Selection.cs" />
-    <Compile Include="Core\Worksheet\Utility.cs" />
-    <Compile Include="Core\Worksheet\WorksheetInterface.cs" />
-    <Compile Include="DataFormat\CurrencyDataFormatter.cs" />
-    <Compile Include="DataFormat\DataFormatterManager.cs" />
-    <Compile Include="DataFormat\GeneralDataFormatter.cs" />
-    <Compile Include="DataFormat\NumberDataFormatter.cs" />
-    <Compile Include="DataFormat\DateTimeDataFormatter.cs" />
-    <Compile Include="DataFormat\PercentDataFormatter.cs" />
-    <Compile Include="DataFormat\TextDataFormatter.cs" />
-    <Compile Include="Drawing\Canvas.cs" />
-    <Compile Include="Drawing\DrawingContext.cs" />
-    <Compile Include="Drawing\Events.cs" />
-    <Compile Include="Drawing\Image.cs" />
-    <Compile Include="Drawing\Shapes\DiamondShape.cs" />
-    <Compile Include="Drawing\Shapes\ShapeObject.cs" />
-    <Compile Include="Drawing\Shapes\Line.cs" />
-    <Compile Include="Drawing\Shapes\ProShapes.cs" />
-    <Compile Include="Drawing\IDrawing.cs" />
-    <Compile Include="Drawing\IFloating.cs" />
-    <Compile Include="Drawing\Layout.cs" />
-    <Compile Include="Drawing\Shapes\SmartShaps\BlockArcShape.cs" />
-    <Compile Include="Drawing\Style.cs" />
-    <Compile Include="Drawing\Text.cs" />
-    <Compile Include="Formula\FunctionNames.cs" />
-    <Compile Include="Formula\Refactor.cs" />
-    <Compile Include="Graphics\IBrush.cs" />
-    <Compile Include="Graphics\LineStyle.cs" />
-    <Compile Include="Graphics\Matrix.cs" />
-    <Compile Include="Graphics\Point.cs" />
-    <Compile Include="Graphics\Rectangle.cs" />
-    <Compile Include="Graphics\Size.cs" />
-    <Compile Include="Interaction\KeyCode.cs" />
-    <Compile Include="Interaction\MouseButtons.cs" />
-    <Compile Include="Interaction\CursorStyle.cs" />
-    <Compile Include="Interaction\ToggleStatus.cs" />
-    <Compile Include="Interaction\Visual.cs" />
-    <Compile Include="iOS\Graphics.cs" />
-    <Compile Include="iOS\Platform.cs" />
-    <Compile Include="iOS\Renderer.cs" />
-    <Compile Include="iOS\ReoGridView.cs" />
-    <Compile Include="Print\GDIPrint.cs" />
-    <Compile Include="Print\PDFPrint.cs" />
-    <Compile Include="Print\PrintInterface.cs" />
-    <Compile Include="Print\PrintSession.cs" />
-    <Compile Include="Print\PrintSettings.cs" />
-    <Compile Include="Print\PaperSize.cs" />
-    <Compile Include="Print\WPFPrinter.cs" />
-    <Compile Include="Graphics\Color.cs" />
-    <Compile Include="Graphics\Font.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Test\RichTextTestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test\RichTextTestForm.Designer.cs">
-      <DependentUpon>RichTextTestForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Utility\FileUtility.cs" />
-    <Compile Include="Utility\LangUtility.cs" />
-    <Compile Include="Utility\MeasureToolkit.cs" />
-    <Compile Include="Utility\PrinterUtility.cs" />
-    <Compile Include="Utility\StyleUtility.cs" />
-    <Compile Include="WinForm\AboutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WinForm\AboutForm.Designer.cs">
-      <DependentUpon>AboutForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Actions.cs" />
-    <Compile Include="Chart\Interface.cs" />
-    <Compile Include="Common\ActionManager.cs" />
-    <Compile Include="Common\GraphicsToolkit.cs" />
-    <Compile Include="Common\Logger.cs" />
-    <Compile Include="Common\ResourcePoolManager.cs" />
-    <Compile Include="Common\TextFormatHelper.cs" />
-    <Compile Include="Common\Toolkit.cs" />
-    <Compile Include="Common\Win32.cs" />
-    <Compile Include="Control\ControlShare.cs">
+	<ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<Reference Include="Antlr3.Runtime">
+			<HintPath>..\Ref\Antlr3.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="unvell.ReoScript">
+			<HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<Reference Include="Antlr3.Runtime">
+			<HintPath>..\Ref\Antlr3.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="unvell.ReoScript">
+			<HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Resources\EULA_EN.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Update="System.Core">
+			<RequiredTargetFramework>3.5</RequiredTargetFramework>
+		</Reference>
+		<Reference Update="System.Xml.Linq">
+			<RequiredTargetFramework>3.5</RequiredTargetFramework>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+    <Compile Update="Control\ControlShare.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Core\Border.cs" />
-    <Compile Include="Core\Cell.cs" />
-    <Compile Include="Core\Clipboard.cs" />
-    <Compile Include="Core\Comment.cs" />
-    <Compile Include="Core\DataBind.cs" />
-    <Compile Include="Core\DataFormat.cs" />
-    <Compile Include="Core\Formula.cs" />
-    <Compile Include="Core\Header.cs" />
-    <Compile Include="Core\Outline.cs" />
-    <Compile Include="Core\PartialGrid.cs" />
-    <Compile Include="Core\Print.cs" />
-    <Compile Include="Core\Range.cs" />
-    <Compile Include="IO\RGFFormat.cs" />
-    <Compile Include="Core\Style.cs" />
-    <Compile Include="Core\Worksheet\Enums.cs" />
-    <Compile Include="Core\Worksheet\Settings.cs" />
-    <Compile Include="Data\AutoFilter.cs" />
-    <Compile Include="Data\DataSource.cs" />
-    <Compile Include="Data\DataStruct.cs" />
-    <Compile Include="Drawing\Component.cs" />
-    <Compile Include="Drawing\DrawingObjects.cs" />
-    <Compile Include="Drawing\Shapes\BasicShapes.cs" />
-    <Compile Include="Formula\Evaluator.cs" />
-    <Compile Include="Formula\FormulaExtension.cs" />
-    <Compile Include="Formula\Functions.cs" />
-    <Compile Include="Formula\Parser.cs" />
-    <Compile Include="IO\CSVFormat.cs" />
-    <Compile Include="IO\ExcelWriter.cs" />
-    <Compile Include="IO\ExcelSchame.cs" />
-    <Compile Include="Rendering\RenderingInterface.cs" />
-    <Compile Include="Views\CommentView.cs" />
-    <Compile Include="Views\DrawingView.cs" />
-    <Compile Include="Views\HeaderViews.cs" />
-    <Compile Include="Views\OutlineViews.cs" />
-    <Compile Include="IO\OpenXMLUtility.cs" />
-    <Compile Include="Graphics\HatchStyles.cs" />
-    <Compile Include="Graphics\IGraphics.cs" />
-    <Compile Include="Rendering\PDF.cs" />
-    <Compile Include="Utility\ColorUtility.cs" />
-    <Compile Include="Control\ISheetTabControl.cs" />
-    <Compile Include="Views\Layer.cs" />
-    <Compile Include="Views\CellsViewport.cs" />
-    <Compile Include="WinForm\Graphics.cs" />
-    <Compile Include="Views\NormalViewportController.cs" />
-    <Compile Include="WinForm\FormulaParserForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WinForm\FormulaParserForm.designer.cs">
-      <DependentUpon>FormulaParserForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WinForm\Platform.cs" />
-    <Compile Include="WinForm\RenameSheetDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WinForm\RenameSheetDialog.Designer.cs">
-      <DependentUpon>RenameSheetDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WinForm\SheetTabControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Utility\XMLHelper.cs" />
-    <Compile Include="WinForm\Designer\EditorServiceContext.cs" />
-    <Compile Include="WinForm\Designer\WorkbookEditorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WinForm\Designer\WorkbookEditorForm.Designer.cs">
-      <DependentUpon>WorkbookEditorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WinForm\FilterGUI.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="EventArgs.cs" />
-    <Compile Include="IO\ExcelReader.cs" />
-    <Compile Include="Exceptions.cs" />
-    <Compile Include="IO\FileFormat.cs" />
-    <Compile Include="GenericExtends.cs" />
-    <Compile Include="IO\HTMLExporter.cs" />
-    <Compile Include="ClipboardMonitor.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WinForm\Designer\WorkbookEditor.cs" />
-    <Compile Include="WPF\FilterGUI.cs" />
-    <Compile Include="WPF\Platform.cs" />
-    <Compile Include="WPF\Renderer.cs" />
-    <Compile Include="WPF\SheetTabControl.cs" />
-    <Compile Include="WPF\Utility.cs" />
-    <Compile Include="Zip\CRC32.cs" />
-    <Compile Include="Zip\Deflate.cs" />
-    <Compile Include="Zip\Events.cs" />
-    <Compile Include="Zip\Exceptions.cs" />
-    <Compile Include="Zip\Inflate.cs" />
-    <Compile Include="Zip\InfTree.cs" />
-    <Compile Include="Zip\OffsetStream.cs" />
-    <Compile Include="Zip\Shared.cs" />
-    <Compile Include="Zip\Zip.cs" />
-    <Compile Include="Zip\ZipEntry.cs" />
-    <Compile Include="Zip\ZipFile.cs" />
-    <Compile Include="Zip\ZipInputStream.cs" />
-    <Compile Include="Zip\ZipOutputStream.cs" />
-    <Compile Include="Zip\ZipSegmentedStream.cs" />
-    <Compile Include="Zip\Zlib.cs" />
-    <EmbeddedResource Include="Test\RichTextTestForm.resx">
-      <DependentUpon>RichTextTestForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\AboutForm.resx">
-      <DependentUpon>AboutForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\DebugForm.resx">
-      <DependentUpon>DebugForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\Designer\WorkbookEditorForm.resx">
-      <DependentUpon>WorkbookEditorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\FormulaParserForm.resx">
-      <DependentUpon>FormulaParserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\RenameSheetDialog.resx">
-      <DependentUpon>RenameSheetDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="App.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="WinForm\DebugForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WinForm\DebugForm.Designer.cs">
-      <DependentUpon>DebugForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rendering\BorderPainter.cs" />
-    <Compile Include="Rendering\DrawingContext.cs" />
-    <Compile Include="WinForm\Designer\IntegrateDesigner.cs" />
-    <Compile Include="WPF\WPFControl.cs" />
-    <Compile Include="WinForm\WinFormControl.cs">
+    <Compile Update="WinForm\SheetTabControl.cs" />
+    <Compile Update="WinForm\FilterGUI.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Worksheet.cs" />
-    <Compile Include="ExtendTrigger.cs" />
-    <Compile Include="Utility\RGUtility.cs" />
-    <Compile Include="Script\RSFunctions.cs" />
-    <Compile Include="Script\RSObjects.cs" />
-    <Compile Include="Script\ScriptExtend.cs" />
-    <Compile Include="Settings.cs" />
-    <Compile Include="Utility\TestHelper.cs" />
-    <Compile Include="Views\Viewport.cs" />
-    <Compile Include="IO\XMLFileFormat.cs" />
-    <Compile Include="Utility\ZipFileArchive.cs" />
-    <None Include="Resources\seek.dat" />
+    <Compile Update="ClipboardMonitor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="WinForm\WinFormControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\theme1.xml" />
-    <None Include="Resources\base_lib.reo" />
-    <None Include="Resources\EULA_EN.txt" />
-    <Content Include="Resources\cross.cur" />
-    <None Include="Resources\eye_16xLG.png.dat" />
-    <Content Include="Resources\full_col_select.cur" />
-    <Content Include="Resources\full_row_select.cur" />
-    <None Include="Resources\NewBuildDefinition_8952.png.dat" />
-    <None Include="Resources\NewBuildDefinition_8952_inactive.png.dat" />
-    <Content Include="Resources\grid_select.cur" />
-    <None Include="Resources\icon_list.png.dat" />
-    <Content Include="Resources\pick_range.cur" />
+    <EmbeddedResource Include="Resources\cross.cur" />
+    <EmbeddedResource Include="Resources\full_col_select.cur" />
+    <EmbeddedResource Include="Resources\full_row_select.cur" />
+    <EmbeddedResource Include="Resources\grid_select.cur" />
+    <EmbeddedResource Include="Resources\pick_range.cur" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -596,13 +154,17 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\EULA_EN.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="..\NuGet\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 </Project>

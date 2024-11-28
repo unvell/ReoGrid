@@ -38,7 +38,7 @@ namespace unvell.ReoGrid.Tests
 			// resize to 10 columns
 			int cols = worksheet.ColumnCount;
 			// append 10 rows 
-			worksheet.AppendCols(10);
+			worksheet.AppendColumns(10);
 			AssertEquals(worksheet.ColumnCount, cols + 10);
 		}
 
@@ -50,7 +50,7 @@ namespace unvell.ReoGrid.Tests
 			// resize to 10 columns
 			int cols = worksheet.ColumnCount;
 			// append 10 rows 
-			worksheet.AppendCols(10000);
+			worksheet.AppendColumns(10000);
 			AssertEquals(worksheet.ColumnCount, cols + 10000);
 		}
 
@@ -120,7 +120,7 @@ namespace unvell.ReoGrid.Tests
 
 			var range = new RangePosition(2, 2, 2, 5);
 			worksheet.MergeRange(range);
-			worksheet.SetRangeBorders(range, BorderPositions.Outline, RangeBorderStyle.BlackSolid);
+			worksheet.SetRangeBorders(range, BorderPositions.Outside, RangeBorderStyle.BlackSolid);
 
 			worksheet.InsertColumns(4, 2);
 

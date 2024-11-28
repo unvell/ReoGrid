@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -23,15 +23,6 @@ using System.Text;
 
 namespace unvell.ReoGrid
 {
-	/// <summary>
-	/// Obsoleted control settings, changed to WorkbookSettings and WorksheetSettings
-	/// </summary>
-	[Obsolete("changed to WorksheetSettings and WorkbookSettings, http://reogrid.net/document/settings")]
-	public enum ReoGridSettings 
-	{
-	}
-
-	#region Settings
 	/// <summary>
 	/// Workbook Control Settings
 	/// </summary>
@@ -108,6 +99,4 @@ namespace unvell.ReoGrid
 #endif // EX_SCRIPT
 		#endregion // Script
 	}
-
-	#endregion
 }

@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -172,10 +172,7 @@ namespace unvell.ReoGrid.Views
 
 		public override bool OnMouseMove(Point location, MouseButtons buttons)
 		{
-			if (this.sheet.controlAdapter != null)
-			{
-				this.sheet.controlAdapter.ChangeCursor(CursorStyle.Selection);
-			}
+			this.sheet.controlAdapter?.ChangeCursor(CursorStyle.Selection);
 
 			return base.OnMouseMove(location, buttons);
 		}
@@ -263,8 +260,8 @@ namespace unvell.ReoGrid.Views
 
 		public override Point PointToView(Point p)
 		{
-			return new Point(p.X + (ViewLeft * this.scaleFactor - bounds.X),
-				p.Y + (ViewTop * this.scaleFactor - bounds.Y));
+			return new Point(p.X + (ScrollViewLeft * this.scaleFactor - bounds.X),
+				p.Y + (ScrollViewTop * this.scaleFactor - bounds.Y));
 		}
 
 		#region Mouse

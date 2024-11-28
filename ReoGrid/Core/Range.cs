@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -28,6 +28,7 @@ using unvell.ReoGrid.Script;
 using unvell.ReoGrid.Core;
 using unvell.ReoGrid.Events;
 using unvell.ReoGrid.Graphics;
+using unvell.ReoGrid.Views;
 
 namespace unvell.ReoGrid
 {
@@ -110,7 +111,15 @@ namespace unvell.ReoGrid
 			/// <returns>Instance of referenced range to worksheet</returns>
 			public ReferenceRange this[RangePosition range]
 			{
-				get { return new ReferenceRange(this.worksheet, this.worksheet.FixRange(range)); }
+				get
+				{
+					if (range.IsEmpty)
+					{
+						throw new ArgumentException("range position is empty", nameof(range));
+					} 
+
+					return new ReferenceRange(this.worksheet, this.worksheet.FixRange(range));
+				}
 			}
 		}
 
@@ -143,13 +152,11 @@ namespace unvell.ReoGrid
 		/// <param name="addressOrName">Address or name to locate range on worksheet.</param>
 		public void DeleteRangeData(string addressOrName)
 		{
-			NamedRange refRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				this.DeleteRangeData(new RangePosition(addressOrName), true);
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out refRange))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var refRange))
 			{
 				this.DeleteRangeData(refRange, true);
 			}
@@ -257,13 +264,11 @@ namespace unvell.ReoGrid
 		/// <param name="data">Data to be set.</param>
 		public void SetRangeData(string addressOrName, object data)
 		{
-			NamedRange refRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				this.SetRangeData(new RangePosition(addressOrName), data);
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out refRange))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var refRange))
 			{
 				this.SetRangeData(refRange, data);
 			}
@@ -607,13 +612,11 @@ namespace unvell.ReoGrid
 		/// <param name="addressOrName">address or name to locate a range</param>
 		public void ScrollToRange(string addressOrName)
 		{
-			NamedRange refRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				this.ScrollToRange(new RangePosition(addressOrName));
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out refRange))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var refRange))
 			{
 				this.ScrollToRange(refRange);
 			}
@@ -651,9 +654,7 @@ namespace unvell.ReoGrid
 		/// <param name="basePos">Base point to scroll views</param>
 		public void ScrollToRange(RangePosition range, CellPosition basePos)
 		{
-			var svc = this.viewportController as unvell.ReoGrid.Views.IScrollableViewportController;
-
-			if (svc != null)
+			if (this.viewportController is IScrollableViewportController svc)
 			{
 				svc.ScrollToRange(this.FixRange(range), basePos);
 			}

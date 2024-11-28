@@ -1,7 +1,7 @@
 ﻿/*****************************************************************************
  * 
  * ReoGrid - .NET 表計算スプレッドシートコンポーネント
- * http://reogrid.net/jp
+ * https://reogrid.net/jp
  *
  * ReoGrid 日本語版デモプロジェクトは MIT ライセンスでリリースされています。
  * 
@@ -9,7 +9,7 @@
  * 著作権者は補償を含むあらゆる責任を負いません。 
  * 
  * Copyright (c) 2012-2016 unvell.com, All Rights Reserved.
- * http://www.unvell.com/jp
+ * https://www.unvell.com/jp
  * 
  ****************************************************************************/
 
@@ -54,7 +54,7 @@ namespace unvell.ReoGrid.Demo.DocumentDemo
 			var button = new CellTypes.ButtonCell("Excelで開く");
 
 			// クリックした場合 Excel で「請求書」を表示する
-			button.Click += (s, e) => System.Diagnostics.Process.Start(filename);
+			button.Click += (s, e) => RGUtility.OpenFileOrLink(filename);
 
 			// セルボタンをワークシートに置く
 			worksheet["L17"] = button;

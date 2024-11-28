@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -71,9 +71,15 @@ namespace unvell.ReoGrid.Script
 				{
 					return null;
 				}
+			}, obj =>
+			{
+				if (obj is RSWorksheet rsSheet)
+				{
+					ControlInstance.CurrentWorksheet = rsSheet.Worksheet;
+				}
 			});
 
-			this["createWorksheet"] = new NativeFunctionObject("createWorksheet", (ctx, owner, args) =>
+            this["createWorksheet"] = new NativeFunctionObject("createWorksheet", (ctx, owner, args) =>
 			{
 				return new RSWorksheet(workbook.CreateWorksheet(args.Length > 0 ? ScriptRunningMachine.ConvertToString(args[0]) : null));
 			});
@@ -145,7 +151,9 @@ namespace unvell.ReoGrid.Script
 
 	internal class RSWorksheet : ObjectValue
 	{
-		private Worksheet sheet;
+		public Worksheet sheet;
+
+		public Worksheet Worksheet { get => sheet; private set => sheet = value; }
 
 		private RSSelectionObject selection;
 
@@ -321,7 +329,7 @@ namespace unvell.ReoGrid.Script
 				return null;
 		}
 	}
-	#endregion
+	#endregion // Base Object
 
 	#region Range
 	internal class RSRangeObject : RSWorksheet
@@ -401,7 +409,7 @@ namespace unvell.ReoGrid.Script
 			});
 		}
 	}
-	#endregion
+	#endregion // Range
 
 	#region Selection
 	internal class RSSelectionObject : RSWorksheet
@@ -473,7 +481,7 @@ namespace unvell.ReoGrid.Script
 			});
 		}
 	}
-	#endregion
+	#endregion // Selection
 
 	#region Row & Column & Cell
 	internal class RSRowObject : ObjectValue
@@ -587,7 +595,7 @@ namespace unvell.ReoGrid.Script
 			}
 		}
 	}
-	#endregion
+	#endregion // Row & Column & Cell
 
 	#region Cell Style
 	internal class RSCellStyleObject : ObjectValue
@@ -690,7 +698,7 @@ namespace unvell.ReoGrid.Script
 			get { return "CellStyle"; }
 		}
 	}
-	#endregion
+	#endregion // Cell Style
 
 	#region Event Args
 	internal class RSKeyEvent : ObjectValue
@@ -704,7 +712,7 @@ namespace unvell.ReoGrid.Script
 			this["keyCode"] = new ExternalProperty(() => keyCode);
 		}
 	}
-	#endregion
+	#endregion // Event Args
 
 	#region Script Utility
 	/// <summary>
@@ -961,7 +969,7 @@ namespace unvell.ReoGrid.Script
 				return null;
 		}
 	}
-	#endregion
+	#endregion // Script Utility
 }
 
 #endif // EX_SCRIPT

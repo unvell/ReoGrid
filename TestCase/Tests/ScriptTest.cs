@@ -49,6 +49,8 @@ namespace unvell.ReoGrid.Tests
 		[TestCase]
 		public void ReoScriptFunction()
 		{
+			SetUp(20, 20);
+
 			// custom function in script
 			Grid.RunScript("script.myfun = data => '[' + data + ']'; ");
 			worksheet[10, 0] = "=myfun(\"abc\")";

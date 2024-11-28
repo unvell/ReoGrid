@@ -2,7 +2,7 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
@@ -11,7 +11,7 @@
  *
  * ReoGrid and ReoGridEditor is released under MIT license.
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
+ * Copyright (c) 2012-2021 Jing Lu <jingwood at unvell.com>
  * Copyright (c) 2012-2016 unvell.com, all rights reserved.
  * 
  ****************************************************************************/
@@ -92,15 +92,12 @@ namespace unvell.ReoGrid.Editor
 			ControlAppearanceColors key = (ControlAppearanceColors)Enum.Parse(
 			typeof(ControlAppearanceColors), lstColors.SelectedItem.ToString());
 
-			grid.ControlStyle.SetColor(key, colorPickerControl.SolidColor);
-
-			grid.ControlStyle = grid.ControlStyle;
+			grid.ControlStyle[key] = colorPickerControl.SolidColor;
 		}
 
 		private void NumSelectionWidth_ValueChanged(object sender, EventArgs e)
 		{
 			grid.ControlStyle.SelectionBorderWidth = (float)numSelectionWidth.Value;
-			grid.Invalidate();
 		}
 		#endregion // Set Styles
 

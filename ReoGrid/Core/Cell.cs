@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -64,13 +64,11 @@ namespace unvell.ReoGrid
 		/// <param name="data">Data to be set.</param>
 		public void SetCellData(string addressOrName, object data)
 		{
-			NamedRange range;
-
 			if (CellPosition.IsValidAddress(addressOrName))
 			{
 				SetCellData(new CellPosition(addressOrName), data);
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out range))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var range))
 			{
 				SetCellData(range.StartPos, data);
 			}
@@ -471,8 +469,7 @@ namespace unvell.ReoGrid
 				return GetCellData(new CellPosition(addressOrName));
 			}
 
-			NamedRange range;
-			if (this.registeredNamedRanges.TryGetValue(addressOrName, out range))
+			if (this.registeredNamedRanges.TryGetValue(addressOrName, out var range))
 			{
 				return GetCellData(range.StartPos);
 			}
@@ -515,8 +512,7 @@ namespace unvell.ReoGrid
 				return GetCellData<T>(new CellPosition(addressOrName));
 			}
 
-			NamedRange range;
-			if (this.registeredNamedRanges.TryGetValue(addressOrName, out range))
+			if (this.registeredNamedRanges.TryGetValue(addressOrName, out var range))
 			{
 				return GetCellData<T>(range.StartPos);
 			}
@@ -574,8 +570,6 @@ namespace unvell.ReoGrid
 		/// <returns>display text in string returned from specified cell</returns>
 		public string GetCellText(string address)
 		{
-			NamedRange range;
-
 			if (CellPosition.IsValidAddress(address))
 			{
 				return GetCellText(new CellPosition(address));
@@ -585,7 +579,7 @@ namespace unvell.ReoGrid
 				return GetCellText((new RangePosition(address)).StartPos);
 			}
 			else if (NamedRange.IsValidName(address)
-				&& this.TryGetNamedRange(address, out range))
+				&& this.TryGetNamedRange(address, out var range))
 			{
 				return GetCellText(range.StartPos);
 			}
@@ -657,25 +651,11 @@ namespace unvell.ReoGrid
 		public event EventHandler<CellEventArgs> CellDataChanged;
 	}
 
-#region Cell
+	#region Cell
 
 	/// <summary>
-	/// Represents the cell on worksheet. Cell instances are fully managed
-	/// by ReoGrid core. To create custom cell, use <code>CellBody</code> class or </code>ICellBody</code> interface instead.
-	/// </summary>
-	/// <seealso cref="CellBody"/>
-	/// <seealso cref="ICellBody"/>
-	public partial class ReoGridCell : Cell
-	{
-		internal ReoGridCell(Worksheet worksheet)
-			: base(worksheet)
-		{
-		}
-	}
-
-	/// <summary>
-	/// Represents the cell on worksheet. Cell instances are fully managed
-	/// by ReoGrid core. To create custom cell, use <code>CellBody</code> class or </code>ICellBody</code> interface instead.
+	/// Represents the cell on worksheet. Cell instances are completely managed by ReoGrid. 
+	/// To create custom cell, use <code>CellBody</code> class or </code>ICellBody</code> interface instead.
 	/// </summary>
 	/// <seealso cref="CellBody"/>
 	/// <seealso cref="ICellBody"/>
@@ -1130,18 +1110,6 @@ namespace unvell.ReoGrid
 			}
 		}
 
-		/// <summary>
-		/// Determines whether or not this cell is visible. (Cells on hidden rows or columns will become invisibility)
-		/// </summary>
-		[Obsolete("use !IsVisible instead")]
-		public bool IsHidden
-		{
-			get
-			{
-				return !this.IsVisible;
-			}
-		}
-
 		// todo: support multi-lines
 		private RGFloat distributedIndentSpacing;
 		internal RGFloat DistributedIndentSpacing { get { return distributedIndentSpacing; } set { distributedIndentSpacing = value; } }
@@ -1466,8 +1434,7 @@ namespace unvell.ReoGrid.Utility
 					return true;
 				}
 
-				double tmpVal;
-				if (!double.TryParse((string)data, out tmpVal))
+				if (!double.TryParse((string)data, out var tmpVal))
 				{
 					value = default(T);
 					return false;
@@ -1482,8 +1449,7 @@ namespace unvell.ReoGrid.Utility
 					return true;
 				}
 
-				double tmpVal;
-				if (!double.TryParse(((StringBuilder)data).ToString(), out tmpVal))
+				if (!double.TryParse(((StringBuilder)data).ToString(), out var tmpVal))
 				{
 					value = default(T);
 					return false;

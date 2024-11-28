@@ -3,7 +3,7 @@
 /*****************************************************************************
  * 
  * ReoGrid - .NET 表計算スプレッドシートコンポーネント
- * http://reogrid.net/jp
+ * https://reogrid.net/jp
  *
  * ReoGrid 日本語版デモプロジェクトは MIT ライセンスでリリースされています。
  * 
@@ -11,11 +11,11 @@
  * 著作権者は補償を含むあらゆる責任を負いません。 
  * 
  * Copyright (c) 2012-2016 unvell.com, All Rights Reserved.
- * http://www.unvell.com/jp
+ * https://www.unvell.com/jp
  * 
  ****************************************************************************/
 -->
-<Demo BaseSite="https://reogrid.net/jp/" DefaultItem="バージョン2.0 新機能">
+<Demo BaseSite="https://reogrid.net/jp/" DefaultItem="バージョン3.0 新機能">
 
 	<New>
 		<Item Name="ようこそ"></Item>
@@ -29,10 +29,30 @@
 		
 	<Categories>
 		<Category Name="ようこそ" Expansion="True">
-			<Item Name="バージョン2.0 新機能" Class="Welcome.WhatsNewDemo"></Item>
+			<Item Name="バージョン3.0 新機能" Class="Welcome.WhatsNewDemo"></Item>
+		</Category>
+		
+		<Category Name="スプレッドシート応用例" Expansion="True">
+			<Item Name="請求書" Class="DocumentDemo.InvoiceExcelDocDemo" />
+			<Item Name="振替伝票" Class="DocumentDemo.FurikaeDenpyoDemo" />
+			<Item Name="月別人口推計" Class="DocumentDemo.MonthlyPopulationStatDemo" />
+			<Item Name="財務分析" Class="DocumentDemo.FinancialAnalysisDemo" />
+			<Item Name="職員情報管理" Class="DocumentDemo.StaffInformationDemo" />
+			<Item Name="貸借対照表" Class="DocumentDemo.BalanceSheetDemo" />
+
+			<Item Name="月別カレンダー（読み込み専用）" Class="DocumentDemo.MonthCalendarDocDemo" />
+			<Item Name="年間カレンダー（読み込み専用）" Class="DocumentDemo.YearCalendarDocDemo" />
+
+			<Item Name="注文書（英語）" Class="DocumentDemo.OrderDocDemo" />
+			<Item Name="プロジェクト報告書（英語）" Class="DocumentDemo.ProjectSummaryDocDemo" />
+			<Item Name="プロジェクトビルド報告書（英語）" Class="DocumentDemo.ProjectBuildReportDemo" />
+			<Item Name="データ書式サンプル（英語）" Class="DocumentDemo.DataFormatDocDemo" />
+			<Item Name="財務指標報告書（英語）" Class="DocumentDemo.FinancialRatiosDocDemo" />
+			
+			<Item Name="迷路" Class="DocumentDemo.MazeDocDemo" />
 		</Category>
 			
-		<Category Name="グラフ" Expansion="True" Namespace="ChartDemo">
+		<Category Name="グラフ" Expansion="False" Namespace="ChartDemo">
 			<Item Name="折れ線グラフ" Class="ChartDemo.LineChartDemo">
 				<Doc-Url>document/chart</Doc-Url>
 			</Item>
@@ -62,26 +82,6 @@
 			<Item Name="描画オブジェクト" Class="Drawings.AddingObjectDemo" />
 			<Item Name="描画オブジェクトスタイル" Class="Drawings.DrawingObjectStyleDemo" />
 			<!--<Item Name="Basic Shapes" Class="Drawings.BasicShapesDemo" />-->
-		</Category>
-
-		<Category Name="スプレッドシート応用例" Expansion="True">
-			<Item Name="請求書" Class="DocumentDemo.InvoiceExcelDocDemo" />
-			<Item Name="振替伝票" Class="DocumentDemo.FurikaeDenpyoDemo" />
-			<Item Name="月別人口推計" Class="DocumentDemo.MonthlyPopulationStatDemo" />
-			<Item Name="財務分析" Class="DocumentDemo.FinancialAnalysisDemo" />
-			<Item Name="職員情報管理" Class="DocumentDemo.StaffInformationDemo" />
-			<Item Name="貸借対照表" Class="DocumentDemo.BalanceSheetDemo" />
-
-			<Item Name="月別カレンダー（読み込み専用）" Class="DocumentDemo.MonthCalendarDocDemo" />
-			<Item Name="年間カレンダー（読み込み専用）" Class="DocumentDemo.YearCalendarDocDemo" />
-
-			<Item Name="注文書（英語）" Class="DocumentDemo.OrderDocDemo" />
-			<Item Name="プロジェクト報告書（英語）" Class="DocumentDemo.ProjectSummaryDocDemo" />
-			<Item Name="プロジェクトビルド報告書（英語）" Class="DocumentDemo.ProjectBuildReportDemo" />
-			<Item Name="データ書式サンプル（英語）" Class="DocumentDemo.DataFormatDocDemo" />
-			<Item Name="財務指標報告書（英語）" Class="DocumentDemo.FinancialRatiosDocDemo" />
-			
-			<Item Name="迷路" Class="DocumentDemo.MazeDocDemo" />
 		</Category>
 		
 		<Category Name="セル" Expansion="True">

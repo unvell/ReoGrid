@@ -2,7 +2,7 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net
+ * https://reogrid.net
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
@@ -11,7 +11,7 @@
  *
  * ReoGrid and ReoGrid Demo project is released under MIT license.
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
+ * Copyright (c) 2012-2021 Jing Lu <jingwood at unvell.com>
  * Copyright (c) 2012-2016 unvell.com, all rights reserved.
  * 
  ****************************************************************************/
@@ -67,7 +67,6 @@ namespace unvell.ReoGrid.Demo
 			var dummyGrid = new ReoGridControl();
 
 			this.labTitle.Text = dummyGrid.ProductName + " " + dummyGrid.ProductVersion.ToString();
-			web.Visible = false;
 
 			// load default demo item
 			if (!string.IsNullOrEmpty(demoFile.defaultItem))
@@ -174,28 +173,6 @@ namespace unvell.ReoGrid.Demo
 			{
 				demoPanel.Controls.Clear();
 				demoPanel.Controls.Add(item._demoInstance);
-
-				if (demoCtrl is IDemoHelp
-					&& !string.IsNullOrEmpty(htmlHelp = ((IDemoHelp)demoCtrl).GetHTMLHelp()))
-				{
-					web.DocumentText = string.Format(
-						unvell.ReoGrid.Demo.Properties.Resources.HTMLHelpTemp, item.name, htmlHelp);
-
-					web.Document.OpenNew(true);
-					web.Visible = true;
-				}
-				else if (item.docUrl != null && !string.IsNullOrEmpty(item.docUrl.val))
-				{
-					web.Navigate(string.Format("{0}/{1}", demoFile.baseSite, item.docUrl.val));
-					web.Visible = true;
-				}
-				else
-				{
-					web.Visible = false;
-					//web.DocumentText = unvell.ReoGrid.Demo.Properties.Resources.NoHelpAvailable;
-					//web.Document.OpenNew(true);
-				}
-			
 			}
 		}
 
@@ -232,17 +209,17 @@ namespace unvell.ReoGrid.Demo
 
 		private void reportBugToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Process.Start("http://forum.reogrid.net/");
+			RGUtility.OpenFileOrLink("http://forum.reogrid.net/");
 		}
 
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Process.Start("http://reogrid.net/about");
+			RGUtility.OpenFileOrLink("https://reogrid.net/about");
 		}
 
 		private void projectHomepageToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Process.Start("http://reogrid.net/");
+			RGUtility.OpenFileOrLink("https://reogrid.net/");
 		}
 
 		private void openFileToolStripMenuItem_Click(object sender, EventArgs e)

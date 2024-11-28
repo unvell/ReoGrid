@@ -220,10 +220,10 @@
     <value>Right</value>
   </data>
   <data name="HP_Homepage" xml:space="preserve">
-    <value>http://reogrid.net/</value>
+    <value>https://reogrid.net/</value>
   </data>
   <data name="HP_Homepage_Document" xml:space="preserve">
-    <value>http://reogrid.net/document</value>
+    <value>https://reogrid.net/document</value>
   </data>
   <data name="Label_Color" xml:space="preserve">
     <value>&amp;Color:</value>

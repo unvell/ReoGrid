@@ -1,7 +1,7 @@
 ﻿/*****************************************************************************
  * 
  * ReoGrid - .NET 表計算スプレッドシートコンポーネント
- * http://reogrid.net/jp
+ * https://reogrid.net/jp
  *
  * ReoGrid 日本語版デモプロジェクトは MIT ライセンスでリリースされています。
  * 
@@ -9,7 +9,7 @@
  * 著作権者は補償を含むあらゆる責任を負いません。 
  * 
  * Copyright (c) 2012-2016 unvell.com, All Rights Reserved.
- * http://www.unvell.com/jp
+ * https://www.unvell.com/jp
  * 
  ****************************************************************************/
 
@@ -31,7 +31,7 @@ namespace unvell.ReoGrid.Demo.WorkbookDemo
 			//
 			// RGF はワークシートのテンプレートファイルフォーマットで、ReoGrid/ReoGridEditor で作成、編集できます。
 			// 詳しくは、以下の URL をご覧ください。
-			// http://reogrid.net/jp/document/rgf-format
+			// https://reogrid.net/jp/document/rgf-format
 			// 
 			reoGridControl1.CurrentWorksheet.LoadRGF("_Templates\\RGF\\order_sample.rgf");
 			reoGridControl2.CurrentWorksheet.LoadRGF("_Templates\\RGF\\order_sample.rgf");
@@ -42,7 +42,7 @@ namespace unvell.ReoGrid.Demo.WorkbookDemo
 				if (!this.inScrolling)
 				{
 					this.inScrolling = true;
-					reoGridControl2.ScrollCurrentWorksheet(e.OffsetX, e.OffsetY);
+					reoGridControl2.ScrollCurrentWorksheet(e.X, e.Y);
 					this.inScrolling = false;
 				}
 			};
@@ -53,7 +53,7 @@ namespace unvell.ReoGrid.Demo.WorkbookDemo
 				if (!this.inScrolling)
 				{
 					this.inScrolling = true;
-					reoGridControl1.ScrollCurrentWorksheet(e.OffsetX, e.OffsetY);
+					reoGridControl1.ScrollCurrentWorksheet(e.X, e.Y);
 					this.inScrolling = false;
 				}
 			};

@@ -35,6 +35,8 @@ namespace unvell.ReoGrid.Tests
 		[TestCase(DebugEnabled = true)]
 		void SetValue_100x100_Random_AutoFormatOn()
 		{
+			SetUp(100, 100);
+
 			worksheet.SetSettings(WorksheetSettings.Edit_AutoFormatCell, true);
 			for (int r = 0; r < 100; r++)
 			{
@@ -48,6 +50,8 @@ namespace unvell.ReoGrid.Tests
 		[TestCase(DebugEnabled = true)]
 		void SetValue_100x100_Random_AutoFormatOff()
 		{
+			SetUp(100, 100);
+		
 			worksheet.SetSettings(WorksheetSettings.Edit_AutoFormatCell, false);
 			for (int r = 0; r < 100; r++)
 			{

@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ReoGrid Demo 日本語版")]
 [assembly: AssemblyDescription(".NET スプレッドシートコンポネント")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("unvell.com")]
+[assembly: AssemblyCompany("unvell")]
 [assembly: AssemblyProduct("ReoGrid")]
-[assembly: AssemblyCopyright("Copyright © 2012-2016 unvell.com, All Rights Seserved.")]
+[assembly: AssemblyCopyright("Copyright © 2012-2021 Jingwood & unvell, all rights reserved.")]
 [assembly: AssemblyTrademark("ReoGrid.NET")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.0.0")]
-[assembly: AssemblyFileVersion("2.0.0.0")]
+[assembly: AssemblyVersion("3.0.0.0")]
+[assembly: AssemblyFileVersion("3.0.0.0")]

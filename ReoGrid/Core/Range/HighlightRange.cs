@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -112,13 +112,11 @@ namespace unvell.ReoGrid
 		/// <returns>Instace of highlight range created in this worksheet</returns>
 		public HighlightRange CreateHighlightRange(string addressOrName, SolidColor color)
 		{
-			NamedRange range;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				return CreateHighlightRange(new RangePosition(addressOrName), color);
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out range))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var range))
 			{
 				return CreateHighlightRange(range.Position, color);
 			}
@@ -152,9 +150,7 @@ namespace unvell.ReoGrid
 			}
 			else if (RGUtility.IsValidName(address))
 			{
-				NamedRange refRange;
-
-				if (registeredNamedRanges.TryGetValue(address, out refRange))
+				if (registeredNamedRanges.TryGetValue(address, out var refRange))
 				{
 					return AddHighlightRange(refRange);
 				}
@@ -205,8 +201,7 @@ namespace unvell.ReoGrid
 			}
 			else if (RGUtility.IsValidName(address))
 			{
-				NamedRange refRange;
-				if (registeredNamedRanges.TryGetValue(address, out refRange))
+				if (registeredNamedRanges.TryGetValue(address, out var refRange))
 				{
 					return RemoveHighlightRange(refRange);
 				}

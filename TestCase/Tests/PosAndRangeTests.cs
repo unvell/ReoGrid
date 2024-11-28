@@ -415,10 +415,12 @@ namespace unvell.ReoGrid.Tests
 		[TestCase]
 		void NamedRangeTest()
 		{
+			SetUp(30, 30);
+
 			var range = worksheet.DefineNamedRange("r1", "B3:C5");
 
 			AssertSame(range.Row, 2);
-			AssertSame(range.Column, 1);
+			AssertSame(range.Col, 1);
 			AssertSame(range.Rows, 3);
 			AssertSame(range.Cols, 2);
 
@@ -434,7 +436,7 @@ namespace unvell.ReoGrid.Tests
 		{
 			var r1 = worksheet.GetNamedRange("r1");
 			AssertSame(r1.Row, 2);
-			AssertSame(r1.Column, 1);
+			AssertSame(r1.Col, 1);
 			AssertSame(r1.Rows, 3);
 			AssertSame(r1.Cols, 2);
 			AssertEquals("B3:C5", r1.ToAddress());
@@ -442,7 +444,7 @@ namespace unvell.ReoGrid.Tests
 
 			var r2 = worksheet.DefineNamedRange("r2", "C8:E11");
 			AssertSame(r2.Row, 7);
-			AssertSame(r2.Column, 2);
+			AssertSame(r2.Col, 2);
 			AssertSame(r2.Rows, 4);
 			AssertSame(r2.Cols, 3);
 			AssertEquals("C8:E11", r2.ToAddress());
@@ -453,7 +455,7 @@ namespace unvell.ReoGrid.Tests
 
 			// r1 must be not changed
 			AssertSame(r1.Row, 2);
-			AssertSame(r1.Column, 1);
+			AssertSame(r1.Col, 1);
 			AssertSame(r1.Rows, 3);
 			AssertSame(r1.Cols, 2);
 			AssertEquals("B3:C5", r1.ToAddress());
@@ -461,7 +463,7 @@ namespace unvell.ReoGrid.Tests
 
 			// r2 must be changed
 			AssertSame(r2.Row, 9);
-			AssertSame(r2.Column, 2);
+			AssertSame(r2.Col, 2);
 			AssertSame(r2.Rows, 4);
 			AssertSame(r2.Cols, 3);
 			AssertEquals("C10:E13", r2.ToAddress());
@@ -477,7 +479,7 @@ namespace unvell.ReoGrid.Tests
 			// r1 must be expended
 			var r1 = worksheet.GetNamedRange("r1");
 			AssertSame(r1.Row, 2);
-			AssertSame(r1.Column, 1);
+			AssertSame(r1.Col, 1);
 			AssertSame(r1.Rows, 4);
 			AssertSame(r1.Cols, 2);
 			AssertEquals("B3:C6", r1.ToAddress());
@@ -486,7 +488,7 @@ namespace unvell.ReoGrid.Tests
 			// r2 must be moved down
 			var r2 = worksheet.GetNamedRange("r2");
 			AssertSame(r2.Row, 10);
-			AssertSame(r2.Column, 2);
+			AssertSame(r2.Col, 2);
 			AssertSame(r2.Rows, 4);
 			AssertSame(r2.Cols, 3);
 			AssertEquals("C11:E14", r2.ToAddress());

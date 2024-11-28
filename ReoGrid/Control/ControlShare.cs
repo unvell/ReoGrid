@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -79,6 +79,14 @@ namespace unvell.ReoGrid
 		private IRenderer renderer;
 
 		#region Initialize
+
+		static ReoGridControl()
+		{
+#if NETCOREAPP3_1_OR_GREATER
+			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+#endif // NETCOREAPP3_1_OR_GREATER
+		}
+
 		private void InitControl()
 		{
 #if WINFORM || WPF
@@ -99,7 +107,7 @@ namespace unvell.ReoGrid
 			this.builtInCrossCursor = LoadCursorFromResource(unvell.ReoGrid.Properties.Resources.cross);
 #endif // WINFORM || WPF
 
-			this.controlStyle = ControlAppearanceStyle.CreateDefaultControlStyle();
+			this.ControlStyle = ControlAppearanceStyle.CreateDefaultControlStyle();
 		}
 
 		private void InitWorkbook(IControlAdapter adapter)
@@ -177,13 +185,10 @@ namespace unvell.ReoGrid
 					HideVerScrollBar();
 				}
 
-				if (this.SettingsChanged != null)
-				{
-					this.SettingsChanged(this, null);
-				}
+				this.SettingsChanged?.Invoke(this, null);
 			};
 
-			this.workbook.ExceptionHappened += workbook_ErrorHappened;
+			this.workbook.ExceptionHappened += Workbook_ErrorHappened;
 
 			#endregion // Workbook Event Attach
 
@@ -435,16 +440,12 @@ namespace unvell.ReoGrid
 					this.currentWorksheet.UpdateViewportControllBounds();
 
 					// update bounds for viewport of worksheet
-					var scrollableViewportController = this.currentWorksheet.ViewportController as IScrollableViewportController;
-					if (scrollableViewportController != null)
+					if (this.currentWorksheet.ViewportController is IScrollableViewportController scrollableViewportController)
 					{
 						scrollableViewportController.SynchronizeScrollBar();
 					}
 
-					if (this.CurrentWorksheetChanged != null)
-					{
-						this.CurrentWorksheetChanged(this, null);
-					}
+					this.CurrentWorksheetChanged?.Invoke(this, null);
 
 					this.sheetTab.SelectedIndex = GetWorksheetIndex(this.currentWorksheet);
 					this.sheetTab.ScrollToItem(this.sheetTab.SelectedIndex);
@@ -777,9 +778,9 @@ namespace unvell.ReoGrid
 
 			this.actionManager.DoAction(action);
 
-			if (action is WorksheetReusableAction)
+			if (action is WorksheetReusableAction reusableAction)
 			{
-				this.lastReusableAction = (WorksheetReusableAction)action;
+				this.lastReusableAction = reusableAction;
 			}
 
 			if (this.currentWorksheet != sheet)
@@ -814,16 +815,12 @@ namespace unvell.ReoGrid
 				{
 					// seems nothing to do
 				}
-				else if (action is BaseWorksheetAction)
+				else if (action is BaseWorksheetAction worksheetAction)
 				{
-					var worksheetAction = (BaseWorksheetAction)action;
-
 					var sheet = worksheetAction.Worksheet;
 
-					if (action is WorksheetReusableAction)
+					if (action is WorksheetReusableAction reusableAction)
 					{
-						var reusableAction = (WorksheetReusableAction)action;
-
 						if (sheet != null)
 						{
 							sheet.SelectRange(reusableAction.Range);
@@ -837,7 +834,7 @@ namespace unvell.ReoGrid
 					}
 				}
 
-				if (Undid != null) Undid(this, new WorkbookActionEventArgs(action));
+				Undid?.Invoke(this, new WorkbookActionEventArgs(action));
 			}
 		}
 
@@ -858,15 +855,13 @@ namespace unvell.ReoGrid
 
 			if (action != null)
 			{
-				if (action is BaseWorksheetAction)
+				if (action is BaseWorksheetAction worksheetAction)
 				{
-					var worksheetAction = (BaseWorksheetAction)action;
-
 					var sheet = worksheetAction.Worksheet;
 
-					if (action is WorksheetReusableAction)
+					if (action is WorksheetReusableAction reusableAction)
 					{
-						this.lastReusableAction = (WorksheetReusableAction)action;
+						this.lastReusableAction = reusableAction;
 
 						if (sheet != null)
 						{
@@ -965,9 +960,6 @@ namespace unvell.ReoGrid
 		public void ClearActionHistoryForWorksheet(Worksheet sheet)
 		{
 			List<IUndoableAction> undoActions = this.actionManager.UndoStack;
-
-			int totalActions = 0;
-
 			for (int i = 0; i < undoActions.Count;)
 			{
 				var action = undoActions[i];
@@ -983,8 +975,7 @@ namespace unvell.ReoGrid
 				i++;
 			}
 
-			totalActions = undoActions.Count;
-
+			int totalActions = undoActions.Count;
 			var redoActions = new List<IUndoableAction>(this.actionManager.RedoStack);
 
 			for (int i = 0; i < redoActions.Count;)
@@ -1143,12 +1134,9 @@ namespace unvell.ReoGrid
 		/// </summary>
 		public event EventHandler<ExceptionHappenEventArgs> ExceptionHappened;
 
-		void workbook_ErrorHappened(object sender, ExceptionHappenEventArgs e)
+		void Workbook_ErrorHappened(object sender, ExceptionHappenEventArgs e)
 		{
-			if (this.ExceptionHappened != null)
-			{
-				this.ExceptionHappened(this, e);
-			}
+			this.ExceptionHappened?.Invoke(this, e);
 		}
 
 		/// <summary>
@@ -1184,7 +1172,7 @@ namespace unvell.ReoGrid
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public Cursor CellsSelectionCursor
 		{
-			get { return this.customCellsSelectionCursor == null ? this.builtInCellsSelectionCursor : this.customCellsSelectionCursor; }
+			get { return this.customCellsSelectionCursor ?? this.builtInCellsSelectionCursor; }
 			set
 			{
 				this.customCellsSelectionCursor = value;
@@ -1212,7 +1200,7 @@ namespace unvell.ReoGrid
 
 		private static Cursor LoadCursorFromResource(byte[] res)
 		{
-			using (System.IO.MemoryStream ms = new System.IO.MemoryStream(res))
+			using (var ms = new MemoryStream(res))
 			{
 				return new Cursor(ms);
 			}
@@ -1262,8 +1250,7 @@ namespace unvell.ReoGrid
 		{
 			this.currentWorksheet.EndPickRange();
 
-			this.internalCurrentCursor = (this.customCellsSelectionCursor != null ?
-				this.customCellsSelectionCursor : this.builtInCellsSelectionCursor);
+			this.internalCurrentCursor = (this.customCellsSelectionCursor ?? this.builtInCellsSelectionCursor);
 		}
 #endif // WINFORM || WPF
 		#endregion // Pick Range
@@ -1287,23 +1274,38 @@ namespace unvell.ReoGrid
 			set
 			{
 				if (value == null)
+				{
 					throw new ArgumentNullException("ControlStyle", "cannot set ControlStyle to null");
+				}
 
-				this.controlStyle = value;
+				if (this.controlStyle != value)
+				{
+					if (this.controlStyle != null) this.controlStyle.CurrentControl = null;
+					this.controlStyle = value;
+				}
 				//workbook.SetControlStyle(value);
 
-				this.adapter.Invalidate();
-
-#if WINFORM
-				sheetTab.BackColor = value[ControlAppearanceColors.SheetTabBackground];
-				this.BackColor = value[ControlAppearanceColors.GridBackground];
-#elif WPF
-				sheetTab.Background = new System.Windows.Media.SolidColorBrush(value[ControlAppearanceColors.SheetTabBackground]);
-#endif // WINFORM & WPF
-
+				this.ApplyControlStyle();
 			}
 		}
-		#endregion // App
+
+		internal void ApplyControlStyle()
+		{
+			this.controlStyle.CurrentControl = this;
+
+#if WINFORM
+			sheetTab.BackColor = this.controlStyle[ControlAppearanceColors.SheetTabBackground];
+			this.BackColor = this.controlStyle[ControlAppearanceColors.GridBackground];
+#elif WPF
+			sheetTab.Background = new System.Windows.Media.SolidColorBrush(this.controlStyle[ControlAppearanceColors.SheetTabBackground]);
+#endif // WINFORM & WPF
+
+			this.adapter?.Invalidate();
+		}
+
+		//private AppearanceStyle appearanceStyle = new AppearanceStyle(this);
+
+		#endregion // Appearance
 
 		#region Mouse
 		private void OnWorksheetMouseDown(RGPointF location, MouseButtons buttons)
@@ -1315,39 +1317,24 @@ namespace unvell.ReoGrid
 				// if currently control is in editing mode, make the input fields invisible
 				if (sheet.currentEditingCell != null)
 				{
-					var editableAdapter = this.adapter as IEditableControlAdapter;
-
-					if (editableAdapter != null)
+					if (this.adapter is IEditableControlAdapter editableAdapter)
 					{
 						sheet.EndEdit(editableAdapter.GetEditControlText());
 					}
 				}
 
-				if (sheet.ViewportController != null)
-				{
-					sheet.ViewportController.OnMouseDown(location, buttons);
-				}
+				sheet.ViewportController?.OnMouseDown(location, buttons);
 			}
 		}
 
 		private void OnWorksheetMouseMove(RGPointF location, MouseButtons buttons)
 		{
-			var sheet = this.currentWorksheet;
-
-			if (sheet != null && sheet.ViewportController != null)
-			{
-				sheet.ViewportController.OnMouseMove(location, buttons);
-			}
+			this.currentWorksheet?.ViewportController?.OnMouseMove(location, buttons);
 		}
 
 		private void OnWorksheetMouseUp(RGPointF location, MouseButtons buttons)
 		{
-			var sheet = this.currentWorksheet;
-
-			if (sheet != null && sheet.ViewportController != null)
-			{
-				sheet.ViewportController.OnMouseUp(location, buttons);
-			}
+			this.currentWorksheet?.ViewportController?.OnMouseUp(location, buttons);
 		}
 		#endregion // Mouse
 
@@ -1428,18 +1415,15 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Scroll current active worksheet.
 		/// </summary>
-		/// <param name="offsetX">Scroll value on horizontal direction.</param>
-		/// <param name="offsetY">Scroll value on vertical direction.</param>
-		public void ScrollCurrentWorksheet(RGFloat offsetX, RGFloat offsetY)
+		/// <param name="x">Scroll value on horizontal direction.</param>
+		/// <param name="y">Scroll value on vertical direction.</param>
+		public void ScrollCurrentWorksheet(RGFloat x, RGFloat y)
 		{
-			if (this.currentWorksheet != null)
+			if (this.currentWorksheet?.ViewportController is IScrollableViewportController svc)
 			{
-				IScrollableViewportController svc = this.currentWorksheet.ViewportController as IScrollableViewportController;
+				svc.ScrollViews(ScrollDirection.Both, x, y);
 
-				if (svc != null)
-				{
-					svc.ScrollViews(ScrollDirection.Both, offsetX, offsetY);
-				}
+				svc.SynchronizeScrollBar();
 			}
 		}
 
@@ -1456,14 +1440,11 @@ namespace unvell.ReoGrid
 		/// <param name="y">Scroll value on vertical direction.</param>
 		public void RaiseWorksheetScrolledEvent(Worksheet worksheet, RGFloat x, RGFloat y)
 		{
-			if (this.WorksheetScrolled != null)
+			this.WorksheetScrolled?.Invoke(this, new WorksheetScrolledEventArgs(worksheet)
 			{
-				this.WorksheetScrolled(this, new WorksheetScrolledEventArgs(worksheet)
-				{
-					OffsetX = x,
-					OffsetY = y,
-				});
-			}
+				X = x,
+				Y = y,
+			});
 		}
 
 		private bool showScrollEndSpacing = true;

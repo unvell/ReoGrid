@@ -128,7 +128,7 @@ namespace unvell.ReoGrid.Tests
 				borderDebug.Show();
 				borderDebug.Location = new Point(this.Right + 1, cellDebug.Bottom + 1);
 			}
-			else
+			else if (item.ImageIndex != 2)
 			{
 				item.SubItems[2].Text = "Success";
 				item.ImageIndex = 1;

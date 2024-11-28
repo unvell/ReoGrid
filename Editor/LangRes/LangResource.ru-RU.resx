@@ -220,10 +220,10 @@
     <value>По правому краю</value>
   </data>
   <data name="HP_Homepage" xml:space="preserve">
-    <value>http://reogrid.net/ru</value>
+    <value>https://reogrid.net/ru</value>
   </data>
   <data name="HP_Homepage_Document" xml:space="preserve">
-    <value>http://reogrid.net/ru/document</value>
+    <value>https://reogrid.net/ru/document</value>
   </data>
   <data name="Label_Color" xml:space="preserve">
     <value>&amp;Цвет:</value>

@@ -20,6 +20,7 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 using System.Diagnostics;
+using unvell.ReoGrid.Utility;
 
 namespace unvell.ReoGrid.Tests
 {
@@ -455,6 +456,11 @@ namespace unvell.ReoGrid.Tests
 		{
 			TestAssert.AssertSame(value, expect, msg);
 		}
+		
+		protected void AssertApproximatelySame(object value, object expect, string msg = null)
+		{
+			TestAssert.AssertApproximatelySame(value, expect, msg);
+		}
 
 		protected void AssertNotSame(object value, object expect, string msg = null)
 		{
@@ -464,6 +470,11 @@ namespace unvell.ReoGrid.Tests
 		protected void AssertHasBit(int value, int bit)
 		{
 			TestAssert.AssertTrue((value & bit) == bit);
+		}
+
+		protected void Failure(string msg)
+		{
+			TestAssert.Failure(msg);
 		}
 
 		public virtual void SetUp() { }
@@ -495,16 +506,35 @@ namespace unvell.ReoGrid.Tests
 
 		public static void AssertSame(object value, object expect, string msg = null)
 		{
-			if((value is double || value is int || value is float || value is long || value is short  || value is byte || value is char || value is ushort)
-				&& (expect is double || expect is int || expect is float || expect is long || expect is short  || expect is byte || expect is char || expect is ushort))
+			if((value is double || value is int || value is float || value is long || value is short  || value is byte || value is char || value is ushort || value is decimal)
+				&& (expect is double || expect is int || expect is float || expect is long || expect is short  || expect is byte || expect is char || expect is ushort || expect is decimal))
 			{
-				AssertEquals((double)(Convert.ChangeType(value, typeof(double))),
-					(double)(Convert.ChangeType(expect, typeof(double))), msg);
+				AssertTrue(((double)Convert.ChangeType(value, typeof(double)) - (double)Convert.ChangeType(expect, typeof(double))) <= double.Epsilon, msg);
 			}
 			//else if (value is System.Drawing.Color && expect is System.Drawing.Color)
 			//{
 			//	AssertEquals(((System.Drawing.Color)value).ToArgb(), ((System.Drawing.Color)expect).ToArgb(), msg);
 			//}
+			else
+			{
+				AssertEquals(value, expect, msg);
+			}
+		}
+
+		public static void AssertApproximatelySame(object value, object expect, string msg = null)
+		{
+			if (CellUtility.IsNumberData(value) && CellUtility.IsNumberData(expect))
+			{
+				AssertTrue(Math.Abs((double)Convert.ChangeType(value, typeof(double)) - (double)Convert.ChangeType(expect, typeof(double))) < 0.00001, msg);
+			}
+			//else if (value is System.Drawing.Color && expect is System.Drawing.Color)
+			//{
+			//	AssertEquals(((System.Drawing.Color)value).ToArgb(), ((System.Drawing.Color)expect).ToArgb(), msg);
+			//}
+			else if (double.TryParse(Convert.ToString(value), out double v1) && double.TryParse(Convert.ToString(expect), out double v2))
+			{
+				AssertTrue(Math.Abs(v1 - v2) < 0.00001, msg);
+			}
 			else
 			{
 				AssertEquals(value, expect, msg);

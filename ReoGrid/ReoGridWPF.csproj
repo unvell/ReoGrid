@@ -1,0 +1,160 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp3.1;net48</TargetFrameworks>
+    <OutputType>Library</OutputType>
+    <RootNamespace>unvell.ReoGrid</RootNamespace>
+    <AssemblyName>unvell.ReoGrid</AssemblyName>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <StartupObject></StartupObject>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <Configurations>WPFDebug;WPFRelease</Configurations>
+  </PropertyGroup>
+	<PropertyGroup>
+		<Authors>Jingwood</Authors>
+		<Company>unvell</Company>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://reogrid.net</PackageProjectUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryUrl>https://github.com/unvell/ReoGrid/</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<VersionPrefix>3.0.0</VersionPrefix>
+		<VersionSuffix></VersionSuffix>
+		<PackageId>unvell.ReoGridWPF.dll</PackageId>
+		<Description>Powerful and lightweight open source .NET spreadsheet component. Compatible with Excel 2007 format or later. Simple APIs to open/edit/save/print an Excel spreadsheet in the .NET application.</Description>
+		<SignAssembly>true</SignAssembly>
+		<ApplicationIcon>favicon.ico</ApplicationIcon>
+		<Copyright>2012-2021 (c) Jingwood, unvell, all rights reserved.</Copyright>
+		<PackageTags>spreadsheet excel drawing grid workbook worksheet chart data formula script macro outline print</PackageTags>
+		<PackageReleaseNotes>https://github.com/unvell/ReoGrid/releases/tag/v3.0.0</PackageReleaseNotes>
+	</PropertyGroup>
+	
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WPFDebug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;WPF;EX_SCRIPT;VP_DEBUG_OFF;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WPFRelease|AnyCPU'">
+    <DefineConstants>TRACE;WPF;FORMULA;LANG_JP;OUTLINE;DRAWING;PRINT;RICHTEXT;</DefineConstants>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='WPFRelease|netcoreapp3.0|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Android\**" />
+    <Compile Remove="iOS\**" />
+    <Compile Remove="Test\**" />
+    <Compile Remove="WinForm\**" />
+    <Content Remove="Android\**" />
+    <Content Remove="iOS\**" />
+    <Content Remove="Test\**" />
+    <Content Remove="WinForm\**" />
+    <EmbeddedResource Remove="Android\**" />
+    <EmbeddedResource Remove="iOS\**" />
+    <EmbeddedResource Remove="Test\**" />
+    <EmbeddedResource Remove="WinForm\**" />
+    <None Remove="Android\**" />
+    <None Remove="iOS\**" />
+    <None Remove="Test\**" />
+    <None Remove="WinForm\**" />
+    <Page Remove="Android\**" />
+    <Page Remove="iOS\**" />
+    <Page Remove="Test\**" />
+    <Page Remove="WinForm\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime" Condition="'$(Configuration)|$(Platform)'=='WPFDebug|AnyCPU'">
+      <HintPath>..\Ref\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Update="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Update="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="unvell.ReoScript">
+      <HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Control\ControlShare.cs" />
+    <Compile Update="ClipboardMonitor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\cross.cur" />
+		<EmbeddedResource Include="Resources\full_col_select.cur" />
+		<EmbeddedResource Include="Resources\full_row_select.cur" />
+		<EmbeddedResource Include="Resources\grid_select.cur" />
+		<EmbeddedResource Include="Resources\pick_range.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DotNetZip" Version="1.15.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\NuGet\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\DateTimeFormat.it.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\DateTimeFormat.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DateTimeFormat.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -73,18 +73,6 @@ namespace unvell.ReoGrid.Chart
 
 		#region Ranges
 
-		/// <summary>
-		/// Get or set the range to read row serial titles.
-		/// </summary>
-		[Obsolete("use AddSerial method to add data serial instead")]
-		public virtual RangePosition RowTitleRange { get; set; }
-
-		/// <summary>
-		/// Get or set the range to read column serial titles.
-		/// </summary>
-		[Obsolete("use CategoryNameRange instead")]
-		public virtual RangePosition ColTitleRange { get; set; }
-
 		private int categoryCount;
 
 		#endregion // Ranges
@@ -116,14 +104,12 @@ namespace unvell.ReoGrid.Chart
 				throw new ArgumentNullException("worksheet");
 			}
 
-			RangePosition snRange, sRange;
-
-			if (!worksheet.TryGetRangeByAddressOrName(serialNamesRange, out snRange))
+			if (!worksheet.TryGetRangeByAddressOrName(serialNamesRange, out var snRange))
 			{
 				throw new InvalidAddressException("cannot determine the serial names range by specified range address or name.");
 			}
 
-			if (!worksheet.TryGetRangeByAddressOrName(serialsRange, out sRange))
+			if (!worksheet.TryGetRangeByAddressOrName(serialsRange, out var sRange))
 			{
 				throw new InvalidAddressException("cannot determine the serials range by specified range address or name.");
 			}
@@ -510,9 +496,7 @@ namespace unvell.ReoGrid.Chart
 			{
 				if (this.worksheet != null)
 				{
-					NamedRange range = null;
-
-					if (worksheet.TryGetNamedRange(addressOrName, out range))
+					if (worksheet.TryGetNamedRange(addressOrName, out var range))
 					{
 						this.dataRange = range;
 					}
@@ -593,9 +577,7 @@ namespace unvell.ReoGrid.Chart
 					data = worksheet.GetCellData(this.dataRange.Row, this.dataRange.Col + index);
 				}
 
-				double val;
-
-				if (unvell.ReoGrid.Utility.CellUtility.TryGetNumberData(data, out val))
+				if (unvell.ReoGrid.Utility.CellUtility.TryGetNumberData(data, out var val))
 				{
 					return val;
 				}

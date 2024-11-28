@@ -1,7 +1,7 @@
 ﻿/*****************************************************************************
  * 
  * ReoGrid - .NET 表計算スプレッドシートコンポーネント
- * http://reogrid.net/jp
+ * https://reogrid.net/jp
  *
  * ReoGrid 日本語版デモプロジェクトは MIT ライセンスでリリースされています。
  * 
@@ -9,7 +9,7 @@
  * 著作権者は補償を含むあらゆる責任を負いません。 
  * 
  * Copyright (c) 2012-2016 unvell.com, All Rights Reserved.
- * http://www.unvell.com/jp
+ * https://www.unvell.com/jp
  * 
  ****************************************************************************/
 
@@ -301,7 +301,7 @@ namespace unvell.ReoGrid.Demo
 		#region Help
 		private void reportBugToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Process.Start("http://reogrid.net/forum/");
+			RGUtility.OpenFileOrLink("https://github.com/unvell/ReoGrid/issues");
 		}
 
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -311,11 +311,11 @@ namespace unvell.ReoGrid.Demo
 
 		private void projectHomepageToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Process.Start("http://reogrid.net/jp/");
+			RGUtility.OpenFileOrLink("https://reogrid.net/jp/");
 		}
 		private void downloadToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Process.Start("http://reogrid.net/jp/download");
+			RGUtility.OpenFileOrLink("https://reogrid.net/jp/download");
 		}
 		#endregion // Help
 	}

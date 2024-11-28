@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -327,13 +327,11 @@ namespace unvell.ReoGrid
 		/// <returns>A part of worksheet that is copied from original worksheet.</returns>
 		public PartialGrid GetPartialGrid(string addressOrName)
 		{
-			NamedRange namedRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				return this.GetPartialGrid(new RangePosition(addressOrName));
 			}
-			else if (this.TryGetNamedRange(addressOrName, out namedRange))
+			else if (this.TryGetNamedRange(addressOrName, out var namedRange))
 			{
 				return this.GetPartialGrid(namedRange.Position);
 			}
@@ -508,13 +506,11 @@ namespace unvell.ReoGrid
 		/// <returns>The range position that is the range filled actually.</returns>
 		public RangePosition SetPartialGrid(string addressOrName, PartialGrid data)
 		{
-			NamedRange namedRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				return this.SetPartialGrid(new RangePosition(addressOrName), data);
 			}
-			else if (this.TryGetNamedRange(addressOrName, out namedRange))
+			else if (this.TryGetNamedRange(addressOrName, out var namedRange))
 			{
 				return this.SetPartialGrid(namedRange.Position, data);
 			}

@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -417,7 +417,7 @@ namespace unvell.ReoGrid
 			{
 				Debug.WriteLine(string.Format("columns width change takes {0} ms.", watch.ElapsedMilliseconds));
 			}
-#endif
+#endif // DEBUG
 		}
 
 		/// <summary>
@@ -655,53 +655,6 @@ namespace unvell.ReoGrid
 			return rows[row].InnerHeight;
 		}
 
-		#region Obsoleted
-		/// <summary>
-		/// Disable auto-row-height adjust on specified row
-		/// </summary>
-		/// <param name="row">row to be disable auto-row-height</param>
-		/// <returns></returns>
-		[Obsolete("use Worksheet.RowHeaders.IsAutoHeight instead")]
-		public bool DisableAutoRowHeight(int row)
-		{
-			if (row >= 0 && row < this.rows.Count)
-			{
-				this.rows[row].IsAutoHeight = false;
-				return true;
-			}
-			else
-				return false;
-		}
-
-		/// <summary>
-		/// Disable auto-row-height adjust on specified row
-		/// </summary>
-		/// <param name="row">row to be disable auto-row-height</param>
-		/// <returns></returns>
-		[Obsolete("use Worksheet.RowHeaders.IsAutoHeight instead")]
-		public bool EnableAutoRowHeight(int row)
-		{
-			if (row >= 0 && row < this.rows.Count)
-			{
-				this.rows[row].IsAutoHeight = true;
-				return true;
-			}
-			else
-				return false;
-		}
-
-		/// <summary>
-		/// Disable auto-row-height adjust on specified row
-		/// </summary>
-		/// <param name="row">row to be disable auto-row-height</param>
-		/// <returns></returns>
-		[Obsolete("use Worksheet.RowHeaders.IsAutoHeight instead")]
-		public bool IsAutoRowHeight(int row)
-		{
-			return (row >= 0 && row < this.rows.Count) ? this.rows[row].IsAutoHeight : false;
-		}
-		#endregion // Obsoleted
-
 		internal bool ExpandRowHeightToFitCell(Cell cell)
 		{
 			if (!cell.IsValidCell) return false;
@@ -917,16 +870,6 @@ namespace unvell.ReoGrid
 		#endregion // Width & Height
 
 		#region Append
-
-		/// <summary>
-		/// Append specified columns at right of spreadsheet
-		/// </summary>
-		/// <param name="count">number of columns</param>
-		[Obsolete("Use <code>AppendColumns</code> instead")]
-		public void AppendCols(int count)
-		{
-			AppendColumns(count);
-		}
 
 		/// <summary>
 		/// Append specified columns at right of spreadsheet
@@ -1389,6 +1332,13 @@ namespace unvell.ReoGrid
 #endif // DRAWING
 			#endregion // Floating objects
 
+			#region Update frozen rows
+			if (row < this.FreezePos.Row)
+			{
+				this.FreezePos = FixPos(new CellPosition(this.FreezePos.Row + count, this.FreezePos.Col));
+			}
+			#endregion // Update frozen rows
+
 			UpdateViewportController();
 
 			// raise event
@@ -1673,6 +1623,13 @@ namespace unvell.ReoGrid
 #endif // DRAWING
 			#endregion // Floating objects
 
+			#region Update frozen column
+			if (col < this.FreezePos.Col)
+			{
+				this.FreezePos = FixPos(new CellPosition(FreezePos.Row, this.FreezePos.Col + count));
+			}
+			#endregion // Update frozen rows
+
 			this.selectionRange = FixRange(selectionRange);
 
 			UpdateViewportController();
@@ -1740,6 +1697,8 @@ namespace unvell.ReoGrid
 
 			int maxrow = MaxContentRow + 1;
 			int maxcol = MaxContentCol + 1;
+
+			suspendingUIUpdates = true;
 
 			#region delete headers
 
@@ -1940,7 +1899,9 @@ namespace unvell.ReoGrid
 				if (row == 0 || !IsInsideSameMergedCell(row - 1, c, row, c))
 				{
 					if (hBorders[row, c] != null && hBorders[row, c].Span == 0)
+					{
 						hBorders[row, c] = null;
+					}
 				}
 			}
 			#endregion // move columns
@@ -2167,13 +2128,29 @@ namespace unvell.ReoGrid
 			#region Update frozen rows
 			if (row < this.FreezePos.Row)
 			{
-				this.FreezePos = new CellPosition(this.FreezePos.Row - count, this.FreezePos.Col);
-			}
-			#endregion
+				this.FreezePos = FixPos(new CellPosition(this.FreezePos.Row - count, this.FreezePos.Col));
 
-			SelectionRange = FixRange(selectionRange);
+				// remain the first row to be frozen
+				if (this.FreezePos.Row < 1)
+				{
+					if (this.rows.Count > 1)
+					{
+						this.FreezePos = new CellPosition(1, this.FreezePos.Col);
+					}
+					else
+					{
+						this.FreezePos = new CellPosition(0, this.FreezePos.Col);
+					}
+				}
+			}
+			#endregion // Update frozen rows
+
+			suspendingUIUpdates = false;
 
 			UpdateViewportController();
+
+			var selRange = FixRange(selectionRange);
+			ApplyRangeSelection(selRange.StartPos, selRange.EndPos, false);
 
 #if DEBUG
 			sw.Stop();
@@ -2182,16 +2159,10 @@ namespace unvell.ReoGrid
 			{
 				Debug.WriteLine("delete rows takes " + ms + " ms.");
 			}
-#endif
+#endif // DEBUG
 
 			// raise column deleted event
-			if (RowsDeleted != null) RowsDeleted(this, new RowsDeletedEventArgs(row, count));
-		}
-
-		[Obsolete("use DeleteColumns instead")]
-		public void DeleteCols(int col, int count)
-		{
-			this.DeleteColumns(col, count);
+			RowsDeleted?.Invoke(this, new RowsDeletedEventArgs(row, count));
 		}
 
 		/// <summary>
@@ -2237,6 +2208,8 @@ namespace unvell.ReoGrid
 			int endcol = col + count;
 			int totalWidth = this.cols[endcol - 1].Right - this.cols[col].Left;
 			RGFloat scaledTotalWidth = totalWidth * this.renderScaleFactor;
+
+			suspendingUIUpdates = true;
 
 			#region delete headers
 
@@ -2563,7 +2536,7 @@ namespace unvell.ReoGrid
 								action.changedNamedRange = new Dictionary<NamedRange, BackupRangeInfo>();
 							}
 
-							action.changedNamedRange[range] = new BackupRangeInfo(range.Column, range.Cols);
+							action.changedNamedRange[range] = new BackupRangeInfo(range.Col, range.Cols);
 						}
 					},
 					() =>
@@ -2608,7 +2581,7 @@ namespace unvell.ReoGrid
 								action.changedHighlightRanges = new Dictionary<HighlightRange, BackupRangeInfo>();
 							}
 
-							action.changedHighlightRanges[range] = new BackupRangeInfo(range.Column, range.Cols);
+							action.changedHighlightRanges[range] = new BackupRangeInfo(range.Col, range.Cols);
 						}
 					},
 					() =>
@@ -2667,10 +2640,33 @@ namespace unvell.ReoGrid
 			}
 			#endregion // Update used range
 
-			SelectionRange = FixRange(selectionRange);
+			#region Update frozen rows
+			if (col < this.FreezePos.Col)
+			{
+				this.FreezePos = FixPos(new CellPosition(this.FreezePos.Col, this.FreezePos.Col - count));
+
+				// remain the first column to be frozen
+				if (this.FreezePos.Col < 1)
+				{
+					if (this.cols.Count > 1)
+					{
+						this.FreezePos = new CellPosition(this.FreezePos.Row, 1);
+					}
+					else
+					{
+						this.FreezePos = new CellPosition(this.FreezePos.Row, 0);
+					}
+				}
+			}
+			#endregion
+
+			suspendingUIUpdates = false;
 
 			UpdateViewportController();
 
+			var selRange = FixRange(selectionRange);
+			ApplyRangeSelection(selRange.StartPos, selRange.EndPos, false);
+			
 #if DEBUG
 			sw.Stop();
 			long ms = sw.ElapsedMilliseconds;
@@ -2681,10 +2677,7 @@ namespace unvell.ReoGrid
 #endif
 
 			// raise column deleted event
-			if (ColumnsDeleted != null)
-			{
-				ColumnsDeleted(this, new ColumnsDeletedEventArgs(col, count));
-			}
+			ColumnsDeleted?.Invoke(this, new ColumnsDeletedEventArgs(col, count));
 		}
 
 		#endregion // Delete
@@ -2769,32 +2762,6 @@ namespace unvell.ReoGrid
 		{
 			if (col < 0 || col >= this.ColumnCount) return false;
 			return this.cols[col].IsVisible;
-		}
-
-		/// <summary>
-		/// Check whether an entire row is hidden
-		/// </summary>
-		/// <param name="row">number of row to be checked</param>
-		/// <returns>true if the entire row is hidden, otherwise return false</returns>
-		[Obsolete("use IsRowVisible instead")]
-		public bool IsHiddenRow(int row)
-		{
-			return !IsRowVisible(row);
-			//if (row < 0 || row >= this.RowCount) return false;
-			//return this.rows[row].Visible;
-		}
-
-		/// <summary>
-		/// Check whether an entire column is hidden
-		/// </summary>
-		/// <param name="col">number of column to be checked</param>
-		/// <returns>true if the entire column is hidden, otherwise return false</returns>
-		[Obsolete("use IsColumnVisible instead")]
-		public bool IsHiddenColumn(int col)
-		{
-			return !this.IsColumnVisible(col);
-			//if (col < 0 || col >= this.ColumnCount) return false;
-			//return this.cols[col].Visible;
 		}
 
 		#endregion // Visible
@@ -3076,18 +3043,6 @@ namespace unvell.ReoGrid
 	/// <summary>
 	/// Represents a column header on worksheet.
 	/// </summary>
-	[Obsolete("use ColumnHeader instead")]
-	public sealed class ReoGridColumnHeader : ColumnHeader
-	{
-		internal ReoGridColumnHeader(Worksheet sheet)
-			: base(sheet)
-		{
-		}
-	}
-
-	/// <summary>
-	/// Represents a column header on worksheet.
-	/// </summary>
 	public class ColumnHeader : ReoGridHeader
 	{
 		internal ColumnHeader(Worksheet sheet)
@@ -3205,16 +3160,6 @@ namespace unvell.ReoGrid
 			}
 		}
 
-		/// <summary>
-		/// Get or set the visibility for this column.
-		/// </summary>
-		[Obsolete("use IsVisible instead")]
-		public bool IsHidden
-		{
-			get { return !this.IsVisible; }
-			set { this.IsVisible = !value; }
-		}
-
 		private void VerifyWorksheet()
 		{
 			if (this.Worksheet == null)
@@ -3238,12 +3183,6 @@ namespace unvell.ReoGrid
 			this.Worksheet.AutoFitColumnWidth(this.Col, byAction);
 		}
 
-		[Obsolete("use FitWidthToCells instead")]
-		public void FitColumnToCells(bool byAction = false)
-		{
-			this.FitWidthToCells(byAction);
-		}
-		
 		internal ColumnHeader Clone(Worksheet newSheet)
 		{
 			return new ColumnHeader(newSheet)
@@ -3274,16 +3213,6 @@ namespace unvell.ReoGrid
 				WidthChanged(this, new ColumnsWidthChangedEventArgs(this.Col, 1, this.InnerWidth));
 			}
 		}
-	}
-
-	/// <summary>
-	/// Represents a row header instance of worksheet.
-	/// </summary>
-	[Obsolete("use RowHeader instead")]
-	public sealed class ReoGridRowHeader : RowHeader
-	{
-		internal ReoGridRowHeader(Worksheet sheet)
-			: base(sheet) { }
 	}
 
 	/// <summary>
@@ -3426,16 +3355,6 @@ namespace unvell.ReoGrid
 					this.Worksheet.HideRows(this.Row, 1);
 				}
 			}
-		}
-
-		/// <summary>
-		/// Get or set the visibility for this row.
-		/// </summary>
-		[Obsolete("use IsVisible instead")]
-		public bool IsHidden
-		{
-			get { return !this.IsVisible; }
-			set { this.IsVisible = !value; }
 		}
 
 		private void VerifyWorksheet()

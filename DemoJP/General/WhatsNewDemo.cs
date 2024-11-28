@@ -1,7 +1,7 @@
 ﻿/*****************************************************************************
  * 
  * ReoGrid - .NET 表計算スプレッドシートコンポーネント
- * http://reogrid.net/jp
+ * https://reogrid.net/jp
  *
  * ReoGrid 日本語版デモプロジェクトは MIT ライセンスでリリースされています。
  * 
@@ -9,7 +9,7 @@
  * 著作権者は補償を含むあらゆる責任を負いません。 
  * 
  * Copyright (c) 2012-2016 unvell.com, All Rights Reserved.
- * http://www.unvell.com/jp
+ * https://www.unvell.com/jp
  * 
  ****************************************************************************/
 
@@ -29,7 +29,7 @@ namespace unvell.ReoGrid.Demo.Welcome
 			var sheet1 = this.reoGridControl.Worksheets[0];
 
 			// iterate to set hyperlink cells type
-			sheet1.IterateCells("C15:J23", (row, col, cell) =>
+			sheet1.IterateCells("B8:N17", (row, col, cell) =>
 			{
 				if (cell.DisplayText.StartsWith("http:", System.StringComparison.CurrentCultureIgnoreCase)
 					|| cell.DisplayText.StartsWith("https:", System.StringComparison.CurrentCultureIgnoreCase)

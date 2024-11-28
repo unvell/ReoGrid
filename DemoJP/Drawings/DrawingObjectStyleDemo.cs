@@ -1,7 +1,7 @@
 ﻿/*****************************************************************************
  * 
  * ReoGrid - .NET 表計算スプレッドシートコンポーネント
- * http://reogrid.net/jp
+ * https://reogrid.net/jp
  *
  * ReoGrid 日本語版デモプロジェクトは MIT ライセンスでリリースされています。
  * 
@@ -9,7 +9,7 @@
  * 著作権者は補償を含むあらゆる責任を負いません。 
  * 
  * Copyright (c) 2012-2016 unvell.com, All Rights Reserved.
- * http://www.unvell.com/jp
+ * https://www.unvell.com/jp
  * 
  ****************************************************************************/
 
@@ -76,8 +76,7 @@ namespace unvell.ReoGrid.Demo.Drawings
 			// カスタマイズ関数 formatToDegree を作成。小数を角度の書式で表示
 			ReoGrid.Formula.FormulaExtension.CustomFunctions["formatToDegree"] = (cell, args) =>
 			{
-				double data = 0;
-				unvell.ReoGrid.Utility.CellUtility.TryGetNumberData(args[0], out data);
+				unvell.ReoGrid.Utility.CellUtility.TryGetNumberData(args[0], out var data);
 				return Math.Round(data) + "\u00b0";
 			};
 

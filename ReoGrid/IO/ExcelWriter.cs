@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -820,6 +820,11 @@ namespace unvell.ReoGrid.IO.OpenXML
 							//schema = "minor",
 						};
 
+						if ((r.FontStyles & Drawing.Text.FontStyles.Strikethrough) == Drawing.Text.FontStyles.Strikethrough)
+						{
+							rpr.strike = new ElementValue<string>();
+						}
+
 						if ((r.FontStyles & Drawing.Text.FontStyles.Bold) == Drawing.Text.FontStyles.Bold)
 						{
 							rpr.b = new ElementValue<string>();
@@ -1001,8 +1006,8 @@ namespace unvell.ReoGrid.IO.OpenXML
 			const float fixedCharWidth = 7f; // todo: get from default font
 			const float columnWidthPad = 0f; // todo: openxml std: 5f
 
-			int maxRows = Math.Max(rgSheet.MaxContentRow, 1);
-			int maxCols = Math.Max(rgSheet.MaxContentCol, 1);
+			int maxRows = Math.Max(rgSheet.MaxContentRow, 0);
+			int maxCols = Math.Max(rgSheet.MaxContentCol, 0);
 
 			#region Sheet Properties
 
@@ -1441,8 +1446,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 		{
 			Document doc = new Document()
 			{
-				//zipArchive = NET35ZipArchiveFactory.OpenOnStream(stream, FileMode.Create, FileAccess.Write, true),
-				zipArchive = MZipArchiveFactory.CreateOnStream(stream),
+				zipArchive = SystemIOZipArchiveFactory.CreateOnStream(stream),
 				_relationFile = new Relationships("_rels/.rels"),
 			};
 

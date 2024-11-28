@@ -2,15 +2,15 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -306,9 +306,7 @@ namespace unvell.ReoGrid.Chart
 
 				for (int i = 0; i < dataCount; i += showTitleStride)
 				{
-					string text = null;
-
-					if (titles.TryGetValue(i, out text) && !string.IsNullOrEmpty(text))
+					if (titles.TryGetValue(i, out var text) && !string.IsNullOrEmpty(text))
 					{
 						var size = boxes[i];
 						var textRect = new Rectangle(columnWidth * i, 0, columnWidth, clientRect.Height);
@@ -329,9 +327,7 @@ namespace unvell.ReoGrid.Chart
 
 				for (int i = 0; i < dataCount; i += showTitleStride)
 				{
-					string text = null;
-
-					if (titles.TryGetValue(i, out text) && !string.IsNullOrEmpty(text))
+					if (titles.TryGetValue(i, out var text) && !string.IsNullOrEmpty(text))
 					{
 						var size = boxes[i];
 						var textRect = new Rectangle(0, rowHeight * i, clientRect.Width, rowHeight);

@@ -2,32 +2,30 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Collections.Generic;
 
 #if DEBUG
 using System.Diagnostics;
 #endif // DEBUG
 
+using unvell.ReoGrid.Actions;
 using unvell.ReoGrid.Data;
-using unvell.ReoGrid.Views;
-using unvell.ReoGrid.Main;
 using unvell.ReoGrid.Interaction;
 
 namespace unvell.ReoGrid
@@ -125,7 +123,7 @@ namespace unvell.ReoGrid
 		/// by default the drop-down button displayed on column header and a candidates list popuped up when dropdown-panel opened.
 		/// Set this argument as NoGUI to create filter without GUI.</param>
 		/// <returns>Instance of column filter.</returns>
-		public AutoColumnFilter CreateColumnFilter(RangePosition range, 
+		public AutoColumnFilter CreateColumnFilter(RangePosition range,
 			AutoColumnFilterUI columnFilterUI = AutoColumnFilterUI.DropdownButtonAndPanel)
 		{
 			var filter = new AutoColumnFilter(this, this.FixRange(range));
@@ -195,7 +193,7 @@ namespace unvell.ReoGrid
 		/// <returns>Data changed range</returns>
 		public RangePosition SortColumn(string columnAddress, SortOrder order = SortOrder.Ascending,
 			CellElementFlag moveElementFlag = CellElementFlag.Data,
-			Func<int, int, object, object, int> cellDataComparer = null)
+			Func<object, object, int> cellDataComparer = null)
 		{
 			return SortColumn(RGUtility.GetNumberOfChar(columnAddress), order, moveElementFlag, cellDataComparer);
 		}
@@ -210,7 +208,7 @@ namespace unvell.ReoGrid
 		/// <returns>Data changed range</returns>
 		public RangePosition SortColumn(int columnIndex, SortOrder order = SortOrder.Ascending,
 			CellElementFlag moveElementFlag = CellElementFlag.Data,
-			Func<int, int, object, object, int> cellDataComparer = null)
+			Func<object, object, int> cellDataComparer = null)
 		{
 			return SortColumn(columnIndex, 0, MaxContentRow, 0, MaxContentCol, order, moveElementFlag, cellDataComparer);
 		}
@@ -227,7 +225,7 @@ namespace unvell.ReoGrid
 		/// <returns>Data changed range.</returns>
 		public RangePosition SortColumn(int columnIndex, int titleRows, SortOrder order = SortOrder.Ascending,
 				CellElementFlag moveElementFlag = CellElementFlag.Data,
-		Func<int, int, object, object, int> cellDataComparer = null)
+		Func<object, object, int> cellDataComparer = null)
 		{
 			return SortColumn(columnIndex, titleRows, MaxContentRow, 0, MaxContentCol, order, moveElementFlag, cellDataComparer);
 		}
@@ -244,13 +242,13 @@ namespace unvell.ReoGrid
 		/// <param name="cellDataComparer">Custom cell data comparer, compares two cells and returns an integer. 
 		/// Set this value to null to use default built-in comparer.</param>
 		/// <returns>Data changed range.</returns>
-		public RangePosition SortColumn(int columnIndex, int startRow, int endRow, int startColumn, int endColumn, 
+		public RangePosition SortColumn(int columnIndex, int startRow, int endRow, int startColumn, int endColumn,
 			SortOrder order = SortOrder.Ascending,
 			CellElementFlag moveElementFlag = CellElementFlag.Data,
-			Func<int, int, object, object, int> cellDataComparer = null)
+			Func<object, object, int> cellDataComparer = null)
 		{
 			return SortColumn(columnIndex, new RangePosition(startRow, startColumn, MaxContentRow - startRow + 1,
-				endColumn - startColumn + 1), order, moveElementFlag, cellDataComparer);
+				endColumn - startColumn + 1), order, cellDataComparer);
 		}
 
 		/// <summary>
@@ -263,17 +261,15 @@ namespace unvell.ReoGrid
 		/// <returns></returns>
 		public RangePosition SortColumn(int columnIndex, string applyRange, SortOrder order = SortOrder.Ascending,
 			CellElementFlag moveElementFlag = CellElementFlag.Data,
-			Func<int, int, object, object, int> cellDataComparer = null)
+			Func<object, object, int> cellDataComparer = null)
 		{
-			RangePosition range;
-
 			if (RangePosition.IsValidAddress(applyRange))
 			{
-				return this.SortColumn(columnIndex, new RangePosition(applyRange), order, moveElementFlag, cellDataComparer);
+				return this.SortColumn(columnIndex, new RangePosition(applyRange), order, cellDataComparer);
 			}
-			else if (this.TryGetNamedRangePosition(applyRange, out range))
+			else if (this.TryGetNamedRangePosition(applyRange, out var range))
 			{
-				return this.SortColumn(columnIndex, range, order, moveElementFlag, cellDataComparer);
+				return this.SortColumn(columnIndex, range, order, cellDataComparer);
 			}
 			else
 				throw new InvalidAddressException(applyRange);
@@ -290,23 +286,20 @@ namespace unvell.ReoGrid
 		/// <returns>Data changed range.</returns>
 		public RangePosition SortColumn(int columnIndex, RangePosition applyRange,
 			SortOrder order = SortOrder.Ascending,
-			CellElementFlag moveElementFlag = CellElementFlag.Data,
-			Func<int, int, object, object, int> cellDataComparer = null)
+			Func<object, object, int> cellDataComparer = null)
 		{
+
 			var range = FixRange(applyRange);
 
 			RangePosition affectRange = RangePosition.Empty;
 
 			if (cellDataComparer != null)
 			{
-				this.cellDataComparer = cellDataComparer;
 			}
 
 #if DEBUG
 			Stopwatch sw = Stopwatch.StartNew();
 #endif // DEBUG
-
-			int[] sortedOrder = null;
 
 			// stop fire events
 			this.SuspendDataChangedEvents();
@@ -315,21 +308,23 @@ namespace unvell.ReoGrid
 			{
 				this.controlAdapter.ChangeCursor(CursorStyle.Busy);
 
-				if (!this.CheckQuickSortRange(columnIndex, range.Row, range.EndRow, range.Col, range.EndCol, order, ref affectRange))
+				if (!this.CheckQuickSortRange(range.Row, range.EndRow, range.Col, range.EndCol))
 				{
 					throw new InvalidOperationException("Cannot change a part of range, all cells should be having same colspan on column.");
 				}
 
-				this.QuickSortColumn(columnIndex, range.Row, range.EndRow, range.Col, range.EndCol, order, ref affectRange,
-					cellDataComparer == null ? (Func<int, int, object, int>)CompareCell : UserCellDataComparerAdapter, sortedOrder);
+				IComparer<object> comparer = cellDataComparer == null ? (IComparer<object>)new CellComparer(order) : new CellComparerAdapter(cellDataComparer, order);
+
+				var data = this.GetSortedData(columnIndex, range.Row, range.EndRow, range.Col, range.EndCol, ref affectRange, comparer, order);
+
+				DoAction(new SetSortedRangeDataAction(range, data));
 
 #if DEBUG
 				sw.Stop();
 
 				if (sw.ElapsedMilliseconds > 10)
 				{
-					Debug.WriteLine(string.Format("sort column by {0} on [{1}-{2}]: {3} ms", columnIndex,
-						range.Col, range.EndCol, sw.ElapsedMilliseconds));
+					Debug.WriteLine("sort column by {0} on [{1}-{2}]: {3} ms", columnIndex, range.Col, range.EndCol, sw.ElapsedMilliseconds);
 				}
 #endif // DEBUG
 			}
@@ -361,10 +356,10 @@ namespace unvell.ReoGrid
 			}
 
 			return affectRange;
+
 		}
 
-		private bool CheckQuickSortRange(int columnIndex, int row, int endRow, int col, int endCol,
-			SortOrder order, ref RangePosition affectRange)
+		private bool CheckQuickSortRange(int row, int endRow, int col, int endCol)
 		{
 			for (int c = col; c <= endCol; c++)
 			{
@@ -386,138 +381,77 @@ namespace unvell.ReoGrid
 			return true;
 		}
 
-		private void QuickSortRelocateRow(int row, int[] rowIndexes, int startColumn, int endColumn, int excludeColumn)
+		private object[,] GetSortedData(int columnIndex, int startRow, int endRow, int startColumn,
+			int endColumn,
+			ref RangePosition affectRange, IComparer<object> cellComparer, SortOrder sortOrder)
 		{
-			int targetIndex = rowIndexes[row];
-			//int targetTargetIndex = rowIndexes[targetIndex];
 
-			QuickSortSwapRow(row, targetIndex, rowIndexes, startColumn, endColumn, excludeColumn);
+			if (affectRange.IsEmpty)
+			{
+				affectRange.Col = startColumn;
+				affectRange.EndCol = endColumn;
+			}
 
-			int index = rowIndexes[row];
-			rowIndexes[row] = rowIndexes[targetIndex];
-			rowIndexes[targetIndex] = index;
+			int affectedRangeStartRow = int.MaxValue;
+			int affectedRangeEndRow = int.MinValue;
+
+			var sortedData = new object[endRow - startRow + 1, endColumn - startColumn + 1];
+
+			var rangeData = Enumerable.Range(startRow, endRow - startRow + 1)
+									 .Select(x => new
+									 {
+										 Cells = Enumerable.Range(startColumn, endColumn - startColumn + 1)
+											 .Select(y => cells[x, y])
+											 .ToArray()
+									 });
+
+			var columnRangeIndex = columnIndex - startColumn;
+
+			rangeData = sortOrder == SortOrder.Ascending
+				? rangeData.OrderBy(x => x.Cells[columnRangeIndex]?.InnerData, cellComparer)
+				: rangeData.OrderByDescending(x => x.Cells[columnRangeIndex]?.InnerData, cellComparer);
+
+			var ordered = rangeData.ToArray();
+
+			for (int newRowIndex = 0; newRowIndex < ordered.Length; newRowIndex++)
+			{
+				var orderedData = ordered[newRowIndex];
+
+				for (int col = 0; col < endColumn - startColumn + 1; col++)
+				{
+					var newCellData = orderedData.Cells[col]?.InnerData;
+
+					if (newCellData == null && cells[newRowIndex + startRow, col + startColumn]?.InnerData == null)
+					{
+						continue;
+					}
+
+					sortedData[newRowIndex, col] = newCellData;
+
+					if (affectedRangeStartRow > newRowIndex + startRow) affectedRangeStartRow = newRowIndex + startRow;
+					if (affectedRangeEndRow < newRowIndex + startRow) affectedRangeEndRow = newRowIndex + startRow;
+				}
+			}
+
+			affectRange.Row = affectedRangeStartRow == int.MaxValue ? 0 : affectedRangeStartRow;
+			affectRange.EndRow = affectedRangeEndRow == int.MinValue ? 0 : affectedRangeEndRow;
+
+			bool canTrimData = !new RangePosition(startRow, startColumn, endRow - startRow + 1, endColumn - startColumn + 1).Equals(affectRange);
+
+			return canTrimData
+				? (object[,])ResizeArray(sortedData, new[] { affectRange.Rows, affectRange.Cols })
+				: sortedData;
 		}
 
-		private void QuickSortSwapRow(int row1, int row2, int[] rowIndexes, int startColumn, int endColumn, int excludeColumn)
+		private static Array ResizeArray(Array arr, int[] newSizes)
 		{
-			for (int col = startColumn; col <= endColumn; col++)
-			{
-				if (col == excludeColumn) continue;
+			if (newSizes.Length != arr.Rank)
+				throw new ArgumentException("Array must have the same number of dimensions as there are elements in newSizes", nameof(newSizes));
 
-				var cell1 = this.cells[row1, col];
-				var cell2 = this.cells[row2, col];
-
-				if ((cell1.IsValidCell && !cell2.IsValidCell)
-					|| (!cell1.IsValidCell && cell2.IsValidCell))
-				{
-					throw new InvalidOperationException("Cannot change a part of range, all cells should be having same colspans during sort.");
-				}
-
-				if (cell1.InnerData != null || cell2.InnerData != null)
-				{
-					var v = cell1.InnerData;
-					SetSingleCellData(cell1, cell2.InnerData);
-					SetSingleCellData(cell2, v);
-				}
-			}
-		}
-
-		private int UserCellDataComparerAdapter(int row, int col, object @base)
-		{
-			if (@base == null) return 0;
-
-			var data = GetCellData(row, col) as IComparable;
-			if (data == null) return 0;
-
-			return this.cellDataComparer(row, col, data, @base);
-		}
-
-		private Func<int, int, object, object, int> cellDataComparer;
-
-		private int CompareCell(int row, int col, object @base)
-		{
-			if (@base == null) return 0;
-
-			var data = this.GetCellData(row, col) as IComparable;
-			if (data == null) return 0;
-
-			if (data.GetType() == @base.GetType())
-			{
-				return data.CompareTo(@base);
-			}
-			else if (@base is string)
-			{
-				return Convert.ToString(data).CompareTo(@base);
-			}
-			else if (data is string)
-			{
-				return data.CompareTo(Convert.ToString(@base));
-			}
-			else
-			{
-				try
-				{
-					return ((double)Convert.ChangeType(data, typeof(double))).CompareTo(Convert.ChangeType(@base, typeof(double)));
-				}
-				catch
-				{
-					return Convert.ToString(data).CompareTo(Convert.ToString(@base));
-				}
-			}
-		}
-
-		private void QuickSortColumn(int columnIndex, int start, int end, int startColumn, int endColumn, SortOrder order,
-			ref RangePosition affectRange, Func<int, int, object, int> cellComparer, int[] sortedOrder)
-		{
-			while (start < end)
-			{
-				object @base = GetCellData((start + end) / 2, columnIndex) as IComparable;
-
-				int top = start, bottom = end;
-
-				while (true)
-				{
-					if (order == SortOrder.Ascending)
-					{
-						while (cellComparer(top, columnIndex, @base) < 0) top++;
-						while (cellComparer(bottom, columnIndex, @base) > 0) bottom--;
-					}
-					else
-					{
-						while (cellComparer(top, columnIndex, @base) > 0) top++;
-						while (cellComparer(bottom, columnIndex, @base) < 0) bottom--;
-					}
-
-					if (top >= bottom) break;
-
-					for (int col = startColumn; col <= endColumn; col++)
-					{
-						var v = GetCellData(top, col);
-						SetCellData(top, col, GetCellData(bottom, col));
-						SetCellData(bottom, col, v);
-					}
-
-					if (affectRange.IsEmpty)
-					{
-						affectRange.Row = start;
-						affectRange.Col = startColumn;
-						affectRange.EndRow = end;
-						affectRange.EndCol = endColumn;
-					}
-					else
-					{
-						if (affectRange.Row > start) affectRange.Row = start;
-						if (affectRange.EndRow < end) affectRange.EndRow = end;
-					}
-
-					top++; bottom--;
-				}
-
-				QuickSortColumn(columnIndex, start, top - 1, startColumn, endColumn, order,
-					ref affectRange, cellComparer, sortedOrder);
-
-				start = bottom + 1;
-			}
+			var newArray = Array.CreateInstance(arr.GetType().GetElementType(), newSizes);
+			int length = arr.Length <= newArray.Length ? arr.Length : newArray.Length;
+			Array.ConstrainedCopy(arr, 0, newArray, 0, length);
+			return newArray;
 		}
 
 		/// <summary>
@@ -542,5 +476,95 @@ namespace unvell.ReoGrid
 		/// Descending
 		/// </summary>
 		Descending,
+	}
+
+	internal class CellComparer : IComparer<object>
+	{
+		private readonly int sign;
+
+		public CellComparer(SortOrder order)
+		{
+			// this needs to leave empty cells always at the bottom of list
+			sign = order == SortOrder.Ascending ? 1 : -1;
+		}
+
+		public int Compare(object x, object y)
+		{
+			var data = x as IComparable;
+
+			if (data is string str && string.IsNullOrEmpty(str))
+			{
+				data = null;
+			}
+
+			if (y is string str1 && string.IsNullOrEmpty(str1))
+			{
+				y = null;
+			}
+
+			if (data == null && y == null) return 0;
+
+			if (data != null && y == null) return -sign;
+
+			if (data == null) return sign;
+
+			if (data.GetType() == y.GetType())
+			{
+				return data.CompareTo(y);
+			}
+
+			if (y is string)
+			{
+				return Convert.ToString(data).CompareTo(y);
+			}
+
+			if (data is string)
+			{
+				return data.CompareTo(Convert.ToString(y));
+			}
+
+			try
+			{
+				return ((double)Convert.ChangeType(data, typeof(double))).CompareTo(Convert.ChangeType(y, typeof(double)));
+			}
+			catch
+			{
+				return Convert.ToString(data).CompareTo(Convert.ToString(y));
+			}
+		}
+	}
+
+	internal class CellComparerAdapter : IComparer<object>
+	{
+		private readonly Func<object, object, int> comparerFunc;
+		private readonly int sign;
+
+		public CellComparerAdapter(Func<object, object, int> comparerFunc, SortOrder order)
+		{
+			this.comparerFunc = comparerFunc ?? throw new ArgumentNullException(nameof(comparerFunc));
+			// this needs to leave empty cells always at the bottom of list
+			sign = order == SortOrder.Ascending ? 1 : -1;
+		}
+
+		public int Compare(object x, object y)
+		{
+			if (x is string str && string.IsNullOrEmpty(str))
+			{
+				x = null;
+			}
+
+			if (y is string str1 && string.IsNullOrEmpty(str1))
+			{
+				y = null;
+			}
+
+			if (x == null && y == null) return 0;
+
+			if (x != null && y == null) return -sign;
+
+			if (x == null) return sign;
+
+			return comparerFunc(x, y);
+		}
 	}
 }

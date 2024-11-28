@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -23,7 +23,7 @@ namespace unvell.ReoGrid
 	/// <summary>
 	/// Worksheet Settings
 	/// </summary>
-	/// <remarks>Refer to: http://reogrid.net/document/settings </remarks>
+	/// <remarks>Refer to: https://reogrid.net/document/settings </remarks>
 	[Flags]
 	public enum WorksheetSettings : ulong
 	{
@@ -65,24 +65,12 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Allow automatically adjust row height to fit largest cell.
 		/// </summary>
-		[Obsolete("use Edit_AutoExpandRowHeight instead")]
-		Edit_AutoAdjustRowHeight = Edit_AutoExpandRowHeight,
-
-		/// <summary>
-		/// Allow automatically adjust row height to fit largest cell.
-		/// </summary>
 		Edit_AutoExpandRowHeight = 0x00000008L,
 
 		/// <summary>
 		/// Allow user adjusts row height by mouse.
 		/// </summary>
 		Edit_AllowAdjustRowHeight = 0x00000010L,
-
-		/// <summary>
-		/// Allow automatically adjust column width to fit largest cell.
-		/// </summary>
-		[Obsolete("use Edit_AutoExpandColumnWidth instead")]
-		Edit_AutoAdjustColumnWidth = Edit_AutoExpandColumnWidth,
 
 		/// <summary>
 		/// Allow automatically adjust column width to fit largest cell.
@@ -151,12 +139,6 @@ namespace unvell.ReoGrid
 		/// </summary>
 		Behavior_AllowUserChangingPageBreaks = 0x00004000L,
 
-		/// <summary>
-		/// Allow user to move selected cells by dragging mouse.
-		/// </summary>
-		[Obsolete("renamed to Edit_DragSelectionToMoveCells")]
-		Behavior_DragToMoveCells = Edit_DragSelectionToMoveCells,
-
 		///// <summary>
 		///// Allow user to move entire column by dragging mouse.
 		///// </summary>
@@ -211,12 +193,6 @@ namespace unvell.ReoGrid
 		/// Show guide line.
 		/// </summary>
 		View_ShowGridLine = 0x00100000L,
-
-		/// <summary>
-		/// Show guide line.
-		/// </summary>
-		[Obsolete("rename to View_ShowGridLine")]
-		View_ShowGuideLine = View_ShowGridLine,
 
 		/// <summary>
 		/// Allow to show outlines for rows.

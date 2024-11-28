@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -85,7 +85,7 @@ namespace unvell.ReoGrid
 			{
 				Orientation = Orientation.Horizontal,
 				Height = ScrollBarSize,
-				SmallChange=	Worksheet.InitDefaultColumnWidth,
+				SmallChange = Worksheet.InitDefaultColumnWidth,
 			};
 
 			this.verScrollbar = new System.Windows.Controls.Primitives.ScrollBar()
@@ -358,7 +358,17 @@ namespace unvell.ReoGrid
 				&& this.currentWorksheet.workbook != null
 				&& this.currentWorksheet.controlAdapter != null)
 			{
-				dc.DrawRectangle(Brushes.White, null, new Rect(0, 0, this.RenderSize.Width, this.RenderSize.Height));
+				SolidColorBrush bgBrush;
+				if (this.controlStyle.TryGetColor(ControlAppearanceColors.GridBackground, out SolidColor bgColor))
+				{
+					bgBrush = new SolidColorBrush(bgColor);
+				}
+				else
+				{
+					bgBrush = Brushes.White;
+				}
+
+				dc.DrawRectangle(bgBrush, null, new Rect(0, 0, this.RenderSize.Width, this.RenderSize.Height));
 
 				this.renderer.Reset();
 
@@ -632,7 +642,7 @@ namespace unvell.ReoGrid
 			public Rectangle GetContainerBounds()
 			{
 				double w = this.canvas.ActualWidth;
-				double h = this.canvas.ActualHeight+1;
+				double h = this.canvas.ActualHeight + 1;
 
 				if (this.canvas.verScrollbar.Visibility == Visibility.Visible)
 				{
@@ -960,31 +970,30 @@ namespace unvell.ReoGrid
 				// in single line text
 				if (!TextWrap && Text.IndexOf('\n') == -1)
 				{
-                    Action moveAction = null;
+					Action moveAction = null;
 
 					if (e.Key == Key.Up)
 					{
-                        moveAction = () => sheet.MoveSelectionUp();
+						moveAction = () => sheet.MoveSelectionUp();
 					}
 					else if (e.Key == Key.Down)
 					{
-                        moveAction = () => sheet.MoveSelectionDown();
-                    }
-                    else if (e.Key == Key.Left && SelectionStart == 0)
-                    {
-                        moveAction = () => sheet.MoveSelectionLeft();
-                    }
-                    else if (e.Key == Key.Right && SelectionStart == Text.Length)
-                    {
-                        moveAction = () => sheet.MoveSelectionRight();
-                    }
-
-				    if (moveAction != null)
-				    {
-                        sheet.EndEdit(Text);
-				        moveAction();
-                        e.Handled = true;
-                    }
+						moveAction = () => sheet.MoveSelectionDown();
+					}
+					else if (e.Key == Key.Left && SelectionStart == 0)
+					{
+						moveAction = () => sheet.MoveSelectionLeft();
+					}
+					else if (e.Key == Key.Right && SelectionStart == Text.Length)
+					{
+						moveAction = () => sheet.MoveSelectionRight();
+					}
+					if (moveAction != null)
+					{
+						sheet.EndEdit(Text);
+						moveAction();
+						e.Handled = true;
+					}
 				}
 			}
 
@@ -1013,6 +1022,20 @@ namespace unvell.ReoGrid
 					{
 						// TODO: auto adjust row height
 					}
+					// shift + tab
+					else if ((Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift)) && e.Key == Key.Tab)
+					{
+						sheet.EndEdit(this.Text);
+						sheet.MoveSelectionBackward();
+						e.Handled = true;
+					}
+					// tab
+					else if (e.Key == Key.Tab)
+					{
+						sheet.EndEdit(this.Text);
+						sheet.MoveSelectionForward();
+						e.Handled = true;
+					}
 					else if (e.Key == Key.Escape)
 					{
 						sheet.EndEdit(EndEditReason.Cancel);
@@ -1037,7 +1060,7 @@ namespace unvell.ReoGrid
 					int inputChar = e.Text[0];
 					if (inputChar != this.Owner.currentWorksheet.RaiseCellEditCharInputed(inputChar))
 					{
-						
+
 						e.Handled = true;
 					}
 

@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -48,13 +48,11 @@ namespace unvell.ReoGrid
 
 		public string StringifyRange(string addressOrName)
 		{
-			NamedRange namedRange;
-
 			if (RangePosition.IsValidAddress(addressOrName))
 			{
 				return this.StringifyRange(new RangePosition(addressOrName));
 			}
-			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out namedRange))
+			else if (this.registeredNamedRanges.TryGetValue(addressOrName, out var namedRange))
 			{
 				return this.StringifyRange(namedRange);
 			}
@@ -506,7 +504,9 @@ namespace unvell.ReoGrid
 		/// <summary>
 		/// Copy any remove anything from selected range into Clipboard.
 		/// </summary>
-		public bool Cut()
+		/// <param name="byAction">Indicates whether or not perform the cut operation by using an action, which makes the operation can be undone. Default is true.</param>
+		/// <returns></returns>
+		public bool Cut(bool byAction = true)
 		{
 			if (IsEditing)
 			{
@@ -538,9 +538,27 @@ namespace unvell.ReoGrid
 
 				if (!HasSettings(WorksheetSettings.Edit_Readonly))
 				{
-					this.DeleteRangeData(currentCopingRange);
-					this.RemoveRangeStyles(currentCopingRange, PlainStyleFlag.All);
-					this.RemoveRangeBorders(currentCopingRange, BorderPositions.All);
+					DataObject data = Clipboard.GetDataObject() as DataObject;
+					PartialGrid partialGrid = data.GetData(ClipBoardDataFormatIdentify) as PartialGrid;
+
+					int startRow = selectionRange.Row;
+					int startCol = selectionRange.Col;
+
+					int rows = partialGrid.Rows;
+					int cols = partialGrid.Columns;
+
+					var range = new RangePosition(startRow, startCol, rows, cols);
+
+					if (byAction)
+					{
+						DoAction(new CutRangeAction(range, partialGrid));
+					}
+					else
+					{
+						this.DeleteRangeData(range, true);
+						this.RemoveRangeStyles(range, PlainStyleFlag.All);
+						this.RemoveRangeBorders(range, BorderPositions.All);
+					}
 				}
 
 				if (AfterCut != null)

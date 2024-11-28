@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -185,58 +185,6 @@ namespace unvell.ReoGrid
 		HighlightRangeResize,
 
 		CellBodyCapture,
-	}
-
-	/// <summary>
-	/// Represents the activation area of frozen worksheet.
-	/// </summary>
-	[Obsolete("use FreezeArea instead")]
-	public enum FreezePosition : byte
-	{
-		/// <summary>
-		/// Do not freeze to any positions.
-		/// </summary>
-		None = 0,
-
-		/// <summary>
-		/// Freeze to left .
-		/// </summary>
-		Left = 1,
-
-		/// <summary>
-		/// Freeze to top.
-		/// </summary>
-		Top = 2,
-
-		/// <summary>
-		/// Freeze to right.
-		/// </summary>
-		Right = 3,
-
-		/// <summary>
-		/// Freeze to bottom.
-		/// </summary>
-		Bottom = 4,
-
-		/// <summary>
-		/// Freeze to left and top.
-		/// </summary>
-		LeftTop = 5,
-
-		/// <summary>
-		/// Freeze to left and bottom.
-		/// </summary>
-		LeftBottom = 6,
-
-		/// <summary>
-		/// Freeze to right and top.
-		/// </summary>
-		RightTop = 7,
-
-		/// <summary>
-		/// Freeze to right and bottom.
-		/// </summary>
-		RightBottom = 8,
 	}
 
 	/// <summary>

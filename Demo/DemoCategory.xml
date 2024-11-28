@@ -5,7 +5,7 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  
- * http://reogrid.net
+ * https://reogrid.net
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
@@ -14,14 +14,13 @@
  *
  * ReoGrid Demo project released under MIT license.
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
+ * Copyright (c) 2012-2021 Jing Lu <jingwood at unvell.com>
  * Copyright (c) 2012-2016 unvell.com, all rights reserved.
  * 
  ****************************************************************************/
 -->
 
-<Demo BaseSite="http://reogrid.net/" DefaultItem="What's new in 2.0">
-
+<Demo BaseSite="https://reogrid.net/" DefaultItem="What's new">
 	<New>
 		<Item Name="Welcome"></Item>
 		<Item Name="Line Chart"></Item>
@@ -33,11 +32,24 @@
 	</New>
 		
 	<Categories>
+
 		<Category Name="Welcome" Expansion="True">
-			<Item Name="What's new in 2.0" Class="Welcome.V100WhatsNew"></Item>
+			<Item Name="What's new" Class="Welcome.WhatsNewDemo"></Item>
 		</Category>
-			
-		<Category Name="Chart" Expansion="True">
+	
+		<Category Name="Document" Expansion="True">
+			<Item Name="Order Report" Class="Documents.OrderDocDemo" />
+			<Item Name="Project Summary" Class="Documents.ProjectSummaryDocDemo" />
+			<Item Name="Project Build Report" Class="Documents.ProjectBuildReportDemo" />
+			<Item Name="Data Format Demo" Class="Documents.DataFormatDocDemo" />
+			<Item Name="Month Calendar Sheet (Readonly)" Class="Documents.MonthCalendarDocDemo" />
+			<Item Name="Year Calendar Sheet (Readonly)" Class="Documents.YearCalendarDocDemo" />
+			<Item Name="Invoice from Excel" Class="Documents.InvoiceExcelDocDemo" />
+			<Item Name="Financial Ratios Sheet" Class="Documents.FinancialRatiosDocDemo" />
+			<Item Name="Maze" Class="Documents.MazeDocDemo" />
+		</Category>
+		
+		<Category Name="Chart" Expansion="False">
 			<Item Name="Line Chart" Class="Charts.LineChartDemo">
 				<Doc-Url>document/chart/line-chart</Doc-Url>
 			</Item>
@@ -69,18 +81,6 @@
 			<Item Name="Drawing Object Style" Class="Drawings.DrawingObjectStyleDemo" />
 			<!--<Item Name="Basic Shapes" Class="Drawings.BasicShapesDemo" />-->
 		</Category>
-
-		<Category Name="Document" Expansion="True">
-			<Item Name="Order Report" Class="Documents.OrderDocDemo" />
-			<Item Name="Project Summary" Class="Documents.ProjectSummaryDocDemo" />
-			<Item Name="Project Build Report" Class="Documents.ProjectBuildReportDemo" />
-			<Item Name="Data Format Demo" Class="Documents.DataFormatDocDemo" />
-			<Item Name="Month Calendar Sheet (Readonly)" Class="Documents.MonthCalendarDocDemo" />
-			<Item Name="Year Calendar Sheet (Readonly)" Class="Documents.YearCalendarDocDemo" />
-			<Item Name="Invoice from Excel" Class="Documents.InvoiceExcelDocDemo" />
-			<Item Name="Financial Ratios Sheet" Class="Documents.FinancialRatiosDocDemo" />
-			<Item Name="Maze" Class="Documents.MazeDocDemo" />
-		</Category>
 		
 		<Category Name="Cell and Range">
 			<Item Name="Access Cell Data" Class="CellAndRange.AccessCellDataDemo">
@@ -105,33 +105,7 @@
 			
 		</Category>
 
-		<Category Name="Custom Cells" Expansion="True">
-			<Item Name="Built-in Types" Class="CustomCells.BuiltInTypesDemo">
-				<Doc-Url>document/built-in-cell-types</Doc-Url>
-			</Item>
-
-			<Item Name="Custom Dropdown" Class="CustomCells.CustomDropdownDemo">
-				<Doc-Url>walkthrough/how-to-create-custom-drop-down-cell</Doc-Url>
-			</Item>
-
-			<Item Name="Numeric Progress" Class="CustomCells.NumericProgressDemo">
-				<Doc-Url>document/custom-cell</Doc-Url>
-			</Item>
-			
-			<Item Name="Slide Cell" Class="CustomCells.SlideCellDemo">
-				<Doc-Url>document/custom-cell</Doc-Url>
-			</Item>
-
-			<Item Name="Animation Cell" Class="CustomCells.AnimationCellDemo">
-				<Doc-Url>document/custom-cell</Doc-Url>
-			</Item>
-
-			<Item Name="Image Checkbox Cell" Class="CustomCells.ImageCheckboxDemo">
-				<Doc-Url>document/custom-cell</Doc-Url>
-			</Item>
-		</Category>
-
-		<Category Name="Features">
+		<Category Name="Features" Expansion="True">
 
 			<Item Name="Rich Format Text" Class="Features.RichTextDemo">
 				<Doc-Url>document/rich-format-text</Doc-Url>
@@ -188,6 +162,32 @@
 				<Doc-Url>document/control-appearance</Doc-Url>
 			</Item>
 			
+		</Category>
+		
+		<Category Name="Custom Cells" Expansion="True">
+			<Item Name="Built-in Types" Class="CustomCells.BuiltInTypesDemo">
+				<Doc-Url>document/built-in-cell-types</Doc-Url>
+			</Item>
+
+			<Item Name="Custom Dropdown" Class="CustomCells.CustomDropdownDemo">
+				<Doc-Url>walkthrough/how-to-create-custom-drop-down-cell</Doc-Url>
+			</Item>
+
+			<Item Name="Numeric Progress" Class="CustomCells.NumericProgressDemo">
+				<Doc-Url>document/custom-cell</Doc-Url>
+			</Item>
+			
+			<Item Name="Slide Cell" Class="CustomCells.SlideCellDemo">
+				<Doc-Url>document/custom-cell</Doc-Url>
+			</Item>
+
+			<Item Name="Animation Cell" Class="CustomCells.AnimationCellDemo">
+				<Doc-Url>document/custom-cell</Doc-Url>
+			</Item>
+
+			<Item Name="Image Checkbox Cell" Class="CustomCells.ImageCheckboxDemo">
+				<Doc-Url>document/custom-cell</Doc-Url>
+			</Item>
 		</Category>
 		
 		<Category Name="Freeze to Edges">

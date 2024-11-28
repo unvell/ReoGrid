@@ -2,17 +2,17 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
  * PURPOSE.
  *
- * Author: Jing <lujing at unvell.com>
+ * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -100,7 +100,7 @@ namespace unvell.ReoGrid.Formula
 					return ((STRangeNode)node).Range;
 
 				case STNodeType.STRING:
-					return ((STStringNode)node).Text;
+					return ((STStringNode)node).Text.Replace("\"\"", "\""); // Unescape double quotes
 
 				case STNodeType.TRUE:
 					return true;
@@ -112,9 +112,8 @@ namespace unvell.ReoGrid.Formula
 					#region Identifier
 					{
 						string name = ((STIdentifierNode)node).Identifier;
-						NamedRange range;
 
-						if (cell.Worksheet.TryGetNamedRange(name, out range))
+						if (cell.Worksheet.TryGetNamedRange(name, out var range))
 						{
 							if (range.Position.IsSingleCell)
 							{
@@ -442,9 +441,7 @@ namespace unvell.ReoGrid.Formula
 		{
 			if (obj == null) return FormulaValue.Nil;
 
-			double val;
-
-			if (CellUtility.TryGetNumberData(obj, out val))
+			if (CellUtility.TryGetNumberData(obj, out var val))
 			{
 				return val;
 			}
@@ -955,9 +952,7 @@ namespace unvell.ReoGrid.Formula
 					#region Customize Functions
 					if (FormulaExtension.customFunctions != null)
 					{
-						Func<Cell, object[], object> customFunction;
-
-						if (FormulaExtension.customFunctions.TryGetValue(funNode.Name, out customFunction))
+						if (FormulaExtension.customFunctions.TryGetValue(funNode.Name, out var customFunction))
 						{
 							objArgs = new object[funNode.Children == null ? 0 : funNode.Children.Count];
 

@@ -2,7 +2,7 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
@@ -15,8 +15,8 @@
  * Contributors:  Rick Meyer
  * 
 
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * Copyright (c) 2014 Rick Meyer, all rights reserved.
  * 
  ****************************************************************************/
@@ -496,13 +496,13 @@ namespace unvell.ReoGrid
 			[XmlElement("settings")]
 			public RGXmlWorksheetSetting settings;
 
-			[Obsolete("moved into meta element")]
-			[XmlElement("culture")]
-			public string culture;
+			//[Obsolete("moved into meta element")]
+			//[XmlElement("culture")]
+			//public string culture;
 
-			[Obsolete("moved into meta element")]
-			[XmlElement("editor")]
-			public string editor;
+			//[Obsolete("moved into meta element")]
+			//[XmlElement("editor")]
+			//public string editor;
 			
 			[XmlElement("script")]
 			public RGXmlScript script;

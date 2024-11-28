@@ -2,7 +2,7 @@
  * 
  * ReoGrid - .NET Spreadsheet Control
  * 
- * http://reogrid.net/
+ * https://reogrid.net/
  *
  * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
  * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
@@ -13,8 +13,8 @@
  * Contributors:  Rick Meyer
  * 
 
- * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2016 unvell.com, all rights reserved.
+ * Copyright (c) 2012-2023 Jingwood <jingwood at unvell.com>
+ * Copyright (c) 2012-2023 unvell inc. All rights reserved.
  * Copyright (c) 2014 Rick Meyer, all rights reserved.
  * 
  ****************************************************************************/
@@ -412,8 +412,8 @@ namespace unvell.ReoGrid
 			this.FreezeToCell(row, col, FreezeArea.LeftTop);
 		}
 
-		private CellPosition lastFrozenPosition;
-		private FreezeArea lastFrozenArea = FreezeArea.None;
+		//private CellPosition lastFrozenPosition;
+		//private FreezeArea lastFrozenArea = FreezeArea.None;
 
 		/// <summary>
 		/// Freezes worksheet at specified cell position and specifies the freeze areas.
@@ -425,14 +425,14 @@ namespace unvell.ReoGrid
 		{
 			/////////////////////////////////////////////////////////////////
 			// fix issue #151, #172, #313
-			if (lastFrozenPosition == new CellPosition(row, col) && lastFrozenArea == area)
-			{
-				// skip to perform freeze if forzen position and area are not changed
-				return;
-			}
+			//if (lastFrozenPosition == new CellPosition(row, col) && lastFrozenArea == area)
+			//{
+			//	//skip to perform freeze if forzen position and area are not changed
+			//	return;
+			//}
 
-			lastFrozenPosition = new CellPosition(row, col);
-			lastFrozenArea = area;
+			//lastFrozenPosition = new CellPosition(row, col);
+			//lastFrozenArea = area;
 			/////////////////////////////////////////////////////////////////
 
 			if (this.viewportController != null)
@@ -477,11 +477,10 @@ namespace unvell.ReoGrid
 			this.FreezePos = new CellPosition(row, col);
 			this.FreezeArea = area;
 
-			if (viewportController is IFreezableViewportController)
+			if (viewportController is IFreezableViewportController freezableViewportController)
 			{
 				// freeze via supported viewportcontroller
-				var freezableViewportController = ((IFreezableViewportController)viewportController);
-				freezableViewportController.Freeze();
+				freezableViewportController.Freeze(this.FreezePos, area);
 				RequestInvalidate();
 
 				// raise events
@@ -528,62 +527,6 @@ namespace unvell.ReoGrid
 				return (this.FreezePos.Row > 0 || this.FreezePos.Col > 0)
 					&& this.FreezeArea != FreezeArea.None;
 			}
-		}
-
-
-		///// <summary>
-		///// Check whether or not current worksheet is frozen.
-		///// </summary>
-		///// <returns>True if current worksheet is frozen; Otherwise return false.</returns>
-		//public bool IsFrozen()
-		//{
-		//	return this.FreezePos.Row > 0 || this.FreezePos.Col > 0;
-		//	//if (viewportController is IFreezableViewportController)
-		//	//{
-		//	//	IFreezableViewportController vc = ((IFreezableViewportController)viewportController);
-		//	//	return vc.FreezePos.Row > 0 || vc.FreezePos.Col > 0;
-		//	//}
-		//	//else
-		//	//	return false;
-		//}
-
-		/// <summary>
-		/// Get current frozen position.
-		/// </summary>
-		/// <returns>The cell position indicates where to freeze current worksheet.</returns>
-		[Obsolete("use FreezePos property instead")]
-		public CellPosition GetFreezePos()
-		{
-			return this.FreezePos;
-			//if (viewportController is IFreezableViewportController)
-			//{
-			//	IFreezableViewportController vc = ((IFreezableViewportController)viewportController);
-			//	return vc.FreezePos;
-			//}
-			//else
-			//{
-			//	return CellPosition.Empty;
-			//}
-		}
-
-		/// <summary>
-		/// Get current frozen and activated areas.
-		/// </summary>
-		/// <returns>Returns activated area position from current worksheet; return <code>None</code> if worksheet is not frozen.</returns>
-		[Obsolete("use FreezeArea property instead")]
-		public FreezeArea GetFreezePosition()
-		{
-			return this.FreezeArea;
-			//if (viewportController is IFreezableViewportController)
-			//{
-			//	IFreezableViewportController vc = ((IFreezableViewportController)viewportController);
-			//	var freezePos = vc.FreezePos;
-			//	return freezePos.Row == 0 && freezePos.Col == 0 ? FreezeArea.None : vc.FreezePosition;
-			//}
-			//else
-			//{
-			//	return FreezeArea.None;
-			//}
 		}
 
 		/// <summary>
@@ -652,19 +595,14 @@ namespace unvell.ReoGrid
 					this.renderScaleFactor = this.controlAdapter.BaseScale + this._scaleFactor;
 				}
 
-				var scalableViewController = this.viewportController as IScalableViewportController;
-
-				if (scalableViewController != null)
+				if (this.viewportController is IScalableViewportController scalableViewController)
 				{
 					scalableViewController.ScaleFactor = this.renderScaleFactor;
 				}
 
-				if (this.viewportController != null)
-				{
-					this.viewportController.UpdateController();
-				}
+				this.viewportController?.UpdateController();
 
-				if (Scaled != null) Scaled(this, null);
+				Scaled?.Invoke(this, null);
 			}
 		}
 
@@ -886,7 +824,7 @@ namespace unvell.ReoGrid
 				InternalCol = col,
 				Colspan = 1,
 				Rowspan = 1,
-				Bounds = GetGridBounds(row, col),
+				Bounds = GetCellRectFromHeader(row, col),
 			};
 
 			StyleUtility.UpdateCellParentStyle(this, cell);
@@ -1171,41 +1109,6 @@ namespace unvell.ReoGrid
 		public bool IsCellVisible(int row, int col)
 		{
 			return IsRowVisible(row) && IsColumnVisible(col);
-		}
-
-		/// <summary>
-		/// Check whether a cell is on hidden row or column.
-		/// </summary>
-		/// <param name="cell">Instance of cell to be checked.</param>
-		/// <returns>True if the cell is on hidden row or column.</returns>
-		[Obsolete("use !IsCellVisible instead")]
-		public bool IsHiddenCell(Cell cell)
-		{
-			if (cell == null) return false;
-			return IsHiddenCell(cell.InternalPos);
-		}
-
-		/// <summary>
-		/// Check whether a cell is on hidden row or column.
-		/// </summary>
-		/// <param name="pos">Position of cell to be checked.</param>
-		/// <returns>True if the cell is on hidden row or column.</returns>
-		[Obsolete("use !IsCellVisible instead")]
-		public bool IsHiddenCell(CellPosition pos)
-		{
-			return IsHiddenCell(pos.Row, pos.Col);
-		}
-
-		/// <summary>
-		/// Check whether a cell is on hidden row or column.
-		/// </summary>
-		/// <param name="row">Number of row to be checked.</param>
-		/// <param name="col">Number of column to be checked.</param>
-		/// <returns>True if the cell is on hidden row or column.</returns>
-		[Obsolete("use !IsCellVisible instead")]
-		public bool IsHiddenCell(int row, int col)
-		{
-			return IsHiddenRow(row) || IsHiddenColumn(col);
 		}
 
 		/// <summary>
@@ -1559,20 +1462,18 @@ namespace unvell.ReoGrid
 					}
 				}
 
-				if (this.HasSettings(WorksheetSettings.Behavior_MouseWheelToScroll))
+				if (this.controlAdapter != null && this.HasSettings(WorksheetSettings.Behavior_MouseWheelToScroll))
 				{
-					if (this.viewportController is IScrollableViewportController)
+					if (this.viewportController is IScrollableViewportController svc)
 					{
-						var svc = this.viewportController as IScrollableViewportController;
-
 #if WINFORM || WPF
 						if (Toolkit.IsKeyDown(Win32.VKey.VK_SHIFT))
 						{
-							svc.ScrollViews(ScrollDirection.Horizontal, -delta, 0);
+							svc.ScrollOffsetViews(ScrollDirection.Horizontal, -delta, 0);
 						}
 						else
 						{
-							svc.ScrollViews(ScrollDirection.Vertical, 0, -delta);
+							svc.ScrollOffsetViews(ScrollDirection.Vertical, 0, -delta);
 						}
 #else
 							svc.ScrollViews(ScrollDirection.Vertical, 0, -delta);
@@ -1647,20 +1548,14 @@ namespace unvell.ReoGrid
 		internal bool HasCellMouseMove { get { return this.CellMouseMove != null; } }
 		internal void RaiseCellMouseMove(CellMouseEventArgs args) { if (CellMouseMove != null) { CellMouseMove(this, args); } }
 
-		internal void RaiseSelectionRangeChanged(RangeEventArgs args)
-		{
-			if (SelectionRangeChanged != null)
-			{
-				SelectionRangeChanged(this, args);
-			}
-		}
+		internal void RaiseSelectionRangeChanged(RangeEventArgs args) => SelectionRangeChanged?.Invoke(this, args);
 
 		#endregion // Mouse Events
 
 		/// <summary>
 		/// Get current focused visual object.
 		/// </summary>
-		public IUserVisual FocusVisual { get { return this.viewportController == null ? null : this.viewportController.FocusVisual; } }
+		public IUserVisual FocusVisual { get => this.viewportController?.FocusVisual; }
 
 		#endregion // Mouse
 
@@ -2355,7 +2250,6 @@ namespace unvell.ReoGrid
 			this.hBorders.Reset();
 			this.vBorders.Reset();
 
-			this.cellDataComparer = null;
 			this.controlAdapter = null;
 
 #if OUTLINE
