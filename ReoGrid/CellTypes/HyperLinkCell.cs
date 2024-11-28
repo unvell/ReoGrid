@@ -63,29 +63,12 @@ namespace unvell.ReoGrid.CellTypes
 		public string LinkURL { get; set; }
 
 		/// <summary>
-		/// Create hyperlink cell body instance.
-		/// </summary>
-		public HyperlinkCell()
-			: this(null, true)
-		{
-		}
-
-		/// <summary>
-		/// Create instane of hyperlink cell body with specified navigation url and AutoNavigate property.
-		/// </summary>
-		/// <param name="navigationURL">Navigation url redirected to when hyperlink clicked. (Default is emtpy)</param>
-		public HyperlinkCell(string navigationURL)
-			: this(navigationURL, true)
-		{
-		}
-
-		/// <summary>
 		/// Create instane of hyperlink cell body with specified navigation url and AutoNavigate property.
 		/// </summary>
 		/// <param name="navigationURL">Navigation url redirected to when hyperlink clicked. (Default is emtpy)</param>
 		/// <param name="autoNavigate">Determine whether or not redirect to specified url 
 		/// when hyperlink clicked automatically. (Default is true)</param>
-		public HyperlinkCell(string navigationURL, bool autoNavigate)
+		public HyperlinkCell(string navigationURL = null, bool autoNavigate = true)
 		{
 			this.ActivateColor = SolidColor.Red;
 			this.LinkColor = SolidColor.Blue;
@@ -96,18 +79,9 @@ namespace unvell.ReoGrid.CellTypes
 		}
 
 		/// <summary>
-		/// Determine whether or not the hyperlink is in pressed status.
+		/// Determine whether or not the mouse is over the hyperlink.
 		/// </summary>
-		public bool IsPressed { get; set; }
-
-		/// <summary>
-		/// Handle event when the cell of this body entered edit mode.
-		/// </summary>
-		/// <returns>True to allow edit; False to disallow edit.</returns>
-		public override bool OnStartEdit()
-		{
-			return !this.IsPressed;
-		}
+		public bool IsOverLink { get; set; }
 
 		/// <summary>
 		/// Initialize cell body when set up into a cell.
@@ -137,11 +111,12 @@ namespace unvell.ReoGrid.CellTypes
 		/// <returns>True if event has been handled.</returns>
 		public override bool OnMouseDown(CellMouseEventArgs e)
 		{
-			this.IsPressed = true;
+			if (this.IsOverLink)
+			{
+				e.Cell.Style.TextColor = ActivateColor;
+			}
 
-			e.Cell.Style.TextColor = ActivateColor;
-
-			return true;
+			return base.OnMouseDown(e);
 		}
 
 		/// <summary>
@@ -151,32 +126,44 @@ namespace unvell.ReoGrid.CellTypes
 		/// <returns>True if event has been handled.</returns>
 		public override bool OnMouseUp(CellMouseEventArgs e)
 		{
-			if (this.IsPressed)
+			if (this.IsOverLink)
 			{
-				if (this.Bounds.Contains(e.RelativePosition))
-				{
-					this.PerformClick();
-				}
+				this.IsOverLink = false;
+				e.Cell.Style.TextColor = VisitedColor;
+				this.PerformClick();
+				return true;
 			}
 
-			this.IsPressed = false;
-
-			e.Cell.Style.TextColor = VisitedColor;
-
-			return true;
+			return base.OnMouseUp(e);
 		}
-
+		
 		/// <summary>
-		/// Change color of hyperlink to hover-status when mouse moved into the cell.
+		/// Determine whether the mouse is over the link and change the cursor accordingly.
 		/// </summary>
 		/// <param name="e">Event argument of cell body mouse-enter.</param>
 		/// <returns>True if event has been handled.</returns>
-		public override bool OnMouseEnter(CellMouseEventArgs e)
+		public override bool OnMouseMove(CellMouseEventArgs e)
 		{
-			e.Worksheet.controlAdapter.ChangeSelectionCursor(CursorStyle.Hand);
-			return false;
-		}
+			if (e.Cell.TextBounds.Contains(e.AbsolutePosition))
+			{
+				if (!this.IsOverLink)
+				{
+					this.IsOverLink = true;
+					e.Worksheet.controlAdapter.ChangeSelectionCursor(CursorStyle.Hand);
+				}
+			}
+			else
+			{
+				if (this.IsOverLink)
+				{
+					this.IsOverLink = false;
+					e.Worksheet.controlAdapter.ChangeSelectionCursor(CursorStyle.PlatformDefault);
+				}
+			}
 
+			return base.OnMouseMove(e);
+		}		
+		
 		/// <summary>
 		/// Restore color of hyperlink from hover-status when mouse leaved from cell.
 		/// </summary>
@@ -185,51 +172,12 @@ namespace unvell.ReoGrid.CellTypes
 		public override bool OnMouseLeave(CellMouseEventArgs e)
 		{
 			// change current cursor to hand
-			e.Worksheet.ControlAdapter.ChangeSelectionCursor(CursorStyle.PlatformDefault);
-			return false;
-		}
-
-		/// <summary>
-		/// Handle keyboard down event.
-		/// </summary>
-		/// <param name="keyCode">Virtual keys code that is converted from system platform.</param>
-		/// <returns>True if event has been handled; Otherwise return false.</returns>
-		public override bool OnKeyDown(KeyCode keyCode)
-		{
-			if (keyCode == KeyCode.Space)
+			if (this.IsOverLink)
 			{
-				this.IsPressed = true;
-				this.Cell.Style.TextColor = ActivateColor;
-
-				return true;
+				this.IsOverLink = false;
+				e.Worksheet.controlAdapter.ChangeSelectionCursor(CursorStyle.PlatformDefault);
 			}
-			else
-			{
-				return false;
-			}
-		}
-
-		/// <summary>
-		/// Handle keyboard up event.
-		/// </summary>
-		/// <param name="keyCode">Virtual keys code that is converted from system platform.</param>
-		/// <returns>True if event has been handled; Otherwise return false;</returns>
-		public override bool OnKeyUp(KeyCode keyCode)
-		{
-			if (IsPressed)
-			{
-				this.IsPressed = false;
-
-				this.PerformClick();
-
-				this.Cell.Style.TextColor = VisitedColor;
-
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return base.OnMouseLeave(e);
 		}
 
 		/// <summary>
@@ -237,9 +185,9 @@ namespace unvell.ReoGrid.CellTypes
 		/// </summary>
 		public override void OnLostFocus()
 		{
-			if (this.IsPressed)
+			if (this.IsOverLink)
 			{
-				this.IsPressed = false;
+				this.IsOverLink = false;
 			}
 		}
 
