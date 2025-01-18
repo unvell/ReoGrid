@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("unvell")]
 [assembly: AssemblyProduct("ReoGrid")]
-[assembly: AssemblyCopyright("Copyright © 2012-2025 Jingwood & unvell inc., All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright © 2012-2025 Jingwood & UNVELL Inc., All rights reserved.")]
 [assembly: AssemblyTrademark("ReoGrid.NET")]
 [assembly: AssemblyCulture("")]
 

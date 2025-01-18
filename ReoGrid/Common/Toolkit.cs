@@ -12,7 +12,7 @@
  * PURPOSE.
  *
  * Copyright (c) 2012-2025 Jingwood <jingwood at unvell.com>
- * Copyright (c) 2012-2025 unvell inc. All rights reserved.
+ * Copyright (c) 2012-2025 UNVELL Inc. All rights reserved.
  * 
  ****************************************************************************/
 
