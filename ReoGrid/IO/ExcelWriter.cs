@@ -1691,20 +1691,17 @@ namespace unvell.ReoGrid.IO.OpenXML
 		}
 #endif // DEBUG
 
-		private void WriteFile<T>(string path, T obj)
-		{
-			var stream = new MemoryStream();
-			{
-				XMLHelper.SaveXML(stream, obj);
-				stream.Position = 0;
+    private void WriteFile<T>(string path, T obj)
+    {
+      IZipEntry ctEntry = this.zipArchive.AddFile(path);
 
-				IZipEntry ctEntry = this.zipArchive.AddFile(path, stream);
+      using (var s = ctEntry.CreateStream())
+      {
+        XMLHelper.SaveXML(s, obj);
+      }
 
-				//var s = ctEntry.CreateStream();
-				//{
-				//}
-			}
-		}
+      //((SystemIOZipEntry)ctEntry).Entry.
+    }
 
 		private void WriteOpenXMLFile<T>(T obj) where T : OpenXMLFile
 		{
