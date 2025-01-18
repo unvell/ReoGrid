@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\packages\NUnit3TestAdapter.3.8.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.8.0\build\net35\NUnit3TestAdapter.props')" />
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
     <OutputType>Exe</OutputType>
     <RootNamespace>unvell.ReoGrid.Tests</RootNamespace>
     <AssemblyName>ReoGridUnitTest</AssemblyName>
