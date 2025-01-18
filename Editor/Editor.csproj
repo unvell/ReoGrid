@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <OutputType>WinExe</OutputType>
     <RootNamespace>unvell.ReoGrid.Editor</RootNamespace>
     <AssemblyName>unvell.ReoGridEditor</AssemblyName>
