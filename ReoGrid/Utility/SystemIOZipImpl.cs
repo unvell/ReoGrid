@@ -17,7 +17,7 @@ namespace unvell.ReoGrid.Utility
 
         public static SystemIOZipArchive CreateOnStream(Stream stream)
         {
-            ZipArchive archive = new ZipArchive(stream);
+            ZipArchive archive = new ZipArchive(stream, ZipArchiveMode.Create, true);
             return new SystemIOZipArchive(archive);
         }
     }
