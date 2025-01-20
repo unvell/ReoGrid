@@ -12,7 +12,7 @@
  * Author: Jingwood <jingwood at unvell.com>
  *
  * Copyright (c) 2012-2016 Jing <lujing at unvell.com>
- * Copyright (c) 2012-2023 unvell inc. All rights reserved.
+ * Copyright (c) 2012-2025 UNVELL Inc. All rights reserved.
  * 
  ****************************************************************************/
 
@@ -2802,7 +2802,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 
 		public static Document ReadFromStream(Stream stream)
 		{
-			IZipArchive zip = MZipArchiveFactory.OpenOnStream(stream);
+			IZipArchive zip = SystemIOZipArchiveFactory.OpenOnStream(stream);
 
 			if (zip == null) return null;
 

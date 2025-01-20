@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012-2016 unvell inc., All Rights Reserved. */
+﻿/* Copyright (c) 2012-2016 UNVELL Inc., All Rights Reserved. */
 
 function Pos(row, col) { this.row = row; this.col = col; }
 
