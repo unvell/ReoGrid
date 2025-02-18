@@ -869,7 +869,10 @@ namespace unvell.ReoGrid.Formula
 				newChildren = new List<STNode>(this.Children.Count);
 				foreach (var child in this.Children)
 				{
-					newChildren.Add((STNode)child.Clone());
+            if (child != null)
+            {
+                newChildren.Add((STNode)child.Clone());
+            }
 				}
 			}
 
