@@ -46,7 +46,6 @@
 	</PropertyGroup>
 	
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WPFDebug|AnyCPU'">
-    <DefineConstants>TRACE;DEBUG;WPF;EX_SCRIPT;VP_DEBUG_OFF;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
     <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WPFRelease|AnyCPU'">
@@ -83,17 +82,11 @@
     <Page Remove="WinForm\**" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime" Condition="'$(Configuration)|$(Platform)'=='WPFDebug|AnyCPU'">
-      <HintPath>..\Ref\Antlr3.Runtime.dll</HintPath>
-    </Reference>
     <Reference Update="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Update="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="unvell.ReoScript">
-      <HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -138,9 +131,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="DotNetZip" Version="1.15.0" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\NuGet\icon.png">
