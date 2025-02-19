@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Shapes;
 using unvell.ReoGrid.CellTypes;
 using unvell.ReoGrid.Chart;
 using unvell.ReoGrid.Drawing.Shapes;
@@ -110,8 +112,8 @@ namespace unvell.ReoGrid.WPFDemo
 
 			worksheet.FloatingObjects.Add(chart);
 
-			// flow chart
-			Line line1, line2;
+      // flow chart
+      unvell.ReoGrid.Drawing.Shapes.Line line1, line2;
 
 			worksheet.FloatingObjects.Add(new RectangleShape
 			{
@@ -121,7 +123,7 @@ namespace unvell.ReoGrid.WPFDemo
 				Text = "1. Add Data Source",
 			});
 
-			worksheet.FloatingObjects.Add(line1 = new Line
+			worksheet.FloatingObjects.Add(line1 = new unvell.ReoGrid.Drawing.Shapes.Line
 			{
 				StartPoint = new Graphics.Point(180, 240),
 				EndPoint = new Graphics.Point(180, 270),
@@ -135,8 +137,8 @@ namespace unvell.ReoGrid.WPFDemo
 				Text = "2. Create Data Source",
 			});
 
-			worksheet.FloatingObjects.Add(line2 = new Line
-			{
+			worksheet.FloatingObjects.Add(line2 = new unvell.ReoGrid.Drawing.Shapes.Line
+      {
 				StartPoint = new Graphics.Point(180, 310),
 				EndPoint = new Graphics.Point(180, 340),
 			});
@@ -326,7 +328,12 @@ namespace unvell.ReoGrid.WPFDemo
 				// Open document 
 				grid.Save(dlg.FileName);
 
-				System.Diagnostics.Process.Start(dlg.FileName);
+        using Process fileopener = new Process();
+
+        fileopener.StartInfo.FileName = "explorer";
+        fileopener.StartInfo.Arguments = "\"" + dlg.FileName + "\"";
+        fileopener.Start();
+        //System.Diagnostics.Process.Start("explorer.exe", dlg.FileName);
 			}
 		}
 
