@@ -18,33 +18,21 @@
 
 #if AVALONIA
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Shapes;
+using Avalonia.Input;
+using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
-using Avalonia.Layout;
-using Avalonia.Input;
-using Avalonia.Controls.Shapes;
-using Color = Avalonia.Media.Color;
-
-
-using Avalonia.Media.Immutable;
+using System;
 using unvell.ReoGrid.Main;
-using unvell.ReoGrid.Views;
-using System.Drawing;
-using unvell.ReoGrid.Rendering;
 using Brushes = Avalonia.Media.Brushes;
+using Color = Avalonia.Media.Color;
 using DrawingContext = Avalonia.Media.DrawingContext;
+using Pen = Avalonia.Media.Pen;
 using Point = Avalonia.Point;
 using Size = Avalonia.Size;
-using Pen = Avalonia.Media.Pen;
-using Avalonia.Rendering.Composition;
-using System.Threading;
 
 namespace unvell.ReoGrid.AvaloniaPlatform
 {
