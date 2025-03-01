@@ -20,12 +20,18 @@
 
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Presenters;
+using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Shapes;
+using Avalonia.Controls.Templates;
+using Avalonia.Data;
 using Avalonia.Input;
 using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
+using Avalonia.Styling;
 using System;
+using System.Linq;
 using unvell.ReoGrid.Main;
 using Brushes = Avalonia.Media.Brushes;
 using Color = Avalonia.Media.Color;
@@ -37,115 +43,147 @@ using Size = Avalonia.Size;
 namespace unvell.ReoGrid.AvaloniaPlatform
 {
 
-    internal class SheetTabControl : Decorator, ISheetTabControl
+    internal class SheetTabControl : TemplatedControl, ISheetTabControl
     {
-        internal Grid canvas = new Grid()
+        internal DockPanel canvas = new DockPanel()
         {
-            Width = 0,
             VerticalAlignment = VerticalAlignment.Top,
             HorizontalAlignment = HorizontalAlignment.Left,
+            LastChildFill = false,
         };
-
-
-
-        private Avalonia.Controls.Border newSheetImage;
+        Bitmap imageSource = new Bitmap(new System.IO.MemoryStream(unvell.ReoGrid.Properties.Resources.NewBuildDefinition_8952_inactive_png));
+        Bitmap imageHoverSource = new Bitmap(new System.IO.MemoryStream(unvell.ReoGrid.Properties.Resources.NewBuildDefinition_8952_png));
 
         public SheetTabControl()
         {
-            this.Child = new Grid();
-            var grid = Child as Grid;
-            grid.Background = new SolidColorBrush(SystemColors.Control);
+
             this.BorderColor = Colors.DeepSkyBlue;
+            this.Background = new SolidColorBrush(SystemColors.ControlLight);
 
-            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(20) });
-            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(20) });
-            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
-            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(30) });
-            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(5) });
-
-            var pleft = new Border()
-            {
-                BorderBrush = new SolidColorBrush(BorderColor),
-                BorderThickness = new Thickness(0, 1, 0, 0),
-                Child = new Polygon()
+            this.Template = new FuncControlTemplate<SheetTabControl>((p, ns) => 
+                new Grid()
                 {
-                    Points =
-                        new Point[]{
-                            new Point(6, 0),
-                            new Point(0, 5),
-                            new Point(6, 10),
+                    Name = "root",
+                    ColumnDefinitions = new("20,20,*,auto,auto"),
+                    [!BackgroundProperty] = new TemplateBinding(BackgroundProperty),
+                    Children =
+                {
+                    new Border()
+                    {
+                        Name="pleft",
+                        [Grid.ColumnProperty] = 0,
+                        BorderBrush = new SolidColorBrush(BorderColor),
+                        //BorderThickness = new Thickness(0, 1, 0, 0),
+                        Child = new Polygon()
+                        {
+                            Points =
+                                new Point[]{
+                                    new Point(6, 0),
+                                    new Point(0, 5),
+                                    new Point(6, 10),
+                                },
+                            Fill = new SolidColorBrush(SystemColors.ControlDarkDark),
+                            HorizontalAlignment = HorizontalAlignment.Center,
+                            VerticalAlignment = VerticalAlignment.Center,
+                            Margin = new Thickness(4, 0, 0, 0),
                         },
-                    Fill = new SolidColorBrush(SystemColors.ControlDarkDark),
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center,
-                    Margin = new Thickness(4, 0, 0, 0),
-                },
-                Background = new SolidColorBrush(SystemColors.Control),
-            };
-
-            var pright = new Border()
-            {
-                BorderBrush = new SolidColorBrush(BorderColor),
-                BorderThickness = new Thickness(0, 1, 0, 0),
-                Child = new Polygon()
-                {
-                    Points =
-                        new Point[] {
-                            new Point(0, 0),
-                            new Point(6, 5),
-                            new Point(0, 10),
+                        Background = new SolidColorBrush(SystemColors.Control),
+                    }.RegisterName(ns),
+                    new Border()
+                    {
+                        Name="pright",
+                        [Grid.ColumnProperty] = 1,
+                        BorderBrush = new SolidColorBrush(BorderColor),
+                        //BorderThickness = new Thickness(0, 1, 0, 0),
+                        Child = new Polygon()
+                        {
+                            Points =
+                                new Point[] {
+                                    new Point(0, 0),
+                                    new Point(6, 5),
+                                    new Point(0, 10),
+                                },
+                            Fill = new SolidColorBrush(SystemColors.ControlDarkDark),
+                            HorizontalAlignment = HorizontalAlignment.Center,
+                            VerticalAlignment = VerticalAlignment.Center,
+                            Margin = new Thickness(0, 0, 4, 0),
                         },
-                    Fill = new SolidColorBrush(SystemColors.ControlDarkDark),
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center,
-                    Margin = new Thickness(0, 0, 4, 0),
-                },
-                Background = new SolidColorBrush(SystemColors.Control),
-            };
+                        Background = new SolidColorBrush(SystemColors.Control),
+                    }.RegisterName(ns),
+                    new ScrollViewer()
+                    {
+                        [Grid.ColumnProperty] = 2,
+                        Margin = new Thickness(0,0,0,0),
+                        HorizontalScrollBarVisibility = Avalonia.Controls.Primitives.ScrollBarVisibility.Hidden,
+                        VerticalScrollBarVisibility = Avalonia.Controls.Primitives.ScrollBarVisibility.Hidden,
+                        Content = this.canvas
+                    }.RegisterName(ns),
+                    new Border()
+                    {
+                        Name="newSheetImage",
+                        [Grid.ColumnProperty] = 3,
+                        [!IsVisibleProperty] = new TemplateBinding(NewButtonVisibleProperty),
+                        Width = 30,
+                        BorderBrush = new SolidColorBrush(BorderColor),
+                        //BorderThickness = new Thickness(0, 1, 0, 0),
+                        Child = new Avalonia.Controls.Image()
+                        {
+                            Source = imageSource,
+                            HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
+                            VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center,
+                            Margin = new Thickness(2),
+                            Cursor = new Avalonia.Input.Cursor(StandardCursorType.Hand),
+                        },
+                        Background = new SolidColorBrush(SystemColors.Control),
+                    }.RegisterName(ns),
+                    new Border
+                    {
+                        Name="rightThumb",
+                        [Grid.ColumnProperty] = 4,
+                        Width = 5,
+                        BorderBrush = new SolidColorBrush(BorderColor),
+                        //BorderThickness = new Thickness(0, 1, 0, 0),
+                        Child = new RightThumb(this),
+                        Cursor = new Cursor(StandardCursorType.SizeWestEast),
+                        Background = new SolidColorBrush(SystemColors.Control),
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                    }.RegisterName(ns)
+                }
+                }.RegisterName(ns)
+            );
 
-            //this.canvas.RenderTransform = new TranslateTransform(0, 0);
-            var a = new ScrollViewer()
-            {
-                HorizontalScrollBarVisibility = Avalonia.Controls.Primitives.ScrollBarVisibility.Hidden,
-                VerticalScrollBarVisibility = Avalonia.Controls.Primitives.ScrollBarVisibility.Hidden,
-                Content = this.canvas
-            };
-            grid.Children.Add(a);
-            Grid.SetColumn(a, 2);
 
-            grid.Children.Add(pleft);
-            Grid.SetColumn(pleft, 0);
+            this.SizeChanged += OnSizeChanged;
 
-            grid.Children.Add(pright);
-            Grid.SetColumn(pright, 1);
+        }
 
-            //var empty = new Border()
-            //{
+        private IPointer? Pointer;
 
-            //    BorderBrush = new SolidColorBrush(BorderColor),
-            //    BorderThickness = new Thickness(0, 1, 0, 0),
-            //};
-            //grid.Children.Add(empty);
-            //Grid.SetColumn(empty, 3);
+        private bool splitterMoving = false;
+        private bool scrollLeftDown = false, scrollRightDown = false;
 
-            var imageSource = new Bitmap(new System.IO.MemoryStream(unvell.ReoGrid.Properties.Resources.NewBuildDefinition_8952_inactive_png));
+        private Avalonia.Threading.DispatcherTimer scrollTimer;
 
-            var imageHoverSource = new Bitmap(new System.IO.MemoryStream(unvell.ReoGrid.Properties.Resources.NewBuildDefinition_8952_png));
+        protected void OnSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            this.Clip = new RectangleGeometry(new Rect(0, 0, e.NewSize.Width, e.NewSize.Height));
 
-            newSheetImage = new Border()
-            {
-                BorderBrush = new SolidColorBrush(BorderColor),
-                BorderThickness = new Thickness(0, 1, 0, 0),
-                Child = new Avalonia.Controls.Image()
-                {
-                    Source = imageSource,
-                    HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
-                    VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center,
-                    Margin = new Thickness(2),
-                    Cursor = new Avalonia.Input.Cursor(StandardCursorType.Hand),
-                },
-                Background = new SolidColorBrush(SystemColors.Control),
-            };
+            this.canvas.Height = this.Bounds.Height;
+        }
+
+        protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+        {
+            base.OnApplyTemplate(e);
+
+            var grid = e.NameScope.Find<Grid>("root");
+            var pleft = e.NameScope.Find<Control>("pleft");
+            var pright = e.NameScope.Find<Control>("pright");
+            var newSheetImage = e.NameScope.Find<Border>("newSheetImage");
+            var rightThumb = e.NameScope.Find<Border>("rightThumb");
+
+
+
+
 
             newSheetImage.PointerEntered += (s, e) => (newSheetImage.Child as Image).Source = imageHoverSource;
             newSheetImage.PointerExited += (s, e) => (newSheetImage.Child as Image).Source = imageSource;
@@ -157,20 +195,7 @@ namespace unvell.ReoGrid.AvaloniaPlatform
                 }
             };
             newSheetImage.ZIndex = 100;
-            grid.Children.Add(newSheetImage);
-            Grid.SetColumn(newSheetImage, 3);
 
-            Border rightThumb = new Border
-            {
-                BorderBrush = new SolidColorBrush(BorderColor),
-                BorderThickness = new Thickness(0, 1, 0, 0),
-                Child = new RightThumb(this),
-                Cursor = new Cursor(StandardCursorType.SizeWestEast),
-                Background = new SolidColorBrush(SystemColors.Control),
-                HorizontalAlignment = HorizontalAlignment.Center,
-            };
-            grid.Children.Add(rightThumb);
-            Grid.SetColumn(rightThumb, 4);
 
             this.scrollTimer = new Avalonia.Threading.DispatcherTimer()
             {
@@ -280,22 +305,8 @@ namespace unvell.ReoGrid.AvaloniaPlatform
                 this.Pointer.Capture(null);
             };
 
-            this.SizeChanged += OnSizeChanged;
 
-        }
 
-        private IPointer? Pointer;
-
-        private bool splitterMoving = false;
-        private bool scrollLeftDown = false, scrollRightDown = false;
-
-        private Avalonia.Threading.DispatcherTimer scrollTimer;
-
-        protected void OnSizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            this.Clip = new RectangleGeometry(new Rect(0, 0, e.NewSize.Width, e.NewSize.Height));
-
-            this.canvas.Height = this.Bounds.Height - 2;
         }
 
 
@@ -369,10 +380,16 @@ namespace unvell.ReoGrid.AvaloniaPlatform
             }
         }
 
+        /// <summary>
+        /// NewButtonVisible StyledProperty definition
+        /// </summary>
+        public static readonly StyledProperty<bool> NewButtonVisibleProperty =
+            AvaloniaProperty.Register<SheetTabControl, bool>(nameof(NewButtonVisible), true);
+
         public bool NewButtonVisible
         {
-            get { return this.newSheetImage.IsVisible; }
-            set { this.newSheetImage.IsVisible = value; }
+            get { return GetValue(NewButtonVisibleProperty); }
+            set { SetValue(NewButtonVisibleProperty, value); }
         }
 
         #endregion // Dependency Properties
@@ -396,12 +413,7 @@ namespace unvell.ReoGrid.AvaloniaPlatform
                 Height = this.canvas.Height,
             };
 
-            this.canvas.Width += tab.Width + 1;
-            this.canvas.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
-
             this.canvas.Children.Add(tab);
-
-            Grid.SetColumn(tab, index);
 
             tab.PointerPressed += Tab_MouseDown;
 
@@ -436,17 +448,7 @@ namespace unvell.ReoGrid.AvaloniaPlatform
 
         public void RemoveTab(int index)
         {
-            var tab = (SheetTabItem)this.canvas.Children[index];
-
             this.canvas.Children.RemoveAt(index);
-            this.canvas.ColumnDefinitions.RemoveAt(index);
-
-            for (int i = index; i < this.canvas.Children.Count; i++)
-            {
-                Grid.SetColumn(this.canvas.Children[i], i);
-            }
-
-            this.canvas.Width -= tab.Width;
         }
 
         public void UpdateTab(int index, string title, Color backColor, Color textColor)
@@ -455,8 +457,6 @@ namespace unvell.ReoGrid.AvaloniaPlatform
             if (item != null)
             {
                 item.ChangeTitle(title);
-                this.canvas.ColumnDefinitions[index].Width = new GridLength(item.Width + 1);
-
                 item.BackColor = backColor;
                 item.TextColor = textColor;
             }
@@ -465,8 +465,6 @@ namespace unvell.ReoGrid.AvaloniaPlatform
         public void ClearTabs()
         {
             this.canvas.Children.Clear();
-            this.canvas.ColumnDefinitions.Clear();
-            this.canvas.Width = 0;
         }
 
         public int TabCount { get { return this.canvas.Children.Count; } }
@@ -493,7 +491,7 @@ namespace unvell.ReoGrid.AvaloniaPlatform
 
             //g.PushGuidelineSet(gls);
 
-            var p = new Pen(new SolidColorBrush(this.BorderColor), 1);
+            var p = new Pen(new SolidColorBrush(this.BorderColor), 3);
 
             g.DrawLine(p, new Point(0, 0), new Point(this.Bounds.Size.Width, 0));
 
@@ -568,10 +566,10 @@ namespace unvell.ReoGrid.AvaloniaPlatform
         public event EventHandler<SheetTabMouseEventArgs> TabMouseDown;
     }
 
-    class SheetTabItem : Decorator
+    class SheetTabItem : ContentControl
     {
         private SheetTabControl owner;
-
+        private Border separator;
         public static readonly StyledProperty<Boolean> IsSelectedProperty =
             AvaloniaProperty.Register<SheetTabItem, Boolean>("IsSelected");
 
@@ -580,62 +578,85 @@ namespace unvell.ReoGrid.AvaloniaPlatform
             get { return (bool)GetValue(IsSelectedProperty); }
             set
             {
-                bool currentValue = (bool)GetValue(IsSelectedProperty);
-
-                if (currentValue != value)
-                {
-                    SetValue(IsSelectedProperty, value);
-                    this.InvalidateVisual();
-                }
-
-                if (IsSelected)
-                {
-                    (this.Child as Border).BorderThickness = new Thickness(1, 0, 1, 1);
-                    this.Child<Border>().Child<DockPanel>().Children[0].As<Border>().BorderThickness = new Thickness(0, 0, 0, 0);
-                }
-                else
-                {
-                    (this.Child as Border).BorderThickness = new Thickness(0, 1, 0, 0);
-                    int index = this.owner.canvas.Children.IndexOf(this);
-
-                    if (index > 0)
-                    {
-
-                        this.Child<Border>().Child<DockPanel>().Children[0].As<Border>().BorderThickness = new Thickness(1, 0, 0, 0);
-                    }
-                }
+                SetValue(IsSelectedProperty, value);
+                SetColor();
+                SetSepatator();
             }
+        }
+
+        private void SetColor()
+        {
+            if (IsSelected)
+            {
+                this.Background = this.BackColor.A > 0
+                    ? new SolidColorBrush(this.BackColor)
+                    : Brushes.White;
+
+                this.BorderBrush = new SolidColorBrush(owner.BorderColor);
+                this.BorderThickness = new Thickness(0, 0, 0, 2);
+
+                //this.Margin = new Thickness(0, -1, 0, 0);
+
+            }
+            else
+            {
+                this.Background = this.BackColor.A > 0
+                    ? new SolidColorBrush(this.BackColor)
+                    : new SolidColorBrush(SystemColors.Control);
+
+                this.BorderBrush = Brushes.Transparent;
+                this.BorderThickness = new Thickness(0, 0, 0, 0);
+
+                //this.Margin = new Thickness(0, 0, 0, 0);
+            }
+        }
+
+        private void SetSepatator()
+        {
+            int index = this.owner.canvas.Children.IndexOf(this);
+            if (index == 0)
+                separator.Background = Brushes.Transparent;
         }
 
         public SheetTabItem(SheetTabControl owner, string title)
         {
             this.owner = owner;
             this.ChangeTitle(title);
+            this.SetColor();
+            this.separator = new Border()
+            {
+                Name = "separator",
+                Background = Brushes.DarkGray,
+                Width = 2,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Height = 12,
+                IsVisible = true
+            };
+            this.Template = new FuncControlTemplate((_, ns) => new DockPanel()
+            {
+                Children =
+                {
+                    separator,
+                    new Border()
+                    {
+                        [!BackgroundProperty] = new TemplateBinding(BackgroundProperty),
+                        [!BorderBrushProperty] = new TemplateBinding(BorderBrushProperty),
+                        [!BorderThicknessProperty] = new TemplateBinding(BorderThicknessProperty),
+                        Child = new ContentPresenter()
+                        {
+                            Margin = new Thickness(4,0),
+                            [!ContentPresenter.ContentProperty] = new TemplateBinding(ContentControl.ContentProperty),
+                            //Foreground = new SolidColorBrush(TextColor)
+                        }
+
+                    }
+                }
+            });
         }
 
         public void ChangeTitle(string title)
         {
-            this.Child = new Border()
-            {
-                BorderBrush = new SolidColorBrush(owner.BorderColor),
-                Background = new SolidColorBrush(BackColor),
-                BorderThickness = new Thickness(0, 1, 0, 0),
-                Child = new DockPanel().SetChilds([
-                    new Border(){
-                        Margin = new Thickness(0,3),
-                        BorderThickness= new Thickness(1,0,0,0),
-                        BorderBrush = new SolidColorBrush(SystemColors.ControlDarkDark),
-                    },
-                    new TextBlock
-                    {
-                        Text = title,
-                        Margin = new Thickness(4,0),
-                        VerticalAlignment = VerticalAlignment.Center,
-                        HorizontalAlignment = HorizontalAlignment.Center,
-                        Background = Brushes.Transparent,
-                    }
-                ])
-            };
+            this.Content = title;
         }
 
         public Color BackColor { get; set; }

@@ -137,6 +137,7 @@ namespace unvell.ReoGrid
                 this.SheetTabWidth = width;
 
                 this.UpdateSheetTabAndScrollBarsLayout();
+
                 //this.bottomGrid.ColumnDefinitions[0].Width = new GridLength(width);
 
                 //double newScrollWidth = this.Bounds.Size.Width

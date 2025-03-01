@@ -1344,7 +1344,7 @@ namespace unvell.ReoGrid
 #elif WPF
             sheetTab.Background = new System.Windows.Media.SolidColorBrush(this.controlStyle[ControlAppearanceColors.SheetTabBackground]);
 #elif AVALONIA
-            ((Grid)sheetTab.Child).Background = new Avalonia.Media.SolidColorBrush(this.controlStyle[ControlAppearanceColors.SheetTabBackground]);
+            sheetTab.Background = new Avalonia.Media.SolidColorBrush(this.controlStyle[ControlAppearanceColors.SheetTabBackground]);
 #endif // WINFORM & WPF
 
             this.adapter?.Invalidate();

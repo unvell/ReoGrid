@@ -26,6 +26,16 @@ public static class AvaloinaEx
         return control; 
     }
 
+    public static T RegisterName<T>(this T control, INameScope nameScope)
+        where T : StyledElement
+    {
+        if(control.Name != null)
+        {
+            nameScope.Register(control.Name, control);
+        }
+        return control;
+    }
+
     public static T WithContent<T>(this T control, Control content)
         where T : ContentControl
     {
