@@ -899,7 +899,7 @@ namespace unvell.ReoGrid
             public double ScrollBarVerticalMaximum
             {
                 get { return this.canvas.verScrollbar.Maximum; }
-                set { this.canvas.verScrollbar.Maximum = value; }
+                set { Dispatcher.UIThread.InvokeAsync(()=> this.canvas.verScrollbar.Maximum = value); }
             }
 
             public double ScrollBarVerticalMinimum
