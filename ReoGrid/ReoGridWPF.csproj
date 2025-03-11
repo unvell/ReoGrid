@@ -28,7 +28,7 @@
   </PropertyGroup>
 	<PropertyGroup>
 		<Authors>Jingwood</Authors>
-		<Company>unvell</Company>
+		<Company>UNVELL Inc.</Company>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://reogrid.net</PackageProjectUrl>
 		<PackageIcon>icon.png</PackageIcon>
@@ -40,7 +40,7 @@
 		<Description>Powerful and lightweight open source .NET spreadsheet component. Compatible with Excel 2007 format or later. Simple APIs to open/edit/save/print an Excel spreadsheet in the .NET application.</Description>
 		<SignAssembly>true</SignAssembly>
 		<ApplicationIcon>favicon.ico</ApplicationIcon>
-		<Copyright>2012-2025 (c) Jingwood, unvell, all rights reserved.</Copyright>
+		<Copyright>2012-2025 (c) Jingwood, UNVELL Inc., all rights reserved.</Copyright>
 		<PackageTags>spreadsheet excel drawing grid workbook worksheet chart data formula script macro outline print</PackageTags>
 		<PackageReleaseNotes>https://github.com/unvell/ReoGrid/releases/tag/v3.0.0</PackageReleaseNotes>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
