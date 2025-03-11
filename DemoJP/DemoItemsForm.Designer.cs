@@ -68,7 +68,6 @@ namespace unvell.ReoGrid.Demo
 			this.lnkReset = new System.Windows.Forms.LinkLabel();
 			this.labTitle = new System.Windows.Forms.Label();
 			this.splitter1 = new System.Windows.Forms.Splitter();
-			this.web = new System.Windows.Forms.WebBrowser();
 			this.splitter2 = new System.Windows.Forms.Splitter();
 			this.menuStrip1.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -216,7 +215,6 @@ namespace unvell.ReoGrid.Demo
 			this.panel1.Controls.Add(this.demoPanel);
 			this.panel1.Controls.Add(this.panel2);
 			this.panel1.Controls.Add(this.splitter1);
-			this.panel1.Controls.Add(this.web);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel1.Location = new System.Drawing.Point(255, 27);
 			this.panel1.Name = "panel1";
@@ -267,16 +265,6 @@ namespace unvell.ReoGrid.Demo
 			this.splitter1.TabIndex = 12;
 			this.splitter1.TabStop = false;
 			// 
-			// web
-			// 
-			this.web.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.web.Location = new System.Drawing.Point(3, 168);
-			this.web.MinimumSize = new System.Drawing.Size(20, 20);
-			this.web.Name = "web";
-			this.web.Size = new System.Drawing.Size(577, 341);
-			this.web.TabIndex = 1;
-			this.web.Url = new System.Uri("", System.UriKind.Relative);
-			// 
 			// splitter2
 			// 
 			this.splitter2.Location = new System.Drawing.Point(255, 27);
@@ -323,7 +311,6 @@ namespace unvell.ReoGrid.Demo
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem projectHomepageToolStripMenuItem;
 		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.WebBrowser web;
 		private System.Windows.Forms.ImageList imageList1;
 		private System.Windows.Forms.Splitter splitter1;
 		private System.Windows.Forms.Panel panel2;
