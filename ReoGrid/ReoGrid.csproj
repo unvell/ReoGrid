@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net8.0-windows</TargetFrameworks>
+    <TargetFrameworks>net48;net8.0-windows</TargetFrameworks>
     <OutputType>Library</OutputType>
     <RootNamespace>unvell.ReoGrid</RootNamespace>
     <AssemblyName>unvell.ReoGrid</AssemblyName>
@@ -168,6 +168,9 @@
       <PackagePath></PackagePath>
     </None>
 	  <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.IO.Compression" />
   </ItemGroup>
     
 </Project>
