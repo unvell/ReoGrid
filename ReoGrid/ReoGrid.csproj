@@ -17,7 +17,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>3.2.0.%2a</ApplicationVersion>
+    <ApplicationVersion>3.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <StartupObject></StartupObject>
@@ -35,7 +35,7 @@
 		<PackageIcon>icon.png</PackageIcon>
 		<RepositoryUrl>https://github.com/unvell/ReoGrid/</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<VersionPrefix>3.2.0</VersionPrefix>
+		<VersionPrefix>3.3.0</VersionPrefix>
 		<VersionSuffix></VersionSuffix>
 		<PackageId>unvell.ReoGrid.dll</PackageId>
 		<Description>Powerful and lightweight open source .NET spreadsheet component. Compatible with Excel 2007 format or later. Simple APIs to open/edit/save/print an Excel spreadsheet in the .NET application.</Description>
