@@ -11,7 +11,7 @@
  *
  * Author: Jingwood <jingwood at unvell.com>
  *
- * Copyright (c) 2012-2021 Jingwood, unvell.com, all rights reserved.
+ * Copyright (c) 2012-2025 Jingwood, unvell.com, all rights reserved.
  * 
  ****************************************************************************/
 

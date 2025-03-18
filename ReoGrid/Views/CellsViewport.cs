@@ -1056,6 +1056,7 @@ namespace unvell.ReoGrid.Views
                         this.sheet.focusMovingRangeOffset = sheet.selectionRange.EndPos;
 
                         this.sheet.RequestInvalidate();
+						this.SetFocus();
                         isProcessed = true;
                     }
                     #endregion // Hit Selection Drag

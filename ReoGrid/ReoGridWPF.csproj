@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net48</TargetFrameworks>
+    <TargetFrameworks>net8.0-windows7.0</TargetFrameworks>
     <OutputType>Library</OutputType>
     <RootNamespace>unvell.ReoGrid</RootNamespace>
     <AssemblyName>unvell.ReoGrid</AssemblyName>
@@ -28,25 +28,26 @@
   </PropertyGroup>
 	<PropertyGroup>
 		<Authors>Jingwood</Authors>
-		<Company>unvell</Company>
+		<Company>UNVELL Inc.</Company>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://reogrid.net</PackageProjectUrl>
 		<PackageIcon>icon.png</PackageIcon>
 		<RepositoryUrl>https://github.com/unvell/ReoGrid/</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<VersionPrefix>3.0.0</VersionPrefix>
+		<VersionPrefix>3.2.0</VersionPrefix>
 		<VersionSuffix></VersionSuffix>
 		<PackageId>unvell.ReoGridWPF.dll</PackageId>
 		<Description>Powerful and lightweight open source .NET spreadsheet component. Compatible with Excel 2007 format or later. Simple APIs to open/edit/save/print an Excel spreadsheet in the .NET application.</Description>
 		<SignAssembly>true</SignAssembly>
 		<ApplicationIcon>favicon.ico</ApplicationIcon>
-		<Copyright>2012-2021 (c) Jingwood, unvell, all rights reserved.</Copyright>
+		<Copyright>2012-2025 (c) Jingwood, UNVELL Inc., all rights reserved.</Copyright>
 		<PackageTags>spreadsheet excel drawing grid workbook worksheet chart data formula script macro outline print</PackageTags>
 		<PackageReleaseNotes>https://github.com/unvell/ReoGrid/releases/tag/v3.0.0</PackageReleaseNotes>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 	
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WPFDebug|AnyCPU'">
-    <DefineConstants>TRACE;DEBUG;WPF;EX_SCRIPT;VP_DEBUG_OFF;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;WPF;VP_DEBUG_OFF;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
     <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WPFRelease|AnyCPU'">
@@ -81,19 +82,14 @@
     <Page Remove="iOS\**" />
     <Page Remove="Test\**" />
     <Page Remove="WinForm\**" />
+	  <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime" Condition="'$(Configuration)|$(Platform)'=='WPFDebug|AnyCPU'">
-      <HintPath>..\Ref\Antlr3.Runtime.dll</HintPath>
-    </Reference>
     <Reference Update="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Update="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="unvell.ReoScript">
-      <HintPath>..\Ref\unvell.ReoScript.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -138,9 +134,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="DotNetZip" Version="1.15.0" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\NuGet\icon.png">

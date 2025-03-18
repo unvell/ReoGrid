@@ -17,7 +17,7 @@ namespace unvell.ReoGrid.Utility
 
         public static SystemIOZipArchive CreateOnStream(Stream stream)
         {
-            ZipArchive archive = new ZipArchive(stream);
+            ZipArchive archive = new ZipArchive(stream, ZipArchiveMode.Create);
             return new SystemIOZipArchive(archive);
         }
     }
@@ -33,6 +33,7 @@ namespace unvell.ReoGrid.Utility
 
         public void Close()
         {
+            Archive.Dispose();
         }
 
         public void Flush()
@@ -49,9 +50,8 @@ namespace unvell.ReoGrid.Utility
             var entry = Archive.CreateEntry(path);
 
             using (var entryStream = entry.Open())
-            using (var streamWriter = new StreamWriter(entryStream))
             {
-                streamWriter.Write("Bar!");
+                stream.CopyTo(entryStream);
             }
 
             return new SystemIOZipEntry(entry);

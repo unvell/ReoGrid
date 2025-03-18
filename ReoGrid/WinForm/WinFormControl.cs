@@ -1347,10 +1347,13 @@ namespace unvell.ReoGrid
 
 			base.OnResize(e);
 
-			if (this.sheetTab.Right > this.bottomPanel.Width - 40)
-			{
-				this.sheetTab.Width = this.bottomPanel.Width - 40 - this.sheetTab.Left;
-			}
+      if (this.Width > 0)
+      {
+        if (this.sheetTab.Right > this.bottomPanel.Width - 40)
+        {
+          this.sheetTab.Width = this.bottomPanel.Width - 40 - this.sheetTab.Left;
+        }
+      }
 
 			if (this.sheetTab.Width < 60) this.sheetTab.Width = 60;
 		}
