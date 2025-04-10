@@ -190,6 +190,7 @@ namespace unvell.ReoGrid.Tests
 			AssertCellText("G15", "7.00 €");
 			AssertCellText("H15", "₱8.00");
 			AssertCellText("I15", "USD 9.00");
+			AssertCellText("J15", "CNY 9.00");
 
 			// currency line 2
 			AssertCellText("A16", "$1,234");
@@ -201,6 +202,7 @@ namespace unvell.ReoGrid.Tests
 			AssertCellText("G16", "1,234.00 €");
 			AssertCellText("H16", "₱1,234.00");
 			AssertCellText("I16", "USD 1,234.00");
+			AssertCellText("J16", "CNY 1,234.00");
 
 			// currency line 3
 			AssertCellText("A17", "-$1");
@@ -212,6 +214,7 @@ namespace unvell.ReoGrid.Tests
 			AssertCellText("G17", "-1.23 €");
 			AssertCellText("H17", "-₱1.23");
 			AssertCellText("I17", "-USD 1.23");
+			AssertCellText("J17", "-CNY 1.23");
 
 			// currency line 4
 			AssertCellText("A18", "-$1.2340");
@@ -223,6 +226,7 @@ namespace unvell.ReoGrid.Tests
 			AssertCellText("G18", "-1.2340 €");
 			AssertCellText("H18", "-₱1.2340");
 			AssertCellText("I18", "-USD 1.2340");
+			AssertCellText("J18", "-CNY 1.2340");
 
 			// negative number formats
 			Cell cell;
