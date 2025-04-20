@@ -818,6 +818,9 @@ namespace unvell.ReoGrid
 
             public void EditControlApplySystemMouseDown()
             {
+                if(this.editTextbox.Text == null)
+                  return;
+
                 //Point p = System.Windows.Input.Mouse.GetPosition(this.editTextbox);
 
                 //p.X += 2; // fix 2 pixels (borders of left and right)
