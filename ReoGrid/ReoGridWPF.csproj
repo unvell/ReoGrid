@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net8.0-windows7.0</TargetFrameworks>
+    <TargetFrameworks>net48;net8.0-windows7.0</TargetFrameworks>
     <OutputType>Library</OutputType>
     <RootNamespace>unvell.ReoGrid</RootNamespace>
     <AssemblyName>unvell.ReoGrid</AssemblyName>
@@ -34,7 +34,7 @@
 		<PackageIcon>icon.png</PackageIcon>
 		<RepositoryUrl>https://github.com/unvell/ReoGrid/</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<VersionPrefix>3.2.0</VersionPrefix>
+		<VersionPrefix>3.3.0</VersionPrefix>
 		<VersionSuffix></VersionSuffix>
 		<PackageId>unvell.ReoGridWPF.dll</PackageId>
 		<Description>Powerful and lightweight open source .NET spreadsheet component. Compatible with Excel 2007 format or later. Simple APIs to open/edit/save/print an Excel spreadsheet in the .NET application.</Description>
@@ -96,6 +96,9 @@
     <Compile Update="Control\ControlShare.cs" />
     <Compile Update="ClipboardMonitor.cs" />
   </ItemGroup>
+    <ItemGroup>
+	    <Reference Include="System.IO.Compression" />
+    </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\cross.cur" />
 		<EmbeddedResource Include="Resources\full_col_select.cur" />
