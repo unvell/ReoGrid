@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using unvell.ReoGrid.CellTypes;
@@ -282,196 +279,16 @@ namespace unvell.ReoGrid.WPFDemo
 
 			// information cell
 			worksheet.SetRangeBorders(19, 0, 1, 10, BorderPositions.Top, RangeBorderStyle.GraySolid);
-
-      // dropdown cell
-      worksheet["B18"] = "Dropdown ListView:";
-      worksheet["D18"] = "Choose...";
-      worksheet["D18"] = new ListViewDropdownCell();
-      worksheet.Ranges["D18"].BorderOutside = RangeBorderStyle.GraySolid;
-    }
+		}
 
 		private void ShowText(Worksheet sheet, string text)
 		{
 			sheet[19, 0] = text;
 		}
+		#endregion // Demo Sheet 3 : Built-in Cell Types
 
-
-    class ListViewDropdownCell : DropdownCell
-    {
-      private readonly ListView listView;
-
-      public ListViewDropdownCell()
-      {
-        listView = new ListView
-        {
-          BorderThickness = new Thickness(0),
-          SelectionMode = SelectionMode.Single,
-          View = new GridView()
-        };
-
-        this.DropdownControl = listView;
-
-        var gridView = (GridView)listView.View;
-        gridView.Columns.Add(new GridViewColumn
-        {
-          Header = "Name",
-          Width = 120,
-          DisplayMemberBinding = new System.Windows.Data.Binding(nameof(ListViewItemData.Text))
-        });
-        gridView.Columns.Add(new GridViewColumn
-        {
-          Header = "Description",
-          Width = 120,
-          DisplayMemberBinding = new System.Windows.Data.Binding(nameof(ListViewItemData.SubText))
-        });
-
-        // Create data items
-        var items = new List<ListViewItemData>
-        {
-            new ListViewItemData { Group = "A", Text = "Apple", SubText = "Red fruit" },      // 原注释: "苹果", "红色水果"
-            new ListViewItemData { Group = "A", Text = "Banana", SubText = "Yellow fruit" },  // 原注释: "香蕉", "黄色水果"
-            new ListViewItemData { Group = "B", Text = "Watermelon", SubText = "Green fruit" }, // 原注释: "西瓜", "绿色水果"
-            new ListViewItemData { Group = "B", Text = "Grape", SubText = "Purple fruit" }     // 原注释: "葡萄", "紫色水果"
-        };
-
-        listView.ItemsSource = items;
-        this.MinimumDropdownWidth = 300;
-
-        listView.PreviewMouseDoubleClick += ListView_MouseDoubleClick;
-        listView.PreviewKeyDown += ListView_PreviewKeyDown;
-      }
-
-      private void ListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-      {
-        var listView = sender as ListView;
-        var depObj = e.OriginalSource as DependencyObject;
-        while (depObj != null && !(depObj is ListViewItem))
-          depObj = VisualTreeHelper.GetParent(depObj);
-
-        if (depObj is ListViewItem listViewItem)
-        {
-          listView.SelectedItem = listView.ItemContainerGenerator.ItemFromContainer(listViewItem);
-        }
-
-        CommitSelection();
-      }
-
-      private void ListView_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-      {
-        var listView = sender as ListView;
-
-        if (e.Key == System.Windows.Input.Key.Enter)
-        {
-          CommitSelection();
-          e.Handled = true;
-        }
-        else if (e.Key == System.Windows.Input.Key.Escape)
-        {
-          PullUp();
-          e.Handled = true;
-        }
-        else if (e.Key == System.Windows.Input.Key.Up || e.Key == System.Windows.Input.Key.Down)
-        {
-          // Handle up/down key selection 
-          int currentIndex = listView.SelectedIndex;
-          int itemCount = listView.Items.Count;
-
-          if (itemCount > 0)
-          {
-            if (e.Key == System.Windows.Input.Key.Up)
-            {
-              // Up key: select previous item
-              if (currentIndex > 0)
-              {
-                listView.SelectedIndex = currentIndex - 1;
-                var item = listView.ItemContainerGenerator.ContainerFromIndex(currentIndex - 1) as ListViewItem;
-                item?.Focus();
-              }
-              else
-              {
-                // If on first item, cycle to last item 
-                listView.SelectedIndex = itemCount - 1;
-                var item = listView.ItemContainerGenerator.ContainerFromIndex(itemCount - 1) as ListViewItem;
-                item?.Focus();
-              }
-            }
-            else if (e.Key == System.Windows.Input.Key.Down)
-            {
-              // Down key: select next item 
-              if (currentIndex < itemCount - 1)
-              {
-                listView.SelectedIndex = currentIndex + 1;
-                var item = listView.ItemContainerGenerator.ContainerFromIndex(currentIndex + 1) as ListViewItem;
-                item?.Focus();
-              }
-              else
-              {
-                // If on last item, cycle to first item
-                listView.SelectedIndex = 0;
-                var item = listView.ItemContainerGenerator.ContainerFromIndex(0) as ListViewItem;
-                item?.Focus();
-              }
-            }
-
-            // Ensure selected item is visible
-            if (listView.SelectedItem != null)
-            {
-              listView.ScrollIntoView(listView.SelectedItem);
-            }
-
-            e.Handled = true;
-          }
-        }
-        else if (e.Key == System.Windows.Input.Key.Tab)
-        {
-          // Handle Tab key 
-          CommitSelection();
-          e.Handled = true;
-        }
-      }
-
-      protected override void OnDropdownControlLostFocus()
-      {
-        PullUp();
-      }
-
-      public override void PushDown()
-      {
-        base.PushDown();
-
-        // When dropdown panel opens, automatically select the item matching current cell content
-        if (this.Cell?.Data is string text && listView.ItemsSource is IEnumerable<ListViewItemData> items)
-        {
-          var itemToSelect = items.FirstOrDefault(i => i.Text == text);
-          if (itemToSelect != null)
-          {
-            listView.SelectedItem = itemToSelect;
-            listView.ScrollIntoView(itemToSelect);
-          }
-        }
-      }
-
-      private void CommitSelection()
-      {
-        if (listView.SelectedItem is ListViewItemData selectedItem)
-        {
-          this.Cell.Data = selectedItem.Text;
-          PullUp();
-        }
-      }
-
-      // Data item class
-      private class ListViewItemData
-      {
-        public string Group { get; set; }
-        public string Text { get; set; }
-        public string SubText { get; set; }
-      }
-    }
-    #endregion // Demo Sheet 3 : Built-in Cell Types
-
-    #region Menu - File
-    private void File_New_Click(object sender, RoutedEventArgs e)
+		#region Menu - File
+		private void File_New_Click(object sender, RoutedEventArgs e)
 		{
 			grid.Reset();
 		}
