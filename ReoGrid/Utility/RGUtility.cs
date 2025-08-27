@@ -17,6 +17,7 @@
  ****************************************************************************/
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -115,84 +116,109 @@ namespace unvell.ReoGrid
 			return NameRegex.IsMatch(name);
 		}
 
-		/// <summary>
-		/// Parse tabbed string into regular array
-		/// </summary>
-		/// <param name="str">string to be parsed</param>
-		/// <returns>parsed regular array</returns>
-		public static object[,] ParseTabbedString(string str)
-		{
-			int rows = 0, cols = 0;
-			
-			string[] lines = str.Split(new string[] { "\n" }, StringSplitOptions.None);
+    /// <summary>
+    /// Parse tabbed string into regular array, handling quoted strings properly
+    /// </summary>
+    /// <param name="str">string to be parsed</param>
+    /// <returns>parsed regular array</returns>
+    public static object[,] ParseTabbedString(string str)
+    {
+      var lines = new List<string>();
+      bool inQuote = false;
+      int start = 0;
 
-			int len = lines.Length;
-			
-			while (string.IsNullOrEmpty(lines[len - 1]))
-			{
-				len--;
-			}
+      for (int i = 0; i < str.Length; i++)
+      {
+        char c = str[i];
 
-			for (int r = 0; r < len; r++)
-			{
-				string line = lines[r];
-				
-				if (line.EndsWith("\n")) line = line.Substring(0, line.Length - 1);
-				if (line.EndsWith("\r")) line = line.Substring(0, line.Length - 1);
+        if (c == '"')
+        {
+          // Check for escaped quotes
+          if (i + 1 < str.Length && str[i + 1] == '"')
+          {
+            i++; // Skip next quote as it's escaped
+          }
+          else
+          {
+            inQuote = !inQuote; // Toggle quote state
+          }
+        }
+        else if (c == '\n' && !inQuote)
+        {
+          // Only split on newlines outside of quotes
+          lines.Add(str.Substring(start, i - start));
+          start = i + 1;
+        }
+      }
 
-				string[] tabs = line.Split('\t');
-				cols = Math.Max(cols, tabs.Length);
-				rows++;
-			}
+      // Add the last line if there's any content left
+      if (start < str.Length)
+      {
+        lines.Add(str.Substring(start));
+      }
 
-			object[,] arr = new object[rows, cols];
+      int rows = lines.Count;
+      int cols = 0;
 
-			for (int r = 0; r < lines.Length; r++)
-			{
-				string line = lines[r];
-			
-				if (line.EndsWith("\n")) line = line.Substring(0, line.Length - 1);
-				if (line.EndsWith("\r")) line = line.Substring(0, line.Length - 1);
+      // Determine maximum number of columns
+      for (int r = 0; r < lines.Count; r++)
+      {
+        string line = lines[r];
+        if (line.EndsWith("\n")) line = line.Substring(0, line.Length - 1);
+        if (line.EndsWith("\r")) line = line.Substring(0, line.Length - 1);
 
-				if (line.Length > 0)
-				{
-					string[] tabs = line.Split('\t');
-					cols = Math.Max(cols, tabs.Length);
+        string[] tabs = line.Split('\t');
+        cols = Math.Max(cols, tabs.Length);
+      }
 
-					for (int c = 0; c < tabs.Length; c++)
-					{
-						string text = tabs[c];
+      object[,] arr = new object[rows, cols];
 
-						if (text.StartsWith("\"") && text.EndsWith("\""))
-						{
-							text = text.Substring(1, text.Length - 2);
-						}
+      for (int r = 0; r < lines.Count; r++)
+      {
+        string line = lines[r];
+        if (line.EndsWith("\n")) line = line.Substring(0, line.Length - 1);
+        if (line.EndsWith("\r")) line = line.Substring(0, line.Length - 1);
 
-						arr[r, c] = text;
-					}
-					rows++;
-				}
-			}
+        if (line.Length > 0)
+        {
+          string[] tabs = line.Split('\t');
 
-			return arr;
-		}
+          for (int c = 0; c < tabs.Length; c++)
+          {
+            string text = tabs[c];
 
-		#region ToAddress
-		/// <summary>
-		/// Convert position or range into address string
-		/// </summary>
-		/// <param name="row">Zero-based index number of row</param>
-		/// <param name="col">Zero-based index number of column</param>
-		/// <param name="absNum">Determine that which R1C1 format should be used.<br/>
-		/// <ul>
-		/// <li>1: [Absolute Row][Absolute Col] R1C1</li>
-		/// <li>2: [Absolute Row][Relative Col] R1C[1]</li>
-		/// <li>3: [Relative Row][Absolute Col] R[1]C1</li>
-		/// <li>4: [Relative Row][Relative Col] R[1]C[1]</li>
-		/// </ul>
-		/// </param>
-		/// <returns>position or range in address string</returns>
-		public static string ToAddress(int row, int col, int absNum)
+            // Handle quoted strings
+            if (text.StartsWith("\"") && text.EndsWith("\""))
+            {
+              text = text.Substring(1, text.Length - 2);
+              // Unescape double quotes
+              text = text.Replace("\"\"", "\"");
+            }
+
+            arr[r, c] = text;
+          }
+        }
+      }
+
+      return arr;
+    }
+
+    #region ToAddress
+    /// <summary>
+    /// Convert position or range into address string
+    /// </summary>
+    /// <param name="row">Zero-based index number of row</param>
+    /// <param name="col">Zero-based index number of column</param>
+    /// <param name="absNum">Determine that which R1C1 format should be used.<br/>
+    /// <ul>
+    /// <li>1: [Absolute Row][Absolute Col] R1C1</li>
+    /// <li>2: [Absolute Row][Relative Col] R1C[1]</li>
+    /// <li>3: [Relative Row][Absolute Col] R[1]C1</li>
+    /// <li>4: [Relative Row][Relative Col] R[1]C[1]</li>
+    /// </ul>
+    /// </param>
+    /// <returns>position or range in address string</returns>
+    public static string ToAddress(int row, int col, int absNum)
 		{
 			return ToAddress(row, col, 1, 1, absNum, false);
 		}
