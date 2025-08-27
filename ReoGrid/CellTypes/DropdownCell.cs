@@ -34,6 +34,9 @@ using unvell.ReoGrid.Events;
 using unvell.ReoGrid.Graphics;
 using unvell.ReoGrid.Rendering;
 using unvell.ReoGrid.Interaction;
+using Size = unvell.ReoGrid.Graphics.Size;
+using System.Windows;
+
 
 namespace unvell.ReoGrid.CellTypes
 {
@@ -400,13 +403,11 @@ namespace unvell.ReoGrid.CellTypes
 			}
 		}
 
-		#region Dropdown Window
-
-		/// <summary>
-		/// Prepresents dropdown window for dropdown cells.
-		/// </summary>
-#if WINFORM
-		protected class DropdownWindow : ToolStripDropDown
+    #region Dropdown Window
+    /// <summary>
+    /// Prepresents dropdown window for dropdown cells.
+    /// </summary>
+    protected class DropdownWindow : ToolStripDropDown
 		{
 			private DropdownCell owner;
 			private ToolStripControlHost controlHost;
@@ -463,26 +464,297 @@ namespace unvell.ReoGrid.CellTypes
 				}
 			}
 		}
+
+    #endregion // Dropdown Window
+  }
 #elif WPF
-		protected class DropdownWindow : System.Windows.Controls.Primitives.Popup
-		{
-			private DropdownCell owner;
+  /// <summary>
+  /// Abstract base class for WPF dropdown cells
+  /// </summary>
+  public abstract class DropdownCell : CellBody
+  {
+    private DropdownWindow dropdownPanel;
 
-			public DropdownWindow(DropdownCell owner)
-			{
-				this.owner = owner;
-			}
+    /// <summary>
+    /// Get dropdown panel
+    /// </summary>
+    protected DropdownWindow DropdownPanel => dropdownPanel;
 
-			public void Hide()
-			{
-				this.IsOpen = false;
-			}
-		}
+    private bool pullDownOnClick = true;
+    public virtual bool PullDownOnClick
+    {
+      get => pullDownOnClick;
+      set => pullDownOnClick = value;
+    }
+
+    private Size dropdownButtonSize = new Size(20, 20);
+    public virtual Size DropdownButtonSize
+    {
+      get => dropdownButtonSize;
+      set => dropdownButtonSize = value;
+    }
+
+    private bool dropdownButtonAutoHeight = true;
+    public virtual bool DropdownButtonAutoHeight
+    {
+      get => dropdownButtonAutoHeight;
+      set { dropdownButtonAutoHeight = value; OnBoundsChanged(); }
+    }
+
+    private Rectangle dropdownButtonRect = new Rectangle(0, 0, 20, 20);
+    protected Rectangle DropdownButtonRect => dropdownButtonRect;
+
+    private FrameworkElement dropdownControl;
+    public virtual FrameworkElement DropdownControl
+    {
+      get => dropdownControl;
+      set => dropdownControl = value;
+    }
+
+    protected virtual void OnDropdownControlLostFocus()
+    {
+      PullUp();
+    }
+
+    private bool isDropdown;
+    public bool IsDropdown
+    {
+      get => isDropdown;
+      set
+      {
+        if (isDropdown != value)
+        {
+          if (value) PushDown();
+          else PullUp();
+        }
+      }
+    }
+
+    public DropdownCell() { }
+
+    public override void OnBoundsChanged()
+    {
+      dropdownButtonRect.Width = dropdownButtonSize.Width;
+      dropdownButtonRect.Width = Math.Max(3, Math.Min(dropdownButtonRect.Width, Bounds.Width));
+
+      dropdownButtonRect.Height = dropdownButtonAutoHeight
+          ? Bounds.Height - 1
+          : Math.Min(dropdownButtonSize.Height, Bounds.Height - 1);
+
+      dropdownButtonRect.X = Bounds.Right - dropdownButtonRect.Width;
+
+      ReoGridVerAlign valign = ReoGridVerAlign.General;
+      if (Cell?.InnerStyle?.HasStyle(PlainStyleFlag.VerticalAlign) == true)
+        valign = Cell.InnerStyle.VAlign;
+
+      switch (valign)
+      {
+        case ReoGridVerAlign.Top:
+          dropdownButtonRect.Y = 1;
+          break;
+        case ReoGridVerAlign.General:
+        case ReoGridVerAlign.Bottom:
+          dropdownButtonRect.Y = Bounds.Bottom - dropdownButtonRect.Height;
+          break;
+        case ReoGridVerAlign.Middle:
+          dropdownButtonRect.Y = Bounds.Top + (Bounds.Height - dropdownButtonRect.Height) / 2 + 1;
+          break;
+      }
+    }
+
+    public override void OnPaint(CellDrawingContext dc)
+    {
+      base.OnPaint(dc);
+      OnPaintDropdownButton(dc, dropdownButtonRect);
+    }
+
+    protected virtual void OnPaintDropdownButton(CellDrawingContext dc, Rectangle buttonRect)
+    {
+      if (Cell == null) return;
+
+      var backgroundBrush = new System.Windows.Media.SolidColorBrush(
+          Cell.IsReadOnly ? System.Windows.SystemColors.ControlBrush.Color :
+          (isDropdown ? System.Windows.SystemColors.ControlDarkBrush.Color : System.Windows.SystemColors.ControlBrush.Color));
+
+      var borderBrush = new System.Windows.Media.SolidColorBrush(System.Windows.SystemColors.ControlDarkBrush.Color);
+      var arrowBrush = new System.Windows.Media.SolidColorBrush(
+          Cell.IsReadOnly ? System.Windows.SystemColors.GrayTextBrush.Color : System.Windows.SystemColors.ControlTextBrush.Color);
+
+      var dv = new System.Windows.Media.DrawingVisual();
+      using (var dw = dv.RenderOpen())
+      {
+        dw.DrawRectangle(backgroundBrush, new System.Windows.Media.Pen(borderBrush, 1), (System.Windows.Rect)buttonRect);
+
+        var arrowRect = new System.Windows.Rect(
+            buttonRect.X + buttonRect.Width / 2 - 4,
+            buttonRect.Y + buttonRect.Height / 2 - 2,
+            8, 4);
+
+        var points = new[]
+        {
+                new System.Windows.Point(arrowRect.Left, arrowRect.Top),
+                new System.Windows.Point(arrowRect.Right, arrowRect.Top),
+                new System.Windows.Point(arrowRect.Left + arrowRect.Width / 2, arrowRect.Bottom)
+            };
+
+        dw.DrawGeometry(arrowBrush, null,
+            new System.Windows.Media.PathGeometry(new[]
+            {
+                    new System.Windows.Media.PathFigure(points[0],
+                        new[]
+                        {
+                            new System.Windows.Media.LineSegment(points[1], true),
+                            new System.Windows.Media.LineSegment(points[2], true)
+                        }, true)
+            }));
+      }
+      dc.Graphics.PlatformGraphics.DrawDrawing(dv.Drawing);
+    }
+
+    public override bool OnMouseDown(CellMouseEventArgs e)
+    {
+      if (PullDownOnClick || dropdownButtonRect.Contains(e.RelativePosition))
+      {
+        if (isDropdown) PullUp();
+        else PushDown();
+        return true;
+      }
+      return false;
+    }
+
+    public override bool OnMouseMove(CellMouseEventArgs e)
+    {
+      if (dropdownButtonRect.Contains(e.RelativePosition))
+      {
+        e.CursorStyle = CursorStyle.Hand;
+        return true;
+      }
+      return false;
+    }
+
+    public override void OnLostFocus() => PullUp();
+
+    public event EventHandler DropdownOpened;
+    public event EventHandler DropdownClosed;
+
+    public override bool OnStartEdit()
+    {
+      PushDown();
+      return false;
+    }
+
+    private Worksheet sheet;
+
+    public virtual void PushDown()
+    {
+      if (Cell == null || Cell.Worksheet == null) return;
+      if (Cell.IsReadOnly && DisableWhenCellReadonly) return;
+
+      sheet = Cell.Worksheet;
+
+      if (sheet != null && DropdownControl != null &&
+          Views.CellsViewport.TryGetCellPositionToControl(sheet.ViewportController.FocusView, Cell.InternalPos, out var p))
+      {
+        if (dropdownPanel == null)
+        {
+          dropdownPanel = new DropdownWindow(this);
+          dropdownPanel.Closed += DropdownPanel_Closed;
+        }
+
+        dropdownPanel.Width = Math.Max(Bounds.Width, MinimumDropdownWidth);
+        dropdownPanel.Height = DropdownPanelHeight;
+
+        dropdownPanel.Show(sheet.workbook.ControlInstance, new System.Windows.Point(p.X, p.Y + Bounds.Height));
+        DropdownControl.Focus();
+        isDropdown = true;
+      }
+      DropdownOpened?.Invoke(this, null);
+    }
+
+    private void DropdownPanel_Closed(object sender, EventArgs e) => OnDropdownControlLostFocus();
+
+    private int dropdownHeight = 200;
+    public virtual int DropdownPanelHeight
+    {
+      get => dropdownHeight;
+      set => dropdownHeight = value;
+    }
+
+    private int minimumDropdownWidth = 120;
+    public virtual int MinimumDropdownWidth
+    {
+      get => minimumDropdownWidth;
+      set => minimumDropdownWidth = value;
+    }
+
+    public virtual void PullUp()
+    {
+      if (dropdownPanel != null)
+      {
+        dropdownPanel.Hide();
+        isDropdown = false;
+        sheet?.RequestInvalidate();
+      }
+      DropdownClosed?.Invoke(this, null);
+    }
+
+    #region Dropdown Window
+    /// <summary>
+    /// WPF dropdown popup window
+    /// </summary>
+    protected class DropdownWindow : System.Windows.Controls.Primitives.Popup
+    {
+      private DropdownCell owner;
+      private System.Windows.Controls.Border border;
+      private System.Windows.UIElement controlHost;
+
+      public DropdownWindow(DropdownCell owner)
+      {
+        this.owner = owner;
+        border = new System.Windows.Controls.Border
+        {
+          BorderBrush = System.Windows.Media.Brushes.Gray,
+          BorderThickness = new System.Windows.Thickness(1),
+          Background = System.Windows.Media.Brushes.White
+        };
+
+        controlHost = owner.DropdownControl as System.Windows.UIElement;
+        if (controlHost != null)
+          border.Child = controlHost;
+
+        Child = border;
+        Opened += DropdownWindow_Opened;
+      }
+
+      private void DropdownWindow_Opened(object sender, EventArgs e)
+      {
+        if (owner.DropdownControl != null)
+          System.Windows.Input.Keyboard.Focus(controlHost);
+      }
+
+      public new void Show(System.Windows.UIElement parent, System.Windows.Point point)
+      {
+        Placement = System.Windows.Controls.Primitives.PlacementMode.Absolute;
+        HorizontalOffset = point.X;
+        VerticalOffset = point.Y;
+        IsOpen = true;
+      }
+
+      public void Hide()
+      {
+        IsOpen = false;
+        owner.sheet?.EndEdit(EndEditReason.Cancel);
+      }
+
+      protected override void OnPreviewMouseDown(System.Windows.Input.MouseButtonEventArgs e)
+      {
+        base.OnPreviewMouseDown(e);
+        e.Handled = true;
+      }
+
+      public bool DisableWhenCellReadonly { get; set; } = true;
+    }
+    #endregion
+  }
 #endif // WPF
-
-		#endregion // Dropdown Window
-
-	}
-
-#endif // WINFORM
 }
