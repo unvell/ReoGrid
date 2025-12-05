@@ -21,8 +21,11 @@ using System.Collections.Generic;
 
 #if WINFORM || ANDROID
 using RGFloat = System.Single;
+using RGPoint = unvell.ReoGrid.Graphics.Point;
 #elif WPF
 using RGFloat = System.Double;
+using RGPoint = unvell.ReoGrid.Graphics.Point;
+using System.Windows.Controls;
 #elif iOS
 using RGFloat = System.Double;
 #endif // WINFORM
@@ -110,16 +113,16 @@ namespace unvell.ReoGrid.Data
 					if (columnHeader == null) { c++; continue; }
 
 					var columnFilterBody = columnHeader.Body as AutoColumnFilterBody;
-					if (columnFilterBody == null || columnFilterBody.IsSelectAll)
+					if (columnFilterBody == null || columnFilterBody.IsSelectAll == true)
 					{
 						c++; continue;
 					}
 
 					var cell = this.Worksheet.GetCell(r, c);
-					if (cell == null) { c++; continue; }
+          //if (cell == null) { c++; continue; }
 
-					var text = cell.DisplayText;
-					if (string.IsNullOrEmpty(text)) text = LanguageResource.Filter_Blanks;
+          var text = cell == null ? string.Empty : cell.DisplayText;
+          if (string.IsNullOrEmpty(text)) text = LanguageResource.Filter_Blanks;
 
 					if (!columnFilterBody.SelectedTextItems.Contains(text))
 					{
@@ -127,8 +130,8 @@ namespace unvell.ReoGrid.Data
 						return false;
 					}
 
-					c += cell.Colspan;
-				}
+          c += cell == null ? 1 : cell.Colspan;
+        }
 
 				// show the row
 				return true;
@@ -245,23 +248,29 @@ namespace unvell.ReoGrid.Data
 				{
 					Rectangle bounds = GetColumnFilterButtonRect(headerSize);
 
-					SolidColor color1 = controlStyle.GetColHeadStartColor(isHover: false, isInvalid: false,
-						isSelected: IsDropdown, isFullSelected: false);
+          SolidColor color1 = controlStyle.GetColHeadStartColor(isHover: false, isInvalid: false,
+            isSelected: IsDropdown, isFullSelected: !(IsSelectAll == true));
 
-					SolidColor color2 = controlStyle.GetColHeadEndColor(isHover: false, isInvalid: false,
-						isSelected: IsDropdown, isFullSelected: false);
+          SolidColor color2 = controlStyle.GetColHeadEndColor(isHover: false, isInvalid: false,
+            isSelected: IsDropdown, isFullSelected: !(IsSelectAll == true));
 
-					var g = dc.Graphics;
+          var g = dc.Graphics;
 
 					g.FillRectangleLinear(color1, color2, 90f, bounds);
 
 					g.DrawRectangle(bounds, unvell.ReoGrid.Rendering.StaticResources.SystemColor_ControlDark);
 
-					unvell.Common.GraphicsToolkit.FillTriangle(dc.Graphics.PlatformGraphics, 
-						Math.Min(7 * dc.Worksheet.renderScaleFactor, 7.0f),
-						new Point(bounds.X + bounds.Width / 2, bounds.Y + bounds.Height / 2), 
-						unvell.Common.GraphicsToolkit.TriangleDirection.Down);
-				}
+          if (IsSelectAll == true)
+            Common.GraphicsToolkit.FillTriangle(dc.Graphics.PlatformGraphics,
+              Math.Min(7 * dc.Worksheet.renderScaleFactor, 7.0f),
+              new Point(bounds.X + bounds.Width / 2, bounds.Y + bounds.Height / 2),
+              Common.GraphicsToolkit.TriangleDirection.Down);
+          else
+            Common.GraphicsToolkit.FillTriangle(dc.Graphics.PlatformGraphics,
+              Math.Min(7 * dc.Worksheet.renderScaleFactor, 7.0f),
+              new Point(bounds.X + bounds.Width / 2, bounds.Y + bounds.Height / 2),
+              Common.GraphicsToolkit.TriangleDirection.DownFilter);
+        }
 			}
 
 			/// <summary>
@@ -332,16 +341,19 @@ namespace unvell.ReoGrid.Data
 			/// </summary>
 			public System.Windows.Forms.ContextMenuStrip ContextMenuStrip { get; set; }
 #elif WPF
-
+      /// <summary>
+      /// Get or set the context menu of column filter.
+      /// </summary>
+      public ContextMenu ContextMenuStrip { get; set; }
 #endif
 
-			internal List<string> selectedTextItems = new List<string>();
+      internal List<string> selectedTextItems = new List<string>();
 
 			/// <summary>
 			/// Get or set whether or not this column is marked as SelectAll.
 			/// The column is marked as SelectAll will be ignored during filter.
 			/// </summary>
-			public bool IsSelectAll { get; set; }
+			public bool? IsSelectAll { get; set; }
 
 			private TextFilterCollection textItemsCollection;
 
@@ -421,7 +433,7 @@ namespace unvell.ReoGrid.Data
 					if (!this.columnFilter.selectedTextItems.Contains(item))
 					{
 						this.columnFilter.selectedTextItems.Add(item);
-						this.columnFilter.IsSelectAll = false;
+						//this.columnFilter.IsSelectAll = false;
 					}
 				}
 
@@ -431,7 +443,7 @@ namespace unvell.ReoGrid.Data
 				public void Clear()
 				{
 					this.columnFilter.selectedTextItems.Clear();
-					columnFilter.IsSelectAll = false;
+					//columnFilter.IsSelectAll = false;
 				}
 
 				/// <summary>
@@ -477,7 +489,7 @@ namespace unvell.ReoGrid.Data
 				/// <returns>true if item exist and has been removed successfully</returns>
 				public bool Remove(string item)
 				{
-					this.columnFilter.IsSelectAll = false;
+					//this.columnFilter.IsSelectAll = false;
 					return this.columnFilter.selectedTextItems.Remove(item);
 				}
 
@@ -488,7 +500,7 @@ namespace unvell.ReoGrid.Data
 				public void AddRange(IEnumerable<string> items)
 				{
 					this.columnFilter.selectedTextItems.AddRange(items);
-					this.columnFilter.IsSelectAll = false;
+					//this.columnFilter.IsSelectAll = false;
 				}
 			}
 			#endregion // TextFilterCollection
@@ -506,11 +518,11 @@ namespace unvell.ReoGrid.Data
 				int maxRow = this.ColumnHeader.Worksheet.MaxContentRow;
 
 				this.ColumnHeader.Worksheet.IterateCells(this.autoFilter.ApplyRange.Row,
-					this.ColumnHeader.Index, this.autoFilter.ApplyRange.Rows, 1, true,
+					this.ColumnHeader.Index, this.autoFilter.ApplyRange.Rows, 1, false,
 					(r, c, cell) =>
-					{
-						var str = cell.DisplayText;
-						if (string.IsNullOrEmpty(str)) str = LanguageResource.Filter_Blanks;
+          {
+            var str = cell == null ? string.Empty : cell.DisplayText;
+            if (string.IsNullOrEmpty(str)) str = LanguageResource.Filter_Blanks;
 
 						if (!items.Contains(str))
 						{
@@ -544,7 +556,7 @@ namespace unvell.ReoGrid.Data
 		/// </summary>
 		public event EventHandler FilterButtonPressed;
 
-		internal bool RaiseFilterButtonPress(AutoColumnFilterBody headerBody, Point point)
+		internal bool RaiseFilterButtonPress(AutoColumnFilterBody headerBody, RGPoint point)
 		{
 			if (headerBody.ColumnHeader == null) return false;
 
@@ -562,11 +574,9 @@ namespace unvell.ReoGrid.Data
 #if WINFORM
 				unvell.ReoGrid.WinForm.ColumnFilterContextMenu.ShowFilterPanel(headerBody, (System.Drawing.Point)point);
 #elif WPF
-				var ctx = new System.Windows.Controls.ContextMenu();
-				ctx.Items.Add(new System.Windows.Controls.MenuItem() { Header = "Item" });
-				ctx.IsOpen = true;
+        unvell.ReoGrid.WPF.ColumnFilterContextMenu.ShowFilterPanel(headerBody, point);
 #endif // WPF
-				return true;
+        return true;
 			}
 
 			return false;
