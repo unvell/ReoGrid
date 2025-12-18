@@ -36,7 +36,7 @@ using unvell.ReoGrid.Rendering;
 using unvell.ReoGrid.Views;
 using unvell.ReoGrid.WPF;
 
-using Point = unvell.ReoGrid.Graphics.Point;
+using RGPoint = unvell.ReoGrid.Graphics.Point;
 using WPFPoint = System.Windows.Point;
 
 namespace unvell.ReoGrid
@@ -681,12 +681,28 @@ namespace unvell.ReoGrid
 				get { return this.canvas.Visibility == Visibility.Visible; }
 			}
 
-			public Graphics.Point PointToScreen(Graphics.Point p)
-			{
-				return this.canvas.PointToScreen(p);
-			}
+      public RGPoint PointToScreen(RGPoint p)
+      {
+        var screenPoint = this.canvas.PointToScreen(new System.Windows.Point(p.X, p.Y));
+        // Get current DPI scaling factor
+        var source = PresentationSource.FromVisual(this.canvas);
+        if (source?.CompositionTarget != null)
+        {
+          var matrix = source.CompositionTarget.TransformFromDevice;
+          var dpiScaleX = matrix.M11; // DPI scaling factor in X direction
+          var dpiScaleY = matrix.M22; // DPI scaling factor in Y direction
 
-			public IGraphics PlatformGraphics { get { return null; } }
+          // Apply DPI scaling adjustment
+          return new RGPoint(
+              screenPoint.X * dpiScaleX,
+              screenPoint.Y * dpiScaleY
+          );
+        }
+
+        return new RGPoint(screenPoint.X, screenPoint.Y);
+      }
+
+      public IGraphics PlatformGraphics { get { return null; } }
 
 			public void ChangeBackgroundColor(SolidColor color)
 			{
@@ -813,7 +829,7 @@ namespace unvell.ReoGrid
 
 			public void EditControlApplySystemMouseDown()
 			{
-				Point p = System.Windows.Input.Mouse.GetPosition(this.editTextbox);
+				RGPoint p = System.Windows.Input.Mouse.GetPosition(this.editTextbox);
 
 				p.X += 2; // fix 2 pixels (borders of left and right)
 				p.Y -= 1; // fix 1 pixels (top)

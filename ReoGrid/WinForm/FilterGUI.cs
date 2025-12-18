@@ -248,7 +248,7 @@ namespace unvell.ReoGrid.WinForm
 							{
 								filterPanel.CheckedListBox.Items.Add(item);
 
-								if (headerBody.IsSelectAll)
+								if (headerBody.IsSelectAll == true)
 								{
 									filterPanel.CheckedListBox.SetItemChecked(filterPanel.CheckedListBox.Items.Count - 1, true);
 								}
