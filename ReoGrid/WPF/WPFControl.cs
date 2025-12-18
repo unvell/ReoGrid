@@ -683,7 +683,7 @@ namespace unvell.ReoGrid
 
       public RGPoint PointToScreen(RGPoint p)
       {
-        var screenPoint = this.canvas.PointToScreen(p);
+        var screenPoint = this.canvas.PointToScreen(new System.Windows.Point(p.X, p.Y));
         // Get current DPI scaling factor
         var source = PresentationSource.FromVisual(this.canvas);
         if (source?.CompositionTarget != null)
