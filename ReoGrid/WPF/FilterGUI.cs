@@ -544,6 +544,7 @@ namespace unvell.ReoGrid.WPF
               // todo: keep select status for every items before clear
               filterPanel.CheckedListBox.Items.Clear();
               filterPanel.CheckedListBox.Items.Add(LanguageResource.Filter_SelectAll);
+              filterPanel.CheckedListBox.Items.Add(LanguageResource.Filter_Blanks);
               filterPanel.CheckedListBox.SelectedItems.Clear();
 
               try
@@ -569,6 +570,7 @@ namespace unvell.ReoGrid.WPF
               // todo: keep selected status for every items
               filterPanel.CheckedListBox.Items.Clear();
               filterPanel.CheckedListBox.Items.Add(LanguageResource.Filter_SelectAll);
+              filterPanel.CheckedListBox.Items.Add(LanguageResource.Filter_Blanks);
               // Clear all selections, then select the "Select All" item
               filterPanel.CheckedListBox.SelectedItems.Clear();
               filterPanel.CheckedListBox.SelectedItems.Add(filterPanel.CheckedListBox.Items[0]);

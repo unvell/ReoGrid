@@ -518,7 +518,7 @@ namespace unvell.ReoGrid.Data
 				int maxRow = this.ColumnHeader.Worksheet.MaxContentRow;
 
 				this.ColumnHeader.Worksheet.IterateCells(this.autoFilter.ApplyRange.Row,
-					this.ColumnHeader.Index, this.autoFilter.ApplyRange.Rows, 1, false,
+					this.ColumnHeader.Index, this.autoFilter.ApplyRange.Rows, 1, true,
 					(r, c, cell) =>
           {
             var str = cell == null ? string.Empty : cell.DisplayText;
