@@ -116,10 +116,22 @@ namespace unvell.ReoGrid.Data
 					}
 
 					var cell = this.Worksheet.GetCell(r, c);
-					if (cell == null) { c++; continue; }
+          if (cell == null)
+          {
+            if (!columnFilterBody.ContainsBlank)
+            {
+              return false;
+            }
 
-					var text = cell.DisplayText;
-					if (string.IsNullOrEmpty(text)) text = LanguageResource.Filter_Blanks;
+            c++;
+            continue;
+          }
+
+          var text = cell.DisplayText;
+          if (string.IsNullOrEmpty(text) && !columnFilterBody.ContainsBlank)
+          {
+            return false;
+          }
 
 					if (!columnFilterBody.SelectedTextItems.Contains(text))
 					{
@@ -343,7 +355,9 @@ namespace unvell.ReoGrid.Data
 			/// </summary>
 			public bool IsSelectAll { get; set; }
 
-			private TextFilterCollection textItemsCollection;
+      public bool ContainsBlank { get; set; }
+
+      private TextFilterCollection textItemsCollection;
 
 			/// <summary>
 			/// Collection of selected items
