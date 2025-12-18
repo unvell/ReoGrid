@@ -347,7 +347,7 @@ namespace unvell.ReoGrid.Data
       public ContextMenu ContextMenuStrip { get; set; }
 #endif
 
-      internal List<string> selectedTextItems = new List<string>();
+      internal readonly List<string> selectedTextItems = new List<string>();
 
 			/// <summary>
 			/// Get or set whether or not this column is marked as SelectAll.
