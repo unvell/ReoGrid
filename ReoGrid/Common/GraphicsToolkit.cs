@@ -222,7 +222,7 @@ namespace unvell.Common
 #endif
 
 #if WPF
-          // Keep original for WPF platform
+          // Draw a 1x1 pixel rectangle at the funnel tip for WPF platform
           g.DrawRectangle(RGBrushes.Black, p, new Rectangle(dotPosition.X, dotPosition.Y, 1, 1));
 #elif WINFORM
           g.DrawRectangle(p, dotPosition.X, dotPosition.Y, 1, 1);
