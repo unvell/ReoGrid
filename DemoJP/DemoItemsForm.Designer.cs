@@ -36,282 +36,282 @@ namespace unvell.ReoGrid.Demo
 			base.Dispose(disposing);
 		}
 
-		#region Windows Form Designer generated code
+    #region Windows Form Designer generated code
 
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
-			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DemoItemsForm));
-			this.demoPanel = new System.Windows.Forms.Panel();
-			this.tree = new System.Windows.Forms.TreeView();
-			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.newEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-			this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.projectHomepageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.downloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.documentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-			this.reportBugsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.lnkReset = new System.Windows.Forms.LinkLabel();
-			this.labTitle = new System.Windows.Forms.Label();
-			this.splitter1 = new System.Windows.Forms.Splitter();
-			this.web = new System.Windows.Forms.WebBrowser();
-			this.splitter2 = new System.Windows.Forms.Splitter();
-			this.menuStrip1.SuspendLayout();
-			this.panel1.SuspendLayout();
-			this.panel2.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// demoPanel
-			// 
-			this.demoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.demoPanel.Location = new System.Drawing.Point(3, 35);
-			this.demoPanel.Name = "demoPanel";
-			this.demoPanel.Size = new System.Drawing.Size(577, 129);
-			this.demoPanel.TabIndex = 0;
-			// 
-			// tree
-			// 
-			this.tree.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.tree.Dock = System.Windows.Forms.DockStyle.Left;
-			this.tree.HideSelection = false;
-			this.tree.ImageIndex = 0;
-			this.tree.ImageList = this.imageList1;
-			this.tree.Location = new System.Drawing.Point(3, 27);
-			this.tree.Name = "tree";
-			this.tree.SelectedImageIndex = 0;
-			this.tree.Size = new System.Drawing.Size(252, 512);
-			this.tree.TabIndex = 1;
-			// 
-			// imageList1
-			// 
-			this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-			this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-			this.imageList1.Images.SetKeyName(0, "DialogGroup_5846_16x.png");
-			this.imageList1.Images.SetKeyName(1, "Table_748.png");
-			// 
-			// menuStrip1
-			// 
-			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.helpToolStripMenuItem});
-			this.menuStrip1.Location = new System.Drawing.Point(3, 3);
-			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(835, 24);
-			this.menuStrip1.TabIndex = 8;
-			this.menuStrip1.Text = "menuStrip1";
-			// 
-			// fileToolStripMenuItem
-			// 
-			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newEditorToolStripMenuItem,
-            this.openFileToolStripMenuItem,
-            this.toolStripMenuItem3,
-            this.closeToolStripMenuItem});
-			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-			this.fileToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-			this.fileToolStripMenuItem.Text = "ファイル(&F)";
-			// 
-			// newEditorToolStripMenuItem
-			// 
-			this.newEditorToolStripMenuItem.Name = "newEditorToolStripMenuItem";
-			this.newEditorToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-			this.newEditorToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-			this.newEditorToolStripMenuItem.Text = "エディタ(&E)...";
-			this.newEditorToolStripMenuItem.Click += new System.EventHandler(this.newEditorToolStripMenuItem_Click);
-			// 
-			// openFileToolStripMenuItem
-			// 
-			this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-			this.openFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-			this.openFileToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-			this.openFileToolStripMenuItem.Text = "ファイルを読み込み(&O)...";
-			this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
-			// 
-			// toolStripMenuItem3
-			// 
-			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-			this.toolStripMenuItem3.Size = new System.Drawing.Size(237, 6);
-			// 
-			// closeToolStripMenuItem
-			// 
-			this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-			this.closeToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-			this.closeToolStripMenuItem.Text = "閉じる(&C)";
-			this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
-			// 
-			// helpToolStripMenuItem
-			// 
-			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.projectHomepageToolStripMenuItem,
-            this.downloadToolStripMenuItem,
-            this.documentsToolStripMenuItem,
-            this.toolStripMenuItem2,
-            this.reportBugsToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.aboutToolStripMenuItem});
-			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-			this.helpToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-			this.helpToolStripMenuItem.Text = "ヘルプ(&H)";
-			// 
-			// projectHomepageToolStripMenuItem
-			// 
-			this.projectHomepageToolStripMenuItem.Name = "projectHomepageToolStripMenuItem";
-			this.projectHomepageToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-			this.projectHomepageToolStripMenuItem.Text = "ホームページ(&H)...";
-			this.projectHomepageToolStripMenuItem.Click += new System.EventHandler(this.projectHomepageToolStripMenuItem_Click);
-			// 
-			// downloadToolStripMenuItem
-			// 
-			this.downloadToolStripMenuItem.Name = "downloadToolStripMenuItem";
-			this.downloadToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-			this.downloadToolStripMenuItem.Text = "ダウンロード(&D)...";
-			this.downloadToolStripMenuItem.Click += new System.EventHandler(this.downloadToolStripMenuItem_Click);
-			// 
-			// documentsToolStripMenuItem
-			// 
-			this.documentsToolStripMenuItem.Name = "documentsToolStripMenuItem";
-			this.documentsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-			this.documentsToolStripMenuItem.Text = "ドキュメント(&C)...";
-			// 
-			// toolStripMenuItem2
-			// 
-			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(194, 6);
-			// 
-			// reportBugsToolStripMenuItem
-			// 
-			this.reportBugsToolStripMenuItem.Name = "reportBugsToolStripMenuItem";
-			this.reportBugsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-			this.reportBugsToolStripMenuItem.Text = "バグ報告（英語）(&B)...";
-			this.reportBugsToolStripMenuItem.Click += new System.EventHandler(this.reportBugToolStripMenuItem_Click);
-			// 
-			// toolStripMenuItem1
-			// 
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(194, 6);
-			// 
-			// aboutToolStripMenuItem
-			// 
-			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-			this.aboutToolStripMenuItem.Text = "ReoGrid について(&A)...";
-			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-			// 
-			// panel1
-			// 
-			this.panel1.Controls.Add(this.demoPanel);
-			this.panel1.Controls.Add(this.panel2);
-			this.panel1.Controls.Add(this.splitter1);
-			this.panel1.Controls.Add(this.web);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel1.Location = new System.Drawing.Point(255, 27);
-			this.panel1.Name = "panel1";
-			this.panel1.Padding = new System.Windows.Forms.Padding(3);
-			this.panel1.Size = new System.Drawing.Size(583, 512);
-			this.panel1.TabIndex = 9;
-			// 
-			// panel2
-			// 
-			this.panel2.Controls.Add(this.lnkReset);
-			this.panel2.Controls.Add(this.labTitle);
-			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel2.Location = new System.Drawing.Point(3, 3);
-			this.panel2.Name = "panel2";
-			this.panel2.Padding = new System.Windows.Forms.Padding(4);
-			this.panel2.Size = new System.Drawing.Size(577, 32);
-			this.panel2.TabIndex = 13;
-			// 
-			// lnkReset
-			// 
-			this.lnkReset.Dock = System.Windows.Forms.DockStyle.Left;
-			this.lnkReset.Location = new System.Drawing.Point(4, 4);
-			this.lnkReset.Name = "lnkReset";
-			this.lnkReset.Size = new System.Drawing.Size(65, 24);
-			this.lnkReset.TabIndex = 2;
-			this.lnkReset.TabStop = true;
-			this.lnkReset.Text = "再読み込み";
-			this.lnkReset.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.lnkReset.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkReset_LinkClicked);
-			// 
-			// labTitle
-			// 
-			this.labTitle.AutoSize = true;
-			this.labTitle.Dock = System.Windows.Forms.DockStyle.Left;
-			this.labTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labTitle.Location = new System.Drawing.Point(4, 4);
-			this.labTitle.Name = "labTitle";
-			this.labTitle.Size = new System.Drawing.Size(0, 20);
-			this.labTitle.TabIndex = 0;
-			this.labTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// splitter1
-			// 
-			this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.splitter1.Location = new System.Drawing.Point(3, 164);
-			this.splitter1.Name = "splitter1";
-			this.splitter1.Size = new System.Drawing.Size(577, 4);
-			this.splitter1.TabIndex = 12;
-			this.splitter1.TabStop = false;
-			// 
-			// web
-			// 
-			this.web.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.web.Location = new System.Drawing.Point(3, 168);
-			this.web.MinimumSize = new System.Drawing.Size(20, 20);
-			this.web.Name = "web";
-			this.web.Size = new System.Drawing.Size(577, 341);
-			this.web.TabIndex = 1;
-			this.web.Url = new System.Uri("", System.UriKind.Relative);
-			// 
-			// splitter2
-			// 
-			this.splitter2.Location = new System.Drawing.Point(255, 27);
-			this.splitter2.Name = "splitter2";
-			this.splitter2.Size = new System.Drawing.Size(4, 512);
-			this.splitter2.TabIndex = 10;
-			this.splitter2.TabStop = false;
-			// 
-			// DemoItemsForm
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(841, 542);
-			this.Controls.Add(this.splitter2);
-			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.tree);
-			this.Controls.Add(this.menuStrip1);
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Name = "DemoItemsForm";
-			this.Padding = new System.Windows.Forms.Padding(3);
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "ReoGrid デモプロジェクト";
-			this.menuStrip1.ResumeLayout(false);
-			this.menuStrip1.PerformLayout();
-			this.panel1.ResumeLayout(false);
-			this.panel2.ResumeLayout(false);
-			this.panel2.PerformLayout();
-			this.ResumeLayout(false);
-			this.PerformLayout();
+    /// <summary>
+    /// Required method for Designer support - do not modify
+    /// the contents of this method with the code editor.
+    /// </summary>
+    private void InitializeComponent()
+    {
+      components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DemoItemsForm));
+      demoPanel = new System.Windows.Forms.Panel();
+      tree = new System.Windows.Forms.TreeView();
+      imageList1 = new System.Windows.Forms.ImageList(components);
+      menuStrip1 = new System.Windows.Forms.MenuStrip();
+      fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      newEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+      closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      projectHomepageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      downloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      documentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+      reportBugsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+      aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      panel1 = new System.Windows.Forms.Panel();
+      panel2 = new System.Windows.Forms.Panel();
+      lnkReset = new System.Windows.Forms.LinkLabel();
+      labTitle = new System.Windows.Forms.Label();
+      splitter1 = new System.Windows.Forms.Splitter();
+      web = new System.Windows.Forms.WebBrowser();
+      splitter2 = new System.Windows.Forms.Splitter();
+      menuStrip1.SuspendLayout();
+      panel1.SuspendLayout();
+      panel2.SuspendLayout();
+      SuspendLayout();
+      // 
+      // demoPanel
+      // 
+      demoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+      demoPanel.Location = new System.Drawing.Point(5, 68);
+      demoPanel.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+      demoPanel.Name = "demoPanel";
+      demoPanel.Size = new System.Drawing.Size(963, 255);
+      demoPanel.TabIndex = 0;
+      // 
+      // tree
+      // 
+      tree.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      tree.Dock = System.Windows.Forms.DockStyle.Left;
+      tree.HideSelection = false;
+      tree.ImageIndex = 0;
+      tree.ImageList = imageList1;
+      tree.Location = new System.Drawing.Point(5, 43);
+      tree.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+      tree.Name = "tree";
+      tree.SelectedImageIndex = 0;
+      tree.Size = new System.Drawing.Size(419, 993);
+      tree.TabIndex = 1;
+      // 
+      // imageList1
+      // 
+      imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+      imageList1.ImageStream = (System.Windows.Forms.ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+      imageList1.TransparentColor = System.Drawing.Color.Transparent;
+      imageList1.Images.SetKeyName(0, "DialogGroup_5846_16x.png");
+      imageList1.Images.SetKeyName(1, "Table_748.png");
+      // 
+      // menuStrip1
+      // 
+      menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+      menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { fileToolStripMenuItem, helpToolStripMenuItem });
+      menuStrip1.Location = new System.Drawing.Point(5, 6);
+      menuStrip1.Name = "menuStrip1";
+      menuStrip1.Padding = new System.Windows.Forms.Padding(10, 4, 0, 4);
+      menuStrip1.Size = new System.Drawing.Size(1392, 37);
+      menuStrip1.TabIndex = 8;
+      menuStrip1.Text = "menuStrip1";
+      // 
+      // fileToolStripMenuItem
+      // 
+      fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { newEditorToolStripMenuItem, openFileToolStripMenuItem, toolStripMenuItem3, closeToolStripMenuItem });
+      fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+      fileToolStripMenuItem.Size = new System.Drawing.Size(101, 29);
+      fileToolStripMenuItem.Text = "ファイル(&F)";
+      // 
+      // newEditorToolStripMenuItem
+      // 
+      newEditorToolStripMenuItem.Name = "newEditorToolStripMenuItem";
+      newEditorToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E;
+      newEditorToolStripMenuItem.Size = new System.Drawing.Size(355, 34);
+      newEditorToolStripMenuItem.Text = "エディタ(&E)...";
+      newEditorToolStripMenuItem.Click += newEditorToolStripMenuItem_Click;
+      // 
+      // openFileToolStripMenuItem
+      // 
+      openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
+      openFileToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O;
+      openFileToolStripMenuItem.Size = new System.Drawing.Size(355, 34);
+      openFileToolStripMenuItem.Text = "ファイルを読み込み(&O)...";
+      openFileToolStripMenuItem.Click += openFileToolStripMenuItem_Click;
+      // 
+      // toolStripMenuItem3
+      // 
+      toolStripMenuItem3.Name = "toolStripMenuItem3";
+      toolStripMenuItem3.Size = new System.Drawing.Size(352, 6);
+      // 
+      // closeToolStripMenuItem
+      // 
+      closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+      closeToolStripMenuItem.Size = new System.Drawing.Size(355, 34);
+      closeToolStripMenuItem.Text = "閉じる(&C)";
+      closeToolStripMenuItem.Click += closeToolStripMenuItem_Click;
+      // 
+      // helpToolStripMenuItem
+      // 
+      helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { projectHomepageToolStripMenuItem, downloadToolStripMenuItem, documentsToolStripMenuItem, toolStripMenuItem2, reportBugsToolStripMenuItem, toolStripMenuItem1, aboutToolStripMenuItem });
+      helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+      helpToolStripMenuItem.Size = new System.Drawing.Size(97, 29);
+      helpToolStripMenuItem.Text = "ヘルプ(&H)";
+      // 
+      // projectHomepageToolStripMenuItem
+      // 
+      projectHomepageToolStripMenuItem.Name = "projectHomepageToolStripMenuItem";
+      projectHomepageToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
+      projectHomepageToolStripMenuItem.Text = "ホームページ(&H)...";
+      projectHomepageToolStripMenuItem.Click += projectHomepageToolStripMenuItem_Click;
+      // 
+      // downloadToolStripMenuItem
+      // 
+      downloadToolStripMenuItem.Name = "downloadToolStripMenuItem";
+      downloadToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
+      downloadToolStripMenuItem.Text = "ダウンロード(&D)...";
+      downloadToolStripMenuItem.Click += downloadToolStripMenuItem_Click;
+      // 
+      // documentsToolStripMenuItem
+      // 
+      documentsToolStripMenuItem.Name = "documentsToolStripMenuItem";
+      documentsToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
+      documentsToolStripMenuItem.Text = "ドキュメント(&C)...";
+      // 
+      // toolStripMenuItem2
+      // 
+      toolStripMenuItem2.Name = "toolStripMenuItem2";
+      toolStripMenuItem2.Size = new System.Drawing.Size(288, 6);
+      // 
+      // reportBugsToolStripMenuItem
+      // 
+      reportBugsToolStripMenuItem.Name = "reportBugsToolStripMenuItem";
+      reportBugsToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
+      reportBugsToolStripMenuItem.Text = "バグ報告（英語）(&B)...";
+      reportBugsToolStripMenuItem.Click += reportBugToolStripMenuItem_Click;
+      // 
+      // toolStripMenuItem1
+      // 
+      toolStripMenuItem1.Name = "toolStripMenuItem1";
+      toolStripMenuItem1.Size = new System.Drawing.Size(288, 6);
+      // 
+      // aboutToolStripMenuItem
+      // 
+      aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+      aboutToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
+      aboutToolStripMenuItem.Text = "ReoGrid について(&A)...";
+      aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
+      // 
+      // panel1
+      // 
+      panel1.Controls.Add(demoPanel);
+      panel1.Controls.Add(panel2);
+      panel1.Controls.Add(splitter1);
+      panel1.Controls.Add(web);
+      panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+      panel1.Location = new System.Drawing.Point(424, 43);
+      panel1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+      panel1.Name = "panel1";
+      panel1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+      panel1.Size = new System.Drawing.Size(973, 993);
+      panel1.TabIndex = 9;
+      // 
+      // panel2
+      // 
+      panel2.Controls.Add(lnkReset);
+      panel2.Controls.Add(labTitle);
+      panel2.Dock = System.Windows.Forms.DockStyle.Top;
+      panel2.Location = new System.Drawing.Point(5, 6);
+      panel2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+      panel2.Name = "panel2";
+      panel2.Padding = new System.Windows.Forms.Padding(7, 8, 7, 8);
+      panel2.Size = new System.Drawing.Size(963, 62);
+      panel2.TabIndex = 13;
+      // 
+      // lnkReset
+      // 
+      lnkReset.Dock = System.Windows.Forms.DockStyle.Left;
+      lnkReset.Location = new System.Drawing.Point(7, 8);
+      lnkReset.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+      lnkReset.Name = "lnkReset";
+      lnkReset.Size = new System.Drawing.Size(108, 46);
+      lnkReset.TabIndex = 2;
+      lnkReset.TabStop = true;
+      lnkReset.Text = "再読み込み";
+      lnkReset.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      lnkReset.LinkClicked += lnkReset_LinkClicked;
+      // 
+      // labTitle
+      // 
+      labTitle.AutoSize = true;
+      labTitle.Dock = System.Windows.Forms.DockStyle.Left;
+      labTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+      labTitle.Location = new System.Drawing.Point(7, 8);
+      labTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+      labTitle.Name = "labTitle";
+      labTitle.Size = new System.Drawing.Size(0, 29);
+      labTitle.TabIndex = 0;
+      labTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
+      // splitter1
+      // 
+      splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
+      splitter1.Location = new System.Drawing.Point(5, 323);
+      splitter1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+      splitter1.Name = "splitter1";
+      splitter1.Size = new System.Drawing.Size(963, 8);
+      splitter1.TabIndex = 12;
+      splitter1.TabStop = false;
+      // 
+      // web
+      // 
+      web.Dock = System.Windows.Forms.DockStyle.Bottom;
+      web.Location = new System.Drawing.Point(5, 331);
+      web.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+      web.MinimumSize = new System.Drawing.Size(33, 38);
+      web.Name = "web";
+      web.Size = new System.Drawing.Size(963, 656);
+      web.TabIndex = 1;
+      web.Url = new System.Uri("about:blank", System.UriKind.Absolute);
+      // 
+      // splitter2
+      // 
+      splitter2.Location = new System.Drawing.Point(424, 43);
+      splitter2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+      splitter2.Name = "splitter2";
+      splitter2.Size = new System.Drawing.Size(7, 993);
+      splitter2.TabIndex = 10;
+      splitter2.TabStop = false;
+      // 
+      // DemoItemsForm
+      // 
+      AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+      AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+      ClientSize = new System.Drawing.Size(1402, 1042);
+      Controls.Add(splitter2);
+      Controls.Add(panel1);
+      Controls.Add(tree);
+      Controls.Add(menuStrip1);
+      Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+      Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+      Name = "DemoItemsForm";
+      Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+      StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+      Text = "ReoGrid デモプロジェクト";
+      menuStrip1.ResumeLayout(false);
+      menuStrip1.PerformLayout();
+      panel1.ResumeLayout(false);
+      panel2.ResumeLayout(false);
+      panel2.PerformLayout();
+      ResumeLayout(false);
+      PerformLayout();
 
-		}
+    }
 
-		#endregion
+    #endregion
 
-		private System.Windows.Forms.Panel demoPanel;
+    private System.Windows.Forms.Panel demoPanel;
 		private System.Windows.Forms.TreeView tree;
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;

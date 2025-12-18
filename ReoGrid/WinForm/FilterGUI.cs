@@ -127,31 +127,36 @@ namespace unvell.ReoGrid.WinForm
 					}
 				}
 			}
-			// others else 'Select All'
-			else if (e.NewValue != CheckedListBox.GetItemCheckState(0))
-			{
-				CheckedListBox.SetItemCheckState(0, System.Windows.Forms.CheckState.Indeterminate);
+      else if (e.Index == 1 && e.NewValue == System.Windows.Forms.CheckState.Checked)
+      {
+        // 'Blanks' selected
+        SelectedCount++;
+      }
+      // others else 'Select All'
+      else if (e.NewValue != CheckedListBox.GetItemCheckState(0))
+      {
+        CheckedListBox.SetItemCheckState(0, System.Windows.Forms.CheckState.Indeterminate);
 
-				if (e.NewValue != System.Windows.Forms.CheckState.Checked)
-				{
-					SelectedCount--;
+        if (e.NewValue != System.Windows.Forms.CheckState.Checked)
+        {
+          SelectedCount--;
 
-					if (SelectedCount <= 0)
-					{
-						CheckedListBox.SetItemChecked(0, false);
-						SelectedCount = 0;
-					}
-				}
-				else
-				{
-					SelectedCount++;
+          if (SelectedCount <= 0)
+          {
+            CheckedListBox.SetItemChecked(0, false);
+            SelectedCount = 0;
+          }
+        }
+        else
+        {
+          SelectedCount++;
 
-					if (SelectedCount >= CheckedListBox.Items.Count - 1)
-					{
-						CheckedListBox.SetItemChecked(0, true);
-					}
-				}
-			}
+          if (SelectedCount >= CheckedListBox.Items.Count - 1)
+          {
+            CheckedListBox.SetItemChecked(0, true);
+          }
+        }
+      }
 
 			inEventProcess = false;
 		}
@@ -204,10 +209,14 @@ namespace unvell.ReoGrid.WinForm
 					}
 					else
 					{
-						headerBody.IsSelectAll = false;
-						headerBody.selectedTextItems.Clear();
+            // Select All and Blanks
+            headerBody.IsSelectAll = false;
+            headerBody.ContainsBlank = filterPanel.CheckedListBox.GetItemChecked(1);
 
-						for (int i = 1; i < filterPanel.CheckedListBox.Items.Count; i++)
+            // Other items
+            headerBody.selectedTextItems.Clear();
+
+            for (int i = 2; i < filterPanel.CheckedListBox.Items.Count; i++)
 						{
 							if (filterPanel.CheckedListBox.GetItemChecked(i))
 							{
@@ -237,9 +246,10 @@ namespace unvell.ReoGrid.WinForm
 						filterPanel.CheckedListBox.Items.Clear();
 
 						filterPanel.CheckedListBox.Items.Add(LanguageResource.Filter_SelectAll);
+						filterPanel.CheckedListBox.Items.Add(LanguageResource.Filter_Blanks);
 						filterPanel.CheckedListBox.SetItemChecked(0, true);
 
-						try
+            try
 						{
 							headerBody.ColumnHeader.Worksheet.ControlAdapter.ChangeCursor(CursorStyle.Busy);
 
