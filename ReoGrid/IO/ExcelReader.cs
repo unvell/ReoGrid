@@ -1533,6 +1533,17 @@ namespace unvell.ReoGrid.IO.OpenXML
 				arg.DecimalPlaces = 0;
 			}
 
+			// End with _*
+			// reference: https://github.com/unvell/ReoGrid/pull/336
+			if (pattern.Length >= 2 && pattern[pattern.Length - 2] == '_')
+			{
+				if (decimalSeparatorIndex >= 0)
+				{
+					// Adjust DecimalPlaces minus 2
+					arg.DecimalPlaces -= 2;
+				}
+			}
+
 			arg.UseSeparator = (pattern.IndexOf(culture.NumberFormat.NumberGroupSeparator) > 0);
 
 			return arg;
