@@ -459,8 +459,10 @@ namespace unvell.ReoGrid.WPF
             {
               headerBody.IsSelectAll = true;
               headerBody.selectedTextItems.Clear();
-              for (int i = 1; i < listBox.Items.Count; i++)
+              for (int i = 2; i < listBox.Items.Count; i++)
+              {
                 headerBody.selectedTextItems.Add(Convert.ToString(listBox.Items[i]));
+              }
             }
             else if (listBox.SelectedItems.Count == 0)
             {
@@ -472,10 +474,17 @@ namespace unvell.ReoGrid.WPF
             {
               // Partially selected
               headerBody.IsSelectAll = null;
+
+              // check Blanks selected
+              if (listBox.SelectedItems.Contains(listBox.Items[1]))
+              {
+                headerBody.ContainsBlank = true;
+              }
+
               headerBody.selectedTextItems.Clear();
 
-              // Add all selected items (except the "Select All" item)
-              for (int i = 1; i < listBox.Items.Count; i++)
+              // Add all selected items (except the "Select All" and "Blanks" item)
+              for (int i = 2; i < listBox.Items.Count; i++)
               {
                 if (listBox.SelectedItems.Contains(listBox.Items[i]))
                 {
