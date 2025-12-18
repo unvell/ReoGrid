@@ -350,8 +350,9 @@ namespace unvell.ReoGrid.Data
       internal readonly List<string> selectedTextItems = new List<string>();
 
 			/// <summary>
-			/// Get or set whether or not this column is marked as SelectAll.
-			/// The column is marked as SelectAll will be ignored during filter.
+			/// Gets or sets the SelectAll state for this column filter.
+			/// When <c>true</c>, all items are selected and this column is ignored during filtering;
+			/// when <c>false</c>, no items are selected; when <c>null</c>, the column is partially selected.
 			/// </summary>
 			public bool? IsSelectAll { get; set; }
 
