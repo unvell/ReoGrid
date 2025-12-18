@@ -70,7 +70,7 @@ namespace unvell.ReoGrid
     }
 
     /// <summary>
-    /// Auto fill specified serial in range.
+    /// Auto fill specified serial in range. Hidden rows and columns within the ranges are automatically skipped.
     /// </summary>
     /// <param name="fromRange">Range to read filling rules.</param>
     /// <param name="toRange">Range to be filled.</param>
