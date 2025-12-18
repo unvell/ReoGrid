@@ -118,7 +118,7 @@ namespace unvell.ReoGrid.WPF
       {
         var checkBox = s as CheckBox;
         var item = checkBox?.DataContext;
-        if (item != null && item?.ToString() == LanguageResource.Filter_SelectAll)
+        if (item?.ToString() == LanguageResource.Filter_SelectAll)
           CheckedListBox.SelectedItems.Clear();
       }));
 
