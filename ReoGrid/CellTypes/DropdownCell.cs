@@ -663,8 +663,8 @@ namespace unvell.ReoGrid.CellTypes
 
         dropdownPanel.Width = Math.Max(Bounds.Width, MinimumDropdownWidth);
         dropdownPanel.Height = DropdownPanelHeight;
-
-        dropdownPanel.Show(sheet.workbook.ControlInstance, new System.Windows.Point(p.X, p.Y + Bounds.Height));
+        var sp = sheet.ControlAdapter.PointToScreen(p);
+        dropdownPanel.Show(sheet.workbook.ControlInstance, new System.Windows.Point(sp.X, sp.Y + Bounds.Height));
         DropdownControl.Focus();
         isDropdown = true;
       }

@@ -96,7 +96,9 @@ namespace unvell.ReoGrid.WPFDemo
 					{"Total", 25, 28, 28, 27, 27},
 			};
 
-			worksheet.AddOutline(RowOrColumn.Row, 3, 4);
+      var filter = worksheet.CreateColumnFilter(new RangePosition("A1:F7"));
+
+      worksheet.AddOutline(RowOrColumn.Row, 3, 4);
 
 			var range = worksheet.Ranges["B3:F6"];
 			worksheet.AddHighlightRange(range);
