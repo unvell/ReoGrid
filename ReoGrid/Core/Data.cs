@@ -126,7 +126,10 @@ namespace unvell.ReoGrid
       for (int rowIndex = fromRange.Row; rowIndex < fromRange.EndRow + 1; rowIndex++)
       {
         if (!IsRowVisible(rowIndex))
+        {
           continue;
+        }
+
         var cellPosition = new CellPosition(rowIndex, columnIndex);
         AddCellIfValid(cellPosition, result);
       }
@@ -140,7 +143,10 @@ namespace unvell.ReoGrid
       for (int columnIndex = fromRange.Col; columnIndex < fromRange.EndCol + 1; columnIndex++)
       {
         if (!IsColumnVisible(columnIndex))
+        {
           continue;
+        }
+
         var cellPosition = new CellPosition(rowIndex, columnIndex);
         AddCellIfValid(cellPosition, result);
       }
