@@ -38,7 +38,7 @@ namespace unvell.ReoGrid.Formula
 	{
 		#region Generator
 		/// <summary>
-		/// Generate formula from a syntax tree in memory
+		/// Generate formula from a syntax tree in memory.
 		/// </summary>
 		/// <param name="node">root node of syntax tree used to generate formula</param>
 		/// <returns>formula generated from a syntax tree</returns>
@@ -48,7 +48,7 @@ namespace unvell.ReoGrid.Formula
 		}
 
 		/// <summary>
-		/// Generate formula form a syntax tree in memory by specified format styles
+		/// Generate formula form a syntax tree in memory by specified format styles.
 		/// </summary>
 		/// <param name="node">root node of syntax tree used to generate formula</param>
 		/// <param name="flag">generating format style flags</param>
@@ -179,7 +179,7 @@ namespace unvell.ReoGrid.Formula
 			#region Arguments Check
 			if (cell == null
 				|| string.IsNullOrEmpty(cell.InnerFormula)
-				|| cell.FormulaTree == null)
+				|| cell.FormulaSyntaxTree == null)
 			{
 				throw new InvalidOperationException("cannot found formula from specified position, try reset formula for the cell again");
 			}
@@ -195,8 +195,8 @@ namespace unvell.ReoGrid.Formula
 			}
 			#endregion // Arguments Check
 
-			var rs = new ReplacableString(cell.InnerFormula);
-			STNode node = cell.FormulaTree;
+			var formulaString = new ReplacableString(cell.InnerFormula);
+			STNode node = cell.FormulaSyntaxTree;
 
 			Stack<List<Cell>> dirtyCells = new Stack<List<Cell>>();
 
@@ -212,7 +212,7 @@ namespace unvell.ReoGrid.Formula
 						continue;
 					}
 
-					FormulaRefactor.CopyFormula(fromPosition, node, toCell, rs, dirtyCells);
+					FormulaRefactor.CopyFormula(fromPosition, node, toCell, formulaString, dirtyCells);
 					
 					c += cell.Colspan;
 				}
@@ -340,6 +340,108 @@ namespace unvell.ReoGrid.Formula
 
 		}
 		#endregion // Reuse
+
+		internal static void OffsetFormulaReferences(Worksheet sheet, Cell cell, int startRow, int startCol,
+			int offsetRows, int offsetCols)
+		{
+			var node = cell.formulaTree;
+			var rs = new ReplacableString(cell.InnerFormula);
+
+			STNode.RecursivelyIterate(node, _n =>
+			{
+				switch (_n.Type)
+				{
+					case STNodeType.CELL:
+						#region Cell Offset
+						{
+							var refCellNode = (STCellNode)_n;
+
+							var newPos = refCellNode.Position;
+
+							if (refCellNode.Position.Row >= startRow
+								&& refCellNode.Position.Col >= startCol)
+							{
+								if (newPos.RowProperty == PositionProperty.Relative)
+								{
+									newPos.Row += offsetRows;
+								}
+
+								if (newPos.ColumnProperty == PositionProperty.Relative)
+								{
+									newPos.Col += offsetCols;
+								}
+							}
+
+							if (newPos.Row < 0 || newPos.Col < 0
+								|| newPos.Row >= sheet.rows.Count || newPos.Col >= sheet.cols.Count)
+							{
+								cell.formulaStatus = FormulaStatus.InvalidReference;
+							}
+
+							refCellNode.Position = newPos;
+
+							_n.Start += rs.Offset;
+							int diff = rs.Replace(_n.Start, _n.Length, newPos.ToAddress());
+							_n.Length += diff;
+						}
+						break;
+					#endregion // Cell Offset
+
+					case STNodeType.RANGE:
+						#region Range Offset
+						{
+							var refRangeNode = (STRangeNode)_n;
+							var newRange = refRangeNode.Range;
+
+							if (refRangeNode.Range.Row >= startRow
+								&& refRangeNode.Range.Col >= startCol)
+							{
+								if (newRange.StartRowProperty == PositionProperty.Relative)
+								{
+									newRange.Row += offsetRows;
+								}
+
+								if (newRange.StartColumnProperty == PositionProperty.Relative)
+								{
+									newRange.Col += offsetCols;
+								}
+							}
+
+							if (refRangeNode.Range.EndRow >= startRow
+								&& refRangeNode.Range.EndCol >= startCol)
+							{
+								if (newRange.StartRowProperty == PositionProperty.Relative)
+								{
+									newRange.Rows += offsetRows;
+								}
+
+								if (newRange.StartColumnProperty == PositionProperty.Relative)
+								{
+									newRange.Cols += offsetCols;
+								}
+							}
+
+							if (newRange.Row < 0 || newRange.Col < 0
+								|| newRange.Row >= sheet.rows.Count || newRange.Col >= sheet.cols.Count
+								|| newRange.EndRow < 0 || newRange.EndCol < 0
+								|| newRange.EndRow >= sheet.rows.Count || newRange.EndCol >= sheet.cols.Count)
+							{
+								cell.formulaStatus = FormulaStatus.InvalidReference;
+							}
+
+							refRangeNode.Range = newRange;
+
+							_n.Start += rs.Offset;
+							int diff = rs.Replace(_n.Start, _n.Length, newRange.ToAddress());
+							_n.Length += diff;
+						}
+						break;
+						#endregion // Range Offset
+				}
+			});
+
+			cell.InnerFormula = rs.ToString();
+		}
 	}
 
 	class ReplacableString
