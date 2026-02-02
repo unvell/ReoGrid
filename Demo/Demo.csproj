@@ -242,9 +242,6 @@
     <Compile Update="Performance\MaximumSheetDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Print\PrintMultipleWorksheetDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="Print\PrintPreviewDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>

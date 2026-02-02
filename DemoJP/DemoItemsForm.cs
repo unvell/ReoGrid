@@ -64,7 +64,6 @@ namespace unvell.ReoGrid.Demo
 			var dummyGrid = new ReoGridControl();
 
 			this.labTitle.Text = dummyGrid.ProductName + " " + dummyGrid.ProductVersion.ToString();
-			web.Visible = false;
 
 			// load default demo item
 			if (!string.IsNullOrEmpty(demoCategoryFile.defaultItem))
@@ -173,28 +172,6 @@ namespace unvell.ReoGrid.Demo
 			{
 				demoPanel.Controls.Clear();
 				demoPanel.Controls.Add(item._demoInstance);
-
-				if (demoCtrl is IDemoHelp
-					&& !string.IsNullOrEmpty(htmlHelp = ((IDemoHelp)demoCtrl).GetHTMLHelp()))
-				{
-					web.DocumentText = string.Format(
-						unvell.ReoGrid.DemoJP.Properties.Resources.HTMLHelpTemp, item.name, htmlHelp);
-
-					web.Document.OpenNew(true);
-					web.Visible = true;
-				}
-				else if (item.docUrl != null && !string.IsNullOrEmpty(item.docUrl.val))
-				{
-					web.Navigate(string.Format("{0}/{1}", demoCategoryFile.baseSite, item.docUrl.val));
-					web.Visible = true;
-				}
-				else
-				{
-					web.Visible = false;
-					//web.DocumentText = unvell.ReoGrid.Demo.Properties.Resources.NoHelpAvailable;
-					//web.Document.OpenNew(true);
-				}
-			
 			}
 		}
 

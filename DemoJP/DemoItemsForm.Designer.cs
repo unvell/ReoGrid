@@ -67,8 +67,6 @@ namespace unvell.ReoGrid.Demo
       panel2 = new System.Windows.Forms.Panel();
       lnkReset = new System.Windows.Forms.LinkLabel();
       labTitle = new System.Windows.Forms.Label();
-      splitter1 = new System.Windows.Forms.Splitter();
-      web = new System.Windows.Forms.WebBrowser();
       splitter2 = new System.Windows.Forms.Splitter();
       menuStrip1.SuspendLayout();
       panel1.SuspendLayout();
@@ -81,7 +79,7 @@ namespace unvell.ReoGrid.Demo
       demoPanel.Location = new System.Drawing.Point(5, 68);
       demoPanel.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
       demoPanel.Name = "demoPanel";
-      demoPanel.Size = new System.Drawing.Size(963, 255);
+      demoPanel.Size = new System.Drawing.Size(963, 919);
       demoPanel.TabIndex = 0;
       // 
       // tree
@@ -207,8 +205,6 @@ namespace unvell.ReoGrid.Demo
       // 
       panel1.Controls.Add(demoPanel);
       panel1.Controls.Add(panel2);
-      panel1.Controls.Add(splitter1);
-      panel1.Controls.Add(web);
       panel1.Dock = System.Windows.Forms.DockStyle.Fill;
       panel1.Location = new System.Drawing.Point(424, 43);
       panel1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
@@ -253,27 +249,6 @@ namespace unvell.ReoGrid.Demo
       labTitle.Size = new System.Drawing.Size(0, 29);
       labTitle.TabIndex = 0;
       labTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      // 
-      // splitter1
-      // 
-      splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-      splitter1.Location = new System.Drawing.Point(5, 323);
-      splitter1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-      splitter1.Name = "splitter1";
-      splitter1.Size = new System.Drawing.Size(963, 8);
-      splitter1.TabIndex = 12;
-      splitter1.TabStop = false;
-      // 
-      // web
-      // 
-      web.Dock = System.Windows.Forms.DockStyle.Bottom;
-      web.Location = new System.Drawing.Point(5, 331);
-      web.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-      web.MinimumSize = new System.Drawing.Size(33, 38);
-      web.Name = "web";
-      web.Size = new System.Drawing.Size(963, 656);
-      web.TabIndex = 1;
-      web.Url = new System.Uri("about:blank", System.UriKind.Absolute);
       // 
       // splitter2
       // 
@@ -323,9 +298,7 @@ namespace unvell.ReoGrid.Demo
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem projectHomepageToolStripMenuItem;
 		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.WebBrowser web;
 		private System.Windows.Forms.ImageList imageList1;
-		private System.Windows.Forms.Splitter splitter1;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Label labTitle;
 		private System.Windows.Forms.Splitter splitter2;
