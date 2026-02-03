@@ -178,6 +178,9 @@
     <Compile Update="Formula\AddressFunctionDemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Print\AutoPagingPrintDemo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>

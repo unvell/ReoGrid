@@ -244,13 +244,12 @@
 		</Category>
 		
 		<Category Name="印刷">
+			
 			<Item Name="印刷プレビュー" Class="PrintDemo.PrintPreviewDemo" >
 				<Doc-Url>document/print</Doc-Url>
 			</Item>
 			
-			<Item Name="マルチワークシートの印刷" Class="PrintDemo.PrintMultipleWorksheetDemo">
-				<Doc-Url>document/print</Doc-Url>
-			</Item>
+			<Item Name="自動ページング" Class="PrintDemo.AutoPagingPrintDemo"/>
 		</Category>
 		
 		<Category Name="数式計算">
