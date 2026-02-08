@@ -972,7 +972,7 @@ namespace unvell.ReoGrid
 		[NonSerialized]
 		internal STNode formulaTree;
 
-		internal STNode FormulaTree { get { return this.formulaTree; } set { this.formulaTree = value; } }
+		internal STNode FormulaSyntaxTree { get { return this.formulaTree; } set { this.formulaTree = value; } }
 #endif
 
 		/// <summary>
