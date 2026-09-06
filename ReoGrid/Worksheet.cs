@@ -1171,6 +1171,11 @@ namespace unvell.ReoGrid
 			this.IterateCells(fixedRange.Row, fixedRange.Col, fixedRange.Rows, fixedRange.Cols, skipEmptyCells, iterator);
 		}
 
+		public void IterateCells(int row, int col, int rows, int cols, Func<int, int, Cell, bool> iterator)
+		{
+			IterateCells(row, col, rows, cols, true, iterator);
+		}
+
 		/// <summary>
 		/// Iterate over all valid cells inside specified range. Invalid cells (merged by others cell) will be skipped.
 		/// </summary>

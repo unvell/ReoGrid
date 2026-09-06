@@ -764,7 +764,7 @@ namespace unvell.ReoGrid.Formula
 		}
 
 		/// <summary>
-		/// Create a copy from this stnode.
+		/// Create a copy from this syntax tree node.
 		/// </summary>
 		/// <returns>The copied stnode.</returns>
 		public virtual object Clone()

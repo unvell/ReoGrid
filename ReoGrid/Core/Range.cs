@@ -206,7 +206,7 @@ namespace unvell.ReoGrid
 
 					cell.InnerFormula = null;
 #if FORMULA
-					cell.FormulaTree = null;
+					cell.FormulaSyntaxTree = null;
 					this.ClearCellReferenceList(cell);
 
 					if (formulaDirtyCells.Contains(cell))

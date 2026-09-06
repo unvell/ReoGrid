@@ -134,11 +134,11 @@ namespace unvell.ReoGrid
 				{
 					IterateToAddReference(cell, node, referencedRanges, true);
 
-					cell.FormulaTree = node;
+					cell.FormulaSyntaxTree = node;
 				}
 				catch (CircularReferenceException crex)
 				{
-					cell.FormulaTree = null;
+					cell.FormulaSyntaxTree = null;
 					cell.InnerFormula = null;
 
 					cell.formulaStatus = FormulaStatus.CircularReference;
@@ -401,7 +401,7 @@ namespace unvell.ReoGrid
 			{
 				try
 				{
-					value = Evaluator.CheckAndGetDefaultValue(cell, Evaluator.Evaluate(cell, cell.FormulaTree)).value;
+					value = Evaluator.CheckAndGetDefaultValue(cell, Evaluator.Evaluate(cell, cell.FormulaSyntaxTree)).value;
 
 					cell.formulaStatus = FormulaStatus.Normal;
 				}
